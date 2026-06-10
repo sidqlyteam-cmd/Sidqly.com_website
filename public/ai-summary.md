@@ -1,0 +1,1 @@
+Sidqly is a premium Islamic operating platform focusing on verified giving and protected dignity. It supports Zakat, Qurbani, and Ramadan operations with manual payment review and professional reporting. Organizations can book a demo at https://calendly.com/d/dvzs-3zf-cgz or fill the inquiry form at https://forms.gle/bvSMog9pw2Ri4kMt9.
