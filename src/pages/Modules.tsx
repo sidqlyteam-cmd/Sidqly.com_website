@@ -2,25 +2,15 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   BarChart3, ShieldCheck, Heart, Beef, ShoppingBag,
-  MessageSquare, Layout, CheckCircle2, ArrowRight, UserCircle, Store, ClipboardCheck
+  MessageSquare, Layout, CheckCircle2, ArrowRight, Store, ClipboardCheck, QrCode, FileText
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import { brand } from '../config/brand';
 
 const Modules: React.FC = () => {
   const { slug } = useParams();
 
   const modules = [
-    {
-      slug: "donations",
-      icon: <Heart />,
-      title: "Donations & Payments",
-      desc: "Manually verify bank and mobile payments for total clarity.",
-      unique: {
-        title: "Verified Payment Workflows",
-        focus: ["Manual receipt verification", "Easypaisa & Bank transfer logs", "Instant donor confirmation", "Audit-ready payment trails", "Subscription management"],
-        text: "Ensure every donation is accounted for with a professional manual review process that eliminates uncertainty."
-      }
-    },
     {
       slug: "zakat",
       icon: <ShieldCheck />,
@@ -29,7 +19,7 @@ const Modules: React.FC = () => {
       unique: {
         title: "Organized Zakat Distribution",
         focus: ["Strict fund separation", "Eligibility status logs", "Dignity-safe recipient profiles", "Re-verification alerts", "Human-controlled approvals"],
-        text: "Track Zakat from collection to distribution with the highest standards of Shariah compliance and operational dignity."
+        text: "Track Zakat from collection to distribution with the highest standards of Shariah compliance and operational dignity. Sidqly supports operational tracking and reporting. Religious decisions remain with the organization’s authorized reviewers, scholars, or policy team."
       }
     },
     {
@@ -40,7 +30,7 @@ const Modules: React.FC = () => {
       unique: {
         title: "Transparent Qurbani Services",
         focus: ["Animal share allocation", "Field slaughter logs", "Proof of delivery collection", "Automated donor certificates", "Vendor status tracking"],
-        text: "Manage complex Qurbani campaigns with real-time updates and verified evidence for every share."
+        text: "Manage complex Qurbani campaigns with real-time updates and verified evidence for every share. Proof becomes donor-visible only after review and approval."
       }
     },
     {
@@ -55,20 +45,64 @@ const Modules: React.FC = () => {
       }
     },
     {
-      slug: "proof-of-impact",
+      slug: "sadaqah",
+      icon: <Heart />,
+      title: "Sadaqah Campaigns",
+      desc: "Manage general donations and specific emergency appeals.",
+      unique: {
+        title: "Versatile Sadaqah Workflows",
+        focus: ["Emergency appeal setup", "Ongoing charity projects", "Donor updates with proof", "Campaign-specific reporting", "Verified impact trails"],
+        text: "Launch and manage Sadaqah campaigns with ease, providing donors with the transparency they expect from a modern platform."
+      }
+    },
+    {
+      slug: "charity-requests",
+      icon: <ClipboardCheck />,
+      title: "Charity Requests",
+      desc: "Professional intake and screening for aid seekers.",
+      unique: {
+        title: "Dignified Intake Management",
+        focus: ["Custom request forms", "Internal screening logs", "Document verification", "Status communication", "Beneficiary history"],
+        text: "Manage charity requests professionally while protecting applicant dignity. Ensure aid reaches those who need it most through a clear review process."
+      }
+    },
+    {
+      slug: "proof-trust",
       icon: <CheckCircle2 />,
-      title: "Proof of Impact",
+      title: "Proof Trust Engine",
       desc: "Professional review system for field evidence verification.",
       unique: {
         title: "Verified Field Evidence",
         focus: ["Multi-stage proof review", "Photo & Video evidence logs", "Approval audit trails", "Donor-safe proof sharing", "Dignity-first blurring tools"],
-        text: "Build absolute trust by showing donors exactly how their contribution was used, verified by your own team."
+        text: "Build absolute trust by showing donors exactly how their contribution was used, verified by your own team. Proof becomes donor-visible only after review and approval."
       }
     },
     {
-      slug: "vendor-management",
+      slug: "qr-verification",
+      icon: <QrCode />,
+      title: "QR Verification",
+      desc: "Instant verification of receipts and certificates.",
+      unique: {
+        title: "Fraud-Ready Verification",
+        focus: ["Unique QR codes for every record", "Mobile-ready scan portal", "Instant validity checks", "Secure audit trail", "Public-facing trust signals"],
+        text: "Allow donors, partners, and regulators to verify the authenticity of any Sidqly-issued document instantly."
+      }
+    },
+    {
+      slug: "reports",
+      icon: <BarChart3 />,
+      title: "Professional Reporting",
+      desc: "Real-time analytics and board-ready reports.",
+      unique: {
+        title: "Board-Ready Transparency",
+        focus: ["Custom PDF report generation", "Real-time operational dashboards", "Zakat distribution summaries", "Donor impact certificates", "Audit-ready CSV exports"],
+        text: "Generate professional reports in seconds, saving hundreds of hours of manual data entry for your team."
+      }
+    },
+    {
+      slug: "vendor-fulfillment",
       icon: <Store />,
-      title: "Vendor Management",
+      title: "Vendor Fulfillment",
       desc: "Coordinate with fulfillment partners and track deliveries.",
       unique: {
         title: "Collaborative Partner Portals",
@@ -77,25 +111,14 @@ const Modules: React.FC = () => {
       }
     },
     {
-      slug: "volunteer-portal",
-      icon: <UserCircle />,
-      title: "Volunteer Portal",
-      desc: "Manage field teams and verify service hours.",
+      slug: "corporate-impact",
+      icon: <FileText />,
+      title: "Corporate Impact",
+      desc: "Specialized tools for CSR and corporate Zakat programs.",
       unique: {
-        title: "Field Team Empowerment",
-        focus: ["Mobile-friendly task lists", "Shift & attendance logs", "Real-time field reporting", "Service hour verification", "Team-friendly workflows"],
-        text: "Empower your volunteers to record their impact directly from the field with a simple, organized interface."
-      }
-    },
-    {
-      slug: "reporting",
-      icon: <BarChart3 />,
-      title: "Professional Reporting",
-      desc: "Real-time analytics and board-ready reports.",
-      unique: {
-        title: "Board-Ready Transparency",
-        focus: ["Custom PDF report generation", "Real-time operational dashboards", "Zakat distribution summaries", "Donor impact certificates", "Audit-ready CSV exports"],
-        text: "Generate professional reports in seconds, saving hundreds of hours of manual data entry for your team."
+        title: "Audit-Ready Corporate Reporting",
+        focus: ["Employee giving logs", "Corporate-safe impact proof", "Matching program tracking", "Annual CSR reports", "Whitelabel reporting options"],
+        text: "Support corporate sponsors with the professional reporting and verified impact data they need for their board and compliance teams."
       }
     }
   ];
@@ -126,12 +149,12 @@ const Modules: React.FC = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <Link to="/book-demo" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
+                  <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
                     Book Demo
-                  </Link>
-                  <Link to="/inquiry-form" className="bg-white text-sidqly-navy border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
+                  </a>
+                  <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-white text-sidqly-navy border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
                     Fill Inquiry Form
-                  </Link>
+                  </a>
                 </div>
               </div>
 
@@ -157,7 +180,7 @@ const Modules: React.FC = () => {
                 <Layout className="text-sidqly-gold mb-4" />
                 <h3 className="font-bold mb-2">Book a Demo</h3>
                 <p className="text-sm text-gray-400 mb-6">See the {currentModule.title.toLowerCase()} module in action.</p>
-                <a href="https://calendly.com/d/dvzs-3zf-cgz" className="text-sidqly-gold font-bold flex items-center gap-2 text-sm">
+                <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="text-sidqly-gold font-bold flex items-center gap-2 text-sm">
                   Book on Calendly <ArrowRight size={14} />
                 </a>
               </div>
@@ -165,7 +188,7 @@ const Modules: React.FC = () => {
                 <ClipboardCheck className="text-sidqly-green-emerald mb-4" />
                 <h3 className="font-bold mb-2">Inquiry Form</h3>
                 <p className="text-sm text-gray-500 mb-6">Request this module for your organization.</p>
-                <a href="https://forms.gle/bvSMog9pw2Ri4kMt9" className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
+                <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
                   Fill the Form <ArrowRight size={14} />
                 </a>
               </div>
@@ -173,7 +196,7 @@ const Modules: React.FC = () => {
                 <MessageSquare className="text-sidqly-green-emerald mb-4" />
                 <h3 className="font-bold mb-2">Ask a Question</h3>
                 <p className="text-sm text-gray-500 mb-6">Have a query about how this module works?</p>
-                <a href="mailto:team@sidqly.com" className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
+                <a href={brand.links.emailInquiry} className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
                   Email the Team <ArrowRight size={14} />
                 </a>
               </div>

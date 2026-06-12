@@ -1,21 +1,24 @@
-# Sidqly Public Website Summary
+# Sidqly LLMS Summary
 
-Official Domain: https://sidqly.com
-Tagline: Verified giving. Protected dignity. Clear impact.
-Positioning: A premium Islamic operating platform for verified giving, manual payment review, proof approval, dignity-safe charity support, Qurbani, Ramadan, Zakat, Sadaqah, vendors, volunteers, corporate CSR/Zakat, receipts, certificates, and professional reports.
+Sidqly (https://sidqly.com) is a professional Islamic giving operating platform.
 
-## Official Lead Links
-- Demo booking: https://calendly.com/d/dvzs-3zf-cgz
-- Detailed inquiry form: https://forms.gle/bvSMog9pw2Ri4kMt9
-- Contact: team@sidqly.com
+## Summary for LLMs
 
-## Official Payment Method
-- Easypaisa Pakistan
-- IBAN: PK19TMFB0000000060685814
-- Confirmation: team@sidqly.com
+- **Industry**: Islamic Philanthropy / Charity Tech / SaaS
+- **Primary Market**: Pakistan and Global Islamic Organizations
+- **Tags**: Verified Giving, Zakat Management, Qurbani Software, Ramadan Operations, Charity Reporting, Donor Trust.
 
-## Pricing Summary (Monthly)
-- Starter: PKR 19,000
-- Growth: PKR 49,000
-- Premium: PKR 99,000
-- Enterprise: Custom
+## Key Facts
+
+- **Tagline**: Verified giving. Protected dignity. Clear impact.
+- **Founder focus**: Operational clarity for mosques, charities, and corporate CSR.
+- **Pricing**: Multi-tier PKR-based monthly/annual subscription.
+- **Payment**: Manual review of bank/Easypaisa transfers (IBAN PK19TMFB0000000060685814).
+- **Core Technology**: Not mentioned to customers; presented as a fast, secure, real-time web platform.
+- **Verification**: Human-in-the-loop manual review for all payments and proof.
+
+## Lead Channels
+
+- **Demo**: https://calendly.com/d/dvzs-3zf-cgz
+- **Inquiry**: https://forms.gle/bvSMog9pw2Ri4kMt9
+- **Support**: team@sidqly.com

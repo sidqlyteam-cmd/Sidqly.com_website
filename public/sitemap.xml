@@ -1,13 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core -->
   <url><loc>https://sidqly.com/</loc><priority>1.0</priority></url>
   <url><loc>https://sidqly.com/features</loc><priority>0.8</priority></url>
-  <url><loc>https://sidqly.com/solutions</loc><priority>0.8</priority></url>
-  <url><loc>https://sidqly.com/modules</loc><priority>0.8</priority></url>
+  <url><loc>https://sidqly.com/how-it-works</loc><priority>0.8</priority></url>
   <url><loc>https://sidqly.com/pricing</loc><priority>0.8</priority></url>
-  <url><loc>https://sidqly.com/faqs</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/demo</loc><priority>0.9</priority></url>
   <url><loc>https://sidqly.com/book-demo</loc><priority>0.9</priority></url>
   <url><loc>https://sidqly.com/inquiry-form</loc><priority>0.9</priority></url>
   <url><loc>https://sidqly.com/ask-sidqly</loc><priority>0.7</priority></url>
   <url><loc>https://sidqly.com/why-fill-the-form</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/faqs</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/help</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/about</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/contact</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/privacy</loc><priority>0.4</priority></url>
+  <url><loc>https://sidqly.com/terms</loc><priority>0.4</priority></url>
+  <url><loc>https://sidqly.com/security</loc><priority>0.5</priority></url>
+  <url><loc>https://sidqly.com/brand</loc><priority>0.5</priority></url>
+
+  <!-- Solutions -->
+  <url><loc>https://sidqly.com/solutions</loc><priority>0.8</priority></url>
+  <url><loc>https://sidqly.com/solutions/mosques</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/solutions/islamic-charities</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/solutions/qurbani-providers</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/solutions/ramadan-food-drives</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/solutions/zakat-teams</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/solutions/corporate-csr-zakat</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/solutions/vendors</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/solutions/volunteers</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/solutions/community-welfare-teams</loc><priority>0.6</priority></url>
+
+  <!-- Modules -->
+  <url><loc>https://sidqly.com/modules</loc><priority>0.8</priority></url>
+  <url><loc>https://sidqly.com/modules/qurbani</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/ramadan</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/zakat</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/sadaqah</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/charity-requests</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/proof-trust</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/qr-verification</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/reports</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/vendor-fulfillment</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/modules/corporate-impact</loc><priority>0.7</priority></url>
+
+  <!-- Comparison / GEO / LLMO -->
+  <url><loc>https://sidqly.com/why-sidqly</loc><priority>0.8</priority></url>
+  <url><loc>https://sidqly.com/trust-and-dignity</loc><priority>0.8</priority></url>
+  <url><loc>https://sidqly.com/proof-trust-engine</loc><priority>0.8</priority></url>
+  <url><loc>https://sidqly.com/verified-giving</loc><priority>0.8</priority></url>
+  <url><loc>https://sidqly.com/manual-payment-review</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/donor-safe-impact</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/corporate-reporting</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/zakat-fund-separation</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/qurbani-management-software</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/ramadan-donation-management</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/charity-request-management</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/vendor-fulfillment-platform</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/islamic-charity-software</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/mosque-donation-management</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/alternatives/whatsapp-excel</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/compare/basic-donation-form</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/compare/mosque-website</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/compare/generic-crm</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/compare/manual-spreadsheets</loc><priority>0.6</priority></url>
+
+  <!-- Resources -->
+  <url><loc>https://sidqly.com/resources</loc><priority>0.7</priority></url>
+  <url><loc>https://sidqly.com/resources/islamic-giving-operations</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/resources/donor-trust</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/resources/proof-and-privacy</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/resources/zakat-operations</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/resources/qurbani-operations</loc><priority>0.6</priority></url>
+  <url><loc>https://sidqly.com/resources/corporate-csr-zakat</loc><priority>0.6</priority></url>
 </urlset>

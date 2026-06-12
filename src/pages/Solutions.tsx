@@ -5,6 +5,7 @@ import {
   Store, UserCircle, CheckCircle2, ArrowRight, MessageSquare, Calendar, ClipboardCheck
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import { brand } from '../config/brand';
 
 const Solutions: React.FC = () => {
   const { slug } = useParams();
@@ -77,7 +78,7 @@ const Solutions: React.FC = () => {
       }
     },
     {
-      slug: "community-welfare",
+      slug: "community-welfare-teams",
       icon: <ShieldCheck />,
       title: "Community Welfare Teams",
       desc: "Organize donor bases and provide verified proof of local impact.",
@@ -137,12 +138,12 @@ const Solutions: React.FC = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <Link to="/book-demo" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
+                  <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
                     Book Demo
-                  </Link>
-                  <Link to="/inquiry-form" className="bg-white text-sidqly-navy border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
+                  </a>
+                  <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-white text-sidqly-navy border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
                     Fill Inquiry Form
-                  </Link>
+                  </a>
                 </div>
               </div>
 
@@ -168,7 +169,7 @@ const Solutions: React.FC = () => {
                 <Calendar className="text-sidqly-gold mb-4" />
                 <h3 className="font-bold mb-2">Book a Demo</h3>
                 <p className="text-sm text-gray-400 mb-6">See how Sidqly fits your {currentSolution.title.toLowerCase()} workflow.</p>
-                <a href="https://calendly.com/d/dvzs-3zf-cgz" className="text-sidqly-gold font-bold flex items-center gap-2 text-sm">
+                <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="text-sidqly-gold font-bold flex items-center gap-2 text-sm">
                   Book on Calendly <ArrowRight size={14} />
                 </a>
               </div>
@@ -176,7 +177,7 @@ const Solutions: React.FC = () => {
                 <ClipboardCheck className="text-sidqly-green-emerald mb-4" />
                 <h3 className="font-bold mb-2">Inquiry Form</h3>
                 <p className="text-sm text-gray-500 mb-6">Tell us about your organization before we talk.</p>
-                <a href="https://forms.gle/bvSMog9pw2Ri4kMt9" className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
+                <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
                   Fill the Form <ArrowRight size={14} />
                 </a>
               </div>
@@ -184,7 +185,7 @@ const Solutions: React.FC = () => {
                 <MessageSquare className="text-sidqly-green-emerald mb-4" />
                 <h3 className="font-bold mb-2">Ask a Question</h3>
                 <p className="text-sm text-gray-500 mb-6">Have a specific question about {currentSolution.title.toLowerCase()}?</p>
-                <a href="mailto:team@sidqly.com" className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
+                <a href={brand.links.emailInquiry} className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
                   Email the Team <ArrowRight size={14} />
                 </a>
               </div>

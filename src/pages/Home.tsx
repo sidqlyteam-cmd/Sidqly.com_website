@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Users, BarChart3, CheckCircle2, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { brand } from '../config/brand';
 
 const Home: React.FC = () => {
   return (
@@ -20,21 +21,24 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10">
-              Pakistan's First Premium Charity Operating System
+              Run Islamic giving with trust, proof, and operational clarity.
             </span>
             <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
               Verified giving. <span className="text-sidqly-green-soft">Protected dignity.</span> Clear impact.
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
-              Sidqly provides organizations with professional workflows for manual review, proof approval, and board-ready reporting. Trusted by Islamic charities, mosques, and corporate teams.
+              Sidqly helps mosques, charities, Qurbani teams, Ramadan drives, Zakat committees, vendors, volunteers, and corporate sponsors manage donations, fulfillment, proof, reports, receipts, and donor updates from one premium operating platform.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link to="/book-demo" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-sidqly-green-deep transition-all shadow-lg hover:shadow-sidqly-green-emerald/20">
-                Book a Demo
-              </Link>
-              <Link to="/how-it-works" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition-all backdrop-blur-sm">
-                How it Works
-              </Link>
+              <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-sidqly-green-deep transition-all shadow-lg hover:shadow-sidqly-green-emerald/20 text-center">
+                Book Demo
+              </a>
+              <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl text-lg font-bold hover:bg-white/20 transition-all backdrop-blur-sm text-center">
+                Fill Inquiry Form
+              </a>
+              <a href={brand.links.emailInquiry} className="bg-transparent text-sidqly-green-soft border border-sidqly-green-soft/30 px-8 py-4 rounded-xl text-lg font-bold hover:bg-sidqly-green-soft/10 transition-all text-center">
+                Email Sidqly
+              </a>
             </div>
           </div>
         </div>
@@ -48,6 +52,56 @@ const Home: React.FC = () => {
             <div className="text-center font-bold text-gray-400 text-xl tracking-tighter italic">QURBANI NETWORK</div>
             <div className="text-center font-bold text-gray-400 text-xl tracking-tighter italic">MOSQUE TRUST</div>
             <div className="text-center font-bold text-gray-400 text-xl tracking-tighter italic">ISLAMIC CHARITY</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem/Solution Visual Section */}
+      <section className="py-20 bg-white border-y border-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="bg-red-50 p-8 rounded-3xl border border-red-100">
+              <h3 className="text-xl font-bold text-red-900 mb-6 flex items-center gap-2">
+                <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-bold">!</span>
+                Without Sidqly
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "Messy WhatsApp groups for proof",
+                  "Scattered Excel sheets for payments",
+                  "Manual certificate creation taking hours",
+                  "No clear audit trail for Zakat separation",
+                  "Dignity risks with un-blurred recipient photos",
+                  "Board reporting is a week-long struggle"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-red-700 text-sm">
+                    <span className="mt-1 text-red-400">✕</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-sidqly-green-soft/20 p-8 rounded-3xl border border-sidqly-green-soft/50">
+              <h3 className="text-xl font-bold text-sidqly-green-deep mb-6 flex items-center gap-2">
+                <span className="w-8 h-8 bg-sidqly-green-emerald text-white rounded-full flex items-center justify-center text-sm font-bold">✓</span>
+                With Sidqly
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  "Centralized Proof Trust Engine",
+                  "Real-time manual payment review",
+                  "Automated donor certificates & receipts",
+                  "Strict, verified Zakat fund separation",
+                  "Dignity-safe, approved proof workflows",
+                  "Board-ready reports in seconds"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sidqly-green-deep text-sm">
+                    <span className="mt-1 text-sidqly-green-emerald">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -109,10 +163,10 @@ const Home: React.FC = () => {
             <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all group">
               <h3 className="text-2xl font-bold mb-4">Book a Demo</h3>
               <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-                Choose a time to speak with the Sidqly team and see how the platform can support your giving, proof, reporting, and operations.
+                Book a Sidqly demo to discuss your giving operations, payment tracking, proof process, reporting needs, and how Sidqly can support your team.
               </p>
               <a
-                href="https://calendly.com/d/dvzs-3zf-cgz"
+                href={brand.links.calendly}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-sidqly-green-emerald text-white px-6 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft hover:text-sidqly-green-deep transition-all w-full justify-center"
@@ -125,10 +179,10 @@ const Home: React.FC = () => {
             <div className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all group">
               <h3 className="text-2xl font-bold mb-4">Fill Inquiry Form</h3>
               <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-                Share your organization details, current tools, interested modules, and operational challenges so we can understand your needs before the call.
+                Fill the detailed inquiry form so the Sidqly team can understand your organization type, current tools, active services, and biggest operational challenges.
               </p>
               <a
-                href="https://forms.gle/bvSMog9pw2Ri4kMt9"
+                href={brand.links.inquiryForm}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-sidqly-green-deep px-6 py-3 rounded-xl font-bold hover:bg-sidqly-gold transition-all w-full justify-center"
@@ -144,7 +198,7 @@ const Home: React.FC = () => {
                 Have a direct question? Send your query to the Sidqly team and we’ll guide you toward the right plan, pilot, or setup.
               </p>
               <a
-                href="mailto:team@sidqly.com?subject=Sidqly%20Inquiry"
+                href={brand.links.emailInquiry}
                 className="inline-flex items-center gap-2 bg-sidqly-gold text-sidqly-navy px-6 py-3 rounded-xl font-bold hover:bg-white transition-all w-full justify-center"
               >
                 Email team@sidqly.com <ArrowRight size={18} />
