@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { solutions } from '../../data/solutions_modules';
 import { brand } from '../../config/brand';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Globe } from 'lucide-react';
 
 const SolutionDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -75,6 +75,18 @@ const SolutionDetail: React.FC = () => {
 
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-20">
+             <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Regional Support</h2>
+             <p className="text-gray-600 mb-12 max-w-2xl mx-auto">Sidqly supports {solution.title.toLowerCase()} across multiple global regions with tailored workflows.</p>
+             <div className="flex flex-wrap justify-center gap-4">
+                {['united-kingdom', 'europe', 'north-america', 'canada', 'gulf-mena'].map((r) => (
+                   <Link key={r} to={`/regions/${r}`} className="bg-white px-6 py-3 rounded-full border border-gray-100 text-sidqly-navy font-bold text-sm hover:border-sidqly-green-soft transition-all flex items-center gap-2">
+                      <Globe size={16} className="text-sidqly-green-emerald" /> {r.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                   </Link>
+                ))}
+             </div>
+          </div>
+
           <h2 className="text-3xl font-bold text-sidqly-navy mb-12">More for {solution.title}</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {['Manual Payment Review', 'Proof Trust Engine', 'Donor Certificates'].map((item, i) => (

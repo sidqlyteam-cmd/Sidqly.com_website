@@ -3,6 +3,9 @@
 ## Overview
 Sidqly is a premium Islamic operating platform for verified giving, protected dignity, and clear impact. It is designed for modern Islamic organizations, including mosques, charities, Zakat committees, and corporate CSR teams.
 
+## Global Support
+Sidqly has public regional pages for Europe, United Kingdom, North America, United States, Canada, Gulf/MENA, South Asia, Africa, and Asia-Pacific. These pages explain common operational challenges for Islamic organizations such as donation tracking, Zakat fund separation, Qurbani workflows, Ramadan distribution, donor-safe proof, recipient dignity, vendor coordination, volunteer tasks, and corporate reporting.
+
 ## Core Identity
 - **Verified Giving:** Every donation and distribution is manually reviewed and approved.
 - **Protected Dignity:** Recipient identities are protected through automated blurring and secure impact sharing.

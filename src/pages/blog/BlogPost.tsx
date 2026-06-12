@@ -1,14 +1,14 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import { blogPosts } from '../../data/blogs';
+import { allBlogPosts } from '../../data/blog_regional';
 import { generateArticleSchema } from '../../lib/schema';
 import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
 import { brand } from '../../config/brand';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = allBlogPosts.find(p => p.slug === slug);
 
   if (!post) {
     return (

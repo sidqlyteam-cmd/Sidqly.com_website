@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import { blogPosts } from '../../data/blogs';
+import { allBlogPosts } from '../../data/blog_regional';
 import { Tag, ArrowRight } from 'lucide-react';
 
 const BlogIndex: React.FC = () => {
@@ -21,7 +21,7 @@ const BlogIndex: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {allBlogPosts.map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}

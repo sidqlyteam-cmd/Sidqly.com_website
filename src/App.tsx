@@ -39,6 +39,8 @@ import CompareDetail from './pages/compare/CompareDetail';
 import ResourceDetail from './pages/resources/ResourceDetail';
 import Solutions from './pages/Solutions';
 import Modules from './pages/Modules';
+import RegionsIndex from './pages/regions/RegionsIndex';
+import RegionDetail from './pages/regions/RegionDetail';
 
 import { brand } from './config/brand';
 import { Link } from 'react-router-dom';
@@ -109,6 +111,8 @@ function App() {
             <Route path="purchase" element={<Purchase />} />
             <Route path="status" element={<Status />} />
             <Route path="legal" element={<Legal />} />
+            <Route path="regions" element={<RegionsIndex />} />
+            <Route path="regions/:slug" element={<RegionDetail />} />
 
             {/* Solutions Routes */}
             <Route path="solutions" element={<Solutions />} />

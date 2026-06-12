@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
-import { CheckCircle2, Shield, Users, BarChart, Zap } from 'lucide-react';
+import { CheckCircle2, Shield, Users, BarChart, Zap, Globe } from 'lucide-react';
 import OperatingJourney from '../components/diagrams/OperatingJourney';
 import ManualPaymentReview from '../components/diagrams/ManualPaymentReview';
 
@@ -89,7 +90,23 @@ const Features: React.FC = () => {
       </section>
 
       <section className="py-20 bg-sidqly-ivory">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-20">
+             <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Global Coverage</h2>
+             <p className="text-gray-600 mb-12 max-w-2xl mx-auto">Sidqly features are designed to scale across different regions and regulatory environments.</p>
+             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {['United Kingdom', 'Europe', 'United States', 'Canada', 'Gulf / MENA'].map((name) => (
+                   <div key={name} className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center gap-2">
+                      <Globe size={14} className="text-sidqly-green-emerald" />
+                      <span className="text-xs font-bold text-sidqly-navy">{name}</span>
+                   </div>
+                ))}
+             </div>
+             <div className="mt-8">
+                <Link to="/regions" className="text-sidqly-green-deep font-bold text-sm hover:underline">View all regions →</Link>
+             </div>
+          </div>
+
           <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Save hundreds of hours every month.</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
              <div className="p-6">

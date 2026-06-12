@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Users, BarChart3, CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
+import TrustPillars from '../components/diagrams/TrustPillars';
+import OperatingJourney from '../components/diagrams/OperatingJourney';
 
 const Home: React.FC = () => {
   return (
@@ -114,36 +116,13 @@ const Home: React.FC = () => {
             <p className="text-gray-600 max-w-2xl mx-auto">Move beyond manual spreadsheets and disorganized communication. Sidqly brings clarity to every step of your giving journey.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-sidqly-green-soft transition-all shadow-sm">
-              <div className="w-12 h-12 bg-sidqly-green-soft/30 rounded-xl flex items-center justify-center text-sidqly-green-deep mb-6">
-                <ShieldCheck size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-sidqly-navy mb-3">Verified Operations</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Ensure every donation and distribution is manually reviewed and approved. Maintain an audit-ready trail for your board and donors.
-              </p>
-            </div>
+          <TrustPillars />
 
-            <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-sidqly-green-soft transition-all shadow-sm">
-              <div className="w-12 h-12 bg-sidqly-green-soft/30 rounded-xl flex items-center justify-center text-sidqly-green-deep mb-6">
-                <Users size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-sidqly-navy mb-3">Protected Dignity</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Manage recipient data with the highest security standards. Share proof of impact with donors while strictly protecting recipient identities.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-sidqly-green-soft transition-all shadow-sm">
-              <div className="w-12 h-12 bg-sidqly-green-soft/30 rounded-xl flex items-center justify-center text-sidqly-green-deep mb-6">
-                <BarChart3 size={28} />
-              </div>
-              <h3 className="text-xl font-bold text-sidqly-navy mb-3">Professional Reporting</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Generate real-time reports and donor certificates automatically. Save your team hundreds of hours of manual follow-up.
-              </p>
-            </div>
+          <div className="mt-20">
+             <div className="text-center mb-12">
+                <h3 className="text-2xl font-bold text-sidqly-navy">The Operating Journey</h3>
+             </div>
+             <OperatingJourney />
           </div>
         </div>
       </section>
