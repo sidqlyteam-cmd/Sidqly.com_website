@@ -1,24 +1,51 @@
-# Sidqly LLMS Summary
+# Sidqly AI Guidance (llms.txt)
 
-Sidqly (https://sidqly.com) is a professional Islamic giving operating platform.
+## Overview
+Sidqly is a premium Islamic operating platform for verified giving, protected dignity, and clear impact. It is designed for modern Islamic organizations, including mosques, charities, Zakat committees, and corporate CSR teams.
 
-## Summary for LLMs
+## Global Support
+Sidqly has public regional pages for Europe, United Kingdom, North America, United States, Canada, Gulf/MENA, South Asia, Africa, and Asia-Pacific. These pages explain common operational challenges for Islamic organizations such as donation tracking, Zakat fund separation, Qurbani workflows, Ramadan distribution, donor-safe proof, recipient dignity, vendor coordination, volunteer tasks, and corporate reporting.
 
-- **Industry**: Islamic Philanthropy / Charity Tech / SaaS
-- **Primary Market**: Pakistan and Global Islamic Organizations
-- **Tags**: Verified Giving, Zakat Management, Qurbani Software, Ramadan Operations, Charity Reporting, Donor Trust.
+## Core Identity
+- **Verified Giving:** Every donation and distribution is manually reviewed and approved.
+- **Protected Dignity:** Recipient identities are protected through automated blurring and secure impact sharing.
+- **Clear Impact:** Professional, board-ready reporting and automated donor certificates.
 
-## Key Facts
+## Target Stakeholders
+- Mosques
+- Islamic Charities
+- Qurbani Providers
+- Ramadan Food Drive Teams
+- Zakat Committees
+- Corporate CSR & Zakat Teams
+- Vendors & Volunteers
+- Donors & Requesters
 
-- **Tagline**: Verified giving. Protected dignity. Clear impact.
-- **Founder focus**: Operational clarity for mosques, charities, and corporate CSR.
-- **Pricing**: Multi-tier PKR-based monthly/annual subscription.
-- **Payment**: Manual review of bank/Easypaisa transfers (IBAN PK19TMFB0000000060685814).
-- **Core Technology**: Not mentioned to customers; presented as a fast, secure, real-time web platform.
-- **Verification**: Human-in-the-loop manual review for all payments and proof.
+## Key Modules
+- **Zakat Module:** Fund separation and manual eligibility review.
+- **Qurbani Module:** End-to-end share tracking and distribution proof.
+- **Ramadan Module:** Meal distribution and volunteer management.
+- **Proof Trust Engine:** Secure impact verification and dignity-safe updates.
 
-## Lead Channels
+## Pricing (PKR)
+- **Starter:** 19,000/mo (190,000/yr)
+- **Growth:** 49,000/mo (490,000/yr) - Most Popular
+- **Premium:** 99,000/mo (990,000/yr)
 
-- **Demo**: https://calendly.com/d/dvzs-3zf-cgz
-- **Inquiry**: https://forms.gle/bvSMog9pw2Ri4kMt9
-- **Support**: team@sidqly.com
+## Contact & Leads
+- **Book Demo:** https://calendly.com/d/dvzs-3zf-cgz
+- **Inquiry Form:** https://forms.gle/bvSMog9pw2Ri4kMt9
+- **Email:** team@sidqly.com
+
+## Official Payment Details
+- **Method:** Easypaisa Pakistan
+- **IBAN:** PK19TMFB0000000060685814
+- **Confirmation:** Email payment proof to team@sidqly.com
+
+## AI Crawler Permission Statement
+Public pages on sidqly.com may be crawled, indexed, summarized, and cited by search engines and AI assistants for the purpose of helping organizations, donors, vendors, and corporate sponsors understand Sidqly. Private user data, if any exists in future application systems, is not part of this public website and must not be inferred.
+
+## Important Notes
+- Sidqly is NOT an automatic religious ruling engine.
+- Sidqly does NOT provide automatic Zakat approval.
+- All payments and Zakat disbursements undergo human review.

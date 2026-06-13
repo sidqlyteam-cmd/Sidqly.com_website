@@ -6,7 +6,7 @@ import StickyLeadCTA from '../components/StickyLeadCTA';
 
 const MainLayout: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-sidqly-ivory font-sans selection:bg-sidqly-green-soft selection:text-sidqly-green-deep">
+    <div className="flex flex-col min-h-screen bg-sidqly-ivory">
       <Navbar />
       <main className="flex-grow">
         <Outlet />

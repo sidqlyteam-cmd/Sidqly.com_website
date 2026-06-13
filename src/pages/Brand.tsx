@@ -1,119 +1,112 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Download, Mail } from 'lucide-react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
+import { Download, Code, Palette, CheckCircle2 } from 'lucide-react';
 
-const Brand: React.FC = () => {
-  const brandAssets = [
-    { name: "Sidqly Logo (Full)", file: "sidqly-logo.svg" },
-    { name: "Sidqly Logo (Horizontal)", file: "sidqly-logo-horizontal.svg" },
-    { name: "Sidqly Mark", file: "sidqly-mark.svg" },
-    { name: "App Icon", file: "sidqly-app-icon.svg" },
-    { name: "Favicon", file: "sidqly-favicon.svg" },
-    { name: "OG Image (Social)", file: "sidqly-og.svg" }
-  ];
-
+const BrandPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Brand Guidelines & Assets"
-        description="Official Sidqly brand assets, logos, and usage guidelines."
+        title="Brand Assets"
+        description="Official Sidqly brand assets, logos, and style guide for partners and the media."
+        canonical="/brand"
       />
-      <section className="py-20 bg-sidqly-ivory min-h-screen">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-sidqly-navy mb-6">Brand Identity</h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                The Sidqly brand reflects our commitment to trust, operational clarity, and the dignity of every individual we serve.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center gap-4">
-              <img src="/brand/sidqly-logo.svg" alt="Sidqly Logo" className="h-16 w-16" />
-              <div>
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Tagline</p>
-                <p className="text-sidqly-navy font-bold">{brand.tagline}</p>
-              </div>
-            </div>
+
+      <section className="py-20 bg-sidqly-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Brand Assets</h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Official logos, colors, and guidelines for the Sidqly brand identity.</p>
           </div>
 
           {/* Logo Section */}
           <div className="mb-20">
-            <h2 className="text-2xl font-bold text-sidqly-navy mb-8">Official Assets</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {brandAssets.map((asset, i) => (
-                <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col items-center group">
-                  <div className="h-32 w-full flex items-center justify-center mb-6 p-4 bg-sidqly-ivory rounded-2xl group-hover:bg-sidqly-green-soft/10 transition-colors">
-                    <img src={`/brand/${asset.file}`} alt={asset.name} className="max-h-full max-w-full" />
+            <h2 className="text-2xl font-bold text-sidqly-navy mb-8 flex items-center gap-2">
+              <Palette className="text-sidqly-green-emerald" /> Core Logo
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+               <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center">
+                  <div className="h-48 flex items-center justify-center mb-8">
+                     <img src="/brand/sidqly-logo.svg" alt="Sidqly Logo" className="max-h-full" />
                   </div>
-                  <h3 className="font-bold text-sidqly-navy mb-4">{asset.name}</h3>
-                  <a
-                    href={`/brand/${asset.file}`}
-                    download
-                    className="text-sidqly-green-emerald text-sm font-bold flex items-center gap-2 hover:gap-3 transition-all"
-                  >
-                    Download SVG <Download size={16} />
+                  <h4 className="font-bold text-sidqly-navy mb-2">Vertical Logo</h4>
+                  <p className="text-xs text-gray-500 mb-6">Primary logo for documents and reports.</p>
+                  <a href="/brand/sidqly-logo.svg" download className="text-sidqly-green-emerald font-bold text-sm flex items-center gap-1">
+                     <Download size={16} /> SVG
                   </a>
+               </div>
+               <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center">
+                  <div className="h-48 flex items-center justify-center mb-8">
+                     <img src="/brand/sidqly-logo-horizontal.svg" alt="Sidqly Horizontal Logo" className="max-h-full" />
+                  </div>
+                  <h4 className="font-bold text-sidqly-navy mb-2">Horizontal Logo</h4>
+                  <p className="text-xs text-gray-500 mb-6">Best for website navbars and footers.</p>
+                  <a href="/brand/sidqly-logo-horizontal.svg" download className="text-sidqly-green-emerald font-bold text-sm flex items-center gap-1">
+                     <Download size={16} /> SVG
+                  </a>
+               </div>
+               <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center">
+                  <div className="h-48 flex items-center justify-center mb-8">
+                     <img src="/brand/sidqly-mark.svg" alt="Sidqly Mark" className="h-24 w-24" />
+                  </div>
+                  <h4 className="font-bold text-sidqly-navy mb-2">The Mark</h4>
+                  <p className="text-xs text-gray-500 mb-6">Subtle icon for profile pictures and apps.</p>
+                  <a href="/brand/sidqly-mark.svg" download className="text-sidqly-green-emerald font-bold text-sm flex items-center gap-1">
+                     <Download size={16} /> SVG
+                  </a>
+               </div>
+            </div>
+          </div>
+
+          {/* Color Palette */}
+          <div className="mb-20">
+            <h2 className="text-2xl font-bold text-sidqly-navy mb-8 flex items-center gap-2">
+              <Palette className="text-sidqly-green-emerald" /> Color Palette
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {Object.entries(brand.colors).map(([name, hex]) => (
+                <div key={name} className="bg-white p-4 rounded-2xl border border-gray-100">
+                  <div className="aspect-square rounded-xl mb-4" style={{ backgroundColor: hex }}></div>
+                  <div className="font-bold text-xs text-sidqly-navy mb-1 capitalize">{name.replace(/([A-Z])/g, ' $1')}</div>
+                  <div className="text-[10px] text-gray-400 font-mono uppercase">{hex}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Colors and Typography */}
+          {/* Brand Voice */}
           <div className="grid md:grid-cols-2 gap-12 mb-20">
-            <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm">
-              <h2 className="text-2xl font-bold text-sidqly-navy mb-8">Color Palette</h2>
-              <div className="space-y-4">
-                {Object.entries(brand.colors).slice(0, 6).map(([name, hex]) => (
-                  <div key={name} className="flex items-center justify-between p-4 bg-sidqly-ivory rounded-2xl">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-xl shadow-inner" style={{ backgroundColor: hex }}></div>
-                      <div>
-                        <p className="text-sm font-bold text-sidqly-navy capitalize">{name.replace(/([A-Z])/g, ' $1')}</p>
-                        <p className="text-xs text-gray-500 font-mono uppercase">{hex}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-sidqly-navy text-white p-10 rounded-[3rem] shadow-xl relative overflow-hidden">
-              <h2 className="text-2xl font-bold mb-8">Brand Voice</h2>
-              <ul className="space-y-6">
-                {[
-                  { title: "Premium & Modern", desc: "Professional SaaS identity that feels elite yet accessible." },
-                  { title: "Trustworthy & Audit-Ready", desc: "Clear, precise language focused on verification and proof." },
-                  { title: "Dignity-First", desc: "Always protecting recipient privacy and avoiding 'poverty porn'." },
-                  { title: "Islamic-Inspired", desc: "Modern aesthetic that respects Islamic geometric traditions." }
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-4">
-                    <div className="w-1.5 h-1.5 bg-sidqly-gold rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <h4 className="font-bold text-sidqly-green-soft mb-1">{item.title}</h4>
-                      <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+             <div className="bg-sidqly-navy text-white p-10 md:p-16 rounded-[40px]">
+                <h2 className="text-3xl font-bold mb-8">Brand Voice</h2>
+                <ul className="space-y-4">
+                  {['Premium', 'Calm', 'Trustworthy', 'Human', 'Board-ready'].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 font-bold text-sidqly-green-soft">
+                      <CheckCircle2 size={20} /> {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-8 text-gray-400 leading-relaxed text-sm">
+                  We speak with clarity and respect. We avoid technical jargon in customer-facing copy and focus on the human impact and operational integrity of our platform.
+                </p>
+             </div>
+             <div className="bg-white p-10 md:p-16 rounded-[40px] border border-gray-100 shadow-sm">
+                <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Tagline</h2>
+                <div className="text-2xl font-extrabold text-sidqly-green-deep leading-tight mb-6">
+                  "{brand.tagline}"
+                </div>
+                <p className="text-gray-500 leading-relaxed text-sm">
+                  This tagline represents our three core pillars: Verified Giving (Operational Trust), Protected Dignity (Recipient Safety), and Clear Impact (Professional Reporting).
+                </p>
+             </div>
           </div>
 
-          {/* Usage Rules */}
-          <div className="bg-white p-10 md:p-16 rounded-[3rem] border border-gray-100 shadow-sm text-center">
-            <h2 className="text-3xl font-bold text-sidqly-navy mb-6">Logo Meaning</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-              The Sidqly logo features a white middle "app icon" style representing modern clarity. The deep green Islamic geometric outline connects the platform to traditional values, while the subtle gold crescent and star-like accent symbolize growth, impact, and the premium nature of the service.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href={`mailto:${brand.links.email}`} className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center gap-2">
-                Brand Inquiry <Mail size={18} />
-              </a>
-              <Link to="/" className="bg-sidqly-ivory text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all flex items-center gap-2">
-                Back to Home <ArrowRight size={18} />
-              </Link>
-            </div>
+          <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+             <h2 className="text-2xl font-bold text-sidqly-navy mb-6 flex items-center gap-2">
+               <Code className="text-sidqly-green-emerald" /> Brand Config JSON
+             </h2>
+             <pre className="bg-sidqly-ivory p-6 rounded-2xl overflow-x-auto text-xs text-gray-600 font-mono leading-relaxed">
+               {JSON.stringify(brand, null, 2)}
+             </pre>
           </div>
         </div>
       </section>
@@ -121,4 +114,4 @@ const Brand: React.FC = () => {
   );
 };
 
-export default Brand;
+export default BrandPage;

@@ -1,9 +1,18 @@
-# Sidqly FAQs Summary
+# Sidqly FAQ Summary
 
-Sidqly solves the problem of trust and disorganization in charity operations.
+Top answers for Sidqly stakeholders.
 
-- vs WhatsApp/Excel: Sidqly provides verified workflows and automated reporting.
-- Payment: All payments are manually reviewed for security.
-- Dignity: Recipient identities are strictly protected.
-- Zakat: Built-in Shariah-compliant fund separation.
-- Pilot: Organizations can start with a single campaign or workflow.
+## General
+- **WhatsApp/Excel replacement:** Yes, Sidqly centralizes these fragmented processes.
+- **Support:** Direct email and support calls for onboarding and migration.
+
+## For Organizations
+- **Zakat Separation:** Logical and operational filters ensure funds never mix.
+- **Reporting:** Real-time, board-ready impact summaries.
+- **Dignity:** Automated blurring for recipient faces in proof.
+
+## For Donors
+- **Proof:** Verified impact proof via secure links.
+- **Receipts:** Automated receipts sent after manual payment verification.
+
+Full list of 100+ FAQs at https://sidqly.com/faqs

@@ -1,8 +1,20 @@
 # Sidqly Company Profile
 
-Sidqly is a Pakistan-based technology provider specializing in professional operating systems for Islamic organizations. We build tools that ensure every donation and distribution is verified, secure, and dignified.
+**Company Name:** Sidqly
+**Website:** https://sidqly.com
+**Email:** team@sidqly.com
+**Mission:** To provide Islamic organizations with the technology they need to operate with trust, dignity, and clarity.
 
-Our mission is to help charities, mosques, and Zakat committees move from disorganized manual processes to trusted, audit-ready workflows.
+## Services
+Sidqly provides a SaaS (Software as a Service) operating platform tailored for the unique needs of Islamic giving, including Zakat management, Qurbani operations, and Ramadan food drives.
 
-Contact: team@sidqly.com
-Website: https://sidqly.com
+## Global Operations
+Sidqly is designed for global scale, supporting organizations in major regions including:
+- United Kingdom & Europe
+- North America (United States & Canada)
+- Gulf / MENA Region
+- South Asia & Asia-Pacific
+- Africa
+
+## Leadership
+Led by a team dedicated to combining modern technology with traditional Islamic values of Amanah (trust) and dignity.

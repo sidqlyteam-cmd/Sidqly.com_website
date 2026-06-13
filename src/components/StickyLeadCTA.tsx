@@ -1,75 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, FileText, Mail, X } from 'lucide-react';
+import React from 'react';
 import { brand } from '../config/brand';
+import { Calendar, FileText, Mail } from 'lucide-react';
 
 const StickyLeadCTA: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isDismissed, setIsDismissed] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300 && !isDismissed) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isDismissed]);
-
-  if (isDismissed) return null;
-
   return (
-    <div className={`fixed bottom-0 left-0 right-0 z-50 p-4 transition-all duration-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'} md:bottom-6 md:right-6 md:left-auto md:w-96`}>
-      <div className="bg-white rounded-2xl shadow-2xl border border-sidqly-green-soft overflow-hidden relative">
-        <button
-          onClick={() => setIsDismissed(true)}
-          className="absolute top-2 right-2 p-1 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100"
-        >
-          <X size={16} />
-        </button>
-
-        <div className="p-5">
-          <p className="text-sidqly-green-deep font-semibold mb-1">Need help choosing the right Sidqly setup?</p>
-          <p className="text-sm text-gray-600 mb-4">Book a demo or tell us about your organization.</p>
-
-          <div className="grid grid-cols-3 gap-2 md:grid-cols-1 md:gap-3">
+    <>
+      {/* Desktop Sticky CTA */}
+      <div className="hidden lg:block fixed bottom-8 right-8 z-40">
+        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 w-80 transform transition-transform hover:-translate-y-1">
+          <h4 className="font-bold text-sidqly-navy mb-4">Ready to start?</h4>
+          <div className="space-y-3">
             <a
-              href={brand.links.calendly}
+              href={brand.calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-3 bg-sidqly-green-emerald text-white p-2 md:px-4 md:py-2 rounded-xl hover:bg-sidqly-green-deep transition-colors"
+              className="flex items-center gap-3 w-full bg-sidqly-green-deep text-white px-4 py-3 rounded-xl font-bold hover:bg-sidqly-green-emerald transition-all"
             >
-              <Calendar size={18} />
-              <span className="text-[10px] md:text-sm font-medium uppercase md:tracking-widest md:normal-case md:tracking-normal">Book Demo</span>
-              <span className="hidden md:inline text-sm font-medium">Book Demo</span>
+              <Calendar size={20} /> Book Demo
             </a>
-
             <a
-              href={brand.links.inquiryForm}
+              href={brand.inquiryFormUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-3 bg-white text-sidqly-green-deep border border-sidqly-green-emerald p-2 md:px-4 md:py-2 rounded-xl hover:bg-sidqly-green-soft transition-colors"
+              className="flex items-center gap-3 w-full bg-sidqly-ivory text-sidqly-navy border border-gray-200 px-4 py-3 rounded-xl font-bold hover:bg-white transition-all"
             >
-              <FileText size={18} />
-              <span className="text-[10px] md:text-sm font-medium uppercase md:tracking-widest md:normal-case md:tracking-normal">Fill Form</span>
-              <span className="hidden md:inline text-sm font-medium">Fill Inquiry Form</span>
+              <FileText size={20} /> Fill Inquiry Form
             </a>
-
             <a
-              href={brand.links.emailInquiry}
-              className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 md:gap-3 bg-sidqly-ivory text-sidqly-navy p-2 md:px-4 md:py-2 rounded-xl hover:bg-gray-200 transition-colors"
+              href={`mailto:${brand.email}`}
+              className="flex items-center gap-3 w-full justify-center text-sidqly-green-emerald font-bold text-sm py-2"
             >
-              <Mail size={18} />
-              <span className="text-[10px] md:text-sm font-medium uppercase md:tracking-widest md:normal-case md:tracking-normal">Email Us</span>
-              <span className="hidden md:inline text-sm font-medium">Email Sidqly</span>
+              <Mail size={16} /> Email the team
             </a>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Mobile Sticky Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] p-4 flex gap-3">
+        <a
+          href={brand.calendlyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 bg-sidqly-green-deep text-white py-3 rounded-xl font-bold text-center text-sm"
+        >
+          Book Demo
+        </a>
+        <a
+          href={brand.inquiryFormUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 bg-sidqly-ivory text-sidqly-navy border border-gray-200 py-3 rounded-xl font-bold text-center text-sm"
+        >
+          Inquiry Form
+        </a>
+      </div>
+    </>
   );
 };
 

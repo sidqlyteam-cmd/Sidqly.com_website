@@ -1,72 +1,58 @@
 import React from 'react';
-import { HelpCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { brand } from '../config/brand';
+import { MessageCircle, FileText } from 'lucide-react';
 
 const AskSidqly: React.FC = () => {
   return (
     <>
-      <SEO
-        title="Ask Sidqly Before You Decide"
-        description="Not sure which Sidqly plan or module fits your organization? Send us your query and we'll guide you."
-      />
-
-      <section className="py-20 bg-sidqly-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-sidqly-navy mb-8">Ask Sidqly Before You Decide</h1>
-            <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-              Not sure which plan, module, or setup fits your organization? Send us your query. Sidqly is built for organizations with different needs, from small mosques and charity teams to Qurbani providers, Ramadan drives, Zakat committees, vendors, and corporate CSR/Zakat programs.
+      <SEO title="Ask Sidqly" canonical="/ask-sidqly" />
+      <section className="py-20 bg-sidqly-ivory min-h-screen">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Ask Sidqly</h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Direct answers for organizations looking to professionalize their giving operations.
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-20">
-              <a
-                href="mailto:team@sidqly.com?subject=Sidqly Question"
-                className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald transition-all shadow-lg"
-              >
-                Send Your Query
-              </a>
-              <a
-                href="https://forms.gle/bvSMog9pw2Ri4kMt9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-sidqly-green-deep border border-sidqly-green-soft px-10 py-4 rounded-xl font-bold hover:shadow-md transition-all"
-              >
-                Fill Inquiry Form
-              </a>
-              <a
-                href="https://calendly.com/d/dvzs-3zf-cgz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-sidqly-ivory text-sidqly-navy border border-gray-200 px-10 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all"
-              >
-                Book Demo
-              </a>
-            </div>
+          <div className="bg-white p-8 md:p-16 rounded-[40px] shadow-sm border border-gray-100 mb-12">
+             <div className="prose prose-sidqly max-w-none text-gray-700 leading-relaxed space-y-8">
+                <section>
+                   <h3 className="text-2xl font-bold text-sidqly-navy">How do we get started?</h3>
+                   <p>The best first step is to fill our <strong>detailed inquiry form</strong>. This allows us to understand your organization scale and specific challenges (like moving away from WhatsApp or managing Qurbani shares) before we recommend a plan.</p>
+                </section>
 
-            <div className="bg-white p-8 md:p-16 rounded-[3rem] border border-gray-100 shadow-sm text-left">
-              <h2 className="text-3xl font-bold text-sidqly-navy mb-10 flex items-center gap-3">
-                <HelpCircle className="text-sidqly-gold" size={32} />
-                Questions we can help answer
-              </h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                {[
-                  "Which Sidqly plan is right for us?",
-                  "Should we start with a pilot?",
-                  "Can Sidqly manage our Qurbani campaign?",
-                  "Can Sidqly manage Ramadan ration or Iftar drives?",
-                  "Can Sidqly help separate Zakat and Sadaqah funds?",
-                  "Can Sidqly help with donor receipts and certificates?",
-                  "Can Sidqly help our vendors or volunteers?",
-                  "Can corporate sponsors get board-ready reports?",
-                  "How does Sidqly protect recipient dignity?",
-                  "How do we move from WhatsApp and Excel to Sidqly?"
-                ].map((item, i) => (
-                  <div key={i} className="pb-6 border-b border-gray-50 last:border-0">
-                    <p className="text-sidqly-navy font-bold leading-relaxed">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+                <section>
+                   <h3 className="text-2xl font-bold text-sidqly-navy">Can we book a demo first?</h3>
+                   <p>Absolutely. You can book a demo via our <strong>Calendly link</strong>. We'll walk you through the modules that matter most to your team, whether it's the Proof Trust Engine or Zakat Fund Separation.</p>
+                </section>
+
+                <section>
+                   <h3 className="text-2xl font-bold text-sidqly-navy">What about data migration?</h3>
+                   <p>We know that moving from years of Excel sheets and WhatsApp history can be daunting. The Sidqly team provides professional assistance to help you migrate your data safely and accurately.</p>
+                </section>
+
+                <section>
+                   <h3 className="text-2xl font-bold text-sidqly-navy">Is our data secure?</h3>
+                   <p>Amanah is our foundation. We use industry-standard security and strict logical isolation to ensure your donor and recipient data is protected and never publicly exposed.</p>
+                </section>
+             </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+             <div className="bg-sidqly-navy text-white p-10 rounded-3xl text-center flex flex-col items-center">
+                <MessageCircle className="text-sidqly-green-soft mb-6" size={40} />
+                <h4 className="text-xl font-bold mb-4">Direct Email</h4>
+                <p className="text-gray-400 text-sm mb-8 leading-relaxed">For specific queries, partnerships, or billing questions.</p>
+                <a href={`mailto:${brand.email}`} className="text-sidqly-green-soft font-bold hover:underline">{brand.email}</a>
+             </div>
+             <div className="bg-sidqly-green-emerald text-white p-10 rounded-3xl text-center flex flex-col items-center">
+                <FileText className="mb-6" size={40} />
+                <h4 className="text-xl font-bold mb-4">Inquiry Form</h4>
+                <p className="text-white/80 text-sm mb-8 leading-relaxed">Share your organization's details for a tailored response.</p>
+                <a href={brand.inquiryFormUrl} className="bg-white text-sidqly-green-deep px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all">Open Form</a>
+             </div>
           </div>
         </div>
       </section>

@@ -1,83 +1,131 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Lock, FileCheck, Users, BarChart, Settings } from 'lucide-react';
 import SEO from '../components/SEO';
+import { brand } from '../config/brand';
+import { CheckCircle2, Shield, Users, BarChart, Zap, Globe } from 'lucide-react';
+import OperatingJourney from '../components/diagrams/OperatingJourney';
+import ManualPaymentReview from '../components/diagrams/ManualPaymentReview';
 
 const Features: React.FC = () => {
-  const features = [
+  const featureGroups = [
     {
-      icon: <Shield className="text-sidqly-green-emerald" />,
-      title: "Manual Payment Review",
-      description: "Every transaction is verified by your team before it's approved. No automated errors, full human oversight for trust."
+      title: "Trust & Verification",
+      icon: <Shield className="text-sidqly-green-emerald" size={24} />,
+      items: [
+        "Manual payment review for all donations",
+        "Zakat and Sadaqah fund separation",
+        "Verified audit trails for every transaction",
+        "Role-based access control for team safety"
+      ]
     },
     {
-      icon: <FileCheck className="text-sidqly-green-emerald" />,
-      title: "Proof Approval Workflow",
-      description: "Collect proof of impact from the field and review it centrally before sharing it with your donors."
+      title: "Impact & Dignity",
+      icon: <Users className="text-sidqly-green-emerald" size={24} />,
+      items: [
+        "Proof Trust Engine for impact verification",
+        "Automated face-blurring for recipient privacy",
+        "Secure donor-safe impact links",
+        "Professional certificates and receipts"
+      ]
     },
     {
-      icon: <Lock className="text-sidqly-green-emerald" />,
-      title: "Dignity-Safe Records",
-      description: "Manage beneficiary details securely. Protect the dignity of those those you serve with strict privacy controls."
+      title: "Operations & Efficiency",
+      icon: <Zap className="text-sidqly-green-emerald" size={24} />,
+      items: [
+        "Dedicated Qurbani share tracking",
+        "Ramadan meal distribution management",
+        "Vendor fulfillment portal and tasking",
+        "Volunteer shift and hours tracking"
+      ]
     },
     {
-      icon: <Users className="text-sidqly-green-emerald" />,
-      title: "Role-Based Access",
-      description: "Give your team, vendors, and volunteers the exact access they need to do their jobs without exposing sensitive data."
-    },
-    {
-      icon: <BarChart className="text-sidqly-green-emerald" />,
-      title: "Audit-Ready Reporting",
-      description: "Generate professional reports for your board and donors with one click. Clear tracking of every PKR."
-    },
-    {
-      icon: <Settings className="text-sidqly-green-emerald" />,
-      title: "Customizable Workflows",
-      description: "Whether it's Zakat, Qurbani, or Ramadan drives, adapt Sidqly to match your organization's specific process."
+      title: "Reporting & Insights",
+      icon: <BarChart className="text-sidqly-green-emerald" size={24} />,
+      items: [
+        "Board-ready impact dashboards",
+        "Real-time donor update system",
+        "Customizable reporting exports",
+        "Case screening and eligibility review"
+      ]
     }
   ];
 
   return (
     <>
-      <SEO
-        title="Features"
-        description="Explore the premium features of Sidqly. Manual review, proof approval, and dignity-safe charity management."
-      />
-
-      <section className="py-20 bg-sidqly-ivory">
+      <SEO title="Platform Features" canonical="/features" />
+      <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-sidqly-navy mb-6">Built for Excellence in Giving</h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Sidqly isn't just a tool; it's a professional operating platform that ensures every step of your charity workflow is verified and secure.
-            </p>
-          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-center">Powerful features for professional teams.</h1>
+          <p className="text-xl text-sidqly-green-soft text-center max-w-3xl mx-auto mb-16">
+            Sidqly is more than a donation tool. It's an operating platform built for the complexities of modern Islamic giving.
+          </p>
+          <OperatingJourney />
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {features.map((feature, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 bg-sidqly-green-soft/30 rounded-xl flex items-center justify-center mb-6">
-                  {feature.icon}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-20">
+             <ManualPaymentReview />
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            {featureGroups.map((group, i) => (
+              <div key={i} className="bg-sidqly-ivory p-8 rounded-[40px] border border-gray-100 shadow-sm">
+                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6">
+                  {group.icon}
                 </div>
-                <h3 className="text-xl font-bold text-sidqly-navy mb-3">{feature.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-bold text-sidqly-navy mb-6">{group.title}</h3>
+                <ul className="space-y-4">
+                  {group.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <CheckCircle2 size={20} className="text-sidqly-green-emerald mt-1 flex-shrink-0" />
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="bg-sidqly-green-deep rounded-3xl p-8 md:p-16 text-white text-center">
-            <h2 className="text-3xl font-bold mb-6">Need a custom feature?</h2>
-            <p className="text-sidqly-green-soft mb-10 max-w-2xl mx-auto text-lg">
-              Our enterprise plan includes custom module development to solve your organization's unique operational challenges.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link to="/book-demo" className="bg-sidqly-green-emerald text-white px-8 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft hover:text-sidqly-green-deep transition-all">
-                Book a Demo
-              </Link>
-              <Link to="/contact" className="bg-white/10 text-white border border-white/20 px-8 py-3 rounded-xl font-bold hover:bg-white/20 transition-all">
-                Contact Sales
-              </Link>
-            </div>
+      <section className="py-20 bg-sidqly-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-20">
+             <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Global Coverage</h2>
+             <p className="text-gray-600 mb-12 max-w-2xl mx-auto">Sidqly features are designed to scale across different regions and regulatory environments.</p>
+             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {['United Kingdom', 'Europe', 'United States', 'Canada', 'Gulf / MENA'].map((name) => (
+                   <div key={name} className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center gap-2">
+                      <Globe size={14} className="text-sidqly-green-emerald" />
+                      <span className="text-xs font-bold text-sidqly-navy">{name}</span>
+                   </div>
+                ))}
+             </div>
+             <div className="mt-8">
+                <Link to="/regions" className="text-sidqly-green-deep font-bold text-sm hover:underline">View all regions →</Link>
+             </div>
+          </div>
+
+          <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Save hundreds of hours every month.</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+             <div className="p-6">
+                <div className="text-4xl font-extrabold text-sidqly-green-deep mb-2">90%</div>
+                <div className="text-sm text-gray-500 font-bold uppercase tracking-widest">Reduction in manual proof tasks</div>
+             </div>
+             <div className="p-6">
+                <div className="text-4xl font-extrabold text-sidqly-green-deep mb-2">100%</div>
+                <div className="text-sm text-gray-500 font-bold uppercase tracking-widest">Zakat fund separation audit trail</div>
+             </div>
+             <div className="p-6">
+                <div className="text-4xl font-extrabold text-sidqly-green-deep mb-2">Seconds</div>
+                <div className="text-sm text-gray-500 font-bold uppercase tracking-widest">To generate board reports</div>
+             </div>
+          </div>
+          <div className="mt-16">
+             <a href={brand.calendlyUrl} className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all inline-block">
+                See it in action
+             </a>
           </div>
         </div>
       </section>

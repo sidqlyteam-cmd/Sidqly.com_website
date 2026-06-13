@@ -1,9 +1,13 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" fill="#0B1D2A"/>
-  <rect x="450" y="165" width="300" height="300" rx="60" fill="white"/>
-  <rect x="465" y="180" width="270" height="270" rx="45" stroke="#0F4D3E" stroke-width="6"/>
-  <path d="M600 240 C540 240 490 290 490 315 C490 340 540 390 600 390 C660 390 710 340 710 315 C710 290 660 240 600 240 Z" fill="#0F4D3E"/>
-  <path d="M620 280 C640 300 640 330 620 350 C600 330 600 300 620 280 Z" fill="#D4AF37"/>
-  <text x="600" y="550" fill="white" text-anchor="middle" style="font-family: sans-serif; font-weight: bold; font-size: 72px;">Sidqly</text>
-  <text x="600" y="600" fill="#A7F3D0" text-anchor="middle" style="font-family: sans-serif; font-size: 24px;">Verified giving. Protected dignity. Clear impact.</text>
+  <g transform="translate(344, 60)">
+    <rect width="512" height="512" rx="112" fill="white"/>
+    <rect x="24" y="24" width="464" height="464" rx="88" stroke="#1E4E8C" stroke-width="24"/>
+    <g transform="translate(256, 256)">
+      <rect x="-110" y="-110" width="220" height="220" fill="#0F4D3E" rx="12" />
+      <rect x="-110" y="-110" width="220" height="220" fill="#0F4D3E" rx="12" transform="rotate(45)" />
+      <path d="M40 -40C60 -40 80 -20 80 10C80 40 60 60 40 60C50 60 65 40 65 10C65 -20 50 -40 40 -40Z" fill="#D4AF37" transform="translate(-20, 0) scale(1.2)" />
+    </g>
+  </g>
+  <text x="600" y="600" fill="white" text-anchor="middle" style="font-family: sans-serif; font-weight: 800; font-size: 80px; letter-spacing: -0.05em;">Sidqly</text>
 </svg>

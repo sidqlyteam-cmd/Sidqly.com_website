@@ -1,110 +1,80 @@
 import React from 'react';
-import { FileText, Calendar, Mail, CheckCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { brand } from '../config/brand';
+import { FileText, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const InquiryForm: React.FC = () => {
   return (
     <>
       <SEO
-        title="Tell Us About Your Organization"
-        description="Fill the detailed Sidqly inquiry form so we can recommend the right plan, pilot, or setup for your team."
+        title="Inquiry Form"
+        description="Fill the detailed inquiry form so the Sidqly team can understand your organization type and operational challenges."
+        canonical="/inquiry-form"
       />
 
-      <section className="py-20 bg-sidqly-ivory">
+      <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-sidqly-navy mb-8">Tell Us About Your Organization</h1>
-            <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-              The detailed Sidqly inquiry form helps us understand your organization before we recommend a plan, pilot, or full setup. The more clearly you explain your current process and challenges, the better we can guide you.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-8 leading-tight">
+                Tell us about your organization.
+              </h1>
+              <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+                Fill the detailed inquiry form so the Sidqly team can understand your organization type, current tools, active services, and biggest operational challenges before recommending the right plan, pilot, or demo focus.
+              </p>
 
-            <div className="flex flex-col md:flex-row gap-4 mb-16">
-              <a
-                href="https://forms.gle/bvSMog9pw2Ri4kMt9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-grow flex items-center justify-center gap-3 p-5 bg-sidqly-green-emerald text-white rounded-2xl font-bold hover:bg-sidqly-green-deep transition-all shadow-lg"
-              >
-                <FileText size={24} />
-                Fill Detailed Inquiry Form
-              </a>
-              <a
-                href="https://calendly.com/d/dvzs-3zf-cgz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 p-5 bg-white border border-sidqly-green-soft text-sidqly-green-deep rounded-2xl font-bold hover:shadow-md transition-all"
-              >
-                <Calendar size={20} />
-                Book Demo
-              </a>
-              <a
-                href="mailto:team@sidqly.com?subject=Sidqly Inquiry"
-                className="flex items-center justify-center gap-3 p-5 bg-sidqly-ivory border border-gray-200 text-sidqly-navy rounded-2xl font-bold hover:bg-gray-100 transition-all"
-              >
-                <Mail size={20} />
-                Email Us
-              </a>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <div className="bg-white p-8 rounded-3xl border border-gray-100">
-                <h2 className="text-xl font-bold text-sidqly-navy mb-6">Why fill the form?</h2>
-                <ul className="space-y-4">
-                  {[
-                    "So we understand your organization type",
-                    "So we know which Sidqly modules you need",
-                    "So we can recommend the right plan",
-                    "So we can prepare better before the demo",
-                    "So we can understand your current pain points",
-                    "So we can guide you on pilot or full setup",
-                    "So we can avoid wasting your time on irrelevant features"
-                  ].map((item, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-gray-600">
-                      <CheckCircle size={18} className="text-sidqly-green-emerald flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-white p-8 rounded-3xl border border-gray-100">
-                <h2 className="text-xl font-bold text-sidqly-navy mb-6">What you can tell us</h2>
-                <ul className="space-y-4">
-                  {[
-                    "Your organization name",
-                    "Your country and city",
-                    "Your services (Zakat, Qurbani, etc.)",
-                    "Your current tools (WhatsApp, Excel, etc.)",
-                    "Your biggest operational challenge",
-                    "Your preferred Sidqly plan",
-                    "Whether you want a demo, pilot, or full setup"
-                  ].map((item, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-gray-600">
-                      <CheckCircle size={18} className="text-sidqly-gold flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-sidqly-navy text-white p-8 md:p-12 rounded-3xl">
-              <h2 className="text-2xl font-bold mb-8">What happens after you submit?</h2>
-              <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+              <div className="space-y-6 mb-12">
                 {[
-                  "The Sidqly team reviews your form",
-                  "We understand your organization's needs",
-                  "We may suggest the best plan or pilot",
-                  "We may guide you to book a demo",
-                  "We may email you for clarification",
-                  "We help you decide the next step"
+                  "Understand your current manual workflows",
+                  "Identify which Sidqly modules you need",
+                  "Estimate implementation and onboarding timelines",
+                  "Provide a customized pricing quote"
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-center">
-                    <span className="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-sidqly-gold font-bold text-xs">{i+1}</span>
-                    <span className="text-gray-300 text-sm">{item}</span>
+                  <div key={i} className="flex gap-4 items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                    <CheckCircle2 className="text-sidqly-green-emerald" size={20} />
+                    <span className="text-sidqly-navy font-bold text-sm">{item}</span>
                   </div>
                 ))}
               </div>
+
+              <div className="p-8 rounded-3xl bg-sidqly-green-deep text-white">
+                 <h4 className="font-bold text-xl mb-4">Why fill the form first?</h4>
+                 <p className="text-sidqly-green-soft text-sm leading-relaxed mb-8">
+                    By sharing your details upfront, we can make our first conversation significantly more productive and focused on your real-world problems.
+                 </p>
+                 <Link to="/why-fill-the-form" className="inline-flex items-center gap-2 text-white font-bold hover:gap-3 transition-all">
+                    Learn more about our process <ArrowRight size={18} />
+                 </Link>
+              </div>
+            </div>
+
+            <div className="bg-white p-4 rounded-[40px] shadow-2xl border border-gray-100 min-h-[500px] flex flex-col">
+               <div className="p-8 text-center flex-grow flex flex-col justify-center">
+                  <div className="w-20 h-20 bg-sidqly-ivory rounded-3xl flex items-center justify-center text-sidqly-green-deep mx-auto mb-8">
+                     <FileText size={40} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-sidqly-navy mb-4">Ready to share details?</h3>
+                  <p className="text-gray-500 mb-10 leading-relaxed max-w-sm mx-auto">
+                    Our detailed inquiry form is hosted on Google Forms for secure and easy submission.
+                  </p>
+                  <a
+                    href={brand.inquiryFormUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-sidqly-green-emerald text-white px-10 py-5 rounded-2xl text-lg font-bold hover:shadow-xl transition-all inline-block w-full"
+                  >
+                    Open Google Inquiry Form
+                  </a>
+               </div>
+               <div className="p-6 border-t border-gray-50 text-center flex justify-center gap-6">
+                  <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold flex items-center gap-1.5">
+                     <div className="w-1.5 h-1.5 rounded-full bg-sidqly-green-emerald"></div> SECURE SUBMISSION
+                  </div>
+                  <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold flex items-center gap-1.5">
+                     <div className="w-1.5 h-1.5 rounded-full bg-sidqly-green-emerald"></div> MANUAL REVIEW
+                  </div>
+               </div>
             </div>
           </div>
         </div>

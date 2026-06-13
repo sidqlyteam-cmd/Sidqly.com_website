@@ -1,61 +1,47 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { brand } from '../config/brand';
 
 interface SEOProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   canonical?: string;
   ogType?: string;
-  ogImage?: string;
+  schema?: Record<string, unknown>;
 }
 
 const SEO: React.FC<SEOProps> = ({
   title,
-  description,
-  canonical = 'https://sidqly.com',
-  ogType = 'website',
-  ogImage = 'https://sidqly.com/brand/sidqly-og.svg'
+  description = "Verified giving. Protected dignity. Clear impact. The operating platform for modern Islamic organizations.",
+  canonical,
+  ogType = "website",
+  schema
 }) => {
-  const fullTitle = `${title} | Sidqly - Verified Giving`;
+  const fullTitle = title ? `${title} | ${brand.name}` : `${brand.name} | Verified Giving & Protected Dignity`;
+  const url = canonical ? `${brand.domain}${canonical}` : brand.domain;
 
   return (
     <Helmet>
-      {/* Basic Metadata */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonical} />
+      <link rel="canonical" href={url} />
 
-      {/* OpenGraph Metadata */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="Sidqly" />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={`${brand.domain}/brand/sidqly-og.svg`} />
 
-      {/* Twitter Metadata */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:image" content={`${brand.domain}/brand/sidqly-og.svg`} />
 
-      {/* Structured Data (JSON-LD) */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": ogType === 'website' ? "WebSite" : "SoftwareApplication",
-          "name": "Sidqly",
-          "url": "https://sidqly.com",
-          "description": description,
-          "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "PKR",
-            "price": "19000"
-          }
-        })}
-      </script>
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 };
