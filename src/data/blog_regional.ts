@@ -61,6 +61,9 @@ export const regionalBlogPosts: BlogPost[] = regionalTopics.map(topic => ({
   author: "Sidqly Team",
   readingTime: "7 min read",
   content: generateRegionalContent(topic),
+  perspective: "International charity director",
+  focusKeyword: topic.title,
+  tags: ["Regional", topic.region],
   faqs: [
     { question: `Does Sidqly support ${topic.region}?`, answer: `Yes, Sidqly is designed to support the operational needs of Islamic organizations across ${topic.region}.` },
     { question: "Is data migration available?", answer: "Yes, our team assists with migrating your current Excel and WhatsApp data to the Sidqly platform safely." },

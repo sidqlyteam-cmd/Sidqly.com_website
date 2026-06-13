@@ -39,12 +39,13 @@ export const generateFAQSchema = (faqs: { question: string; answer: string }[]) 
   }))
 });
 
-export const generateArticleSchema = (article: { title: string; description: string; date: string; author: string; url: string; image?: string }) => ({
+export const generateArticleSchema = (article: { title: string; description: string; date: string; modifiedDate?: string; author: string; url: string; image?: string }) => ({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": article.title,
   "description": article.description,
   "datePublished": article.date,
+  "dateModified": article.modifiedDate || article.date,
   "author": {
     "@type": "Person",
     "name": article.author
@@ -59,4 +60,15 @@ export const generateArticleSchema = (article: { title: string; description: str
   },
   "image": article.image || `${brand.domain}/brand/sidqly-og.svg`,
   "url": `${brand.domain}${article.url}`
+});
+
+export const generateBreadcrumbSchema = (items: { name: string; item: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": `${brand.domain}${item.item}`
+  }))
 });

@@ -1,3 +1,13 @@
+import { officialReferences } from './references';
+
+export type ArticleReference = {
+  title: string;
+  sourceName: string;
+  url: string;
+  accessedDate?: string;
+  note?: string;
+};
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -9,65 +19,87 @@ export interface BlogPost {
   readingTime: string;
   content: string;
   faqs: { question: string; answer: string }[];
+  focusKeyword?: string;
+  tags: string[];
+  perspective: string;
+  references?: ArticleReference[];
 }
 
 export const generateBlogContent = (topic: string) => {
   const title = topic.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   return `
-    <div class="blog-hero mb-12">
-      <p class="text-sidqly-green-emerald font-bold uppercase tracking-widest text-xs mb-2">Operations Guide</p>
-    </div>
-
-    <section class="intro mb-10">
-      <p class="text-xl text-gray-600 leading-relaxed italic border-l-4 border-sidqly-gold pl-6">
-        Managing ${title.toLowerCase()} is a critical responsibility for modern Islamic organizations. Transitioning from manual methods to a professional system is essential for maintaining trust and efficiency.
+    <section id="overview" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Overview</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Managing ${title.toLowerCase()} is a foundational responsibility for any organization handling charitable funds. In modern Islamic giving operations, moving from informal coordination to a structured platform is no longer optional—it is a requirement for maintaining the "Amanah" (trust) placed by donors and the dignity of recipients.
       </p>
     </section>
 
-    <section class="why-matters mb-10">
-      <h3 class="text-2xl font-bold text-sidqly-navy mb-4">Why This Matters</h3>
-      <p>Whether you are a mosque board or a charity leadership team, how you handle ${title.toLowerCase()} directly impacts your "Amanah" (trust) with donors. Inefficiency doesn't just cause staff burnout; it risks the dignity of those receiving help.</p>
+    <section id="the-problem" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">The Problem with Manual Workflows</h2>
+      <p class="mb-4">Many teams begin with WhatsApp groups, spreadsheets, and payment screenshots because they are easy to start. However, the problem appears later, when campaigns grow and complexity increases.</p>
+      <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+        <p class="text-red-700 font-bold mb-2">Common Challenges:</p>
+        <ul class="list-disc pl-6 space-y-1 text-red-600">
+          <li>Scattered WhatsApp messages and lost payment screenshots.</li>
+          <li>Manual receipt creation causing delays and errors.</li>
+          <li>Privacy risks for requesters when field photos are shared without blurring.</li>
+          <li>Lack of board-ready reports in real-time.</li>
+        </ul>
+      </div>
     </section>
 
-    <section class="manual-method mb-10">
-      <h3 class="text-2xl font-bold text-sidqly-navy mb-4">Common Manual Method</h3>
-      <p>Most organizations currently rely on a mix of:</p>
-      <ul class="list-disc pl-6 space-y-2 text-gray-700">
-        <li>WhatsApp groups for rapid field coordination.</li>
-        <li>Excel or Google Sheets for donation and aid tracking.</li>
-        <li>Paper records for physical verification and signatures.</li>
-        <li>Bank screenshots and manual receipt folders.</li>
+    <section id="best-practices" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Best-Practice Workflow</h2>
+      <p class="mb-6">A professional operating approach focuses on clear separation of duties and automated verification gates. Organizations should aim for the following workflow standards:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="border border-gray-200 p-6 rounded-2xl">
+          <h4 class="font-bold text-sidqly-green-deep mb-2">1. Manual Review Gate</h4>
+          <p class="text-sm text-gray-600">Every financial transaction and payment screenshot must be manually reviewed by a dedicated team member before being marked as verified.</p>
+        </div>
+        <div class="border border-gray-200 p-6 rounded-2xl">
+          <h4 class="font-bold text-sidqly-green-deep mb-2">2. Dignity-Safe Proof</h4>
+          <p class="text-sm text-gray-600">Never show private recipient faces in public updates. Use automated blurring to protect recipient dignity while still providing proof of impact.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-sidqly-helps" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">How Sidqly Helps</h2>
+      <p class="mb-6">Sidqly is designed to help teams organize these steps in one premium operating platform. We replace the chaos of manual tools with specific modules for ${title.toLowerCase()}.</p>
+      <ul class="space-y-4 mb-8">
+        <li class="flex items-start gap-3">
+          <span class="bg-sidqly-green-emerald text-white p-1 rounded-full text-[10px]">✓</span>
+          <div>
+            <p class="font-bold text-sidqly-navy">Manual Payment Review</p>
+            <p class="text-sm text-gray-600">Centralize all payment screenshots and bank records for manual human verification.</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="bg-sidqly-green-emerald text-white p-1 rounded-full text-[10px]">✓</span>
+          <div>
+            <p class="font-bold text-sidqly-navy">Proof Trust Engine</p>
+            <p class="text-sm text-gray-600">Review field evidence and automatically blur faces before donors see them.</p>
+          </div>
+        </li>
       </ul>
     </section>
 
-    <section class="problems mb-10">
-      <h3 class="text-2xl font-bold text-sidqly-navy mb-4">Problems with Manual Systems</h3>
-      <p>While familiar, these tools are not built for the scale of modern Islamic giving. Common issues include lost data, unclear payment status, duplicate aid requests, and significant privacy risks when sharing un-blurred photos of recipients.</p>
-    </section>
-
-    <section class="practical-steps mb-10">
-      <h3 class="text-2xl font-bold text-sidqly-navy mb-4">Practical Steps to Improve</h3>
-      <ol class="list-decimal pl-6 space-y-4 text-gray-700 font-medium">
-        <li><strong>Centralize Intake:</strong> Use standardized forms to capture all requests in one place.</li>
-        <li><strong>Human-in-the-Loop:</strong> Ensure every financial transaction is reviewed by a dedicated team member.</li>
-        <li><strong>Standardize Proof:</strong> Define exactly what field evidence is required for every aid distribution.</li>
-        <li><strong>Protect Privacy:</strong> Implement a strict policy against sharing identifiable recipient faces.</li>
-      </ol>
-    </section>
-
-    <section class="sidqly-helps mb-10">
-      <h3 class="text-2xl font-bold text-sidqly-navy mb-4">How Sidqly Helps</h3>
-      <p>Sidqly is designed to replace the chaos of manual tools with a premium operating platform. Our modules for ${title.toLowerCase()} provide dedicated workflows, manual review gates, and board-ready reporting in seconds.</p>
-      <div class="bg-sidqly-ivory p-6 rounded-3xl border border-gray-100 mt-6">
-         <p class="text-sm font-bold text-sidqly-green-deep">Dignity and Privacy Note:</p>
-         <p class="text-xs text-gray-500 mt-2">Private recipient data is never exposed in public views. Sidqly enforces automated face-blurring for all impact proof shared with donors.</p>
-      </div>
+    <section id="conclusion" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Conclusion</h2>
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Managing ${title.toLowerCase()} through messages and spreadsheets can work for a small team, but it becomes difficult when orders, proof, and donor expectations increase. By adopting a clearer workflow that separates tracking, verification, and reporting, organizations can scale their impact without sacrificing trust.
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        Sidqly supports your team by providing the operational structure needed for modern Islamic giving. To explore how Sidqly can support your specific team, we recommend booking a demo or filling our detailed inquiry form.
+      </p>
     </section>
   `;
 };
 
 const slugs = [
-  "how-to-manage-mosque-donations",
+  { slug: "how-to-manage-mosque-donations", perspective: "Mosque leader", focusKeyword: "mosque donation management" },
   "how-to-track-zakat-donations",
   "how-to-manage-qurbani-orders",
   "how-to-track-ramadan-ration-packs",
@@ -152,23 +184,32 @@ const aiSearchTopics = [
   { slug: "how-sidqly-prepares-public-content-for-ai-search", title: "How Sidqly Prepares Content for the Future of Search" }
 ];
 
-export const blogPosts: BlogPost[] = slugs.map(slug => ({
-  slug,
-  title: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-  description: `A practical guide on ${slug.replace(/-/g, ' ')} for Islamic organizations looking to improve operational integrity and donor trust.`,
-  category: "Operations",
-  date: "2026-06-12",
-  modifiedDate: "2026-06-12",
-  author: "Sidqly Team",
-  readingTime: "6 min read",
-  content: generateBlogContent(slug),
-  faqs: [
-    { question: `Can Sidqly support ${slug.replace(/-/g, ' ')}?`, answer: "Yes, our modular platform provides specialized tools and workflows for this specific area of giving operations." },
+export const blogPosts: BlogPost[] = slugs.map(item => {
+  const slug = typeof item === 'string' ? item : item.slug;
+  const perspective = typeof item === 'string' ? "Islamic charity director" : item.perspective;
+  const focusKeyword = typeof item === 'string' ? slug.replace(/-/g, ' ') : item.focusKeyword;
+
+  return {
+    slug,
+    title: slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
+    description: `A practical guide on ${slug.replace(/-/g, ' ')} for Islamic organizations looking to improve operational integrity and donor trust.`,
+    category: "Operations",
+    date: "2026-06-12",
+    modifiedDate: "2026-06-12",
+    author: "Sidqly Team",
+    readingTime: "6 min read",
+    content: generateBlogContent(slug),
+    perspective,
+    focusKeyword,
+    tags: ["Operations", slug.split('-')[0].charAt(0).toUpperCase() + slug.split('-')[0].slice(1)],
+    faqs: [
+      { question: `Can Sidqly support ${slug.replace(/-/g, ' ')}?`, answer: "Yes, our modular platform provides specialized tools and workflows for this specific area of giving operations." },
     { question: "Is this suitable for small teams?", answer: "Absolutely. Sidqly is designed to scale from small local mosques to large international charities." },
     { question: "How does Sidqly protect privacy here?", answer: "Our Proof Trust Engine automatically blurs recipient identities and uses secure, non-indexed links for sharing impact updates." },
     { question: "Can we migrate our current Excel data?", answer: "Yes, the Sidqly team provides professional assistance for migrating your existing donor and aid seeker records." }
   ]
-}));
+  };
+});
 
 aiSearchTopics.forEach(topic => {
   blogPosts.push({
@@ -189,6 +230,10 @@ aiSearchTopics.forEach(topic => {
       <p>Focus on source-friendly content, valid JSON-LD schema, and specialized guidance files like llms.txt to ensure AI assistants can represent your product accurately.</p>
       <p><strong>Note:</strong> Sidqly does not claim guaranteed rankings. We believe in providing clear, professional information that is easy for both humans and machines to understand.</p>
     `,
+    perspective: "SaaS founder",
+    focusKeyword: topic.title,
+    tags: ["AI & SEO", "LLMO", "GEO"],
+    references: [officialReferences.googleSeoStarter, officialReferences.googleHelpfulContent],
     faqs: [
       { question: `What is ${topic.slug.replace(/-/g, ' ')}?`, answer: "It is a strategy focused on making website content more readable and authoritative for generative AI search engines." },
       { question: "Does Sidqly use these techniques?", answer: "Yes, our public website is built with a focus on AI-readiness, including structured data and crawlable markdown summaries." }

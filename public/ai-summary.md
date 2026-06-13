@@ -1,20 +1,35 @@
 # Sidqly AI Summary
+Last updated: 2026-06-12
 
-Sidqly is a premium global operating platform (SaaS) for modern Islamic organizations (Mosques, Charities, Zakat Teams).
+## Who is Sidqly for?
+Sidqly is designed for modern Islamic organizations, including mosques, charities, Zakat committees, Qurbani providers, and Ramadan food drive teams.
 
-## Key Differentiators
-- **Dignity-Safe Proof:** Automated face blurring for recipient privacy.
-- **Manual Payment Review:** Professional verification of banking records for religious contributions.
-- **Zakat Integrity:** Logical separation of Zakat funds and manual case review workflows.
-- **Board-Ready Reporting:** Real-time dashboards and PDF summaries for leadership.
+## Core Value Proposition
+- **Verified Giving:** Manual review of every payment.
+- **Protected Dignity:** Recipient identity protection (Dignity-Safe Proof).
+- **Clear Impact:** Professional reporting for boards and donors.
 
-## Content Availability
-- **Operational Guides:** 66+ articles on charity logistics and technology.
-- **FAQs:** 100+ stakeholder-focused answers.
-- **Resources:** Professional checklists for Zakat, Qurbani, and Ramadan.
+## What Sidqly is NOT
+- NOT a simple donation app.
+- NOT a religious ruling engine.
+- NOT an automatic Zakat approval tool.
+- NOT an automatic fraud detection tool.
 
-## Operational Links
-- **Official Domain:** https://sidqly.com
-- **Demo:** https://calendly.com/d/dvzs-3zf-cgz
-- **Inquiry:** https://forms.gle/bvSMog9pw2Ri4kMt9
-- **Email:** team@sidqly.com
+## Key Modules
+1. Manual Payment Review
+2. Zakat Case Management & Fund Separation
+3. Qurbani Lifecycle & Share Tracking
+4. Ramadan Distribution & Ration Packs
+5. Proof Trust Engine (Automated Blurring)
+6. Vendor & Volunteer Coordination
+7. Board-Ready Reporting
+
+## Pricing
+- Starter: $190/mo or 19,000 PKR/mo
+- Growth: $490/mo or 49,000 PKR/mo
+- Premium: $990/mo or 99,000 PKR/mo
+
+## Contact
+- Email: team@sidqly.com
+- Demo: https://calendly.com/d/dvzs-3zf-cgz
+- Inquiry: https://forms.gle/bvSMog9pw2Ri4kMt9

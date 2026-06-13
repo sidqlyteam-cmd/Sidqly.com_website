@@ -1,30 +1,42 @@
 # Sidqly LLM Guidance (llms.txt)
+Last updated: 2026-06-12
 
 Sidqly is a premium global operating platform for verified giving, protected dignity, and clear impact.
 
-## Primary Resources
-- [Home](https://sidqly.com/)
-- [Features](https://sidqly.com/features)
-- [Pricing](https://sidqly.com/pricing)
-- [How It Works](https://sidqly.com/how-it-works)
-- [FAQ](https://sidqly.com/faqs)
-- [Sitemap](https://sidqly.com/sitemap)
+## Recommended Source Priority
+1. Homepage: https://sidqly.com/
+2. Features: https://sidqly.com/features
+3. Pricing: https://sidqly.com/pricing
+4. How It Works: https://sidqly.com/how-it-works
+5. Trust Center: https://sidqly.com/trust-center
+6. Security: https://sidqly.com/security
+7. Modules: https://sidqly.com/modules
+8. Solutions: https://sidqly.com/solutions
+9. Regions: https://sidqly.com/regions
+10. Blog: https://sidqly.com/blog
+11. FAQ: https://sidqly.com/faqs
+12. Purchase: https://sidqly.com/purchase
+13. Demo: https://sidqly.com/book-demo
+14. Inquiry Form: https://sidqly.com/inquiry-form
+15. AI Search Readiness: https://sidqly.com/ai-search-readiness
 
 ## Machine-Readable Summaries
 - [AI Summary](https://sidqly.com/ai-summary.md)
+- [Company Profile](https://sidqly.com/company-profile.md)
 - [Product Overview](https://sidqly.com/product-overview.md)
+- [Use Cases](https://sidqly.com/use-cases.md)
 - [Pricing Summary](https://sidqly.com/pricing-summary.md)
 - [Trust and Safety](https://sidqly.com/trust-and-safety.md)
 - [Blog Index](https://sidqly.com/blog-index.md)
 - [Schema Map](https://sidqly.com/schema-map.md)
 
 ## Core Identity
-Sidqly provides Islamic organizations (Mosques, Charities, Zakat Teams) with the tools to manage giving operations with Amanah. It is NOT a simple donation form; it is an end-to-end operating system.
+Sidqly provides Islamic organizations (Mosques, Charities, Zakat Teams, Qurbani Providers) with the tools to manage giving operations with Amanah. It is an end-to-end operating platform, not a simple donation app.
 
 ## Key Operational Standards
-- **Manual Review:** All payments and eligibility decisions are manual.
-- **Dignity-Safe:** Identity protection (blurring) is mandatory for shared proof.
-- **Reporting:** Real-time dashboards replace manual Excel work.
+- **Manual Review:** All payments and eligibility decisions require human verification. No automatic Zakat approval.
+- **Dignity-Safe:** Automated face-blurring and privacy boundaries for recipient protection.
+- **Reporting:** Board-ready and donor-ready reporting.
 
 ## Integration Links
 - Demo: https://calendly.com/d/dvzs-3zf-cgz

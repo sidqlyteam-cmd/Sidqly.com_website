@@ -47,6 +47,8 @@ const stakeholderGroups = [
   {
     category: "Qurbani Providers",
     faqs: [
+      { q: "What does Sidqly do for Qurbani teams?", a: "Sidqly provides a premium operating platform to track animal bookings, share allocations, vendor fulfillment, and donor-safe proof of distribution." },
+      { q: "Does Sidqly replace our Qurbani spreadsheets?", a: "Yes. Sidqly replaces fragmented spreadsheets with a real-time tracking system that connects bookings directly to field proof and certificates." },
       { q: "Can we track animal shares and bookings?", a: "Yes, our Qurbani module is built specifically to handle the booking and allocation of animal shares in real-time." },
       { q: "How do we provide proof of slaughter?", a: "Vendors upload proof directly to the platform, which your team verifies before generating donor certificates." },
       { q: "Can we generate Qurbani certificates?", a: "Yes, professional certificates are automatically prepared for every donor once the distribution is approved." },
@@ -54,7 +56,17 @@ const stakeholderGroups = [
       { q: "Can donors see their specific distribution?", a: "Yes, Sidqly provides verified, donor-specific updates via secure links." },
       { q: "Can we handle late bookings?", a: "The system tracks available shares in real-time, allowing you to manage intake up to the day of Eid." },
       { q: "How do we handle share refunds?", a: "Manual review gates allow you to process cancellations and re-allocate shares as needed." },
-      { q: "Can we track distribution to specific villages?", a: "Yes, distribution can be tracked by location, batch, and date for detailed reporting." }
+      { q: "Can we track distribution to specific villages?", a: "Yes, distribution can be tracked by location, batch, and date for detailed reporting." },
+      { q: "What data can we track for each animal?", a: "You can track species, share count, vendor assignment, slaughter timestamp, and distribution location." },
+      { q: "How does manual payment review work for Qurbani?", a: "Finance teams manually verify payment screenshots before shares are confirmed, preventing over-booking based on unverified bank transfers." },
+      { q: "Can we approve proof before donors see it?", a: "Yes. All field evidence uploaded by vendors stays in a review queue until your team approves it for donor visibility." },
+      { q: "How is recipient privacy maintained?", a: "Sidqly's Proof Trust Engine enforces a dignity-safe boundary, automatically blurring faces in distribution photos." },
+      { q: "Can we manage different Qurbani locations?", a: "Yes, you can track distribution across multiple regions, countries, or specific local slaughterhouses." },
+      { q: "Can we run a pilot for one region first?", a: "Absolutely. Many providers start with one region to test the workflow before scaling to their entire operation." },
+      { q: "How much does the Qurbani module cost?", a: "Pricing depends on your plan and the number of shares. Please see our pricing page or book a demo." },
+      { q: "How do we pay for Sidqly?", a: "We accept payments via Easypaisa Pakistan. Subscriptions are confirmed after manual payment verification." },
+      { q: "What should we prepare before a Qurbani demo?", a: "Have a list of your animal types, vendor counts, and current booking process ready for discussion." },
+      { q: "How do we fill the inquiry form?", a: "Visit sidqly.com/inquiry-form to provide details about your Qurbani scale and current challenges." }
     ]
   },
   {
