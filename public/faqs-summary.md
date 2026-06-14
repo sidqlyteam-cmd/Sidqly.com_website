@@ -12,8 +12,9 @@ This summary provides answers to the most common queries about the Sidqly platfo
 - **Is payment review automatic?** No, every bank transfer/screenshot is reviewed manually for absolute accuracy.
 - **Are there automatic Zakat rulings?** No. We provide the tools, but humans make the final decisions.
 
-## Regional & Logistics
+## Pricing & Logistics
 - **Where is Sidqly available?** Globally, with specialized support for UK, USA, Europe, MENA, and South Asia.
+- **How does pricing work?** Sidqly uses USD public pricing. Starter launch price is $49/month, Growth launch price is $129/month, Premium launch price is $249/month. Enterprise is custom. Annual launch prices are available. No PKR pricing appears publicly.
 - **How do we pay?** After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions.
 - **Is there a demo?** Yes, via Calendly (https://calendly.com/d/dvzs-3zf-cgz).
 

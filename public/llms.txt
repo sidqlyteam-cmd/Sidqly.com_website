@@ -59,10 +59,11 @@ Sidqly provides Islamic organizations (Mosques, Charities, Zakat Teams, Qurbani 
 - **Reporting:** Audit-ready records and board-ready reporting.
 
 ## Public Pricing (USD Only)
-- Starter: $69/month
-- Growth: $179/month
-- Premium: $349/month
+- Starter: $49/month (Launch Pricing)
+- Growth: $129/month (Launch Pricing) - Most Popular
+- Premium: $249/month (Launch Pricing)
 - Enterprise: Custom
+- Annual launch prices available. Payment/onboarding instructions are shared after plan confirmation. No PKR pricing appears publicly.
 
 ## Integration Links
 - Demo: https://calendly.com/d/dvzs-3zf-cgz

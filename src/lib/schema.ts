@@ -20,9 +20,28 @@ export const generateSoftwareAppSchema = () => ({
   "operatingSystem": "Web",
   "applicationCategory": "BusinessApplication",
   "offers": {
-    "@type": "Offer",
-    "price": "69.00",
-    "priceCurrency": "USD"
+    "@type": "OfferCatalog",
+    "name": "Sidqly Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Starter Launch Offer",
+        "price": "49.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth Launch Offer",
+        "price": "129.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium Launch Offer",
+        "price": "249.00",
+        "priceCurrency": "USD"
+      }
+    ]
   }
 });
 

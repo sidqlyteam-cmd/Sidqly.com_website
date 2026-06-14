@@ -145,10 +145,26 @@ const generalCategories = [
   {
     category: "Pricing & Purchase",
     faqs: [
-      { q: "How does pricing work?", a: "We offer monthly and annual plans in USD. Pricing scales based on the number of modules and your organization's size." },
-      { q: "How do we pay?", a: "After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions." },
-      { q: "Can we book a demo first?", a: "Yes, we encourage all organizations to book a demo via Calendly to see how Sidqly fits their specific workflow." },
-      { q: "Why fill the inquiry form?", a: "The form helps us understand your organization's scale and service lines before our first strategy call." }
+      { q: "Why is Sidqly priced as SaaS?", a: "We provide an ongoing software platform with continuous improvements, security updates, and premium support, unlike one-off custom development." },
+      { q: "Is Sidqly cheaper than hiring manual admin help?", a: "Yes. Sidqly replaces hundreds of hours of manual receipt writing, WhatsApp follow-ups, and spreadsheet updates, usually costing far less than an additional full-time admin hire." },
+      { q: "What does Starter include?", a: "Starter includes 1 workspace, core campaign tracking, manual payment review, proof approval, basic reporting, and standard support." },
+      { q: "Why is Growth marked Most Popular?", a: "Growth offers the best balance of value, including multi-campaign support, Zakat separation, Qurbani lifecycle tools, and stronger board reporting, which fits most active charities." },
+      { q: "What is the difference between Growth and Premium?", a: "Premium adds advanced corporate sponsor reporting, QR verification workflows, implementation support, and multi-team coordination tools for larger operations." },
+      { q: "Can we start with one campaign first?", a: "Yes, many organizations start by using Sidqly for a single Ramadan or Qurbani campaign before rolling it out fully." },
+      { q: "Can we upgrade later?", a: "Absolutely. You can move from Starter to Growth or Premium as your organization scales." },
+      { q: "Can we choose annual billing?", a: "Yes, annual billing is available and highly recommended." },
+      { q: "Why does annual billing save money?", a: "Annual billing reduces our administrative and processing costs, so we pass those savings directly back to you." },
+      { q: "Is there a free plan?", a: "We do not offer a free plan. However, Sidqly may offer pilot discussions for suitable organizations during early rollout." },
+      { q: "Can we book a demo before paying?", a: "Yes, we highly encourage booking a demo to ensure our modules fit your specific workflow before you purchase." },
+      { q: "Should we fill the inquiry form first?", a: "Yes, the inquiry form helps our team understand your scale and needs so we can have a productive strategy discussion." },
+      { q: "How is payment handled?", a: "Payments are processed securely. Details are shared individually after your plan and rollout scope are confirmed." },
+      { q: "Are payment instructions shown publicly?", a: "No. Payment and onboarding instructions are shared after plan confirmation to ensure professional setup." },
+      { q: "Does Sidqly charge per donor?", a: "No, we do not charge a per-donor fee. Pricing is based on your module needs and organization scale." },
+      { q: "Does Sidqly charge per donation?", a: "We do not take a percentage cut of your donations. You keep 100% of your funds." },
+      { q: "Does pricing change based on modules?", a: "Yes. Starter gives you access to a limited core set, while Growth and Premium unlock specialized modules like Qurbani and Corporate reporting." },
+      { q: "Can corporate sponsors use Sidqly?", a: "Corporate sponsors use our reporting outputs, while the charity uses the platform to generate those board-ready summaries. Premium supports corporate CSR workflows perfectly." },
+      { q: "Is Enterprise custom?", a: "Yes, Enterprise is a custom agreement designed for large, multi-branch, or multi-country operations." },
+      { q: "Can small mosques use Sidqly?", a: "Yes! The Starter plan is specifically priced so small local mosques can afford professional, dignity-safe operations." }
     ]
   }
 ];
