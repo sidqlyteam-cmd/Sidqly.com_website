@@ -44,13 +44,26 @@ tsc -b
 This project is configured for deployment to Firebase Hosting and the custom domain `sidqly.com`.
 1. Ensure `firebase-tools` is installed globally.
 2. Run `npm run build`.
-3. Run `firebase deploy`.
+3. Run `firebase deploy --only hosting`.
+
+## Environment Setup (Google Analytics)
+To safely load Google Analytics (GA4) without hardcoding values in the public repo:
+1. Create your GA4 property and get your Measurement ID.
+2. Add the environment variable `VITE_GA_MEASUREMENT_ID=your_id` to your build environment.
+3. Run `npm run build` and deploy.
+If this variable is missing, the site will still build and work normally without throwing errors.
+
+## Post-Deploy Checklist
+- **Google Search Console**: Verify `sidqly.com`, submit `https://sidqly.com/sitemap.xml`.
+- **Bing Webmaster / Yandex**: Submit sitemap and verify robots.txt access.
+- **Verification**: Check that `robots.txt`, `llms.txt`, and XML sitemap are live and correct.
+- **Content Integrity**: Ensure no fake claims, test data, or developer jargon are present on public pages.
+- **Pricing**: Ensure public pricing remains **USD Only** as per brand standard.
 
 ## Official Links
 - **Calendly Demo:** https://calendly.com/d/dvzs-3zf-cgz
 - **Inquiry Form:** https://forms.gle/bvSMog9pw2Ri4kMt9
 - **Email:** team@sidqly.com
-- **IBAN (Easypaisa):** PK19TMFB0000000060685814
 
 ## Sitemap
-The website contains ~199 public routes. See `public/sitemap.xml` or visit `/sitemap` on the live site for a full list of blog articles, solutions, modules, and resources.
+The website contains 160+ public routes. See `public/sitemap.xml` or visit `/sitemap` on the live site for a full list of blog articles, solutions, modules, and resources.

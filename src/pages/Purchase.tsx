@@ -5,12 +5,12 @@ import { Mail, CreditCard, Calendar, FileText } from 'lucide-react';
 
 const Purchase: React.FC = () => {
   const steps = [
-    { title: "Review plans", desc: "Visit our pricing page to choose the right scale (USD or PKR) for your organization." },
+    { title: "Review plans", desc: "Visit our pricing page to choose the right scale for your organization." },
     { title: "Fill inquiry form", desc: "Provide details about your service lines, organization type, and operational goals." },
     { title: "Book demo", desc: "An optional but highly recommended step to see Sidqly's specialized modules in action." },
     { title: "Select plan", desc: "Confirm the right tier and rollout scope (e.g. pilot or full organization) with our team." },
     { title: "Confirm rollout scope", desc: "Finalize which modules and branches will be included in your initial setup." },
-    { title: "Make payment", desc: "Process your subscription or setup payment via our official Easypaisa IBAN." },
+    { title: "Make payment", desc: "After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions." },
     { title: "Email confirmation", desc: "Send your payment screenshot and organization details to team@sidqly.com." },
     { title: "Manual verification", desc: "The Sidqly team manually reviews and verifies your payment within 24 hours." },
     { title: "Onboarding begins", desc: "Access is granted and your professional onboarding and training journey starts." }
@@ -63,11 +63,7 @@ const Purchase: React.FC = () => {
                    <div className="space-y-6">
                       <div className="flex flex-col border-b border-white/10 pb-6">
                          <span className="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Payment Method</span>
-                         <span className="text-2xl font-bold">{brand.payment.method}</span>
-                      </div>
-                      <div className="flex flex-col border-b border-white/10 pb-6">
-                         <span className="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Official IBAN</span>
-                         <span className="text-xl font-mono font-bold break-all tracking-tight">{brand.payment.iban}</span>
+                         <span className="text-lg font-bold leading-relaxed text-sidqly-green-soft">Payment details and onboarding instructions are shared after plan confirmation.</span>
                       </div>
                    </div>
                    <div className="bg-white/5 p-8 rounded-3xl border border-white/10 flex flex-col items-center justify-center text-center">

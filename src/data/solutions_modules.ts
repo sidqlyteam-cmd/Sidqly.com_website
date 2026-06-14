@@ -13,7 +13,10 @@ export const modules = [
   { slug: "receipts-certificates", title: "Receipts & Certificates", desc: "Automated, branded donor documents." },
   { slug: "qr-code-verification", title: "QR/Code Verification", desc: "Instant validity checks for issued records." },
   { slug: "reports-board-packs", title: "Reports & Board Packs", desc: "One-click operational and financial summaries." },
-  { slug: "privacy-dignity-controls", title: "Privacy & Dignity Controls", desc: "Granular data boundaries and access logs." }
+  { slug: "privacy-dignity-controls", title: "Privacy & Dignity Controls", desc: "Granular data boundaries and access logs." },
+  { slug: "audit-ready-records", title: "Audit-Ready Records", desc: "Comprehensive action logs for compliance teams." },
+  { slug: "donor-communication", title: "Donor Communication", desc: "Automated but dignified recipient updates." },
+  { slug: "pilot-launch-support", title: "Pilot Launch Support", desc: "Guided onboarding for starting your digital journey safely." }
 ];
 
 export const solutions = [

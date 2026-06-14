@@ -100,6 +100,11 @@ const TrustCenter: React.FC = () => {
                 </div>
              </div>
           </div>
+          <div className="mt-12 p-6 bg-sidqly-green-soft/20 border border-sidqly-green-soft/50 rounded-2xl text-center">
+             <p className="text-sm font-bold text-sidqly-navy">
+                Sidqly supports operational tracking, proof review, reporting, and donor communication. Religious, legal, tax, and financial decisions remain with the organization's authorized reviewers, scholars, advisors, or policy team.
+             </p>
+          </div>
         </div>
       </section>
     </>

@@ -64,7 +64,7 @@ const stakeholderGroups = [
       { q: "Can we manage different Qurbani locations?", a: "Yes, you can track distribution across multiple regions, countries, or specific local slaughterhouses." },
       { q: "Can we run a pilot for one region first?", a: "Absolutely. Many providers start with one region to test the workflow before scaling to their entire operation." },
       { q: "How much does the Qurbani module cost?", a: "Pricing depends on your plan and the number of shares. Please see our pricing page or book a demo." },
-      { q: "How do we pay for Sidqly?", a: "We accept payments via Easypaisa Pakistan. Subscriptions are confirmed after manual payment verification." },
+      { q: "How do we pay for Sidqly?", a: "After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions." },
       { q: "What should we prepare before a Qurbani demo?", a: "Have a list of your animal types, vendor counts, and current booking process ready for discussion." },
       { q: "How do we fill the inquiry form?", a: "Visit sidqly.com/inquiry-form to provide details about your Qurbani scale and current challenges." }
     ]
@@ -139,14 +139,14 @@ const generalCategories = [
       { q: "What is Sidqly?", a: "Sidqly is a premium global operating platform for Islamic organizations to manage verified giving, dignity-safe proof, and board-ready reporting." },
       { q: "Is Sidqly a mosque website builder?", a: "No. While we provide donor-facing interfaces, Sidqly is an operational tool for the 'middle' and 'back' of your mission." },
       { q: "What countries does Sidqly support?", a: "Sidqly is an international platform designed for organizations across the UK, Europe, North America, MENA, and South Asia." },
-      { q: "Can Sidqly replace our existing CRM?", a: "Sidqly is focused on giving operations. It can complement your current donor database or act as a primary platform for organizations focused on impact verification." }
+      { q: "Can Sidqly replace our existing CRM?", a: "Sidqly is focused on giving operations. It can complement your current donor platform or act as a primary system for organizations focused on impact verification." }
     ]
   },
   {
     category: "Pricing & Purchase",
     faqs: [
-      { q: "How does pricing work?", a: "We offer monthly and annual plans in USD and PKR. Pricing scales based on the number of modules and your organization's size." },
-      { q: "How do we pay?", a: "Payments are made via Easypaisa Pakistan. We manually review every payment for professional onboarding." },
+      { q: "How does pricing work?", a: "We offer monthly and annual plans in USD. Pricing scales based on the number of modules and your organization's size." },
+      { q: "How do we pay?", a: "After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions." },
       { q: "Can we book a demo first?", a: "Yes, we encourage all organizations to book a demo via Calendly to see how Sidqly fits their specific workflow." },
       { q: "Why fill the inquiry form?", a: "The form helps us understand your organization's scale and service lines before our first strategy call." }
     ]

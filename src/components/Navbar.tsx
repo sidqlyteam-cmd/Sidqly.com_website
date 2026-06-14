@@ -31,22 +31,13 @@ const Navbar: React.FC = () => {
         { name: 'Zakat Separation', href: '/modules/zakat-fund-separation' },
         { name: 'Qurbani Lifecycle', href: '/modules/qurbani-lifecycle' },
         { name: 'Ramadan Meals', href: '/modules/ramadan-meals-rations' },
-        { name: 'View 15+ Modules', href: '/modules' },
-      ]
-    },
-    {
-      name: 'Regions',
-      href: '/regions',
-      children: [
-        { name: 'United Kingdom', href: '/regions/united-kingdom' },
-        { name: 'Europe', href: '/regions/europe' },
-        { name: 'North America', href: '/regions/north-america' },
-        { name: 'Gulf / MENA', href: '/regions/gulf-mena' },
-        { name: 'South Asia', href: '/regions/south-asia' },
+        { name: 'View All Modules', href: '/modules' },
       ]
     },
     { name: 'Pricing', href: '/pricing' },
-    { name: 'How it Works', href: '/how-it-works' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Resources', href: '/resources' },
+    { name: 'Trust', href: '/trust-center' },
   ];
 
   return (

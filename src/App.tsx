@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import MainLayout from './layout/MainLayout';
+import { ScrollToTop } from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
 import Features from './pages/Features';
 import HowItWorks from './pages/HowItWorks';
+import GA from './components/GA';
 import Pricing from './pages/Pricing';
 import FAQs from './pages/FAQs';
 import BookDemo from './pages/BookDemo';
@@ -68,6 +70,8 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <GA />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />

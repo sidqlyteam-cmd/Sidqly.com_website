@@ -21,8 +21,8 @@ export const generateSoftwareAppSchema = () => ({
   "applicationCategory": "BusinessApplication",
   "offers": {
     "@type": "Offer",
-    "price": "19000.00",
-    "priceCurrency": "PKR"
+    "price": "69.00",
+    "priceCurrency": "USD"
   }
 });
 

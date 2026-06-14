@@ -9,6 +9,19 @@ import { brand } from '../../config/brand';
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = allBlogPosts.find(p => p.slug === slug);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = `${totalScroll / windowHeight}`;
+
+      setScrollProgress(Number(scroll) * 100);
+    }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   if (!post) {
     return (
@@ -41,8 +54,21 @@ const BlogPost: React.FC = () => {
     alert('Link copied to clipboard!');
   };
 
+  const handleTocClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.pushState(null, '', `#${targetId}`);
+    }
+  };
+
   return (
     <>
+      <div
+        style={{ width: `${scrollProgress}%` }}
+        className="fixed top-0 left-0 h-1.5 bg-gradient-to-r from-sidqly-green-deep to-sidqly-green-emerald z-50 transition-all duration-300"
+      />
       <SEO
         title={post.title}
         description={post.description}
@@ -95,12 +121,12 @@ const BlogPost: React.FC = () => {
               <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100">
                 <h3 className="text-sm font-bold text-sidqly-navy uppercase tracking-widest mb-6 border-b border-gray-200 pb-2">Table of Contents</h3>
                 <nav className="space-y-4">
-                  <a href="#overview" className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> Overview</a>
-                  <a href="#the-problem" className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> The Problem</a>
-                  <a href="#best-practices" className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> Best Practices</a>
-                  <a href="#how-sidqly-helps" className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> How Sidqly Helps</a>
-                  <a href="#faqs" className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> FAQs</a>
-                  <a href="#conclusion" className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> Conclusion</a>
+                  <a href="#overview" onClick={(e) => handleTocClick(e, 'overview')} className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> Overview</a>
+                  <a href="#the-problem" onClick={(e) => handleTocClick(e, 'the-problem')} className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> The Problem</a>
+                  <a href="#best-practices" onClick={(e) => handleTocClick(e, 'best-practices')} className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> Best Practices</a>
+                  <a href="#how-sidqly-helps" onClick={(e) => handleTocClick(e, 'how-sidqly-helps')} className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> How Sidqly Helps</a>
+                  <a href="#faqs" onClick={(e) => handleTocClick(e, 'faqs')} className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> FAQs</a>
+                  <a href="#conclusion" onClick={(e) => handleTocClick(e, 'conclusion')} className="flex items-center gap-2 text-sm text-gray-600 hover:text-sidqly-green-emerald transition-colors"><ChevronRight size={14} /> Conclusion</a>
                 </nav>
               </div>
 

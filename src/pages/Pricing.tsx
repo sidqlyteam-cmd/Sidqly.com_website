@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import { pricing } from '../data/pricing';
@@ -6,14 +6,13 @@ import { Check, Info, ArrowRight, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Pricing: React.FC = () => {
-  const [currency, setCurrency] = useState<'USD' | 'PKR'>('USD');
-  const activePlans = currency === 'USD' ? pricing.international : pricing.local;
+  const activePlans = pricing.international;
 
   return (
     <>
       <SEO
-        title="International Pricing & Plans"
-        description="Choose the right Sidqly plan for your organization. Professional tools for mosques, charities, and Zakat teams with global USD and PKR pricing."
+        title="Pricing & Plans"
+        description="Choose the right Sidqly plan for your organization. Professional tools for mosques, charities, and Zakat teams."
         canonical="/pricing"
       />
 
@@ -26,25 +25,7 @@ const Pricing: React.FC = () => {
             </p>
           </div>
 
-          {/* Currency Toggle */}
-          <div className="flex justify-center mb-16">
-             <div className="bg-white p-1.5 rounded-2xl border border-gray-100 shadow-sm flex gap-1">
-                <button
-                  onClick={() => setCurrency('USD')}
-                  className={`px-8 py-3 rounded-xl font-bold text-sm transition-all ${currency === 'USD' ? 'bg-sidqly-green-deep text-white shadow-lg' : 'text-gray-400 hover:text-sidqly-navy'}`}
-                >
-                  Global (USD)
-                </button>
-                <button
-                  onClick={() => setCurrency('PKR')}
-                  className={`px-8 py-3 rounded-xl font-bold text-sm transition-all ${currency === 'PKR' ? 'bg-sidqly-green-deep text-white shadow-lg' : 'text-gray-400 hover:text-sidqly-navy'}`}
-                >
-                  Pakistan (PKR)
-                </button>
-             </div>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 mb-24">
+          <div className="grid lg:grid-cols-3 gap-8 mb-24 mt-16">
             {activePlans.map((plan) => (
               <div key={plan.name} className={`bg-white rounded-[40px] p-10 shadow-sm border transition-all hover:shadow-xl ${plan.popular ? 'border-sidqly-green-emerald ring-4 ring-sidqly-green-soft/20 relative' : 'border-gray-100'}`}>
                 {plan.popular && (

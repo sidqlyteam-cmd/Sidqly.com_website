@@ -14,7 +14,7 @@ This summary provides answers to the most common queries about the Sidqly platfo
 
 ## Regional & Logistics
 - **Where is Sidqly available?** Globally, with specialized support for UK, USA, Europe, MENA, and South Asia.
-- **How do we pay?** via Easypaisa Pakistan (IBAN provided in billing section).
+- **How do we pay?** After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions.
 - **Is there a demo?** Yes, via Calendly (https://calendly.com/d/dvzs-3zf-cgz).
 
 ## Stakeholders

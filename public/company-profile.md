@@ -4,7 +4,8 @@
 - **Tagline:** Verified giving. Protected dignity. Clear impact.
 - **Mission:** To provide Islamic organizations with the technology and operational standards required to manage giving with trust and clarity.
 - **Key Leadership Areas:** Zakat Operations, Qurbani Management, Ramadan Logistics, Corporate CSR.
-- **Core Platform:** Sidqly Operating System v1.5.
+- **Core Platform:** Sidqly Operating System.
+- **Pricing:** Starter ($69/month), Growth ($179/month), Premium ($349/month). USD pricing globally.
 - **HQ:** Digital-first operations, supporting international markets.
 - **Contact:** team@sidqly.com
 - **Website:** https://sidqly.com

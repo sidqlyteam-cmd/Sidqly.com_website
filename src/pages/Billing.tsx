@@ -21,11 +21,7 @@ const Billing: React.FC = () => {
                   <div className="bg-sidqly-ivory p-8 rounded-3xl space-y-6">
                      <div className="flex flex-col sm:flex-row justify-between border-b border-gray-200 pb-4">
                         <span className="text-gray-500 font-medium">Payment Method</span>
-                        <span className="font-bold text-sidqly-navy">{brand.payment.method}</span>
-                     </div>
-                     <div className="flex flex-col sm:flex-row justify-between border-b border-gray-200 pb-4">
-                        <span className="text-gray-500 font-medium">IBAN</span>
-                        <span className="font-bold text-sidqly-navy break-all">{brand.payment.iban}</span>
+                        <span className="font-bold text-sidqly-navy">Shared after plan confirmation</span>
                      </div>
                      <div className="flex flex-col sm:flex-row justify-between border-b border-gray-200 pb-4">
                         <span className="text-gray-500 font-medium">Confirmation Email</span>
@@ -41,7 +37,7 @@ const Billing: React.FC = () => {
                   <div className="space-y-6">
                      {[
                         { title: "Choose a plan", desc: "Select the plan that matches your current organization scale." },
-                        { title: "Make payment", desc: "Transfer the amount to our official Easypaisa IBAN." },
+                        { title: "Make payment", desc: "After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions." },
                         { title: "Email proof", desc: "Send your payment confirmation to team@sidqly.com." },
                         { title: "Verification", desc: "Our team will manually review and verify your payment within 24 hours." },
                         { title: "Setup", desc: "Access is granted and your custom onboarding process begins." }
@@ -68,6 +64,12 @@ const Billing: React.FC = () => {
                <a href={`mailto:${brand.email}`} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all inline-block">
                   Email Billing Support
                </a>
+            </div>
+
+            <div className="mt-12 p-6 bg-sidqly-green-soft/20 border border-sidqly-green-soft/50 rounded-2xl text-center not-prose">
+               <p className="text-sm font-bold text-sidqly-navy">
+                  Sidqly supports operational tracking, proof review, reporting, and donor communication. Religious, legal, tax, and financial decisions remain with the organization's authorized reviewers, scholars, advisors, or policy team.
+               </p>
             </div>
           </div>
         </div>
