@@ -12,8 +12,8 @@ export const brand = {
     emailInquiry: "mailto:team@sidqly.com?subject=Sidqly%20Inquiry"
   },
   payment: {
-    method: "Easypaisa Pakistan",
-    iban: "PK19TMFB0000000060685814",
+    method: "Shared after plan confirmation",
+    iban: "Shared after plan confirmation",
     confirmationEmail: "team@sidqly.com"
   },
   colors: {

@@ -4,14 +4,15 @@ Sidqly is built on the principle of **Amanah** (Trust). Every feature is designe
 
 ## The Proof Trust Engine
 - Sidqly uses a specialized workflow to collect, verify, and share impact proof.
-- **Recipient Dignity:** Face-blurring and logical identifier masking are mandatory for shared proof.
+- **Recipient Dignity:** Face-blurring and logical identifier masking are mandatory for shared proof (Dignity-first proof sharing).
 - **Verification:** Field evidence must be reviewed manually before it is visible to donors.
 
 ## Financial Integrity
-- **Manual Payment Review:** We reject automatic verification of religious contributions. Every donation status is set manually by an authorized team member after verifying bank records.
+- **Manual Payment Review:** We reject automatic verification of religious contributions. Every donation status is set manually by an authorized team member after verifying bank records. No automatic Zakat approval. No automatic fraud detection.
 - **Zakat Fund Separation:** Logical filters ensure Zakat and Sadaqah funds remain separate throughout the intake and disbursement lifecycle.
 
 ## Data Governance
+- **Audit-ready records:** Detailed logs ensure compliance and readiness for board reporting.
 - **Logical Isolation:** Customer data is logically separated and encrypted at rest.
 - **Role-Based Access:** Team members only see the data required for their specific role (e.g., Vendor, Case Worker, Board Member).
 - **No Public Indexing:** Impact updates and private donor links are not indexed by search engines.

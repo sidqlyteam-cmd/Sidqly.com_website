@@ -25,9 +25,10 @@ Sidqly is designed for modern Islamic organizations, including mosques, charitie
 7. Board-Ready Reporting
 
 ## Pricing
-- Starter: $190/mo or 19,000 PKR/mo
-- Growth: $490/mo or 49,000 PKR/mo
-- Premium: $990/mo or 99,000 PKR/mo
+- Starter: $69/mo
+- Growth: $179/mo
+- Premium: $349/mo
+- Enterprise: Custom
 
 ## Contact
 - Email: team@sidqly.com

@@ -20,9 +20,28 @@ export const generateSoftwareAppSchema = () => ({
   "operatingSystem": "Web",
   "applicationCategory": "BusinessApplication",
   "offers": {
-    "@type": "Offer",
-    "price": "19000.00",
-    "priceCurrency": "PKR"
+    "@type": "OfferCatalog",
+    "name": "Sidqly Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Starter Launch Offer",
+        "price": "49.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth Launch Offer",
+        "price": "129.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium Launch Offer",
+        "price": "249.00",
+        "priceCurrency": "USD"
+      }
+    ]
   }
 });
 
@@ -70,5 +89,24 @@ export const generateBreadcrumbSchema = (items: { name: string; item: string }[]
     "position": index + 1,
     "name": item.name,
     "item": `${brand.domain}${item.item}`
+  }))
+});
+
+export const generateCollectionSchema = (title: string, description: string, url: string) => ({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": title,
+  "description": description,
+  "url": `${brand.domain}${url}`
+});
+
+export const generateItemListSchema = (items: { name: string; url: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "url": `${brand.domain}${item.url}`,
+    "name": item.name
   }))
 });

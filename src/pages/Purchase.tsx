@@ -1,19 +1,18 @@
 import React from 'react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
-import { Mail, CreditCard, Calendar, FileText } from 'lucide-react';
+import { Mail, CreditCard, Calendar, FileText, CheckCircle2 } from 'lucide-react';
 
 const Purchase: React.FC = () => {
   const steps = [
-    { title: "Review plans", desc: "Visit our pricing page to choose the right scale (USD or PKR) for your organization." },
+    { title: "Compare plans", desc: "Review our pricing page to choose the right scale (Starter, Growth, Premium) for your organization." },
     { title: "Fill inquiry form", desc: "Provide details about your service lines, organization type, and operational goals." },
-    { title: "Book demo", desc: "An optional but highly recommended step to see Sidqly's specialized modules in action." },
-    { title: "Select plan", desc: "Confirm the right tier and rollout scope (e.g. pilot or full organization) with our team." },
-    { title: "Confirm rollout scope", desc: "Finalize which modules and branches will be included in your initial setup." },
-    { title: "Make payment", desc: "Process your subscription or setup payment via our official Easypaisa IBAN." },
-    { title: "Email confirmation", desc: "Send your payment screenshot and organization details to team@sidqly.com." },
-    { title: "Manual verification", desc: "The Sidqly team manually reviews and verifies your payment within 24 hours." },
-    { title: "Onboarding begins", desc: "Access is granted and your professional onboarding and training journey starts." }
+    { title: "Book a demo (if needed)", desc: "An optional but highly recommended step to see Sidqly's specialized modules in action." },
+    { title: "Choose plan", desc: "Select your desired tier and inform our team." },
+    { title: "Confirm modules and rollout scope", desc: "Finalize which modules and branches will be included in your initial setup." },
+    { title: "Receive payment instructions", desc: "Sidqly shares exact payment and onboarding instructions after plan confirmation." },
+    { title: "Manual verification", desc: "The Sidqly team manually reviews and verifies your payment." },
+    { title: "Setup or pilot begins", desc: "Access is granted and your professional onboarding and training journey starts." }
   ];
 
   return (
@@ -63,28 +62,18 @@ const Purchase: React.FC = () => {
                    <div className="space-y-6">
                       <div className="flex flex-col border-b border-white/10 pb-6">
                          <span className="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Payment Method</span>
-                         <span className="text-2xl font-bold">{brand.payment.method}</span>
-                      </div>
-                      <div className="flex flex-col border-b border-white/10 pb-6">
-                         <span className="text-gray-400 text-xs uppercase tracking-widest font-bold mb-2">Official IBAN</span>
-                         <span className="text-xl font-mono font-bold break-all tracking-tight">{brand.payment.iban}</span>
+                         <span className="text-lg font-bold leading-relaxed text-sidqly-green-soft">Payment details and onboarding instructions are shared after plan confirmation.</span>
                       </div>
                    </div>
                    <div className="bg-white/5 p-8 rounded-3xl border border-white/10 flex flex-col items-center justify-center text-center">
                       <div className="w-16 h-16 bg-sidqly-green-emerald/20 rounded-full flex items-center justify-center text-sidqly-green-soft mb-6">
-                         <Mail size={32} />
+                         <CheckCircle2 size={32} />
                       </div>
-                      <div className="text-sm text-gray-400 font-bold uppercase tracking-widest mb-2">Confirmation Email</div>
-                      <div className="text-xl font-bold text-sidqly-green-soft">{brand.payment.confirmationEmail}</div>
-                      <p className="mt-4 text-xs text-gray-500 leading-relaxed italic">
-                         Email your payment screenshot, organization name, and selected plan for manual verification.
+                      <div className="text-sm text-gray-400 font-bold uppercase tracking-widest mb-2">Manual Verification</div>
+                      <p className="mt-4 text-sm text-gray-300 leading-relaxed italic">
+                         "Sidqly payments are manually reviewed. Subscription, onboarding, or setup is confirmed only after our team verifies the transaction."
                       </p>
                    </div>
-                </div>
-                <div className="p-6 bg-sidqly-green-soft/10 rounded-2xl border border-sidqly-green-soft/20">
-                   <p className="text-sm text-sidqly-green-soft italic text-center">
-                     "Sidqly payments are manually reviewed. Subscription, onboarding, or setup is confirmed only after our team verifies the funds."
-                   </p>
                 </div>
              </div>
           </div>

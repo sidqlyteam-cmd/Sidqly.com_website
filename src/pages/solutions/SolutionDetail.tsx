@@ -5,6 +5,14 @@ import { solutions } from '../../data/solutions_modules';
 import { brand } from '../../config/brand';
 import { CheckCircle2, ArrowRight, Globe } from 'lucide-react';
 
+import QurbaniLifecycle from '../../components/diagrams/QurbaniLifecycle';
+import RamadanLifecycle from '../../components/diagrams/RamadanLifecycle';
+import VendorLifecycle from '../../components/diagrams/VendorLifecycle';
+import VolunteerLifecycle from '../../components/diagrams/VolunteerLifecycle';
+import CorporateLifecycle from '../../components/diagrams/CorporateLifecycle';
+import SadaqahLifecycle from '../../components/diagrams/SadaqahLifecycle';
+import ZakatLifecycle from '../../components/diagrams/ZakatLifecycle';
+
 const SolutionDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const solution = solutions.find(s => s.slug === slug);
@@ -64,11 +72,88 @@ const SolutionDetail: React.FC = () => {
             </div>
             <div className="bg-sidqly-ivory aspect-video rounded-3xl border border-gray-100 flex items-center justify-center relative overflow-hidden">
                <div className="absolute inset-0 bg-gradient-to-br from-sidqly-green-soft/10 to-transparent"></div>
-               <div className="relative text-center p-8">
-                  <div className="text-sidqly-navy font-bold text-lg mb-2">Sidqly Operating Platform</div>
-                  <div className="text-gray-400 text-sm uppercase tracking-widest font-medium">Dashboard Preview</div>
+               <div className="relative text-center p-8 w-full">
+                  {slug === 'qurbani-providers' && <QurbaniLifecycle />}
+                  {slug === 'ramadan-food-drives' && <RamadanLifecycle />}
+                  {slug === 'vendors' && <VendorLifecycle />}
+                  {slug === 'volunteers' && <VolunteerLifecycle />}
+                  {slug === 'corporate-csr-zakat' && <CorporateLifecycle />}
+                  {slug === 'zakat-teams' && <ZakatLifecycle />}
+                  {slug === 'islamic-charities' && <SadaqahLifecycle />}
+                  {(!['qurbani-providers', 'ramadan-food-drives', 'vendors', 'volunteers', 'corporate-csr-zakat', 'zakat-teams', 'islamic-charities'].includes(slug || '')) && (
+                    <>
+                      <div className="text-sidqly-navy font-bold text-lg mb-2">Sidqly Operating Platform</div>
+                      <div className="text-gray-400 text-sm uppercase tracking-widest font-medium">Dashboard Preview</div>
+                    </>
+                  )}
                </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-sidqly-navy mb-8 text-center">What you get with Sidqly</h2>
+          <div className="max-w-3xl mx-auto space-y-4">
+             {slug === 'mosques' && (
+                <>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Organized donations</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Clearer receipts</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Ramadan and Zakat campaign visibility</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Donor trust</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Less manual follow-up</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Board-ready summaries</span></div>
+                </>
+             )}
+             {slug === 'islamic-charities' && (
+                <>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Charity request workflows</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Privacy-safe case handling</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Proof approval</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Donor-ready reports</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Vendor/volunteer coordination</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Audit-ready records</span></div>
+                </>
+             )}
+             {slug === 'donors' && (
+                <>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Clearer updates</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Safe proof</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Receipts/certificates where available</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Confidence that private recipient data is protected</span></div>
+                </>
+             )}
+             {slug === 'vendors' && (
+                <>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Clear tasks</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Proof upload path</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Fewer scattered messages</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Issue reporting</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Organized fulfillment history</span></div>
+                </>
+             )}
+             {slug === 'volunteers' && (
+                <>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Assignments</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Clear delivery steps</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Proof instructions</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Contribution visibility</span></div>
+                </>
+             )}
+             {slug === 'corporate-csr-zakat' && (
+                <>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Board-ready reports</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Safe impact summaries</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Sponsor-level visibility</span></div>
+                  <div className="flex items-start gap-4 bg-sidqly-ivory p-6 rounded-2xl border border-gray-50"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /><span className="text-gray-700">Proof without exposing private recipient data</span></div>
+                </>
+             )}
+             {(!['mosques', 'islamic-charities', 'donors', 'vendors', 'volunteers', 'corporate-csr-zakat'].includes(slug || '')) && (
+                <div className="flex items-center justify-center p-6 bg-sidqly-ivory rounded-2xl border border-gray-50">
+                    <span className="text-gray-600 font-medium">Clear workflows, donor-safe proof, and audit-ready records.</span>
+                </div>
+             )}
           </div>
         </div>
       </section>

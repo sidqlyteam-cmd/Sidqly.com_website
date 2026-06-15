@@ -1,16 +1,22 @@
 # Sidqly Schema Map (AI Readable)
 
-This document maps the JSON-LD structured data used across `sidqly.com` to assist LLMs in identifying core data entities.
+Sidqly uses structured data (Schema.org) to ensure our platform structure and values are legible to modern search engines and AI assistants.
 
 ## Main Entities
 - **SoftwareApplication:** Represented on the homepage and features page. Includes name "Sidqly", applicationCategory "BusinessApplication", and operationalType "SaaS".
-- **Product / Offer:** Represented on /pricing. Includes Starter, Growth, and Premium tiers with priceSpecification in USD and PKR.
+- **Product / Offer:** Represented on /pricing. Includes Starter, Growth, and Premium tiers with priceSpecification in USD.
 - **FAQPage:** Used on /faqs and major solution pages. Maps specific questions to authoritative answers.
 - **Organization:** Found in the site footer and /about. Links to official domain and social profiles.
 - **Article / BlogPosting:** Used for all 66 articles. Includes headline, author, datePublished, and mainEntityOfPage.
-- **Service:** Used on solution pages (e.g., Zakat Management Service, Qurbani Management Service).
-- **HowTo:** Used on /how-it-works to define the 12-step operational journey.
-- **BreadcrumbList:** Used on all nested pages for clear hierarchical mapping.
+- **BreadcrumbList:** Used across the site for clear navigation paths.
+- **WebSite:** Defines the overall structure of sidqly.com.
+- **OfferCatalog:** Can group different solutions and modules together.
+- **Service:** Represents operational offerings to specific stakeholders.
+- **CollectionPage:** Used for indices like /blog, /modules, /solutions, /regions.
+- **ContactPage:** Used on /contact and /inquiry-form.
+- **AboutPage:** Used on /about and /trust-center.
+- **HowTo:** Used to describe lifecycles and operational guides.
+- **ItemList:** Used for lists of articles or modules.
 
-## Compliance
-All schema markup follows schema.org standards and is validated for AI search engines like Google Search (Generative Experience) and Bing.
+## Integrity Standard
+We do NOT use fake reviews, fake ratings, fake testimonials, fake customer names, fake phone numbers, fake addresses, fake certifications, or fake local offices in our schema markup. We also only feature our official USD pricing.

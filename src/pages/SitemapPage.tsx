@@ -10,6 +10,7 @@ const SitemapPage: React.FC = () => {
     { name: 'Home', path: '/', icon: LayoutGrid },
     { name: 'Features', path: '/features', icon: Star },
     { name: 'How It Works', path: '/how-it-works', icon: Zap },
+    { name: 'Modules', path: '/modules', icon: Settings },
     { name: 'Pricing', path: '/pricing', icon: CreditCard },
     { name: 'Book Demo', path: '/book-demo', icon: Users },
     { name: 'Trust Center', path: '/trust-center', icon: Shield },
@@ -24,6 +25,7 @@ const SitemapPage: React.FC = () => {
   ];
 
   const regionPages = [
+    { name: 'Global Regions', path: '/regions' },
     { name: 'United Kingdom', path: '/regions/united-kingdom' },
     { name: 'North America', path: '/regions/north-america' },
     { name: 'Europe', path: '/regions/europe' },
@@ -33,6 +35,7 @@ const SitemapPage: React.FC = () => {
   ];
 
   const solutionPages = [
+    { name: 'All Solutions', path: '/solutions' },
     { name: 'Mosques', path: '/solutions/mosques' },
     { name: 'Islamic Charities', path: '/solutions/islamic-charities' },
     { name: 'Qurbani Providers', path: '/solutions/qurbani-providers' },
@@ -41,6 +44,8 @@ const SitemapPage: React.FC = () => {
     { name: 'Corporate CSR/Zakat', path: '/solutions/corporate-csr-zakat' },
     { name: 'Vendors', path: '/solutions/vendors' },
     { name: 'Volunteers', path: '/solutions/volunteers' },
+    { name: 'Community Welfare', path: '/solutions/community-welfare-teams' },
+    { name: 'Donors', path: '/solutions/donors' },
   ];
 
   return (
@@ -70,14 +75,14 @@ const SitemapPage: React.FC = () => {
               </ul>
             </div>
 
-            {/* Regions & Solutions */}
+            {/* Product & Solutions */}
             <div>
               <h2 className="text-lg font-bold mb-6 flex items-center gap-2 border-b border-gray-200 pb-2">
-                <MapPin size={20} className="text-sidqly-green-emerald" /> Regions & Solutions
+                <MapPin size={20} className="text-sidqly-green-emerald" /> Product & Solutions
               </h2>
-              <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Global Regions</h3>
+              <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Stakeholder Solutions</h3>
               <ul className="space-y-3 mb-8">
-                {regionPages.map(page => (
+                {solutionPages.map(page => (
                   <li key={page.path}>
                     <Link to={page.path} className="text-gray-600 hover:text-sidqly-green-emerald transition-colors flex items-center gap-2 text-sm group">
                       <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" /> {page.name}
@@ -85,9 +90,9 @@ const SitemapPage: React.FC = () => {
                   </li>
                 ))}
               </ul>
-              <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Stakeholder Solutions</h3>
+              <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Global Regions</h3>
               <ul className="space-y-3">
-                {solutionPages.map(page => (
+                {regionPages.map(page => (
                   <li key={page.path}>
                     <Link to={page.path} className="text-gray-600 hover:text-sidqly-green-emerald transition-colors flex items-center gap-2 text-sm group">
                       <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" /> {page.name}

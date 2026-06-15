@@ -11,12 +11,11 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-8">
-              <img src="/brand/sidqly-mark.svg" alt="Sidqly" className="h-12 w-12 brightness-0 invert" />
-              <span className="text-3xl font-extrabold tracking-tighter">Sidqly</span>
+            <Link to="/" className="inline-block mb-8 hover:opacity-90 transition-opacity">
+              <img src="/brand/sidqly-logo-light-text.svg" alt="Sidqly" className="h-10 w-auto" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-xs">
-              The international operating standard for verified giving, protected dignity, and clear impact. Audit-ready and donor-safe.
+              Verified giving. Protected dignity. Clear impact. The international operating standard for Islamic organizations.
             </p>
             <div className="space-y-4">
               <a href={brand.calendlyUrl} className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold">

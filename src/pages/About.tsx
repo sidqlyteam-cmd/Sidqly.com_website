@@ -6,7 +6,17 @@ import { ShieldCheck, Heart, BarChart } from 'lucide-react';
 const About: React.FC = () => {
   return (
     <>
-      <SEO title="About Sidqly" canonical="/about" />
+      <SEO
+        title="About Sidqly"
+        canonical="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Sidqly",
+          "url": `${brand.domain}/about`,
+          "description": "Sidqly provides Islamic organizations with the technology and operational standards required to manage giving with trust and clarity."
+        }}
+      />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">

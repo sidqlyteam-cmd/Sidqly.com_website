@@ -29,7 +29,7 @@ const ManualPaymentReview: React.FC = () => {
             <div className="w-20 h-20 bg-sidqly-green-soft/20 rounded-3xl flex items-center justify-center border border-sidqly-green-soft/50 mx-auto mb-4">
                <div className="w-10 h-10 bg-sidqly-green-emerald rounded-full flex items-center justify-center font-bold text-white">✓</div>
             </div>
-            <div className="text-sidqly-navy font-bold text-sm">Team Verifies IBAN</div>
+            <div className="text-sidqly-navy font-bold text-sm">Team Verifies Transfer</div>
             <div className="text-gray-400 text-[10px] uppercase tracking-widest mt-1">Status: Confirmed</div>
          </div>
       </div>

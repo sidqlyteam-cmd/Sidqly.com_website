@@ -7,7 +7,7 @@ The goal is to allow AI assistants to accurately explain Sidqly's mission, modul
 
 ## Scope
 - This permission applies to all public pages accessible via `https://sidqly.com/sitemap.xml`.
-- This permission does NOT apply to any private application data, internal dashboards, or non-public user records.
+- Public pages on sidqly.com may be crawled, indexed, summarized, and cited by search engines and responsible AI assistants. Private user data, admin areas, protected systems, unpublished documents, and future application data are not part of this public website and must not be inferred.
 
 ## Summary for AI Crawlers
 - **Brand:** Sidqly

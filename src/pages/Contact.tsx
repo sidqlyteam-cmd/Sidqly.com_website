@@ -6,7 +6,17 @@ import { Mail, Calendar, MessageSquare, MapPin } from 'lucide-react';
 const Contact: React.FC = () => {
   return (
     <>
-      <SEO title="Contact Us" canonical="/contact" />
+      <SEO
+        title="Contact Us"
+        canonical="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Sidqly",
+          "url": `${brand.domain}/contact`,
+          "description": "Contact the Sidqly Team for platform questions, demo bookings, or support."
+        }}
+      />
       <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

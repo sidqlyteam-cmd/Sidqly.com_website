@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   BarChart3, ShieldCheck, Heart, Beef, ShoppingBag,
-  MessageSquare, Layout, CheckCircle2, ArrowRight, Store, ClipboardCheck, QrCode, FileText
+  MessageSquare, Layout, CheckCircle2, ArrowRight, Store, ClipboardCheck, QrCode, FileText, Shield, Zap
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
@@ -111,14 +111,69 @@ const Modules: React.FC = () => {
       }
     },
     {
-      slug: "corporate-impact",
+      slug: "corporate-csr-zakat",
       icon: <FileText />,
-      title: "Corporate Impact",
-      desc: "Specialized tools for CSR and corporate Zakat programs.",
+      title: "Corporate CSR & Zakat",
+      desc: "Board-ready reports for institutional sponsors.",
       unique: {
         title: "Audit-Ready Corporate Reporting",
         focus: ["Employee giving logs", "Corporate-safe impact proof", "Matching program tracking", "Annual CSR reports", "Whitelabel reporting options"],
         text: "Support corporate sponsors with the professional reporting and verified impact data they need for their board and compliance teams."
+      }
+    },
+    {
+      slug: "receipts-certificates",
+      icon: <FileText />,
+      title: "Receipts & Certificates",
+      desc: "Automated, branded donor documents.",
+      unique: {
+        title: "Professional Donor Documents",
+        focus: ["Automated PDF generation", "Custom branding", "Tax-ready formats", "Instant email delivery", "Download portals"],
+        text: "Replace manual receipt writing with automated, branded documents that professionalize your donor experience."
+      }
+    },
+    {
+      slug: "privacy-dignity-controls",
+      icon: <Shield />,
+      title: "Privacy & Dignity Controls",
+      desc: "Granular data boundaries and access logs.",
+      unique: {
+        title: "Amanah-Safe Data Operations",
+        focus: ["Role-based access", "Automated face-blurring", "Data minimization", "Audit logging", "Secure sharing links"],
+        text: "Ensure the highest standards of dignity and privacy are built directly into your daily operational workflows."
+      }
+    },
+    {
+      slug: "audit-ready-records",
+      icon: <CheckCircle2 />,
+      title: "Audit-Ready Records",
+      desc: "Comprehensive action logs for compliance teams.",
+      unique: {
+        title: "Complete Operational Transparency",
+        focus: ["Timestamped action logs", "Approval tracking", "Financial reconciliation", "Exportable CSVs", "Compliance-ready data"],
+        text: "Be prepared for any internal or external review with automatic, comprehensive audit trails of every action."
+      }
+    },
+    {
+      slug: "donor-communication",
+      icon: <MessageSquare />,
+      title: "Donor Communication",
+      desc: "Automated but dignified recipient updates.",
+      unique: {
+        title: "Verified Impact Updates",
+        focus: ["Campaign progress tracking", "Dignity-safe proof links", "Automated milestone emails", "Donor portal", "Clear impact summaries"],
+        text: "Keep donors engaged with clear, verified updates that show the impact of their giving without compromising privacy."
+      }
+    },
+    {
+      slug: "pilot-launch-support",
+      icon: <Zap />,
+      title: "Pilot Launch Support",
+      desc: "Guided onboarding for starting your digital journey safely.",
+      unique: {
+        title: "Structured Transformation",
+        focus: ["Dedicated strategy sessions", "Workflow mapping", "Data migration support", "Team training", "Go-live assistance"],
+        text: "Don't just buy software. Get the operational support needed to successfully transition your team to a professional standard."
       }
     }
   ];

@@ -37,6 +37,12 @@ const Privacy: React.FC = () => {
                 <h2 className="text-2xl font-bold text-sidqly-navy mb-4">5. Contact Us</h2>
                 <p>If you have any questions about our privacy practices, please contact us at {brand.email}.</p>
               </section>
+
+              <div className="mt-12 p-6 bg-sidqly-green-soft/20 border border-sidqly-green-soft/50 rounded-2xl text-center not-prose">
+                <p className="text-sm font-bold text-sidqly-navy">
+                    Sidqly supports operational tracking, proof review, reporting, and donor communication. Religious, legal, tax, and financial decisions remain with the organization's authorized reviewers, scholars, advisors, or policy team.
+                </p>
+              </div>
             </div>
           </div>
         </div>

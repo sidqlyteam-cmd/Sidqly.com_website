@@ -25,7 +25,7 @@ const BlogIndex: React.FC = () => {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-sidqly-green-soft hover:shadow-xl transition-all flex flex-col"
+                className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-sidqly-green-soft hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col"
               >
                 <div className="p-8 flex flex-col flex-grow">
                   <div className="flex items-center gap-2 text-xs font-bold text-sidqly-green-emerald uppercase tracking-widest mb-4">

@@ -55,6 +55,17 @@ const RegionsIndex: React.FC = () => {
             </div>
          </div>
       </section>
+
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-sm font-bold text-sidqly-navy mb-4">
+                Sidqly supports operational tracking, proof review, reporting, and donor communication. Religious, legal, tax, and financial decisions remain with the organization's authorized reviewers, scholars, advisors, or policy team.
+            </p>
+            <p className="text-xs text-gray-500 italic">
+                Sidqly is preparing clearer regional and language support for international teams. For now, public pages are written in simple English to support browser translation and AI summaries.
+            </p>
+        </div>
+      </section>
     </>
   );
 };

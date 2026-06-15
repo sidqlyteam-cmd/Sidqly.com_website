@@ -29,7 +29,7 @@ const Home: React.FC = () => {
               International Operating Standard for Amanah
             </span>
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight">
-              Run verified giving with <span className="text-sidqly-green-soft">proof and dignity.</span>
+              Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed font-medium">
               Sidqly helps mosques, charities, and giving teams manage workflows, manual review, proof approval, and board-ready reporting from one premium global platform.
@@ -134,17 +134,17 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 15+ Modules */}
+      {/* 18 Modules */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-sidqly-navy mb-4">15+ Sidqly Operating Modules</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-sidqly-navy mb-4">18 Sidqly Operating Modules</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">Specialized tools that work together to professionalize your entire mission.</p>
            </div>
            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {modules.map((mod) => (
-                <Link key={mod.slug} to={`/modules/${mod.slug}`} className="p-6 bg-sidqly-ivory rounded-2xl border border-gray-50 hover:border-sidqly-green-soft transition-all">
-                   <h4 className="font-bold text-sidqly-navy text-sm mb-2">{mod.title}</h4>
+                <Link key={mod.slug} to={`/modules/${mod.slug}`} className="p-6 bg-sidqly-ivory rounded-2xl border border-gray-50 hover:border-sidqly-green-soft hover:shadow-lg transition-all group hover:-translate-y-1">
+                   <h4 className="font-bold text-sidqly-navy text-sm mb-2 group-hover:text-sidqly-green-emerald transition-colors">{mod.title}</h4>
                    <p className="text-[10px] text-gray-500 leading-relaxed">{mod.desc}</p>
                 </Link>
               ))}

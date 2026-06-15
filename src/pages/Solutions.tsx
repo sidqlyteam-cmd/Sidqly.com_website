@@ -74,7 +74,7 @@ const Solutions: React.FC = () => {
       unique: {
         title: "Audit-Ready Corporate Giving",
         focus: ["Corporate sponsorship tracking", "Employee giving portals", "Matching contribution logs", "Board-ready PDF reports", "Corporate-safe proof"],
-        text: "Give your board the transparency they require with professional reports that prove every PKR of impact."
+        text: "Give your board the transparency they require with professional reports that prove every unit of impact."
       }
     },
     {
