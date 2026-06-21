@@ -4,14 +4,25 @@ import { Shield, Eye, Lock, FileCheck, CheckCircle2 } from 'lucide-react';
 import ProofTrustEngine from '../components/diagrams/ProofTrustEngine';
 import ZakatSeparation from '../components/diagrams/ZakatSeparation';
 import DignitySafeBoundary from '../components/diagrams/DignitySafeBoundary';
+import { generateBreadcrumbSchema } from '../lib/schema';
+import { seoData } from '../data/seo';
 
 const TrustCenter: React.FC = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Trust Center", item: "/trust-center" }
+      ])
+    ]
+  };
+
   return (
     <>
       <SEO
-        title="Trust Center"
-        description="Learn about Sidqly's commitment to donor trust, recipient dignity, and operational integrity."
-        canonical="/trust-center"
+        {...seoData.trust}
+        schema={schema}
       />
 
       <section className="py-20 bg-sidqly-navy text-white">

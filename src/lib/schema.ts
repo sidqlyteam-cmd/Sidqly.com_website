@@ -1,5 +1,41 @@
 import { brand } from '../config/brand';
 
+export const generateWebSiteSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": brand.name,
+  "url": brand.domain,
+});
+
+export const generateServiceSchema = (name: string, description: string, url: string) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": name,
+  "description": description,
+  "provider": {
+    "@type": "Organization",
+    "name": brand.name,
+    "url": brand.domain
+  },
+  "url": `${brand.domain}${url}`
+});
+
+export const generateHowToSchema = (name: string, description: string, steps: string[]) => ({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": name,
+  "description": description,
+  "step": steps.map((step, index) => ({
+    "@type": "HowToStep",
+    "url": `${brand.domain}#step${index + 1}`,
+    "name": `Step ${index + 1}`,
+    "itemListElement": [{
+      "@type": "HowToDirection",
+      "text": step
+    }]
+  }))
+});
+
 export const generateOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",

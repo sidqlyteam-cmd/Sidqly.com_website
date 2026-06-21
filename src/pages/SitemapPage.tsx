@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { LayoutGrid, Target, ChevronRight, Search, Zap, Shield, HelpCircle, MapPin, Newspaper, Settings, Users, CreditCard, Star } from 'lucide-react';
 import { resources } from '../data/resources';
 import { blogPosts } from '../data/blogs';
+import { generateCollectionSchema } from '../lib/schema';
+import { seoData } from '../data/seo';
 
 const SitemapPage: React.FC = () => {
   const corePages = [
@@ -48,9 +50,19 @@ const SitemapPage: React.FC = () => {
     { name: 'Donors', path: '/solutions/donors' },
   ];
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateCollectionSchema("Sitemap", seoData.sitemap.description, "/sitemap")
+    ]
+  };
+
   return (
     <>
-      <SEO title="Sitemap" description="Comprehensive list of all pages and resources on Sidqly." canonical="/sitemap" />
+      <SEO
+        {...seoData.sitemap}
+        schema={schema}
+      />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">

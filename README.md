@@ -67,3 +67,9 @@ If this variable is missing, the site will still build and work normally without
 
 ## Sitemap
 The website contains 160+ public routes. See `public/sitemap.xml` or visit `/sitemap` on the live site for a full list of blog articles, solutions, modules, and resources.
+
+## Analytics Setup
+Analytics is managed centrally using separate, easily editable files to support both GTM and direct GA4 tracking without causing duplicate page views.
+* **Configuration:** Edit `src/config/analytics.ts` to change the GTM ID (`gtmId`) or GA4 ID (`gaMeasurementId`). You can toggle the primary tracking method using `enableGTM` (preferred) or `enableDirectGA`.
+* **Testing:** Use Google Tag Assistant to verify that GTM is injecting tags properly and check the GA4 Realtime view to confirm single page views are sent on SPA route changes.
+* **Component Usage:** `src/components/AnalyticsProvider.tsx` provides a central wrapper that listens to route changes and fires necessary events, while avoiding double-counting if both GTM and direct GA are running (which shouldn't normally happen).

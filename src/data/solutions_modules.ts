@@ -6,7 +6,7 @@ export const modules = [
     benefit: "Sidqly helps teams record donation/payment submissions and manually review them before confirmation.",
     who: "Finance teams and admin staff.",
     problem: "Missed bank transfers, fake screenshots, and phantom donations inflating reports.",
-    workflow: ["payment screenshot/reference review", "reviewer notes", "approval/rejection", "correction request", "audit trail", "payment status visibility"],
+    workflow: ["Payment submitted", "Reference/screenshot recorded", "Finance reviewer checks it", "Approved, rejected, or correction requested", "Status becomes visible to authorized team", "Audit trail remains available"],
     output: "Clear payment confirmation records before work moves forward.",
     disclaimer: "Sidqly supports manual review. It does not claim automatic payment verification unless configured separately."
   },
@@ -17,7 +17,7 @@ export const modules = [
     benefit: "Teams upload proof, reviewers check it, and only donor-safe proof is shared externally.",
     who: "Field operators and management.",
     problem: "Unsafe sharing of recipient faces on social media or direct to donors without review.",
-    workflow: ["internal proof", "proof review", "donor-safe preview", "approve for donor view", "request correction", "reject proof", "privacy warning"],
+    workflow: ["Staff/vendor/volunteer uploads proof", "Internal reviewer checks proof", "Private data is reviewed", "Donor-safe version is approved", "Donor/corporate-safe update is shared", "Internal record remains protected"],
     output: "Proof can be reviewed before donors or sponsors see it.",
     disclaimer: null
   },
@@ -28,8 +28,8 @@ export const modules = [
     benefit: "Donors receive approved updates without exposing private recipient data.",
     who: "Donor relations teams.",
     problem: "Donors demand proof, but providing it manually risks violating beneficiary privacy.",
-    workflow: ["approved status update", "safe proof", "campaign progress", "receipt/certificate links", "anonymized impact summary"],
-    output: "Clear updates without exposing dignity.",
+    workflow: ["proof approved", "faces blurred/encrypted", "secure link generated", "donor notified", "safe view only"],
+    output: "Donors get proof without compromising recipient dignity.",
     disclaimer: null
   },
   {
@@ -47,7 +47,7 @@ export const modules = [
     slug: "sadaqah-campaigns",
     title: "Sadaqah/Sadqa Campaigns",
     desc: "Versatile tracking for projects and emergency aid.",
-    benefit: "Sadaqah/Sadqa campaigns can move from contribution to delivery proof and donor-safe update.",
+    benefit: "Sadaqah/Sadqa, Khairat, and Amanah campaigns move clearly from contribution to delivery proof.",
     who: "Campaign managers.",
     problem: "Losing track of specific project funding (e.g., water wells) across WhatsApp messages.",
     workflow: ["campaign setup", "donation/payment review", "assignment", "delivery", "proof upload", "approval", "donor update"],
@@ -69,7 +69,7 @@ export const modules = [
     slug: "ramadan-meals-rations",
     title: "Ramadan/Ramzan Meals and Ration Packs",
     desc: "Scalable workflows for peak holy month distribution.",
-    benefit: "Ramadan/Ramzan workflows can track Iftar, Suhoor/Sehri, ration packs, food packs, batches, volunteers, vendors, and reports.",
+    benefit: "Ramadan/Ramzan workflows can track Iftar, Suhoor/Sehri, ration packs, batches, volunteers, vendors, and reports.",
     who: "Ramadan logistics coordinators.",
     problem: "Overwhelming volume of daily Iftar distribution tracking.",
     workflow: ["meal/ration batch", "route/team assignment", "delivery proof", "daily report", "donor-safe summary"],
@@ -83,7 +83,7 @@ export const modules = [
     benefit: "Organizations can receive and review support requests while protecting sensitive information.",
     who: "Community welfare officers.",
     problem: "Handling sensitive medical/financial documents via insecure emails or paper folders.",
-    workflow: ["request form", "requester profile", "hardship/category", "document privacy", "review status", "approval workflow", "internal notes", "anonymized donor-safe summary"],
+    workflow: ["protected request review", "hardship/category classification", "internal notes", "document privacy checks", "approved anonymized donor-safe summary"],
     output: "Organized, private requester queues.",
     disclaimer: null
   },
@@ -94,7 +94,7 @@ export const modules = [
     benefit: "Vendors can receive tasks, update status, upload proof, and report issues.",
     who: "External partners and slaughterhouses.",
     problem: "Chasing vendors via WhatsApp for delivery photos.",
-    workflow: ["assigned tasks", "delivery instructions", "proof upload", "issue reporting", "completion status"],
+    workflow: ["task assignment", "acceptance", "delivery instructions", "proof upload", "issue reporting"],
     output: "Centralized vendor proof collection.",
     disclaimer: null
   },
@@ -105,7 +105,7 @@ export const modules = [
     benefit: "Volunteers can receive assignments and complete delivery/service tasks with proof instructions.",
     who: "Volunteer managers.",
     problem: "Unclear volunteer assignments and lost field updates.",
-    workflow: ["task list", "shifts", "delivery notes", "proof instructions", "issue reporting", "completion status"],
+    workflow: ["volunteer task list", "delivery instructions", "proof guidance", "issue reporting", "completion status"],
     output: "Structured volunteer deployment.",
     disclaimer: null
   },
@@ -113,10 +113,10 @@ export const modules = [
     slug: "corporate-csr-zakat",
     title: "Corporate CSR/Zakat Reporting",
     desc: "Board-ready reports for institutional sponsors.",
-    benefit: "Corporate sponsors can receive safe impact summaries and board-ready reports.",
+    benefit: "Corporate sponsors can receive safe impact summaries without exposing private recipient data.",
     who: "Corporate liaisons.",
-    problem: "Corporate sponsors demanding detailed impact reports that charities struggle to format.",
-    workflow: ["sponsored campaigns", "contribution summary", "corporate-safe proof", "impact summary", "downloadable report", "no private recipient details"],
+    problem: "Corporate sponsors demanding detailed impact reports that charities struggle to format securely.",
+    workflow: ["sponsored campaigns", "corporate-safe reporting", "sponsor visibility check", "no private recipient exposure", "board-ready summaries"],
     output: "Professional PDF impact summaries.",
     disclaimer: null
   },
@@ -127,7 +127,7 @@ export const modules = [
     benefit: "Organizations can prepare professional receipts and certificates where applicable.",
     who: "Finance and donor relations.",
     problem: "Manually generating and emailing hundreds of PDF receipts.",
-    workflow: ["donor name", "campaign/service", "amount if applicable", "date", "reference ID", "verification code/QR", "organization branding"],
+    workflow: ["reference IDs generated", "campaign/service noted", "date and amount (if applicable) logged", "verification codes/QR created", "organization branding applied"],
     output: "Automated, verifiable documents.",
     disclaimer: null
   },
@@ -135,10 +135,10 @@ export const modules = [
     slug: "qr-code-verification",
     title: "QR/Code Verification",
     desc: "Instant validity checks for issued records.",
-    benefit: "Receipts, certificates, and selected proof/report items can be verified without exposing private data.",
+    benefit: "Receipts, certificates, and selected proof items can be verified public-safely.",
     who: "Donors and auditors.",
     problem: "Fake receipts or inability to verify if an impact report is authentic.",
-    workflow: ["verification code", "QR scan", "public-safe status", "no sensitive details"],
+    workflow: ["verification code generated", "QR scan executed", "public-safe status displayed", "no sensitive details exposed"],
     output: "Instant document authentication.",
     disclaimer: null
   },
@@ -149,7 +149,7 @@ export const modules = [
     benefit: "Sidqly helps prepare structured summaries for leadership, donors, sponsors, and internal review.",
     who: "Board members and executives.",
     problem: "Spending days compiling data from multiple spreadsheets for board meetings.",
-    workflow: ["campaign reports", "payment reports", "proof reports", "vendor reports", "volunteer reports", "corporate reports", "board summaries"],
+    workflow: ["campaign summary", "payment report", "proof log", "vendor/volunteer activity", "corporate/sponsor metrics", "board summary generation"],
     output: "Instant executive visibility.",
     disclaimer: null
   },
@@ -160,7 +160,7 @@ export const modules = [
     benefit: "Sensitive recipient/requester details remain protected and are not shown to donors by default.",
     who: "Compliance officers.",
     problem: "Accidental leaks of private beneficiary data to the public.",
-    workflow: ["internal-only labels", "donor-safe labels", "corporate-safe labels", "approval gates", "visibility boundaries"],
+    workflow: ["internal-only labeling", "donor-safe classification", "corporate-safe grouping", "proof review gates", "approval boundaries"],
     output: "Strict data compliance and dignity protection.",
     disclaimer: null
   },
@@ -171,7 +171,7 @@ export const modules = [
     benefit: "Teams can maintain clearer records for review, board discussions, and operational accountability.",
     who: "Auditors and finance teams.",
     problem: "Inability to prove who approved a specific payment or Zakat case.",
-    workflow: ["payment status history", "proof review history", "task status history", "report exports", "reviewer notes"],
+    workflow: ["payment status history logged", "proof status history tracked", "task history recorded", "reviewer notes stored", "report exports enabled"],
     output: "Timestamped accountability logs.",
     disclaimer: null
   },
@@ -182,7 +182,7 @@ export const modules = [
     benefit: "Donor updates can be clearer, safer, and more professional.",
     who: "Marketing and donor relations.",
     problem: "Inconsistent and unprofessional donor follow-ups.",
-    workflow: ["campaign status", "approved proof", "receipts", "certificates", "safe impact message", "contact path"],
+    workflow: ["donor status updates", "approved proof sharing", "receipts/certificates dispatch", "safe impact messages delivered"],
     output: "Professional donor touchpoints.",
     disclaimer: null
   },
@@ -193,7 +193,7 @@ export const modules = [
     benefit: "Organizations can start with a pilot workflow before expanding.",
     who: "New organizations onboarding.",
     problem: "Overwhelming software rollouts that fail due to team confusion.",
-    workflow: ["first campaign setup", "module selection", "team onboarding", "review process", "first report", "expansion plan"],
+    workflow: ["first campaign setup", "team onboarding", "first report generation", "expansion plan discussion"],
     output: "A safe, structured digital transition.",
     disclaimer: null
   }

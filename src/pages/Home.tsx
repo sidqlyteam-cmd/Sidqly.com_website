@@ -8,13 +8,25 @@ import OperatingJourney from '../components/diagrams/OperatingJourney';
 import ManualPaymentReview from '../components/diagrams/ManualPaymentReview';
 import ProofTrustEngine from '../components/diagrams/ProofTrustEngine';
 import { modules, solutions } from '../data/solutions_modules';
+import { generateOrganizationSchema, generateWebSiteSchema, generateSoftwareAppSchema, generateServiceSchema } from '../lib/schema';
+import { seoData } from '../data/seo';
 
 const Home: React.FC = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateOrganizationSchema(),
+      generateWebSiteSchema(),
+      generateSoftwareAppSchema(),
+      generateServiceSchema("Sidqly Operating Platform", "Verified giving, manual payment review, and proof approval for Islamic organizations.", "/")
+    ]
+  };
+
   return (
     <>
       <SEO
-        title="Global Operating Platform for Islamic Giving"
-        description="Run verified Islamic giving with proof, dignity, and global operational clarity. Trusted by mosques, charities, and Zakat teams worldwide."
+        {...seoData.home}
+        schema={schema}
       />
 
       {/* Hero Section */}
@@ -127,11 +139,20 @@ const Home: React.FC = () => {
            </div>
            <OperatingJourney />
            <div className="mt-20 text-center">
-              <Link to="/how-it-works" className="inline-flex items-center gap-2 bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
+              <Link to="/how-it-works" className="inline-flex items-center gap-2 bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all hover:-translate-y-1">
                  Learn how it works <ArrowRight size={20} />
               </Link>
            </div>
         </div>
+      </section>
+
+      <section className="py-20 bg-white">
+         <div className="max-w-4xl mx-auto px-4 text-center">
+            <h2 className="text-2xl font-bold text-sidqly-green-emerald mb-4">A Better Approach</h2>
+            <p className="text-xl text-gray-600 leading-relaxed font-medium">
+               Giving often starts with good intention, but the work after that can become scattered. A donor may ask, "Was my contribution received?" while a team member is still searching payment screenshots. Sidqly helps teams connect these steps into one clearer operating flow.
+            </p>
+         </div>
       </section>
 
       {/* 18 Modules */}
@@ -243,6 +264,13 @@ const Home: React.FC = () => {
                  </div>
                  <span>View Pricing</span>
               </Link>
+           </div>
+
+           <div className="mt-16 pt-16 border-t border-white/10 text-center">
+             <h3 className="text-2xl font-bold text-white mb-6">Want your organization to manage giving more clearly?</h3>
+             <Link to="/request-organization" className="inline-flex items-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+                Recommend Sidqly to your organization <ArrowRight size={18} />
+             </Link>
            </div>
         </div>
       </section>

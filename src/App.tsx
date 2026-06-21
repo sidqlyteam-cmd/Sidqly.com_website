@@ -7,7 +7,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import Home from './pages/Home';
 import Features from './pages/Features';
 import HowItWorks from './pages/HowItWorks';
-import GA from './components/GA';
+import AnalyticsProvider from './components/AnalyticsProvider';
 import Pricing from './pages/Pricing';
 import FAQs from './pages/FAQs';
 import BookDemo from './pages/BookDemo';
@@ -43,6 +43,7 @@ import ModuleDetail from './pages/modules/ModuleDetail';
 import CompareIndex from './pages/compare/CompareIndex';
 import CompareDetail from './pages/compare/CompareDetail';
 import ResourceDetail from './pages/resources/ResourceDetail';
+import RequestOrganization from './pages/resources/RequestOrganization';
 import Solutions from './pages/Solutions';
 import Modules from './pages/Modules';
 import RegionsIndex from './pages/regions/RegionsIndex';
@@ -70,7 +71,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
-        <GA />
+        <AnalyticsProvider />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<MainLayout />}>
@@ -104,6 +105,7 @@ function App() {
             <Route path="legal" element={<Legal />} />
             <Route path="sitemap" element={<SitemapPage />} />
             <Route path="ai-search-readiness" element={<AISearchReadiness />} />
+            <Route path="request-organization" element={<RequestOrganization />} />
             <Route path="regions" element={<RegionsIndex />} />
             <Route path="regions/:slug" element={<RegionDetail />} />
 

@@ -4,6 +4,7 @@ import SEO from '../../components/SEO';
 import { modules } from '../../data/solutions_modules';
 import { brand } from '../../config/brand';
 import { Box } from 'lucide-react';
+import { generateServiceSchema, generateBreadcrumbSchema, generateHowToSchema } from '../../lib/schema';
 
 const ModuleDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,12 +19,26 @@ const ModuleDetail: React.FC = () => {
     );
   }
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateServiceSchema(module.title, module.desc, `/modules/${module.slug}`),
+      ...(module.workflow ? [generateHowToSchema(`How ${module.title} Works`, module.problem || module.desc, module.workflow)] : []),
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Modules", item: "/modules" },
+        { name: module.title, item: `/modules/${module.slug}` }
+      ])
+    ]
+  };
+
   return (
     <>
       <SEO
-        title={`${module.title}`}
+        title={`${module.title} Module | Sidqly`}
         description={module.desc}
         canonical={`/modules/${module.slug}`}
+        schema={schema}
       />
 
       <section className="py-20 bg-sidqly-ivory">

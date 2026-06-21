@@ -3,14 +3,26 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { BookOpen, Target, ArrowRight, FileText, Shield } from 'lucide-react';
 import { brand } from '../config/brand';
+import { generateCollectionSchema, generateBreadcrumbSchema } from '../lib/schema';
+import { seoData } from '../data/seo';
 
 const Resources: React.FC = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateCollectionSchema("Resources & Guides", seoData.resources.description, "/resources"),
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Resources", item: "/resources" }
+      ])
+    ]
+  };
+
   return (
     <>
       <SEO
-        title="Resources for Verified Giving and Dignity-Safe Operations"
-        description="Explore Sidqly resources for Islamic charities, mosques, donors, vendors, volunteers, corporate sponsors, Zakat teams, Sadaqah campaigns, Qurbani operations, Ramadan drives, proof approval, donor-safe updates, and audit-ready reporting."
-        canonical="/resources"
+        {...seoData.resources}
+        schema={schema}
       />
 
       {/* Hero Section */}
@@ -111,6 +123,19 @@ const Resources: React.FC = () => {
               </div>
            </div>
         </div>
+      </section>
+
+      {/* Request Organization */}
+      <section className="py-20 bg-sidqly-green-deep text-white text-center">
+         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Want your organization to manage giving more clearly?</h2>
+            <p className="text-sidqly-green-soft text-lg mb-10 max-w-2xl mx-auto">
+               Donors, volunteers, vendors, and community members can recommend Sidqly to their mosque, charity, or corporate sponsor network.
+            </p>
+            <Link to="/request-organization" className="inline-flex items-center gap-2 bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all">
+               Request Your Organization <ArrowRight size={18} />
+            </Link>
+         </div>
       </section>
 
       {/* Glossary */}

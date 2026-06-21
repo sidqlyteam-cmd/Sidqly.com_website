@@ -37,3 +37,11 @@ body {
   --color-sidqly-navy: #0B1D2A;
   --color-sidqly-ivory: #F8FAFC;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,121 @@
+import { brand } from '../config/brand';
+
+export const seoData = {
+  home: {
+    slug: "/",
+    title: "Verified Giving & Protected Dignity",
+    description: "Sidqly is the premium operating platform for Islamic organizations. Manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns with clear impact and dignity-safe proof.",
+    canonical: "/",
+    focusKeyword: "Islamic giving platform",
+    secondaryKeywords: ["Zakat management software", "Sadaqah tracking", "Qurbani operations"],
+    ogTitle: `${brand.name} | Verified Giving & Protected Dignity`,
+    ogDescription: "Sidqly is the premium operating platform for Islamic organizations. Manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns with clear impact and dignity-safe proof.",
+    twitterTitle: `${brand.name} | Verified Giving & Protected Dignity`,
+    twitterDescription: "Sidqly is the premium operating platform for Islamic organizations. Manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns with clear impact and dignity-safe proof.",
+    robots: "index,follow" as const
+  },
+  pricing: {
+    slug: "/pricing",
+    title: "Pricing & Plans",
+    description: "View Sidqly's professional pricing plans for mosques, charities, and organizational giving. Start with the Launch Offer.",
+    canonical: "/pricing",
+    focusKeyword: "Sidqly pricing",
+    secondaryKeywords: ["Islamic charity software pricing", "Zakat software cost"],
+    ogTitle: `Pricing & Plans | ${brand.name}`,
+    ogDescription: "View Sidqly's professional pricing plans for mosques, charities, and organizational giving. Start with the Launch Offer.",
+    twitterTitle: `Pricing & Plans | ${brand.name}`,
+    twitterDescription: "View Sidqly's professional pricing plans for mosques, charities, and organizational giving. Start with the Launch Offer.",
+    robots: "index,follow" as const
+  },
+  modules: {
+    slug: "/modules",
+    title: "Modular Operating System",
+    description: "Explore Sidqly's 18 professional modules built for modern Islamic giving, including Manual Payment Review, Zakat Separation, and Donor-Safe Updates.",
+    canonical: "/modules",
+    focusKeyword: "Islamic giving modules",
+    secondaryKeywords: ["Zakat management module", "Qurbani module", "donor-safe proof engine"],
+    ogTitle: `Modular Operating System | ${brand.name}`,
+    ogDescription: "Explore Sidqly's 18 professional modules built for modern Islamic giving, including Manual Payment Review, Zakat Separation, and Donor-Safe Updates.",
+    twitterTitle: `Modular Operating System | ${brand.name}`,
+    twitterDescription: "Explore Sidqly's 18 professional modules built for modern Islamic giving, including Manual Payment Review, Zakat Separation, and Donor-Safe Updates.",
+    robots: "index,follow" as const
+  },
+  solutions: {
+    slug: "/solutions",
+    title: "Solutions for Islamic Organizations",
+    description: "Tailored operational workflows for Mosques, Islamic Charities, Zakat Teams, Qurbani Providers, and more. Manage giving with dignity.",
+    canonical: "/solutions",
+    focusKeyword: "Islamic charity solutions",
+    secondaryKeywords: ["mosque software", "Zakat software", "Qurbani software"],
+    ogTitle: `Solutions for Islamic Organizations | ${brand.name}`,
+    ogDescription: "Tailored operational workflows for Mosques, Islamic Charities, Zakat Teams, Qurbani Providers, and more. Manage giving with dignity.",
+    twitterTitle: `Solutions for Islamic Organizations | ${brand.name}`,
+    twitterDescription: "Tailored operational workflows for Mosques, Islamic Charities, Zakat Teams, Qurbani Providers, and more. Manage giving with dignity.",
+    robots: "index,follow" as const
+  },
+  resources: {
+    slug: "/resources",
+    title: "Resources & Guides",
+    description: "Explore workflow playbooks, buyer guides, glossaries, and trust resources for professional Islamic giving operations.",
+    canonical: "/resources",
+    focusKeyword: "Islamic charity resources",
+    secondaryKeywords: ["Zakat guides", "Qurbani playbooks", "giving operations"],
+    ogTitle: `Resources & Guides | ${brand.name}`,
+    ogDescription: "Explore workflow playbooks, buyer guides, glossaries, and trust resources for professional Islamic giving operations.",
+    twitterTitle: `Resources & Guides | ${brand.name}`,
+    twitterDescription: "Explore workflow playbooks, buyer guides, glossaries, and trust resources for professional Islamic giving operations.",
+    robots: "index,follow" as const
+  },
+  compare: {
+    slug: "/compare",
+    title: "Compare Sidqly vs Alternatives",
+    description: "See why modern Islamic organizations choose Sidqly over WhatsApp, spreadsheets, generic CRMs, and basic donation forms.",
+    canonical: "/compare",
+    focusKeyword: "compare Islamic charity software",
+    secondaryKeywords: ["Sidqly vs spreadsheets", "Sidqly vs generic CRM", "Islamic giving tools"],
+    ogTitle: `Compare Sidqly vs Alternatives | ${brand.name}`,
+    ogDescription: "See why modern Islamic organizations choose Sidqly over WhatsApp, spreadsheets, generic CRMs, and basic donation forms.",
+    twitterTitle: `Compare Sidqly vs Alternatives | ${brand.name}`,
+    twitterDescription: "See why modern Islamic organizations choose Sidqly over WhatsApp, spreadsheets, generic CRMs, and basic donation forms.",
+    robots: "index,follow" as const
+  },
+  trust: {
+    slug: "/trust-center",
+    title: "Trust Center & Security",
+    description: "Learn how Sidqly protects donor privacy, ensures Zakat separation, and maintains audit-ready records for Islamic organizations.",
+    canonical: "/trust-center",
+    focusKeyword: "Sidqly trust center",
+    secondaryKeywords: ["donor privacy", "Islamic charity security", "audit-ready giving"],
+    ogTitle: `Trust Center & Security | ${brand.name}`,
+    ogDescription: "Learn how Sidqly protects donor privacy, ensures Zakat separation, and maintains audit-ready records for Islamic organizations.",
+    twitterTitle: `Trust Center & Security | ${brand.name}`,
+    twitterDescription: "Learn how Sidqly protects donor privacy, ensures Zakat separation, and maintains audit-ready records for Islamic organizations.",
+    robots: "index,follow" as const
+  },
+  contact: {
+    slug: "/contact",
+    title: "Contact Sidqly",
+    description: "Get in touch with the Sidqly team to learn more about our operating platform for Islamic giving and professional workflows.",
+    canonical: "/contact",
+    focusKeyword: "contact Sidqly",
+    secondaryKeywords: ["book demo Sidqly", "Islamic charity platform contact"],
+    ogTitle: `Contact Sidqly | ${brand.name}`,
+    ogDescription: "Get in touch with the Sidqly team to learn more about our operating platform for Islamic giving and professional workflows.",
+    twitterTitle: `Contact Sidqly | ${brand.name}`,
+    twitterDescription: "Get in touch with the Sidqly team to learn more about our operating platform for Islamic giving and professional workflows.",
+    robots: "index,follow" as const
+  },
+  sitemap: {
+    slug: "/sitemap",
+    title: "Sitemap",
+    description: "A complete index of Sidqly's public website pages, modules, solutions, and resources.",
+    canonical: "/sitemap",
+    focusKeyword: "Sidqly sitemap",
+    secondaryKeywords: ["Sidqly pages index", "website map"],
+    ogTitle: `Sitemap | ${brand.name}`,
+    ogDescription: "A complete index of Sidqly's public website pages, modules, solutions, and resources.",
+    twitterTitle: `Sitemap | ${brand.name}`,
+    twitterDescription: "A complete index of Sidqly's public website pages, modules, solutions, and resources.",
+    robots: "index,follow" as const
+  }
+};

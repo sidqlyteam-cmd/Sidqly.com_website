@@ -2,20 +2,34 @@ import React from 'react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import { Mail, Calendar, MessageSquare, MapPin } from 'lucide-react';
+import { generateBreadcrumbSchema } from '../lib/schema';
+import { seoData } from '../data/seo';
 
 const Contact: React.FC = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": brand.name,
+      "url": brand.domain,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": brand.email,
+        "contactType": "customer service"
+      }
+    },
+    ...generateBreadcrumbSchema([
+      { name: "Home", item: "/" },
+      { name: "Contact", item: "/contact" }
+    ])
+  };
+
   return (
     <>
       <SEO
-        title="Contact Us"
-        canonical="/contact"
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Contact Sidqly",
-          "url": `${brand.domain}/contact`,
-          "description": "Contact the Sidqly Team for platform questions, demo bookings, or support."
-        }}
+        {...seoData.contact}
+        schema={schema}
       />
       <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

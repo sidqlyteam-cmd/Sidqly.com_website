@@ -12,6 +12,8 @@ import VolunteerLifecycle from '../../components/diagrams/VolunteerLifecycle';
 import CorporateLifecycle from '../../components/diagrams/CorporateLifecycle';
 import SadaqahLifecycle from '../../components/diagrams/SadaqahLifecycle';
 import ZakatLifecycle from '../../components/diagrams/ZakatLifecycle';
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema, generateHowToSchema } from '../../lib/schema';
+import { faqs } from '../../data/faqs';
 
 const SolutionDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -26,12 +28,48 @@ const SolutionDetail: React.FC = () => {
     );
   }
 
+  // Find relevant FAQs for this solution based on title or slug
+  // The actual category string in faqs.ts needs to match, so we use a loose check
+  const solutionFaqs = faqs.filter(faq =>
+    faq.category.toLowerCase().includes(solution.title.toLowerCase()) ||
+    solution.title.toLowerCase().includes(faq.category.toLowerCase()) ||
+    (solution.slug === 'zakat-teams' && faq.category === 'Zakat') ||
+    (solution.slug === 'sadaqah-campaigns' && faq.category === 'Sadaqah') ||
+    (solution.slug === 'ramadan-food-drives' && faq.category === 'Ramadan') ||
+    (solution.slug === 'qurbani-providers' && faq.category === 'Qurbani') ||
+    (solution.slug === 'mosques' && faq.category === 'Mosques') ||
+    (solution.slug === 'islamic-charities' && faq.category === 'Charities')
+  ).slice(0, 5);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateServiceSchema(`${solution.title} Software`, solution.desc, `/solutions/${solution.slug}`),
+      ...(solutionFaqs.length > 0 ? [generateFAQSchema(solutionFaqs)] : []),
+      // If we had workflow steps in the solutions object, we'd add HowTo here.
+      // Using generic steps based on the general Sidqly workflow.
+      generateHowToSchema(`How ${solution.title} Works with Sidqly`, solution.desc, [
+        "Create specific campaigns or funds.",
+        "Record and verify contributions manually.",
+        "Assign tasks to relevant teams or vendors.",
+        "Upload and review proof of delivery.",
+        "Share donor-safe updates and generate reports."
+      ]),
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Solutions", item: "/solutions" },
+        { name: solution.title, item: `/solutions/${solution.slug}` }
+      ])
+    ]
+  };
+
   return (
     <>
       <SEO
-        title={`${solution.title} Solutions`}
+        title={`${solution.title} Software | Sidqly`}
         description={solution.desc}
         canonical={`/solutions/${solution.slug}`}
+        schema={schema}
       />
 
       <section className="py-20 bg-sidqly-navy text-white">

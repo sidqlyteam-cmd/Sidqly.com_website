@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "sidqly-15-june",
     "public": "dist",
     "ignore": [
       "firebase.json",

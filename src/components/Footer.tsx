@@ -82,13 +82,29 @@ const Footer: React.FC = () => {
                       <li><Link to="/compare" className="hover:text-white transition-colors">Compare</Link></li>
                       <li><Link to="/brand" className="hover:text-white transition-colors">Brand Assets</Link></li>
                       <li><Link to="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
+                      <li><Link to="/request-organization" className="hover:text-white transition-colors text-sidqly-green-soft">Request Organization</Link></li>
                    </ul>
                 </div>
              </div>
           </div>
         </div>
 
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="border-t border-white/10 py-12 text-center">
+           <h3 className="text-xl font-bold text-white mb-6">Want your organization to manage giving more clearly?</h3>
+           <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/request-organization" className="bg-sidqly-green-emerald text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all text-sm">
+                 Request Your Organization
+              </Link>
+              <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition-all text-sm border border-white/10">
+                 Book Demo
+              </a>
+              <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition-all text-sm border border-white/10">
+                 Fill Inquiry Form
+              </a>
+           </div>
+        </div>
+
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-4">
              <div className="flex items-center gap-2 text-sidqly-green-soft font-bold text-xs">
                 <Shield size={14} /> <span>Amanah-Safe Engine</span>

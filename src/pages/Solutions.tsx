@@ -6,6 +6,8 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
+import { generateCollectionSchema, generateItemListSchema, generateBreadcrumbSchema } from '../lib/schema';
+import { seoData } from '../data/seo';
 
 const Solutions: React.FC = () => {
   const { slug } = useParams();
@@ -114,6 +116,18 @@ const Solutions: React.FC = () => {
 
   const currentSolution = slug ? solutions.find(s => s.slug === slug) : null;
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateCollectionSchema("Solutions for Islamic Organizations", seoData.solutions.description, "/solutions"),
+      generateItemListSchema(solutions.map(sol => ({ name: sol.title, url: `/solutions/${sol.slug}` }))),
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Solutions", item: "/solutions" }
+      ])
+    ]
+  };
+
   if (currentSolution) {
     return (
       <>
@@ -199,8 +213,8 @@ const Solutions: React.FC = () => {
   return (
     <>
       <SEO
-        title="Solutions"
-        description="Customized giving solutions for mosques, charities, Zakat committees, and corporate teams."
+        {...seoData.solutions}
+        schema={schema}
       />
 
       <section className="py-20 bg-sidqly-ivory">
@@ -208,7 +222,7 @@ const Solutions: React.FC = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-sidqly-navy mb-6">Solutions for Every Organization</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Every organization handles giving differently. Sidqly adapts to your specific needs with modular solutions.
+              Every organization handles giving differently. Sidqly adapts to your specific needs with modular workflows, generating audit-ready records for leadership.
             </p>
           </div>
 

@@ -4,6 +4,7 @@ import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
 import { ChevronRight, BookOpen, CheckCircle, Target } from 'lucide-react';
 import { resources } from '../../data/resources';
+import { generateArticleSchema, generateBreadcrumbSchema } from '../../lib/schema';
 
 const ResourceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -20,12 +21,31 @@ const ResourceDetail: React.FC = () => {
 
   const Icon = resource.category === 'Checklist' ? CheckCircle : resource.category === 'Strategy' ? Target : BookOpen;
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateArticleSchema({
+        title: resource.title,
+        description: resource.description || "",
+        date: "2026-06-12",
+        author: "Sidqly Team",
+        url: `/resources/${resource.slug}`
+      }),
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Resources", item: "/resources" },
+        { name: resource.title, item: `/resources/${resource.slug}` }
+      ])
+    ]
+  };
+
   return (
     <>
       <SEO
         title={resource.title}
         description={resource.description}
         canonical={`/resources/${resource.slug}`}
+        schema={schema}
       />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

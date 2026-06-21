@@ -47,6 +47,7 @@ const Navbar: React.FC = () => {
         { name: 'Comparison', href: '/compare' },
         { name: 'Implementation', href: '/implementation' },
         { name: 'Trust Center', href: '/trust-center' },
+        { name: 'Request Organization', href: '/request-organization' },
       ]
     },
     { name: 'Trust', href: '/trust-center' },

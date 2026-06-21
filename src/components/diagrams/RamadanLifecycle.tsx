@@ -2,28 +2,26 @@ import React from 'react';
 
 const RamadanLifecycle: React.FC = () => {
   const steps = [
-    "Ramadan appeal is launched",
-    "Donations for meals/rations are received",
-    "Payments are manually verified",
-    "Daily delivery targets are set",
-    "Volunteers and vendors receive shift tasks",
-    "Meals/Rations are distributed",
-    "Delivery proof is uploaded",
-    "Proof is verified by management",
-    "Donors receive dignified impact updates",
-    "Audit-ready distribution logs are generated"
+    { label: "Start point", text: "Ramadan/Ramzan campaign batch setup" },
+    { label: "Review/action steps", text: "Route/team assignment; Distribution of meals/rations" },
+    { label: "Human approval gates", text: "Delivery proof verified by logistics coordinator" },
+    { label: "Output/result", text: "Daily verified distribution logs created" },
+    { label: "Safe visibility boundary", text: "Donor-safe daily/weekly summaries shared" }
   ];
 
   return (
     <div className="w-full max-w-4xl mx-auto py-8">
-      <h3 className="text-xl font-bold text-sidqly-navy mb-6 text-center">Ramadan Ration/Meal Lifecycle</h3>
-      <div className="flex flex-col gap-2">
+      <h3 className="text-xl font-bold text-sidqly-navy mb-6 text-center">Ramadan/Ramzan Meals and Ration Packs</h3>
+      <div className="flex flex-col gap-4">
         {steps.map((step, i) => (
-          <div key={i} className="flex items-center gap-4 bg-sidqly-ivory p-4 rounded-xl border border-gray-100 hover:border-sidqly-green-soft transition-colors">
-            <div className="w-8 h-8 rounded-full bg-sidqly-green-deep text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
-              {i + 1}
+          <div key={i} className="flex flex-col md:flex-row md:items-center gap-4 bg-sidqly-ivory p-4 rounded-xl border border-gray-100 hover:border-sidqly-green-soft transition-colors">
+            <div className="flex items-center gap-3 md:w-1/3">
+              <div className="w-8 h-8 rounded-full bg-sidqly-green-deep text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+                {i + 1}
+              </div>
+              <span className="font-bold text-sidqly-navy text-sm uppercase tracking-wider">{step.label}</span>
             </div>
-            <p className="text-sm font-medium text-gray-700">{step}</p>
+            <p className="text-sm font-medium text-gray-600 md:w-2/3">{step.text}</p>
           </div>
         ))}
       </div>

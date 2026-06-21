@@ -6,6 +6,8 @@ import { Check, Info, XCircle, Plus, Layout, PieChart, CheckCircle2, Calendar, F
 import { Link } from 'react-router-dom';
 import { faqs } from '../data/faqs';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { generateSoftwareAppSchema, generateBreadcrumbSchema } from '../lib/schema';
+import { seoData } from '../data/seo';
 
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(true);
@@ -22,12 +24,22 @@ const Pricing: React.FC = () => {
     }
   };
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateSoftwareAppSchema(),
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Pricing", item: "/pricing" }
+      ])
+    ]
+  };
+
   return (
     <>
       <SEO
-        title="Pricing & Plans"
-        description="Choose the right Sidqly plan for your organization. Professional tools for mosques, charities, and Zakat teams."
-        canonical="/pricing"
+        {...seoData.pricing}
+        schema={schema}
       />
 
       {/* Hero Section */}

@@ -1,20 +1,18 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { analyticsConfig } from '../config/analytics';
 
-const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-
-const GA: React.FC = () => {
+const GoogleAnalytics: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (!measurementId) return;
+    if (!analyticsConfig.enableDirectGA || !analyticsConfig.gaMeasurementId) return;
 
-    // Load GA script if not already loaded
     if (!document.getElementById('ga-script')) {
       const script = document.createElement('script');
       script.id = 'ga-script';
       script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.gaMeasurementId}`;
       document.head.appendChild(script);
 
       window.dataLayer = window.dataLayer || [];
@@ -25,9 +23,8 @@ const GA: React.FC = () => {
       window.gtag = gtag;
     }
 
-    // Record page view on route change
     if (window.gtag) {
-      window.gtag('config', measurementId, {
+      window.gtag('config', analyticsConfig.gaMeasurementId, {
         page_path: location.pathname + location.search,
       });
     }
@@ -44,4 +41,4 @@ declare global {
   }
 }
 
-export default GA;
+export default GoogleAnalytics;

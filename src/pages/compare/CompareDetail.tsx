@@ -3,14 +3,30 @@ import { useParams } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
 import { CheckCircle2, XCircle } from 'lucide-react';
+import { generateBreadcrumbSchema } from '../../lib/schema';
 
 const CompareDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const title = slug?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Alternative';
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Compare", item: "/compare" },
+        { name: `Sidqly vs ${title}`, item: `/compare/${slug}` }
+      ])
+    ]
+  };
+
   return (
     <>
-      <SEO title={`Sidqly vs ${title}`} canonical={`/compare/${slug}`} />
+      <SEO
+        title={`Sidqly vs ${title} | ${brand.name}`}
+        canonical={`/compare/${slug}`}
+        schema={schema}
+      />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

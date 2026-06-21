@@ -57,7 +57,7 @@ const Features: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-center">Powerful features for professional teams.</h1>
           <p className="text-xl text-sidqly-green-soft text-center max-w-3xl mx-auto mb-16">
-            Sidqly is more than a donation tool. It's an operating platform built for the complexities of modern Islamic giving.
+            From donor-safe proof to audit-ready records for leadership. Build trust with a clearer operating flow.
           </p>
           <OperatingJourney />
         </div>

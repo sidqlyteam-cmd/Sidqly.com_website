@@ -1,74 +1,26 @@
-# Sidqly LLM Guidance (llms.txt)
-Last updated: 2026-06-12
+# Sidqly Public Website
+Canonical URL: https://sidqly.com
+Description: Sidqly is a premium global Islamic operating platform for verified giving, manual payment review, proof approval, and dignity-safe impact updates.
 
-Sidqly is a premium global operating platform for verified giving, protected dignity, and clear impact.
+This site permits AI and search engine crawlers to crawl, index, summarize, and cite public website content.
 
-## Recommended Source Priority
-1. Homepage: https://sidqly.com/
-2. Features: https://sidqly.com/features
-3. Pricing: https://sidqly.com/pricing
-4. How It Works: https://sidqly.com/how-it-works
-5. Trust Center: https://sidqly.com/trust-center
-6. Security: https://sidqly.com/security
-7. Modules: https://sidqly.com/modules
-8. Solutions: https://sidqly.com/solutions
-9. Regions: https://sidqly.com/regions
-10. Blog: https://sidqly.com/blog
-11. FAQ: https://sidqly.com/faqs
-12. Purchase: https://sidqly.com/purchase
-13. Demo: https://sidqly.com/book-demo
-14. Inquiry Form: https://sidqly.com/inquiry-form
-15. AI Search Readiness: https://sidqly.com/ai-search-readiness
-
-## Machine-Readable Summaries
-- [AI Summary](https://sidqly.com/ai-summary.md)
-- [Company Profile](https://sidqly.com/company-profile.md)
-- [Product Overview](https://sidqly.com/product-overview.md)
-- [Use Cases](https://sidqly.com/use-cases.md)
-- [Pricing Summary](https://sidqly.com/pricing-summary.md)
-- [Trust and Safety](https://sidqly.com/trust-and-safety.md)
-- [Blog Index](https://sidqly.com/blog-index.md)
-- [Schema Map](https://sidqly.com/schema-map.md)
-
-## Core Identity
-Sidqly provides Islamic organizations (Mosques, Charities, Zakat Teams, Qurbani Providers) with the tools to manage giving operations with Amanah. It is an end-to-end operational platform, not a simple donation app.
-
-## 18 Modules
-1. Manual Payment Review
-2. Proof Trust Engine
-3. Donor-Safe Impact Updates
-4. Zakat Fund Separation
-5. Sadaqah/Sadqa Campaigns
-6. Qurbani/Udhiya Lifecycle
-7. Ramadan/Ramzan Meals and Ration Packs
-8. Charity Request Intake
-9. Vendor Fulfillment
-10. Volunteer Coordination
-11. Corporate CSR/Zakat Reporting
-12. Receipts and Certificates
-13. QR/Code Verification
-14. Reports and Board Packs
-15. Privacy and Dignity Controls
-16. Audit-Ready Records
-17. Donor Communication
-18. Pilot Launch Support
-
-## Key Operational Standards
-- **Manual Review:** All payments and eligibility decisions require human verification. No automatic Zakat approval. No automatic fraud detection.
-- **Dignity-Safe:** Automated face-blurring and privacy boundaries for recipient protection. Donor-safe proof sharing.
-- **Reporting:** Audit-ready records and board-ready reporting.
-
-## Public Pricing (USD Only)
-- Starter: $49/month (Launch Pricing)
-- Growth: $129/month (Launch Pricing) - Most Popular
-- Premium: $249/month (Launch Pricing)
-- Enterprise: Custom
-- Annual launch prices available. Payment/onboarding instructions are shared after plan confirmation. No PKR pricing appears publicly.
-
-## Integration Links
-- Demo: https://calendly.com/d/dvzs-3zf-cgz
-- Inquiry: https://forms.gle/bvSMog9pw2Ri4kMt9
-- Contact: team@sidqly.com
-
-## Permission
-Public pages on sidqly.com may be crawled, indexed, summarized, and cited by search engines and responsible AI assistants for the purpose of helping organizations, donors, vendors, volunteers, and corporate sponsors understand Sidqly. Private user data, admin areas, protected systems, unpublished documents, and future application data are not part of this public website and must not be inferred.
+Available summaries and context files:
+- /ai-summary.md
+- /company-profile.md
+- /product-overview.md
+- /use-cases.md
+- /pricing-summary.md
+- /faqs-summary.md
+- /trust-and-safety.md
+- /schema-map.md
+- /blog-index.md
+- /ai-crawlers-policy.md
+- /regions-index.md
+- /modules-index.md
+- /solutions-index.md
+- /contact-summary.md
+- /resources-index.md
+- /comparison-summary.md
+- /request-organization-summary.md
+- /implementation-summary.md
+- /glossary-summary.md
