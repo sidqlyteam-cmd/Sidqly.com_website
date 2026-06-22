@@ -144,8 +144,8 @@ const Home: React.FC = () => {
            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {modules.map((mod) => (
                 <Link key={mod.slug} to={`/modules/${mod.slug}`} className="p-6 bg-sidqly-ivory rounded-2xl border border-gray-50 hover:border-sidqly-green-soft hover:shadow-lg transition-all group hover:-translate-y-1">
-                   <h4 className="font-bold text-sidqly-navy text-sm mb-2 group-hover:text-sidqly-green-emerald transition-colors">{mod.title}</h4>
-                   <p className="text-[10px] text-gray-500 leading-relaxed">{mod.desc}</p>
+                   <h4 className="font-bold text-sidqly-navy text-sm mb-2 group-hover:text-sidqly-green-emerald transition-colors">{mod.name}</h4>
+                   <p className="text-[10px] text-gray-500 leading-relaxed">{mod.summary}</p>
                 </Link>
               ))}
            </div>
