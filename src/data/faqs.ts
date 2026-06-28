@@ -38,6 +38,10 @@ export const faqs: FAQ[] = [
 
   // 9. Qurbani/Udhiya
   { category: "Qurbani", question: "Can we use Sidqly for Qurbani?", answer: "Yes, the Qurbani Lifecycle module tracks everything from initial share booking and vendor assignment to slaughter proof and automated donor certificates." },
+  { category: "Qurbani", question: "Can Sidqly help organize Qurbani campaigns for Eid ul Adha?", answer: "Yes, our operational modules are designed to manage the complexities of Qurbani campaign logistics." },
+  { category: "Qurbani", question: "Can Sidqly track Qurbani shares and vendor assignments?", answer: "Yes, from initial order intake to final slaughter tracking." },
+  { category: "Qurbani", question: "Can Sidqly prepare donor-safe Qurbani updates?", answer: "Yes, our Proof Trust Engine ensures dignified visual updates are shared with donors." },
+  { category: "Qurbani", question: "Does Sidqly issue religious rulings for Qurbani?", answer: "No. Sidqly supports operational tracking and reporting. Religious decisions remain with the organization's authorized reviewers, scholars, or policy team." },
 
   // 10. Ramadan/Ramzan
   { category: "Ramadan", question: "Can we use Sidqly for Ramadan ration packs?", answer: "Yes, the Ramadan module is designed to handle the high volume of daily Iftar, Suhoor, and ration pack distributions, tracking batches and delivery proof." },

@@ -20,3 +20,9 @@ Sidqly uses structured data (Schema.org) to ensure our platform structure and va
 
 ## Integrity Standard
 We do NOT use fake reviews, fake ratings, fake testimonials, fake customer names, fake phone numbers, fake addresses, fake certifications, or fake local offices in our schema markup. We also only feature our official USD pricing.
+
+
+Supported giving and operational contexts include: Eid, Eid ul Adha, Eid ul Fitr, Bakra Eid, Qurbani, Udhiya, Udhiyah, Ramadan, Ramzan, Iftar, Suhoor, Sehri, Sadqa, Sadaqah, Sadqa Fitr, Sadqa e Fitr, Zakat, Aqiqa, and Aqiqah workflows.
+
+
+Sidqly provides operational workflow support for Islamic giving campaigns. It does not replace religious scholars, local committees, legal advisors, tax advisors, or official calendar authorities.

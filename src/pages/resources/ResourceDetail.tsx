@@ -21,29 +21,85 @@ const ResourceDetail: React.FC = () => {
 
   const Icon = resource.category === 'Checklist' ? CheckCircle : resource.category === 'Strategy' ? Target : BookOpen;
 
+  const graph: Record<string, unknown>[] = [
+    generateArticleSchema({
+      title: resource.seoTitle || resource.title,
+      description: resource.seoDescription || resource.description || "",
+      date: "2026-06-12",
+      author: "Sidqly Team",
+      url: `/resources/${resource.slug}`
+    }),
+    generateBreadcrumbSchema([
+      { name: "Home", item: "/" },
+      { name: "Resources", item: "/resources" },
+      { name: resource.title, item: `/resources/${resource.slug}` }
+    ])
+  ];
+
+  if (resource.faqs && resource.faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "mainEntity": resource.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    });
+  }
+
+  if (resource.steps && resource.steps.length > 0) {
+    graph.push({
+      "@type": "HowTo",
+      "name": resource.seoTitle || resource.title,
+      "description": resource.seoDescription || resource.description,
+      "step": resource.steps.map((step, index) => ({
+        "@type": "HowToStep",
+        "position": index + 1,
+        "name": step.name,
+        "text": step.text,
+        "url": step.url || `https://sidqly.com/resources/${resource.slug}#step-${index + 1}`
+      }))
+    });
+  }
+
+  if (resource.relatedModules && resource.relatedModules.length > 0) {
+    graph.push({
+      "@type": "Service",
+      "name": "Sidqly Operational Modules",
+      "provider": {
+        "@type": "Organization",
+        "name": "Sidqly"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Related Modules",
+        "itemListElement": resource.relatedModules.map((slug) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": slug.replace(/-/g, " "),
+            "url": `https://sidqly.com/modules/${slug}`
+          }
+        }))
+      }
+    });
+  }
+
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [
-      generateArticleSchema({
-        title: resource.title,
-        description: resource.description || "",
-        date: "2026-06-12",
-        author: "Sidqly Team",
-        url: `/resources/${resource.slug}`
-      }),
-      generateBreadcrumbSchema([
-        { name: "Home", item: "/" },
-        { name: "Resources", item: "/resources" },
-        { name: resource.title, item: `/resources/${resource.slug}` }
-      ])
-    ]
+    "@graph": graph
   };
 
   return (
     <>
       <SEO
-        title={resource.title}
-        description={resource.description}
+        title={resource.seoTitle || resource.title}
+        focusKeyword={resource.focusKeyword}
+        secondaryKeywords={resource.secondaryKeywords}
+        description={resource.seoDescription || resource.description}
         canonical={`/resources/${resource.slug}`}
         schema={schema}
       />
@@ -78,6 +134,23 @@ const ResourceDetail: React.FC = () => {
                            prose-strong:text-sidqly-navy"
                 dangerouslySetInnerHTML={{ __html: resource.content }}
              />
+
+
+             {resource.relatedModules && resource.relatedModules.length > 0 && (
+                <div className="mt-12 p-8 bg-sidqly-soft-green rounded-3xl border border-sidqly-green-emerald/20">
+                   <h3 className="text-xl font-bold text-sidqly-green-deep mb-4">Related Sidqly Modules</h3>
+                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {resource.relatedModules.map((moduleSlug) => (
+                         <li key={moduleSlug}>
+                            <Link to={`/modules/${moduleSlug}`} className="text-sidqly-navy font-medium hover:text-sidqly-green-emerald flex items-center gap-2 transition-colors">
+                               <CheckCircle size={16} className="text-sidqly-green-emerald" />
+                               {moduleSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                            </Link>
+                         </li>
+                      ))}
+                   </ul>
+                </div>
+             )}
 
              <div className="mt-16 pt-16 border-t border-gray-100">
                 <div className="bg-sidqly-navy rounded-3xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-8">

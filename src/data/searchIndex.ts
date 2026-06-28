@@ -101,6 +101,64 @@ export const generateSearchIndex = (): SearchResult[] => {
   index.push({ id: 'trust-center', type: 'Trust', title: 'Trust Center', description: 'Security, privacy, and compliance details.', url: '/trust-center' });
   index.push({ id: 'privacy-policy', type: 'Legal', title: 'Privacy Policy', description: 'How we handle data.', url: '/privacy' });
 
+
+  // Seasonal Guides
+  index.push({
+    id: 'resource-eid-giving',
+    type: 'Resource',
+    title: 'Eid Giving Guide',
+    description: 'Learn how to manage Eid giving, sponsor interest, food support, and community campaigns. Topics: Eid 2026, Eid ul Fitr.',
+    url: '/resources/eid-giving'
+  });
+
+  index.push({
+    id: 'resource-qurbani-operations',
+    type: 'Resource',
+    title: 'Qurbani Operations Guide',
+    description: 'Manage Qurbani operations with manual payment review, vendor assignment, certificates, and reports. Topics: Bakra Eid, Qurbani dua, Qurbani certificate.',
+    url: '/resources/qurbani-operations'
+  });
+
+  index.push({
+    id: 'resource-eid-ul-adha-qurbani',
+    type: 'Resource',
+    title: 'Eid ul Adha and Qurbani Operations',
+    description: 'Explore how Sidqly helps organizations manage Qurbani operations for Eid ul Adha. Topics: Eid ul Adha 2026, Qurbani.',
+    url: '/resources/eid-ul-adha-qurbani'
+  });
+
+  index.push({
+    id: 'resource-sadqa-fitr',
+    type: 'Resource',
+    title: 'Sadqa Fitr and Sadaqah Campaigns',
+    description: 'Manage Sadqa, Sadaqah, Sadqa Fitr, payment review, family support, and Zakat separation.',
+    url: '/resources/sadqa-fitr'
+  });
+
+  index.push({
+    id: 'resource-ramadan-giving',
+    type: 'Resource',
+    title: 'Ramadan Giving Guide',
+    description: 'Organize Ramadan meals, Iftar support, ration packs, volunteer tasks, and campaign reports. Topics: Ramadan 2026, Ramzan.',
+    url: '/resources/ramadan-giving'
+  });
+
+  index.push({
+    id: 'resource-iftar-ration-workflow',
+    type: 'Resource',
+    title: 'Iftar and Ration Pack Workflow',
+    description: 'Managing Iftar and ration pack distributions, batch planning, and daily reports. Topics: Iftar time today, food packs.',
+    url: '/resources/iftar-ration-workflow'
+  });
+
+  index.push({
+    id: 'resource-aqiqa-charity-workflow',
+    type: 'Resource',
+    title: 'Aqiqa / Aqiqah Charity Workflow',
+    description: 'Handle Aqiqa charity requests operationally with vendor fulfillment and reporting.',
+    url: '/resources/aqiqa-charity-workflow'
+  });
+
   return index;
 };
 
