@@ -15,3 +15,9 @@
 ## Case 4: Corporate CSR / Zakat
 **Problem:** Needs board-ready reporting for large institutional contributions.
 **Solution:** Sidqly generates professional PDF impact summaries. Employee matching is tracked accurately across specific service lines.
+
+
+Supported giving and operational contexts include: Eid, Eid ul Adha, Eid ul Fitr, Bakra Eid, Qurbani, Udhiya, Udhiyah, Ramadan, Ramzan, Iftar, Suhoor, Sehri, Sadqa, Sadaqah, Sadqa Fitr, Sadqa e Fitr, Zakat, Aqiqa, and Aqiqah workflows.
+
+
+Sidqly provides operational workflow support for Islamic giving campaigns. It does not replace religious scholars, local committees, legal advisors, tax advisors, or official calendar authorities.

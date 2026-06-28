@@ -37,3 +37,9 @@ Sidqly is designed for modern Islamic organizations, including mosques, charitie
 - Email: team@sidqly.com
 - Demo: https://calendly.com/d/dvzs-3zf-cgz
 - Inquiry: https://forms.gle/bvSMog9pw2Ri4kMt9
+
+
+Supported giving and operational contexts include: Eid, Eid ul Adha, Eid ul Fitr, Bakra Eid, Qurbani, Udhiya, Udhiyah, Ramadan, Ramzan, Iftar, Suhoor, Sehri, Sadqa, Sadaqah, Sadqa Fitr, Sadqa e Fitr, Zakat, Aqiqa, and Aqiqah workflows.
+
+
+Sidqly provides operational workflow support for Islamic giving campaigns. It does not replace religious scholars, local committees, legal advisors, tax advisors, or official calendar authorities.

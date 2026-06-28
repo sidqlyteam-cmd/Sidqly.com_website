@@ -37,6 +37,83 @@ const Resources: React.FC = () => {
         </div>
       </section>
 
+            {/* Seasonal Guides Section */}
+      <section className="py-24 bg-sidqly-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy tracking-tight mb-4 flex items-center gap-3">
+              <BookOpen className="text-sidqly-green-emerald" /> Seasonal Islamic Giving Guides
+            </h2>
+            <p className="text-xl text-gray-600">Operational guides for peak giving seasons like Ramadan and Qurbani.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link to="/resources/eid-giving" className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all group flex flex-col h-full hover:border-sidqly-green-soft">
+              <div className="mb-6 flex-grow">
+                <span className="inline-block px-3 py-1 bg-sidqly-soft-green text-sidqly-green-deep text-xs font-bold rounded-full mb-4">Guide</span>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-deep transition-colors">Eid Giving Guide</h3>
+                <p className="text-gray-600 line-clamp-3">Learn how to manage Eid giving, sponsor interest, food support, and community campaigns with donor-safe proof and dignity-first workflows.</p>
+              </div>
+              <div className="flex items-center text-sidqly-green-emerald font-bold gap-2">Read guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></div>
+            </Link>
+
+            <Link to="/resources/eid-ul-adha-qurbani" className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all group flex flex-col h-full hover:border-sidqly-green-soft">
+              <div className="mb-6 flex-grow">
+                <span className="inline-block px-3 py-1 bg-sidqly-soft-green text-sidqly-green-deep text-xs font-bold rounded-full mb-4">Guide</span>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-deep transition-colors">Eid ul Adha and Qurbani Operations</h3>
+                <p className="text-gray-600 line-clamp-3">Explore how Sidqly helps organizations manage Qurbani operations with manual payment review, vendor assignment, proof approval, and certificates.</p>
+              </div>
+              <div className="flex items-center text-sidqly-green-emerald font-bold gap-2">Read guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></div>
+            </Link>
+
+            <Link to="/resources/qurbani-operations" className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all group flex flex-col h-full hover:border-sidqly-green-soft">
+              <div className="mb-6 flex-grow">
+                <span className="inline-block px-3 py-1 bg-sidqly-soft-green text-sidqly-green-deep text-xs font-bold rounded-full mb-4">Guide</span>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-deep transition-colors">Qurbani Workflow Guide</h3>
+                <p className="text-gray-600 line-clamp-3">Learn how Sidqly helps organizations manage Qurbani operations with manual payment review, vendor assignment, proof approval, donor-safe updates, certificates, and reports while protecting dignity.</p>
+              </div>
+              <div className="flex items-center text-sidqly-green-emerald font-bold gap-2">Read guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></div>
+            </Link>
+
+            <Link to="/resources/sadqa-fitr" className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all group flex flex-col h-full hover:border-sidqly-green-soft">
+              <div className="mb-6 flex-grow">
+                <span className="inline-block px-3 py-1 bg-sidqly-soft-green text-sidqly-green-deep text-xs font-bold rounded-full mb-4">Guide</span>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-deep transition-colors">Sadqa Fitr and Sadaqah Campaigns</h3>
+                <p className="text-gray-600 line-clamp-3">Learn how organizations can manage Sadqa, Sadaqah, Sadqa Fitr, payment review, family support, proof approval, donor-safe updates, and audit-ready reports with Sidqly.</p>
+              </div>
+              <div className="flex items-center text-sidqly-green-emerald font-bold gap-2">Read guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></div>
+            </Link>
+
+            <Link to="/resources/ramadan-giving" className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all group flex flex-col h-full hover:border-sidqly-green-soft">
+              <div className="mb-6 flex-grow">
+                <span className="inline-block px-3 py-1 bg-sidqly-soft-green text-sidqly-green-deep text-xs font-bold rounded-full mb-4">Guide</span>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-deep transition-colors">Ramadan Giving Guide</h3>
+                <p className="text-gray-600 line-clamp-3">Explore how Sidqly helps organizations organize Ramadan meals, Iftar support, ration packs, volunteer tasks, proof approval, donor-safe updates, and campaign reports.</p>
+              </div>
+              <div className="flex items-center text-sidqly-green-emerald font-bold gap-2">Read guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></div>
+            </Link>
+
+            <Link to="/resources/iftar-ration-workflow" className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all group flex flex-col h-full hover:border-sidqly-green-soft">
+              <div className="mb-6 flex-grow">
+                <span className="inline-block px-3 py-1 bg-sidqly-soft-green text-sidqly-green-deep text-xs font-bold rounded-full mb-4">Guide</span>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-deep transition-colors">Iftar and Ration Pack Workflow</h3>
+                <p className="text-gray-600 line-clamp-3">A comprehensive guide on managing Iftar and ration pack distributions, from batch planning to daily reports.</p>
+              </div>
+              <div className="flex items-center text-sidqly-green-emerald font-bold gap-2">Read guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></div>
+            </Link>
+
+            <Link to="/resources/aqiqa-charity-workflow" className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all group flex flex-col h-full hover:border-sidqly-green-soft">
+              <div className="mb-6 flex-grow">
+                <span className="inline-block px-3 py-1 bg-sidqly-soft-green text-sidqly-green-deep text-xs font-bold rounded-full mb-4">Guide</span>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-deep transition-colors">Aqiqa / Aqiqah Charity Workflow</h3>
+                <p className="text-gray-600 line-clamp-3">Learn how to handle Aqiqa charity requests operationally with vendor fulfillment, proof approval, and reporting.</p>
+              </div>
+              <div className="flex items-center text-sidqly-green-emerald font-bold gap-2">Read guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Guides */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

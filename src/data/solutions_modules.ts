@@ -41,7 +41,8 @@ export const modules = [
     problem: "Accidentally mixing Zakat with general charity funds or operating expenses.",
     workflow: ["fund type tagging", "eligibility review status", "reviewer notes", "disbursement tracking", "reporting"],
     output: "Audit-ready Zakat separation logs.",
-    disclaimer: "Zakat eligibility decisions remain with the organization's authorized reviewers, scholars, advisors, or policy team."
+    disclaimer: "Zakat eligibility decisions remain with the organization's authorized reviewers, scholars, advisors, or policy team.",
+    keywords: ["Zakat", "Zakaat", "Zakat fund separation", "Zakat tracking", "Zakat committee", "eligibility review support"]
   },
   {
     slug: "sadaqah-campaigns",
@@ -52,7 +53,8 @@ export const modules = [
     problem: "Losing track of specific project funding (e.g., water wells) across WhatsApp messages.",
     workflow: ["campaign setup", "donation/payment review", "assignment", "delivery", "proof upload", "approval", "donor update"],
     output: "Verified Sadaqah delivery records.",
-    disclaimer: null
+    disclaimer: null,
+    keywords: ["Sadqa", "Sadaqah", "Sadqa fitr", "Sadqa e Fitr", "Khairat", "Amanah", "family support", "donor-safe proof"]
   },
   {
     slug: "qurbani-lifecycle",
@@ -63,7 +65,8 @@ export const modules = [
     problem: "Chaos during Eid matching donor shares to specific animals and vendors.",
     workflow: ["Order Received", "Payment Under Review", "Share Assigned", "Vendor Assigned", "Slaughter Scheduled", "Slaughter Completed", "Distribution In Progress", "Proof Uploaded", "Proof Approved", "Certificate Ready", "Closed"],
     output: "End-to-end share tracking and donor certificates.",
-    disclaimer: null
+    disclaimer: "No. Sidqly supports operational tracking and reporting. Religious decisions remain with the organization's authorized reviewers, scholars, or policy team.",
+    keywords: ["Qurbani 2026", "Eid ul Adha", "Bakra Eid", "Qurbani order tracking", "Qurbani certificate", "Qurbani proof", "Qurbani distribution"]
   },
   {
     slug: "ramadan-meals-rations",
@@ -74,7 +77,8 @@ export const modules = [
     problem: "Overwhelming volume of daily Iftar distribution tracking.",
     workflow: ["meal/ration batch", "route/team assignment", "delivery proof", "daily report", "donor-safe summary"],
     output: "Daily verified distribution logs.",
-    disclaimer: null
+    disclaimer: null,
+    keywords: ["Ramadan 2026", "Iftar distribution", "Ramadan ration packs", "Iftar meals", "Suhoor/Sehri support", "food packs", "daily Ramadan reports"]
   },
   {
     slug: "charity-request-intake",
@@ -85,7 +89,8 @@ export const modules = [
     problem: "Handling sensitive medical/financial documents via insecure emails or paper folders.",
     workflow: ["protected request review", "hardship/category classification", "internal notes", "document privacy checks", "approved anonymized donor-safe summary"],
     output: "Organized, private requester queues.",
-    disclaimer: null
+    disclaimer: null,
+    keywords: ["family support", "request intake", "beneficiary privacy", "recipient dignity", "hardship review", "community welfare"]
   },
   {
     slug: "vendor-fulfillment",

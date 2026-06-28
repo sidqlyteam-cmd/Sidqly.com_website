@@ -240,3 +240,165 @@ aiSearchTopics.forEach(topic => {
     ]
   });
 });
+
+blogPosts.push({
+  slug: "organize-eid-giving-without-scattered-screenshots",
+  title: "How to organize Eid giving without scattered payment screenshots",
+  description: "Stop relying on WhatsApp screenshots for Eid donations. Learn how structured workflows protect donor trust.",
+  category: "Operations",
+  date: "2026-06-10",
+  modifiedDate: "2026-06-12",
+  author: "Sidqly Operations Team",
+  readingTime: "5 min read",
+  focusKeyword: "organize Eid giving",
+  tags: ["Eid", "Donation Tracking", "Operations"],
+  perspective: "A guide for charity managers moving away from informal spreadsheets.",
+  content: `
+    <h2>The Problem with WhatsApp Screenshots</h2>
+    <p>During the intense period of Eid giving, managing donations via scattered WhatsApp payment screenshots is a recipe for disaster. It leads to lost funds, delayed distributions, and frustrated donors.</p>
+
+    <h2>Centralized Intake and Verification</h2>
+    <p>Using a centralized platform like Sidqly allows organizations to formalize the intake process, enabling swift manual payment reviews and creating clear, auditable records for every donation.</p>
+  `,
+  faqs: []
+});
+
+blogPosts.push({
+  slug: "qurbani-operations-checklist-for-mosques",
+  title: "Qurbani operations checklist for mosques and Islamic charities",
+  description: "A complete operational checklist for managing Qurbani campaigns, from order intake to final certificates.",
+  category: "Best Practices",
+  date: "2026-06-11",
+  modifiedDate: "2026-06-12",
+  author: "Sidqly Operations Team",
+  readingTime: "6 min read",
+  focusKeyword: "Qurbani operations checklist",
+  tags: ["Qurbani", "Mosques", "Checklist"],
+  perspective: "Actionable steps for operational leaders.",
+  content: `
+    <h2>Preparing for Peak Qurbani Season</h2>
+    <p>Mosques and charities handle immense logistical pressure during Qurbani. A structured checklist ensures no share is missed and every donor receives proof.</p>
+
+    <h2>The Sidqly Checklist</h2>
+    <ul>
+      <li>Set up clear share pricing and order intake forms.</li>
+      <li>Establish vendor relationships and capacity limits.</li>
+      <li>Implement a manual payment review process.</li>
+      <li>Use the Proof Trust Engine to verify slaughter and distribution.</li>
+      <li>Automate certificate generation for donors.</li>
+    </ul>
+    <p><em>Sidqly provides operational workflows and does not issue religious rulings regarding Qurbani.</em></p>
+  `,
+  faqs: []
+});
+
+blogPosts.push({
+  slug: "donor-safe-proof-protects-dignity-ramadan",
+  title: "How donor-safe proof protects dignity during Ramadan campaigns",
+  description: "Balancing the need for impact reporting with the critical requirement of protecting beneficiary privacy during Ramadan.",
+  category: "Trust & Privacy",
+  date: "2026-06-12",
+  modifiedDate: "2026-06-12",
+  author: "Sidqly Privacy Team",
+  readingTime: "5 min read",
+  focusKeyword: "donor-safe proof Ramadan",
+  tags: ["Ramadan", "Privacy", "Dignity"],
+  perspective: "Ethical guidelines for digital proof collection.",
+  content: `
+    <h2>The Privacy Dilemma in Ramadan</h2>
+    <p>During Ramadan, charities often feel pressured to share raw photos of beneficiaries receiving aid to satisfy donor demands. This compromises dignity.</p>
+
+    <h2>The Proof Trust Engine Approach</h2>
+    <p>Sidqly’s Proof Trust Engine allows internal teams to verify delivery while automatically generating anonymized, donor-safe updates that blur faces, maintaining Amanah (trust) with both donors and recipients.</p>
+  `,
+  faqs: []
+});
+
+blogPosts.push({
+  slug: "sadqa-fitr-campaign-tracking-preparation",
+  title: "Sadqa Fitr campaign tracking: what organizations should prepare",
+  description: "Operational strategies to ensure Sadqa Fitr is collected and distributed accurately and on time.",
+  category: "Operations",
+  date: "2026-06-12",
+  modifiedDate: "2026-06-12",
+  author: "Sidqly Strategy Team",
+  readingTime: "4 min read",
+  focusKeyword: "Sadqa Fitr campaign tracking",
+  tags: ["Sadqa Fitr", "Operations", "Zakat"],
+  perspective: "Preparation guide for campaign managers.",
+  content: `
+    <h2>The Urgency of Sadqa Fitr</h2>
+    <p>Sadqa Fitr must be distributed before the Eid prayer, leaving no room for operational delays or fund comingling.</p>
+
+    <h2>Separation and Speed</h2>
+    <p>Organizations must use strict fund separation tools, like those provided by Sidqly, to track Sadqa Fitr distinct from general Zakat or Sadaqah, enabling immediate family support workflows.</p>
+    <p><em>Organizations should confirm Sadqa Fitr amounts and eligibility guidance through their local religious authorities.</em></p>
+  `,
+  faqs: []
+});
+
+blogPosts.push({
+  slug: "ramadan-ration-pack-reporting",
+  title: "Ramadan ration pack reporting: from delivery to donor update",
+  description: "Streamlining the logistical reporting of high-volume Ramadan ration pack distributions.",
+  category: "Logistics",
+  date: "2026-06-13",
+  modifiedDate: "2026-06-13",
+  author: "Sidqly Logistics Team",
+  readingTime: "6 min read",
+  focusKeyword: "Ramadan ration pack reporting",
+  tags: ["Ramadan", "Ration Packs", "Reporting"],
+  perspective: "Logistical deep-dive for field operations.",
+  content: `
+    <h2>High-Volume Logistics</h2>
+    <p>Distributing thousands of ration packs requires more than just volunteers; it requires systematic reporting from the point of delivery back to the donor.</p>
+
+    <h2>Batch Processing and Proof</h2>
+    <p>Sidqly enables batch route assignments, quick mobile proof uploads by volunteers, and automated generation of board-ready daily reports.</p>
+  `,
+  faqs: []
+});
+
+blogPosts.push({
+  slug: "why-qurbani-certificates-need-clear-workflow",
+  title: "Why Qurbani certificates and proof review need a clear workflow",
+  description: "Avoid post-Eid chaos by establishing a clear operational workflow for Qurbani proof review and certificate issuance.",
+  category: "Operations",
+  date: "2026-06-14",
+  modifiedDate: "2026-06-14",
+  author: "Sidqly Operations Team",
+  readingTime: "5 min read",
+  focusKeyword: "Qurbani certificates workflow",
+  tags: ["Qurbani", "Certificates", "Workflow"],
+  perspective: "Process improvement guide.",
+  content: `
+    <h2>The Post-Eid Certificate Crush</h2>
+    <p>Without a clear workflow, organizations spend weeks after Eid manually matching slaughter photos to donor names to create certificates.</p>
+
+    <h2>Automating the Connection</h2>
+    <p>Sidqly links the initial share assignment directly to vendor slaughter updates and proof uploads, automating the generation of verified Qurbani certificates immediately upon approval.</p>
+  `,
+  faqs: []
+});
+
+blogPosts.push({
+  slug: "aqiqa-charity-workflow-manage-responsibly",
+  title: "Aqiqa charity workflow: how organizations can manage requests responsibly",
+  description: "How to adapt existing operational tools to handle Aqiqa charity requests efficiently and respectfully.",
+  category: "Best Practices",
+  date: "2026-06-15",
+  modifiedDate: "2026-06-15",
+  author: "Sidqly Strategy Team",
+  readingTime: "4 min read",
+  focusKeyword: "Aqiqa charity workflow",
+  tags: ["Aqiqa", "Charity", "Workflow"],
+  perspective: "Adaptability guide for multi-purpose organizations.",
+  content: `
+    <h2>Handling Special Requests</h2>
+    <p>While not a core daily operation for all charities, managing Aqiqa requests requires tracking a donor's specific intent through to final distribution.</p>
+
+    <h2>Configuring Sidqly for Aqiqa</h2>
+    <p>Organizations can utilize Sidqly’s Charity Request Intake and Vendor Fulfillment modules to track these specific requests, ensuring the meat is distributed and verified just like any other campaign.</p>
+  `,
+  faqs: []
+});

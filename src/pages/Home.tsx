@@ -241,6 +241,21 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+            {/* Seasonal Guides Section */}
+      <section className="py-24 bg-sidqly-ivory">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy tracking-tight mb-6">Prepare for Peak Giving Seasons</h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">Explore our operational guides for Ramadan, Qurbani, and Zakat to ensure your organization is ready to handle high-volume giving with dignity.</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/resources/ramadan-giving" className="bg-white border-2 border-sidqly-green-soft text-sidqly-green-deep px-8 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft transition-all">Ramadan Operations Guide</Link>
+            <Link to="/resources/qurbani-operations" className="bg-white border-2 border-sidqly-green-soft text-sidqly-green-deep px-8 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft transition-all">Qurbani Workflow Guide</Link>
+            <Link to="/resources/sadqa-fitr" className="bg-white border-2 border-sidqly-green-soft text-sidqly-green-deep px-8 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft transition-all">Sadqa Fitr Workflows</Link>
+            <Link to="/resources/eid-giving" className="bg-white border-2 border-sidqly-green-soft text-sidqly-green-deep px-8 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft transition-all">Eid Giving Guide</Link>
+            <Link to="/modules" className="bg-sidqly-green-emerald text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all">View All Modules</Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-sidqly-green-deep text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
