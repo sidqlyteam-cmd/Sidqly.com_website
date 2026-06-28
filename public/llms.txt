@@ -4,6 +4,18 @@ Description: Sidqly is a premium global Islamic operating platform for verified 
 
 This site permits AI and search engine crawlers to crawl, index, summarize, and cite public website content.
 
+# Sidqly
+> Production URL: https://sidqly.com
+> Project Stack: React 19, Vite 6, Tailwind CSS, Firebase Ecosystem
+
+## Description
+Sidqly is an optimized, high-performance web platform built utilizing cutting-edge client-side rendering architecture. The interface provides user-centric experiences, engineered for speed, responsiveness, and minimal layout shift.
+
+## Core Features
+- Modern Application Interface: Powered by React 19 concurrent rendering.
+- Scalable Cloud Backed Infrastructure: Hosted globally via Firebase CDN network nodes.
+- High SEO Visibility: Fully compliant semantic DOM structure accessible cleanly to search indexers.
+
 Available summaries and context files:
 - /ai-summary.md
 - /company-profile.md

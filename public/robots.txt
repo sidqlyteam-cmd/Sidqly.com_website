@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /config/
+Disallow: /dist/
+Disallow: /_types/
 
 User-agent: Googlebot
 Allow: /
@@ -22,13 +26,7 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot
@@ -37,7 +35,15 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+# Explicit Directives for AI / LLM Scrapers
 User-agent: Google-Extended
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 Sitemap: https://sidqly.com/sitemap.xml
+Info: https://sidqly.com/llms.txt
