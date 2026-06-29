@@ -2,11 +2,14 @@ import React from 'react';
 import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
 import { Link } from 'react-router-dom';
-import { Calendar, Compass, CloudSun, Moon, Gift, Heart, BookOpen, Clock, Activity } from 'lucide-react';
+import { Calendar, Compass, CloudSun, Moon, Gift, Heart, BookOpen, Clock, Activity, Calculator } from 'lucide-react';
+import MainLayout from '../../layout/MainLayout';
 
 const utilities = [
-  { title: "Islamic Calendar", path: "/islamic-calendar", desc: "Plan your charity workflows with current Hijri date awareness.", icon: <Calendar size={24} /> },
+  { title: "Namaz Timings", path: "/namaz-timings", desc: "Calculate approximate prayer times for operational planning.", icon: <Clock size={24} /> },
+  { title: "Zakat Calculator", path: "/zakat-calculator", desc: "Estimate your Zakat for operational and personal planning.", icon: <Calculator size={24} /> },
   { title: "Qibla Direction", path: "/qibla-direction", desc: "Compass for site logistics and prayer area setup.", icon: <Compass size={24} /> },
+  { title: "Islamic Calendar", path: "/islamic-calendar", desc: "Plan your charity workflows with current Hijri date awareness.", icon: <Calendar size={24} /> },
   { title: "Moon Phase", path: "/moon-phase-islamic-calendar", desc: "Approximate lunar phase planning tool.", icon: <Moon size={24} /> },
   { title: "Weather-Aware Distribution", path: "/weather-charity-distribution", desc: "Plan open-air distributions with local weather in mind.", icon: <CloudSun size={24} /> },
   { title: "Ramadan Planner", path: "/ramadan-planner", desc: "Timeline checklist for Iftar and Sadqa processing.", icon: <Heart size={24} /> },
@@ -21,16 +24,16 @@ const IslamicUtilitiesPage: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Islamic Utilities Hub | Sidqly",
-    "description": "Practical tools built for Islamic charity operations. Plan Ramadan, Qurbani, Sadqa, and Zakat with Qibla direction, Hijri dates, and weather-aware tools.",
+    "description": "Practical tools built for Islamic charity operations. Plan Ramadan, Qurbani, Sadqa, and Zakat with Qibla direction, Namaz timings, Hijri dates, and weather-aware tools.",
     "url": `${brand.domain}/islamic-utilities`,
   };
 
   return (
-    <>
+    <MainLayout>
       <SEO
         title="Islamic Utilities & Planning Tools | Sidqly"
-        description="Plan Ramadan, Qurbani, Sadqa, Zakat, Qibla direction, and weather-aware distributions with practical tools for Islamic charity operations."
-        canonical="/islamic-utilities"
+        description="Plan Ramadan, Qurbani, Sadqa, Zakat, Qibla direction, Namaz timings and weather-aware distributions with practical tools for Islamic charity operations."
+        canonical="https://sidqly.com/islamic-utilities"
         schema={schema}
       />
 
@@ -63,7 +66,7 @@ const IslamicUtilitiesPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </MainLayout>
   );
 };
 

@@ -327,13 +327,17 @@ const Resources: React.FC = () => {
               <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Islamic Calendar</h3>
               <p className="text-sm text-gray-500">Hijri dates for operations.</p>
             </Link>
-            <Link to="/islamic-calendar" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
-              <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Current Islamic Date</h3>
-              <p className="text-sm text-gray-500">Today's Hijri date.</p>
+            <Link to="/namaz-timings" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
+              <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Namaz Timings</h3>
+              <p className="text-sm text-gray-500">Prayer times for planning.</p>
             </Link>
             <Link to="/qibla-direction" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
               <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Qibla Direction</h3>
               <p className="text-sm text-gray-500">Logistics compass.</p>
+            </Link>
+            <Link to="/zakat-calculator" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
+              <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Zakat Calculator</h3>
+              <p className="text-sm text-gray-500">Manual nisab planning tool.</p>
             </Link>
             <Link to="/moon-phase-islamic-calendar" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
               <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Moon Phase Planning</h3>
@@ -362,6 +366,30 @@ const Resources: React.FC = () => {
             <Link to="/islamic-glossary" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
               <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Islamic Glossary</h3>
               <p className="text-sm text-gray-500">Key operational terms.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsroom and Press */}
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="text-3xl font-extrabold text-sidqly-navy mb-4">Newsroom and Press</h2>
+            <p className="text-xl text-gray-600">Company updates, product announcements, and media assets.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link to="/newsroom" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
+              <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Newsroom Hub</h3>
+              <p className="text-sm text-gray-500">Latest updates and curated news.</p>
+            </Link>
+            <Link to="/press-releases" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
+              <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Press Releases</h3>
+              <p className="text-sm text-gray-500">Official company announcements.</p>
+            </Link>
+            <Link to="/media-kit" className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
+              <h3 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep mb-2">Media Kit</h3>
+              <p className="text-sm text-gray-500">Brand assets and boilerplates.</p>
             </Link>
           </div>
         </div>

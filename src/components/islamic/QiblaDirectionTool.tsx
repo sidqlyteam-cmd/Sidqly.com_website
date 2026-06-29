@@ -1,19 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { calculateQiblaDirection, type QiblaResult } from '../../lib/qibla';
 import { Compass, MapPin, AlertCircle, Shield } from 'lucide-react';
 
 const QiblaDirectionTool: React.FC = () => {
   const [qiblaResult, setQiblaResult] = useState<QiblaResult | null>(null);
+  const [deviceHeading, setDeviceHeading] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [usingCompass, setUsingCompass] = useState(false);
 
   // Fallback manual entry state
   const [manualLat, setManualLat] = useState('');
   const [manualLng, setManualLng] = useState('');
 
-  const handleGetLocation = () => {
+  const requestCompassPermission = async () => {
+    if (typeof (DeviceOrientationEvent as unknown as { requestPermission: () => Promise<string> }).requestPermission === 'function') {
+      try {
+        const permissionState = await (DeviceOrientationEvent as unknown as { requestPermission: () => Promise<string> }).requestPermission();
+        return permissionState === 'granted';
+      } catch (err) {
+        console.error('Error requesting compass permission:', err);
+        return false;
+      }
+    }
+    return true; // Non-iOS 13+ devices
+  };
+
+  useEffect(() => {
+    const handleOrientation = (event: DeviceOrientationEvent) => {
+      // Use webkitCompassHeading for iOS, or standard alpha for others
+      let heading = null;
+      if ('webkitCompassHeading' in event) {
+        heading = (event as unknown as { webkitCompassHeading: number }).webkitCompassHeading;
+      } else if (event.alpha !== null) {
+        // This is a rough estimation for non-iOS devices.
+        heading = 360 - event.alpha;
+      }
+
+      if (heading !== null) {
+        setDeviceHeading(heading);
+      }
+    };
+
+    if (usingCompass) {
+      window.addEventListener('deviceorientation', handleOrientation, true);
+    } else {
+      window.removeEventListener('deviceorientation', handleOrientation, true);
+    }
+
+    return () => {
+      window.removeEventListener('deviceorientation', handleOrientation, true);
+    };
+  }, [usingCompass]);
+
+  const handleGetLocation = async () => {
     setLoading(true);
     setError(null);
+    setUsingCompass(false);
 
     if (!navigator.geolocation) {
       setError('Geolocation is not supported by your browser.');
@@ -21,11 +64,18 @@ const QiblaDirectionTool: React.FC = () => {
       return;
     }
 
+    const hasCompassPermission = await requestCompassPermission();
+
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
         const result = calculateQiblaDirection(latitude, longitude);
         setQiblaResult(result);
+
+        if (hasCompassPermission && window.DeviceOrientationEvent) {
+            setUsingCompass(true);
+        }
+
         setLoading(false);
       },
       () => {
@@ -38,6 +88,8 @@ const QiblaDirectionTool: React.FC = () => {
 
   const handleManualCalculate = (e: React.FormEvent) => {
     e.preventDefault();
+    setUsingCompass(false);
+
     const lat = parseFloat(manualLat);
     const lng = parseFloat(manualLng);
 
@@ -50,6 +102,12 @@ const QiblaDirectionTool: React.FC = () => {
     const result = calculateQiblaDirection(lat, lng);
     setQiblaResult(result);
   };
+
+  // Calculate arrow rotation based on device heading if available, otherwise static bearing
+  let arrowRotation = qiblaResult?.bearing || 0;
+  if (usingCompass && deviceHeading !== null && qiblaResult) {
+      arrowRotation = qiblaResult.bearing - deviceHeading;
+  }
 
   return (
     <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto">
@@ -125,18 +183,22 @@ const QiblaDirectionTool: React.FC = () => {
         <div className="text-center mt-6">
            <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Approximate Qibla Direction</p>
 
-           <div className="relative w-48 h-48 mx-auto mb-6 bg-sidqly-ivory rounded-full border-4 border-gray-100 flex items-center justify-center shadow-inner">
-             {/* Compass Ticks */}
-             <div className="absolute inset-2 border border-gray-200 rounded-full" />
-             <span className="absolute top-2 text-xs font-bold text-gray-400">N</span>
-             <span className="absolute right-2 text-xs font-bold text-gray-400">E</span>
-             <span className="absolute bottom-2 text-xs font-bold text-gray-400">S</span>
-             <span className="absolute left-2 text-xs font-bold text-gray-400">W</span>
+           <div className="relative w-48 h-48 mx-auto mb-6 bg-sidqly-ivory rounded-full border-4 border-gray-100 flex items-center justify-center shadow-inner overflow-hidden">
+             {/* Compass Ticks (rotate opposite to arrow to simulate compass card if live, otherwise static) */}
+             <div
+               className="absolute inset-2 border border-gray-200 rounded-full transition-transform duration-100 ease-out"
+               style={{ transform: usingCompass && deviceHeading !== null ? `rotate(${-deviceHeading}deg)` : 'rotate(0deg)' }}
+             >
+                <span className="absolute top-2 left-1/2 -translate-x-1/2 text-xs font-bold text-gray-400">N</span>
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">E</span>
+                <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-bold text-gray-400">S</span>
+                <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">W</span>
+             </div>
 
              {/* Arrow Container */}
              <div
-                className="absolute inset-0 transition-transform duration-1000 ease-out flex items-center justify-center"
-                style={{ transform: `rotate(${qiblaResult.bearing}deg)` }}
+                className="absolute inset-0 transition-transform duration-100 ease-out flex items-center justify-center"
+                style={{ transform: `rotate(${arrowRotation}deg)` }}
              >
                 {/* Arrow Head (pointing up relative to its rotated container) */}
                 <div className="absolute top-4 text-sidqly-green-deep">
@@ -148,13 +210,19 @@ const QiblaDirectionTool: React.FC = () => {
              </div>
            </div>
 
-           <div className="text-5xl font-extrabold text-sidqly-navy mb-6">
+           <div className="text-5xl font-extrabold text-sidqly-navy mb-2">
              {qiblaResult.bearing}° <span className="text-xl text-gray-400 font-normal">from North</span>
            </div>
 
+           {usingCompass && deviceHeading !== null && (
+             <p className="text-sm text-sidqly-green-emerald font-semibold mb-4">
+               Live compass active. Turn your device until the arrow points up.
+             </p>
+           )}
+
            <button
-             onClick={() => setQiblaResult(null)}
-             className="text-sm font-bold text-sidqly-green-deep hover:underline"
+             onClick={() => { setQiblaResult(null); setUsingCompass(false); }}
+             className="text-sm font-bold text-sidqly-green-deep hover:underline mt-4 block mx-auto"
            >
              Calculate for another location
            </button>
@@ -168,7 +236,7 @@ const QiblaDirectionTool: React.FC = () => {
          </div>
          <div className="flex items-start gap-2 text-xs text-gray-500">
             <AlertCircle size={14} className="shrink-0 mt-0.5 text-gray-400" />
-            <p>Sidqly provides operational planning tools for Islamic giving workflows. Qibla direction should be confirmed with local scholars, official authorities, or the organization’s authorized reviewers.</p>
+            <p><strong>Accuracy Note:</strong> Qibla direction is approximate and may depend on device compass accuracy, location permission, and calibration. Confirm with local scholars, official authorities, or the organization’s authorized reviewers.</p>
          </div>
       </div>
     </div>

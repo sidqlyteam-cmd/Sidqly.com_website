@@ -10,6 +10,8 @@ import ProofTrustEngine from '../components/diagrams/ProofTrustEngine';
 import { modules, solutions } from '../data/solutions_modules';
 import { generateOrganizationSchema, generateWebSiteSchema, generateSoftwareAppSchema, generateServiceSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
+import { Search, MapPin, Clock, Calculator, BookOpen } from 'lucide-react';
+import { newsroomData } from '../data/newsroom';
 
 const Home: React.FC = () => {
   const schema = {
@@ -30,38 +32,143 @@ const Home: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-sidqly-navy py-24 md:py-40 overflow-hidden">
+      <section className="relative bg-sidqly-navy py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-[0.2em] text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10">
               International Operating Standard for Amanah
             </span>
             <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight">
               Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-medium">
               Sidqly helps mosques, charities, and giving teams manage workflows, manual review, proof approval, and board-ready reporting from one premium global platform.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6 flex-wrap">
-              <a href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-green-deep transition-all shadow-xl hover:shadow-sidqly-green-emerald/20 text-center">
-                Book Demo
-              </a>
-              <a href={brand.links?.inquiryForm || 'https://forms.gle/bvSMog9pw2Ri4kMt9'} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white/20 transition-all backdrop-blur-sm text-center">
-                Fill Inquiry Form
-              </a>
-              <Link to="/modules" className="bg-transparent text-sidqly-green-soft border border-sidqly-green-soft/30 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-green-soft/10 transition-all text-center">
-                View Modules
-              </Link>
-              <Link to="/request-organization" className="bg-transparent text-sidqly-gold border border-sidqly-gold/30 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-gold/10 transition-all text-center">
-                Request Your Organization
-              </Link>
-            </div>
+          </div>
+
+          <div className="max-w-3xl mx-auto mb-16">
+             <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl">
+                <h2 className="text-white font-bold mb-4 text-center">What are you looking for?</h2>
+                <div className="relative">
+                   <button
+                     onClick={() => {
+                       const event = new KeyboardEvent('keydown', { key: 'k', metaKey: true });
+                       window.dispatchEvent(event);
+                     }}
+                     className="w-full bg-white/90 hover:bg-white text-gray-600 border-none rounded-2xl pl-14 pr-4 py-4 text-lg focus:ring-2 focus:ring-sidqly-green-emerald transition-all text-left flex items-center truncate shadow-sm"
+                   >
+                     <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 shrink-0" size={24} />
+                     <span className="truncate text-gray-500 font-medium">Search Qibla, Namaz timings, Qurbani, Zakat...</span>
+                   </button>
+                </div>
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                   {[
+                     {name: 'Qibla', path: '/qibla-direction'},
+                     {name: 'Namaz Timings', path: '/namaz-timings'},
+                     {name: 'Zakat Calculator', path: '/zakat-calculator'},
+                     {name: 'Ramadan Planner', path: '/ramadan-planner'},
+                     {name: 'Qurbani', path: '/modules/qurbani-management-software'},
+                     {name: 'Newsroom', path: '/newsroom'}
+                   ].map(chip => (
+                      <Link key={chip.name} to={chip.path} className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/10 rounded-full text-xs font-medium text-white transition-colors">
+                        {chip.name}
+                      </Link>
+                   ))}
+                </div>
+             </div>
+          </div>
+
+          <div className="text-center">
+             <div className="flex flex-col sm:flex-row justify-center gap-6 flex-wrap">
+               <a href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-green-deep transition-all shadow-xl hover:shadow-sidqly-green-emerald/20 text-center">
+                 Book Demo
+               </a>
+               <a href={brand.links?.inquiryForm || 'https://forms.gle/bvSMog9pw2Ri4kMt9'} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white/20 transition-all backdrop-blur-sm text-center">
+                 Fill Inquiry Form
+               </a>
+               <Link to="/request-organization" className="bg-transparent text-sidqly-gold border border-sidqly-gold/30 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-gold/10 transition-all text-center">
+                 Request Your Organization
+               </Link>
+             </div>
           </div>
         </div>
+      </section>
+
+      {/* Latest from Sidqly / Newsroom Teaser */}
+      <section className="py-24 bg-sidqly-ivory">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+               <div>
+                 <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy">Latest from Sidqly</h2>
+                 <p className="text-gray-600 mt-2">Updates, operational guides, and press releases.</p>
+               </div>
+               <Link to="/newsroom" className="font-bold text-sidqly-green-deep flex items-center gap-2 hover:underline">
+                 View all news <ArrowRight size={16} />
+               </Link>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+               {newsroomData.slice(0, 3).map((item) => (
+                  <Link key={item.id} to={item.category === 'Press Release' ? '/press-releases' : '/newsroom'} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
+                     <span className="text-xs font-bold text-sidqly-green-deep uppercase tracking-wider bg-sidqly-green-soft/30 px-3 py-1 rounded-full mb-4 inline-block">{item.category}</span>
+                     <h3 className="text-lg font-bold text-sidqly-navy mb-2 group-hover:text-sidqly-green-deep transition-colors line-clamp-2">{item.title}</h3>
+                     <p className="text-sm text-gray-500 line-clamp-3 mb-4">{item.summary}</p>
+                     <span className="text-sm font-bold text-gray-400 group-hover:text-sidqly-green-emerald transition-colors flex items-center gap-1">Read more <ArrowRight size={14} /></span>
+                  </Link>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* Islamic Tools for Giving Teams */}
+      <section className="py-24 bg-white border-y border-gray-50">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16 max-w-3xl mx-auto">
+               <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy mb-4">Islamic Tools for Giving Teams</h2>
+               <p className="text-gray-600 text-lg">Integrated utilities to help mosques and charities plan distributions, coordinate with local times, and manage Zakat planning securely.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+               <Link to="/namaz-timings" className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all text-center group">
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-4 text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors shadow-sm">
+                     <Clock size={24} />
+                  </div>
+                  <h3 className="font-bold text-sidqly-navy mb-2">Namaz Timings</h3>
+                  <p className="text-xs text-gray-500">Calculate local prayer times for operational planning.</p>
+               </Link>
+               <Link to="/qibla-direction" className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all text-center group">
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-4 text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors shadow-sm">
+                     <MapPin size={24} />
+                  </div>
+                  <h3 className="font-bold text-sidqly-navy mb-2">Qibla Compass</h3>
+                  <p className="text-xs text-gray-500">Determine direction for site logistics and prayer areas.</p>
+               </Link>
+               <Link to="/zakat-calculator" className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all text-center group">
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-4 text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors shadow-sm">
+                     <Calculator size={24} />
+                  </div>
+                  <h3 className="font-bold text-sidqly-navy mb-2">Zakat Calculator</h3>
+                  <p className="text-xs text-gray-500">Plan Zakat estimates with manual nisab controls.</p>
+               </Link>
+               <Link to="/resources/eid-giving" className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all text-center group">
+                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-4 text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors shadow-sm">
+                     <BookOpen size={24} />
+                  </div>
+                  <h3 className="font-bold text-sidqly-navy mb-2">Seasonal Guides</h3>
+                  <p className="text-xs text-gray-500">Checklists for Ramadan, Qurbani, and Eid workflows.</p>
+               </Link>
+            </div>
+
+            <div className="mt-12 text-center">
+               <Link to="/islamic-utilities" className="inline-flex items-center gap-2 text-sidqly-green-deep font-bold hover:underline">
+                 View all Islamic Utilities <ArrowRight size={16} />
+               </Link>
+            </div>
+         </div>
       </section>
 
       {/* What Sidqly Replaces */}

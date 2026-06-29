@@ -1,6 +1,6 @@
 import React from 'react';
 import { getIslamicDateInfo } from '../../lib/islamicCalendar';
-import { CalendarDays, AlertCircle } from 'lucide-react';
+import { CalendarDays, AlertCircle, Heart, Gift, Activity, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const IslamicCalendarPanel: React.FC = () => {
@@ -33,12 +33,12 @@ const IslamicCalendarPanel: React.FC = () => {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-               <p className="text-sm text-sidqly-green-soft font-bold mb-1">Current Gregorian Month</p>
-               <p className="text-xl font-bold">{currentGregorian.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+               <p className="text-sm text-sidqly-green-soft font-bold mb-1">Current Gregorian Date</p>
+               <p className="text-xl font-bold">{currentGregorian.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</p>
             </div>
             <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-               <p className="text-sm text-sidqly-green-soft font-bold mb-1">Current Islamic Month</p>
-               <p className="text-xl font-bold">{currentIslamic?.hijriMonthName} {currentIslamic?.hijriYear}</p>
+               <p className="text-sm text-sidqly-green-soft font-bold mb-1">Estimated Islamic Date</p>
+               <p className="text-xl font-bold">{currentIslamic?.hijriDay} {currentIslamic?.hijriMonthName} {currentIslamic?.hijriYear}</p>
             </div>
           </div>
         </div>
@@ -51,23 +51,49 @@ const IslamicCalendarPanel: React.FC = () => {
         </p>
       </div>
 
-      {/* Planning Periods */}
+      {/* Planning Context Cards */}
       <div>
-        <h3 className="text-2xl font-bold text-sidqly-navy mb-6">Key Planning Periods</h3>
+        <h3 className="text-2xl font-bold text-sidqly-navy mb-6">Seasonal Planning Checklists</h3>
         <div className="grid md:grid-cols-2 gap-4">
-          {[
-            { title: 'Prepare Ramadan ration and Iftar campaigns', link: '/ramadan-planner' },
-            { title: 'Prepare Sadqa Fitr workflows', link: '/sadqa-zakat-planner' },
-            { title: 'Prepare Eid ul Adha and Qurbani operations', link: '/eid-qurbani-planner' },
-            { title: 'Prepare Hajj-linked giving and Dhul Hijjah reports', link: '/hajj-countdown' },
-            { title: 'Zakat campaign planning', link: '/sadqa-zakat-planner' },
-            { title: 'Aqiqa/Aqiqah workflow planning', link: '/modules/sadaqah' }
-          ].map((item, i) => (
-             <Link key={i} to={item.link} className="block bg-white p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all group">
-                <h4 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep">{item.title}</h4>
-                <p className="text-sm text-gray-500 mt-2">View operational guides & tools →</p>
-             </Link>
-          ))}
+           <Link to="/ramadan-planner" className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all group">
+              <div className="bg-sidqly-ivory p-3 rounded-xl text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors">
+                <Heart size={24} />
+              </div>
+              <div>
+                 <h4 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep">Ramadan Planner</h4>
+                 <p className="text-sm text-gray-500 mt-1">Checklists for Iftar, ration packs, volunteer coordination, and Sadqa workflows.</p>
+              </div>
+           </Link>
+
+           <Link to="/eid-qurbani-planner" className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all group">
+              <div className="bg-sidqly-ivory p-3 rounded-xl text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors">
+                <Gift size={24} />
+              </div>
+              <div>
+                 <h4 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep">Eid & Qurbani Planner</h4>
+                 <p className="text-sm text-gray-500 mt-1">Vendor assignments, order tracking, manual payment review, and proof approval.</p>
+              </div>
+           </Link>
+
+           <Link to="/hajj-countdown" className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all group">
+              <div className="bg-sidqly-ivory p-3 rounded-xl text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors">
+                <Clock size={24} />
+              </div>
+              <div>
+                 <h4 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep">Hajj Countdown</h4>
+                 <p className="text-sm text-gray-500 mt-1">Estimated Dhul Hijjah timelines for sponsor reporting and donor updates.</p>
+              </div>
+           </Link>
+
+           <Link to="/zakat-calculator" className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-md transition-all group">
+              <div className="bg-sidqly-ivory p-3 rounded-xl text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors">
+                <Activity size={24} />
+              </div>
+              <div>
+                 <h4 className="font-bold text-sidqly-navy group-hover:text-sidqly-green-deep">Sadqa & Zakat Planning</h4>
+                 <p className="text-sm text-gray-500 mt-1">Zakat fund separation checklists and calculation tools for your campaigns.</p>
+              </div>
+           </Link>
         </div>
       </div>
 

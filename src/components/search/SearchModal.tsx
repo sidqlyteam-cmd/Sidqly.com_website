@@ -85,7 +85,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
             ref={inputRef}
             type="text"
             className="w-full pl-14 pr-12 py-4 bg-transparent text-xl text-sidqly-navy placeholder-gray-400 outline-none focus:ring-0"
-            placeholder="Search modules, workflows, resources, and FAQs..."
+            placeholder="Search Qurbani, Zakat, Qibla, Ramadan, proof, reports..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -108,7 +108,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
             <div className="p-12 text-center">
               <Search className="mx-auto text-gray-300 mb-4" size={48} />
               <p className="text-lg font-bold text-sidqly-navy mb-2">No results found for "{query}"</p>
-              <p className="text-gray-500">Try searching for "Zakat", "Proof", "Modules", or "Pricing".</p>
+              <p className="text-gray-500">Try searching for "Qibla", "Namaz Timings", "Zakat Calculator", or "Ramadan".</p>
             </div>
           )}
 
@@ -140,7 +140,11 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
             <div className="p-6">
               <div className="px-2 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Popular Searches</div>
               <div className="flex flex-wrap gap-2">
-                 {['Proof Trust Engine', 'Zakat', 'Manual Payment Review', 'Pricing', 'Compare'].map(term => (
+                 {[
+                   'Qibla', 'Namaz Timings', 'Islamic Calendar', 'Zakat Calculator',
+                   'Ramadan Planner', 'Qurbani', 'Sadqa Fitr', 'Manual Payment Review',
+                   'Donor-Safe Proof', 'Reports', 'Newsroom', 'Press Releases'
+                 ].map(term => (
                     <button
                       key={term}
                       onClick={() => setQuery(term)}

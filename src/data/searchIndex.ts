@@ -3,7 +3,7 @@ import { useCases } from './useCases';
 
 export interface SearchResult {
   id: string;
-  type: 'Module' | 'Solution' | 'Use Case' | 'Islamic Tool' | 'Resource' | 'Blog' | 'FAQ' | 'Compare' | 'Trust' | 'Legal' | 'Page' | 'Feature';
+  type: 'Module' | 'Solution' | 'Use Case' | 'Islamic Tool' | 'Resource' | 'Blog' | 'FAQ' | 'Compare' | 'Trust' | 'Legal' | 'Page' | 'Feature' | 'Newsroom';
   title: string;
   description: string;
   url: string;
@@ -14,6 +14,29 @@ export const generateSearchIndex = (): SearchResult[] => {
 
   // Core Pages
 
+  // Newsroom & Media
+  index.push({
+    id: 'newsroom',
+    type: 'Newsroom',
+    title: 'Newsroom',
+    description: 'Latest Sidqly updates, press releases, Makkah, Madinah, Hajj, Umrah, Ramadan, and Qurbani planning news.',
+    url: '/newsroom'
+  });
+  index.push({
+    id: 'press-releases',
+    type: 'Newsroom',
+    title: 'Press Releases',
+    description: 'Official press releases, product updates, and company announcements from Sidqly.',
+    url: '/press-releases'
+  });
+  index.push({
+    id: 'media-kit',
+    type: 'Newsroom',
+    title: 'Media Kit',
+    description: 'Brand assets, boilerplates, and guidelines for press and media coverage.',
+    url: '/media-kit'
+  });
+
   // Islamic Utilities
   index.push({
     id: 'util-islamic-utilities',
@@ -21,6 +44,20 @@ export const generateSearchIndex = (): SearchResult[] => {
     title: 'Islamic Utilities',
     description: 'Islamic Tools Hub for Ramadan, Qurbani, Zakat, Sadqa, and general planning utilities.',
     url: '/islamic-utilities'
+  });
+  index.push({
+    id: 'util-namaz-timings',
+    type: 'Islamic Tool',
+    title: 'Namaz Timings',
+    description: 'Prayer times, salah time, fajr, dhuhr, asr, maghrib, isha for operational planning.',
+    url: '/namaz-timings'
+  });
+  index.push({
+    id: 'util-zakat-calculator',
+    type: 'Islamic Tool',
+    title: 'Zakat Calculator',
+    description: 'Plan your Zakat obligations with manual nisab input for gold and silver.',
+    url: '/zakat-calculator'
   });
   index.push({
     id: 'util-islamic-calendar',
@@ -267,6 +304,15 @@ export const generateSearchIndex = (): SearchResult[] => {
     title: 'Platform Features & Workflows',
     description: 'verified giving, manual payment review, donor-safe proof, proof approval, audit-ready records, board reports, receipts, certificates, QR verification, vendor fulfillment, volunteer coordination, request organization.',
     url: '/how-it-works'
+  });
+
+  // Extra Keywords mapping for Newsroom and Utilities
+  index.push({
+    id: 'extra-search-terms',
+    type: 'Feature',
+    title: 'Additional Topics & News',
+    description: 'newsroom, news, press, press release, media kit, Sidqly updates, Islamic giving news, Makkah updates, Madinah updates, Hajj news, Umrah updates, Ramadan news, Qurbani news',
+    url: '/newsroom'
   });
 
   return index;

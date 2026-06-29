@@ -39,10 +39,10 @@ const HajjCountdown: React.FC = () => {
         <h3 className="font-bold text-sidqly-navy">Operational Preparation Timeline</h3>
         <ul className="space-y-3 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
            {[
-             { time: '90 days before', action: 'Campaign and module setup' },
-             { time: '60 days before', action: 'Vendor planning & animal sourcing' },
-             { time: '30 days before', action: 'Donor communication & share allocation' },
-             { time: '10 days before', action: 'Proof and report readiness' },
+             { time: '90 days before', action: 'Campaign setup & module activation' },
+             { time: '60 days before', action: 'Vendor planning & animal sourcing readiness' },
+             { time: '30 days before', action: 'Donor communication, share allocation & sponsor updates' },
+             { time: '10 days before', action: 'Certificates, proof review templates & report readiness' },
            ].map((step, i) => (
              <li key={i} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-sidqly-ivory group-hover:bg-sidqly-green-deep group-hover:text-white text-sidqly-green-deep shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 transition-colors">
@@ -62,15 +62,15 @@ const HajjCountdown: React.FC = () => {
            <span className="font-bold text-sm">Qurbani Workflows</span>
            <ArrowRight size={16} />
         </Link>
-        <Link to="/modules/sadaqah" className="flex items-center justify-between p-4 rounded-xl bg-sidqly-ivory text-sidqly-navy hover:bg-gray-100 transition-colors">
-           <span className="font-bold text-sm">Dhul Hijjah Giving</span>
+        <Link to="/book-demo" className="flex items-center justify-between p-4 rounded-xl bg-sidqly-green-deep text-white hover:shadow-md transition-all">
+           <span className="font-bold text-sm">Request Organization</span>
            <ArrowRight size={16} />
         </Link>
       </div>
 
       <div className="flex items-start gap-2 text-xs text-gray-500 bg-gray-50 p-3 rounded-lg border border-gray-100">
          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-         <p>Final Hajj and Eid dates depend on official Saudi announcements and lunar calendar confirmation. This is a planning estimate only.</p>
+         <p>Final Hajj and Eid dates depend on official Saudi announcements and lunar calendar confirmation. Organizations should confirm official Hajj and Umrah updates through official authorities and trusted sources.</p>
       </div>
     </div>
   );

@@ -39,19 +39,21 @@ const RamadanCountdown: React.FC = () => {
          <h3 className="font-bold text-sidqly-navy">Distribution Workflow Checklists</h3>
          <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-gray-100 p-4 rounded-xl">
-               <h4 className="font-bold text-sm text-sidqly-green-deep mb-3 border-b border-gray-50 pb-2">Pre-Ramadan</h4>
+               <h4 className="font-bold text-sm text-sidqly-green-deep mb-3 border-b border-gray-50 pb-2">Pre-Ramadan Planning</h4>
                <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex gap-2"><span>•</span> Set up Iftar campaign modules</li>
-                  <li className="flex gap-2"><span>•</span> Assign vendor fulfillments for rations</li>
+                  <li className="flex gap-2"><span>•</span> Assign vendor fulfillments for ration packs</li>
                   <li className="flex gap-2"><span>•</span> Sponsor communication templates</li>
+                  <li className="flex gap-2"><span>•</span> Review Weather Distribution guidelines <Link to="/weather-charity-distribution" className="text-sidqly-green-emerald hover:underline">(Link)</Link></li>
                </ul>
             </div>
             <div className="border border-gray-100 p-4 rounded-xl">
                <h4 className="font-bold text-sm text-sidqly-green-deep mb-3 border-b border-gray-50 pb-2">During Ramadan</h4>
                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex gap-2"><span>•</span> Daily proof review via Trust Engine</li>
+                  <li className="flex gap-2"><span>•</span> Daily proof review and approval workflows</li>
                   <li className="flex gap-2"><span>•</span> Donor-safe update dispatches</li>
                   <li className="flex gap-2"><span>•</span> Volunteer coordination mapping</li>
+                  <li className="flex gap-2"><span>•</span> Monitor local <Link to="/namaz-timings" className="text-sidqly-green-emerald hover:underline">Namaz timings</Link> for operations</li>
                </ul>
             </div>
          </div>
@@ -63,6 +65,9 @@ const RamadanCountdown: React.FC = () => {
          </Link>
          <Link to="/modules/vendor-fulfillment-platform" className="inline-flex items-center gap-2 bg-sidqly-ivory text-sidqly-navy px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-100 transition-colors">
             Vendor Fulfillment <ArrowRight size={14} />
+         </Link>
+         <Link to="/book-demo" className="inline-flex items-center gap-2 bg-sidqly-green-deep text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-sidqly-navy transition-colors">
+            Book Demo <ArrowRight size={14} />
          </Link>
       </div>
 

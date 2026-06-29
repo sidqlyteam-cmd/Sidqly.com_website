@@ -37,6 +37,8 @@ import Resources from './pages/Resources';
 
 // Islamic Utilities Pages
 import IslamicUtilitiesPage from './pages/islamic/IslamicUtilitiesPage';
+import NamazTimingsPage from './pages/islamic/NamazTimingsPage';
+import ZakatCalculatorPage from './pages/islamic/ZakatCalculatorPage';
 import IslamicCalendarPage from './pages/islamic/IslamicCalendarPage';
 import MoonPhasePage from './pages/islamic/MoonPhasePage';
 import QiblaDirectionPage from './pages/islamic/QiblaDirectionPage';
@@ -46,6 +48,11 @@ import RamadanPlannerPage from './pages/islamic/RamadanPlannerPage';
 import EidQurbaniPlannerPage from './pages/islamic/EidQurbaniPlannerPage';
 import SadqaZakatPlannerPage from './pages/islamic/SadqaZakatPlannerPage';
 import IslamicGlossaryPage from './pages/islamic/IslamicGlossaryPage';
+
+// Newsroom
+import Newsroom from './pages/Newsroom';
+import PressReleases from './pages/newsroom/PressReleases';
+import MediaKit from './pages/newsroom/MediaKit';
 
 // Dynamic Templates
 import BlogIndex from './pages/blog/BlogIndex';
@@ -121,6 +128,11 @@ function App() {
             <Route path="ai-search-readiness" element={<AISearchReadiness />} />
             <Route path="request-organization" element={<RequestOrganization />} />
             <Route path="regions" element={<RegionsIndex />} />
+
+            {/* Newsroom */}
+            <Route path="newsroom" element={<Newsroom />} />
+            <Route path="press-releases" element={<PressReleases />} />
+            <Route path="media-kit" element={<MediaKit />} />
             <Route path="regions/:slug" element={<RegionDetail />} />
 
             {/* Solutions Routes */}
@@ -166,7 +178,9 @@ function App() {
             <Route path="alternatives/:slug" element={<CompareDetail />} />
 
             {/* Islamic Utilities Routes */}
-                        <Route path="islamic-utilities" element={<IslamicUtilitiesPage />} />
+            <Route path="islamic-utilities" element={<IslamicUtilitiesPage />} />
+            <Route path="namaz-timings" element={<NamazTimingsPage />} />
+            <Route path="zakat-calculator" element={<ZakatCalculatorPage />} />
             <Route path="islamic-calendar" element={<IslamicCalendarPage />} />
             <Route path="moon-phase-islamic-calendar" element={<MoonPhasePage />} />
             <Route path="qibla-direction" element={<QiblaDirectionPage />} />

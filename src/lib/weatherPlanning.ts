@@ -1,68 +1,89 @@
-export interface WeatherPlanningGuidance {
-  temperatureC?: number;
-  temperatureF?: number;
-  condition?: string;
+export interface WeatherEstimate {
+  temperatureC: number;
+  condition: string;
+  isRaining: boolean;
+  isHot: boolean;
+  isCold: boolean;
+  windSpeed: number;
+  riskLevel: 'Low' | 'Medium' | 'High';
   advice: string[];
 }
 
-/**
- * Mock service wrapper for weather-aware planning.
- * In a real app, this would call a weather API (like OpenWeatherMap).
- * For now, we provide general guidelines based on mock or assumed conditions.
- */
-export const getWeatherGuidance = async (city: string): Promise<WeatherPlanningGuidance | null> => {
-  // Mocking an API call
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // Very basic mock logic just to show functionality.
-      const lowerCity = city.toLowerCase();
+export async function fetchWeatherEstimate(city: string): Promise<WeatherEstimate> {
+  // First, get coords from city name using Open-Meteo Geocoding API
+  const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&format=json`);
+  if (!geoRes.ok) throw new Error('Geocoding failed');
+  const geoData = await geoRes.json();
 
-      let condition = 'Clear';
-      let tempC = 25;
+  if (!geoData.results || geoData.results.length === 0) {
+    throw new Error('City not found');
+  }
 
-      if (lowerCity.includes('london') || lowerCity.includes('rain') || lowerCity.includes('seattle')) {
-        condition = 'Rain';
-        tempC = 12;
-      } else if (lowerCity.includes('dubai') || lowerCity.includes('riyadh') || lowerCity.includes('hot')) {
-        condition = 'Hot';
-        tempC = 40;
-      } else if (lowerCity.includes('chicago') || lowerCity.includes('moscow') || lowerCity.includes('cold')) {
-        condition = 'Cold';
-        tempC = 0;
-      } else if (lowerCity.includes('dust') || lowerCity.includes('wind')) {
-        condition = 'Windy/Dusty';
-        tempC = 30;
-      }
+  const { latitude, longitude } = geoData.results[0];
 
-      const tempF = Math.round((tempC * 9/5) + 32);
+  return fetchWeatherByCoords(latitude, longitude);
+}
 
-      const advice: string[] = [];
+export async function fetchWeatherByCoords(lat: number, lng: number): Promise<WeatherEstimate> {
+  // Get current weather using Open-Meteo Forecast API
+  const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,wind_speed_10m,weather_code&timezone=auto`);
+  if (!res.ok) throw new Error('Weather forecast failed');
+  const data = await res.json();
 
-      if (condition === 'Rain') {
-        advice.push('Covered distribution required for ration packs.');
-        advice.push('Ensure waterproof packaging for dry goods.');
-        advice.push('Plan for potential route delays and coordinate with drivers.');
-      } else if (condition === 'Hot' || tempC > 35) {
-        advice.push('Crucial: Volunteer hydration and frequent breaks needed.');
-        advice.push('Ensure food safety protocols for perishable items (e.g., Qurbani meat, prepared Iftars).');
-        advice.push('Shift distributions to early morning or late evening if possible.');
-      } else if (condition === 'Cold' || tempC < 10) {
-        advice.push('Consider adding warm meals or blankets to the distribution plan.');
-        advice.push('Ensure volunteers have adequate winter gear.');
-      } else if (condition === 'Windy/Dusty') {
-         advice.push('Secure packaging carefully to avoid tears.');
-         advice.push('Plan proof capture (photos/videos) carefully as visibility or equipment may be affected.');
-      } else {
-        advice.push('Standard distribution protocols apply.');
-        advice.push('Maintain regular proof capture and dignity-safe updates.');
-      }
+  const current = data.current;
+  const temp = current.temperature_2m;
+  const wind = current.wind_speed_10m;
+  const code = current.weather_code;
 
-      resolve({
-        temperatureC: tempC,
-        temperatureF: tempF,
-        condition,
-        advice
-      });
-    }, 500); // 500ms delay to simulate network
-  });
-};
+  // Rough WMO Weather interpretation
+  // https://open-meteo.com/en/docs
+  let isRaining = false;
+  let condition = "Clear/Cloudy";
+  if ([51,53,55,56,57,61,63,65,66,67,80,81,82,95,96,99].includes(code)) {
+    isRaining = true;
+    condition = "Rain/Precipitation";
+  } else if ([71,73,75,77,85,86].includes(code)) {
+    isRaining = true; // Treating snow similarly for distribution risk
+    condition = "Snow";
+  } else if ([45, 48].includes(code)) {
+      condition = "Fog";
+  }
+
+  const isHot = temp >= 35;
+  const isCold = temp <= 10;
+  const isWindy = wind >= 30; // km/h
+
+  let riskLevel: 'Low' | 'Medium' | 'High' = 'Low';
+  const advice: string[] = [];
+
+  if (isHot) {
+    riskLevel = 'Medium';
+    advice.push("Hot weather: Ensure hydration for volunteers, monitor food safety (especially cooked meals), and provide shaded waiting areas for beneficiaries.");
+  }
+  if (isRaining) {
+    riskLevel = riskLevel === 'Medium' || isWindy ? 'High' : 'Medium';
+    advice.push("Rain/Precipitation: Use covered packaging for rations, anticipate route delays, and ensure safe dry areas for proof capture (photos/signatures).");
+  }
+  if (isCold) {
+    advice.push("Cold weather: Prioritize warm meals/rations, minimize waiting times, and consider providing heating at distribution points.");
+  }
+  if (isWindy) {
+     riskLevel = 'Medium';
+     advice.push("Wind/Dust: Secure loose packaging, stabilize tents/tables, and take precautions during photo/video proof capture.");
+  }
+
+  if (advice.length === 0) {
+      advice.push("Conditions appear optimal. Maintain standard dignity-safe distribution practices and clear proof collection workflows.");
+  }
+
+  return {
+    temperatureC: temp,
+    condition,
+    isRaining,
+    isHot,
+    isCold,
+    windSpeed: wind,
+    riskLevel,
+    advice
+  };
+}

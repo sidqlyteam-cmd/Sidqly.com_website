@@ -21,29 +21,22 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navigation = [
-    { name: "Features", href: "/features" },
-    { name: 'Modules', href: '/modules' },
-    { name: 'Use Cases', href: '/use-cases' },
-    { name: 'Pricing', href: '/pricing' },
-    {
-      name: 'Resources',
-      href: '/resources',
-      children: [
-        { name: 'Resources Hub', href: '/resources' },
-        { name: 'Seasonal Giving Guides', href: '/resources/eid-giving' },
-        { name: 'Blog', href: '/blog' },
+    { name: "Product", href: "/how-it-works", children: [
+        { name: 'Features', href: '/features' },
+        { name: 'Modules', href: '/modules' },
         { name: 'Compare', href: '/compare' },
-        { name: 'Glossary', href: '/islamic-glossary' },
-        { name: 'Request Organization', href: '/request-organization' }
-      ]
-    },
+        { name: 'Pricing', href: '/pricing' }
+    ] },
+    { name: 'Use Cases', href: '/use-cases' },
     {
       name: 'Islamic Tools',
       href: '/islamic-utilities',
       children: [
         { name: 'Islamic Utilities', href: '/islamic-utilities' },
         { name: 'Islamic Calendar', href: '/islamic-calendar' },
+        { name: 'Namaz Timings', href: '/namaz-timings' },
         { name: 'Qibla Direction', href: '/qibla-direction' },
+        { name: 'Zakat Calculator', href: '/zakat-calculator' },
         { name: 'Moon Phase', href: '/moon-phase-islamic-calendar' },
         { name: 'Weather-Aware Distribution', href: '/weather-charity-distribution' },
         { name: 'Hajj Countdown', href: '/hajj-countdown' },
@@ -53,6 +46,32 @@ const Navbar: React.FC = () => {
         { name: 'Islamic Glossary', href: '/islamic-glossary' }
       ]
     },
+    {
+      name: 'Resources',
+      href: '/resources',
+      children: [
+        { name: 'Resources Hub', href: '/resources' },
+        { name: 'Seasonal Giving Guides', href: '/resources/eid-giving' },
+        { name: 'Blog', href: '/blog' },
+        { name: 'Glossary', href: '/islamic-glossary' },
+        { name: 'Sitemap', href: '/sitemap' },
+        { name: 'Request Organization', href: '/request-organization' }
+      ]
+    },
+    {
+      name: 'Newsroom',
+      href: '/newsroom',
+      children: [
+        { name: 'Newsroom', href: '/newsroom' },
+        { name: 'Press Releases', href: '/press-releases' },
+        { name: 'Media Kit', href: '/media-kit' },
+        { name: 'Sidqly Updates', href: '/newsroom' },
+        { name: 'Makkah and Madinah Updates', href: '/newsroom' },
+        { name: 'Hajj and Umrah Operations', href: '/newsroom' },
+        { name: 'Ramadan and Qurbani Planning', href: '/newsroom' }
+      ]
+    },
+    { name: 'Pricing', href: '/pricing' },
     { name: 'Trust', href: '/trust-center' },
     { name: 'Demo', href: brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz', external: true }
   ] as Array<{ name: string; href: string; external?: boolean; children?: Array<{ name: string; href: string; }> }>;
@@ -76,12 +95,12 @@ const Navbar: React.FC = () => {
             <div className="relative mx-4">
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="flex items-center gap-2 bg-gray-50 border border-gray-200 hover:border-sidqly-green-emerald hover:bg-white text-gray-400 px-4 py-2 rounded-full transition-all w-64 xl:w-80 text-sm focus:outline-none focus:ring-2 focus:ring-sidqly-green-emerald"
-                aria-label="Search Sidqly modules, Islamic tools, resources, and FAQs"
+                className="flex items-center gap-2 bg-gray-50 border border-gray-200 hover:border-sidqly-green-emerald hover:bg-white text-gray-400 px-4 py-2 rounded-full transition-all w-64 xl:w-80 text-sm focus:outline-none focus:ring-2 focus:ring-sidqly-green-emerald truncate"
+                aria-label="Search Qurbani, Zakat, Qibla, Ramadan, proof, reports..."
               >
-                <Search size={16} />
-                <span className="flex-1 text-left">Search Sidqly...</span>
-                <span className="hidden xl:inline-block px-1.5 py-0.5 rounded-md border border-gray-200 bg-white text-xs font-mono font-bold text-gray-400">/</span>
+                <Search size={16} className="shrink-0" />
+                <span className="flex-1 text-left truncate">Search Qurbani, Zakat, Qibla...</span>
+                <span className="hidden xl:inline-block px-1.5 py-0.5 rounded-md border border-gray-200 bg-white text-xs font-mono font-bold text-gray-400 shrink-0">/</span>
               </button>
             </div>
 
