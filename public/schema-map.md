@@ -56,3 +56,8 @@ Islamic Planning Utilities:
 - /eid-qurbani-planner
 - /sadqa-zakat-planner
 - /islamic-glossary
+- /namaz-timings (SoftwareApplication)
+- /zakat-calculator (SoftwareApplication)
+- /newsroom (CollectionPage)
+- /press-releases (CollectionPage)
+- /media-kit (AboutPage)

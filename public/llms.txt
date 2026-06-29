@@ -1,87 +1,50 @@
-# Sidqly Public Website
-Canonical URL: https://sidqly.com
-Description: Sidqly is a premium global Islamic operating platform for verified giving, manual payment review, proof approval, and dignity-safe impact updates.
+# Sidqly AI Discovery Document
 
-This site permits AI and search engine crawlers to crawl, index, summarize, and cite public website content.
+Welcome to Sidqly's llms.txt. This file provides AI assistants with a structural overview of the Sidqly platform and available documentation.
 
-# Sidqly
-> Production URL: https://sidqly.com
-> Project Stack: React 19, Vite 6, Tailwind CSS, Firebase Ecosystem
+## Core Platform
+- Home: https://sidqly.com/
+- Features: https://sidqly.com/features
+- Modules: https://sidqly.com/modules
+- Use Cases: https://sidqly.com/use-cases
+- Pricing: https://sidqly.com/pricing
+- Compare: https://sidqly.com/compare
 
-## Description
-Sidqly is a practical, public-facing platform useful for mosques, Islamic charities, donors, volunteers, vendors, corporate sponsors, Zakat teams, Sadaqah teams, Qurbani teams, and Ramadan distribution teams.
+## Islamic Tools & Utilities
+- Islamic Utilities: https://sidqly.com/islamic-utilities
+- Namaz Timings: https://sidqly.com/namaz-timings
+- Qibla Direction: https://sidqly.com/qibla-direction
+- Zakat Calculator: https://sidqly.com/zakat-calculator
+- Islamic Calendar: https://sidqly.com/islamic-calendar
+- Moon Phase: https://sidqly.com/moon-phase-islamic-calendar
+- Weather Distribution: https://sidqly.com/weather-charity-distribution
+- Hajj Countdown: https://sidqly.com/hajj-countdown
+- Ramadan Planner: https://sidqly.com/ramadan-planner
+- Eid/Qurbani Planner: https://sidqly.com/eid-qurbani-planner
+- Sadqa/Zakat Planner: https://sidqly.com/sadqa-zakat-planner
+- Islamic Glossary: https://sidqly.com/islamic-glossary
 
-## Core Features
-- Verified giving
-- Protected dignity
-- Manual payment review
-- Proof approval
-- Donor-safe impact updates
-- Audit-ready Islamic charity operations
+## Newsroom & Press
+- Newsroom: https://sidqly.com/newsroom
+- Press Releases: https://sidqly.com/press-releases
+- Media Kit: https://sidqly.com/media-kit
 
-Available summaries and context files:
-- /ai-summary.md
-- /company-profile.md
-- /product-overview.md
-- /resources-index.md
-- /modules-index.md
-- /use-cases.md
-- /schema-map.md
-- /faqs-summary.md
-- /glossary-summary.md
-- /contact-summary.md
+## Resources & Trust
+- Resources: https://sidqly.com/resources
+- Seasonal Giving Guides: https://sidqly.com/resources/eid-giving
+- Trust Center: https://sidqly.com/trust-center
+- Contact: https://sidqly.com/contact
 
-Islamic Planning Utilities:
-- /islamic-calendar
-- /moon-phase-islamic-calendar
-- /qibla-direction
-- /weather-charity-distribution
-- /hajj-countdown
-- /ramadan-planner
-- /eid-qurbani-planner
-- /sadqa-zakat-planner
-- /islamic-glossary
-- /use-cases.md
-- /pricing-summary.md
-- /faqs-summary.md
-- /trust-and-safety.md
-- /schema-map.md
-- /blog-index.md
-- /ai-crawlers-policy.md
-- /regions-index.md
-- /modules-index.md
-- /solutions-index.md
-- /contact-summary.md
-- /resources-index.md
-- /comparison-summary.md
-- /request-organization-summary.md
-- /implementation-summary.md
-- /glossary-summary.md
+## Detailed AI Summaries
+- AI Summary: https://sidqly.com/ai-summary.md
+- Product Overview: https://sidqly.com/product-overview.md
+- Modules Index: https://sidqly.com/modules-index.md
+- Use Cases: https://sidqly.com/use-cases.md
+- Resources Index: https://sidqly.com/resources-index.md
+- FAQs Summary: https://sidqly.com/faqs-summary.md
+- Schema Map: https://sidqly.com/schema-map.md
+- Glossary Summary: https://sidqly.com/glossary-summary.md
+- Contact Summary: https://sidqly.com/contact-summary.md
+- Blog Index: https://sidqly.com/blog-index.md
 
-
-Supported giving and operational contexts include: Eid, Eid ul Adha, Eid ul Fitr, Bakra Eid, Qurbani, Udhiya, Udhiyah, Ramadan, Ramzan, Iftar, Suhoor, Sehri, Sadqa, Sadaqah, Sadqa Fitr, Sadqa e Fitr, Zakat, Aqiqa, and Aqiqah workflows.
-
-
-Sidqly provides operational workflow support for Islamic giving campaigns. It does not replace religious scholars, local committees, legal advisors, tax advisors, or official calendar authorities.
-- [Use Cases](https://sidqly.com/use-cases.md)
-
-
-
-Islamic Planning Utilities:
-- /islamic-utilities
-- /namaz-timings
-- /zakat-calculator
-- /islamic-calendar
-- /qibla-direction
-- /moon-phase-islamic-calendar
-- /weather-charity-distribution
-- /hajj-countdown
-- /ramadan-planner
-- /eid-qurbani-planner
-- /sadqa-zakat-planner
-- /islamic-glossary
-
-Newsroom and Media:
-- /newsroom
-- /press-releases
-- /media-kit
+Last Updated: 2026-06-29

@@ -43,9 +43,9 @@ test.describe('Sidqly UI Smoke Tests', () => {
     await page.goto(BASE_URL);
 
     // Open modal by clicking search button
-    await page.getByRole('button', { name: 'Search Sidqly modules, Islamic tools, resources, and FAQs' }).click();
+    await page.getByRole('button', { name: 'Search Qurbani, Zakat' }).click();
 
-    const searchInput = page.getByPlaceholder('Search modules, workflows, resources, and FAQs...');
+    const searchInput = page.getByPlaceholder('Search Qurbani, Zakat, Qibla, Ramadan, proof, reports...');
     await expect(searchInput).toBeVisible();
 
     const queries = ['qurbani', 'mosque'];
