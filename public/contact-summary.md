@@ -10,6 +10,7 @@
 
 Islamic Planning Utilities:
 - /islamic-utilities
+- /brand-assets
 - /islamic-calendar
 - /qibla-direction
 - /moon-phase-islamic-calendar

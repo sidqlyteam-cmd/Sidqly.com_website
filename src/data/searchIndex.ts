@@ -306,6 +306,15 @@ export const generateSearchIndex = (): SearchResult[] => {
     url: '/how-it-works'
   });
 
+  // Brand Assets
+  index.push({
+    id: 'brand-assets',
+    type: 'Feature',
+    title: 'Brand Assets',
+    description: 'Brand assets and guidelines.',
+    url: '/brand-assets'
+  });
+
   // Extra Keywords mapping for Newsroom and Utilities
   index.push({
     id: 'extra-search-terms',

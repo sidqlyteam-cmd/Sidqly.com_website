@@ -18,4 +18,5 @@ The resources page provides access to critical tools and documentation, includin
 - Newsroom (https://sidqly.com/newsroom)
 - Press Releases (https://sidqly.com/press-releases)
 - Media Kit (https://sidqly.com/media-kit)
+- Brand Assets (https://sidqly.com/brand-assets)
 - Use Cases (https://sidqly.com/use-cases)

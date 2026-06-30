@@ -1,11 +1,10 @@
 import React from 'react';
-import MainLayout from '../../layout/MainLayout';
 import SEO from '../../components/SEO';
 import NamazTimingWidget from '../../components/islamic/NamazTimingWidget';
 
 const NamazTimingsPage: React.FC = () => {
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Namaz Timings and Prayer Time Planner | Sidqly"
         description="Calculate approximate Namaz timings using standard methods to support operational planning for Islamic charities, mosques, and giving organizations."
@@ -25,7 +24,7 @@ const NamazTimingsPage: React.FC = () => {
           <NamazTimingWidget />
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
 

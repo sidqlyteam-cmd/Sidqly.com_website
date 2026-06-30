@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SEO from '../components/SEO';
-import MainLayout from '../layout/MainLayout';
 import { brand } from '../config/brand';
 import { newsroomData } from '../data/newsroom';
 import { Link } from 'react-router-dom';
@@ -24,7 +23,7 @@ const Newsroom: React.FC = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Newsroom | Sidqly Updates, Islamic Giving News, Hajj, Ramadan, and Qurbani Planning"
         description="Latest updates, press releases, Islamic giving news, and operational announcements for Hajj, Ramadan, and Qurbani planning."
@@ -138,7 +137,7 @@ const Newsroom: React.FC = () => {
 
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
 

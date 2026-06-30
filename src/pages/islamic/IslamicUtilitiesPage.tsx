@@ -3,7 +3,6 @@ import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
 import { Link } from 'react-router-dom';
 import { Calendar, Compass, CloudSun, Moon, Gift, Heart, BookOpen, Clock, Activity, Calculator } from 'lucide-react';
-import MainLayout from '../../layout/MainLayout';
 
 const utilities = [
   { title: "Namaz Timings", path: "/namaz-timings", desc: "Calculate approximate prayer times for operational planning.", icon: <Clock size={24} /> },
@@ -29,7 +28,7 @@ const IslamicUtilitiesPage: React.FC = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Islamic Utilities & Planning Tools | Sidqly"
         description="Plan Ramadan, Qurbani, Sadqa, Zakat, Qibla direction, Namaz timings and weather-aware distributions with practical tools for Islamic charity operations."
@@ -59,14 +58,14 @@ const IslamicUtilitiesPage: React.FC = () => {
                 </div>
                 <p className="text-sm text-gray-600 flex-grow">{util.desc}</p>
                 <div className="mt-6 font-bold text-sm text-sidqly-green-deep flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Use Tool <span>&rarr;</span>
+                  Open {util.title} <span>&rarr;</span>
                 </div>
               </Link>
             ))}
           </div>
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
 

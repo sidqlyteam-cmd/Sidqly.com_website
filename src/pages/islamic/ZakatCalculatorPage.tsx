@@ -1,11 +1,10 @@
 import React from 'react';
-import MainLayout from '../../layout/MainLayout';
 import SEO from '../../components/SEO';
 import ZakatCalculator from '../../components/islamic/ZakatCalculator';
 
 const ZakatCalculatorPage: React.FC = () => {
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Zakat Planning Calculator | Sidqly"
         description="Estimate your Zakat obligations with our planning calculator. Supports manual Nisab input for accurate, localized planning."
@@ -25,7 +24,7 @@ const ZakatCalculatorPage: React.FC = () => {
           <ZakatCalculator />
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
 

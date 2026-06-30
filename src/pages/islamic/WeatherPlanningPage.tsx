@@ -1,6 +1,5 @@
 import React from 'react';
 import SEO from '../../components/SEO';
-import MainLayout from '../../layout/MainLayout';
 import WeatherPlanningWidget from '../../components/islamic/WeatherPlanningWidget';
 import { brand } from '../../config/brand';
 
@@ -15,7 +14,7 @@ const WeatherPlanningPage: React.FC = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Weather-Aware Charity Distribution Planning | Sidqly"
         description="Get operational guidance based on weather forecasts to protect volunteers and ensure safe charity distribution. Plan logistics for rain, heat, and cold."
@@ -58,7 +57,7 @@ const WeatherPlanningPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
 
