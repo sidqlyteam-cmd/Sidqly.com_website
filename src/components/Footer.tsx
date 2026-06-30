@@ -1,14 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '../config/brand';
-import { Mail, Calendar, FileText, Globe, Shield } from 'lucide-react';
+import { Mail, Calendar, FileText, Globe, Shield, Search } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  const handleOpenSearch = () => {
+    window.dispatchEvent(new CustomEvent('open-search'));
+  };
+
+  const popularSearches = ['Qibla', 'Namaz Timings', 'Zakat Calculator', 'Islamic Calendar', 'Qurbani', 'Ramadan Planner', 'Newsroom', 'Press Releases', 'Media Kit', 'Brand Assets', 'Reports'];
+
   return (
     <footer className="bg-sidqly-navy text-white pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Footer Search Section */}
+        <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 mb-20">
+           <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Search Sidqly</h2>
+              <p className="text-gray-400 mb-8">Find Islamic tools, giving workflows, use cases, resources, newsroom updates, press materials, and trust pages.</p>
+
+              <button
+                onClick={handleOpenSearch}
+                className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-gray-300 px-6 py-4 rounded-xl flex items-center justify-between transition-all mb-6 group text-left"
+              >
+                <div className="flex items-center gap-3">
+                  <Search size={20} className="text-gray-400 group-hover:text-white transition-colors" />
+                  <span className="truncate">Search Qibla, Namaz timings, Zakat, Qurbani, Ramadan, proof, reports...</span>
+                </div>
+                <div className="hidden sm:flex items-center gap-1">
+                   <kbd className="bg-white/10 px-2 py-1 rounded text-xs font-mono font-bold text-gray-400">⌘</kbd>
+                   <kbd className="bg-white/10 px-2 py-1 rounded text-xs font-mono font-bold text-gray-400">K</kbd>
+                </div>
+              </button>
+
+              <div className="flex flex-wrap justify-center gap-2">
+                 {popularSearches.map(chip => (
+                   <button
+                     key={chip}
+                     onClick={handleOpenSearch}
+                     className="bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white border border-white/5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors"
+                   >
+                     {chip}
+                   </button>
+                 ))}
+              </div>
+           </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-8 hover:opacity-90 transition-opacity">
@@ -44,44 +85,62 @@ const Footer: React.FC = () => {
                    </ul>
                 </div>
                 <div>
-                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Trust</h4>
+                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Islamic Tools</h4>
                    <ul className="space-y-4 text-sm text-gray-400 font-medium">
-                      <li><Link to="/trust-center" className="hover:text-white transition-colors">Trust Center</Link></li>
-                      <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
-                      <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
-                      <li><Link to="/terms" className="hover:text-white transition-colors">Terms</Link></li>
-                      <li><Link to="/legal" className="hover:text-white transition-colors">Legal</Link></li>
-                      <li><Link to="/accessibility" className="hover:text-white transition-colors">Accessibility</Link></li>
-                      <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+                      <li><Link to="/islamic-utilities" className="hover:text-white transition-colors">Islamic Utilities</Link></li>
+                      <li><Link to="/islamic-calendar" className="hover:text-white transition-colors">Islamic Calendar</Link></li>
+                      <li><Link to="/namaz-timings" className="hover:text-white transition-colors">Namaz Timings</Link></li>
+                      <li><Link to="/qibla-direction" className="hover:text-white transition-colors">Qibla Direction</Link></li>
+                      <li><Link to="/zakat-calculator" className="hover:text-white transition-colors">Zakat Calculator</Link></li>
+                      <li><Link to="/moon-phase-islamic-calendar" className="hover:text-white transition-colors">Moon Phase</Link></li>
+                      <li><Link to="/weather-charity-distribution" className="hover:text-white transition-colors">Weather-Aware Distribution</Link></li>
+                      <li><Link to="/hajj-countdown" className="hover:text-white transition-colors">Hajj Countdown</Link></li>
+                      <li><Link to="/ramadan-planner" className="hover:text-white transition-colors">Ramadan Planner</Link></li>
+                      <li><Link to="/eid-qurbani-planner" className="hover:text-white transition-colors">Eid/Qurbani Planner</Link></li>
+                      <li><Link to="/sadqa-zakat-planner" className="hover:text-white transition-colors">Sadqa/Zakat Planner</Link></li>
+                      <li><Link to="/islamic-glossary" className="hover:text-white transition-colors">Islamic Glossary</Link></li>
+                   </ul>
+                </div>
+                <div>
+                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Resources</h4>
+                   <ul className="space-y-4 text-sm text-gray-400 font-medium">
+                      <li><Link to="/resources" className="hover:text-white transition-colors">Resources Hub</Link></li>
+                      <li><Link to="/resources/eid-giving" className="hover:text-white transition-colors">Seasonal Giving Guides</Link></li>
+                      <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                      <li><Link to="/newsroom" className="hover:text-white transition-colors">Newsroom</Link></li>
+                      <li><Link to="/press-releases" className="hover:text-white transition-colors">Press Releases</Link></li>
+                      <li><Link to="/media-kit" className="hover:text-white transition-colors">Media Kit</Link></li>
+                      <li><Link to="/brand-assets" className="hover:text-white transition-colors">Brand Assets</Link></li>
+                      <li><Link to="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
                    </ul>
                 </div>
              </div>
 
              <div className="space-y-12">
                 <div>
-                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Resources</h4>
+                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Use Cases</h4>
                    <ul className="space-y-4 text-sm text-gray-400 font-medium">
-                      <li><Link to="/resources" className="hover:text-white transition-colors">Resources Hub</Link></li>
-                      <li><Link to="/resources/eid-giving" className="hover:text-white transition-colors">Seasonal Guides</Link></li>
-                      <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-                      <li><Link to="/newsroom" className="hover:text-white transition-colors">Newsroom</Link></li>
-                      <li><Link to="/press-releases" className="hover:text-white transition-colors">Press Releases</Link></li>
-                      <li><Link to="/media-kit" className="hover:text-white transition-colors">Media Kit</Link></li>
-                      <li><Link to="/sitemap" className="hover:text-white transition-colors">Sitemap</Link></li>
+                      <li><Link to="/use-cases/mosques" className="hover:text-white transition-colors">Mosques / Masjids</Link></li>
+                      <li><Link to="/use-cases/islamic-charities" className="hover:text-white transition-colors">Islamic Charities</Link></li>
+                      <li><Link to="/use-cases/zakat-committees" className="hover:text-white transition-colors">Zakat Committees</Link></li>
+                      <li><Link to="/use-cases/qurbani-organizers" className="hover:text-white transition-colors">Qurbani Organizers</Link></li>
+                      <li><Link to="/use-cases/ramadan-ration-teams" className="hover:text-white transition-colors">Ramadan Ration Teams</Link></li>
+                      <li><Link to="/use-cases/sadaqah-campaign-teams" className="hover:text-white transition-colors">Sadaqah Campaign Teams</Link></li>
+                      <li><Link to="/use-cases/corporate-sponsors" className="hover:text-white transition-colors">Corporate Sponsors</Link></li>
+                      <li><Link to="/use-cases/donors" className="hover:text-white transition-colors">Donors</Link></li>
+                      <li><Link to="/use-cases/volunteers" className="hover:text-white transition-colors">Volunteers</Link></li>
+                      <li><Link to="/use-cases/vendors" className="hover:text-white transition-colors">Vendors</Link></li>
                    </ul>
                 </div>
                 <div>
-                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Islamic Tools</h4>
+                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Trust</h4>
                    <ul className="space-y-4 text-sm text-gray-400 font-medium">
-                      <li><Link to="/islamic-calendar" className="hover:text-white transition-colors">Islamic Calendar</Link></li>
-                      <li><Link to="/namaz-timings" className="hover:text-white transition-colors">Namaz Timings</Link></li>
-                      <li><Link to="/qibla-direction" className="hover:text-white transition-colors">Qibla Direction</Link></li>
-                      <li><Link to="/zakat-calculator" className="hover:text-white transition-colors">Zakat Calculator</Link></li>
-                      <li><Link to="/hajj-countdown" className="hover:text-white transition-colors">Hajj Countdown</Link></li>
-                      <li><Link to="/ramadan-planner" className="hover:text-white transition-colors">Ramadan Planner</Link></li>
-                      <li><Link to="/eid-qurbani-planner" className="hover:text-white transition-colors">Qurbani Planner</Link></li>
-                      <li><Link to="/sadqa-zakat-planner" className="hover:text-white transition-colors">Sadqa/Zakat Planner</Link></li>
-                      <li><Link to="/islamic-glossary" className="hover:text-white transition-colors">Islamic Glossary</Link></li>
+                      <li><Link to="/trust-center" className="hover:text-white transition-colors">Trust Center</Link></li>
+                      <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
+                      <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
+                      <li><Link to="/terms" className="hover:text-white transition-colors">Terms</Link></li>
+                      <li><Link to="/accessibility" className="hover:text-white transition-colors">Accessibility</Link></li>
+                      <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
                    </ul>
                 </div>
              </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import SEO from '../../components/SEO';
-import MainLayout from '../../layout/MainLayout';
 import { brand } from '../../config/brand';
 import { mediaKitData } from '../../data/newsroom';
 import { ArrowLeft, Download, Newspaper, CheckCircle2, AlertCircle } from 'lucide-react';
@@ -16,7 +15,7 @@ const MediaKit: React.FC = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Media Kit | Sidqly Brand, Boilerplate, and Press Information"
         description="Access Sidqly's brand assets, boilerplates, and guidelines for press and media coverage."
@@ -140,7 +139,7 @@ const MediaKit: React.FC = () => {
           </div>
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
 

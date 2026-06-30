@@ -1,6 +1,5 @@
 import React from 'react';
 import SEO from '../../components/SEO';
-import MainLayout from '../../layout/MainLayout';
 import { brand } from '../../config/brand';
 import { newsroomData } from '../../data/newsroom';
 import { CalendarDays, ArrowLeft, Mic } from 'lucide-react';
@@ -18,7 +17,7 @@ const PressReleases: React.FC = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Press Releases | Sidqly News and Product Updates"
         description="Official press releases, product updates, and company announcements from Sidqly."
@@ -85,7 +84,7 @@ const PressReleases: React.FC = () => {
 
         </div>
       </div>
-    </MainLayout>
+    </>
   );
 };
 

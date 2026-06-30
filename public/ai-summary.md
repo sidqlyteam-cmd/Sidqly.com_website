@@ -76,6 +76,7 @@ Detailed use cases can be explored at: https://sidqly.com/use-cases
 
 Islamic Planning Utilities:
 - /islamic-utilities
+- /brand-assets
 - /islamic-calendar
 - /qibla-direction
 - /moon-phase-islamic-calendar

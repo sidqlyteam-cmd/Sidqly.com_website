@@ -54,6 +54,7 @@ Link: https://sidqly.com/use-cases/community-request-organization
 
 Islamic Planning Utilities:
 - /islamic-utilities
+- /brand-assets
 - /islamic-calendar
 - /qibla-direction
 - /moon-phase-islamic-calendar

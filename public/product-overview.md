@@ -85,3 +85,4 @@ Islamic Planning Utilities:
 - Newsroom: https://sidqly.com/newsroom
 - Press Releases: https://sidqly.com/press-releases
 - Media Kit: https://sidqly.com/media-kit
+- Brand Assets: https://sidqly.com/brand-assets

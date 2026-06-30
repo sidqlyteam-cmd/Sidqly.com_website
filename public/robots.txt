@@ -53,4 +53,13 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+Allow: /islamic-utilities
+Allow: /namaz-timings
+Allow: /zakat-calculator
+Allow: /qibla-direction
+Allow: /newsroom
+Allow: /press-releases
+Allow: /media-kit
+Allow: /brand-assets
+
 Sitemap: https://sidqly.com/sitemap.xml

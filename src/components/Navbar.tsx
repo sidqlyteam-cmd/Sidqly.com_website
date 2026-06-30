@@ -16,8 +16,15 @@ const Navbar: React.FC = () => {
         setIsSearchOpen(true);
       }
     };
+    const handleOpenSearch = () => setIsSearchOpen(true);
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('open-search', handleOpenSearch);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('open-search', handleOpenSearch);
+    };
   }, []);
 
   const navigation = [
@@ -91,18 +98,13 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-8">
-            {/* Desktop Search Bar */}
-            <div className="relative mx-4">
-              <button
-                onClick={() => setIsSearchOpen(true)}
-                className="flex items-center gap-2 bg-gray-50 border border-gray-200 hover:border-sidqly-green-emerald hover:bg-white text-gray-400 px-4 py-2 rounded-full transition-all w-64 xl:w-80 text-sm focus:outline-none focus:ring-2 focus:ring-sidqly-green-emerald truncate"
-                aria-label="Search Qurbani, Zakat, Qibla, Ramadan, proof, reports..."
-              >
-                <Search size={16} className="shrink-0" />
-                <span className="flex-1 text-left truncate">Search Qurbani, Zakat, Qibla...</span>
-                <span className="hidden xl:inline-block px-1.5 py-0.5 rounded-md border border-gray-200 bg-white text-xs font-mono font-bold text-gray-400 shrink-0">/</span>
-              </button>
-            </div>
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="text-gray-600 hover:text-sidqly-green-deep p-2 hidden lg:block"
+              aria-label="Search"
+            >
+              <Search size={20} />
+            </button>
 
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
