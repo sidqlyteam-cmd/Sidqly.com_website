@@ -1,20 +1,21 @@
-# Resources
+# Resources Index
+Canonical URL: https://sidqly.com/resources
 
-## Overview
-A central hub for Sidqly's educational content, workflow playbooks, and feature guides.
+The resources page provides access to critical tools and documentation, including:
+- Islamic Utilities (https://sidqly.com/islamic-utilities)
+- Zakat Calculator (https://sidqly.com/zakat-calculator)
+- Namaz Timings (https://sidqly.com/namaz-timings)
+- Qibla Direction (https://sidqly.com/qibla-direction)
+- Islamic Calendar (https://sidqly.com/islamic-calendar)
+- Weather-Aware Distribution (https://sidqly.com/weather-charity-distribution)
+- Hajj Countdown (https://sidqly.com/hajj-countdown)
+- Ramadan Planner (https://sidqly.com/ramadan-planner)
+- Eid/Qurbani Planner (https://sidqly.com/eid-qurbani-planner)
+- Sadqa/Zakat Planner (https://sidqly.com/sadqa-zakat-planner)
+- Islamic Glossary (https://sidqly.com/islamic-glossary)
 
-## Sections
-- Seasonal Guides: Best practices for Ramadan, Qurbani, and Zakat.
-- Module Playbooks: Detailed implementation flows for each Sidqly component.
-- Glossary: Definitions of key Islamic and operational terms.
-- Newsroom & Updates: The latest platform announcements and press releases.
-- LLM Readiness: Access to `llms.txt`, `sitemap.xml`, and other crawler guidelines.
-
-## Key URLs
-- /resources
-- /resources/eid-giving
-- /resources/qurbani-operations
-- /newsroom
-- /press-releases
-- /media-kit
-- /sitemap
+- Seasonal Giving Guides (https://sidqly.com/resources/eid-giving)
+- Newsroom (https://sidqly.com/newsroom)
+- Press Releases (https://sidqly.com/press-releases)
+- Media Kit (https://sidqly.com/media-kit)
+- Use Cases (https://sidqly.com/use-cases)
