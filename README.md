@@ -37,7 +37,13 @@ npm run build
 
 # Linting and Typecheck
 npm run lint
-tsc -b
+npx tsc -b
+
+# Validate SEO
+npm run validate:seo
+
+# Run UI Tests
+npx playwright test
 ```
 
 ## Deployment (Firebase Hosting)

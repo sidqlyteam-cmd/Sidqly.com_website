@@ -15,6 +15,7 @@ interface SEOProps {
   robots?: string;
   ogType?: string;
   schema?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -29,7 +30,8 @@ const SEO: React.FC<SEOProps> = ({
   twitterDescription,
   robots = "index,follow",
   ogType = "website",
-  schema
+  schema,
+  noindex
 }) => {
   const fullTitle = title ? `${title} | ${brand.name}` : `${brand.name} | Verified Giving & Protected Dignity`;
   const url = canonical ? `${brand.domain}${canonical}` : null;
@@ -39,7 +41,7 @@ const SEO: React.FC<SEOProps> = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {url && <link rel="canonical" href={url} />}
-      <meta name="robots" content={robots} />
+      <meta name="robots" content={noindex ? "noindex,nofollow" : robots} />
       {focusKeyword && <meta name="keywords" content={[focusKeyword, ...(secondaryKeywords || [])].join(', ')} />}
 
       <meta property="og:title" content={ogTitle || fullTitle} />

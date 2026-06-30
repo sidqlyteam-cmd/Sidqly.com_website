@@ -1,3 +1,7 @@
+# AI Summary
+
+Sidqly is a web-based operating platform for Islamic organizations. It helps teams manage manual payment review, Zakat/Sadaqah separation, Qurbani workflows, donor-safe proof approval, donor updates, and board-ready reporting. Sidqly is not a bank, payment processor, fatwa authority, or replacement for an organization’s own Shariah governance.
+
 # Sidqly Product Overview (AI Readable)
 
 Sidqly is a modular platform designed for the complex operational needs of Islamic giving.

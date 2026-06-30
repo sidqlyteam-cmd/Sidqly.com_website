@@ -1,6 +1,6 @@
 # Sidqly AI Discovery Document
 
-Welcome to Sidqly's llms.txt. This file provides AI assistants with a structural overview of the Sidqly platform and available documentation.
+Sidqly is a web-based operating platform for Islamic organizations. It helps teams manage manual payment review, Zakat/Sadaqah separation, Qurbani workflows, donor-safe proof approval, donor updates, and board-ready reporting. Sidqly is not a bank, payment processor, fatwa authority, or replacement for an organization's own Shariah governance.
 
 ## Core Platform
 - Home: https://sidqly.com/
@@ -28,12 +28,17 @@ Welcome to Sidqly's llms.txt. This file provides AI assistants with a structural
 - Newsroom: https://sidqly.com/newsroom
 - Press Releases: https://sidqly.com/press-releases
 - Media Kit: https://sidqly.com/media-kit
-- Brand Assets: https://sidqly.com/brand-assets
 
 ## Resources & Trust
 - Resources: https://sidqly.com/resources
-- Seasonal Giving Guides: https://sidqly.com/resources/eid-giving
+- Guides: https://sidqly.com/resources/eid-giving
+- Blog: https://sidqly.com/blog
+- FAQs: https://sidqly.com/faqs
 - Trust Center: https://sidqly.com/trust-center
+- Security: https://sidqly.com/security
+- Privacy: https://sidqly.com/privacy
+- Accessibility: https://sidqly.com/accessibility
+- About: https://sidqly.com/about
 - Contact: https://sidqly.com/contact
 
 ## Detailed AI Summaries
@@ -41,11 +46,13 @@ Welcome to Sidqly's llms.txt. This file provides AI assistants with a structural
 - Product Overview: https://sidqly.com/product-overview.md
 - Modules Index: https://sidqly.com/modules-index.md
 - Use Cases: https://sidqly.com/use-cases.md
-- Resources Index: https://sidqly.com/resources-index.md
-- FAQs Summary: https://sidqly.com/faqs-summary.md
-- Schema Map: https://sidqly.com/schema-map.md
-- Glossary Summary: https://sidqly.com/glossary-summary.md
+- Pricing Summary: https://sidqly.com/pricing-summary.md
+- Trust Summary: https://sidqly.com/trust-summary.md
+- Security Summary: https://sidqly.com/security-summary.md
+- Comparison Summary: https://sidqly.com/comparison-summary.md
 - Contact Summary: https://sidqly.com/contact-summary.md
-- Blog Index: https://sidqly.com/blog-index.md
+- FAQs Summary: https://sidqly.com/faqs-summary.md
+- Glossary Summary: https://sidqly.com/glossary-summary.md
+- Implementation Summary: https://sidqly.com/implementation-summary.md
 
-Last Updated: 2026-06-29
+Last Updated: 2026-06-30
