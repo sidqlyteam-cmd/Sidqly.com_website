@@ -43,7 +43,7 @@ test.describe('Sidqly UI Smoke Tests', () => {
     await page.goto(BASE_URL);
 
     // Open modal by clicking search button
-    await page.getByRole('button', { name: 'Search Qurbani, Zakat' }).click();
+    await page.getByRole('button', { name: 'Search' }).first().click();
 
     const searchInput = page.getByPlaceholder('Search Qurbani, Zakat, Qibla, Ramadan, proof, reports...');
     await expect(searchInput).toBeVisible();
