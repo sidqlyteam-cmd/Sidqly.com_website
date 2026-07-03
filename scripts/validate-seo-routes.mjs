@@ -44,7 +44,6 @@ const requiredRoutes = [
     'https://sidqly.com/resources',
     'https://sidqly.com/compare',
     'https://sidqly.com/trust-center',
-    'https://sidqly.com/request-organization',
     'https://sidqly.com/modules/manual-payment-review'
 ];
 

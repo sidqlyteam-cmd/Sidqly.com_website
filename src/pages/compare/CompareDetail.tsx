@@ -7,6 +7,9 @@ import { generateBreadcrumbSchema } from '../../lib/schema';
 
 const CompareDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const isMosque = slug === 'mosque-website';
+  const displayTitle = isMosque ? "Mosque Website vs Donation Operations Platform" : `Sidqly vs ${slug?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Alternative'}`;
+  const displayDescription = isMosque ? "See why mosques and Islamic charities need more than a basic website to manage verified giving, donor updates, proof approval, and reporting." : "Why professional organizations choose Sidqly for their giving operations.";
   const title = slug?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Alternative';
 
   const schema = {
@@ -15,7 +18,7 @@ const CompareDetail: React.FC = () => {
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },
         { name: "Compare", item: "/compare" },
-        { name: `Sidqly vs ${title}`, item: `/compare/${slug}` }
+        { name: displayTitle, item: `/compare/${slug}` }
       ])
     ]
   };
@@ -23,7 +26,8 @@ const CompareDetail: React.FC = () => {
   return (
     <>
       <SEO
-        title={`Sidqly vs ${title} | ${brand.name}`}
+        title={`${displayTitle} | ${brand.name}`}
+        description={displayDescription}
         canonical={`/compare/${slug}`}
         schema={schema}
       />

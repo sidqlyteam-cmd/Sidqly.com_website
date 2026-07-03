@@ -6,7 +6,7 @@ import { MessageCircle, FileText } from 'lucide-react';
 const AskSidqly: React.FC = () => {
   return (
     <>
-      <SEO title="Ask Sidqly" canonical="/ask-sidqly" />
+      <SEO title="Ask Sidqly" canonical="/ask-sidqly" noindex={true} />
       <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

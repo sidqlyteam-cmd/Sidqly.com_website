@@ -46,7 +46,7 @@ const Home: React.FC = () => {
               Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-medium">
-              Sidqly helps mosques, charities, and giving teams manage workflows, manual review, proof approval, and board-ready reporting from one premium global platform.
+              The premium operating platform for Islamic charities. We help organizations manage verified donations, manual payment review, proof approval, donor updates, and board-ready reporting.
             </p>
           </div>
 

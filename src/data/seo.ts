@@ -3,15 +3,15 @@ import { brand } from '../config/brand';
 export const seoData = {
   home: {
     slug: "/",
-    title: "Verified Giving & Protected Dignity",
-    description: "Sidqly is the premium operating platform for Islamic organizations. Manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns with clear impact and dignity-safe proof.",
+    title: "Verified Giving & Protected Dignity for Islamic Charities",
+    description: "Sidqly helps mosques, charities, and giving teams manage verified donations, payment review, proof approval, donor updates, and board-ready reporting.",
     canonical: "/",
     focusKeyword: "Islamic giving platform",
     secondaryKeywords: ["Zakat management software", "Sadaqah tracking", "Qurbani operations"],
-    ogTitle: `${brand.name} | Verified Giving & Protected Dignity`,
-    ogDescription: "Sidqly is the premium operating platform for Islamic organizations. Manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns with clear impact and dignity-safe proof.",
-    twitterTitle: `${brand.name} | Verified Giving & Protected Dignity`,
-    twitterDescription: "Sidqly is the premium operating platform for Islamic organizations. Manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns with clear impact and dignity-safe proof.",
+    ogTitle: `Verified Giving & Protected Dignity for Islamic Charities | ${brand.name}`,
+    ogDescription: "Sidqly helps mosques, charities, and giving teams manage verified donations, payment review, proof approval, donor updates, and board-ready reporting.",
+    twitterTitle: `Verified Giving & Protected Dignity for Islamic Charities | ${brand.name}`,
+    twitterDescription: "Sidqly helps mosques, charities, and giving teams manage verified donations, payment review, proof approval, donor updates, and board-ready reporting.",
     robots: "index,follow" as const
   },
   pricing: {

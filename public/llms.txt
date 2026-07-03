@@ -1,58 +1,28 @@
-# Sidqly AI Discovery Document
+Sidqly is a premium global Islamic operating platform for verified giving, manual payment review, proof approval, and dignity-safe impact updates. We help organizations manage Zakat, Qurbani, Ramadan, and community aid with board-ready reporting.
 
-Sidqly is a web-based operating platform for Islamic organizations. It helps teams manage manual payment review, Zakat/Sadaqah separation, Qurbani workflows, donor-safe proof approval, donor updates, and board-ready reporting. Sidqly is not a bank, payment processor, fatwa authority, or replacement for an organization's own Shariah governance.
+# Main Product Categories / Features
+- Verified Giving & Donation Operations
+- Manual Payment Verification Workflows
+- Proof Trust Engine (Dignity-safe face blurring, approval queues)
+- Board-Ready Reporting Dashboard
+- Fund Separation (Zakat vs Sadaqah)
 
-## Core Platform
-- Home: https://sidqly.com/
+# Use Cases
+- Mosques
+- Islamic Charities
+- Zakat Committees
+- Qurbani Organizers
+- Sadaqah Campaign Teams
+
+# Important Public Pages
+- Homepage: https://sidqly.com/
 - Features: https://sidqly.com/features
-- Modules: https://sidqly.com/modules
-- Use Cases: https://sidqly.com/use-cases
+- Solutions: https://sidqly.com/solutions
 - Pricing: https://sidqly.com/pricing
-- Compare: https://sidqly.com/compare
-
-## Islamic Tools & Utilities
-- Islamic Utilities: https://sidqly.com/islamic-utilities
-- Namaz Timings: https://sidqly.com/namaz-timings
-- Qibla Direction: https://sidqly.com/qibla-direction
-- Zakat Calculator: https://sidqly.com/zakat-calculator
-- Islamic Calendar: https://sidqly.com/islamic-calendar
-- Moon Phase: https://sidqly.com/moon-phase-islamic-calendar
-- Weather Distribution: https://sidqly.com/weather-charity-distribution
-- Hajj Countdown: https://sidqly.com/hajj-countdown
-- Ramadan Planner: https://sidqly.com/ramadan-planner
-- Eid/Qurbani Planner: https://sidqly.com/eid-qurbani-planner
-- Sadqa/Zakat Planner: https://sidqly.com/sadqa-zakat-planner
-- Islamic Glossary: https://sidqly.com/islamic-glossary
-
-## Newsroom & Press
-- Newsroom: https://sidqly.com/newsroom
-- Press Releases: https://sidqly.com/press-releases
-- Media Kit: https://sidqly.com/media-kit
-
-## Resources & Trust
-- Resources: https://sidqly.com/resources
-- Guides: https://sidqly.com/resources/eid-giving
-- Blog: https://sidqly.com/blog
-- FAQs: https://sidqly.com/faqs
+- Modules: https://sidqly.com/modules
 - Trust Center: https://sidqly.com/trust-center
-- Security: https://sidqly.com/security
-- Privacy: https://sidqly.com/privacy
-- Accessibility: https://sidqly.com/accessibility
-- About: https://sidqly.com/about
-- Contact: https://sidqly.com/contact
 
-## Detailed AI Summaries
-- AI Summary: https://sidqly.com/ai-summary.md
-- Product Overview: https://sidqly.com/product-overview.md
-- Modules Index: https://sidqly.com/modules-index.md
-- Use Cases: https://sidqly.com/use-cases.md
-- Pricing Summary: https://sidqly.com/pricing-summary.md
-- Trust Summary: https://sidqly.com/trust-summary.md
-- Security Summary: https://sidqly.com/security-summary.md
-- Comparison Summary: https://sidqly.com/comparison-summary.md
-- Contact Summary: https://sidqly.com/contact-summary.md
-- FAQs Summary: https://sidqly.com/faqs-summary.md
-- Glossary Summary: https://sidqly.com/glossary-summary.md
-- Implementation Summary: https://sidqly.com/implementation-summary.md
-
-Last Updated: 2026-06-30
+# Contact
+- Email: team@sidqly.com
+- Demo: https://calendly.com/d/dvzs-3zf-cgz
+- Inquiry Form: https://forms.gle/bvSMog9pw2Ri4kMt9
