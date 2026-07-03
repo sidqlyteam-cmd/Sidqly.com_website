@@ -40,7 +40,7 @@ const SEO: React.FC<SEOProps> = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {url && <link rel="canonical" href={url} />}
+      {url && !noindex && <link rel="canonical" href={url} />}
       <meta name="robots" content={noindex ? "noindex,nofollow" : robots} />
       {focusKeyword && <meta name="keywords" content={[focusKeyword, ...(secondaryKeywords || [])].join(', ')} />}
 

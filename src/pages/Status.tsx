@@ -6,7 +6,7 @@ import { CheckCircle, Clock, ShieldCheck } from 'lucide-react';
 const Status: React.FC = () => {
   return (
     <>
-      <SEO title="Platform Status" description="Public status page for Sidqly services and support expectations." canonical="/status" />
+      <SEO title="Platform Status" description="Public status page for Sidqly services and support expectations." canonical="/status" noindex={true} />
       <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

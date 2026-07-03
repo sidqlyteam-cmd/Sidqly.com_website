@@ -12,11 +12,11 @@ const Features: React.FC = () => {
     "@context": "https://schema.org",
     "@graph": [
       generateWebPageSchema(
-        "Sidqly Features | Verified Giving, Proof Review, and Donor-Safe Updates",
-        "Explore Sidqly features for manual payment review, proof approval, donor-safe impact updates, Zakat fund separation, Sadaqah campaigns, Qurbani operations, Ramadan distribution, receipts, certificates, and audit-ready reports.",
+        "Sidqly Features | Donation Verification, Proof Approval & Reporting",
+        "Explore Sidqly features for Islamic giving teams, including manual payment review, proof approval workflows, donor updates, fund separation, and reporting.",
         "/features"
       ),
-      generateServiceSchema("Sidqly Platform Features", "Manual payment review, proof approval, and dignity-safe reporting.", "/features"),
+      generateServiceSchema("Sidqly Platform Features", "Manual payment review, proof approval workflows, and reporting.", "/features"),
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },
         { name: "Features", item: "/features" }
@@ -70,8 +70,8 @@ const Features: React.FC = () => {
   return (
     <>
       <SEO
-        title="Sidqly Features | Verified Giving, Proof Review, and Donor-Safe Updates"
-        description="Explore Sidqly features for manual payment review, proof approval, donor-safe impact updates, Zakat fund separation, Sadaqah campaigns, Qurbani operations, Ramadan distribution, receipts, certificates, and audit-ready reports."
+        title="Sidqly Features | Donation Verification, Proof Approval & Reporting"
+        description="Explore Sidqly features for Islamic giving teams, including manual payment review, proof approval workflows, donor updates, fund separation, and reporting."
         canonical="/features"
         schema={schema}
       />
