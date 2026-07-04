@@ -26,7 +26,8 @@ const ModuleDetail: React.FC = () => {
     "@graph": [
       generateServiceSchema(moduleData.title, moduleData.desc, `/modules/${moduleData.slug}`),
       ...(moduleData.workflow ? [generateHowToSchema(`How ${moduleData.title} Works`, moduleData.problem || moduleData.desc, moduleData.workflow)] : []),
-      // @ts-expect-error faqs property is not guaranteed on all moduleData
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       ...(moduleData.faqs && moduleData.faqs.length > 0 ? [generateFAQSchema(moduleData.faqs)] : []),
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },
@@ -236,30 +237,32 @@ const ModuleDetail: React.FC = () => {
           </section>
 
           {/* FAQs */}
-          <section id="faqs" className="py-20 bg-gray-50">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-sidqly-navy mb-4">Frequently Asked Questions</h2>
-                <p className="text-gray-600">Common questions about the {moduleData.title} moduleData.</p>
-              </div>
-              <div className="space-y-4">
-                {[].map((faq, index) => (
-                    <div key={index} className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm transition-all hover:border-sidqly-green-soft">
-                      <button
-                          onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                          className="w-full px-6 py-5 text-left font-bold text-sidqly-navy flex justify-between items-center focus:outline-none"
-                      >
-                          <span className="pr-8">{faq.question}</span>
-                          <ChevronDown size={20} className={`text-sidqly-green-emerald transition-transform ${openFaq === index ? 'rotate-180' : ''}`} />
-                      </button>
-                      <div className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === index ? 'max-h-[500px] pb-5 opacity-100' : 'max-h-0 opacity-0'}`}>
-                          <p className="text-gray-600 pt-2 border-t border-gray-100">{faq.answer}</p>
+          {moduleData.faqs && moduleData.faqs.length > 0 && (
+            <section id="faqs" className="py-20 bg-gray-50">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl font-bold text-sidqly-navy mb-4">Frequently Asked Questions</h2>
+                  <p className="text-gray-600">Common questions about the {moduleData.title} module.</p>
+                </div>
+                <div className="space-y-4">
+                  {moduleData.faqs.map((faq: { question: string, answer: string }, index: number) => (
+                      <div key={index} className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm transition-all hover:border-sidqly-green-soft">
+                        <button
+                            onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                            className="w-full px-6 py-5 text-left font-bold text-sidqly-navy flex justify-between items-center focus:outline-none"
+                        >
+                            <span className="pr-8">{faq.question}</span>
+                            <ChevronDown size={20} className={`text-sidqly-green-emerald transition-transform ${openFaq === index ? 'rotate-180' : ''}`} />
+                        </button>
+                        <div className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === index ? 'max-h-[500px] pb-5 opacity-100' : 'max-h-0 opacity-0'}`}>
+                            <p className="text-gray-600 pt-2 border-t border-gray-100">{faq.answer}</p>
+                        </div>
                       </div>
-                    </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Disclaimer */}
           <section className="py-12 bg-white">
@@ -278,38 +281,23 @@ const ModuleDetail: React.FC = () => {
               <h2 className="text-2xl font-bold mb-10 text-center">Explore Related Capabilities</h2>
               <div className="grid md:grid-cols-3 gap-8">
 
-                {/* Related Modules */}
-                <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                    <h3 className="font-bold text-lg mb-4 text-sidqly-gold flex items-center gap-2"><Box size={18} /> Related Modules</h3>
-                    <ul className="space-y-3">
-                      {[].map((relSlug, i) => {
-                          const relMod = modules.find(m => m.slug === relSlug);
-                          if (!relMod) return null;
-                          return (
-                            <li key={i}>
-                                <Link to={`/modules/${relMod.slug}`} className="text-white hover:text-sidqly-green-soft flex items-center gap-2 group">
-                                  <span className="group-hover:translate-x-1 transition-transform">{relMod.title}</span> <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </Link>
-                            </li>
-                          );
-                      })}
-                    </ul>
-                </div>
-
-                {/* Related Resources */}
-                <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                    <h3 className="font-bold text-lg mb-4 text-sidqly-green-emerald flex items-center gap-2"><Box size={18} /> Related Resources</h3>
-                    <ul className="space-y-3">
-                      {[].map((resSlug, i) => (
-                          <li key={i}>
-                            <Link to={`/resources/${resSlug}`} className="text-white hover:text-sidqly-green-soft flex items-center gap-2 group">
-                                <span className="group-hover:translate-x-1 transition-transform capitalize">{resSlug.replace(/-/g, ' ')}</span> <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </Link>
-                          </li>
-                      ))}
-                      <li>
-                          <Link to="/resources" className="text-gray-400 hover:text-white text-sm mt-2 inline-block">View all resources →</Link>
-                      </li>
+                {/* Related Modules / Links */}
+                <div className="bg-white/5 rounded-2xl p-6 border border-white/10 md:col-span-2">
+                    <h3 className="font-bold text-lg mb-4 text-sidqly-gold flex items-center gap-2"><Box size={18} /> Related Areas</h3>
+                    <ul className="grid sm:grid-cols-2 gap-3">
+                      {moduleData.internalLinks ? moduleData.internalLinks.map((link: { title: string, url: string }, i: number) => (
+                         <li key={i}>
+                           <Link to={link.url} className="text-white hover:text-sidqly-green-soft flex items-center gap-2 group">
+                             <span className="group-hover:translate-x-1 transition-transform">{link.title}</span> <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                           </Link>
+                         </li>
+                      )) : (
+                         <li>
+                           <Link to="/modules" className="text-white hover:text-sidqly-green-soft flex items-center gap-2 group">
+                             <span className="group-hover:translate-x-1 transition-transform">Explore All Modules</span> <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                           </Link>
+                         </li>
+                      )}
                     </ul>
                 </div>
 

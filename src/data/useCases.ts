@@ -184,51 +184,59 @@ export const useCases: UseCaseData[] = [
   },
   {
     slug: 'qurbani-organizers',
-    title: 'Qurbani Organizers',
+    title: 'Qurbani Campaign Management for Islamic Giving Teams',
     audience: 'Eid ul Adha Operations Teams',
     shortDescription: 'Manage Qurbani orders, shares, vendor assignments, and donor certificates.',
-    heroSummary: 'Simplify complex Qurbani logistics. Track every share from order to distribution, manage vendors, and provide donors with verified Qurbani certificates.',
+    heroSummary: 'Simplify complex Qurbani logistics. Track every share from order to distribution, manage vendors, and provide donors with verified Qurbani certificates without the spreadsheet chaos.',
     problem: [
-      'Complex tracking of whole animals vs. individual shares.',
+      'Extreme operational pressure near Eid matching shares to animals.',
+      'Losing track of manual payment proofs from multiple donors.',
       'Coordinating with multiple slaughter vendors and distribution teams.',
-      'Delays in sending updates and certificates to donors.'
+      'Delays in sending updates and certificates to anxious donors post-Eid.'
     ],
     manualWorkflowPain: [
       'Matching payments to specific Qurbani shares manually.',
-      'Chasing vendors for proof of slaughter and distribution.',
-      'Manually typing out hundreds of Qurbani certificates.'
+      'Chasing vendors for proof of slaughter and distribution over WhatsApp.',
+      'Manually typing out hundreds of Qurbani certificates.',
+      'Reporting accurate numbers to boards after Eid operations.'
     ],
     sidqlyWorkflow: [
-      'Order and share tracking management.',
-      'Manual payment review for Qurbani bookings.',
-      'Vendor assignment and slaughter/distribution status tracking.',
-      'Proof approval gate for vendor submissions.',
-      'Automated generation of Qurbani certificates and donor updates.'
+      'Donor tracking and manual payment proof review.',
+      'Digital order and animal/share allocation tracking.',
+      'Slaughter confirmation workflow mapped to vendors.',
+      'Distribution proof workflow with dignity-safe review.',
+      'Automated generation and distribution of donor updates and certificates.',
+      'Post-Eid board reporting.'
     ],
-    relevantModules: ['qurbani-module', 'vendor-module', 'proof-module'],
-    relatedResources: ['/resources/qurbani-operations', '/resources/eid-ul-adha-qurbani'],
+    relevantModules: ['qurbani-lifecycle', 'manual-payment-review', 'donor-communication', 'reports-board-packs'],
+    relatedResources: ['/resources/qurbani-operations-guide'],
     relatedIslamicTools: ['/eid-qurbani-planner'],
     proofPrivacyBoundary: [
-      'Slaughter photos are reviewed internally before any donor visibility.',
-      'Certificates confirm completion without exposing sensitive operational details.'
+      'Distribution photos are reviewed before donor access.',
+      'Certificates confirm completion without exposing sensitive field data.'
     ],
     reportingOutputs: [
-      'Real-time share allocation reports.',
-      'Vendor performance and fulfillment logs.',
-      'Comprehensive post-Qurbani operational summaries.'
+      'Total shares allocated vs. completed.',
+      'Vendor performance tracking.',
+      'Certificate distribution logs.',
+      'Post-Eid campaign summaries.'
     ],
-    exampleScenario: 'A charity receives 500 Qurbani orders. Sidqly allocates them into shares. Vendors are assigned specific animals. When a vendor completes a slaughter, they upload proof. The manager approves it, triggering automated completion updates and certificates to the respective donors.',
+    exampleScenario: 'During peak Eid operations, a charity receives 500 Qurbani orders. Sidqly organizes these into shares, assigns them to field vendors, tracks when slaughter is confirmed, and issues personalized certificates to all 500 donors—eliminating days of spreadsheet chaos.',
     faqs: [
       {
-        question: 'Can we track both large and small animals?',
-        answer: 'Yes, Sidqly supports tracking individual shares (e.g., 1/7th of a cow) and whole animals (e.g., a goat or sheep).'
+        question: 'Does Sidqly issue Islamic Qurbani rulings?',
+        answer: 'No, Sidqly is a logistics and tracking platform. Your organization\'s scholars determine the religious guidelines, and Sidqly helps you execute the operational workflow.'
+      },
+      {
+        question: 'Can we track shares for both small and large animals?',
+        answer: 'Yes, the workflow allows you to allocate and track individual small animals or specific shares of larger animals.'
       }
     ],
     seo: {
-      title: 'Qurbani Management Software | Sidqly',
-      description: 'Manage Qurbani order tracking, vendor assignment, proof approval, and automated Qurbani certificates for Eid ul Adha operations.',
-      focusKeyword: 'Qurbani management software',
-      secondaryKeywords: ['Qurbani order tracking', 'Qurbani certificate', 'Eid ul Adha operations', 'Bakra Eid workflow', 'Qurbani proof approval'],
+      title: 'Qurbani Campaign Management Software for Islamic Giving Teams',
+      description: 'Manage Qurbani donor records, payment proof, animal shares, slaughter confirmation, distribution proof, donor updates, and reporting with Sidqly.',
+      focusKeyword: 'Qurbani campaign management software',
+      secondaryKeywords: ['Qurbani tracking', 'Eid ul Adha logistics', 'Qurbani certificates', 'Qurbani vendor tracking', 'Qurbani payment proof'],
       canonical: 'https://sidqly.com/use-cases/qurbani-organizers'
     }
   },
@@ -284,49 +292,55 @@ export const useCases: UseCaseData[] = [
   },
   {
     slug: 'sadaqah-campaign-teams',
-    title: 'Sadaqah Campaign Teams',
+    title: 'Sadaqah Campaign Management for Verified Giving',
     audience: 'Campaign Managers',
     shortDescription: 'Track Sadaqah campaigns, family support, and Sadqa Fitr workflows.',
-    heroSummary: 'Run transparent and verifiable Sadaqah campaigns. Track family support initiatives and manage Sadqa Fitr with complete operational clarity.',
+    heroSummary: 'Run transparent and verifiable Sadaqah campaigns. Track family support initiatives and manage Sadqa workflows with complete operational clarity and dignity.',
     problem: [
-      'Setting up and managing multiple small-scale campaigns simultaneously.',
-      'Ensuring payments are verified before committing to family support.',
-      'Providing transparent proof to donors without compromising recipient dignity.'
+      'Sadaqah campaigns often lack operational control, leading to chaotic tracking.',
+      'Ensuring manual payments are verified before committing to field operations.',
+      'Providing transparent proof to donors without compromising recipient dignity.',
+      'Managing recurring donor expectations without burning out staff.'
     ],
     manualWorkflowPain: [
       'Tracking Sadqa Fitr payments manually during the last days of Ramadan.',
-      'Inconsistent updates to donors supporting specific families.',
-      'Lack of clear approval workflows for field evidence.'
+      'Inconsistent updates to recurring donors supporting specific families.',
+      'Lack of clear approval workflows for field evidence, risking privacy.',
+      'Spending hours drafting generic updates instead of specific impact reports.'
     ],
     sidqlyWorkflow: [
-      'Easy campaign setup and tracking.',
-      'Manual payment review to ensure funds are secured.',
-      'Dedicated workflows for family support tracking.',
-      'Proof approval gates for all field activities.',
-      'Automated, dignity-safe reports for donors.'
+      'Donor intake and payment proof review.',
+      'Beneficiary dignity checks embedded in workflows.',
+      'Field proof review and approval before sharing.',
+      'Automated recurring donor communication.',
+      'Campaign reporting.'
     ],
-    relevantModules: ['campaigns-module', 'proof-module'],
-    relatedResources: ['/resources/sadqa-fitr'],
+    relevantModules: ['sadaqah-campaigns', 'charity-request-intake', 'donor-communication', 'reports-board-packs'],
+    relatedResources: ['/resources/trust-and-safety'],
     relatedIslamicTools: ['/sadqa-zakat-planner'],
     proofPrivacyBoundary: [
-      'Family identities are kept strictly confidential.',
-      'Donors receive verified impact confirmations without PII.'
+      'Strict control over what field evidence is shared with donors.',
+      'Approval required before any campaign update is dispatched.'
     ],
     reportingOutputs: [
       'Campaign progress summaries.',
       'Family support disbursement logs.',
-      'Verified impact certificates.'
+      'Verified impact certificates for recurring campaigns.'
     ],
-    exampleScenario: 'A charity runs a Sadqa campaign for a specific family in need. Donations are manually verified. Once the goal is reached, funds are disbursed. The receipt of funds is documented internally, and donors receive a sanitized update confirming the campaign’s success.',
+    exampleScenario: 'A charity runs a recurring Sadaqah campaign for a specific family in need. Donations are manually verified. Once the goal is reached, funds are disbursed. Field proof is captured and approved internally to ensure dignity. Finally, donors receive a sanitized, verified update confirming the campaign’s success.',
     faqs: [
       {
         question: 'How do you handle Sadqa Fitr?',
         answer: 'Sidqly allows you to set up specific campaigns for Sadqa Fitr, ensuring these funds are tracked separately and distributed before Eid prayers.'
+      },
+      {
+        question: 'Can we track recurring Sadaqah?',
+        answer: 'Yes, Sidqly helps you organize recurring donor records so they receive consistent, campaign-specific updates over time.'
       }
     ],
     seo: {
-      title: 'Sadaqah Campaign Tracking Workflow | Sidqly',
-      description: 'Manage Sadqa campaigns, Sadqa Fitr tracking, family support campaigns, and Islamic giving platforms.',
+      title: 'Sadaqah Campaign Management Platform for Verified Giving',
+      description: 'Run Sadaqah campaigns with verified payment review, donor tracking, proof approval, dignity-safe updates, and transparent reporting.',
       focusKeyword: 'Sadaqah campaign tracking',
       secondaryKeywords: ['Sadqa campaign workflow', 'Sadqa Fitr tracking', 'family support campaign', 'Islamic giving campaigns'],
       canonical: 'https://sidqly.com/use-cases/sadaqah-campaign-teams'

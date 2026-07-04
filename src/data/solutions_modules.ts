@@ -1,14 +1,30 @@
 export const modules = [
   {
     slug: "manual-payment-review",
-    title: "Manual Payment Review",
+    title: "Manual Payment Review for Verified Donations",
     desc: "Human-verified bank transfers and screenshots.",
     benefit: "Sidqly helps teams record donation/payment submissions and manually review them before confirmation.",
     who: "Finance teams and admin staff.",
-    problem: "Missed bank transfers, fake screenshots, and phantom donations inflating reports.",
-    workflow: ["Payment submitted", "Reference/screenshot recorded", "Finance reviewer checks it", "Approved, rejected, or correction requested", "Status becomes visible to authorized team", "Audit trail remains available"],
-    output: "Clear payment confirmation records before work moves forward.",
-    disclaimer: "Sidqly supports manual review. It does not claim automatic payment verification unless configured separately."
+    problem: "Missed bank transfers, fake or duplicate screenshots, missing donor records, and phantom donations inflating campaign reports.",
+    workflow: ["Payment submitted via form", "Bank reference or screenshot recorded", "Finance reviewer checks bank statement manually", "Approved, rejected, or correction requested with admin notes", "Status becomes visible to authorized team", "Permanent audit trail remains available"],
+    output: "Clear payment confirmation records and campaign finance clarity before work moves forward.",
+    disclaimer: "Sidqly supports manual review. It does not claim automatic payment verification unless configured separately.",
+    faqs: [
+      {
+        question: "Does Sidqly automatically verify bank transfers?",
+        answer: "No, Sidqly is designed for manual review. It provides the structured queue and audit trail for your finance team to review screenshots and references against your actual bank statement."
+      },
+      {
+        question: "Can we track partial payments?",
+        answer: "Yes, reviewers can approve partial amounts and leave admin notes explaining the discrepancy, keeping the audit trail clear."
+      }
+    ],
+    internalLinks: [
+      { title: "Qurbani Lifecycle", url: "/modules/qurbani-lifecycle" },
+      { title: "Sadaqah Campaigns", url: "/modules/sadaqah-campaigns" },
+      { title: "Billing & Payments", url: "/billing" },
+      { title: "Board-Ready Reports", url: "/modules/reports-board-packs" }
+    ]
   },
   {
     slug: "proof-trust-engine",
@@ -38,10 +54,10 @@ export const modules = [
     desc: "Logical filters to keep Zakat and Sadaqah distinct.",
     benefit: "Zakat workflows can be tracked separately from Sadaqah and other funds.",
     who: "Zakat committees and scholars.",
-    problem: "Accidentally mixing Zakat with general charity funds or operating expenses.",
-    workflow: ["fund type tagging", "eligibility review status", "reviewer notes", "disbursement tracking", "reporting"],
+    problem: "Accidentally mixing Zakat with general charity funds or operating expenses, losing track of specific campaign tagging and fund purpose.",
+    workflow: ["Fund type tagging (Zakat vs Sadaqah)", "Eligibility review status logged by specific review roles", "Reviewer notes and conditions added", "Disbursement tracking against specific Zakat targets", "Separated reporting"],
     output: "Audit-ready Zakat separation logs.",
-    disclaimer: "Zakat eligibility decisions remain with the organization's authorized reviewers, scholars, advisors, or policy team.",
+    disclaimer: "Sidqly supports operational fund separation and reporting. Religious rulings and eligibility decisions should remain with the organization’s authorized scholars, advisors, or responsible review team.",
     keywords: ["Zakat", "Zakaat", "Zakat fund separation", "Zakat tracking", "Zakat committee", "eligibility review support"]
   },
   {
@@ -86,9 +102,9 @@ export const modules = [
     desc: "Dignified screening for community aid applications.",
     benefit: "Organizations can receive and review support requests while protecting sensitive information.",
     who: "Community welfare officers.",
-    problem: "Handling sensitive medical/financial documents via insecure emails or paper folders.",
-    workflow: ["protected request review", "hardship/category classification", "internal notes", "document privacy checks", "approved anonymized donor-safe summary"],
-    output: "Organized, private requester queues.",
+    problem: "Handling sensitive beneficiary medical/financial documents via insecure emails or paper folders, and disorganized eligibility review.",
+    workflow: ["Dignity-safe application received", "Sensitive documents attached securely", "Reviewer assigned by staff", "Eligibility reviewed in private queue", "Approval status updated with notes"],
+    output: "A private, tracked intake queue with protected document privacy.",
     disclaimer: null,
     keywords: ["family support", "request intake", "beneficiary privacy", "recipient dignity", "hardship review", "community welfare"]
   },
@@ -153,9 +169,9 @@ export const modules = [
     desc: "One-click operational and financial summaries.",
     benefit: "Sidqly helps prepare structured summaries for leadership, donors, sponsors, and internal review.",
     who: "Board members and executives.",
-    problem: "Spending days compiling data from multiple spreadsheets for board meetings.",
-    workflow: ["campaign summary", "payment report", "proof log", "vendor/volunteer activity", "corporate/sponsor metrics", "board summary generation"],
-    output: "Instant executive visibility.",
+    problem: "Spending days compiling data from multiple spreadsheets, creating reporting risk, and struggling to summarize proof reviews for board meetings.",
+    workflow: ["Data entered and approved daily", "Platform structures donor summaries and fund reports", "User selects date range or campaign summary", "Audit-ready leadership pack generated", "Spreadsheet work drastically reduced"],
+    output: "Quick, structured visibility and audit-ready board packs.",
     disclaimer: null
   },
   {
@@ -186,9 +202,9 @@ export const modules = [
     desc: "Automated but dignified recipient updates.",
     benefit: "Donor updates can be clearer, safer, and more professional.",
     who: "Marketing and donor relations.",
-    problem: "Inconsistent and unprofessional donor follow-ups.",
-    workflow: ["donor status updates", "approved proof sharing", "receipts/certificates dispatch", "safe impact messages delivered"],
-    output: "Professional donor touchpoints.",
+    problem: "Inconsistent and unprofessional donor follow-ups, or sharing unapproved proof because it's too hard to segment who gave to what.",
+    workflow: ["Campaign selected", "Proof approval completed before sharing", "Dignity-safe update drafted", "Audience segmented automatically", "Receipts and campaign progress updates sent"],
+    output: "Improved donor trust and dignity-safe follow-ups.",
     disclaimer: null
   },
   {

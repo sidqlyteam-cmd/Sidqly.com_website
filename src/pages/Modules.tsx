@@ -141,37 +141,87 @@ const Modules: React.FC = () => {
   return (
     <>
       <SEO
-        {...seoData.modules}
+        title="Sidqly Modules | Verified Giving, Proof Approval and Reporting"
+        description="Explore Sidqly modules for manual payment review, charity request intake, Zakat fund separation, donor communication, proof approval, and board-ready reports."
+        canonical="/modules"
         schema={schema}
       />
 
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-sidqly-navy mb-6">Modular Operating System</h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Sidqly is built from specialized modules that work together to simplify your organization's entire giving lifecycle.
+            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Sidqly Modules for Verified Islamic Giving Operations</h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Sidqly is built from specialized operational modules that work together to simplify your organization's entire giving lifecycle, replacing spreadsheets with verified workflows.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {modules.map((mod, i) => (
-              <Link key={i} to={`/modules/${mod.slug}`} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-md transition-all group flex flex-col h-full">
-                <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-emerald rounded-xl flex items-center justify-center mb-6 group-hover:bg-sidqly-green-soft/30 transition-colors">
-                  {getModuleIcon(mod.slug)}
+          <div className="grid lg:grid-cols-3 gap-8 mb-24">
+             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-deep rounded-xl flex items-center justify-center mb-6 text-xl">
+                   1
                 </div>
-                <h3 className="text-lg font-bold text-sidqly-navy mb-2 group-hover:text-sidqly-green-emerald transition-colors">{mod.title}</h3>
-                <p className="text-gray-600 text-xs leading-relaxed mb-3">{mod.benefit}</p>
-                <div className="flex-grow">
-                  <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mb-1">Who uses it</p>
-                  <p className="text-sidqly-navy text-xs font-medium mb-6">{mod.who}</p>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-4">Why modules matter</h3>
+                <p className="text-gray-600 leading-relaxed">
+                   Every Islamic charity operates differently. Modules allow you to start small—such as fixing your manual payment reviews—and scale up to full Qurbani or Zakat operations when your team is ready, without paying for tools you don't need.
+                </p>
+             </div>
+             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-deep rounded-xl flex items-center justify-center mb-6 text-xl">
+                   2
                 </div>
-                <span className="text-sidqly-green-deep font-bold text-xs flex items-center gap-2 mt-auto">
-                  View Module <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </span>
-              </Link>
-            ))}
+                <h3 className="text-xl font-bold text-sidqly-navy mb-4">How they work together</h3>
+                <p className="text-gray-600 leading-relaxed">
+                   Data flows securely between modules. A donation reviewed in the <span className="font-medium text-sidqly-navy">Manual Payment Review</span> module automatically updates the <span className="font-medium text-sidqly-navy">Zakat Fund Separation</span> tracking, and later ties into <span className="font-medium text-sidqly-navy">Board-Ready Reports</span>.
+                </p>
+             </div>
+             <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-deep rounded-xl flex items-center justify-center mb-6 text-xl">
+                   3
+                </div>
+                <h3 className="text-xl font-bold text-sidqly-navy mb-4">From request to report</h3>
+                <p className="text-gray-600 leading-relaxed">
+                   Sidqly handles the entire lifecycle: Intake requests securely, verify donations manually, approve dignity-safe proof from the field, and generate transparent reports for your board and donors.
+                </p>
+             </div>
           </div>
+
+          <div className="mb-16">
+             <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-12">Explore the Modules</h2>
+             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+               {modules.map((mod, i) => (
+                 <Link key={i} to={`/modules/${mod.slug}`} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-md transition-all group flex flex-col h-full">
+                   <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-emerald rounded-xl flex items-center justify-center mb-6 group-hover:bg-sidqly-green-soft/30 transition-colors">
+                     {getModuleIcon(mod.slug)}
+                   </div>
+                   <h3 className="text-lg font-bold text-sidqly-navy mb-2 group-hover:text-sidqly-green-emerald transition-colors">{mod.title}</h3>
+                   <p className="text-gray-600 text-xs leading-relaxed mb-3">{mod.benefit}</p>
+                   <div className="flex-grow">
+                     <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mb-1">Who uses it</p>
+                     <p className="text-sidqly-navy text-xs font-medium mb-6">{mod.who}</p>
+                   </div>
+                   <span className="text-sidqly-green-deep font-bold text-xs flex items-center gap-2 mt-auto">
+                     View Module <span className="group-hover:translate-x-1 transition-transform">→</span>
+                   </span>
+                 </Link>
+               ))}
+             </div>
+          </div>
+
+          <div className="mt-20 max-w-3xl mx-auto text-center">
+             <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Frequently Asked Questions</h2>
+             <div className="text-left space-y-4">
+                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 className="font-bold text-sidqly-navy mb-2">Can we purchase just one module?</h3>
+                    <p className="text-gray-600 text-sm">Yes, many organizations start with a single module pilot (like Manual Payment Review) before rolling out the full platform.</p>
+                 </div>
+                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <h3 className="font-bold text-sidqly-navy mb-2">Are all modules included in every plan?</h3>
+                    <p className="text-gray-600 text-sm">Access to specific modules depends on your tier (Starter, Growth, or Premium). Review our Pricing page or book a demo to learn more.</p>
+                 </div>
+             </div>
+          </div>
+
         </div>
       </section>
     </>

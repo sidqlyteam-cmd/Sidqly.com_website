@@ -1,14 +1,17 @@
-Sidqly is a premium global Islamic operating platform for verified giving, manual payment review, proof approval, and dignity-safe impact updates. We help organizations manage Zakat, Qurbani, Ramadan, and community aid with board-ready reporting.
+Sidqly is a verified giving operations platform tailored exclusively for Islamic charities, mosques, Qurbani organizers, Zakat committees, and Sadaqah campaign teams.
+
+Sidqly helps these teams move away from manual spreadsheets and scattered messaging groups by providing structured workflows for manual payment review, proof approval, dignity-safe donor updates, fund separation, and board-ready reporting.
 
 # Main Product Categories / Features
 - Verified Giving & Donation Operations
 - Manual Payment Verification Workflows
-- Proof Trust Engine (Dignity-safe face blurring, approval queues)
+- Proof Trust Engine (Dignity-safe face blurring, internal approval queues)
 - Board-Ready Reporting Dashboard
 - Fund Separation (Zakat vs Sadaqah)
+- Qurbani & Ramadan Operations Tracking
 
 # Use Cases
-- Mosques
+- Mosques & Masjids
 - Islamic Charities
 - Zakat Committees
 - Qurbani Organizers

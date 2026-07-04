@@ -170,17 +170,17 @@ const slugs = [
 ];
 
 const aiSearchTopics = [
-  { slug: "what-is-geo-generative-engine-optimization", title: "What is GEO? Generative Engine Optimization for SaaS" },
-  { slug: "what-is-llmo-for-saas-websites", title: "What is LLMO for SaaS Websites?" },
-  { slug: "how-ai-search-changes-saas-websites", title: "How AI Search is Changing SaaS Marketing" },
-  { slug: "how-startups-can-prepare-for-ai-search", title: "How Startups Can Prepare for AI Search" },
-  { slug: "how-to-write-faqs-for-ai-search", title: "How to Write FAQs for AI Search Bots" },
-  { slug: "how-to-make-saas-content-easy-for-ai-assistants", title: "Making SaaS Content AI-Assistant Friendly" },
-  { slug: "why-structured-data-matters-for-startups", title: "Why Structured Data Matters for Modern Startups" },
-  { slug: "how-to-use-schema-for-saas-seo", title: "How to Use Schema.org for SaaS SEO" },
-  { slug: "how-to-create-an-llms-txt-file", title: "How to Create an llms.txt File for Your Website" },
-  { slug: "how-to-protect-a-website-from-bad-bots", title: "How to Protect Your Website from Malicious Bots" },
-  { slug: "how-to-balance-ai-crawling-and-security", title: "Balancing AI Crawling and Data Security" },
+  { slug: "what-is-geo-generative-engine-optimization", title: "Making Islamic Charity Sites Clear for Generative Engine Optimization" },
+  { slug: "what-is-llmo-for-saas-websites", title: "What is LLMO for Charity Platforms?" },
+  { slug: "how-ai-search-changes-saas-websites", title: "How AI Search Helps Donors Verify Impact" },
+  { slug: "how-startups-can-prepare-for-ai-search", title: "How Islamic Organizations Can Provide Data to AI Search" },
+  { slug: "how-to-write-faqs-for-ai-search", title: "How to Write Clear Zakat FAQs for AI Assistants" },
+  { slug: "how-to-make-saas-content-easy-for-ai-assistants", title: "Making Charity Proof Content AI-Assistant Friendly" },
+  { slug: "why-structured-data-matters-for-startups", title: "Why Structured Data Matters for Mosque Operations" },
+  { slug: "how-to-use-schema-for-saas-seo", title: "Using Schema for Transparent Giving Operations" },
+  { slug: "how-to-create-an-llms-txt-file", title: "How to Create an llms.txt File for Your Charity Website" },
+  { slug: "how-to-protect-a-website-from-bad-bots", title: "Protecting Donor Forms from Malicious Bots" },
+  { slug: "how-to-balance-ai-crawling-and-security", title: "Balancing AI Crawling and Beneficiary Data Security" },
   { slug: "how-sidqly-prepares-public-content-for-ai-search", title: "How Sidqly Prepares Content for the Future of Search" }
 ];
 
