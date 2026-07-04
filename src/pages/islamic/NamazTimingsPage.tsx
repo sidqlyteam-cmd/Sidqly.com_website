@@ -13,7 +13,7 @@ const NamazTimingsPage: React.FC = () => {
       <div className="bg-sidqly-ivory min-h-screen py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h1 className="text-4xl font-extrabold text-sidqly-navy tracking-tight mb-4">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy tracking-tight mb-4">
               Namaz Timings
             </h1>
             <p className="text-lg text-gray-600">

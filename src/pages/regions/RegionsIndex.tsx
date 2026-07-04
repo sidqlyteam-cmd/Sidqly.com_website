@@ -15,7 +15,7 @@ const RegionsIndex: React.FC = () => {
 
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-sidqly-navy mb-8">Global Impact</h1>
+          <h1 className="text-3xl md:text-6xl font-extrabold text-sidqly-navy mb-8">Global Impact</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-16">
             Sidqly is designed to help Islamic organizations across different regions organize giving operations, payment review, proof approval, donor updates, and professional reporting.
           </p>

@@ -38,7 +38,7 @@ const ThankYou: React.FC<{ type?: 'demo' | 'contact' | 'pricing' }> = ({ type })
           <div className="w-20 h-20 bg-sidqly-green-soft/30 rounded-full flex items-center justify-center text-sidqly-green-deep mx-auto mb-8">
             <CheckCircle2 size={40} />
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">{active.title}</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">{active.title}</h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">{active.desc}</p>
           <div className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm mb-12">
              <p className="text-sidqly-green-deep font-bold italic">{active.next}</p>
@@ -51,7 +51,7 @@ const ThankYou: React.FC<{ type?: 'demo' | 'contact' | 'pricing' }> = ({ type })
              </Link>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 gap-4">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4">
              <a href={brand.calendlyUrl} className="p-6 bg-white rounded-2xl border border-gray-50 text-center group">
                 <Calendar className="mx-auto mb-3 text-gray-300 group-hover:text-sidqly-green-emerald transition-colors" />
                 <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Book Demo</div>

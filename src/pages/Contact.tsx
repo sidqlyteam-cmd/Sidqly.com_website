@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Contact the Sidqly Team</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Contact the Sidqly Team</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">Have questions about our platform or need support for your organization? We're here to help.</p>
           </div>
 

@@ -37,7 +37,7 @@ const PressReleases: React.FC = () => {
                <div className="bg-sidqly-navy text-white p-3 rounded-xl inline-block">
                  <Mic size={24} />
                </div>
-               <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy">
+               <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy">
                  Press Releases
                </h1>
             </div>

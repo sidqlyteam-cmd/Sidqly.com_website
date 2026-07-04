@@ -25,7 +25,7 @@ const WeatherPlanningPage: React.FC = () => {
       <div className="bg-sidqly-ivory min-h-screen py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">
               Weather-Aware <span className="text-sidqly-green-deep">Planning</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">

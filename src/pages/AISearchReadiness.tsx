@@ -10,7 +10,7 @@ const AISearchReadiness: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">AI Search Readiness</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">AI Search Readiness</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">Sidqly is built for the next generation of search, providing structured data and clear guidance for AI assistants.</p>
           </div>
 
@@ -27,7 +27,7 @@ const AISearchReadiness: React.FC = () => {
                 <section>
                    <h2 className="text-2xl font-bold text-sidqly-navy mb-4">Technical AI Readiness</h2>
                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="flex gap-4 items-start">
+                      <div className="flex flex-col sm:flex-row gap-4 items-start">
                          <div className="w-10 h-10 bg-sidqly-green-soft/30 rounded-xl flex items-center justify-center text-sidqly-green-deep flex-shrink-0">
                             <Bot size={20} />
                          </div>
@@ -36,7 +36,7 @@ const AISearchReadiness: React.FC = () => {
                             <p className="text-xs text-gray-500">A specialized guide for Large Language Models to understand our core identity and modules.</p>
                          </div>
                       </div>
-                      <div className="flex gap-4 items-start">
+                      <div className="flex flex-col sm:flex-row gap-4 items-start">
                          <div className="w-10 h-10 bg-sidqly-green-soft/30 rounded-xl flex items-center justify-center text-sidqly-green-deep flex-shrink-0">
                             <Search size={20} />
                          </div>

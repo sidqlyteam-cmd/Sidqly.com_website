@@ -46,7 +46,7 @@ const Pricing: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-sidqly-navy mb-6 tracking-tight">Professional operations, priced for your scale.</h1>
+            <h1 className="text-3xl md:text-6xl font-extrabold text-sidqly-navy mb-6 tracking-tight">Professional operations, priced for your scale.</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10">
                Invest in your organization's trust, dignity, and operational clarity. Small teams can start affordably, while scaling teams get complete control.
             </p>
@@ -107,7 +107,7 @@ const Pricing: React.FC = () => {
                            <span className="text-xs font-bold text-sidqly-gold uppercase tracking-wider">Standard</span>
                         </div>
                         <div className="flex items-baseline gap-1">
-                          <span className="text-4xl font-extrabold text-sidqly-navy tracking-tight">{priceData.launch}</span>
+                          <span className="text-3xl md:text-4xl font-extrabold text-sidqly-navy tracking-tight">{priceData.launch}</span>
                           <span className="text-gray-400 font-bold text-sm">/{isAnnual ? 'year' : 'mo'}</span>
                         </div>
                         {isAnnual && ('savings' in priceData) && priceData.savings && (
@@ -186,7 +186,7 @@ const Pricing: React.FC = () => {
                      <p className="text-sidqly-green-soft mb-8 leading-relaxed italic">
                         Sidqly is not just another donation form. It is designed to organize the full giving workflow from intention to payment review, delivery, proof approval, donor-safe update, and reporting.
                      </p>
-                     <div className="grid grid-cols-2 gap-4">
+                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {[
                            "WhatsApp coordination", "Excel/Google Sheets", "Google Forms intake",
                            "Manual payment screenshots", "Manual proof chasing", "Paper folders",

@@ -35,7 +35,7 @@ const MediaKit: React.FC = () => {
                <div className="bg-sidqly-green-deep text-white p-3 rounded-xl inline-block">
                  <Newspaper size={24} />
                </div>
-               <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy">
+               <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy">
                  Media Kit
                </h1>
             </div>
@@ -66,7 +66,7 @@ const MediaKit: React.FC = () => {
                          {mediaKitData.description}
                       </p>
                    </div>
-                   <div className="border-t border-gray-100 pt-6 grid grid-cols-2 gap-4 text-sm text-gray-600">
+                   <div className="border-t border-gray-100 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600">
                       <div>
                          <strong className="block text-sidqly-navy mb-1">Website</strong>
                          <a href={mediaKitData.website} className="text-sidqly-green-emerald hover:underline">{mediaKitData.website}</a>
@@ -99,9 +99,9 @@ const MediaKit: React.FC = () => {
                 <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
 
                    <div className="flex flex-col sm:flex-row items-center justify-center gap-8 bg-gray-50 p-8 rounded-xl border border-gray-200 mb-8">
-                       <div className="text-4xl font-extrabold text-sidqly-navy">Sidqly</div>
+                       <div className="text-3xl md:text-4xl font-extrabold text-sidqly-navy">Sidqly</div>
                        <div className="hidden sm:block w-px h-12 bg-gray-300"></div>
-                       <div className="text-4xl font-extrabold text-white bg-sidqly-navy px-4 py-1 rounded">Sidqly</div>
+                       <div className="text-3xl md:text-4xl font-extrabold text-white bg-sidqly-navy px-4 py-1 rounded">Sidqly</div>
                    </div>
 
                    <div className="grid md:grid-cols-2 gap-8">

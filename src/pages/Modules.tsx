@@ -70,7 +70,7 @@ const Modules: React.FC = () => {
                 <div className="w-16 h-16 bg-white text-sidqly-green-emerald rounded-2xl flex items-center justify-center mb-8 shadow-sm">
                   {getModuleIcon(currentModule.slug)}
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-sidqly-navy mb-6">{currentModule.title}</h1>
+                <h1 className="text-3xl md:text-5xl font-bold text-sidqly-navy mb-6">{currentModule.title}</h1>
                 <p className="text-xl text-gray-600 mb-6 leading-relaxed">
                   {currentModule.benefit}
                 </p>
@@ -150,7 +150,7 @@ const Modules: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Sidqly Modules for Verified Islamic Giving Operations</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Sidqly Modules for Verified Islamic Giving Operations</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Sidqly is built from specialized operational modules that work together to simplify your organization's entire giving lifecycle, replacing spreadsheets with verified workflows.
             </p>

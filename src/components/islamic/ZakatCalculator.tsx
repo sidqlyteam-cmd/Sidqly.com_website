@@ -64,7 +64,7 @@ const ZakatCalculator: React.FC = () => {
           <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
              <h3 className="text-lg font-bold text-sidqly-navy mb-4 border-b pb-2">1. Nisab Threshold</h3>
              <div className="space-y-4">
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <label className="flex items-center gap-2">
                     <input
                       type="radio"

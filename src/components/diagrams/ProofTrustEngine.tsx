@@ -7,7 +7,7 @@ const ProofTrustEngine: React.FC = () => {
         <div className="w-64 h-64 border-2 border-white rounded-full"></div>
       </div>
 
-      <div className="relative z-10 grid grid-cols-3 gap-6 items-center">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
          {/* Step 1 */}
          <div className="text-center">
             <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 mx-auto mb-4">

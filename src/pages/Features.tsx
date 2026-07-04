@@ -77,7 +77,7 @@ const Features: React.FC = () => {
       />
       <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-center">Powerful features for professional teams.</h1>
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-center">Powerful features for professional teams.</h1>
           <p className="text-xl text-sidqly-green-soft text-center max-w-3xl mx-auto mb-16">
             From donor-safe proof to audit-ready records for leadership. Build trust with a clearer operating flow.
           </p>
@@ -132,15 +132,15 @@ const Features: React.FC = () => {
           <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Save hundreds of hours every month.</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
              <div className="p-6">
-                <div className="text-4xl font-extrabold text-sidqly-green-deep mb-2">90%</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-sidqly-green-deep mb-2">90%</div>
                 <div className="text-sm text-gray-500 font-bold uppercase tracking-widest">Reduction in manual proof tasks</div>
              </div>
              <div className="p-6">
-                <div className="text-4xl font-extrabold text-sidqly-green-deep mb-2">100%</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-sidqly-green-deep mb-2">100%</div>
                 <div className="text-sm text-gray-500 font-bold uppercase tracking-widest">Zakat fund separation audit trail</div>
              </div>
              <div className="p-6">
-                <div className="text-4xl font-extrabold text-sidqly-green-deep mb-2">Seconds</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-sidqly-green-deep mb-2">Seconds</div>
                 <div className="text-sm text-gray-500 font-bold uppercase tracking-widest">To generate board reports</div>
              </div>
           </div>

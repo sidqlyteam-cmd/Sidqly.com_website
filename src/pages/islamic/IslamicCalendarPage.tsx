@@ -30,7 +30,7 @@ const IslamicCalendarPage: React.FC = () => {
       <div className="bg-sidqly-ivory min-h-screen py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">
               Islamic Calendar <span className="text-sidqly-green-deep">&</span> Date Planner
             </h1>
             <p className="text-lg text-gray-600 mb-4">

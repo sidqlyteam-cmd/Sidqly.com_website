@@ -37,7 +37,7 @@ const BookDemo: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-8 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-8 leading-tight">
                 Book a Sidqly Demo for Your Islamic Giving Team
               </h1>
               <p className="text-xl text-gray-600 mb-10 leading-relaxed">
@@ -50,7 +50,7 @@ const BookDemo: React.FC = () => {
                    <p className="text-gray-600 mb-4">
                      Sidqly is an operations platform, not a simple donation website. This demo is designed for teams looking to professionalize their giving management, including:
                    </p>
-                   <ul className="grid grid-cols-2 gap-3">
+                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {["Mosques & Masjids", "Islamic Charities", "Qurbani Organizers", "Zakat Committees", "Sadaqah Campaign Teams", "Ramadan Ration Teams", "Volunteer-led groups"].map((audience, i) => (
                         <li key={i} className="flex items-center gap-2 text-gray-700 font-medium">
                            <CheckCircle2 className="text-sidqly-green-emerald" size={18} /> {audience}
@@ -67,7 +67,7 @@ const BookDemo: React.FC = () => {
                         { icon: <Calendar className="text-sidqly-green-emerald" />, title: "What you will see inside Sidqly", desc: "A tailored walkthrough of the platform, focusing on dignity-safe proof approval, fund separation tracking, and automated donor communications." },
                         { icon: <Mail className="text-sidqly-green-emerald" />, title: "Implementation & Reporting", desc: "How to generate board-ready reports and what a successful pilot rollout looks like for your team." }
                       ].map((item, i) => (
-                        <div key={i} className="flex gap-4 items-start">
+                        <div key={i} className="flex flex-col sm:flex-row gap-4 items-start">
                           <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm flex-shrink-0">
                             {item.icon}
                           </div>
