@@ -34,27 +34,31 @@ const CompareDetail: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Sidqly vs {title}</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Why professional organizations choose Sidqly for their giving operations.</p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">{displayTitle}</h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              {isMosque
+                ? "A normal mosque website is excellent for displaying prayer times and announcements, but it is not built to handle the operational complexities of verified giving, proof tracking, and board reporting."
+                : "Why professional organizations choose Sidqly for their giving operations."}
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-20">
              <div className="bg-white p-8 md:p-12 rounded-[40px] border border-red-50 shadow-sm">
                 <h3 className="text-2xl font-bold text-red-900 mb-8 flex items-center gap-2">
-                   <XCircle className="text-red-500" /> With {title}
+                   <XCircle className="text-red-500" /> With {isMosque ? "a basic website" : title}
                 </h3>
                 <ul className="space-y-6">
                    <li className="text-gray-600 flex items-start gap-3">
-                      <span className="mt-1">✕</span> Fragmented manual processes and data silos.
+                      <span className="mt-1">✕</span> {isMosque ? "Static donation forms that cannot verify bank transfer proofs." : "Fragmented manual processes and data silos."}
                    </li>
                    <li className="text-gray-600 flex items-start gap-3">
-                      <span className="mt-1">✕</span> Significant dignity risks with shared recipient photos.
+                      <span className="mt-1">✕</span> {isMosque ? "No workflow to approve dignity-safe proof before updating donors." : "Significant dignity risks with shared recipient photos."}
                    </li>
                    <li className="text-gray-600 flex items-start gap-3">
-                      <span className="mt-1">✕</span> Hours of manual work for every donor update.
+                      <span className="mt-1">✕</span> {isMosque ? "Reliance on WhatsApp and spreadsheets, creating reporting risk." : "Hours of manual work for every donor update."}
                    </li>
                    <li className="text-gray-600 flex items-start gap-3">
-                      <span className="mt-1">✕</span> No clear audit trail for Zakat fund separation.
+                      <span className="mt-1">✕</span> {isMosque ? "No built-in way to logically separate Zakat from Sadaqah funds." : "No clear audit trail for Zakat fund separation."}
                    </li>
                 </ul>
              </div>
@@ -65,16 +69,16 @@ const CompareDetail: React.FC = () => {
                 </h3>
                 <ul className="space-y-6">
                    <li className="text-sidqly-navy font-bold flex items-start gap-3">
-                      <span className="mt-1 text-sidqly-green-emerald">✓</span> Unified, professional operating platform.
+                      <span className="mt-1 text-sidqly-green-emerald">✓</span> {isMosque ? "Dedicated modules for payment review and campaign tracking." : "Unified, professional operating platform."}
                    </li>
                    <li className="text-sidqly-navy font-bold flex items-start gap-3">
-                      <span className="mt-1 text-sidqly-green-emerald">✓</span> Automated dignity-safe face blurring and secure links.
+                      <span className="mt-1 text-sidqly-green-emerald">✓</span> {isMosque ? "Automated dignity-safe face blurring and internal approval queues." : "Automated dignity-safe face blurring and secure links."}
                    </li>
                    <li className="text-sidqly-navy font-bold flex items-start gap-3">
-                      <span className="mt-1 text-sidqly-green-emerald">✓</span> Real-time board-ready reporting in seconds.
+                      <span className="mt-1 text-sidqly-green-emerald">✓</span> {isMosque ? "Instant board-ready reports to replace manual Excel tracking." : "Real-time board-ready reporting in seconds."}
                    </li>
                    <li className="text-sidqly-navy font-bold flex items-start gap-3">
-                      <span className="mt-1 text-sidqly-green-emerald">✓</span> Strict logical and operational fund separation.
+                      <span className="mt-1 text-sidqly-green-emerald">✓</span> {isMosque ? "Strict logical and operational fund separation (e.g., Zakat)." : "Strict logical and operational fund separation."}
                    </li>
                 </ul>
              </div>

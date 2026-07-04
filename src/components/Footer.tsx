@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
               <img src="/brand/sidqly-logo-light-text.svg" alt="Sidqly" className="h-10 w-auto" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-xs">
-              Verified giving. Protected dignity. Clear impact. The international operating standard for Islamic organizations.
+              Verified giving operations platform for Islamic charities.
             </p>
             <div className="space-y-4">
               <a href={brand.calendlyUrl} className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold">

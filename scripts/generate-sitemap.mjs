@@ -29,7 +29,6 @@ const routes = [
     'https://sidqly.com/islamic-utilities',
     'https://sidqly.com/islamic-glossary',
     'https://sidqly.com/faqs',
-    'https://sidqly.com/sitemap',
     'https://sidqly.com/trust-center',
     'https://sidqly.com/security',
     'https://sidqly.com/privacy',
