@@ -92,7 +92,7 @@ const BlogPost: React.FC = () => {
               <span className="flex items-center gap-1.5"><User size={16} /> Sidqly Team</span>
               <span className="flex items-center gap-1.5 px-3 py-1 bg-sidqly-ivory rounded-full text-sidqly-green-deep font-bold"><Tag size={14} /> {post.category}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy leading-tight mb-8">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy leading-tight mb-8">
               {post.title}
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed italic border-l-4 border-sidqly-gold pl-6 mb-8">

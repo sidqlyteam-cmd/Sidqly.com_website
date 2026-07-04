@@ -10,7 +10,7 @@ const WhyFillForm: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Why fill the inquiry form?</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Why fill the inquiry form?</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Our process is designed to save your team time and ensure the right fit for your mission.
             </p>
@@ -28,7 +28,7 @@ const WhyFillForm: React.FC = () => {
                   { title: "Accurate Quoting", desc: "Knowing your scale helps us provide a clear and fair pricing recommendation." },
                   { title: "Faster Onboarding", desc: "Details provided upfront speed up the technical setup and data migration process." }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-start">
+                  <div key={i} className="flex flex-col sm:flex-row gap-4 items-start">
                      <div className="w-8 h-8 rounded-full bg-sidqly-green-soft/30 flex items-center justify-center text-sidqly-green-deep flex-shrink-0 mt-1">
                         <CheckCircle2 size={18} />
                      </div>

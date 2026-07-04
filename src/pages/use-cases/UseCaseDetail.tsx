@@ -114,13 +114,13 @@ const UseCaseDetail: React.FC = () => {
                   <div className="bg-red-50 rounded-2xl p-8 border border-red-100">
                      <ul className="space-y-4">
                         {useCase.problem.map((prob, i) => (
-                           <li key={i} className="flex gap-4">
+                           <li key={i} className="flex flex-col sm:flex-row gap-4">
                               <span className="text-red-500 font-bold mt-1">&times;</span>
                               <p className="text-gray-700">{prob}</p>
                            </li>
                         ))}
                         {useCase.manualWorkflowPain.map((pain, i) => (
-                           <li key={`pain-${i}`} className="flex gap-4">
+                           <li key={`pain-${i}`} className="flex flex-col sm:flex-row gap-4">
                               <span className="text-red-500 font-bold mt-1">&times;</span>
                               <p className="text-gray-700">{pain}</p>
                            </li>
@@ -133,7 +133,7 @@ const UseCaseDetail: React.FC = () => {
                   <div className="bg-sidqly-ivory rounded-2xl p-8 border border-gray-100 h-full">
                      <ul className="space-y-4">
                         {useCase.sidqlyWorkflow.map((flow, i) => (
-                           <li key={i} className="flex gap-4">
+                           <li key={i} className="flex flex-col sm:flex-row gap-4">
                               <CheckCircle2 className="text-sidqly-green-emerald shrink-0 mt-1" size={20} />
                               <p className="text-gray-700 font-medium">{flow}</p>
                            </li>

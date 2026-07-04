@@ -41,7 +41,7 @@ const Purchase: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-sidqly-navy mb-6 tracking-tight">Start Your Sidqly Setup</h1>
+            <h1 className="text-3xl md:text-6xl font-extrabold text-sidqly-navy mb-6 tracking-tight">Start Your Sidqly Setup</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                Sidqly is a comprehensive operations platform tailored for Islamic giving. Our setup process is designed to ensure a successful, professional rollout for your team.
             </p>

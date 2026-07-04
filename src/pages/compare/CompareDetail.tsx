@@ -34,7 +34,7 @@ const CompareDetail: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">{displayTitle}</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">{displayTitle}</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               {isMosque
                 ? "A normal mosque website is excellent for displaying prayer times and announcements, but it is not built to handle the operational complexities of verified giving, proof tracking, and board reporting."

@@ -35,7 +35,7 @@ const HowItWorks: React.FC = () => {
       {/* Hero */}
       <section className="py-20 bg-sidqly-navy text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8">Professional Lifecycle</h1>
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Professional Lifecycle</h1>
           <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto">
             Sidqly transforms fragmented manual work into a structured 12-step lifecycle that ensures trust, dignity, and clarity.
           </p>

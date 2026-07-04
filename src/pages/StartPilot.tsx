@@ -24,7 +24,7 @@ const StartPilot: React.FC = () => {
       <SEO title="Launch a Sidqly Pilot for Islamic Giving" description="Begin your Sidqly journey with a focused pilot program for a specific Islamic giving campaign or workflow, from Qurbani to Zakat review." canonical="/start-pilot" />
       <section className="py-20 bg-sidqly-navy text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8">Launch a Sidqly Pilot</h1>
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Launch a Sidqly Pilot</h1>
           <p className="text-xl text-sidqly-green-soft leading-relaxed">
             Not ready for a full transition? Start with one service line and see the Sidqly difference in trust and clarity.
           </p>
@@ -61,7 +61,7 @@ const StartPilot: React.FC = () => {
                "Run the operation from intake to proof.",
                "Review the final impact report with your board."
              ].map((step, i) => (
-               <div key={i} className="flex gap-4 items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
+               <div key={i} className="flex flex-col sm:flex-row gap-4 items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
                  <CheckCircle2 className="text-sidqly-green-emerald" size={20} />
                  <span className="text-sidqly-navy font-bold text-sm">{step}</span>
                </div>

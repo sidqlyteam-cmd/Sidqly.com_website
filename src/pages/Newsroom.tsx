@@ -36,14 +36,14 @@ const Newsroom: React.FC = () => {
 
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
              <div>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-4">
+                <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-4">
                   Sidqly <span className="text-sidqly-green-deep">Newsroom</span>
                 </h1>
                 <p className="text-lg text-gray-600 max-w-2xl">
                   Product announcements, press releases, operational planning updates, and curated external references for giving organizations.
                 </p>
              </div>
-             <div className="flex gap-4 shrink-0">
+             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
                 <Link to="/press-releases" className="bg-white border border-gray-200 text-sidqly-navy px-6 py-3 rounded-xl font-bold hover:bg-gray-50 transition-all flex items-center gap-2">
                    <Mic size={18} /> Press Releases
                 </Link>

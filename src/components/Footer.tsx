@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                 onClick={handleOpenSearch}
                 className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-gray-300 px-6 py-4 rounded-xl flex items-center justify-between transition-all mb-6 group text-left"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 w-full overflow-hidden">
                   <Search size={20} className="text-gray-400 group-hover:text-white transition-colors" />
                   <span className="truncate">Search Qibla, Namaz timings, Zakat, Qurbani, Ramadan, proof, reports...</span>
                 </div>
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 lg:col-span-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:col-span-3">
              <div className="space-y-12">
                 <div>
                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Product</h4>

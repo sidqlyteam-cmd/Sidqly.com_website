@@ -22,12 +22,12 @@ const Migration: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-12 items-center">
              <div className="flex-1">
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">Replace the mess.</h1>
+                <h1 className="text-3xl md:text-6xl font-extrabold mb-8 leading-tight">Replace the mess.</h1>
                 <p className="text-xl text-sidqly-green-soft leading-relaxed">
                   Moving from years of WhatsApp groups and Excel sheets can feel overwhelming. Sidqly provides the path to a professional digital transition.
                 </p>
              </div>
-             <div className="flex-1 grid grid-cols-2 gap-4">
+             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center">
                    <MessageSquare className="mx-auto mb-4 text-red-400" />
                    <div className="text-xs font-bold uppercase text-gray-400">Before</div>

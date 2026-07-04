@@ -42,7 +42,7 @@ const Help: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Help & Resources</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Help & Resources</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Find the guides, FAQs, and support you need to manage your giving operations effectively.
             </p>

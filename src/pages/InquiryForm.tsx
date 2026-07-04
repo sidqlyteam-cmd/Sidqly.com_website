@@ -17,7 +17,7 @@ const InquiryForm: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-8 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-8 leading-tight">
                 Tell us about your organization.
               </h1>
               <p className="text-xl text-gray-600 mb-10 leading-relaxed">
@@ -31,7 +31,7 @@ const InquiryForm: React.FC = () => {
                   "Estimate implementation and onboarding timelines",
                   "Provide a customized pricing quote"
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                  <div key={i} className="flex flex-col sm:flex-row gap-4 items-center p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
                     <CheckCircle2 className="text-sidqly-green-emerald" size={20} />
                     <span className="text-sidqly-navy font-bold text-sm">{item}</span>
                   </div>

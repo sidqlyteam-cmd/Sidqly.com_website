@@ -71,7 +71,7 @@ const ModuleDetail: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sidqly-green-soft text-sidqly-green-deep text-xs font-bold uppercase tracking-widest mb-6 border border-sidqly-green-emerald/20">
                     <Box size={14} /> {"Core Module"}
                   </div>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-sidqly-navy mb-6 tracking-tight">
+                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-sidqly-navy mb-6 tracking-tight">
                     {moduleData.title}
                   </h1>
                   <p className="text-2xl font-medium text-sidqly-green-deep mb-8 leading-tight border-l-4 border-sidqly-gold pl-5 py-2 bg-white/50 rounded-r-xl">

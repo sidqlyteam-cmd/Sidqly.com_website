@@ -20,7 +20,7 @@ const About: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-sidqly-navy mb-8 leading-tight">Technology for Amanah.</h1>
+            <h1 className="text-3xl md:text-6xl font-extrabold text-sidqly-navy mb-8 leading-tight">Technology for Amanah.</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Sidqly was founded to bridge the gap between traditional Islamic giving values and modern operational efficiency.
             </p>

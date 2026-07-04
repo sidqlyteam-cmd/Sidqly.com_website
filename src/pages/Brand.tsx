@@ -15,7 +15,7 @@ const BrandPage: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Brand Assets</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Brand Assets</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">Official logos, colors, and guidelines for the Sidqly brand identity.</p>
           </div>
 

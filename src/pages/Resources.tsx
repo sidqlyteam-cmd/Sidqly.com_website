@@ -29,7 +29,7 @@ const Resources: React.FC = () => {
       <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl text-center mx-auto">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Resources for verified giving, donor trust, and dignity-safe operations</h1>
+            <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight">Resources for verified giving, donor trust, and dignity-safe operations</h1>
             <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-2xl mx-auto mb-10">
               Operational guides, use cases, and best practices to help you transition from scattered tools to a professional SaaS platform.
             </p>

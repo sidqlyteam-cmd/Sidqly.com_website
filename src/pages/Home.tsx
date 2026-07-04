@@ -42,7 +42,7 @@ const Home: React.FC = () => {
             <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-[0.2em] text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10">
               International Operating Standard for Amanah
             </span>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight">
               Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-medium">
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
                </Link>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                {newsroomData.slice(0, 3).map((item) => (
                   <Link key={item.id} to={item.category === 'Press Release' ? '/press-releases' : '/newsroom'} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-all group">
                      <span className="text-xs font-bold text-sidqly-green-deep uppercase tracking-wider bg-sidqly-green-soft/30 px-3 py-1 rounded-full mb-4 inline-block">{item.category}</span>
@@ -293,14 +293,14 @@ const Home: React.FC = () => {
                     We don't believe in automatic financial or religious rulings. Sidqly provides the gates for your team to verify every payment and distribution manually.
                  </p>
                  <div className="space-y-6">
-                    <div className="flex gap-4 items-start">
+                    <div className="flex flex-col sm:flex-row gap-4 items-start">
                        <ShieldCheck className="text-sidqly-green-emerald flex-shrink-0" />
                        <div>
                           <h4 className="font-bold text-lg mb-1">Payment Verification</h4>
                           <p className="text-sm text-gray-400">Manual review of bank transfers and screenshots to prevent reporting errors.</p>
                        </div>
                     </div>
-                    <div className="flex gap-4 items-start">
+                    <div className="flex flex-col sm:flex-row gap-4 items-start">
                        <ShieldCheck className="text-sidqly-green-emerald flex-shrink-0" />
                        <div>
                           <h4 className="font-bold text-lg mb-1">Proof Approval</h4>
@@ -425,7 +425,7 @@ const Home: React.FC = () => {
                         <p className="text-sm text-gray-500 mt-2">Key operational terms defined.</p>
                      </Link>
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
                      <Link to="/islamic-utilities" className="bg-sidqly-green-deep text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all">Explore Islamic Tools</Link>
                      <Link to="/resources" className="bg-sidqly-ivory text-sidqly-navy border border-gray-200 px-6 py-3 rounded-xl font-bold hover:bg-gray-50 transition-all">View Resources</Link>
                   </div>
@@ -497,7 +497,7 @@ const Home: React.FC = () => {
            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16 leading-relaxed">
               Sidqly is designed for Islamic organizations across different regions that need structured workflows, clear reports, donor-safe proof, and dignity-first operations.
            </p>
-           <div className="flex flex-wrap justify-center gap-4">
+           <div className="flex flex flex-col sm:flex-row flex-wrap justify-center gap-4">
               {['united-kingdom', 'europe', 'north-america', 'canada', 'gulf-mena', 'south-asia'].map((r) => (
                 <Link key={r} to={`/regions/${r}`} className="bg-sidqly-ivory px-6 py-3 rounded-full border border-gray-100 text-sidqly-navy font-bold text-sm hover:border-sidqly-green-soft transition-all">
                    {r.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
@@ -525,7 +525,7 @@ const Home: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-sidqly-green-deep text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-           <h2 className="text-4xl md:text-6xl font-extrabold mb-8">Ready to organize your mission?</h2>
+           <h2 className="text-3xl md:text-6xl font-extrabold mb-8">Ready to organize your mission?</h2>
            <p className="text-sidqly-green-soft text-xl max-w-2xl mx-auto mb-16">
               Join leading organizations using Sidqly to manage their giving with trust, proof, and global clarity.
            </p>

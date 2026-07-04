@@ -91,7 +91,7 @@ const SolutionDetail: React.FC = () => {
       <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-8">{solution.title}</h1>
+            <h1 className="text-3xl md:text-6xl font-extrabold mb-8">{solution.title}</h1>
             <p className="text-xl text-sidqly-green-soft leading-relaxed">
               {solution.desc}
             </p>

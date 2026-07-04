@@ -54,7 +54,7 @@ const RequestOrganization: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Want your organization to manage giving more clearly?</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Want your organization to manage giving more clearly?</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               Anyone can recommend Sidqly to an organization when they want clearer giving records, safer proof sharing, donor-safe updates, and more transparent workflows.
             </p>

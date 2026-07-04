@@ -187,7 +187,7 @@ const Navbar: React.FC = () => {
                    </Link>
                 </div>
                 {item.children && (
-                  <div className="grid grid-cols-2 gap-2 pb-4 px-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-4 px-3">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}

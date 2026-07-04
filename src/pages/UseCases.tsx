@@ -42,7 +42,7 @@ const UseCases: React.FC = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+          <h1 className="text-3xl md:text-6xl font-extrabold text-white mb-6">
             Built for Every Role in <span className="text-sidqly-gold">Islamic Giving</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
@@ -143,21 +143,21 @@ const UseCases: React.FC = () => {
                   No more scrambling to compile data for board meetings or sponsors. Sidqly automatically generates structured reports from your verified workflows.
                 </p>
                 <ul className="space-y-4">
-                  <li className="flex gap-4 items-start">
+                  <li className="flex flex-col sm:flex-row gap-4 items-start">
                      <CheckCircle2 className="text-sidqly-green-emerald shrink-0 mt-1" />
                      <div>
                        <strong className="block text-sidqly-navy">Zakat vs. Sadaqah Separation</strong>
                        <span className="text-gray-600 text-sm">Automated ledgers keeping restricted funds logically separate.</span>
                      </div>
                   </li>
-                  <li className="flex gap-4 items-start">
+                  <li className="flex flex-col sm:flex-row gap-4 items-start">
                      <CheckCircle2 className="text-sidqly-green-emerald shrink-0 mt-1" />
                      <div>
                        <strong className="block text-sidqly-navy">Board & CSR Sponsor Packs</strong>
                        <span className="text-gray-600 text-sm">Aggregated, privacy-compliant impact reports ready for presentation.</span>
                      </div>
                   </li>
-                  <li className="flex gap-4 items-start">
+                  <li className="flex flex-col sm:flex-row gap-4 items-start">
                      <CheckCircle2 className="text-sidqly-green-emerald shrink-0 mt-1" />
                      <div>
                        <strong className="block text-sidqly-navy">Vendor Reconciliation</strong>
@@ -169,21 +169,21 @@ const UseCases: React.FC = () => {
               <div className="bg-sidqly-navy p-10 rounded-3xl text-white">
                  <h3 className="text-2xl font-bold mb-8">Essential Modules</h3>
                  <div className="space-y-6">
-                    <div className="flex gap-4 items-center">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center">
                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0"><Layout size={24} className="text-sidqly-gold" /></div>
                        <div>
                           <h4 className="font-bold">Campaigns & Zakat Module</h4>
                           <p className="text-sm text-gray-400">Core fund separation and campaign tracking.</p>
                        </div>
                     </div>
-                    <div className="flex gap-4 items-center">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center">
                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0"><Users size={24} className="text-sidqly-gold" /></div>
                        <div>
                           <h4 className="font-bold">Volunteer & Vendor Modules</h4>
                           <p className="text-sm text-gray-400">External coordination and task assignment.</p>
                        </div>
                     </div>
-                    <div className="flex gap-4 items-center">
+                    <div className="flex flex-col sm:flex-row gap-4 items-center">
                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0"><PieChart size={24} className="text-sidqly-gold" /></div>
                        <div>
                           <h4 className="font-bold">Reporting & Proof Modules</h4>

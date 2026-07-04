@@ -9,7 +9,7 @@ const DignitySafeBoundary: React.FC = () => {
                Private Data Boundary
             </div>
 
-            <div className="grid grid-cols-2 gap-8 p-6 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 w-full">
                <div className="text-center">
                   <div className="text-sidqly-navy font-bold text-xs mb-2 uppercase tracking-tighter">Internal Visibility</div>
                   <div className="bg-sidqly-ivory p-3 rounded-xl text-[10px] text-gray-500">Recipient Names, IDs, Full Photos</div>

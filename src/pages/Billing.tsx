@@ -38,7 +38,7 @@ const Billing: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Billing and Payment Verification</h1>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">Billing and Payment Verification</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Sidqly enforces strict manual payment verification to ensure the security and integrity of every organizational account.
             </p>
@@ -51,7 +51,7 @@ const Billing: React.FC = () => {
                 </h2>
                 <div className="space-y-8">
                    {steps.map((step, i) => (
-                      <div key={i} className="flex gap-4 items-start">
+                      <div key={i} className="flex flex-col sm:flex-row gap-4 items-start">
                          <div className="w-8 h-8 rounded-full bg-sidqly-green-soft text-sidqly-green-deep flex items-center justify-center font-bold flex-shrink-0 mt-1">
                             {i + 1}
                          </div>

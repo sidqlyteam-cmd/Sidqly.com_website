@@ -33,7 +33,7 @@ const RegionDetail: React.FC = () => {
                 <Link to="/regions" className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold mb-8 hover:gap-3 transition-all">
                    <ArrowRight className="rotate-180" size={16} /> Back to Regions
                 </Link>
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-8">{region.name}</h1>
+                <h1 className="text-3xl md:text-6xl font-extrabold mb-8">{region.name}</h1>
                 <p className="text-xl text-sidqly-green-soft leading-relaxed">
                   {region.description}
                 </p>
@@ -66,7 +66,7 @@ const RegionDetail: React.FC = () => {
                 <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Common Operational Challenges</h2>
                 <div className="space-y-4">
                    {region.problems.map((prob, i) => (
-                      <div key={i} className="flex gap-4 p-4 bg-sidqly-ivory rounded-2xl border border-gray-50">
+                      <div key={i} className="flex flex-col sm:flex-row gap-4 p-4 bg-sidqly-ivory rounded-2xl border border-gray-50">
                          <div className="mt-1 text-red-400">✕</div>
                          <p className="text-gray-600 text-sm leading-relaxed">{prob}</p>
                       </div>
@@ -87,7 +87,7 @@ const RegionDetail: React.FC = () => {
                       ))}
                    </ul>
                    <div className="bg-sidqly-green-soft/20 p-6 rounded-3xl border border-sidqly-green-soft/50 mt-8">
-                      <div className="flex gap-4 items-start">
+                      <div className="flex flex-col sm:flex-row gap-4 items-start">
                          <ShieldCheck className="text-sidqly-green-deep flex-shrink-0" />
                          <div>
                             <h4 className="font-bold text-sidqly-green-deep mb-1">Dignity-Safe Operations</h4>

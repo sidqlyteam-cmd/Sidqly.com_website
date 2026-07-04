@@ -36,7 +36,7 @@ const CompareIndex: React.FC = () => {
 
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-sidqly-navy mb-8">Compare Sidqly</h1>
+          <h1 className="text-3xl md:text-6xl font-extrabold text-sidqly-navy mb-8">Compare Sidqly</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
             Understand why leading organizations choose a professional operating platform over fragmented manual tools.
           </p>

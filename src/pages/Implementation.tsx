@@ -41,7 +41,7 @@ const Implementation: React.FC = () => {
       <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-8">Sidqly Implementation for Mosques and Charities</h1>
+            <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Sidqly Implementation for Mosques and Charities</h1>
             <p className="text-xl text-sidqly-green-soft leading-relaxed">
               We don't just hand you software. We provide a structured path to operational clarity, moving your team from spreadsheets to verified workflows.
             </p>
