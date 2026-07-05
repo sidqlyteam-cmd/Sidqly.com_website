@@ -4,17 +4,25 @@ import { brand } from '../config/brand';
 import { pricing } from '../data/pricing';
 import { Check, Info, XCircle, Plus, Layout, PieChart, CheckCircle2, Calendar, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { faqs } from '../data/faqs';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { generateSoftwareAppSchema, generateBreadcrumbSchema } from '../lib/schema';
+import { generateSoftwareAppSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
+
+const customPricingFaqs = [
+  { question: "Which Sidqly plan should our organization choose?", answer: "Start with the Starter or Growth plan depending on the number of modules you need (e.g. Qurbani vs daily Sadaqah campaigns). Most organizations start with a pilot." },
+  { question: "Can we start with one workflow first?", answer: "Yes. Many organizations start with a single workflow pilot such as manual payment verification, before expanding." },
+  { question: "Is onboarding included?", answer: "Yes, standard onboarding is included with options for priority implementation and launch setup support." },
+  { question: "Is data migration available?", answer: "Yes, we provide data mapping tools to help you move away from scattered Excel sheets and WhatsApp groups." },
+  { question: "Can Sidqly support seasonal campaigns like Ramadan and Qurbani?", answer: "Absolutely. Sidqly handles peak giving seasons with dedicated workflows for Qurbani lifecycles and Ramadan ration packs." },
+  { question: "Do we need technical staff to use Sidqly?", answer: "No, Sidqly is designed to be user-friendly for operations, finance, and volunteer teams without requiring technical expertise." },
+  { question: "Can we request a demo before purchasing?", answer: "Yes, we encourage you to book a demo via Calendly to see the workflows in action before committing." }
+];
 
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(true);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const activePlans = pricing.plans;
-  const pricingFaqs = faqs.filter(f => f.category === "Pricing & Purchase");
 
   const toggleFaq = (index: number) => {
     if (openFaq === index) {
@@ -31,13 +39,16 @@ const Pricing: React.FC = () => {
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },
         { name: "Pricing", item: "/pricing" }
-      ])
+      ]),
+      generateFAQSchema(customPricingFaqs)
     ]
   };
 
   return (
     <>
       <SEO
+        title="Sidqly Pricing | Software for Islamic Charities"
+        description="View launch pricing for Sidqly's modular Islamic charity software. Find the right plan for Zakat, Qurbani, and verified giving operations."
         {...seoData.pricing}
         schema={schema}
       />
@@ -245,7 +256,7 @@ const Pricing: React.FC = () => {
             <p className="text-gray-600">Answers to common questions about Sidqly pricing and billing.</p>
           </div>
           <div className="space-y-4">
-            {pricingFaqs.map((faq, index) => (
+            {customPricingFaqs.map((faq, index) => (
               <div key={index} className="bg-sidqly-ivory rounded-2xl border border-gray-100 overflow-hidden">
                 <button
                   className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
@@ -269,11 +280,18 @@ const Pricing: React.FC = () => {
         </div>
       </section>
 
-      {/* Post Purchase Process */}
+      {/* Post Purchase Process & Internal Links */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6 text-sidqly-navy">What happens after choosing a plan?</h2>
-          <p className="text-gray-600">You will meet with our team to map out your modules and workflows. Payment and onboarding instructions are shared after plan confirmation.</p>
+          <p className="text-gray-600 mb-12">You will meet with our team to map out your modules and workflows. Payment and onboarding instructions are shared after plan confirmation.</p>
+
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+             <Link to="/modules" className="text-sidqly-green-deep font-bold underline">Explore Modules</Link>
+             <Link to="/use-cases" className="text-sidqly-green-deep font-bold underline">View Use Cases</Link>
+             <Link to="/book-demo" className="text-sidqly-green-deep font-bold underline">Book a Demo</Link>
+             <Link to="/contact" className="text-sidqly-green-deep font-bold underline">Contact Us</Link>
+          </div>
         </div>
       </section>
 

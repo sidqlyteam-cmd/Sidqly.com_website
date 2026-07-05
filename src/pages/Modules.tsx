@@ -6,9 +6,14 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
-import { generateCollectionSchema, generateItemListSchema, generateBreadcrumbSchema } from '../lib/schema';
+import { generateCollectionSchema, generateItemListSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
 import { modules } from '../data/solutions_modules';
+
+const modulesFaqs = [
+  { question: "Can we purchase just one module?", answer: "Yes, many organizations start with a single module pilot (like Manual Payment Review) before rolling out the full platform." },
+  { question: "Are all modules included in every plan?", answer: "Access to specific modules depends on your tier (Starter, Growth, or Premium). Review our Pricing page or book a demo to learn more." }
+];
 
 const getModuleIcon = (slug: string) => {
   const icons: Record<string, React.ReactNode> = {
@@ -47,7 +52,8 @@ const Modules: React.FC = () => {
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },
         { name: "Modules", item: "/modules" }
-      ])
+      ]),
+      generateFAQSchema(modulesFaqs)
     ]
   };
 
@@ -141,8 +147,8 @@ const Modules: React.FC = () => {
   return (
     <>
       <SEO
-        title="Sidqly Modules | Verified Giving, Proof Approval and Reporting"
-        description="Explore Sidqly modules for manual payment review, charity request intake, Zakat fund separation, donor communication, proof approval, and board-ready reports."
+        title="Sidqly Modules | Verified Giving, Proof and Reports"
+        description="Explore Sidqly modules for payment review, proof approval, Zakat separation, Qurbani tracking, volunteer coordination, and reports."
         canonical="/modules"
         schema={schema}
       />
@@ -211,14 +217,12 @@ const Modules: React.FC = () => {
           <div className="mt-20 max-w-3xl mx-auto text-center">
              <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Frequently Asked Questions</h2>
              <div className="text-left space-y-4">
-                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 className="font-bold text-sidqly-navy mb-2">Can we purchase just one module?</h3>
-                    <p className="text-gray-600 text-sm">Yes, many organizations start with a single module pilot (like Manual Payment Review) before rolling out the full platform.</p>
-                 </div>
-                 <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                    <h3 className="font-bold text-sidqly-navy mb-2">Are all modules included in every plan?</h3>
-                    <p className="text-gray-600 text-sm">Access to specific modules depends on your tier (Starter, Growth, or Premium). Review our Pricing page or book a demo to learn more.</p>
-                 </div>
+                 {modulesFaqs.map((faq, idx) => (
+                    <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                       <h3 className="font-bold text-sidqly-navy mb-2">{faq.question}</h3>
+                       <p className="text-gray-600 text-sm">{faq.answer}</p>
+                    </div>
+                 ))}
              </div>
           </div>
 

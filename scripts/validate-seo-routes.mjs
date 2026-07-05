@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const pagesDir = path.join(__dirname, '../src/pages');
 const publicDir = path.join(__dirname, '../public');
-const sitemapPath = path.join(publicDir, 'sitemap.xml');
+const sitemapIndexPath = path.join(publicDir, 'sitemap.xml');
 let hasError = false;
 
 function checkPageFiles(dir) {
@@ -36,7 +36,7 @@ function checkPageFiles(dir) {
 // 1. Check pages for canonicals
 checkPageFiles(pagesDir);
 
-// 2. Check sitemap
+// 2. Check sitemaps
 const requiredRoutes = [
     'https://sidqly.com/features',
     'https://sidqly.com/modules',
@@ -47,18 +47,21 @@ const requiredRoutes = [
     'https://sidqly.com/modules/manual-payment-review'
 ];
 
-if (fs.existsSync(sitemapPath)) {
-    const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
-    for (const route of requiredRoutes) {
-        if (!sitemapContent.includes(`<loc>${route}</loc>`)) {
-            console.error(`❌ Missing route in sitemap: ${route}`);
-            hasError = true;
-        }
+let allSitemapContent = '';
+const sitemapFiles = fs.readdirSync(publicDir).filter(f => f.startsWith('sitemap') && f.endsWith('.xml'));
+
+sitemapFiles.forEach(file => {
+    allSitemapContent += fs.readFileSync(path.join(publicDir, file), 'utf8');
+});
+
+
+for (const route of requiredRoutes) {
+    if (!allSitemapContent.includes(`<loc>${route}</loc>`)) {
+        console.error(`❌ Missing route in sitemaps: ${route}`);
+        hasError = true;
     }
-} else {
-    console.error(`❌ sitemap.xml not found`);
-    hasError = true;
 }
+
 
 // 3. Check robots.txt and llms.txt
 if (!fs.existsSync(path.join(publicDir, 'robots.txt'))) {

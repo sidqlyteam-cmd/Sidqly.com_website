@@ -8,19 +8,39 @@ import OperatingJourney from '../components/diagrams/OperatingJourney';
 import ManualPaymentReview from '../components/diagrams/ManualPaymentReview';
 import ProofTrustEngine from '../components/diagrams/ProofTrustEngine';
 import { modules, solutions } from '../data/solutions_modules';
-import { generateOrganizationSchema, generateWebSiteSchema, generateSoftwareAppSchema, generateServiceSchema } from '../lib/schema';
+import { generateOrganizationSchema, generateWebSiteSchema, generateSoftwareAppSchema, generateServiceSchema, generateFAQSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
-import { Search, MapPin, Clock, Calculator, BookOpen } from 'lucide-react';
+import { Search, MapPin, Clock, Calculator, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
 import { newsroomData } from '../data/newsroom';
 
+const homeFaqs = [
+  { question: "What is Sidqly?", answer: "Sidqly is an Islamic giving operations platform that helps organizations manage verified donations, manual payment review, proof approval, donor-safe updates, fund separation, and reporting." },
+  { question: "Who is Sidqly built for?", answer: "Sidqly is designed for Islamic charities, mosques, NGOs, welfare teams, Zakat committees, Qurbani organizers, and Ramadan operations teams." },
+  { question: "Is Sidqly only for mosques?", answer: "No, Sidqly is broader operational software built for any Islamic organization needing to verify giving, protect dignity, and report impact." },
+  { question: "Can Sidqly manage Zakat and Sadaqah separately?", answer: "Yes, Sidqly uses logical boundaries so Zakat funds and Sadaqah funds never co-mingle in the tracking database." },
+  { question: "Does Sidqly help with Qurbani operations?", answer: "Yes, it tracks orders, vendors, slaughter status, distribution, proof, and donor certificates." },
+  { question: "How does Sidqly protect beneficiary dignity?", answer: "Through role-based access and automated face-blurring for recipient photos, ensuring dignity-first proof sharing." },
+  { question: "Can donors receive proof without seeing private recipient details?", answer: "Yes. Donor-safe impact updates automatically blur faces and mask personal identifiable information." },
+  { question: "Does Sidqly replace our finance team?", answer: "No. Sidqly supports manual payment review where your finance team continues to verify bank transfers directly." },
+  { question: "Can we migrate from WhatsApp and Excel?", answer: "Absolutely. Sidqly replaces scattered WhatsApp chats and spreadsheets with one centralized, professional workflow." },
+  { question: "How do we start with Sidqly?", answer: "Fill the inquiry form or book a demo, choose your plan, and our team will guide you through the setup and pilot launch." }
+];
+
 const Home: React.FC = () => {
+  const [openFaq, setOpenFaq] = React.useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       generateOrganizationSchema(),
       generateWebSiteSchema(),
       generateSoftwareAppSchema(),
-      generateServiceSchema("Sidqly Operating Platform", "Verified giving, manual payment review, and proof approval for Islamic organizations.", "/")
+      generateServiceSchema("Sidqly Operating Platform", "Verified giving, manual payment review, and proof approval for Islamic organizations.", "/"),
+      generateFAQSchema(homeFaqs)
     ]
   };
 
@@ -28,6 +48,8 @@ const Home: React.FC = () => {
     <>
       <SEO
         {...seoData.home}
+        title="Sidqly | Islamic Giving Operations Platform"
+        description="Manage verified giving, Zakat, Sadaqah, Qurbani, donor proof, privacy controls, and board-ready reports with Sidqly."
         schema={schema}
       />
 
@@ -45,8 +67,11 @@ const Home: React.FC = () => {
             <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight">
               Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-medium mb-6">
               The premium operating platform for Islamic charities. We help organizations manage verified donations, manual payment review, proof approval, donor updates, and board-ready reporting.
+            </p>
+            <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+              Most giving teams do not fail because they lack intention. They struggle because the work is scattered across WhatsApp chats, bank screenshots, Excel sheets, volunteer updates, vendor messages, and donor requests. Sidqly brings these moving parts into one clear workflow, so teams can protect dignity, verify proof, and report impact with confidence.
             </p>
           </div>
 
@@ -481,7 +506,10 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-sidqly-navy mb-4">Foundation of Trust</h2>
-              <p className="text-gray-600 italic">Built on Amanah, Protected with Technology.</p>
+              <p className="text-gray-600 italic mb-6">Built on Amanah, Protected with Technology.</p>
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto font-medium">
+                Sidqly is built for organizations that want to grow without losing trust. It keeps sensitive recipient details protected, gives finance teams cleaner records, and helps donors receive updates without exposing private hardship stories.
+              </p>
            </div>
            <TrustPillars />
         </div>
@@ -518,6 +546,70 @@ const Home: React.FC = () => {
             <Link to="/resources/sadqa-fitr" className="bg-white border-2 border-sidqly-green-soft text-sidqly-green-deep px-8 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft transition-all">Sadqa Fitr Workflows</Link>
             <Link to="/resources/eid-giving" className="bg-white border-2 border-sidqly-green-soft text-sidqly-green-deep px-8 py-3 rounded-xl font-bold hover:bg-sidqly-green-soft transition-all">Eid Giving Guide</Link>
             <Link to="/modules" className="bg-sidqly-green-emerald text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all">View All Modules</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal SEO Links Section */}
+      <section className="py-24 bg-white border-t border-gray-100">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-sidqly-navy mb-12">Explore Sidqly Platform Links</h2>
+            <div className="flex flex-wrap justify-center gap-4">
+               <Link to="/features" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Features</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/pricing" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Pricing</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/purchase" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Purchase</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/use-cases/qurbani-organizers" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Qurbani Organizers</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/modules/manual-payment-review" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Manual Payment Review</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/modules/proof-trust-engine" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Proof Trust Engine</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/modules/zakat-fund-separation" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Zakat Fund Separation</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/modules/reports-board-packs" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Reports & Board Packs</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/blog/ramadan-and-zakat-operations-in-south-asia" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Zakat Operations</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/compare/mosque-website" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Compare Mosque Website</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/contact" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Contact</Link>
+               <span className="text-gray-300">|</span>
+               <Link to="/book-demo" className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep">Book Demo</Link>
+            </div>
+         </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-24 bg-sidqly-ivory border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-sidqly-navy mb-4">Frequently Asked Questions</h2>
+            <p className="text-gray-600">Common questions about the Sidqly platform and our approach to giving operations.</p>
+          </div>
+          <div className="space-y-4">
+            {homeFaqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <button
+                  className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <span className="font-bold text-sidqly-navy pr-8">{faq.question}</span>
+                  {openFaq === index ? (
+                    <ChevronUp className="text-sidqly-green-emerald flex-shrink-0" size={20} />
+                  ) : (
+                    <ChevronDown className="text-gray-400 flex-shrink-0" size={20} />
+                  )}
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-5 pt-0">
+                    <p className="text-gray-600 leading-relaxed text-sm">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
