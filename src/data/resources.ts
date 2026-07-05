@@ -15,6 +15,119 @@ export interface ResourceContent {
 
 export const resources: ResourceContent[] = [
   {
+    slug: "how-to-manage-zakat-requests",
+    title: "How to Manage Zakat Requests Without Exposing Private Information",
+    description: "Learn how to collect Zakat applications, review sensitive documents safely, and provide donor updates without exposing private hardship stories.",
+    category: "Guide",
+    seoTitle: "How to Manage Zakat Requests Without Exposing Private Data | Sidqly",
+    seoDescription: "A guide on handling Zakat requests safely. Learn to collect applicant info, separate funds, and provide donor proof while protecting beneficiary dignity.",
+    focusKeyword: "manage Zakat requests",
+    secondaryKeywords: ["Zakat request management", "charity privacy", "donor-safe proof", "dignity-first charity", "Zakat committee software"],
+    faqs: [
+      { question: "Can Zakat requests be reviewed without exposing private details?", answer: "Yes. Using structured intake forms and role-based access, only assigned committee members review the sensitive documents, keeping them out of public view." },
+      { question: "Can donor updates be shared without showing recipient identity?", answer: "Absolutely. Sidqly's Proof Trust Engine automatically blurs faces and masks PII, generating a donor-safe update link." },
+      { question: "Can Sidqly separate Zakat from Sadaqah funds?", answer: "Yes, our Zakat Fund Separation module ensures that these restricted funds are logically separated from general charity tracking." },
+      { question: "Can committees review proof before it is shared?", answer: "Yes. All field proof enters a review queue and must be approved by an administrator before it becomes visible to external donors." },
+      { question: "Can Sidqly help with audit-ready Zakat records?", answer: "Yes, by logging reviewer notes, payment status histories, and approval timestamps, teams maintain strict, audit-ready compliance records." }
+    ],
+    relatedModules: ["zakat-fund-separation", "charity-request-intake", "privacy-dignity-controls", "proof-trust-engine", "donor-safe-updates"],
+    content: `
+      <h2>Why Privacy Matters in Zakat Request Handling</h2>
+      <p>Collecting Zakat requests involves dealing with individuals in their most vulnerable moments. Applicants often submit sensitive documents, such as medical records, eviction notices, and personal ID cards. Protecting this information is not just a regulatory compliance issue—it is a core tenet of Islamic charity built on Amanah (trust) and dignity.</p>
+
+      <h2>The Danger of WhatsApp Groups and Data Silos</h2>
+      <p>Many Zakat committees begin by collecting requests via WhatsApp or email. This creates massive data silos and significant privacy leaks. When a volunteer uploads a photo of a family in need into a WhatsApp group of 50 people, control over that data is lost permanently. It is easily forwarded, compromising the applicant's dignity.</p>
+      <p>Using <a href="/modules/charity-request-intake">Charity Request Intake</a> tools ensures that sensitive applications bypass insecure chat apps and go directly into a protected, encrypted queue.</p>
+
+      <h2>How to Collect Applicant Information Safely</h2>
+      <p>To safely collect applicant data:</p>
+      <ul>
+        <li><strong>Use Secure Forms:</strong> Do not ask for documents via WhatsApp. Use encrypted intake forms where data is submitted directly to your secure database.</li>
+        <li><strong>Role-Based Access:</strong> Ensure that only designated Zakat committee members can view the full application. Volunteers collecting the data should not have permanent access to the files.</li>
+        <li><strong>Logical Separation:</strong> Store Zakat applications separately from general community queries to ensure specific compliance rules are applied.</li>
+      </ul>
+
+      <h2>Reviewing Cases Without Exposing Documents</h2>
+      <p>Committees need to review cases thoroughly. Sidqly provides <a href="/modules/privacy-dignity-controls">Privacy and Dignity Controls</a> that allow authorized reviewers to log into a private queue, assess the hardship documents, leave internal audit notes, and approve or reject the case—all without the documents ever being downloaded to personal phones.</p>
+      <p>This maintains <a href="/modules/audit-ready-records">Audit-Ready Records</a>, tracking exactly who approved the disbursement and when, without turning hardship stories into public content.</p>
+
+      <h2>Separating Public Donor Updates from Private Recipient Details</h2>
+      <p>Donors have a right to know their Zakat was distributed correctly, but they do not have the right to know the intimate details of the recipient's struggle. This is the balance of <a href="/modules/donor-safe-updates">Donor-Safe Impact Updates</a>.</p>
+      <p>When field teams capture proof of delivery, it goes through our <a href="/modules/proof-trust-engine">Proof Trust Engine</a>. This workflow requires an administrator to manually review the photo, ensure automated face-blurring is applied, and mask any PII before it is ever attached to a donor report.</p>
+
+      <h2>How Sidqly Supports the Full Zakat Lifecycle</h2>
+      <p>Sidqly is built to handle the operational weight of these strict requirements. By using our <a href="/modules/zakat-fund-separation">Zakat Fund Separation</a> module, organizations ensure that Zakat is never co-mingled. Furthermore, exporting <a href="/modules/reports-board-packs">Reports and Board Packs</a> becomes simple and safe, summarizing financial impact without exposing the underlying private case files.</p>
+
+      <h2>Upgrade Your Zakat Operations</h2>
+      <p>If your Zakat committee is still using WhatsApp to share applicant IDs, it is time to move to a dignity-first platform.</p>
+      <p><a href="/pricing">Review our plans</a> to see how Sidqly can secure your operations, or <a href="/contact">contact us</a> to arrange a pilot for your next campaign.</p>
+    `
+  },
+  {
+    slug: "what-is-islamic-charity-management-software",
+    title: "What Is Islamic Charity Management Software?",
+    description: "Learn what Islamic charity management software is, why generic SaaS falls short, and how Sidqly supports verified giving, dignity protection, and audit-ready records.",
+    category: "Guide",
+    seoTitle: "What Is Islamic Charity Management Software? | Sidqly",
+    seoDescription: "A comprehensive guide on Islamic charity management software. Learn how Sidqly helps manage Zakat, Qurbani, and Sadaqah with manual payment review and proof.",
+    focusKeyword: "Islamic charity management software",
+    secondaryKeywords: ["Islamic giving software", "Zakat management software", "Sadaqah campaign software", "Muslim nonprofit management software", "mosque donation management"],
+    faqs: [
+      { question: "What is Islamic charity management software?", answer: "It is specialized operational software designed to handle workflows unique to Islamic giving, such as Zakat fund separation, Qurbani share tracking, and dignity-safe impact reporting." },
+      { question: "Is Sidqly only for mosques?", answer: "No, Sidqly is designed for mosques, registered Islamic charities, Zakat committees, Qurbani organizers, and corporate CSR programs." },
+      { question: "Can Sidqly manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns?", answer: "Yes. Sidqly has dedicated modules to separate Zakat funds, track Qurbani lifecycles, and coordinate Ramadan ration distributions." },
+      { question: "How is Sidqly different from a normal donation form?", answer: "Generic donation forms just collect money. Sidqly manages the entire operational lifecycle: manual payment review, vendor fulfillment, volunteer coordination, and proof approval." },
+      { question: "Can small teams use Sidqly if they currently use WhatsApp and Excel?", answer: "Absolutely. Sidqly is specifically built to help teams migrate away from chaotic WhatsApp chats and spreadsheets into a clean, professional, and secure workflow." }
+    ],
+    relatedModules: ["manual-payment-review", "proof-trust-engine", "zakat-fund-separation", "reports-board-packs", "privacy-dignity-controls"],
+    content: `
+      <h2>The Shift to Professional Islamic Giving Operations</h2>
+      <p>Most Islamic organizations start their operational journey using a combination of WhatsApp groups, Excel spreadsheets, Google Forms, and manual paper receipts. As donations grow, the complexity of managing Zakat, Sadaqah, Qurbani, and general funds quickly overwhelms these basic tools. This is where <strong>Islamic charity management software</strong> comes in.</p>
+
+      <h2>Why Generic Nonprofit Tools Fall Short</h2>
+      <p>There are many generic donation platforms and nonprofit CRMs available. However, Islamic giving operations have strict, unique requirements that generic software simply wasn't built to handle.</p>
+      <ul>
+        <li><strong>Strict Fund Separation:</strong> Zakat cannot be co-mingled with general Sadaqah or operational costs. Generic tools often pool all donations together.</li>
+        <li><strong>Specific Lifecycles:</strong> A generic CRM cannot track a Qurbani order from the initial 1/7th share payment, to vendor assignment, to slaughter status, and finally to a customized donor certificate.</li>
+        <li><strong>Privacy and Dignity:</strong> Islamic values demand that giving protects the dignity of the recipient. Generic tools often lack the granular privacy controls and automated face-blurring needed to share impact safely.</li>
+      </ul>
+
+      <h2>The Danger of WhatsApp and Excel</h2>
+      <p>When relying on WhatsApp and Excel, several critical failures occur:</p>
+      <ul>
+        <li><strong>Data Silos:</strong> A volunteer uploads a delivery photo in one WhatsApp group, while the donor record sits in an Excel file on another team member's laptop.</li>
+        <li><strong>Phantom Donations:</strong> A donor pledges an amount, but the bank transfer is never manually verified, artificially inflating the campaign total.</li>
+        <li><strong>Privacy Leaks:</strong> Sensitive beneficiary information (like medical records or unblurred photos) is shared in massive WhatsApp groups, violating their dignity and trust.</li>
+      </ul>
+
+      <h2>How Sidqly Solves the Operational Chaos</h2>
+      <p>Sidqly is an Islamic giving operations platform that brings all these moving parts into one clear, secure workflow. It allows teams to protect dignity, verify proof, and report impact with confidence.</p>
+
+      <h3>Manual Payment Review</h3>
+      <p>Instead of relying on automated gateways that can miss complex transfers, Sidqly supports <a href="/modules/manual-payment-review">Manual Payment Review</a>. This allows your finance team to manually verify bank statements and screenshots against donor submissions, ensuring absolute financial integrity before updating reports.</p>
+
+      <h3>Proof Trust Engine and Dignity Controls</h3>
+      <p>With our <a href="/modules/proof-trust-engine">Proof Trust Engine</a> and <a href="/modules/privacy-dignity-controls">Privacy and Dignity Controls</a>, field teams can upload delivery photos which are then held in a secure queue. A reviewer must approve the proof—and ensure faces are blurred or cropped—before a donor-safe impact update is generated.</p>
+
+      <h3>Zakat Fund Separation and Board Reports</h3>
+      <p>Sidqly utilizes logical boundaries for <a href="/modules/zakat-fund-separation">Zakat Fund Separation</a>, ensuring that these restricted funds never touch general Sadaqah pools. This makes generating <a href="/modules/reports-board-packs">Reports and Board Packs</a> a one-click process, rather than a weekend of spreadsheet reconciliation.</p>
+
+      <h2>Who Uses Islamic Charity Software?</h2>
+      <p>Sidqly provides tailored workflows for a wide variety of stakeholders:</p>
+      <ul>
+        <li><strong>Mosques and Islamic NGOs</strong> needing centralized operations.</li>
+        <li><strong>Zakat Committees</strong> requiring strict eligibility intake and case review.</li>
+        <li><strong>Qurbani Organizers</strong> managing complex vendor relationships and share allocations (see our <a href="/use-cases/qurbani-organizers">Qurbani Organizers Use Case</a>).</li>
+        <li><strong>Ramadan Ration Teams</strong> coordinating daily Iftar logistics and volunteer routes.</li>
+        <li><strong>Corporate CSR Donors</strong> demanding audit-ready records and professional impact reporting.</li>
+      </ul>
+
+      <h2>Ready to Organize Your Mission?</h2>
+      <p>Stop managing your Amanah through chaotic message threads and scattered spreadsheets. Discover how Sidqly can bring clarity and trust to your operations.</p>
+      <p><a href="/pricing">View our Launch Pricing</a> to find a plan that fits your organization, or <a href="/contact">contact our team</a> to book a personalized demo today.</p>
+    `
+  },
+  {
     slug: "backlink-and-partnership-guide",
     title: "Backlink and Partnership Strategy for Islamic Charities",
     description: "A professional guide on building authoritative backlinks and sustainable digital partnerships in the nonprofit space.",

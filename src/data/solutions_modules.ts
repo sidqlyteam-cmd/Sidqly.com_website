@@ -20,10 +20,11 @@ export const modules = [
       }
     ],
     internalLinks: [
-      { title: "Qurbani Lifecycle", url: "/modules/qurbani-lifecycle" },
-      { title: "Sadaqah Campaigns", url: "/modules/sadaqah-campaigns" },
-      { title: "Billing & Payments", url: "/billing" },
-      { title: "Board-Ready Reports", url: "/modules/reports-board-packs" }
+      { title: "Proof Trust Engine", url: "/modules/proof-trust-engine" },
+      { title: "Receipts and Certificates", url: "/modules/receipts-certificates" },
+      { title: "Reports and Board Packs", url: "/modules/reports-board-packs" },
+      { title: "Pricing", url: "/pricing" },
+      { title: "Book Demo", url: "/book-demo" }
     ]
   },
   {
@@ -35,7 +36,13 @@ export const modules = [
     problem: "Unsafe sharing of recipient faces on social media or direct to donors without review.",
     workflow: ["Staff/vendor/volunteer uploads proof", "Internal reviewer checks proof", "Private data is reviewed", "Donor-safe version is approved", "Donor/corporate-safe update is shared", "Internal record remains protected"],
     output: "Proof can be reviewed before donors or sponsors see it.",
-    disclaimer: null
+    disclaimer: null,
+    internalLinks: [
+      { title: "Donor-Safe Impact Updates", url: "/modules/donor-safe-updates" },
+      { title: "Privacy and Dignity Controls", url: "/modules/privacy-dignity-controls" },
+      { title: "QR/Code Verification", url: "/modules/qr-code-verification" },
+      { title: "Qurbani/Udhiya Lifecycle", url: "/modules/qurbani-lifecycle" }
+    ]
   },
   {
     slug: "donor-safe-updates",
@@ -58,7 +65,13 @@ export const modules = [
     workflow: ["Fund type tagging (Zakat vs Sadaqah)", "Eligibility review status logged by specific review roles", "Reviewer notes and conditions added", "Disbursement tracking against specific Zakat targets", "Separated reporting"],
     output: "Audit-ready Zakat separation logs.",
     disclaimer: "Sidqly supports operational fund separation and reporting. Religious rulings and eligibility decisions should remain with the organization’s authorized scholars, advisors, or responsible review team.",
-    keywords: ["Zakat", "Zakaat", "Zakat fund separation", "Zakat tracking", "Zakat committee", "eligibility review support"]
+    keywords: ["Zakat", "Zakaat", "Zakat fund separation", "Zakat tracking", "Zakat committee", "eligibility review support"],
+    internalLinks: [
+      { title: "Charity Request Intake", url: "/modules/charity-request-intake" },
+      { title: "Audit-Ready Records", url: "/modules/audit-ready-records" },
+      { title: "Reports and Board Packs", url: "/modules/reports-board-packs" },
+      { title: "Corporate CSR/Zakat Reporting", url: "/modules/corporate-csr-zakat" }
+    ]
   },
   {
     slug: "sadaqah-campaigns",
@@ -82,7 +95,13 @@ export const modules = [
     workflow: ["Order Received", "Payment Under Review", "Share Assigned", "Vendor Assigned", "Slaughter Scheduled", "Slaughter Completed", "Distribution In Progress", "Proof Uploaded", "Proof Approved", "Certificate Ready", "Closed"],
     output: "End-to-end share tracking and donor certificates.",
     disclaimer: "No. Sidqly supports operational tracking and reporting. Religious decisions remain with the organization's authorized reviewers, scholars, or policy team.",
-    keywords: ["Qurbani 2026", "Eid ul Adha", "Bakra Eid", "Qurbani order tracking", "Qurbani certificate", "Qurbani proof", "Qurbani distribution"]
+    keywords: ["Qurbani 2026", "Eid ul Adha", "Bakra Eid", "Qurbani order tracking", "Qurbani certificate", "Qurbani proof", "Qurbani distribution"],
+    internalLinks: [
+      { title: "Vendor Fulfillment", url: "/modules/vendor-fulfillment" },
+      { title: "Proof Trust Engine", url: "/modules/proof-trust-engine" },
+      { title: "Receipts and Certificates", url: "/modules/receipts-certificates" },
+      { title: "Donor Communication", url: "/modules/donor-communication" }
+    ]
   },
   {
     slug: "ramadan-meals-rations",

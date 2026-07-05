@@ -1,5 +1,75 @@
 User-agent: *
 Allow: /
+
 Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /api/
+Disallow: /preview/
+Disallow: /internal/
+Disallow: /checkout/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /cdn-cgi/
+
+Allow: /llms.txt
+Allow: /ai-summary.md
+Allow: /product-overview.md
+Allow: /pricing-summary.md
+Allow: /faqs-summary.md
+Allow: /trust-and-safety.md
+Allow: /blog-index.md
+Allow: /schema-map.md
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
 
 Sitemap: https://sidqly.com/sitemap.xml
+Sitemap: https://sidqly.com/sitemap-pages.xml
+Sitemap: https://sidqly.com/sitemap-blog.xml
+Sitemap: https://sidqly.com/sitemap-resources.xml
+Sitemap: https://sidqly.com/sitemap-ai.xml
