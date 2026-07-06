@@ -82,6 +82,40 @@ const blogRoutes = [
     '/blog'
 ];
 
+
+const locationsRoutes = [
+    '/locations',
+    '/locations/north-america',
+    '/locations/europe',
+    '/locations/middle-east',
+    '/locations/south-asia',
+    '/locations/asia-pacific',
+    '/locations/africa',
+    '/locations/united-kingdom',
+    '/locations/united-states',
+    '/locations/canada',
+    '/locations/united-arab-emirates',
+    '/locations/saudi-arabia',
+    '/locations/pakistan',
+    '/locations/malaysia',
+    '/locations/australia',
+    '/locations/london-islamic-charity-software',
+    '/locations/birmingham-islamic-charity-software',
+    '/locations/dubai-islamic-charity-software',
+    '/locations/abu-dhabi-islamic-charity-software',
+    '/locations/riyadh-islamic-charity-software',
+    '/locations/jeddah-islamic-charity-software',
+    '/locations/doha-islamic-charity-software',
+    '/locations/toronto-islamic-charity-software',
+    '/locations/new-york-islamic-charity-software',
+    '/locations/houston-islamic-charity-software',
+    '/locations/karachi-islamic-charity-software',
+    '/locations/lahore-islamic-charity-software',
+    '/locations/kuala-lumpur-islamic-charity-software',
+    '/locations/sydney-islamic-charity-software',
+    '/locations/melbourne-islamic-charity-software'
+];
+
 const aiRoutes = [
     '/llms.txt',
     '/ai-summary.md',
@@ -133,6 +167,7 @@ fs.writeFileSync(path.join(publicDir, 'sitemap-use-cases.xml'), generateUrlset(u
 fs.writeFileSync(path.join(publicDir, 'sitemap-resources.xml'), generateUrlset(resourcesRoutes));
 fs.writeFileSync(path.join(publicDir, 'sitemap-blog.xml'), generateUrlset(blogRoutes));
 fs.writeFileSync(path.join(publicDir, 'sitemap-ai.xml'), generateUrlset(aiRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-locations.xml'), generateUrlset(locationsRoutes));
 
 // Write sitemap index
 const sitemapFiles = [
@@ -141,7 +176,8 @@ const sitemapFiles = [
     'sitemap-use-cases.xml',
     'sitemap-resources.xml',
     'sitemap-blog.xml',
-    'sitemap-ai.xml'
+    'sitemap-ai.xml',
+    'sitemap-locations.xml'
 ];
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), generateIndex(sitemapFiles));
 
