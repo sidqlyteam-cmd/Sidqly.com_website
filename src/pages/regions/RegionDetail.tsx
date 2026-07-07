@@ -24,6 +24,7 @@ const RegionDetail: React.FC = () => {
         title={`Sidqly in ${region.name}`}
         description={region.description}
         canonical={`/regions/${region.slug}`}
+        noindex={!region.description || region.problems.length === 0}
       />
 
       <section className="py-20 bg-sidqly-navy text-white">

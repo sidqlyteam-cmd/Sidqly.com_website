@@ -165,6 +165,30 @@ const ModuleDetail: React.FC = () => {
             </div>
           </section>
 
+
+      {/* Quick Answer Block */}
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
+      {moduleData.quickAnswer && (
+        <section className="py-12 bg-white border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-sidqly-ivory p-8 rounded-[2rem] border border-sidqly-green-soft/30 flex gap-6 items-start">
+               <div className="w-12 h-12 bg-sidqly-green-emerald text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                 <ShieldCheck size={24} />
+               </div>
+               <div>
+                 <h3 className="text-lg font-bold text-sidqly-navy mb-2">Quick Answer</h3>
+                 {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                 {/* @ts-ignore */}
+                 <p className="text-gray-600 leading-relaxed">{moduleData.quickAnswer}</p>
+               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Main Content Area */}
+
           {/* Contextual Graphic */}
         {(moduleData.slug === 'privacy-dignity-controls' || moduleData.slug === 'proof-trust-engine' || moduleData.slug === 'donor-safe-impact-updates') && (
            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -11,10 +11,10 @@ const domain = 'https://sidqly.com';
 const pagesRoutes = [
     '/',
     '/features',
+    '/product-tour',
     '/how-it-works',
     '/pricing',
     '/compare',
-    '/regions',
     '/about',
     '/contact',
     '/newsroom',
@@ -84,36 +84,16 @@ const blogRoutes = [
 
 
 const locationsRoutes = [
-    '/locations',
-    '/locations/north-america',
-    '/locations/europe',
-    '/locations/middle-east',
-    '/locations/south-asia',
-    '/locations/asia-pacific',
-    '/locations/africa',
-    '/locations/united-kingdom',
-    '/locations/united-states',
-    '/locations/canada',
-    '/locations/united-arab-emirates',
-    '/locations/saudi-arabia',
-    '/locations/pakistan',
-    '/locations/malaysia',
-    '/locations/australia',
-    '/locations/london-islamic-charity-software',
-    '/locations/birmingham-islamic-charity-software',
-    '/locations/dubai-islamic-charity-software',
-    '/locations/abu-dhabi-islamic-charity-software',
-    '/locations/riyadh-islamic-charity-software',
-    '/locations/jeddah-islamic-charity-software',
-    '/locations/doha-islamic-charity-software',
-    '/locations/toronto-islamic-charity-software',
-    '/locations/new-york-islamic-charity-software',
-    '/locations/houston-islamic-charity-software',
-    '/locations/karachi-islamic-charity-software',
-    '/locations/lahore-islamic-charity-software',
-    '/locations/kuala-lumpur-islamic-charity-software',
-    '/locations/sydney-islamic-charity-software',
-    '/locations/melbourne-islamic-charity-software'
+    '/regions',
+    '/regions/europe',
+    '/regions/united-kingdom',
+    '/regions/north-america',
+    '/regions/united-states',
+    '/regions/canada',
+    '/regions/gulf-mena',
+    '/regions/south-asia',
+    '/regions/africa',
+    '/regions/asia-pacific'
 ];
 
 const aiRoutes = [

@@ -119,11 +119,17 @@ const BookDemo: React.FC = () => {
 
                     <div className="bg-sidqly-ivory p-4 rounded-xl border border-gray-100 text-left">
                        <h4 className="text-sm font-bold text-sidqly-navy mb-2">What happens after you book?</h4>
-                       <p className="text-xs text-gray-600">You will receive a calendar invitation with a video meeting link. If you haven't yet, we will kindly request you to complete our inquiry form prior to the call.</p>
+                       <ul className="text-xs text-gray-600 space-y-2">
+                         <li>• We review your current giving workflow.</li>
+                         <li>• We identify where proof, approvals, and reporting are getting messy.</li>
+                         <li>• We show how Sidqly can support your organization.</li>
+                         <li>• We recommend a practical next step.</li>
+                       </ul>
                     </div>
                  </div>
-                 <div className="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest font-bold border-t border-gray-50">
-                    SECURE • PROFESSIONAL • TRUSTED
+                 <div className="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest font-bold border-t border-gray-50 flex flex-col items-center gap-1">
+                    <span>SECURE • PROFESSIONAL • TRUSTED</span>
+                    <span className="text-[9px] text-gray-300 normal-case tracking-normal">Your information is handled strictly according to our privacy policy.</span>
                  </div>
               </div>
             </div>

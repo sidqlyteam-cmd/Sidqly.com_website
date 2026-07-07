@@ -7,6 +7,8 @@ import DignitySafeBoundary from '../components/diagrams/DignitySafeBoundary';
 import { generateBreadcrumbSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
 
+import TrustLinkStrip from '../components/TrustLinkStrip';
+
 const TrustCenter: React.FC = () => {
   const schema = {
     "@context": "https://schema.org",
@@ -25,6 +27,9 @@ const TrustCenter: React.FC = () => {
         schema={schema}
       />
 
+
+      <TrustLinkStrip />
+
       <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -35,6 +40,22 @@ const TrustCenter: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-12 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100">
+             <h2 className="text-xl font-bold text-sidqly-navy mb-4">Our Commitment to Amanah</h2>
+             <p className="text-gray-600 mb-6">Sidqly is designed around:</p>
+             <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {["Manual review", "Approval trails", "Recipient dignity", "Donor-safe updates", "Clear reporting", "Role-based operational workflows", "Honest proof handling"].map((item, i) => (
+                   <li key={i} className="flex items-center gap-2 text-sm font-medium text-sidqly-navy"><CheckCircle2 size={16} className="text-sidqly-green-emerald"/> {item}</li>
+                ))}
+             </ul>
+             <p className="text-xs text-gray-500 mt-6 pt-6 border-t border-gray-200 italic">Sidqly supports operational clarity and structured records. Organizations should confirm legal, accounting, tax, payment, and Shariah requirements with their own qualified advisors.</p>
+          </div>
+        </div>
+      </section>
+
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,10 +2,13 @@ import React from 'react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 
+import TrustLinkStrip from '../components/TrustLinkStrip';
+
 const Privacy: React.FC = () => {
   return (
     <>
       <SEO title="Privacy Policy" canonical="/privacy" />
+      <TrustLinkStrip />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 md:p-16 rounded-[40px] shadow-sm border border-gray-100">
