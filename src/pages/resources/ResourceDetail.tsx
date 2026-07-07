@@ -124,6 +124,17 @@ const ResourceDetail: React.FC = () => {
                 </div>
              </div>
 
+
+                {/* Quick Answer Block */}
+                <div className="bg-sidqly-green-soft/10 p-6 md:p-8 rounded-3xl border border-sidqly-green-soft/20 mb-12 shadow-sm">
+                   <h2 className="text-xl font-bold text-sidqly-navy mb-3 flex items-center gap-2">
+                     <span className="w-8 h-8 rounded-full bg-sidqly-green-soft/30 flex items-center justify-center text-sidqly-green-deep text-sm">✓</span> Quick Answer
+                   </h2>
+                   <p className="text-gray-700 leading-relaxed font-medium">
+                     {resource.description}
+                   </p>
+                </div>
+
              <div
                 className="prose prose-sidqly max-w-none text-gray-700 leading-relaxed
                            prose-headings:text-sidqly-navy prose-headings:font-bold

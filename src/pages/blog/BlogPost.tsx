@@ -139,10 +139,37 @@ const BlogPost: React.FC = () => {
             </aside>
 
             <div className="lg:col-span-8 order-1 lg:order-2">
+
+                {/* Quick Answer Block */}
+                <div className="bg-sidqly-green-soft/10 p-6 md:p-8 rounded-3xl border border-sidqly-green-soft/20 mb-12 shadow-sm">
+                   <h2 className="text-xl font-bold text-sidqly-navy mb-3 flex items-center gap-2">
+                     <span className="w-8 h-8 rounded-full bg-sidqly-green-soft/30 flex items-center justify-center text-sidqly-green-deep text-sm">✓</span> Quick Answer
+                   </h2>
+                   <p className="text-gray-700 leading-relaxed font-medium">
+                     {post.description}
+                   </p>
+                </div>
+
               <div
                 className="prose prose-lg prose-sidqly max-w-none text-gray-700 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
+
+
+                {/* CTA Block */}
+                <div className="mt-16 p-8 bg-sidqly-navy rounded-3xl text-center text-white shadow-xl relative overflow-hidden">
+                   <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
+                   <div className="relative z-10">
+                      <h3 className="text-2xl font-bold mb-4">Need to manage this workflow securely?</h3>
+                      <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+                        Sidqly helps Islamic organizations manage manual payment review, proof approval, and dignity-safe donor updates in one centralized platform.
+                      </p>
+                      <div className="flex flex-col sm:flex-row justify-center gap-4">
+                         <a href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-deep transition-all shadow-md">Book a Demo</a>
+                         <Link to="/features" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">Explore Features</Link>
+                      </div>
+                   </div>
+                </div>
 
               <div className="mt-12 p-6 bg-gray-50 border border-gray-100 rounded-2xl">
                 <p className="text-xs text-gray-500 italic">

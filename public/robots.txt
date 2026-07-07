@@ -73,3 +73,4 @@ Sitemap: https://sidqly.com/sitemap-pages.xml
 Sitemap: https://sidqly.com/sitemap-blog.xml
 Sitemap: https://sidqly.com/sitemap-resources.xml
 Sitemap: https://sidqly.com/sitemap-ai.xml
+Sitemap: https://sidqly.com/sitemap-locations.xml
