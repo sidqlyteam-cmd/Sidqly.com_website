@@ -1,5 +1,5 @@
 import type { LocationRecord } from "./locationTypes";
-import { generateLocationFaqs } from "./locationFaqs";
+import { generateLocationFaqs } from "./locationFaqs.js";
 
 export const cityContentTier1: LocationRecord[] = [
   // UNITED KINGDOM
