@@ -41,7 +41,7 @@ const SEO: React.FC<SEOProps> = ({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {url && !noindex && <link rel="canonical" href={url} />}
-      <meta name="robots" content={noindex ? "noindex,nofollow" : robots} />
+      <meta name="robots" content={noindex ? "noindex,follow" : robots} />
       {focusKeyword && <meta name="keywords" content={[focusKeyword, ...(secondaryKeywords || [])].join(', ')} />}
 
       <meta property="og:title" content={ogTitle || fullTitle} />
