@@ -143,6 +143,43 @@ const Footer: React.FC = () => {
                       <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
                    </ul>
                 </div>
+                <div className="mt-12">
+                   <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Global Service Areas</h4>
+                   <ul className="space-y-4 text-sm text-gray-400 font-medium">
+                      <li><Link to="/locations/" className="hover:text-white transition-colors font-bold text-gray-300">View All Service Areas</Link></li>
+                      <li className="pt-2 text-xs text-white/40 uppercase tracking-widest">Main Regions</li>
+                      <li><Link to="/locations/north-america/" className="hover:text-white transition-colors">North America</Link></li>
+                      <li><Link to="/locations/europe/" className="hover:text-white transition-colors">Europe</Link></li>
+                      <li><Link to="/locations/middle-east/" className="hover:text-white transition-colors">Middle East</Link></li>
+                      <li><Link to="/locations/south-asia/" className="hover:text-white transition-colors">South Asia</Link></li>
+                      <li><Link to="/locations/asia-pacific/" className="hover:text-white transition-colors">Asia Pacific</Link></li>
+                      <li><Link to="/locations/africa/" className="hover:text-white transition-colors">Africa</Link></li>
+
+                      <li className="pt-2 text-xs text-white/40 uppercase tracking-widest">Priority Countries</li>
+                      <li><Link to="/locations/united-kingdom/" className="hover:text-white transition-colors">United Kingdom</Link></li>
+                      <li><Link to="/locations/united-states/" className="hover:text-white transition-colors">United States</Link></li>
+                      <li><Link to="/locations/canada/" className="hover:text-white transition-colors">Canada</Link></li>
+                      <li><Link to="/locations/united-arab-emirates/" className="hover:text-white transition-colors">United Arab Emirates</Link></li>
+                      <li><Link to="/locations/saudi-arabia/" className="hover:text-white transition-colors">Saudi Arabia</Link></li>
+                      <li><Link to="/locations/pakistan/" className="hover:text-white transition-colors">Pakistan</Link></li>
+                      <li><Link to="/locations/malaysia/" className="hover:text-white transition-colors">Malaysia</Link></li>
+                      <li><Link to="/locations/australia/" className="hover:text-white transition-colors">Australia</Link></li>
+
+                      <li className="pt-2 text-xs text-white/40 uppercase tracking-widest">Top Cities</li>
+                      <li><Link to="/locations/london-islamic-charity-software/" className="hover:text-white transition-colors">London</Link></li>
+                      <li><Link to="/locations/dubai-islamic-charity-software/" className="hover:text-white transition-colors">Dubai</Link></li>
+                      <li><Link to="/locations/riyadh-islamic-charity-software/" className="hover:text-white transition-colors">Riyadh</Link></li>
+                      <li><Link to="/locations/doha-islamic-charity-software/" className="hover:text-white transition-colors">Doha</Link></li>
+                      <li><Link to="/locations/toronto-islamic-charity-software/" className="hover:text-white transition-colors">Toronto</Link></li>
+                      <li><Link to="/locations/new-york-islamic-charity-software/" className="hover:text-white transition-colors">New York</Link></li>
+                      <li><Link to="/locations/houston-islamic-charity-software/" className="hover:text-white transition-colors">Houston</Link></li>
+                      <li><Link to="/locations/karachi-islamic-charity-software/" className="hover:text-white transition-colors">Karachi</Link></li>
+                      <li><Link to="/locations/lahore-islamic-charity-software/" className="hover:text-white transition-colors">Lahore</Link></li>
+                      <li><Link to="/locations/kuala-lumpur-islamic-charity-software/" className="hover:text-white transition-colors">Kuala Lumpur</Link></li>
+                      <li><Link to="/locations/sydney-islamic-charity-software/" className="hover:text-white transition-colors">Sydney</Link></li>
+                      <li><Link to="/locations/melbourne-islamic-charity-software/" className="hover:text-white transition-colors">Melbourne</Link></li>
+                   </ul>
+                </div>
              </div>
           </div>
         </div>

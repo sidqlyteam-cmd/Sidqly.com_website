@@ -70,6 +70,8 @@ import UseCases from './pages/UseCases';
 import UseCaseDetail from './pages/use-cases/UseCaseDetail';
 import RegionsIndex from './pages/regions/RegionsIndex';
 import RegionDetail from './pages/regions/RegionDetail';
+import LocationsIndex from './pages/locations/LocationsIndex';
+import LocationDetail from './pages/locations/LocationDetail';
 
 import { brand } from './config/brand';
 import { Link } from 'react-router-dom';
@@ -130,6 +132,10 @@ function App() {
             <Route path="ai-search-readiness" element={<AISearchReadiness />} />
             <Route path="request-organization" element={<RequestOrganization />} />
             <Route path="regions" element={<RegionsIndex />} />
+
+            {/* Global Locations System */}
+            <Route path="locations" element={<LocationsIndex />} />
+            <Route path="locations/:slug" element={<LocationDetail />} />
 
             {/* Newsroom */}
             <Route path="newsroom" element={<Newsroom />} />

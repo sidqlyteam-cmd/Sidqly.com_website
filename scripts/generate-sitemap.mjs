@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getIndexableLocations } from './build-locations-sitemap.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -83,17 +84,11 @@ const blogRoutes = [
 ];
 
 
+// Dynamically build location routes
 const locationsRoutes = [
     '/regions',
-    '/regions/europe',
-    '/regions/united-kingdom',
-    '/regions/north-america',
-    '/regions/united-states',
-    '/regions/canada',
-    '/regions/gulf-mena',
-    '/regions/south-asia',
-    '/regions/africa',
-    '/regions/asia-pacific'
+    '/locations/',
+    ...getIndexableLocations()
 ];
 
 const aiRoutes = [
