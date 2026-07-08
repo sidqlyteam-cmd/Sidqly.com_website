@@ -65,6 +65,7 @@ import ResourceDetail from './pages/resources/ResourceDetail';
 import RequestOrganization from './pages/resources/RequestOrganization';
 import Solutions from './pages/Solutions';
 import Modules from './pages/Modules';
+import ProductTour from './pages/ProductTour';
 import UseCases from './pages/UseCases';
 import UseCaseDetail from './pages/use-cases/UseCaseDetail';
 import RegionsIndex from './pages/regions/RegionsIndex';
@@ -100,6 +101,7 @@ function App() {
 
             {/* Core Routes */}
             <Route path="features" element={<Features />} />
+            <Route path="product-tour" element={<ProductTour />} />
             <Route path="how-it-works" element={<HowItWorks />} />
             <Route path="pricing" element={<Pricing />} />
             <Route path="demo" element={<BookDemo />} />

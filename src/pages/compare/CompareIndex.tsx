@@ -6,15 +6,10 @@ import { ArrowRight } from 'lucide-react';
 import { generateCollectionSchema, generateBreadcrumbSchema } from '../../lib/schema';
 import { seoData } from '../../data/seo';
 
+import { comparisons } from '../../data/comparisons';
+
 const CompareIndex: React.FC = () => {
-  const comparisons = [
-    { slug: "manual-spreadsheets", name: "Manual Spreadsheets", desc: "Why Excel is not an operating system for charity." },
-    { slug: "whatsapp-coordination", name: "WhatsApp Groups", desc: "The hidden risks of managing impact in chat apps." },
-    { slug: "basic-donation-form", name: "Basic Donation Forms", desc: "Sidqly vs simple payment buttons." },
-    { slug: "mosque-website", name: "Simple Mosque Websites", desc: "Professional operations vs basic digital presence." },
-    { slug: "generic-crm", name: "Generic CRMs", desc: "Why Islamic giving needs specialized workflows." },
-    { slug: "google-forms", name: "Google Forms", desc: "Moving from simple intake to verified workflows." }
-  ];
+
 
   const schema = {
     "@context": "https://schema.org",
@@ -48,9 +43,9 @@ const CompareIndex: React.FC = () => {
                 to={`/compare/${item.slug}`}
                 className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-xl transition-all group text-left flex flex-col"
               >
-                <h3 className="text-2xl font-bold text-sidqly-navy mb-4 group-hover:text-sidqly-green-emerald transition-colors">vs {item.name}</h3>
+                <h3 className="text-2xl font-bold text-sidqly-navy mb-4 group-hover:text-sidqly-green-emerald transition-colors">vs {item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-grow">
-                  {item.desc}
+                  {item.metaDescription}
                 </p>
                 <div className="flex items-center gap-2 text-sidqly-green-deep font-bold text-sm">
                   View Comparison <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
