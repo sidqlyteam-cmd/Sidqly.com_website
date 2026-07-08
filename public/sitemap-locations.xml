@@ -2,42 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sidqly.com/regions</loc>
-    <lastmod>2026-07-07</lastmod>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/europe</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/united-kingdom</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/north-america/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/north-america</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/europe/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/united-states</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/middle-east/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/canada</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/south-asia/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/gulf-mena</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/asia-pacific/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/south-asia</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/africa/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/africa</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/united-states/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
   <url>
-    <loc>https://sidqly.com/regions/asia-pacific</loc>
-    <lastmod>2026-07-07</lastmod>
+    <loc>https://sidqly.com/locations/united-kingdom/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/canada/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/united-arab-emirates/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/saudi-arabia/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/pakistan/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/malaysia/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/australia/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/london-islamic-charity-software/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/dubai-islamic-charity-software/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/toronto-islamic-charity-software/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+  <url>
+    <loc>https://sidqly.com/locations/karachi-islamic-charity-software/</loc>
+    <lastmod>2026-07-08</lastmod>
   </url>
 </urlset>
