@@ -21,7 +21,7 @@ export interface ExpansionPlan {
 
 export const cityExpansionPlan: ExpansionPlan = {
   tier1: {
-    completedCount: 25,
+    completedCount: 50,
     completedCities: [
       "London, United Kingdom",
       "Birmingham, United Kingdom",
@@ -49,9 +49,9 @@ export const cityExpansionPlan: ExpansionPlan = {
       "Sydney, Australia",
       "Melbourne, Australia"
     ],
-    plannedCount: 25,
+    plannedCount: 0,
     plannedCities: [
-      // Top 50 index candidates after manual quality approval
+      // Tier 1 index candidates all created.
       "Bradford, United Kingdom",
       "Luton, United Kingdom",
       "Los Angeles, United States",

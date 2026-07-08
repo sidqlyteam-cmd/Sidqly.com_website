@@ -9,6 +9,13 @@ export interface LocationFaqTemplate {
 
 export const locationFaqBanks: LocationFaqTemplate[] = [
   {
+    category: "localCulture",
+    suitableFor: ["city", "country"],
+    riskLevel: "low",
+    questionTemplate: "Does Sidqly understand the needs of {City} Islamic giving networks?",
+    answerTemplate: "Yes. Sidqly supports the operational workflow for local giving networks in {City}, such as Zakat, Sadaqah, or Ramadan campaigns, helping teams manage proof and approvals safely."
+  },
+  {
     category: "general",
     suitableFor: ["city", "country", "region"],
     riskLevel: "low",
