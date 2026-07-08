@@ -73,6 +73,32 @@ const LocationsIndex: React.FC = () => {
         </div>
       </section>
 
+      {/* Hero Section */}
+      <section className="py-20 bg-sidqly-navy text-white text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-6">Global Islamic Giving, Verified and Dignified</h1>
+          <p className="text-xl text-sidqly-green-soft mb-8 leading-relaxed">
+            Sidqly is a premium Islamic SaaS operating platform helping organizations worldwide manage manual payment review, proof approval, donor-safe updates, and board-ready reporting.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+             <Link to="/demo" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all">Book a Demo</Link>
+             <Link to="/product-tour" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">See How Sidqly Works</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Answer */}
+      <section className="py-12 bg-sidqly-ivory">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="bg-white p-8 rounded-3xl border-l-4 border-sidqly-green-emerald shadow-sm">
+             <h2 className="text-xl font-bold text-sidqly-navy mb-4">Quick Answer</h2>
+             <p className="text-gray-700 leading-relaxed font-medium">
+                Sidqly serves organizations globally through a cloud-based platform. Whether you are managing Zakat in London, a Ramadan campaign in Dubai, or Sadaqah in Toronto, Sidqly helps structure your payment proof and donor updates.
+             </p>
+           </div>
+        </div>
+      </section>
+
       {/* Regions Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,10 +159,10 @@ const LocationsIndex: React.FC = () => {
         </div>
       </section>
 
-      {/* What Sidqly Helps Manage Section */}
+      {/* Browse by Workflow */}
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">What Sidqly helps global organizations manage</h2>
+          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Browse by giving workflow</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Manual payment review", link: "/modules/manual-payment-review" },
@@ -184,25 +210,41 @@ const LocationsIndex: React.FC = () => {
         </div>
       </section>
 
-      {/* Conversion Section */}
+      {/* Related Islamic Utilities */}
       <section className="py-20 bg-sidqly-navy text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-8">From giving workflow problems to a clear Sidqly demo</h2>
-          <div className="bg-white/5 p-8 rounded-3xl border border-white/10 mb-12 text-left text-gray-300">
-             <ul className="space-y-4 font-medium text-lg">
-               <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">1</span> Visitor identifies their city or region</li>
-               <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">2</span> Visitor sees how Sidqly supports their giving workflow</li>
-               <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">3</span> Visitor understands the relevant modules</li>
-               <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">4</span> Visitor checks FAQs and trust information</li>
-               <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">5</span> Visitor clicks Book Demo</li>
-               <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">6</span> Sidqly reviews their organization’s payment proof, approval, donor update, and reporting needs</li>
-             </ul>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/demo" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all">Book a Demo</Link>
-            <Link to="/product-tour" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">See How Sidqly Works</Link>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <h2 className="text-3xl font-bold mb-12">Related Islamic Utilities</h2>
+           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+              {[
+                 { title: "Zakat Calculator", link: "/zakat-calculator" },
+                 { title: "Islamic Calendar", link: "/islamic-calendar" },
+                 { title: "Namaz Timings", link: "/namaz-timings" },
+                 { title: "Qibla Direction", link: "/qibla-direction" },
+                 { title: "Ramadan Planner", link: "/ramadan-planner" }
+              ].map((util, i) => (
+                 <Link key={i} to={util.link} className="bg-white/10 px-6 py-4 rounded-xl border border-white/20 font-medium text-sm text-gray-200 hover:bg-white/20 transition-all">
+                    {util.title}
+                 </Link>
+              ))}
+           </div>
         </div>
+      </section>
+
+      {/* Trust Strip */}
+      <section className="py-12 bg-sidqly-green-deep text-white text-center">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap justify-center items-center gap-8 text-sm font-bold uppercase tracking-widest text-sidqly-green-soft">
+               <Link to="/trust-center" className="hover:text-white transition-colors">Trust Center</Link>
+               <span>|</span>
+               <Link to="/security" className="hover:text-white transition-colors">Security</Link>
+               <span>|</span>
+               <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+               <span>|</span>
+               <Link to="/accessibility" className="hover:text-white transition-colors">Accessibility</Link>
+               <span>|</span>
+               <Link to="/legal" className="hover:text-white transition-colors">Legal</Link>
+            </div>
+         </div>
       </section>
 
       {/* FAQ Section */}
@@ -239,11 +281,25 @@ const LocationsIndex: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-6">Ready to improve your giving operations?</h2>
           <p className="text-lg text-sidqly-green-soft mb-10 max-w-2xl mx-auto leading-relaxed">
-            Tell us how your team currently manages giving, payment proof, Zakat, Sadaqah, Qurbani, Ramadan campaigns, donor updates, or reporting. We will show how Sidqly can simplify the workflow.
+            Tell us how your organization currently manages giving, payment proof, Zakat, Sadaqah, Qurbani, Ramadan campaigns, donor updates, or reporting. We will show how Sidqly can simplify the workflow.
           </p>
-          <Link to="/demo" className="inline-block bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:text-white transition-all shadow-lg hover:shadow-xl">
-            Book a Demo
-          </Link>
+          <div className="bg-white/5 p-8 rounded-3xl border border-white/10 mb-12 text-left text-gray-300 max-w-3xl mx-auto">
+             <h3 className="font-bold text-white mb-4 text-xl">What happens after you book?</h3>
+             <ul className="space-y-4 font-medium text-lg">
+                <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">1</span> We review your current giving workflow.</li>
+                <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">2</span> We identify where payment proof, approvals, donor updates, or reporting become difficult.</li>
+                <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">3</span> We show how Sidqly can support your team.</li>
+                <li className="flex gap-4 items-center"><span className="w-8 h-8 rounded-full bg-sidqly-green-emerald text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">4</span> You decide the next step.</li>
+             </ul>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+             <Link to="/demo" className="inline-block bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:text-white transition-all shadow-lg hover:shadow-xl">
+                Book a Demo
+             </Link>
+             <Link to="/product-tour" className="inline-block bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+                See How Sidqly Works
+             </Link>
+          </div>
         </div>
       </section>
     </>

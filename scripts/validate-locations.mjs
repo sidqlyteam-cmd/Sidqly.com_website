@@ -157,7 +157,7 @@ const validateRecord = (record, file) => {
         schemaTypes: 'WebPage' + (record.faqs && record.faqs.length > 0 ? ', FAQPage' : ''),
         hasQuickAnswer: record.quickAnswer ? 'yes' : 'no',
         hasFAQ: record.faqs && record.faqs.length > 0 ? 'yes' : 'no',
-        hasLocalContext: record.localNeeds || record.culturalNote ? 'yes' : 'no',
+        hasLocalContext: record.culturalNote || record.localNeeds ? 'yes' : 'no',
         hasCTA: 'yes',
         fakeLocalClaim: allText.includes('local office') ? 'yes' : 'no',
         recommendation: recommendation.length > 0 ? recommendation.join(', ') : 'Pass',
@@ -225,11 +225,11 @@ const main = () => {
 
     const results = allRecords.map(r => validateRecord(r, ''));
 
-    console.log("| URL | Type | Tier | Index | Sitemap | Quality | Canonical | Schema | QuickAnswer | FAQ | CTA | Fake Claim | Recommendation |");
-    console.log("|---|---|---|---|---|---|---|---|---|---|---|---|---|");
+    console.log("| URL | Type | Tier | Index | Sitemap | Quality | Canonical | Schema | QuickAnswer | FAQ | Has local/cultural note | CTA | Fake Claim | Recommendation |");
+    console.log("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|");
 
     for (const r of results) {
-        console.log(`| ${r.url} | ${r.pageType} | ${r.priorityTier} | ${r.indexStatus} | ${r.includeInSitemap} | ${r.contentQuality} | ${r.canonical} | ${r.schemaTypes} | ${r.hasQuickAnswer} | ${r.hasFAQ} | ${r.hasCTA} | ${r.fakeLocalClaim} | ${r.recommendation} |`);
+        console.log(`| ${r.url} | ${r.pageType} | ${r.priorityTier} | ${r.indexStatus} | ${r.includeInSitemap} | ${r.contentQuality} | ${r.canonical} | ${r.schemaTypes} | ${r.hasQuickAnswer} | ${r.hasFAQ} | ${r.hasLocalContext} | ${r.hasCTA} | ${r.fakeLocalClaim} | ${r.recommendation} |`);
     }
 
     console.log("\nSummary:");
