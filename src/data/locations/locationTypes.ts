@@ -1,6 +1,9 @@
 export type LocationIndexStatus = "index" | "noindex";
+
 export type LocationPriorityTier = 1 | 2 | 3;
+
 export type LocationContentQuality = "strong" | "medium" | "weak";
+
 export type LocationPageType = "hub" | "region" | "country" | "city";
 
 export interface LocationFaq {
