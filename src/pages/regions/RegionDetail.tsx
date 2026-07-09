@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { regions } from '../../data/regions';
-import { brand } from '../../config/brand';
-import { CheckCircle2, ArrowRight, ShieldCheck, Mail, Calendar } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
+import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 
 const RegionDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -120,28 +120,13 @@ const RegionDetail: React.FC = () => {
          </section>
       )}
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-sidqly-navy text-white rounded-[40px] p-10 md:p-16 text-center">
-             <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to transform your giving?</h2>
-             <p className="text-sidqly-green-soft mb-12 max-w-2xl mx-auto">
-                Join organizations in {region.name} using Sidqly to manage their operations with integrity and clarity.
-             </p>
-             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white p-6 rounded-3xl font-bold hover:shadow-lg transition-all flex flex-col items-center gap-3">
-                   <Calendar size={24} /> <span>Book Demo</span>
-                </a>
-                <a href={brand.inquiryFormUrl} className="bg-white text-sidqly-navy p-6 rounded-3xl font-bold hover:shadow-lg transition-all flex flex-col items-center gap-3">
-                   <ArrowRight size={24} /> <span>Inquiry Form</span>
-                </a>
-                <a href={`mailto:${brand.email}`} className="bg-white/10 text-white p-6 rounded-3xl font-bold hover:bg-white/20 transition-all flex flex-col items-center gap-3 border border-white/10">
-                   <Mail size={24} /> <span>Email Us</span>
-                </a>
-             </div>
-             <p className="mt-12 text-[10px] text-gray-500 uppercase tracking-[0.2em] max-w-2xl mx-auto">
-                Sidqly supports operational organization and reporting. Local charity, tax, financial, and religious requirements remain the responsibility of the organization and its advisors.
-             </p>
-          </div>
+      <LocationCtaBlock />
+
+      <section className="py-8 bg-sidqly-ivory border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+           <p className="text-xs text-gray-500">
+              Sidqly supports operational clarity, proof workflows, donor updates, and internal reporting. Organizations should confirm legal, accounting, tax, payment, and Shariah requirements with their own qualified advisors.
+           </p>
         </div>
       </section>
     </>

@@ -4,12 +4,13 @@ import { Box, ArrowRight } from 'lucide-react';
 
 interface Props {
   links?: { title: string; url: string }[];
+  className?: string;
 }
 
-const RelatedSidqlyModules: React.FC<Props> = ({ links }) => {
+const RelatedSidqlyModules: React.FC<Props> = ({ links, className }) => {
   if (!links || links.length === 0) return null;
   return (
-    <div className="bg-white/5 rounded-2xl p-6 border border-white/10 md:col-span-2">
+    <div className={`bg-white/5 rounded-2xl p-6 border border-white/10 md:col-span-2 ${className || ''}`}>
         <h3 className="font-bold text-lg mb-4 text-sidqly-gold flex items-center gap-2"><Box size={18} /> Related Areas</h3>
         <ul className="grid sm:grid-cols-2 gap-3">
           {links.map((link, i) => (

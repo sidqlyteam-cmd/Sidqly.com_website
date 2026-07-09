@@ -4,6 +4,11 @@ import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
 import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
+import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
+import LocationWorkflow from '../../components/locations/LocationWorkflow';
+import RelatedSidqlyModules from '../../components/RelatedSidqlyModules';
+import RelatedUseCases from '../../components/RelatedUseCases';
 
 const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -53,6 +58,13 @@ const LocationDetail: React.FC = () => {
         schema={schema}
       />
 
+      {/* City Disclaimer */}
+      {location.pageType === 'city' && (
+        <div className="bg-sidqly-ivory py-3 text-center border-b border-gray-200 text-xs font-medium text-gray-500 px-4">
+           Sidqly supports organizations serving {location.cityName || 'this region'} and nearby communities through a remote SaaS platform. This page does not claim a physical Sidqly office in {location.cityName || 'this region'} unless confirmed elsewhere on the website.
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,14 +91,10 @@ const LocationDetail: React.FC = () => {
       </section>
 
       {/* Quick Answer & Simple Explanation */}
+      <LocationQuickAnswer answer={location.quickAnswer || `Sidqly is a cloud platform supporting verified Islamic giving operations.`} />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-sm border border-gray-100">
-              <h2 className="text-2xl font-bold text-sidqly-navy mb-4">Quick Answer</h2>
-              <p className="text-gray-700 leading-relaxed mb-8 font-medium">
-                 {location.quickAnswer}
-              </p>
-
               <h3 className="text-xl font-bold text-sidqly-navy mb-4">What Sidqly means in simple words</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                  Sidqly is software for Islamic giving teams. It helps organizations review payment proof, approve donation and fulfillment records, manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns, protect recipient dignity, update donors safely, and prepare clearer internal reports.
@@ -135,21 +143,7 @@ const LocationDetail: React.FC = () => {
       </section>
 
       {/* Sidqly Workflow Visual */}
-      <section className="py-20 bg-sidqly-navy text-white text-center overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <h2 className="text-3xl font-bold mb-12">The Sidqly Workflow</h2>
-           <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-              {[
-                 "Create campaign", "Receive payment proof", "Review proof manually", "Approve or reject",
-                 "Assign fulfillment", "Collect field proof", "Review for dignity", "Prepare donor update", "Share update", "Generate board report"
-              ].map((step, i) => (
-                 <div key={i} className="bg-white/10 px-6 py-4 rounded-xl border border-white/20 font-medium text-sm text-gray-200">
-                    <span className="text-sidqly-green-emerald font-bold mr-2">{i + 1}.</span> {step}
-                 </div>
-              ))}
-           </div>
-        </div>
-      </section>
+      <LocationWorkflow />
 
       {/* Stakeholders Section */}
       <section className="py-20 bg-sidqly-ivory">
@@ -173,29 +167,9 @@ const LocationDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Modules Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Popular Sidqly Modules</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-             {[
-              { title: "Manual Payment Review", link: "/modules/manual-payment-review", desc: "Streamline the verification of manual transfers and screenshots." },
-              { title: "Proof Approval", link: "/modules/proof-trust-engine", desc: "A structured process to review and approve fulfillment evidence." },
-              { title: "Donor-Safe Updates", link: "/modules/donor-safe-updates", desc: "Share impact safely with donors." },
-              { title: "Recipient Dignity Protection", link: "/modules/privacy-dignity-controls", desc: "Protect the privacy of beneficiaries." },
-              { title: "Zakat Operations", link: "/modules/zakat-fund-separation", desc: "Maintain clear separation and records for Zakat funds." },
-              { title: "Qurbani Fulfillment Tracking", link: "/modules/qurbani-lifecycle", desc: "Track shares from booking to distribution." },
-              { title: "Ramadan Campaign Management", link: "/modules/ramadan-meals-rations", desc: "Manage seasonal high-volume giving." },
-              { title: "Board Reporting", link: "/modules/reports-board-packs", desc: "Generate clear reports for trustees and boards." }
-             ].map((module, i) => (
-               <Link key={i} to={module.link} className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
-                 <h3 className="font-bold text-sidqly-navy mb-2 group-hover:text-sidqly-green-emerald transition-colors">{module.title}</h3>
-                 <p className="text-sm text-gray-600">{module.desc}</p>
-               </Link>
-             ))}
-          </div>
-        </div>
-      </section>
+      {/* Related Components */}
+      <RelatedUseCases className="bg-white" />
+      <RelatedSidqlyModules className="bg-sidqly-ivory" />
 
       {/* FAQs */}
       {location.faqs && location.faqs.length > 0 && (
@@ -229,31 +203,7 @@ const LocationDetail: React.FC = () => {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-sidqly-green-deep text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-6">Ready to improve your giving operations?</h2>
-          <p className="text-lg text-sidqly-green-soft mb-10 max-w-2xl mx-auto leading-relaxed">
-            Tell us how your team currently manages giving, payment proof, Zakat, Sadaqah, Qurbani, Ramadan campaigns, donor updates, or reporting. We will show how Sidqly can simplify the workflow.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <Link to="/demo" className="inline-block bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:text-white transition-all shadow-lg hover:shadow-xl">
-               Book a Demo
-             </Link>
-             <Link to="/product-tour" className="inline-block bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
-               See How Sidqly Works
-             </Link>
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-medium text-sidqly-green-soft">
-             <Link to="/features" className="hover:text-white transition-colors">Features</Link>
-             <span>|</span>
-             <Link to="/use-cases" className="hover:text-white transition-colors">Use Cases</Link>
-             <span>|</span>
-             <Link to="/islamic-utilities" className="hover:text-white transition-colors">Islamic Utilities</Link>
-             <span>|</span>
-             <Link to="/faqs" className="hover:text-white transition-colors">Trust & FAQs</Link>
-          </div>
-        </div>
-      </section>
+      <LocationCtaBlock />
     </>
   );
 };
