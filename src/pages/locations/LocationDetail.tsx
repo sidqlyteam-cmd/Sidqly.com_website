@@ -49,8 +49,8 @@ const LocationDetail: React.FC = () => {
         title={location.metaTitle}
         description={location.metaDescription}
         canonical={location.canonicalPath || `/locations/${location.slug}/`}
-        noindex={location.indexStatus === 'noindex'}
-        schema={schema}
+        noindex={location.indexStatus === 'noindex' || location.priorityTier > 1}
+        schema={location.priorityTier === 1 ? schema : { "@context": "https://schema.org", "@graph": [ { "@type": "WebPage", "name": location.metaTitle, "description": location.metaDescription, "url": location.canonicalPath || `/locations/${location.slug}/` } ] }}
       />
 
       {/* Hero Section */}
@@ -66,7 +66,11 @@ const LocationDetail: React.FC = () => {
              </p>
              {location.pageType === 'city' && (
                 <p className="text-xs text-gray-400 mt-4 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
-                   Sidqly supports organizations serving {location.cityName || location.slug} and nearby communities through a remote SaaS platform. This page does not claim a physical Sidqly office in {location.cityName || location.slug} unless confirmed elsewhere on the website.
+                   {location.priorityTier > 1 ? (
+                       `Sidqly can support Islamic organizations serving ${location.cityName || location.slug} through a cloud SaaS workflow for payment proof review, approvals, donor-safe updates, and reporting. This page is part of Sidqly’s service-area content and does not claim a physical Sidqly office in ${location.cityName || location.slug}.`
+                   ) : (
+                       `Sidqly supports organizations serving ${location.cityName || location.slug} and nearby communities through a remote SaaS platform. This page does not claim a physical Sidqly office in ${location.cityName || location.slug} unless confirmed elsewhere on the website.`
+                   )}
                 </p>
              )}
              {location.pageType === 'country' && (

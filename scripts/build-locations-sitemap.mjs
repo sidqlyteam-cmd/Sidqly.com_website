@@ -9,7 +9,7 @@ const projectRoot = path.join(__dirname, '..');
 
 export const getIndexableLocations = () => {
     let slugs = [];
-    const files = ['src/data/locations/regions.ts', 'src/data/locations/countries.ts', 'src/data/locations/cities.ts'];
+    const files = ['src/data/locations/regions.ts', 'src/data/locations/countries.ts', 'src/data/locations/cities.ts', 'src/data/locations/cityContentTier1.ts'];
 
     for (const file of files) {
         try {
@@ -19,9 +19,10 @@ export const getIndexableLocations = () => {
             const records = content.split('},');
             for (const record of records) {
                 if (
-                    record.includes("indexStatus: 'index'") &&
-                    record.includes("includeInSitemap: true") &&
-                    record.includes("contentQuality: 'strong'")
+                    (record.includes("indexStatus: 'index'") || record.includes('indexStatus: "index"')) &&
+                    (record.includes("includeInSitemap: true") || record.includes("includeInSitemap: true")) &&
+                    (record.includes("contentQuality: 'strong'") || record.includes('contentQuality: "strong"')) &&
+                    !(record.includes("priorityTier: 2") || record.includes("priorityTier: 3"))
                 ) {
                     const slugMatch = record.match(/slug:\s*'([^']+)'/);
                     if (slugMatch && slugMatch[1]) {

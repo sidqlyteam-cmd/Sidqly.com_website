@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { regionsData } from '../../data/locations/regions';
 import { countriesData } from '../../data/locations/countries';
-import { cityContentTier1 } from '../../data/locations/cityContentTier1';
+
+import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateItemListSchema } from '../../lib/schema';
 import { brand } from '../../config/brand';
 import { ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
@@ -40,7 +41,7 @@ const LocationsIndex: React.FC = () => {
       generateItemListSchema([
         ...regionsData.filter(r => r.indexStatus === 'index').map(r => ({ name: r.region, url: `/locations/${r.slug}/` })),
         ...countriesData.filter(c => c.indexStatus === 'index').map(c => ({ name: c.country, url: `/locations/${c.slug}/` })),
-        ...cityContentTier1.filter(c => c.indexStatus === 'index').map(c => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}/` }))
+        ...allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map(c => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}/` }))
       ])
     ]
   };
@@ -118,9 +119,9 @@ const LocationsIndex: React.FC = () => {
       {/* Top Cities Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Popular Cities</h2>
+          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Featured Service Areas</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {cityContentTier1.filter(c => c.indexStatus === 'index' && c.priorityTier === 1).map((city) => (
+            {allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map((city) => (
               <Link
                 key={city.slug}
                 to={`/locations/${city.slug}`}
@@ -130,6 +131,72 @@ const LocationsIndex: React.FC = () => {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Tier 2: Additional Service Areas */}
+      {allLocations.some(c => c.pageType === 'city' && c.priorityTier === 2) && (
+        <section className="py-20 bg-sidqly-ivory border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-sidqly-navy mb-4 text-center">Additional service areas under review</h2>
+            <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+              Sidqly is preparing additional service-area content for Islamic organizations in these cities. These pages may remain noindex until their local context, stakeholder guidance, FAQs, and internal links are manually reviewed.
+            </p>
+            <div className="space-y-4 max-w-4xl mx-auto">
+              {Array.from(new Set(allLocations.filter(c => c.pageType === 'city' && c.priorityTier === 2).map(c => c.region))).map(region => (
+                <details key={region} className="bg-white border border-gray-100 rounded-xl overflow-hidden group">
+                  <summary className="px-6 py-4 font-bold text-sidqly-navy cursor-pointer list-none flex justify-between items-center bg-white hover:bg-gray-50 transition-colors">
+                    <span>{region}</span>
+                    <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <div className="px-6 pb-6 pt-2 border-t border-gray-50 bg-gray-50/50">
+                    <div className="flex flex-wrap gap-2">
+                      {allLocations.filter(c => c.pageType === 'city' && c.priorityTier === 2 && c.region === region).map((city) => (
+                        <Link
+                          key={city.slug}
+                          to={`/locations/${city.slug}`}
+                          className="bg-white px-3 py-1.5 rounded border border-gray-200 text-xs font-medium text-gray-600 hover:border-sidqly-green-soft hover:text-sidqly-navy transition-all"
+                        >
+                          {city.cityName}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Tier 3: Future Expansion */}
+      {allLocations.some(c => c.pageType === 'city' && c.priorityTier === 3) && (
+        <section className="py-20 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl font-bold text-sidqly-navy mb-4">Future service-area planning</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto mb-8 text-sm">
+              Some cities may be tracked for future expansion planning. These are not local office claims and should not be treated as fully published search landing pages until reviewed.
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {allLocations.filter(c => c.pageType === 'city' && c.priorityTier === 3).map((city) => (
+                <span
+                  key={city.slug}
+                  className="bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100 text-xs text-gray-400"
+                >
+                  {city.cityName}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* SaaS Service-Area Disclaimer */}
+      <section className="py-12 bg-sidqly-navy text-gray-400 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+           <p className="text-sm leading-relaxed">
+             Sidqly is a cloud SaaS platform. Service-area pages explain where Sidqly can support Islamic organizations remotely. They do not claim physical Sidqly offices, local branches, local phone numbers, or local addresses unless officially confirmed elsewhere on Sidqly.com.
+           </p>
         </div>
       </section>
 
