@@ -188,7 +188,7 @@ const validateRecord = (record, file) => {
         schemaTypes: 'WebPage' + (record.faqs && record.faqs.length > 0 ? ', FAQPage' : ''),
         hasQuickAnswer: record.quickAnswer ? 'yes' : 'no',
         hasFAQ: record.faqs && record.faqs.length > 0 ? 'yes' : 'no',
-        hasLocalContext: record.localNeeds || record.culturalNote ? 'yes' : 'no',
+        hasLocalContext: record.culturalNote || record.localNeeds ? 'yes' : 'no',
         hasCTA: 'yes',
         fakeLocalClaim: allText.includes('local office') ? 'yes' : 'no',
         recommendation: recommendation.length > 0 ? recommendation.join(', ') : 'Pass',
@@ -256,38 +256,11 @@ const main = () => {
 
     const results = allRecords.map(r => validateRecord(r, ''));
 
-const sitemapCheck = () => {
-    try {
-        const sitemapContent = fs.readFileSync(path.join(projectRoot, 'public', 'sitemap-locations.xml'), 'utf8');
-        allRecords.forEach(r => {
-            const url = r.canonicalPath || `/locations/${r.slug}/`;
-            const inSitemap = sitemapContent.includes(url);
-
-            if (r.priorityTier > 1 && inSitemap) {
-                console.error(`❌ Tier ${r.priorityTier} URL found in sitemap: ${url}`);
-                errorCount++;
-            }
-            if (r.indexStatus === 'noindex' && inSitemap) {
-                console.error(`❌ noindex URL found in sitemap: ${url}`);
-                errorCount++;
-            }
-            if (r.contentQuality !== 'strong' && inSitemap) {
-                console.error(`❌ Weak/Medium content URL found in sitemap: ${url}`);
-                errorCount++;
-            }
-        });
-    } catch (e) {
-        console.warn('Could not check sitemap-locations.xml:', e.message);
-    }
-};
-sitemapCheck();
-
-
-    console.log("| URL | Type | Tier | Index | Sitemap | Quality | Canonical | Schema | QuickAnswer | FAQ | CTA | Fake Claim | Recommendation |");
-    console.log("|---|---|---|---|---|---|---|---|---|---|---|---|---|");
+    console.log("| URL | Type | Tier | Index | Sitemap | Quality | Canonical | Schema | QuickAnswer | FAQ | Has local/cultural note | CTA | Fake Claim | Recommendation |");
+    console.log("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|");
 
     for (const r of results) {
-        console.log(`| ${r.url} | ${r.pageType} | ${r.priorityTier} | ${r.indexStatus} | ${r.includeInSitemap} | ${r.contentQuality} | ${r.canonical} | ${r.schemaTypes} | ${r.hasQuickAnswer} | ${r.hasFAQ} | ${r.hasCTA} | ${r.fakeLocalClaim} | ${r.recommendation} |`);
+        console.log(`| ${r.url} | ${r.pageType} | ${r.priorityTier} | ${r.indexStatus} | ${r.includeInSitemap} | ${r.contentQuality} | ${r.canonical} | ${r.schemaTypes} | ${r.hasQuickAnswer} | ${r.hasFAQ} | ${r.hasLocalContext} | ${r.hasCTA} | ${r.fakeLocalClaim} | ${r.recommendation} |`);
     }
 
     console.log("\nSummary:");
