@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { regionsData } from '../../data/locations/regions';
 import { countriesData } from '../../data/locations/countries';
-import { cityContentTier1 } from '../../data/locations/cityContentTier1';
+
+import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateItemListSchema } from '../../lib/schema';
 import { brand } from '../../config/brand';
 import { ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
@@ -40,7 +41,7 @@ const LocationsIndex: React.FC = () => {
       generateItemListSchema([
         ...regionsData.filter(r => r.indexStatus === 'index').map(r => ({ name: r.region, url: `/locations/${r.slug}/` })),
         ...countriesData.filter(c => c.indexStatus === 'index').map(c => ({ name: c.country, url: `/locations/${c.slug}/` })),
-        ...cityContentTier1.filter(c => c.indexStatus === 'index').map(c => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}/` }))
+        ...allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map(c => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}/` }))
       ])
     ]
   };
@@ -144,9 +145,9 @@ const LocationsIndex: React.FC = () => {
       {/* Top Cities Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Popular Cities</h2>
+          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Featured Service Areas</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {cityContentTier1.filter(c => c.indexStatus === 'index' && c.priorityTier === 1).map((city) => (
+            {allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map((city) => (
               <Link
                 key={city.slug}
                 to={`/locations/${city.slug}`}

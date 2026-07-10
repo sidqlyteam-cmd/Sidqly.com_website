@@ -14,6 +14,9 @@ let indexablePages = 0;
 let noindexPages = 0;
 let sitemapIncluded = 0;
 let sitemapExcluded = 0;
+let tier1Count = 0;
+let tier2Count = 0;
+let tier3Count = 0;
 let errorCount = 0;
 let warningCount = 0;
 
@@ -21,7 +24,35 @@ const validateRecord = (record, file) => {
     let hasError = false;
     const recommendation = [];
 
+    if (record.priorityTier === 1) tier1Count++;
+    if (record.priorityTier === 2) tier2Count++;
+    if (record.priorityTier === 3) tier3Count++;
+
+
+
     const url = record.canonicalPath || `/locations/${record.slug}/`;
+
+    // Strict Sitemap & Tier Checks
+    if (record.priorityTier > 1) {
+        if (record.indexStatus === 'index') {
+            hasError = true;
+            recommendation.push('Tier 2/3 record must not be indexable');
+        }
+        if (record.includeInSitemap) {
+            hasError = true;
+            recommendation.push('Tier 2/3 record must not be in sitemap');
+        }
+    }
+
+    if (record.indexStatus === 'noindex' && record.includeInSitemap) {
+        hasError = true;
+        recommendation.push('Noindex record must not be in sitemap');
+    }
+
+    if (record.includeInSitemap && record.contentQuality !== 'strong') {
+        hasError = true;
+        recommendation.push('Only strong content can be in sitemap');
+    }
 
     if (!record.slug) {
         hasError = true;
@@ -176,7 +207,7 @@ console.log(JSON.stringify(${moduleName}));
     fs.writeFileSync(tempFile, dumpScript);
 
     try {
-        execSync(`npx tsc temp-dump.ts --esModuleInterop --skipLibCheck --module ESNext --moduleResolution Node`, { cwd: path.join(projectRoot, 'scripts'), stdio: 'pipe' });
+        execSync(`npx -p typescript tsc temp-dump.ts --esModuleInterop --skipLibCheck --module ESNext --moduleResolution Node`, { cwd: path.join(projectRoot, 'scripts'), stdio: 'pipe' });
         const jsFile = tempFile.replace('.ts', '.js');
         const output = execSync(`node temp-dump.js`, { cwd: path.join(projectRoot, 'scripts'), encoding: 'utf8' });
         fs.unlinkSync(tempFile);
@@ -234,6 +265,9 @@ const main = () => {
 
     console.log("\nSummary:");
     console.log(`Total location records: ${totalRecords}`);
+    console.log(`Tier 1 Count: ${tier1Count}`);
+    console.log(`Tier 2 Count: ${tier2Count}`);
+    console.log(`Tier 3 Count: ${tier3Count}`);
     console.log(`Region pages: ${regionPages}`);
     console.log(`Country pages: ${countryPages}`);
     console.log(`City pages: ${cityPages}`);
