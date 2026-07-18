@@ -8,7 +8,7 @@ const NamazTimingsPage: React.FC = () => {
       <SEO
         title="Namaz Timings and Prayer Time Planner | Sidqly"
         description="Calculate approximate Namaz timings using standard methods to support operational planning for Islamic charities, mosques, and giving organizations."
-        canonical="https://sidqly.com/namaz-timings"
+        canonical="https://www.sidqly.com/namaz-timings"
       />
       <div className="bg-sidqly-ivory min-h-screen py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

@@ -32,7 +32,7 @@ const UseCases: React.FC = () => {
       <SEO
         title="Use Cases | Sidqly for Mosques, Islamic Charities, Donors, Volunteers, and Sponsors"
         description="Explore how Sidqly supports mosques, Islamic charities, Zakat committees, Qurbani organizers, Ramadan ration teams, donors, volunteers, vendors, and corporate sponsors with verified giving workflows."
-        canonical="https://sidqly.com/use-cases"
+        canonical="https://www.sidqly.com/use-cases"
         schema={schema}
       />
 

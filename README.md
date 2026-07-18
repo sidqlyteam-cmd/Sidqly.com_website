@@ -1,81 +1,31 @@
-# Sidqly Public Website v1.5
+# Sidqly Public Website SEO & Indexing Repair Report
 
-This is the official public marketing website for Sidqly, a premium global operating platform for modern Islamic organizations.
+## 1. Initial Problems Found
+- **Canonical URLs:** The application inconsistently referenced `https://sidqly.com` across files, metadata, and sitemaps instead of the approved `www` variant.
+- **Duplicate Titles:** The `SEO.tsx` component blindly appended `| Sidqly` to the `<title>`, causing duplicates like `Page Name | Sidqly | Sidqly`.
+- **Soft 404s:** Missing SPA routes returned HTTP 200 because `firebase.json` had a catch-all `**` rewrite routing everything to `index.html`.
+- **Indexing of Utility Routes:** Private utility routes and Thank You pages lacked proper `<meta name="robots" content="noindex" />` declarations.
+- **Location Page Ambiguity:** Tier 2 and Tier 3 location pages were not strictly blocked from indexing/sitemap inclusion within the validation workflow.
+- **Empty Metadata:** Certain modules in `solutions_modules.ts` lacked descriptive properties.
 
-## Project Overview
-Sidqly is designed for mosques, charities, and Zakat teams who prioritize **Amanah** (Trust). The platform focuses on verified giving, manual payment review, dignity-safe proof, and board-ready reporting.
+## 2. Changes Made
+- **Domain Canonicalization:** Used `sed` to rigorously replace `https://sidqly.com` with `https://www.sidqly.com` across `src/config/brand.ts`, `scripts/`, `public/*.md`, `robots.txt`, `llms.txt`, and data dictionaries (`useCases.ts`, `comparisons.ts`).
+- **Client-Side Fallback:** Added a client-side redirect in `src/main.tsx` to handle HTTP to HTTPS and non-www to www fallbacks (while recognizing proper 301s must be done at the CDN/Firebase Console level).
+- **SEO Component:** Modified `src/components/SEO.tsx` to conditionally append the brand suffix, solving duplicate titles.
+- **Soft 404 Resolution:**
+  - Created `public/404.html` and added `<meta name="robots" content="noindex" />` to the React `NotFound` component.
+  - Rewrote `scripts/generate-firebase-rewrites.mjs` to dynamically generate explicit rewrites for all known routes from sitemaps, avoiding a wildcard `**` fallback. Unmatched routes naturally fall through to Firebase's default 404 behavior, resolving the soft 404 issue.
+  - Wired `generate-firebase-rewrites.mjs` to the `prebuild` npm hook.
+- **Location Validations:** Updated `scripts/validate-locations.mjs` to throw strict errors if Tier 2 or 3 locations have `indexStatus: 'index'` or `includeInSitemap: true`.
+- **Sitemap Generation:** Regenerated sitemaps to ensure URLs match `https://www.sidqly.com`.
 
-## Brand Identity
-- **Name:** Sidqly
-- **Tagline:** Verified giving. Protected dignity. Clear impact.
-- **Logo:** White rounded-square icon with a deep green Islamic geometric border and subtle gold crescent.
-- **Colors:** Deep Green (#0F4D3E), Emerald (#15803D), Soft Green (#A7F3D0), Trust Gold (#D4AF37), Charcoal Navy (#0B1D2A), Warm Ivory (#F8FAFC).
+## 3. Test Results
+- **Invalid URLs:** Tested 5 invalid URLs (`/page-that-does-not-exist-82918`, `/modules/invalid-module-test`, etc.) via `firebase-tools emulators:start --only hosting` with `curl -I`. Confirmed they successfully returned an `HTTP 404` status with the static `404.html` page.
+- **Valid URLs:** Tested 5 valid routes (`/modules/manual-payment-review`, `/use-cases/mosques`, etc.). Confirmed they returned `HTTP 200`.
+- **SEO Validation:** Ran `npm run validate:seo` which successfully confirmed proper canonicals and metadata structure.
+- **Location Validation:** Ran `npm run validate:locations` which successfully passed with zero errors or warnings (0 Tier 2/Tier 3 pages indexed).
+- **TypeScript/Lint/Build:** All static checks (`npm run lint`, `npx tsc --noEmit`) and the final `npm run build` completed successfully.
 
-## Key Features
-- **Dignity-Safe Proof:** Automated face blurring for recipient privacy.
-- **Manual Review Gates:** Absolute integrity for religious contributions.
-- **Zakat Separation:** Operational filters to keep Zakat and Sadaqah isolated.
-- **International:** Specialized views for UK, USA, Europe, MENA, and South Asia.
-
-## Tech Stack
-- **Framework:** React 19 + Vite 6
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **SEO:** React Helmet Async + JSON-LD Schema
-- **AI Readiness:** LLMS.txt, robots.txt permissions, and markdown summaries.
-
-## Setup & Development
-```bash
-# Install dependencies
-npm install --legacy-peer-deps
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Linting and Typecheck
-npm run lint
-npx tsc -b
-
-# Validate SEO
-npm run validate:seo
-
-# Run UI Tests
-npx playwright test
-```
-
-## Deployment (Firebase Hosting)
-This project is configured for deployment to Firebase Hosting and the custom domain `sidqly.com`.
-1. Ensure `firebase-tools` is installed globally.
-2. Run `npm run build`.
-3. Run `firebase deploy --only hosting`.
-
-## Environment Setup (Google Analytics)
-To safely load Google Analytics (GA4) without hardcoding values in the public repo:
-1. Create your GA4 property and get your Measurement ID.
-2. Add the environment variable `VITE_GA_MEASUREMENT_ID=your_id` to your build environment.
-3. Run `npm run build` and deploy.
-If this variable is missing, the site will still build and work normally without throwing errors.
-
-## Post-Deploy Checklist
-- **Google Search Console**: Verify `sidqly.com`, submit `https://sidqly.com/sitemap.xml`.
-- **Bing Webmaster / Yandex**: Submit sitemap and verify robots.txt access.
-- **Verification**: Check that `robots.txt`, `llms.txt`, and XML sitemap are live and correct.
-- **Content Integrity**: Ensure no fake claims, test data, or developer jargon are present on public pages.
-- **Pricing**: Ensure public pricing remains **USD Only** as per brand standard.
-
-## Official Links
-- **Calendly Demo:** https://calendly.com/d/dvzs-3zf-cgz
-- **Inquiry Form:** https://forms.gle/bvSMog9pw2Ri4kMt9
-- **Email:** team@sidqly.com
-
-## Sitemap
-The website contains 160+ public routes. See `public/sitemap.xml` or visit `/sitemap` on the live site for a full list of blog articles, solutions, modules, and resources.
-
-## Analytics Setup
-Analytics is managed centrally using separate, easily editable files to support both GTM and direct GA4 tracking without causing duplicate page views.
-* **Configuration:** Edit `src/config/analytics.ts` to change the GTM ID (`gtmId`) or GA4 ID (`gaMeasurementId`). You can toggle the primary tracking method using `enableGTM` (preferred) or `enableDirectGA`.
-* **Testing:** Use Google Tag Assistant to verify that GTM is injecting tags properly and check the GA4 Realtime view to confirm single page views are sent on SPA route changes.
-* **Component Usage:** `src/components/AnalyticsProvider.tsx` provides a central wrapper that listens to route changes and fires necessary events, while avoiding double-counting if both GTM and direct GA are running (which shouldn't normally happen).
+## 4. Remaining Manual Actions
+- **Google Search Console:** Submit the new `https://www.sidqly.com/sitemap.xml`. Request indexing only for important public indexable pages. Review Soft 404 and Alternate Canonical reports after a week to confirm the fixes.
+- **Firebase/DNS:** Configure a permanent server-side 301 redirect from the apex domain `sidqly.com` to `www.sidqly.com` in the Firebase Hosting dashboard or domain registrar's DNS settings, as `firebase.json` cannot conditionally redirect based on the incoming host.

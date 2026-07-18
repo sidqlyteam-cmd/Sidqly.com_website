@@ -18,7 +18,7 @@ const WeatherPlanningPage: React.FC = () => {
       <SEO
         title="Weather-Aware Charity Distribution Planning | Sidqly"
         description="Get operational guidance based on weather forecasts to protect volunteers and ensure safe charity distribution. Plan logistics for rain, heat, and cold."
-        canonical="https://sidqly.com/weather-charity-distribution"
+        canonical="https://www.sidqly.com/weather-charity-distribution"
         schema={schema}
       />
 

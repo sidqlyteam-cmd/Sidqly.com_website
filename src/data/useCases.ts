@@ -77,7 +77,7 @@ export const useCases: UseCaseData[] = [
       description: 'Streamline mosque charity operations, Zakat tracking, Ramadan distribution, and Qurbani management with Sidqly.',
       focusKeyword: 'mosque donation management',
       secondaryKeywords: ['masjid charity operations', 'Islamic giving platform for mosques', 'mosque Zakat tracking', 'mosque Ramadan distribution', 'mosque Qurbani management'],
-      canonical: 'https://sidqly.com/use-cases/mosques'
+      canonical: 'https://www.sidqly.com/use-cases/mosques'
     }
   },
   {
@@ -129,7 +129,7 @@ export const useCases: UseCaseData[] = [
       description: 'Professional Islamic charity software for verified giving workflows, donor-safe proof, and audit-ready charity records.',
       focusKeyword: 'Islamic charity software',
       secondaryKeywords: ['Islamic nonprofit operations', 'donor-safe proof', 'audit-ready charity records', 'verified giving workflow'],
-      canonical: 'https://sidqly.com/use-cases/islamic-charities'
+      canonical: 'https://www.sidqly.com/use-cases/islamic-charities'
     }
   },
   {
@@ -179,7 +179,7 @@ export const useCases: UseCaseData[] = [
       description: 'Operational tracking, Zakat fund separation, eligibility review support, and Zakat reporting for Islamic organizations.',
       focusKeyword: 'Zakat committee workflow',
       secondaryKeywords: ['Zakat fund separation', 'Zakat tracking', 'Zakat eligibility review support', 'Zakat reporting'],
-      canonical: 'https://sidqly.com/use-cases/zakat-committees'
+      canonical: 'https://www.sidqly.com/use-cases/zakat-committees'
     }
   },
   {
@@ -237,7 +237,7 @@ export const useCases: UseCaseData[] = [
       description: 'Manage Qurbani donor records, payment proof, animal shares, slaughter confirmation, distribution proof, donor updates, and reporting with Sidqly.',
       focusKeyword: 'Qurbani campaign management software',
       secondaryKeywords: ['Qurbani tracking', 'Eid ul Adha logistics', 'Qurbani certificates', 'Qurbani vendor tracking', 'Qurbani payment proof'],
-      canonical: 'https://sidqly.com/use-cases/qurbani-organizers'
+      canonical: 'https://www.sidqly.com/use-cases/qurbani-organizers'
     }
   },
   {
@@ -287,7 +287,7 @@ export const useCases: UseCaseData[] = [
       description: 'Manage Ramadan food drives, Iftar distribution workflows, and Ramadan charity operations with donor-safe updates.',
       focusKeyword: 'Ramadan ration distribution tracking',
       secondaryKeywords: ['Iftar distribution workflow', 'Ramadan food drive management', 'Ramadan charity operations', 'donor-safe Ramadan updates'],
-      canonical: 'https://sidqly.com/use-cases/ramadan-ration-teams'
+      canonical: 'https://www.sidqly.com/use-cases/ramadan-ration-teams'
     }
   },
   {
@@ -343,7 +343,7 @@ export const useCases: UseCaseData[] = [
       description: 'Run Sadaqah campaigns with verified payment review, donor tracking, proof approval, dignity-safe updates, and transparent reporting.',
       focusKeyword: 'Sadaqah campaign tracking',
       secondaryKeywords: ['Sadqa campaign workflow', 'Sadqa Fitr tracking', 'family support campaign', 'Islamic giving campaigns'],
-      canonical: 'https://sidqly.com/use-cases/sadaqah-campaign-teams'
+      canonical: 'https://www.sidqly.com/use-cases/sadaqah-campaign-teams'
     }
   },
   {
@@ -393,7 +393,7 @@ export const useCases: UseCaseData[] = [
       description: 'Provide corporate sponsors with board-ready charity reports, CSR Islamic giving reports, and audit-ready records.',
       focusKeyword: 'corporate Zakat reporting',
       secondaryKeywords: ['CSR Islamic giving reports', 'sponsor charity reporting', 'donor impact reports', 'board-ready charity reports'],
-      canonical: 'https://sidqly.com/use-cases/corporate-sponsors'
+      canonical: 'https://www.sidqly.com/use-cases/corporate-sponsors'
     }
   },
   {
@@ -442,7 +442,7 @@ export const useCases: UseCaseData[] = [
       description: 'Help organizations provide donors with verified giving updates, donation receipts, and Islamic charity transparency.',
       focusKeyword: 'donor-safe proof',
       secondaryKeywords: ['verified giving updates', 'donation receipts', 'Islamic charity transparency', 'donor communication'],
-      canonical: 'https://sidqly.com/use-cases/donors'
+      canonical: 'https://www.sidqly.com/use-cases/donors'
     }
   },
   {
@@ -491,7 +491,7 @@ export const useCases: UseCaseData[] = [
       description: 'Manage Ramadan and Qurbani volunteer workflows, proof uploads, and distribution tracking for Islamic charities.',
       focusKeyword: 'charity volunteer coordination',
       secondaryKeywords: ['Ramadan volunteer tasks', 'Qurbani volunteer workflow', 'proof upload for charity', 'volunteer distribution tracking'],
-      canonical: 'https://sidqly.com/use-cases/volunteers'
+      canonical: 'https://www.sidqly.com/use-cases/volunteers'
     }
   },
   {
@@ -541,7 +541,7 @@ export const useCases: UseCaseData[] = [
       description: 'Manage Qurbani vendor workflows, Ramadan food vendor tracking, and proof uploads for Islamic charities.',
       focusKeyword: 'charity vendor fulfillment',
       secondaryKeywords: ['Qurbani vendor workflow', 'Ramadan food vendor tracking', 'ration pack fulfillment', 'proof upload vendor'],
-      canonical: 'https://sidqly.com/use-cases/vendors'
+      canonical: 'https://www.sidqly.com/use-cases/vendors'
     }
   },
   {
@@ -590,7 +590,7 @@ export const useCases: UseCaseData[] = [
       description: 'Generate charity board reports, donor report packs, and maintain audit-ready records for Islamic organizations.',
       focusKeyword: 'charity board reports',
       secondaryKeywords: ['Islamic charity reporting', 'audit-ready records', 'donor report packs', 'CSR reports'],
-      canonical: 'https://sidqly.com/use-cases/board-reporting-teams'
+      canonical: 'https://www.sidqly.com/use-cases/board-reporting-teams'
     }
   },
   {
@@ -635,7 +635,7 @@ export const useCases: UseCaseData[] = [
       description: 'Ask your local mosque or Islamic charity to use Sidqly for better transparency, verified giving, and professional operations.',
       focusKeyword: 'request organization',
       secondaryKeywords: ['ask mosque to use Sidqly', 'request charity on Sidqly', 'nominate Islamic organization'],
-      canonical: 'https://sidqly.com/use-cases/community-request-organization'
+      canonical: 'https://www.sidqly.com/use-cases/community-request-organization'
     }
   }
 ];

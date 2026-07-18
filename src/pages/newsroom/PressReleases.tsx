@@ -21,7 +21,7 @@ const PressReleases: React.FC = () => {
       <SEO
         title="Press Releases | Sidqly News and Product Updates"
         description="Official press releases, product updates, and company announcements from Sidqly."
-        canonical="https://sidqly.com/press-releases"
+        canonical="https://www.sidqly.com/press-releases"
         schema={schema}
       />
 

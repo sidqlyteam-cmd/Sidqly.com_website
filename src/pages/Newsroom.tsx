@@ -27,7 +27,7 @@ const Newsroom: React.FC = () => {
       <SEO
         title="Newsroom | Sidqly Updates, Islamic Giving News, Hajj, Ramadan, and Qurbani Planning"
         description="Latest updates, press releases, Islamic giving news, and operational announcements for Hajj, Ramadan, and Qurbani planning."
-        canonical="https://sidqly.com/newsroom"
+        canonical="https://www.sidqly.com/newsroom"
         schema={schema}
       />
 

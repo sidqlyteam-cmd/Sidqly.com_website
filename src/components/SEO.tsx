@@ -33,7 +33,9 @@ const SEO: React.FC<SEOProps> = ({
   schema,
   noindex
 }) => {
-  const fullTitle = title ? `${title} | ${brand.name}` : `${brand.name} | Verified Giving & Protected Dignity`;
+  const fullTitle = title
+    ? (title.includes(`| ${brand.name}`) ? title : `${title} | ${brand.name}`)
+    : `${brand.name} | Verified Giving & Protected Dignity`;
   const url = canonical ? `${brand.domain}${canonical}` : null;
 
   return (

@@ -41,10 +41,10 @@ Supported giving and operational contexts include: Eid, Eid ul Adha, Eid ul Fitr
 Sidqly provides operational workflow support for Islamic giving campaigns. It does not replace religious scholars, local committees, legal advisors, tax advisors, or official calendar authorities.
 
 ## Explore Modules by Use Case
-- [Mosques & Masjids](https://sidqly.com/use-cases/mosques)
-- [Islamic Charities](https://sidqly.com/use-cases/islamic-charities)
-- [Qurbani Organizers](https://sidqly.com/use-cases/qurbani-organizers)
-- [Ramadan Ration Teams](https://sidqly.com/use-cases/ramadan-ration-teams)
+- [Mosques & Masjids](https://www.sidqly.com/use-cases/mosques)
+- [Islamic Charities](https://www.sidqly.com/use-cases/islamic-charities)
+- [Qurbani Organizers](https://www.sidqly.com/use-cases/qurbani-organizers)
+- [Ramadan Ration Teams](https://www.sidqly.com/use-cases/ramadan-ration-teams)
 
 
 

@@ -38,13 +38,13 @@ checkPageFiles(pagesDir);
 
 // 2. Check sitemaps
 const requiredRoutes = [
-    'https://sidqly.com/features',
-    'https://sidqly.com/modules',
-    'https://sidqly.com/pricing',
-    'https://sidqly.com/resources',
-    'https://sidqly.com/compare',
-    'https://sidqly.com/trust-center',
-    'https://sidqly.com/modules/manual-payment-review'
+    'https://www.sidqly.com/features',
+    'https://www.sidqly.com/modules',
+    'https://www.sidqly.com/pricing',
+    'https://www.sidqly.com/resources',
+    'https://www.sidqly.com/compare',
+    'https://www.sidqly.com/trust-center',
+    'https://www.sidqly.com/modules/manual-payment-review'
 ];
 
 let allSitemapContent = '';

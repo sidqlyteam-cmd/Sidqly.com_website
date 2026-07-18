@@ -19,7 +19,7 @@ const MediaKit: React.FC = () => {
       <SEO
         title="Media Kit | Sidqly Brand, Boilerplate, and Press Information"
         description="Access Sidqly's brand assets, boilerplates, and guidelines for press and media coverage."
-        canonical="https://sidqly.com/media-kit"
+        canonical="https://www.sidqly.com/media-kit"
         schema={schema}
       />
 

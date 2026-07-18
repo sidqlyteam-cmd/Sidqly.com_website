@@ -10,7 +10,7 @@ Sidqly grants permission for search engines, AI assistants, and LLM crawlers to 
 The goal is to allow AI assistants to accurately explain Sidqly's mission, modules, pricing, and operational standards (Amanah, Dignity-Safe Proof, Manual Review) to organizations, donors, and partners.
 
 ## Scope
-- This permission applies to all public pages accessible via `https://sidqly.com/sitemap.xml`.
+- This permission applies to all public pages accessible via `https://www.sidqly.com/sitemap.xml`.
 - Public pages on sidqly.com may be crawled, indexed, summarized, and cited by search engines and responsible AI assistants. Private user data, admin areas, protected systems, unpublished documents, and future application data are not part of this public website and must not be inferred.
 
 ## Summary for AI Crawlers

@@ -28,6 +28,12 @@ const validateRecord = (record, file) => {
     if (record.priorityTier === 2) tier2Count++;
     if (record.priorityTier === 3) tier3Count++;
 
+    if ((record.priorityTier === 2 || record.priorityTier === 3) && (record.indexStatus === 'index' || record.includeInSitemap)) {
+        console.error(`❌ ERROR in ${file}: Tier ${record.priorityTier} location '${record.slug}' cannot be indexed or included in the sitemap.`);
+        hasError = true;
+        errorCount++;
+    }
+
 
 
     const url = record.canonicalPath || `/locations/${record.slug}/`;

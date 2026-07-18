@@ -8,51 +8,51 @@ Sidqly is built for every role in Islamic giving. Explore how our platform solve
 
 ## Mosques & Masjids
 Streamline mosque donation management, Zakat tracking, and seasonal operations. Move away from scattered spreadsheets to a unified, donor-safe platform.
-Link: https://sidqly.com/use-cases/mosques
+Link: https://www.sidqly.com/use-cases/mosques
 
 ## Islamic Charities
 Professionalize Islamic nonprofit operations with verified giving workflows, donor-safe proof, and audit-ready charity records.
-Link: https://sidqly.com/use-cases/islamic-charities
+Link: https://www.sidqly.com/use-cases/islamic-charities
 
 ## Zakat Committees
 Ensure Zakat fund separation, track eligibility reviews, and generate Zakat reports safely and accurately.
-Link: https://sidqly.com/use-cases/zakat-committees
+Link: https://www.sidqly.com/use-cases/zakat-committees
 
 ## Qurbani Organizers
 Manage Qurbani orders, shares, vendor assignments, and automated donor certificates for Eid ul Adha.
-Link: https://sidqly.com/use-cases/qurbani-organizers
+Link: https://www.sidqly.com/use-cases/qurbani-organizers
 
 ## Ramadan Ration Teams
 Organize high-volume Ramadan ration distribution and Iftar programs with volunteer tracking and donor-safe updates.
-Link: https://sidqly.com/use-cases/ramadan-ration-teams
+Link: https://www.sidqly.com/use-cases/ramadan-ration-teams
 
 ## Sadaqah Campaign Teams
 Track Sadaqah campaigns, family support, and Sadqa Fitr workflows with transparent payment reviews.
-Link: https://sidqly.com/use-cases/sadaqah-campaign-teams
+Link: https://www.sidqly.com/use-cases/sadaqah-campaign-teams
 
 ## Corporate Sponsors
 Provide corporate sponsors with board-ready, audit-compliant charity reports without violating recipient privacy.
-Link: https://sidqly.com/use-cases/corporate-sponsors
+Link: https://www.sidqly.com/use-cases/corporate-sponsors
 
 ## Donors
 Deliver verified giving updates, donation receipts, and dignity-safe proof.
-Link: https://sidqly.com/use-cases/donors
+Link: https://www.sidqly.com/use-cases/donors
 
 ## Volunteers
 Coordinate charity volunteers, assign tasks, and capture field proof safely using mobile-friendly interfaces.
-Link: https://sidqly.com/use-cases/volunteers
+Link: https://www.sidqly.com/use-cases/volunteers
 
 ## Vendors
 Assign tasks to charity vendors and track fulfillment and proof, such as Qurbani slaughters or food pack creation.
-Link: https://sidqly.com/use-cases/vendors
+Link: https://www.sidqly.com/use-cases/vendors
 
 ## Board & Reporting Teams
 Generate instant, audit-ready reports and board packs for executive leadership.
-Link: https://sidqly.com/use-cases/board-reporting-teams
+Link: https://www.sidqly.com/use-cases/board-reporting-teams
 
 ## Community Members Requesting Organization
 Nominate your local mosque or favorite Islamic charity to use Sidqly for better transparency and verified updates.
-Link: https://sidqly.com/use-cases/community-request-organization
+Link: https://www.sidqly.com/use-cases/community-request-organization
 
 
 

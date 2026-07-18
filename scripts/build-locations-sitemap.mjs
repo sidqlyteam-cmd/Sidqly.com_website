@@ -24,7 +24,7 @@ export const getIndexableLocations = () => {
                     (record.includes("contentQuality: 'strong'") || record.includes('contentQuality: "strong"')) &&
                     !(record.includes("priorityTier: 2") || record.includes("priorityTier: 3"))
                 ) {
-                    const slugMatch = record.match(/slug:\s*'([^']+)'/);
+                    const slugMatch = record.match(/slug:\s*['"]([^'"]+)['"]/);
                     if (slugMatch && slugMatch[1]) {
                         slugs.push(`/locations/${slugMatch[1]}/`);
                     }
