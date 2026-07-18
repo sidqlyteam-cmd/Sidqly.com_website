@@ -8,7 +8,7 @@ const ZakatCalculatorPage: React.FC = () => {
       <SEO
         title="Zakat Planning Calculator | Sidqly"
         description="Estimate your Zakat obligations with our planning calculator. Supports manual Nisab input for accurate, localized planning."
-        canonical="https://sidqly.com/zakat-calculator"
+        canonical="https://www.sidqly.com/zakat-calculator"
       />
       <div className="bg-sidqly-ivory min-h-screen py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

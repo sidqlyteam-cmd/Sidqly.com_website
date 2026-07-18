@@ -45,19 +45,19 @@ Supported giving and operational contexts include: Eid, Eid ul Adha, Eid ul Fitr
 Sidqly provides operational workflow support for Islamic giving campaigns. It does not replace religious scholars, local committees, legal advisors, tax advisors, or official calendar authorities.
 
 ### Use Cases URLs
-- https://sidqly.com/use-cases (CollectionPage, FAQPage)
-- https://sidqly.com/use-cases/mosques (Service)
-- https://sidqly.com/use-cases/islamic-charities (Service)
-- https://sidqly.com/use-cases/zakat-committees (Service)
-- https://sidqly.com/use-cases/qurbani-organizers (Service)
-- https://sidqly.com/use-cases/ramadan-ration-teams (Service)
-- https://sidqly.com/use-cases/sadaqah-campaign-teams (Service)
-- https://sidqly.com/use-cases/corporate-sponsors (Service)
-- https://sidqly.com/use-cases/donors (Service)
-- https://sidqly.com/use-cases/volunteers (Service)
-- https://sidqly.com/use-cases/vendors (Service)
-- https://sidqly.com/use-cases/board-reporting-teams (Service)
-- https://sidqly.com/use-cases/community-request-organization (Service)
+- https://www.sidqly.com/use-cases (CollectionPage, FAQPage)
+- https://www.sidqly.com/use-cases/mosques (Service)
+- https://www.sidqly.com/use-cases/islamic-charities (Service)
+- https://www.sidqly.com/use-cases/zakat-committees (Service)
+- https://www.sidqly.com/use-cases/qurbani-organizers (Service)
+- https://www.sidqly.com/use-cases/ramadan-ration-teams (Service)
+- https://www.sidqly.com/use-cases/sadaqah-campaign-teams (Service)
+- https://www.sidqly.com/use-cases/corporate-sponsors (Service)
+- https://www.sidqly.com/use-cases/donors (Service)
+- https://www.sidqly.com/use-cases/volunteers (Service)
+- https://www.sidqly.com/use-cases/vendors (Service)
+- https://www.sidqly.com/use-cases/board-reporting-teams (Service)
+- https://www.sidqly.com/use-cases/community-request-organization (Service)
 
 Islamic Planning Utilities:
 - /islamic-utilities

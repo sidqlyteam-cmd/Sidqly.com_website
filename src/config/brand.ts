@@ -2,7 +2,7 @@ export const brand = {
   name: "Sidqly",
   tagline: "Verified giving. Protected dignity. Clear impact.",
   positioning: "Sidqly is a premium global Islamic operating platform for verified giving, manual payment review, proof approval, and dignity-safe impact updates. We help organizations manage Zakat, Qurbani, Ramadan, and community aid with board-ready reporting.",
-  domain: "https://sidqly.com",
+  domain: "https://www.sidqly.com",
   email: "team@sidqly.com",
   calendlyUrl: "https://calendly.com/d/dvzs-3zf-cgz",
   inquiryFormUrl: "https://forms.gle/bvSMog9pw2Ri4kMt9",

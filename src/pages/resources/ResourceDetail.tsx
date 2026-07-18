@@ -60,7 +60,7 @@ const ResourceDetail: React.FC = () => {
         "position": index + 1,
         "name": step.name,
         "text": step.text,
-        "url": step.url || `https://sidqly.com/resources/${resource.slug}#step-${index + 1}`
+        "url": step.url || `https://www.sidqly.com/resources/${resource.slug}#step-${index + 1}`
       }))
     });
   }
@@ -81,7 +81,7 @@ const ResourceDetail: React.FC = () => {
           "itemOffered": {
             "@type": "Service",
             "name": slug.replace(/-/g, " "),
-            "url": `https://sidqly.com/modules/${slug}`
+            "url": `https://www.sidqly.com/modules/${slug}`
           }
         }))
       }

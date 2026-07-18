@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, '../public');
 
-const domain = 'https://sidqly.com';
+const domain = 'https://www.sidqly.com';
 
 const pagesRoutes = [
     '/',

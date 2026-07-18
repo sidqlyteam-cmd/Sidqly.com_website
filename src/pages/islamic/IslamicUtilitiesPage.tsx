@@ -32,7 +32,7 @@ const IslamicUtilitiesPage: React.FC = () => {
       <SEO
         title="Islamic Utilities & Planning Tools | Sidqly"
         description="Plan Ramadan, Qurbani, Sadqa, Zakat, Qibla direction, Namaz timings and weather-aware distributions with practical tools for Islamic charity operations."
-        canonical="https://sidqly.com/islamic-utilities"
+        canonical="https://www.sidqly.com/islamic-utilities"
         schema={schema}
       />
 

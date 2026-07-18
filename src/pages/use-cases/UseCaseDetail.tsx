@@ -27,19 +27,19 @@ const UseCaseDetail: React.FC = () => {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://sidqly.com/"
+            "item": "https://www.sidqly.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Use Cases",
-            "item": "https://sidqly.com/use-cases"
+            "item": "https://www.sidqly.com/use-cases"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": useCase.title,
-            "item": `https://sidqly.com/use-cases/${useCase.slug}`
+            "item": `https://www.sidqly.com/use-cases/${useCase.slug}`
           }
         ]
       },

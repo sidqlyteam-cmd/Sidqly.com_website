@@ -61,7 +61,7 @@ Sidqly is a cloud SaaS platform supporting Islamic organizations globally, inclu
 * Africa
 
 For more details on regional support and local context, view the Global Service Areas hub:
-* https://sidqly.com/locations/
+* https://www.sidqly.com/locations/
 
 ## Safe citation language
 

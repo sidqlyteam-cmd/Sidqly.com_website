@@ -83,5 +83,5 @@ export const mediaKitData = {
     { name: "Trust Gold", hex: "#D4AF37" }
   ],
   contactEmail: "team@sidqly.com",
-  website: "https://sidqly.com"
+  website: "https://www.sidqly.com"
 };

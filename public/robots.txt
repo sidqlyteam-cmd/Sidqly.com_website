@@ -68,9 +68,9 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-Sitemap: https://sidqly.com/sitemap.xml
-Sitemap: https://sidqly.com/sitemap-pages.xml
-Sitemap: https://sidqly.com/sitemap-blog.xml
-Sitemap: https://sidqly.com/sitemap-resources.xml
-Sitemap: https://sidqly.com/sitemap-ai.xml
-Sitemap: https://sidqly.com/sitemap-locations.xml
+Sitemap: https://www.sidqly.com/sitemap.xml
+Sitemap: https://www.sidqly.com/sitemap-pages.xml
+Sitemap: https://www.sidqly.com/sitemap-blog.xml
+Sitemap: https://www.sidqly.com/sitemap-resources.xml
+Sitemap: https://www.sidqly.com/sitemap-ai.xml
+Sitemap: https://www.sidqly.com/sitemap-locations.xml
