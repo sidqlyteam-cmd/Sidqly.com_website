@@ -21,7 +21,7 @@ const StartPilot: React.FC = () => {
 
   return (
     <>
-      <SEO title="Launch a Sidqly Pilot for Islamic Giving" description="Begin your Sidqly journey with a focused pilot program for a specific Islamic giving campaign or workflow, from Qurbani to Zakat review." canonical="/start-pilot" />
+      <SEO title="Launch a Sidqly Pilot for Islamic Giving" description="Begin your Sidqly journey with a focused pilot program for a specific Islamic giving campaign or workflow, from Qurbani to Zakat review." canonical="/start-pilot" noindex={true} />
       <section className="py-20 bg-sidqly-navy text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Launch a Sidqly Pilot</h1>

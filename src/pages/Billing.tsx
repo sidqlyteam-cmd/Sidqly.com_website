@@ -34,6 +34,7 @@ const Billing: React.FC = () => {
         title="Billing and Payment Verification | Sidqly"
         description="Learn how Sidqly handles billing, manual payment verification, invoices, payment proof review, and secure setup for Islamic giving teams."
         canonical="/billing"
+        noindex={true}
       />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

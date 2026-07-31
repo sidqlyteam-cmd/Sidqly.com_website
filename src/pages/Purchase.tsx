@@ -37,6 +37,7 @@ const Purchase: React.FC = () => {
         title="Start Your Sidqly Setup | Verified Giving Operations Platform"
         description="Start your Sidqly setup for verified giving operations, including manual payment review, proof approval, donor communication, and reporting workflows."
         canonical="/purchase"
+        noindex={true}
       />
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
