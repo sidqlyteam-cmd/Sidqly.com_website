@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Activity, FileText } from 'lucid
 import SEO from '../../components/SEO';
 import { useCases } from '../../data/useCases';
 import { brand } from '../../config/brand';
-import { generateServiceSchema } from '../../lib/schema';
+import { generateServiceSchema, generateBreadcrumbSchema } from '../../lib/schema';
 import ManualPaymentReview from '../../components/diagrams/ManualPaymentReview';
 
 const UseCaseDetail: React.FC = () => {
@@ -20,29 +20,11 @@ const UseCaseDetail: React.FC = () => {
     "@context": "https://schema.org",
     "@graph": [
       generateServiceSchema(useCase.title, useCase.shortDescription, `/use-cases/${useCase.slug}`),
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.sidqly.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Use Cases",
-            "item": "https://www.sidqly.com/use-cases"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": useCase.title,
-            "item": `https://www.sidqly.com/use-cases/${useCase.slug}`
-          }
-        ]
-      },
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Use Cases", item: "/use-cases" },
+        { name: useCase.title, item: `/use-cases/${useCase.slug}` }
+      ]),
       ...(useCase.faqs && useCase.faqs.length > 0 ? [{
         "@type": "FAQPage",
         "mainEntity": useCase.faqs.map(faq => ({

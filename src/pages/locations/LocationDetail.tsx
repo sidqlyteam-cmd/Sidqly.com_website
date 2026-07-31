@@ -4,6 +4,7 @@ import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
 import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { brand } from '../../config/brand';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
 import LocationWorkflow from '../../components/locations/LocationWorkflow';
@@ -14,14 +15,14 @@ const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [openFaqIndex, setOpenFaqIndex] = React.useState<number | null>(null);
 
-  const location = allLocations.find(l => l.slug === slug || l.canonicalPath === `/locations/${slug}/`);
+  const location = allLocations.find(l => l.slug === slug || l.canonicalPath === `/locations/${slug}`);
 
   if (!location) {
     return (
       <div className="py-20 text-center">
         <h1 className="text-3xl font-bold text-sidqly-navy">Location Not Found</h1>
         <p className="mt-4 text-gray-600 mb-8">The location page you are looking for does not exist or has been moved.</p>
-        <Link to="/locations/" className="text-white bg-sidqly-green-emerald px-6 py-3 rounded-xl font-bold">View Global Service Areas</Link>
+        <Link to="/locations" className="text-white bg-sidqly-green-emerald px-6 py-3 rounded-xl font-bold">View Global Service Areas</Link>
       </div>
     );
   }
@@ -33,7 +34,7 @@ const LocationDetail: React.FC = () => {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      generateWebPageSchema(location.metaTitle, location.metaDescription, location.canonicalPath || `/locations/${location.slug}/`),
+      generateWebPageSchema(location.metaTitle, location.metaDescription, location.canonicalPath || `/locations/${location.slug}`),
       ...(location.faqs && location.faqs.length > 0 ? [generateFAQSchema(location.faqs)] : [])
     ]
   };
@@ -53,9 +54,9 @@ const LocationDetail: React.FC = () => {
       <SEO
         title={location.metaTitle}
         description={location.metaDescription}
-        canonical={location.canonicalPath || `/locations/${location.slug}/`}
+        canonical={location.canonicalPath || `/locations/${location.slug}`}
         noindex={location.indexStatus === 'noindex' || location.priorityTier > 1}
-        schema={location.priorityTier === 1 ? schema : { "@context": "https://schema.org", "@graph": [ { "@type": "WebPage", "name": location.metaTitle, "description": location.metaDescription, "url": location.canonicalPath || `/locations/${location.slug}/` } ] }}
+        schema={location.priorityTier === 1 ? schema : { "@context": "https://schema.org", "@graph": [ { "@type": "WebPage", "name": location.metaTitle, "description": location.metaDescription, "url": `${brand.domain}${location.canonicalPath || `/locations/${location.slug}`}` } ] }}
       />
 
       {/* City Disclaimer */}
@@ -69,7 +70,7 @@ const LocationDetail: React.FC = () => {
       <section className="py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-8 text-center items-center">
-             <Link to="/locations/" className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold mb-4 hover:gap-3 transition-all">
+             <Link to="/locations" className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold mb-4 hover:gap-3 transition-all">
                 <ArrowRight className="rotate-180" size={16} /> Back to Global Service Areas
              </Link>
              <h1 className="text-4xl md:text-6xl font-extrabold max-w-4xl">{location.h1}</h1>

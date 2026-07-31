@@ -1,0 +1,85 @@
+export interface RouteClassification {
+  path: string;
+  status: 200 | 301 | 308 | 404;
+  indexable: boolean;
+  canonical: string | null;
+  type: "public" | "noindex" | "private" | "redirect" | "404";
+}
+
+export const routeClassifications: RouteClassification[] = [
+  // Core Indexable Pages
+  { path: "/", status: 200, indexable: true, canonical: "https://www.sidqly.com/", type: "public" },
+  { path: "/features", status: 200, indexable: true, canonical: "https://www.sidqly.com/features", type: "public" },
+  { path: "/product-tour", status: 200, indexable: true, canonical: "https://www.sidqly.com/product-tour", type: "public" },
+  { path: "/how-it-works", status: 200, indexable: true, canonical: "https://www.sidqly.com/how-it-works", type: "public" },
+  { path: "/pricing", status: 200, indexable: true, canonical: "https://www.sidqly.com/pricing", type: "public" },
+  { path: "/book-demo", status: 200, indexable: true, canonical: "https://www.sidqly.com/book-demo", type: "public" },
+  { path: "/about", status: 200, indexable: true, canonical: "https://www.sidqly.com/about", type: "public" },
+  { path: "/contact", status: 200, indexable: true, canonical: "https://www.sidqly.com/contact", type: "public" },
+  { path: "/legal", status: 200, indexable: true, canonical: "https://www.sidqly.com/legal", type: "public" },
+  { path: "/help", status: 200, indexable: true, canonical: "https://www.sidqly.com/help", type: "public" },
+  { path: "/brand", status: 200, indexable: true, canonical: "https://www.sidqly.com/brand", type: "public" },
+  { path: "/privacy", status: 200, indexable: true, canonical: "https://www.sidqly.com/privacy", type: "public" },
+  { path: "/terms", status: 200, indexable: true, canonical: "https://www.sidqly.com/terms", type: "public" },
+  { path: "/security", status: 200, indexable: true, canonical: "https://www.sidqly.com/security", type: "public" },
+  { path: "/trust-center", status: 200, indexable: true, canonical: "https://www.sidqly.com/trust-center", type: "public" },
+  { path: "/accessibility", status: 200, indexable: true, canonical: "https://www.sidqly.com/accessibility", type: "public" },
+  { path: "/sitemap", status: 200, indexable: true, canonical: "https://www.sidqly.com/sitemap", type: "public" },
+  { path: "/compare", status: 200, indexable: true, canonical: "https://www.sidqly.com/compare", type: "public" },
+  { path: "/solutions", status: 200, indexable: true, canonical: "https://www.sidqly.com/solutions", type: "public" },
+  { path: "/modules", status: 200, indexable: true, canonical: "https://www.sidqly.com/modules", type: "public" },
+  { path: "/use-cases", status: 200, indexable: true, canonical: "https://www.sidqly.com/use-cases", type: "public" },
+  { path: "/regions", status: 200, indexable: true, canonical: "https://www.sidqly.com/regions", type: "public" },
+  { path: "/locations", status: 200, indexable: true, canonical: "https://www.sidqly.com/locations", type: "public" },
+  { path: "/newsroom", status: 200, indexable: true, canonical: "https://www.sidqly.com/newsroom", type: "public" },
+  { path: "/press-releases", status: 200, indexable: true, canonical: "https://www.sidqly.com/press-releases", type: "public" },
+  { path: "/media-kit", status: 200, indexable: true, canonical: "https://www.sidqly.com/media-kit", type: "public" },
+  { path: "/blog", status: 200, indexable: true, canonical: "https://www.sidqly.com/blog", type: "public" },
+  { path: "/islamic-utilities", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-utilities", type: "public" },
+  { path: "/namaz-timings", status: 200, indexable: true, canonical: "https://www.sidqly.com/namaz-timings", type: "public" },
+  { path: "/zakat-calculator", status: 200, indexable: true, canonical: "https://www.sidqly.com/zakat-calculator", type: "public" },
+  { path: "/islamic-calendar", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-calendar", type: "public" },
+  { path: "/moon-phase-islamic-calendar", status: 200, indexable: true, canonical: "https://www.sidqly.com/moon-phase-islamic-calendar", type: "public" },
+  { path: "/qibla-direction", status: 200, indexable: true, canonical: "https://www.sidqly.com/qibla-direction", type: "public" },
+  { path: "/weather-charity-distribution", status: 200, indexable: true, canonical: "https://www.sidqly.com/weather-charity-distribution", type: "public" },
+  { path: "/hajj-countdown", status: 200, indexable: true, canonical: "https://www.sidqly.com/hajj-countdown", type: "public" },
+  { path: "/ramadan-planner", status: 200, indexable: true, canonical: "https://www.sidqly.com/ramadan-planner", type: "public" },
+  { path: "/eid-qurbani-planner", status: 200, indexable: true, canonical: "https://www.sidqly.com/eid-qurbani-planner", type: "public" },
+  { path: "/sadqa-zakat-planner", status: 200, indexable: true, canonical: "https://www.sidqly.com/sadqa-zakat-planner", type: "public" },
+  { path: "/islamic-glossary", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-glossary", type: "public" },
+  { path: "/resources", status: 200, indexable: true, canonical: "https://www.sidqly.com/resources", type: "public" },
+
+  // System/Private Noindex Pages (200 but noindex)
+  { path: "/billing", status: 200, indexable: false, canonical: "https://www.sidqly.com/billing", type: "noindex" },
+  { path: "/start-pilot", status: 200, indexable: false, canonical: "https://www.sidqly.com/start-pilot", type: "noindex" },
+  { path: "/implementation", status: 200, indexable: false, canonical: "https://www.sidqly.com/implementation", type: "noindex" },
+  { path: "/migration", status: 200, indexable: false, canonical: "https://www.sidqly.com/migration", type: "noindex" },
+  { path: "/purchase", status: 200, indexable: false, canonical: "https://www.sidqly.com/purchase", type: "noindex" },
+  { path: "/status", status: 200, indexable: false, canonical: "https://www.sidqly.com/status", type: "noindex" },
+  { path: "/request-organization", status: 200, indexable: false, canonical: "https://www.sidqly.com/request-organization", type: "noindex" },
+  { path: "/why-fill-the-form", status: 200, indexable: false, canonical: "https://www.sidqly.com/why-fill-the-form", type: "noindex" },
+  { path: "/ask-sidqly", status: 200, indexable: false, canonical: "https://www.sidqly.com/ask-sidqly", type: "noindex" },
+  { path: "/thank-you", status: 200, indexable: false, canonical: "https://www.sidqly.com/thank-you", type: "noindex" },
+  { path: "/thank-you/demo", status: 200, indexable: false, canonical: "https://www.sidqly.com/thank-you/demo", type: "noindex" },
+  { path: "/thank-you/contact", status: 200, indexable: false, canonical: "https://www.sidqly.com/thank-you/contact", type: "noindex" },
+  { path: "/thank-you/pricing", status: 200, indexable: false, canonical: "https://www.sidqly.com/thank-you/pricing", type: "noindex" },
+
+  // Redirect Routes (301/308 client-side or expected)
+  { path: "/demo", status: 301, indexable: false, canonical: "https://www.sidqly.com/book-demo", type: "redirect" },
+
+  // Empty/Legacy Vanity Routes (Noindex Fallback)
+  { path: "/why-sidqly", status: 200, indexable: false, canonical: "https://www.sidqly.com/why-sidqly", type: "noindex" },
+  { path: "/trust-and-dignity", status: 200, indexable: false, canonical: "https://www.sidqly.com/trust-and-dignity", type: "noindex" },
+  { path: "/proof-trust-engine", status: 200, indexable: false, canonical: "https://www.sidqly.com/proof-trust-engine", type: "noindex" },
+  { path: "/verified-giving", status: 200, indexable: false, canonical: "https://www.sidqly.com/verified-giving", type: "noindex" },
+  { path: "/manual-payment-review", status: 200, indexable: false, canonical: "https://www.sidqly.com/manual-payment-review", type: "noindex" },
+  { path: "/donor-safe-impact", status: 200, indexable: false, canonical: "https://www.sidqly.com/donor-safe-impact", type: "noindex" },
+  { path: "/corporate-reporting", status: 200, indexable: false, canonical: "https://www.sidqly.com/corporate-reporting", type: "noindex" },
+  { path: "/zakat-fund-separation", status: 200, indexable: false, canonical: "https://www.sidqly.com/zakat-fund-separation", type: "noindex" },
+  { path: "/qurbani-management-software", status: 200, indexable: false, canonical: "https://www.sidqly.com/qurbani-management-software", type: "noindex" },
+  { path: "/ramadan-donation-management", status: 200, indexable: false, canonical: "https://www.sidqly.com/ramadan-donation-management", type: "noindex" },
+  { path: "/charity-request-management", status: 200, indexable: false, canonical: "https://www.sidqly.com/charity-request-management", type: "noindex" },
+  { path: "/vendor-fulfillment-platform", status: 200, indexable: false, canonical: "https://www.sidqly.com/vendor-fulfillment-platform", type: "noindex" },
+  { path: "/islamic-charity-software", status: 200, indexable: false, canonical: "https://www.sidqly.com/islamic-charity-software", type: "noindex" },
+  { path: "/mosque-donation-management", status: 200, indexable: false, canonical: "https://www.sidqly.com/mosque-donation-management", type: "noindex" }
+];

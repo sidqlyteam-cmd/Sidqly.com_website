@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import MainLayout from './layout/MainLayout';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -108,7 +108,7 @@ function App() {
             <Route path="product-tour" element={<ProductTour />} />
             <Route path="how-it-works" element={<HowItWorks />} />
             <Route path="pricing" element={<Pricing />} />
-            <Route path="demo" element={<BookDemo />} />
+            <Route path="demo" element={<Navigate to="/book-demo" replace />} />
             <Route path="book-demo" element={<BookDemo />} />
             <Route path="inquiry-form" element={<InquiryForm />} />
             <Route path="ask-sidqly" element={<AskSidqly />} />

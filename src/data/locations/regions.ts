@@ -17,7 +17,7 @@ export const regionsData: LocationRecord[] = [
     h1: 'Islamic Charity Software in North America',
     shortHero: 'Sidqly helps Islamic organizations working in North America manage verified giving workflows with manual payment review, proof approval, recipient-safe updates, and clearer reporting.',
     quickAnswer: 'Sidqly helps Islamic organizations in North America manage verified giving workflows with payment proof review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.',
-    canonicalPath: '/locations/north-america/',
+    canonicalPath: '/locations/north-america',
     faqs: [
       {
         question: 'Does Sidqly serve Islamic organizations in North America?',
@@ -41,7 +41,7 @@ export const regionsData: LocationRecord[] = [
     h1: 'Islamic Charity Software in Europe',
     shortHero: 'Sidqly helps Islamic organizations working in Europe manage verified giving workflows with manual payment review, proof approval, recipient-safe updates, and clearer reporting.',
     quickAnswer: 'Sidqly helps Islamic organizations in Europe manage verified giving workflows with payment proof review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.',
-    canonicalPath: '/locations/europe/',
+    canonicalPath: '/locations/europe',
     faqs: [
       {
         question: 'Does Sidqly serve Islamic organizations in Europe?',
@@ -65,7 +65,7 @@ export const regionsData: LocationRecord[] = [
     h1: 'Islamic Charity Software in the Middle East',
     shortHero: 'Sidqly helps Islamic organizations working in the Middle East manage verified giving workflows with manual payment review, proof approval, recipient-safe updates, and clearer reporting.',
     quickAnswer: 'Sidqly helps Islamic organizations in the Middle East manage verified giving workflows with payment proof review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.',
-    canonicalPath: '/locations/middle-east/',
+    canonicalPath: '/locations/middle-east',
     faqs: []
   },
   {
@@ -84,7 +84,7 @@ export const regionsData: LocationRecord[] = [
     h1: 'Islamic Charity Software in South Asia',
     shortHero: 'Sidqly helps Islamic organizations working in South Asia manage verified giving workflows with manual payment review, proof approval, recipient-safe updates, and clearer reporting.',
     quickAnswer: 'Sidqly helps Islamic organizations in South Asia manage verified giving workflows with payment proof review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.',
-    canonicalPath: '/locations/south-asia/',
+    canonicalPath: '/locations/south-asia',
     faqs: []
   },
   {
@@ -103,7 +103,7 @@ export const regionsData: LocationRecord[] = [
     h1: 'Islamic Charity Software in Asia Pacific',
     shortHero: 'Sidqly helps Islamic organizations working in Asia Pacific manage verified giving workflows with manual payment review, proof approval, recipient-safe updates, and clearer reporting.',
     quickAnswer: 'Sidqly helps Islamic organizations in Asia Pacific manage verified giving workflows with payment proof review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.',
-    canonicalPath: '/locations/asia-pacific/',
+    canonicalPath: '/locations/asia-pacific',
     faqs: []
   },
   {
@@ -122,7 +122,7 @@ export const regionsData: LocationRecord[] = [
     h1: 'Islamic Charity Software in Africa',
     shortHero: 'Sidqly helps Islamic organizations working in Africa manage verified giving workflows with manual payment review, proof approval, recipient-safe updates, and clearer reporting.',
     quickAnswer: 'Sidqly helps Islamic organizations in Africa manage verified giving workflows with payment proof review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.',
-    canonicalPath: '/locations/africa/',
+    canonicalPath: '/locations/africa',
     faqs: []
   }
 ];

@@ -35,15 +35,33 @@ async function generateRewrites() {
 
     // Explicit valid routes that are noindex and thus not in sitemaps
     const noindexRoutes = [
+        "/billing",
+        "/start-pilot",
+        "/implementation",
+        "/migration",
+        "/purchase",
+        "/status",
+        "/request-organization",
+        "/why-fill-the-form",
         "/thank-you",
         "/thank-you/demo",
         "/thank-you/contact",
         "/thank-you/pricing",
-        "/status",
         "/ask-sidqly",
-        "/why-fill-the-form",
-        "/brand", // wait, brand was in pages? let's ensure it's there
-        "/help"
+        "/why-sidqly",
+        "/trust-and-dignity",
+        "/proof-trust-engine",
+        "/verified-giving",
+        "/manual-payment-review",
+        "/donor-safe-impact",
+        "/corporate-reporting",
+        "/zakat-fund-separation",
+        "/qurbani-management-software",
+        "/ramadan-donation-management",
+        "/charity-request-management",
+        "/vendor-fulfillment-platform",
+        "/islamic-charity-software",
+        "/mosque-donation-management"
     ];
 
     noindexRoutes.forEach(r => allRoutes.add(r));

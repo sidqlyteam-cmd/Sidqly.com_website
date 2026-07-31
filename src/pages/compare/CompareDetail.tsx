@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
 import { CheckCircle2, XCircle, Shield, ChevronDown } from 'lucide-react';
@@ -9,6 +9,7 @@ import { comparisons } from '../../data/comparisons';
 const CompareDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const location = useLocation();
 
   const comparisonData = comparisons.find(c => c.slug === slug);
 
@@ -18,13 +19,16 @@ const CompareDetail: React.FC = () => {
   const displayDescription = comparisonData ? comparisonData.metaDescription : (isMosque ? "See why mosques and Islamic charities need more than a basic website to manage verified giving, donor updates, proof approval, and reporting." : "Why professional organizations choose Sidqly for their giving operations.");
   const metaTitle = comparisonData ? comparisonData.metaTitle : `${displayTitle} | ${brand.name}`;
 
+  const canonicalPath = slug ? `/compare/${slug}` : location.pathname;
+  const noindex = !comparisonData && !isMosque;
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },
         { name: "Compare", item: "/compare" },
-        { name: displayTitle, item: `/compare/${slug}` }
+        { name: displayTitle, item: canonicalPath }
       ]),
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -37,7 +41,8 @@ const CompareDetail: React.FC = () => {
       <SEO
         title={metaTitle}
         description={displayDescription}
-        canonical={`/compare/${slug}`}
+        canonical={canonicalPath}
+        noindex={noindex}
         schema={schema}
       />
       <section className="py-20 bg-sidqly-ivory">
