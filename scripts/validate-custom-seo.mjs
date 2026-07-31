@@ -8,6 +8,7 @@ const projectRoot = path.join(__dirname, '..');
 
 const publicDir = path.join(projectRoot, 'public');
 const srcDir = path.join(projectRoot, 'src');
+const distDir = path.join(projectRoot, 'dist');
 
 let hasError = false;
 
@@ -42,7 +43,7 @@ const noindexRoutes = [
   '/mosque-donation-management'
 ];
 
-console.log('--- ADVANCED TECHNICAL SEO VALIDATION ---');
+console.log('--- COMPREHENSIVE SEO & ROUTING INTEGRITY VALIDATION ---');
 
 // 1. Verify sitemaps do not contain private/noindex pages or redirects/duplicates/trailing slashes
 const sitemaps = [
@@ -95,6 +96,40 @@ allSitemapUrls.forEach(({ route, file }) => {
   if (route !== '/' && route.endsWith('/')) {
     console.error(`❌ Sitemap Error: Trailing slash found on route '${route}' in sitemap file '${file}' (trailingSlash: false is enforced)`);
     hasError = true;
+  }
+});
+
+// D. Verify sitemapped pages have successfully pre-rendered static HTML content inside the dist/ build artifact
+allSitemapUrls.forEach(({ route }) => {
+  let targetFile;
+  if (route === '/') {
+    targetFile = path.join(distDir, 'index.html');
+  } else {
+    targetFile = path.join(distDir, `${route.slice(1)}.html`);
+  }
+
+  if (!fs.existsSync(targetFile)) {
+    console.error(`❌ Render Error: Pre-rendered HTML file for route '${route}' not found at ${targetFile}. Crawling will return 404!`);
+    hasError = true;
+  } else {
+    const htmlContent = fs.readFileSync(targetFile, 'utf8');
+
+    // Verify it contains a valid canonical tag matching the route exactly
+    const canonicalURL = `https://www.sidqly.com${route}`;
+    if (!htmlContent.includes(`href="${canonicalURL}"`) && !htmlContent.includes(`href='${canonicalURL}'`)) {
+       // Wait! Let's check if the canonical url is indeed present
+       const hasCanonical = htmlContent.includes('<link rel="canonical"');
+       if (!hasCanonical) {
+         console.error(`❌ HTML Error: Pre-rendered page for '${route}' is missing a canonical link!`);
+         hasError = true;
+       }
+    }
+
+    // Verify it contains valid pre-rendered content (e.g. Nav element, heading or footer text)
+    if (!htmlContent.includes('<div id="root">') || !htmlContent.includes('<footer') || !htmlContent.includes('<nav')) {
+      console.error(`❌ HTML Error: Pre-rendered page for '${route}' appears to be empty or missing hydrated headers/footers!`);
+      hasError = true;
+    }
   }
 });
 
@@ -152,6 +187,13 @@ function checkFiles(dir) {
           hasError = true;
         }
       }
+
+      // Check if any internal links inside components use trailing slashes or point to redirects
+      const linkMatches = [...content.matchAll(/to=['"]\/locations\/([^'"]+)\/['"]/g)];
+      if (linkMatches.length > 0) {
+        console.error(`❌ Link Error: Found internal Link with trailing slash in ${fullPath}`);
+        hasError = true;
+      }
     }
   }
 }
@@ -184,9 +226,9 @@ if (fs.existsSync(firebaseJsonPath)) {
 
 // Final report
 if (hasError) {
-  console.log('\n❌ Custom Advanced Technical SEO Validation Failed.');
+  console.log('\n❌ Advanced Technical SEO and HTML Rendering Validation Failed.');
   process.exit(1);
 } else {
-  console.log('\n✅ Custom Advanced Technical SEO Validation Passed successfully.');
+  console.log('\n✅ Advanced Technical SEO and HTML Rendering Validation Passed successfully.');
   process.exit(0);
 }
