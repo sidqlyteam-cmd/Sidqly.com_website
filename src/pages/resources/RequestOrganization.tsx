@@ -48,6 +48,7 @@ const RequestOrganization: React.FC = () => {
         title="Request Your Organization to Use Sidqly"
         description="Recommend Sidqly to your mosque, charity, or corporate sponsor network for clearer giving records and protected dignity."
         canonical="/request-organization"
+        noindex={true}
         schema={schema}
       />
 
