@@ -775,6 +775,14 @@
         "destination": "/index.html"
       },
       {
+        "source": "/mission-and-values",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/mission-and-values/",
+        "destination": "/index.html"
+      },
+      {
         "source": "/modules",
         "destination": "/index.html"
       },
@@ -956,6 +964,14 @@
       },
       {
         "source": "/newsroom/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/platform",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/platform/",
         "destination": "/index.html"
       },
       {
@@ -1236,6 +1252,14 @@
       },
       {
         "source": "/weather-charity-distribution/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/what-is-sidqly",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/what-is-sidqly/",
         "destination": "/index.html"
       },
       {

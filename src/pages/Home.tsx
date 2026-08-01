@@ -507,9 +507,23 @@ const Home: React.FC = () => {
            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-sidqly-navy mb-4">Foundation of Trust</h2>
               <p className="text-gray-600 italic mb-6">Built on Amanah, Protected with Technology.</p>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto font-medium">
-                Sidqly is built for organizations that want to grow without losing trust. It keeps sensitive recipient details protected, gives finance teams cleaner records, and helps donors receive updates without exposing private hardship stories.
-              </p>
+              <div className="max-w-3xl mx-auto text-left space-y-6 text-gray-700 font-medium text-lg leading-relaxed mb-8">
+                 <p className="text-center font-bold text-sidqly-navy text-xl">What is Sidqly?</p>
+                 <p>
+                    Sidqly is a specialized, remote SaaS operating platform built for modern Islamic charities, mosques, and Zakat committees. We provide the backend administrative software to organize campaigns, verify payment proof, protect recipient dignity, and compile board-ready reports.
+                 </p>
+                 <p>
+                    Our operational model is inspired by the ethical values of **Sadaqah**, focusing on complete transparency, verifiable accountability, and recipient dignity:
+                 </p>
+                 <ul className="list-disc pl-6 space-y-2 font-semibold text-sidqly-navy">
+                    <li><strong>Transparency:</strong> Connects every donation directly to its field delivery task and fulfillment partner.</li>
+                    <li><strong>Accountability:</strong> Enforces immutable manual verification logs for finance and field reviewer teams.</li>
+                    <li><strong>Recipient Dignity:</strong> Anonymizes and blurs sensitive beneficiary faces in field photos automatically before sharing.</li>
+                 </ul>
+                 <p className="text-xs text-gray-500 italic bg-white p-4 rounded-xl border border-gray-100 text-center font-medium">
+                    <strong>Administrative Boundary:</strong> Sidqly is pure SaaS software and does not hold funds, process transactions directly, or act as a religious Shariah authority.
+                 </p>
+              </div>
            </div>
            <TrustPillars />
         </div>
