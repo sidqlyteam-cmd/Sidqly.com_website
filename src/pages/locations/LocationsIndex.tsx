@@ -35,13 +35,13 @@ const LocationsIndex: React.FC = () => {
         "@type": "WebPage",
         "name": "Global Service Areas | Sidqly",
         "description": "Sidqly helps mosques, Islamic charities, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs manage verified giving, payment proof, donor-safe updates, and board-ready reporting across global service areas.",
-        "url": `${brand.domain}/locations/`
+        "url": `${brand.domain}/locations`
       },
       generateFAQSchema(faqList),
       generateItemListSchema([
-        ...regionsData.filter(r => r.indexStatus === 'index').map(r => ({ name: r.region, url: `/locations/${r.slug}/` })),
-        ...countriesData.filter(c => c.indexStatus === 'index').map(c => ({ name: c.country, url: `/locations/${c.slug}/` })),
-        ...allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map(c => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}/` }))
+        ...regionsData.filter(r => r.indexStatus === 'index').map(r => ({ name: r.region, url: `/locations/${r.slug}` })),
+        ...countriesData.filter(c => c.indexStatus === 'index').map(c => ({ name: c.country, url: `/locations/${c.slug}` })),
+        ...allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map(c => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}` }))
       ])
     ]
   };
@@ -51,7 +51,7 @@ const LocationsIndex: React.FC = () => {
       <SEO
         title="Global Service Areas"
         description="Sidqly helps mosques, Islamic charities, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs manage verified giving, payment proof, donor-safe updates, and board-ready reporting across global service areas."
-        canonical="/locations/"
+        canonical="/locations"
         schema={schema}
       />
 

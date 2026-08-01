@@ -58,8 +58,7 @@ const modulesRoutes = [
     '/modules/privacy-dignity-controls',
     '/modules/audit-ready-records',
     '/modules/donor-communication',
-    '/modules/pilot-launch-support',
-    '/proof-trust-engine' // also has a custom route in original list
+    '/modules/pilot-launch-support'
 ];
 
 const useCasesRoutes = [
@@ -87,7 +86,7 @@ const blogRoutes = [
 // Dynamically build location routes
 const locationsRoutes = [
     '/regions',
-    '/locations/',
+    '/locations',
     ...getIndexableLocations()
 ];
 

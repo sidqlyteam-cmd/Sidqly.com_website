@@ -26,7 +26,7 @@ export const getIndexableLocations = () => {
                 ) {
                     const slugMatch = record.match(/slug:\s*['"]([^'"]+)['"]/);
                     if (slugMatch && slugMatch[1]) {
-                        slugs.push(`/locations/${slugMatch[1]}/`);
+                        slugs.push(`/locations/${slugMatch[1]}`);
                     }
                 }
             }

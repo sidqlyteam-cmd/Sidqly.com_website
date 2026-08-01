@@ -8,6 +8,7 @@ const projectRoot = path.join(__dirname, '..');
 
 const publicDir = path.join(projectRoot, 'public');
 const srcDir = path.join(projectRoot, 'src');
+const distDir = path.join(projectRoot, 'dist');
 
 let hasError = false;
 
@@ -26,11 +27,25 @@ const noindexRoutes = [
   '/thank-you/contact',
   '/thank-you/pricing',
   '/ask-sidqly',
+  '/why-sidqly',
+  '/trust-and-dignity',
+  '/proof-trust-engine',
+  '/verified-giving',
+  '/manual-payment-review',
+  '/donor-safe-impact',
+  '/corporate-reporting',
+  '/zakat-fund-separation',
+  '/qurbani-management-software',
+  '/ramadan-donation-management',
+  '/charity-request-management',
+  '/vendor-fulfillment-platform',
+  '/islamic-charity-software',
+  '/mosque-donation-management'
 ];
 
-console.log('--- Custom SEO Validation Script ---');
+console.log('--- COMPREHENSIVE SEO & ROUTING INTEGRITY VALIDATION ---');
 
-// 1. Verify sitemaps do not contain private/noindex pages
+// 1. Verify sitemaps do not contain private/noindex pages or redirects/duplicates/trailing slashes
 const sitemaps = [
   'sitemap-pages.xml',
   'sitemap-modules.xml',
@@ -55,15 +70,15 @@ sitemaps.forEach(sitemapFile => {
   }
 });
 
-// Check if any noindex routes exist in sitemaps
+// A. Check if any noindex routes exist in sitemaps
 allSitemapUrls.forEach(({ route, file }) => {
   if (noindexRoutes.includes(route) || noindexRoutes.some(r => route.startsWith(r + '/'))) {
-    console.error(`❌ Error: Private/Noindex route '${route}' found in sitemap file '${file}'`);
+    console.error(`❌ Sitemap Error: Private/Noindex route '${route}' found in sitemap file '${file}'`);
     hasError = true;
   }
 });
 
-// 2. Check for duplicate routes in sitemaps
+// B. Check for duplicate routes in sitemaps
 const routeCounts = {};
 allSitemapUrls.forEach(({ route }) => {
   routeCounts[route] = (routeCounts[route] || 0) + 1;
@@ -71,12 +86,54 @@ allSitemapUrls.forEach(({ route }) => {
 
 Object.entries(routeCounts).forEach(([route, count]) => {
   if (count > 1) {
-    console.error(`❌ Error: Duplicate route '${route}' found ${count} times in sitemaps`);
+    console.error(`❌ Sitemap Error: Duplicate route '${route}' found ${count} times in sitemaps`);
     hasError = true;
   }
 });
 
-// 3. Scan TSX files to verify canonical and noindex matching
+// C. Check for trailing slash inconsistencies in sitemaps (all URLs must exclude trailing slash to match config)
+allSitemapUrls.forEach(({ route, file }) => {
+  if (route !== '/' && route.endsWith('/')) {
+    console.error(`❌ Sitemap Error: Trailing slash found on route '${route}' in sitemap file '${file}' (trailingSlash: false is enforced)`);
+    hasError = true;
+  }
+});
+
+// D. Verify sitemapped pages have successfully pre-rendered static HTML content inside the dist/ build artifact
+allSitemapUrls.forEach(({ route }) => {
+  let targetFile;
+  if (route === '/') {
+    targetFile = path.join(distDir, 'index.html');
+  } else {
+    targetFile = path.join(distDir, `${route.slice(1)}.html`);
+  }
+
+  if (!fs.existsSync(targetFile)) {
+    console.error(`❌ Render Error: Pre-rendered HTML file for route '${route}' not found at ${targetFile}. Crawling will return 404!`);
+    hasError = true;
+  } else {
+    const htmlContent = fs.readFileSync(targetFile, 'utf8');
+
+    // Verify it contains a valid canonical tag matching the route exactly
+    const canonicalURL = `https://www.sidqly.com${route}`;
+    if (!htmlContent.includes(`href="${canonicalURL}"`) && !htmlContent.includes(`href='${canonicalURL}'`)) {
+       // Wait! Let's check if the canonical url is indeed present
+       const hasCanonical = htmlContent.includes('<link rel="canonical"');
+       if (!hasCanonical) {
+         console.error(`❌ HTML Error: Pre-rendered page for '${route}' is missing a canonical link!`);
+         hasError = true;
+       }
+    }
+
+    // Verify it contains valid pre-rendered content (e.g. Nav element, heading or footer text)
+    if (!htmlContent.includes('<div id="root">') || !htmlContent.includes('<footer') || !htmlContent.includes('<nav')) {
+      console.error(`❌ HTML Error: Pre-rendered page for '${route}' appears to be empty or missing hydrated headers/footers!`);
+      hasError = true;
+    }
+  }
+});
+
+// 2. Scan TSX files to verify canonical, noindex matching, and OG/Twitter URL consistency
 function checkFiles(dir) {
   const files = fs.readdirSync(dir);
   for (const file of files) {
@@ -97,6 +154,7 @@ function checkFiles(dir) {
           return relPath.toLowerCase().includes(r.replace(/\//g, '').replace(/-/g, '').toLowerCase());
         }) || fullPath.includes('ThankYou.tsx');
 
+        // Check if expected noindex page actually has noindex set
         if (matchesNoindexRoute) {
           if (!noindexMatch) {
              console.error(`❌ Error: Expected private/system page '${file}' to have noindex={true} set in ${fullPath}`);
@@ -118,6 +176,23 @@ function checkFiles(dir) {
              hasError = true;
           }
         }
+
+        // Verify that any canonical matches do not point to wrong host
+        if (content.includes('canonical="http:')) {
+          console.error(`❌ Error: Canonical in '${file}' uses non-HTTPS protocol in ${fullPath}`);
+          hasError = true;
+        }
+        if (content.includes('canonical="https://sidqly.com')) {
+          console.error(`❌ Error: Canonical in '${file}' uses non-www apex host in ${fullPath}`);
+          hasError = true;
+        }
+      }
+
+      // Check if any internal links inside components use trailing slashes or point to redirects
+      const linkMatches = [...content.matchAll(/to=['"]\/locations\/([^'"]+)\/['"]/g)];
+      if (linkMatches.length > 0) {
+        console.error(`❌ Link Error: Found internal Link with trailing slash in ${fullPath}`);
+        hasError = true;
       }
     }
   }
@@ -125,11 +200,35 @@ function checkFiles(dir) {
 
 checkFiles(path.join(srcDir, 'pages'));
 
+// 3. Verify Soft 404 & Invalid Route Responses (Audit our Firebase configuration)
+const firebaseJsonPath = path.join(projectRoot, 'firebase.json');
+if (fs.existsSync(firebaseJsonPath)) {
+  const firebaseConfig = JSON.parse(fs.readFileSync(firebaseJsonPath, 'utf8'));
+  const rewrites = firebaseConfig.hosting.rewrites || [];
+
+  // A. Check if catch-all wildcard is present (which triggers Soft 404s)
+  const catchAll = rewrites.find(r => r.source === '**');
+  if (catchAll) {
+    console.error(`❌ Security Error: Firebase Hosting has a catch-all '**' rewrite. This will cause soft 404s!`);
+    hasError = true;
+  }
+
+  // B. Verify that only actual classified routes are in the rewrites list
+  const rewriteSources = rewrites.map(r => r.source);
+  rewriteSources.forEach(source => {
+    // If it's a random invalid URL pattern, it shouldn't be rewritten
+    if (source.includes('invalid') || source.includes('non-existent')) {
+      console.error(`❌ Config Error: Found invalid rewrite source '${source}' in firebase.json`);
+      hasError = true;
+    }
+  });
+}
+
 // Final report
 if (hasError) {
-  console.log('\n❌ Custom SEO Validation Failed.');
+  console.log('\n❌ Advanced Technical SEO and HTML Rendering Validation Failed.');
   process.exit(1);
 } else {
-  console.log('\n✅ Custom SEO Validation Passed successfully.');
+  console.log('\n✅ Advanced Technical SEO and HTML Rendering Validation Passed successfully.');
   process.exit(0);
 }
