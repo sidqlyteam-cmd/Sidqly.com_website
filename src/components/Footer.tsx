@@ -89,6 +89,7 @@ const Footer: React.FC = () => {
                 <div>
                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-sidqly-green-soft mb-6">Product</h4>
                    <ul className="space-y-4 text-sm text-gray-400 font-medium">
+                      <li><Link to="/what-is-sidqly" className="hover:text-white transition-colors">What is Sidqly?</Link></li>
                       <li><Link to="/features" className="hover:text-white transition-colors">Features</Link></li>
                       <li><Link to="/modules" className="hover:text-white transition-colors">Modules</Link></li>
                       <li><Link to="/use-cases" className="hover:text-white transition-colors">Use Cases</Link></li>

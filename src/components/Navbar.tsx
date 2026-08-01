@@ -30,6 +30,7 @@ const Navbar: React.FC = () => {
 
   const navigation = [
     { name: "Product", href: "/how-it-works", children: [
+        { name: 'What is Sidqly?', href: '/what-is-sidqly' },
         { name: 'Features', href: '/features' },
         { name: 'Modules', href: '/modules' },
         { name: 'Compare', href: '/compare' },

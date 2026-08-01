@@ -34,6 +34,10 @@ import ThankYou from './pages/ThankYou';
 import SitemapPage from './pages/SitemapPage';
 import AISearchReadiness from './pages/AISearchReadiness';
 import Resources from './pages/Resources';
+import WhatIsSidqly from './pages/WhatIsSidqly';
+import WhySidqly from './pages/WhySidqly';
+import MissionAndValues from './pages/MissionAndValues';
+import Platform from './pages/Platform';
 
 // Islamic Utilities Pages
 import IslamicUtilitiesPage from './pages/islamic/IslamicUtilitiesPage';
@@ -110,6 +114,12 @@ function App() {
             <Route path="pricing" element={<Pricing />} />
             <Route path="demo" element={<Navigate to="/book-demo" replace />} />
             <Route path="book-demo" element={<BookDemo />} />
+            <Route path="what-is-sidqly" element={<WhatIsSidqly />} />
+            <Route path="why-sidqly" element={<WhySidqly />} />
+            <Route path="how-sidqly-works" element={<Navigate to="/how-it-works" replace />} />
+            <Route path="mission-and-values" element={<MissionAndValues />} />
+            <Route path="platform" element={<Platform />} />
+            <Route path="trust" element={<Navigate to="/trust-center" replace />} />
             <Route path="inquiry-form" element={<InquiryForm />} />
             <Route path="ask-sidqly" element={<AskSidqly />} />
             <Route path="why-fill-the-form" element={<WhyFillForm />} />
@@ -169,7 +179,6 @@ function App() {
 
             {/* Comparison / GEO / LLMO Routes */}
             <Route path="compare" element={<CompareIndex />} />
-            <Route path="why-sidqly" element={<CompareDetail />} />
             <Route path="trust-and-dignity" element={<CompareDetail />} />
             <Route path="proof-trust-engine" element={<CompareDetail />} />
             <Route path="verified-giving" element={<CompareDetail />} />

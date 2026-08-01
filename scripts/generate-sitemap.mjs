@@ -11,6 +11,10 @@ const domain = 'https://www.sidqly.com';
 
 const pagesRoutes = [
     '/',
+    '/what-is-sidqly',
+    '/why-sidqly',
+    '/mission-and-values',
+    '/platform',
     '/features',
     '/product-tour',
     '/how-it-works',

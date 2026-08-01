@@ -27,7 +27,6 @@ const noindexRoutes = [
   '/thank-you/contact',
   '/thank-you/pricing',
   '/ask-sidqly',
-  '/why-sidqly',
   '/trust-and-dignity',
   '/proof-trust-engine',
   '/verified-giving',
