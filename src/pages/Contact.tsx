@@ -4,6 +4,7 @@ import { brand } from '../config/brand';
 import { Mail, Calendar, MessageSquare, MapPin } from 'lucide-react';
 import { generateBreadcrumbSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
+import { trackEvent } from '../lib/analytics';
 
 const Contact: React.FC = () => {
   const schema = {
@@ -48,7 +49,13 @@ const Contact: React.FC = () => {
                       <div>
                          <h3 className="text-xl font-bold text-sidqly-navy mb-2">Book a Demo</h3>
                          <p className="text-gray-600 text-sm mb-6">Schedule a direct conversation with our team to explore how Sidqly fits your operations.</p>
-                         <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="text-sidqly-green-emerald font-bold hover:underline">Choose a time slot →</a>
+                         <a
+                           href={brand.calendlyUrl}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           onClick={() => trackEvent('demo_submit', { cta_source: 'contact_page_calendly' })}
+                           className="text-sidqly-green-emerald font-bold hover:underline"
+                         >Choose a time slot →</a>
                       </div>
                    </div>
                 </div>
@@ -61,7 +68,13 @@ const Contact: React.FC = () => {
                       <div>
                          <h3 className="text-xl font-bold text-sidqly-navy mb-2">Fill Inquiry Form</h3>
                          <p className="text-gray-600 text-sm mb-6">Tell us about your organization and specific needs so we can prepare a tailored recommendation.</p>
-                         <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="text-sidqly-green-emerald font-bold hover:underline">Open form →</a>
+                         <a
+                           href={brand.inquiryFormUrl}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'contact_page_inquiry' })}
+                           className="text-sidqly-green-emerald font-bold hover:underline"
+                         >Open form →</a>
                       </div>
                    </div>
                 </div>
@@ -74,7 +87,11 @@ const Contact: React.FC = () => {
                       <div>
                          <h3 className="text-xl font-bold text-sidqly-navy mb-2">Email Us</h3>
                          <p className="text-gray-600 text-sm mb-6">For general queries, partnership discussions, or billing support.</p>
-                         <a href={`mailto:${brand.email}`} className="text-sidqly-green-emerald font-bold hover:underline">{brand.email} →</a>
+                         <a
+                           href={`mailto:${brand.email}`}
+                           onClick={() => trackEvent('contact_submit', { cta_source: 'contact_page_email' })}
+                           className="text-sidqly-green-emerald font-bold hover:underline"
+                         >{brand.email} →</a>
                       </div>
                    </div>
                 </div>

@@ -43,7 +43,7 @@ const noindexRoutes = [
   '/mosque-donation-management'
 ];
 
-console.log('--- COMPREHENSIVE SEO & ROUTING INTEGRITY VALIDATION ---');
+console.log('--- COMPREHENSIVE SEO, ANALYTICS & SECRECY INTEGRITY VALIDATION ---');
 
 // 1. Verify sitemaps do not contain private/noindex pages or redirects/duplicates/trailing slashes
 const sitemaps = [
@@ -117,7 +117,6 @@ allSitemapUrls.forEach(({ route }) => {
     // Verify it contains a valid canonical tag matching the route exactly
     const canonicalURL = `https://www.sidqly.com${route}`;
     if (!htmlContent.includes(`href="${canonicalURL}"`) && !htmlContent.includes(`href='${canonicalURL}'`)) {
-       // Wait! Let's check if the canonical url is indeed present
        const hasCanonical = htmlContent.includes('<link rel="canonical"');
        if (!hasCanonical) {
          console.error(`❌ HTML Error: Pre-rendered page for '${route}' is missing a canonical link!`);
@@ -133,7 +132,10 @@ allSitemapUrls.forEach(({ route }) => {
   }
 });
 
-// 2. Scan TSX files to verify canonical, noindex matching, and OG/Twitter URL consistency
+// 2. Scan TSX/JS files to verify canonical, noindex matching, secrets exposure, and event tracking
+let hasTrackEventImport = false;
+let foundSecretKey = false;
+
 function checkFiles(dir) {
   const files = fs.readdirSync(dir);
   for (const file of files) {
@@ -141,8 +143,12 @@ function checkFiles(dir) {
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
       checkFiles(fullPath);
-    } else if (fullPath.endsWith('.tsx')) {
+    } else if (fullPath.endsWith('.tsx') || fullPath.endsWith('.ts')) {
       const content = fs.readFileSync(fullPath, 'utf8');
+
+      if (content.includes('trackEvent')) {
+        hasTrackEventImport = true;
+      }
 
       // If file is a Page component, verify SEO setup
       if (content.includes('<SEO')) {
@@ -194,11 +200,31 @@ function checkFiles(dir) {
         console.error(`❌ Link Error: Found internal Link with trailing slash in ${fullPath}`);
         hasError = true;
       }
+
+      // SECRETS & KEYS EXPOSURE SANITY CHECKS
+      // Search for any hardcoded search console verification codes or analytics IDs (not using environment variables)
+      const matchesHardcodedVerification = content.match(/google-site-verification['"]\s*content=['"][a-zA-Z0-9_-]{20,}/i);
+      if (matchesHardcodedVerification) {
+        console.error(`❌ Security Error: Found hardcoded google-site-verification token in ${fullPath}`);
+        hasError = true;
+      }
+
+      const matchesHardcodedGA = content.match(/gtag\(['"]config['"]\s*,\s*['"]G-[A-Z0-9]{8,15}['"]/i);
+      if (matchesHardcodedGA) {
+        console.error(`❌ Security Error: Found hardcoded GA4 Measurement ID in ${fullPath}`);
+        hasError = true;
+      }
     }
   }
 }
 
 checkFiles(path.join(srcDir, 'pages'));
+
+// Verify that trackEvent is integrated across the project
+if (!hasTrackEventImport) {
+  console.error(`❌ Analytics Error: trackEvent is not integrated or imported in any component!`);
+  hasError = true;
+}
 
 // 3. Verify Soft 404 & Invalid Route Responses (Audit our Firebase configuration)
 const firebaseJsonPath = path.join(projectRoot, 'firebase.json');
@@ -216,7 +242,6 @@ if (fs.existsSync(firebaseJsonPath)) {
   // B. Verify that only actual classified routes are in the rewrites list
   const rewriteSources = rewrites.map(r => r.source);
   rewriteSources.forEach(source => {
-    // If it's a random invalid URL pattern, it shouldn't be rewritten
     if (source.includes('invalid') || source.includes('non-existent')) {
       console.error(`❌ Config Error: Found invalid rewrite source '${source}' in firebase.json`);
       hasError = true;
@@ -226,9 +251,9 @@ if (fs.existsSync(firebaseJsonPath)) {
 
 // Final report
 if (hasError) {
-  console.log('\n❌ Advanced Technical SEO and HTML Rendering Validation Failed.');
+  console.log('\n❌ Comprehensive SEO, Analytics and Secrecy Validation Failed.');
   process.exit(1);
 } else {
-  console.log('\n✅ Advanced Technical SEO and HTML Rendering Validation Passed successfully.');
+  console.log('\n✅ Comprehensive SEO, Analytics and Secrecy Validation Passed successfully.');
   process.exit(0);
 }

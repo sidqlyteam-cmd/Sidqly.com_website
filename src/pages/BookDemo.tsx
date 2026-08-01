@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import { Calendar, ShieldCheck, Mail, ArrowRight, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { trackEvent } from '../lib/analytics';
 
 const BookDemo: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -85,7 +86,13 @@ const BookDemo: React.FC = () => {
                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
                       To make our call productive, please fill out the detailed inquiry form. This helps the Sidqly team understand your organization type, current tools, and primary challenges before we meet.
                    </p>
-                   <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold hover:gap-3 transition-all">
+                   <a
+                     href={brand.inquiryFormUrl}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'book_demo_inquiry_card' })}
+                     className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold hover:gap-3 transition-all"
+                   >
                       Fill Inquiry Form <ArrowRight size={18} />
                    </a>
                 </div>
@@ -112,6 +119,7 @@ const BookDemo: React.FC = () => {
                        href={brand.calendlyUrl}
                        target="_blank"
                        rel="noopener noreferrer"
+                       onClick={() => trackEvent('demo_submit', { cta_source: 'book_demo_calendly_scheduler' })}
                        className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all inline-block w-full mb-6"
                     >
                        Open Demo Calendar

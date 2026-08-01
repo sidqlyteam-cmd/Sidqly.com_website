@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '../config/brand';
 import { Mail, Calendar, FileText, Globe, Shield, Search } from 'lucide-react';
+import { trackEvent } from '../lib/analytics';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -59,13 +60,25 @@ const Footer: React.FC = () => {
               Verified giving operations platform for Islamic charities.
             </p>
             <div className="space-y-4">
-              <a href={brand.calendlyUrl} className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold">
+              <a
+                href={brand.calendlyUrl}
+                onClick={() => trackEvent('demo_submit', { cta_source: 'footer_links_demo' })}
+                className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold"
+              >
                 <Calendar size={18} /> Book a Demo
               </a>
-              <a href={brand.inquiryFormUrl} className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold">
+              <a
+                href={brand.inquiryFormUrl}
+                onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'footer_links_inquiry' })}
+                className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold"
+              >
                 <FileText size={18} /> Fill Inquiry Form
               </a>
-              <a href={`mailto:${brand.email}`} className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold">
+              <a
+                href={`mailto:${brand.email}`}
+                onClick={() => trackEvent('contact_submit', { cta_source: 'footer_links_email' })}
+                className="flex items-center gap-3 text-sidqly-green-soft hover:text-white transition-colors text-sm font-bold"
+              >
                 <Mail size={18} /> {brand.email}
               </a>
             </div>
@@ -187,13 +200,29 @@ const Footer: React.FC = () => {
         <div className="border-t border-white/10 py-12 text-center">
            <h3 className="text-xl font-bold text-white mb-6">Want your organization to manage giving more clearly?</h3>
            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/request-organization" className="bg-sidqly-green-emerald text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all text-sm">
+              <Link
+                to="/request-organization"
+                onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'footer_bottom_request' })}
+                className="bg-sidqly-green-emerald text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all text-sm"
+              >
                  Request Your Organization
               </Link>
-              <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition-all text-sm border border-white/10">
+              <a
+                href={brand.links.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('demo_submit', { cta_source: 'footer_bottom_demo' })}
+                className="bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition-all text-sm border border-white/10"
+              >
                  Book Demo
               </a>
-              <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition-all text-sm border border-white/10">
+              <a
+                href={brand.links.inquiryForm}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'footer_bottom_inquiry' })}
+                className="bg-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/20 transition-all text-sm border border-white/10"
+              >
                  Fill Inquiry Form
               </a>
            </div>

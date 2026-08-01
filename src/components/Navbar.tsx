@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import SearchModal from './search/SearchModal';
 import { Menu, X, ChevronDown, Search } from 'lucide-react';
 import { brand } from '../config/brand';
+import { trackEvent } from '../lib/analytics';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -145,6 +146,7 @@ const Navbar: React.FC = () => {
                  href={brand.calendlyUrl}
                  target="_blank"
                  rel="noopener noreferrer"
+                 onClick={() => trackEvent('demo_submit', { cta_source: 'navbar_desktop_cta' })}
                  className="bg-sidqly-green-deep text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:shadow-lg transition-all"
                >
                  Book Demo
@@ -207,6 +209,10 @@ const Navbar: React.FC = () => {
                 href={brand.calendlyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent('demo_submit', { cta_source: 'navbar_mobile_menu_demo' });
+                  setIsOpen(false);
+                }}
                 className="block w-full text-center bg-sidqly-green-deep text-white py-4 rounded-xl font-bold"
               >
                 Book Demo
@@ -215,6 +221,10 @@ const Navbar: React.FC = () => {
                 href={brand.inquiryFormUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  trackEvent('guided_pilot_apply', { cta_source: 'navbar_mobile_menu_inquiry' });
+                  setIsOpen(false);
+                }}
                 className="block w-full text-center bg-sidqly-ivory text-sidqly-navy py-4 rounded-xl font-bold"
               >
                 Fill Inquiry Form
