@@ -1,0 +1,528 @@
+{
+  "submitted": {
+    "https://www.sidqly.com/": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/features": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/product-tour": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/how-it-works": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/pricing": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/compare": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/about": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/contact": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/newsroom": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/media-kit": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/trust-center": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/security": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/privacy": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/accessibility": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/faqs": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/islamic-utilities": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/islamic-glossary": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/namaz-timings": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/islamic-calendar": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/moon-phase-islamic-calendar": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/qibla-direction": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/zakat-calculator": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/weather-charity-distribution": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/hajj-countdown": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/ramadan-planner": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/eid-qurbani-planner": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/sadqa-zakat-planner": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/manual-payment-review": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/proof-trust-engine": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/donor-safe-updates": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/zakat-fund-separation": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/sadaqah-campaigns": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/qurbani-lifecycle": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/ramadan-meals-rations": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/charity-request-intake": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/vendor-fulfillment": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/volunteer-coordination": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/corporate-csr-zakat": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/receipts-certificates": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/qr-code-verification": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/reports-board-packs": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/privacy-dignity-controls": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/audit-ready-records": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/donor-communication": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/modules/pilot-launch-support": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/use-cases": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/use-cases/mosques": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/use-cases/islamic-charities": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/use-cases/zakat-committees": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/use-cases/qurbani-organizers": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/use-cases/sadaqah-campaign-teams": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/use-cases/corporate-sponsors": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/resources": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/resources/eid-giving": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/resources/what-is-islamic-charity-management-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/resources/how-to-manage-zakat-requests": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/blog": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/regions": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/north-america": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/europe": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/middle-east": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/south-asia": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/asia-pacific": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/africa": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/united-kingdom": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/united-states": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/canada": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/united-arab-emirates": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/saudi-arabia": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/qatar": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/kuwait": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/bahrain": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/oman": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/pakistan": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/india": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/malaysia": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/indonesia": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/australia": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/south-africa": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/london-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/birmingham-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/manchester-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/leicester-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/new-york-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/houston-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/chicago-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/dallas-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/toronto-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/mississauga-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/dubai-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/abu-dhabi-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/sharjah-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/riyadh-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/jeddah-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/doha-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/kuwait-city-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/manama-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/muscat-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/karachi-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/lahore-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/islamabad-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/kuala-lumpur-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/sydney-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/melbourne-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/boston-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/washington-dc-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/los-angeles-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/san-francisco-bay-area-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/atlanta-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/detroit-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/philadelphia-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/calgary-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/vancouver-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/montreal-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/ottawa-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/bradford-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/glasgow-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/leeds-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/bolton-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/makkah-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/madinah-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/dammam-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/al-khobar-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/ajman-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/al-ain-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/hyderabad-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/mumbai-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/jakarta-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    },
+    "https://www.sidqly.com/locations/cape-town-islamic-charity-software": {
+      "timestamp": "2026-08-01T05:13:43.206Z",
+      "status": 202
+    }
+  }
+}

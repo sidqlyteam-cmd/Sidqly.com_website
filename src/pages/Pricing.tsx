@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { generateSoftwareAppSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
+import { trackEvent } from '../lib/analytics';
 
 const customPricingFaqs = [
   { question: "Which Sidqly plan should our organization choose?", answer: "Start with the Starter or Growth plan depending on the number of modules you need (e.g. Qurbani vs daily Sadaqah campaigns). Most organizations start with a pilot." },
@@ -142,6 +143,7 @@ const Pricing: React.FC = () => {
 
                   <Link
                     to={plan.href}
+                    onClick={() => trackEvent('pricing_cta_click', { cta_source: `pricing_card_${plan.name.toLowerCase()}` })}
                     className={`block w-full text-center py-4 rounded-xl font-bold transition-all text-sm mb-8 ${plan.popular ? 'bg-sidqly-green-deep text-white hover:bg-sidqly-green-emerald shadow-lg' : 'bg-sidqly-ivory text-sidqly-navy hover:bg-gray-100 border border-gray-200'}`}
                   >
                     {plan.cta}
