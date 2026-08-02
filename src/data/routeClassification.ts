@@ -48,6 +48,9 @@ export const routeClassifications: RouteClassification[] = [
   { path: "/sadqa-zakat-planner", status: 200, indexable: true, canonical: "https://www.sidqly.com/sadqa-zakat-planner", type: "public" },
   { path: "/islamic-glossary", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-glossary", type: "public" },
   { path: "/resources", status: 200, indexable: true, canonical: "https://www.sidqly.com/resources", type: "public" },
+  { path: "/guided-pilot", status: 200, indexable: true, canonical: "https://www.sidqly.com/guided-pilot", type: "public" },
+  { path: "/data-migration", status: 200, indexable: true, canonical: "https://www.sidqly.com/data-migration", type: "public" },
+  { path: "/contact-sales", status: 200, indexable: true, canonical: "https://www.sidqly.com/contact-sales", type: "public" },
 
   // System/Private Noindex Pages (200 but noindex)
   { path: "/billing", status: 200, indexable: false, canonical: "https://www.sidqly.com/billing", type: "noindex" },

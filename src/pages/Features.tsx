@@ -144,9 +144,12 @@ const Features: React.FC = () => {
                 <div className="text-sm text-gray-500 font-bold uppercase tracking-widest">To generate board reports</div>
              </div>
           </div>
-          <div className="mt-16">
-             <a href={brand.calendlyUrl} className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all inline-block">
-                See it in action
+          <div className="mt-16 flex flex-col sm:flex-row justify-center gap-4">
+             <Link to="/guided-pilot" className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all inline-block">
+                Apply for Guided Pilot
+             </Link>
+             <a href={brand.calendlyUrl} className="bg-white border border-gray-200 text-sidqly-navy px-10 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all inline-block">
+                Book a Demo
              </a>
           </div>
         </div>

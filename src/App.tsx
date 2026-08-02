@@ -38,6 +38,9 @@ import WhatIsSidqly from './pages/WhatIsSidqly';
 import WhySidqly from './pages/WhySidqly';
 import MissionAndValues from './pages/MissionAndValues';
 import Platform from './pages/Platform';
+import GuidedPilot from './pages/GuidedPilot';
+import DataMigration from './pages/DataMigration';
+import ContactSales from './pages/ContactSales';
 
 // Islamic Utilities Pages
 import IslamicUtilitiesPage from './pages/islamic/IslamicUtilitiesPage';
@@ -114,6 +117,9 @@ function App() {
             <Route path="pricing" element={<Pricing />} />
             <Route path="demo" element={<Navigate to="/book-demo" replace />} />
             <Route path="book-demo" element={<BookDemo />} />
+            <Route path="guided-pilot" element={<GuidedPilot />} />
+            <Route path="data-migration" element={<DataMigration />} />
+            <Route path="contact-sales" element={<ContactSales />} />
             <Route path="what-is-sidqly" element={<WhatIsSidqly />} />
             <Route path="why-sidqly" element={<WhySidqly />} />
             <Route path="how-sidqly-works" element={<Navigate to="/how-it-works" replace />} />

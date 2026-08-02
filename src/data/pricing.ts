@@ -91,8 +91,8 @@ export const pricing = {
         "Implementation planning",
         "Custom agreement"
       ],
-      cta: "Contact Sidqly",
-      href: "/contact?plan=enterprise",
+      cta: "Contact Sales",
+      href: "/contact-sales",
       popular: false
     }
   ],

@@ -34,7 +34,10 @@ const Navbar: React.FC = () => {
         { name: 'Features', href: '/features' },
         { name: 'Modules', href: '/modules' },
         { name: 'Compare', href: '/compare' },
-        { name: 'Pricing', href: '/pricing' }
+        { name: 'Pricing', href: '/pricing' },
+        { name: 'Guided Pilot', href: '/guided-pilot' },
+        { name: 'Data Migration', href: '/data-migration' },
+        { name: 'Contact Sales', href: '/contact-sales' }
     ] },
     { name: 'Use Cases', href: '/use-cases' },
     {
@@ -143,12 +146,18 @@ const Navbar: React.FC = () => {
               </div>
             ))}
             <div className="flex items-center gap-4 pl-4 border-l border-gray-100">
+               <Link
+                 to="/guided-pilot"
+                 className="bg-sidqly-green-deep text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:shadow-lg transition-all"
+               >
+                 Guided Pilot
+               </Link>
                <a
                  href={brand.calendlyUrl}
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={() => trackEvent('demo_submit', { cta_source: 'navbar_desktop_cta' })}
-                 className="bg-sidqly-green-deep text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:shadow-lg transition-all"
+                 className="bg-white border border-gray-200 text-sidqly-navy px-6 py-2.5 rounded-xl font-bold text-sm hover:shadow-lg transition-all"
                >
                  Book Demo
                </a>
@@ -206,6 +215,13 @@ const Navbar: React.FC = () => {
               </div>
             ))}
             <div className="pt-6 px-3 flex flex-col gap-3">
+              <Link
+                to="/guided-pilot"
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-center bg-sidqly-green-deep text-white py-4 rounded-xl font-bold"
+              >
+                Apply for Guided Pilot
+              </Link>
               <a
                 href={brand.calendlyUrl}
                 target="_blank"
@@ -214,21 +230,9 @@ const Navbar: React.FC = () => {
                   trackEvent('demo_submit', { cta_source: 'navbar_mobile_menu_demo' });
                   setIsOpen(false);
                 }}
-                className="block w-full text-center bg-sidqly-green-deep text-white py-4 rounded-xl font-bold"
+                className="block w-full text-center bg-white border border-gray-200 text-sidqly-navy py-4 rounded-xl font-bold"
               >
                 Book Demo
-              </a>
-              <a
-                href={brand.inquiryFormUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  trackEvent('guided_pilot_apply', { cta_source: 'navbar_mobile_menu_inquiry' });
-                  setIsOpen(false);
-                }}
-                className="block w-full text-center bg-sidqly-ivory text-sidqly-navy py-4 rounded-xl font-bold"
-              >
-                Fill Inquiry Form
               </a>
             </div>
           </div>

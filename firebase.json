@@ -79,11 +79,27 @@
         "destination": "/index.html"
       },
       {
+        "source": "/contact-sales",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/contact-sales/",
+        "destination": "/index.html"
+      },
+      {
         "source": "/corporate-reporting",
         "destination": "/index.html"
       },
       {
         "source": "/corporate-reporting/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/data-migration",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/data-migration/",
         "destination": "/index.html"
       },
       {
@@ -116,6 +132,14 @@
       },
       {
         "source": "/features/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/guided-pilot",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/guided-pilot/",
         "destination": "/index.html"
       },
       {

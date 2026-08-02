@@ -109,11 +109,11 @@ const Home: React.FC = () => {
 
           <div className="text-center">
              <div className="flex flex-col sm:flex-row justify-center gap-6 flex-wrap">
-               <a href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-green-deep transition-all shadow-xl hover:shadow-sidqly-green-emerald/20 text-center">
-                 Book Demo
-               </a>
-               <a href={brand.links?.inquiryForm || 'https://forms.gle/bvSMog9pw2Ri4kMt9'} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white/20 transition-all backdrop-blur-sm text-center">
-                 Fill Inquiry Form
+               <Link to="/guided-pilot" className="bg-sidqly-green-emerald text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-green-deep transition-all shadow-xl hover:shadow-sidqly-green-emerald/20 text-center">
+                 Apply for Guided Pilot
+               </Link>
+               <a href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white/20 transition-all backdrop-blur-sm text-center">
+                 Book a Demo
                </a>
                <Link to="/request-organization" className="bg-transparent text-sidqly-gold border border-sidqly-gold/30 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-gold/10 transition-all text-center">
                  Request Your Organization
@@ -642,12 +642,12 @@ const Home: React.FC = () => {
                  </div>
                  <span>Book Demo</span>
               </a>
-              <a href={brand.inquiryFormUrl} className="bg-white text-sidqly-navy p-8 rounded-3xl font-bold hover:shadow-2xl transition-all flex flex-col items-center gap-4 group">
+              <Link to="/guided-pilot" className="bg-white text-sidqly-navy p-8 rounded-3xl font-bold hover:shadow-2xl transition-all flex flex-col items-center gap-4 group border border-gray-100">
                  <div className="w-12 h-12 bg-sidqly-ivory rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <BarChart3 size={24} />
                  </div>
-                 <span>Fill Inquiry Form</span>
-              </a>
+                 <span>Guided Pilot Program</span>
+              </Link>
               <Link to="/pricing" className="bg-sidqly-navy p-8 rounded-3xl font-bold hover:shadow-2xl transition-all flex flex-col items-center gap-4 group border border-white/10">
                  <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Globe size={24} />
