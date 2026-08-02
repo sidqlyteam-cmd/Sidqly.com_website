@@ -3,6 +3,12 @@ import SEO from '../components/SEO';
 import { trackEvent } from '../lib/analytics';
 import { generateBreadcrumbSchema } from '../lib/schema';
 import { CheckCircle2, Shield, Globe, Award } from 'lucide-react';
+import { tokens } from '../design/tokens';
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
+import { Input } from '../components/ui/Input';
+import { Select } from '../components/ui/Select';
+import { PageTransition } from '../components/ui/PageTransition';
 
 const ContactSales: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -63,7 +69,7 @@ const ContactSales: React.FC = () => {
   };
 
   return (
-    <>
+    <PageTransition>
       <SEO
         title="Contact Sidqly Enterprise Sales | Partnerships & Large Islamic Charities"
         description="Connect with our sales and partnerships team to discuss custom integrations, multiple branch operations, and enterprise-grade reporting."
@@ -87,29 +93,29 @@ const ContactSales: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 flex flex-col items-start">
+            <Card variant="ivory" className="flex flex-col items-start">
               <div className="w-10 h-10 rounded-xl bg-sidqly-navy text-white flex items-center justify-center font-bold mb-6">
-                <Globe size={20} />
+                <Globe size={tokens.iconSizes.sm} />
               </div>
               <h4 className="font-bold text-sidqly-navy mb-2">Multi-Region Entities</h4>
               <p className="text-xs text-gray-600 leading-relaxed">Coordinate cross-border campaigns and localized distribution proofs while maintaining strict regional tax or compliance logs.</p>
-            </div>
+            </Card>
 
-            <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 flex flex-col items-start">
+            <Card variant="ivory" className="flex flex-col items-start">
               <div className="w-10 h-10 rounded-xl bg-sidqly-navy text-white flex items-center justify-center font-bold mb-6">
-                <Award size={20} />
+                <Award size={tokens.iconSizes.sm} />
               </div>
               <h4 className="font-bold text-sidqly-navy mb-2">Shariah Board Advisory</h4>
               <p className="text-xs text-gray-600 leading-relaxed">We work alongside your Shariah scholars or audit board to configure custom rules that match your distribution guidelines precisely.</p>
-            </div>
+            </Card>
 
-            <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 flex flex-col items-start">
+            <Card variant="ivory" className="flex flex-col items-start">
               <div className="w-10 h-10 rounded-xl bg-sidqly-navy text-white flex items-center justify-center font-bold mb-6">
-                <Shield size={20} />
+                <Shield size={tokens.iconSizes.sm} />
               </div>
               <h4 className="font-bold text-sidqly-navy mb-2">SLA & Priority Support</h4>
               <p className="text-xs text-gray-600 leading-relaxed">Dedicated account manager, custom data migration engineering, and guaranteed uptime agreements for major campaigns.</p>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -117,22 +123,22 @@ const ContactSales: React.FC = () => {
       {/* Contact Form Section */}
       <section className="py-20 bg-sidqly-ivory border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-xl border border-gray-100">
+          <Card variant="white" className="p-8 md:p-12 shadow-xl border border-gray-100">
             {submitted ? (
               <div className="text-center py-12">
                 <div className="w-20 h-20 bg-sidqly-green-soft/30 text-sidqly-green-emerald rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={48} />
+                  <CheckCircle2 size={tokens.iconSizes.xxl} />
                 </div>
                 <h3 className="text-3xl font-bold text-sidqly-navy mb-4">Inquiry Received!</h3>
                 <p className="text-gray-600 max-w-md mx-auto mb-8 leading-relaxed">
                   Thank you for contacting Enterprise Sales. An enterprise consultant will reach out via your work email address within 24 business hours to set up an introductory consultation.
                 </p>
-                <button
+                <Button
+                  variant="deep"
                   onClick={() => setSubmitted(false)}
-                  className="bg-sidqly-green-deep text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all"
                 >
                   Submit Another Inquiry
-                </button>
+                </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -142,100 +148,78 @@ const ContactSales: React.FC = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="name">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
-                      placeholder="e.g. Ibrahim Qadir"
-                    />
-                    {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="email">
-                      Work Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.email ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
-                      placeholder="e.g. ibrahim@ngo-global.org"
-                    />
-                    {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="organizationName">
-                    Organization Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="organizationName"
-                    name="organizationName"
-                    value={formData.organizationName}
+                  <Input
+                    label="Full Name"
+                    required
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl border ${errors.organizationName ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
-                    placeholder="e.g. Global Compassion Network"
+                    error={errors.name}
+                    placeholder="e.g. Ibrahim Qadir"
                   />
-                  {errors.organizationName && <p className="text-xs text-red-500 mt-1">{errors.organizationName}</p>}
+
+                  <Input
+                    label="Work Email"
+                    required
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    error={errors.email}
+                    placeholder="e.g. ibrahim@ngo-global.org"
+                  />
                 </div>
+
+                <Input
+                  label="Organization Name"
+                  required
+                  id="organizationName"
+                  name="organizationName"
+                  value={formData.organizationName}
+                  onChange={handleInputChange}
+                  error={errors.organizationName}
+                  placeholder="e.g. Global Compassion Network"
+                />
 
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="useCase">
-                      Primary Use Case *
-                    </label>
-                    <select
-                      id="useCase"
-                      name="useCase"
-                      value={formData.useCase}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.useCase ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm bg-white`}
-                    >
-                      <option value="">Select an option</option>
-                      <option value="enterprise_ngo">Large-Scale NGO</option>
-                      <option value="shariah_advisory">Scholarly Audit / Shariah Board</option>
-                      <option value="corporate_zakat">Corporate CSR / Zakat Separation</option>
-                      <option value="partnership">Custom Integration Partnership</option>
-                    </select>
-                    {errors.useCase && <p className="text-xs text-red-500 mt-1">{errors.useCase}</p>}
-                  </div>
+                  <Select
+                    label="Primary Use Case"
+                    required
+                    id="useCase"
+                    name="useCase"
+                    value={formData.useCase}
+                    onChange={handleInputChange}
+                    error={errors.useCase}
+                    options={[
+                      { value: 'enterprise_ngo', label: 'Large-Scale NGO' },
+                      { value: 'shariah_advisory', label: 'Scholarly Audit / Shariah Board' },
+                      { value: 'corporate_zakat', label: 'Corporate CSR / Zakat Separation' },
+                      { value: 'partnership', label: 'Custom Integration Partnership' }
+                    ]}
+                  />
 
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="estimatedVolume">
-                      Estimated Annual Volume *
-                    </label>
-                    <select
-                      id="estimatedVolume"
-                      name="estimatedVolume"
-                      value={formData.estimatedVolume}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.estimatedVolume ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm bg-white`}
-                    >
-                      <option value="">Select annual volume</option>
-                      <option value="under_500k">Under $500k</option>
-                      <option value="500k_2m">$500k - $2M</option>
-                      <option value="2m_10m">$2M - $10M</option>
-                      <option value="above_10m">Above $10M</option>
-                    </select>
-                    {errors.estimatedVolume && <p className="text-xs text-red-500 mt-1">{errors.estimatedVolume}</p>}
-                  </div>
+                  <Select
+                    label="Estimated Annual Volume"
+                    required
+                    id="estimatedVolume"
+                    name="estimatedVolume"
+                    value={formData.estimatedVolume}
+                    onChange={handleInputChange}
+                    error={errors.estimatedVolume}
+                    options={[
+                      { value: 'under_500k', label: 'Under $500k' },
+                      { value: '500k_2m', label: '$500k - $2M' },
+                      { value: '2m_10m', label: '$2M - $10M' },
+                      { value: 'above_10m', label: 'Above $10M' }
+                    ]}
+                  />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="requirements">
-                    Describe Your Requirements & Complex Needs *
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-sidqly-navy" htmlFor="requirements">
+                    Describe Your Requirements & Complex Needs <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="requirements"
@@ -243,24 +227,27 @@ const ContactSales: React.FC = () => {
                     rows={4}
                     value={formData.requirements}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl border ${errors.requirements ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
+                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm ${
+                      errors.requirements ? 'border-red-500 focus:ring-red-300' : 'border-gray-200'
+                    }`}
                     placeholder="Tell us about custom dashboard limits, scholar board alignment, specific ERP system integrations, or campaign timelines."
                   />
-                  {errors.requirements && <p className="text-xs text-red-500 mt-1">{errors.requirements}</p>}
+                  {errors.requirements && <p className="text-xs text-red-500 font-medium">{errors.requirements}</p>}
                 </div>
 
-                <button
+                <Button
                   type="submit"
-                  className="w-full bg-sidqly-green-deep text-white py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:shadow-lg transition-all text-sm mt-4"
+                  variant="deep"
+                  className="w-full mt-4"
                 >
                   Contact Sales Team
-                </button>
+                </Button>
               </form>
             )}
-          </div>
+          </Card>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 

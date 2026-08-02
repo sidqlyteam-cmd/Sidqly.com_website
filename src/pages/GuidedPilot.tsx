@@ -3,6 +3,12 @@ import SEO from '../components/SEO';
 import { trackEvent } from '../lib/analytics';
 import { generateBreadcrumbSchema } from '../lib/schema';
 import { CheckCircle2, Shield, Heart, HelpCircle, FileText, Users, Settings, Database } from 'lucide-react';
+import { tokens } from '../design/tokens';
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
+import { Input } from '../components/ui/Input';
+import { Select } from '../components/ui/Select';
+import { PageTransition } from '../components/ui/PageTransition';
 
 const GuidedPilot: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -67,7 +73,7 @@ const GuidedPilot: React.FC = () => {
   };
 
   return (
-    <>
+    <PageTransition>
       <SEO
         title="Sidqly Guided Pilot Program | Onboarding & Setup for SME Islamic Charities"
         description="Launch a risk-free 30-day guided pilot of Sidqly. Designed specifically for SME mosques, Zakat committees, and Ramadan/Qurbani campaign teams."
@@ -99,35 +105,35 @@ const GuidedPilot: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 flex flex-col items-start">
+            <Card variant="ivory" className="flex flex-col items-start">
               <div className="w-12 h-12 bg-sidqly-green-emerald text-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                <Users size={24} />
+                <Users size={tokens.iconSizes.lg} />
               </div>
               <h3 className="text-xl font-bold text-sidqly-navy mb-4">Who It Is For</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Specifically built for Small to Medium (SME) Islamic charities, local mosques, volunteer-led Zakat committees, and seasonal campaign groups who are currently using manual or scattered methods.
               </p>
-            </div>
+            </Card>
 
-            <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 flex flex-col items-start">
+            <Card variant="ivory" className="flex flex-col items-start">
               <div className="w-12 h-12 bg-sidqly-green-emerald text-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                <Settings size={24} />
+                <Settings size={tokens.iconSizes.lg} />
               </div>
               <h3 className="text-xl font-bold text-sidqly-navy mb-4">What's Included</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Includes full core module access, custom setup of your initial giving workflow (e.g. Zakat review, manual bank reconciliation, or Sadaqah collection), live team training, and weekly operations support.
               </p>
-            </div>
+            </Card>
 
-            <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 flex flex-col items-start">
+            <Card variant="ivory" className="flex flex-col items-start">
               <div className="w-12 h-12 bg-sidqly-green-emerald text-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
-                <FileText size={24} />
+                <FileText size={tokens.iconSizes.lg} />
               </div>
               <h3 className="text-xl font-bold text-sidqly-navy mb-4">What Happens After</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 After the 30-day pilot, we prepare a complete board-ready impact report. If you choose to continue, we seamlessly transition your account into one of our standard annual plans with zero data loss.
               </p>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -141,30 +147,34 @@ const GuidedPilot: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-              <h3 className="text-2xl font-bold text-sidqly-navy mb-2">Standard Pilot</h3>
-              <p className="text-gray-500 text-sm mb-6">Perfect for single campaigns or focused community initiatives.</p>
-              <div className="text-3xl font-extrabold text-sidqly-navy mb-6">$150 - $300 <span className="text-sm font-normal text-gray-500">flat fee for 30 days</span></div>
-              <ul className="space-y-3 mb-8 text-sm text-gray-600">
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Setup of 1 custom giving category</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Upload of up to 500 active contacts</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> 1 live team training session</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Standard email support</li>
-              </ul>
-            </div>
+            <Card variant="white" className="flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-bold text-sidqly-navy mb-2">Standard Pilot</h3>
+                <p className="text-gray-500 text-sm mb-6">Perfect for single campaigns or focused community initiatives.</p>
+                <div className="text-3xl font-extrabold text-sidqly-navy mb-6">$150 - $300 <span className="text-sm font-normal text-gray-500">flat fee for 30 days</span></div>
+                <ul className="space-y-3 mb-8 text-sm text-gray-600">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Setup of 1 custom giving category</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Upload of up to 500 active contacts</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> 1 live team training session</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Standard email support</li>
+                </ul>
+              </div>
+            </Card>
 
-            <div className="bg-white p-8 rounded-3xl border border-sidqly-green-emerald shadow-lg relative">
+            <Card variant="white" className="border-sidqly-green-emerald shadow-lg relative flex flex-col justify-between">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-sidqly-green-emerald text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">Most Popular</div>
-              <h3 className="text-2xl font-bold text-sidqly-navy mb-2">Comprehensive Pilot</h3>
-              <p className="text-gray-500 text-sm mb-6">Designed for organizations managing multiple funds or campaigns.</p>
-              <div className="text-3xl font-extrabold text-sidqly-navy mb-6">$300 - $600 <span className="text-sm font-normal text-gray-500">flat fee for 30 days</span></div>
-              <ul className="space-y-3 mb-8 text-sm text-gray-600">
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Setup of up to 3 giving categories</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Custom data migration assistance</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> 2 interactive training sessions</li>
-                <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Priority support & board-ready analysis</li>
-              </ul>
-            </div>
+              <div>
+                <h3 className="text-2xl font-bold text-sidqly-navy mb-2">Comprehensive Pilot</h3>
+                <p className="text-gray-500 text-sm mb-6">Designed for organizations managing multiple funds or campaigns.</p>
+                <div className="text-3xl font-extrabold text-sidqly-navy mb-6">$300 - $600 <span className="text-sm font-normal text-gray-500">flat fee for 30 days</span></div>
+                <ul className="space-y-3 mb-8 text-sm text-gray-600">
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Setup of up to 3 giving categories</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Custom data migration assistance</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> 2 interactive training sessions</li>
+                  <li className="flex items-center gap-2"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" size={16} /> Priority support & board-ready analysis</li>
+                </ul>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -175,7 +185,7 @@ const GuidedPilot: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="flex gap-4 items-start">
               <div className="w-10 h-10 bg-sidqly-ivory text-sidqly-green-deep rounded-xl flex items-center justify-center flex-shrink-0">
-                <Shield size={20} />
+                <Shield size={tokens.iconSizes.md} />
               </div>
               <div>
                 <h4 className="font-bold text-sidqly-navy mb-1">Absolute Privacy</h4>
@@ -185,7 +195,7 @@ const GuidedPilot: React.FC = () => {
 
             <div className="flex gap-4 items-start">
               <div className="w-10 h-10 bg-sidqly-ivory text-sidqly-green-deep rounded-xl flex items-center justify-center flex-shrink-0">
-                <Heart size={20} />
+                <Heart size={tokens.iconSizes.md} />
               </div>
               <div>
                 <h4 className="font-bold text-sidqly-navy mb-1">Shariah-Conscious</h4>
@@ -195,7 +205,7 @@ const GuidedPilot: React.FC = () => {
 
             <div className="flex gap-4 items-start">
               <div className="w-10 h-10 bg-sidqly-ivory text-sidqly-green-deep rounded-xl flex items-center justify-center flex-shrink-0">
-                <HelpCircle size={20} />
+                <HelpCircle size={tokens.iconSizes.md} />
               </div>
               <div>
                 <h4 className="font-bold text-sidqly-navy mb-1">Uncompromising Amanah</h4>
@@ -209,11 +219,11 @@ const GuidedPilot: React.FC = () => {
       {/* Form Section */}
       <section id="apply-form" className="py-20 bg-sidqly-ivory scroll-mt-10 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-xl border border-gray-100">
+          <Card variant="white" className="p-8 md:p-12 shadow-xl border border-gray-100">
             {submitted ? (
               <div className="text-center py-12">
                 <div className="w-20 h-20 bg-sidqly-green-soft/30 text-sidqly-green-emerald rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={48} />
+                  <CheckCircle2 size={tokens.iconSizes.xxl} />
                 </div>
                 <h3 className="text-3xl font-bold text-sidqly-navy mb-4">Pilot Application Submitted!</h3>
                 <p className="text-gray-600 max-w-md mx-auto mb-8 leading-relaxed">
@@ -221,7 +231,7 @@ const GuidedPilot: React.FC = () => {
                 </p>
                 <div className="bg-sidqly-ivory p-6 rounded-2xl text-left max-w-lg mx-auto border border-gray-100 mb-8">
                   <h4 className="font-bold text-sidqly-navy mb-2 flex items-center gap-2">
-                    <Database size={18} className="text-sidqly-green-deep" /> Next Steps:
+                    <Database size={tokens.iconSizes.sm} className="text-sidqly-green-deep" /> Next Steps:
                   </h4>
                   <ul className="space-y-3 text-sm text-gray-600">
                     <li className="flex gap-2 items-start">
@@ -238,12 +248,12 @@ const GuidedPilot: React.FC = () => {
                     </li>
                   </ul>
                 </div>
-                <button
+                <Button
+                  variant="deep"
                   onClick={() => setSubmitted(false)}
-                  className="bg-sidqly-green-deep text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all"
                 >
                   Submit Another Application
-                </button>
+                </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -253,101 +263,78 @@ const GuidedPilot: React.FC = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="organizationName">
-                      Organization Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="organizationName"
-                      name="organizationName"
-                      value={formData.organizationName}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.organizationName ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
-                      placeholder="e.g. Al-Noor Mosque"
-                    />
-                    {errors.organizationName && <p className="text-xs text-red-500 mt-1">{errors.organizationName}</p>}
-                  </div>
+                  <Input
+                    label="Organization Name"
+                    required
+                    id="organizationName"
+                    name="organizationName"
+                    value={formData.organizationName}
+                    onChange={handleInputChange}
+                    error={errors.organizationName}
+                    placeholder="e.g. Al-Noor Mosque"
+                  />
 
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="country">
-                      Country *
-                    </label>
-                    <input
-                      type="text"
-                      id="country"
-                      name="country"
-                      value={formData.country}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.country ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
-                      placeholder="e.g. Pakistan, United Kingdom"
-                    />
-                    {errors.country && <p className="text-xs text-red-500 mt-1">{errors.country}</p>}
-                  </div>
+                  <Input
+                    label="Country"
+                    required
+                    id="country"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleInputChange}
+                    error={errors.country}
+                    placeholder="e.g. Pakistan, United Kingdom"
+                  />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="organizationType">
-                      Organization Type *
-                    </label>
-                    <select
-                      id="organizationType"
-                      name="organizationType"
-                      value={formData.organizationType}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.organizationType ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm bg-white`}
-                    >
-                      <option value="">Select an option</option>
-                      <option value="mosque">Mosque</option>
-                      <option value="charity">Islamic Charity</option>
-                      <option value="zakat_committee">Zakat Committee</option>
-                      <option value="campaign_group">Seasonal Campaign Group</option>
-                      <option value="other">Other</option>
-                    </select>
-                    {errors.organizationType && <p className="text-xs text-red-500 mt-1">{errors.organizationType}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="teamSize">
-                      Team Size *
-                    </label>
-                    <select
-                      id="teamSize"
-                      name="teamSize"
-                      value={formData.teamSize}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.teamSize ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm bg-white`}
-                    >
-                      <option value="">Select an option</option>
-                      <option value="1-5">1 - 5 members</option>
-                      <option value="6-15">6 - 15 members</option>
-                      <option value="16-50">16 - 50 members</option>
-                      <option value="50+">50+ members</option>
-                    </select>
-                    {errors.teamSize && <p className="text-xs text-red-500 mt-1">{errors.teamSize}</p>}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="currentTools">
-                    What tools do you currently use? *
-                  </label>
-                  <input
-                    type="text"
-                    id="currentTools"
-                    name="currentTools"
-                    value={formData.currentTools}
+                  <Select
+                    label="Organization Type"
+                    required
+                    id="organizationType"
+                    name="organizationType"
+                    value={formData.organizationType}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl border ${errors.currentTools ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
-                    placeholder="e.g. WhatsApp, Excel, paper folders"
+                    error={errors.organizationType}
+                    options={[
+                      { value: 'mosque', label: 'Mosque' },
+                      { value: 'charity', label: 'Islamic Charity' },
+                      { value: 'zakat_committee', label: 'Zakat Committee' },
+                      { value: 'campaign_group', label: 'Seasonal Campaign Group' },
+                      { value: 'other', label: 'Other' }
+                    ]}
                   />
-                  {errors.currentTools && <p className="text-xs text-red-500 mt-1">{errors.currentTools}</p>}
+
+                  <Select
+                    label="Team Size"
+                    required
+                    id="teamSize"
+                    name="teamSize"
+                    value={formData.teamSize}
+                    onChange={handleInputChange}
+                    error={errors.teamSize}
+                    options={[
+                      { value: '1-5', label: '1 - 5 members' },
+                      { value: '6-15', label: '6 - 15 members' },
+                      { value: '16-50', label: '16 - 50 members' },
+                      { value: '50+', label: '50+ members' }
+                    ]}
+                  />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="mainProblem">
-                    What is your main operational problem? *
+                <Input
+                  label="What tools do you currently use?"
+                  required
+                  id="currentTools"
+                  name="currentTools"
+                  value={formData.currentTools}
+                  onChange={handleInputChange}
+                  error={errors.currentTools}
+                  placeholder="e.g. WhatsApp, Excel, paper folders"
+                />
+
+                <div className="space-y-2">
+                  <label className="block text-sm font-bold text-sidqly-navy" htmlFor="mainProblem">
+                    What is your main operational problem? <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="mainProblem"
@@ -355,44 +342,43 @@ const GuidedPilot: React.FC = () => {
                     rows={3}
                     value={formData.mainProblem}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl border ${errors.mainProblem ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm`}
+                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm ${
+                      errors.mainProblem ? 'border-red-500 focus:ring-red-300' : 'border-gray-200'
+                    }`}
                     placeholder="Please explain the primary bottleneck (e.g., matching screenshots manually, chasing vendors for proof)."
                   />
-                  {errors.mainProblem && <p className="text-xs text-red-500 mt-1">{errors.mainProblem}</p>}
+                  {errors.mainProblem && <p className="text-xs text-red-500 font-medium">{errors.mainProblem}</p>}
                 </div>
 
-                <div>
-                  <label className="block text-sm font-bold text-sidqly-navy mb-2" htmlFor="donationVolume">
-                    Monthly Donation Volume Range *
-                  </label>
-                  <select
-                    id="donationVolume"
-                    name="donationVolume"
-                    value={formData.donationVolume}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl border ${errors.donationVolume ? 'border-red-500' : 'border-gray-200'} focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm bg-white`}
-                  >
-                    <option value="">Select monthly volume</option>
-                    <option value="under_5k">Under $5,000</option>
-                    <option value="5k_20k">$5,000 - $20,000</option>
-                    <option value="20k_100k">$20,000 - $100,000</option>
-                    <option value="above_100k">Above $100,000</option>
-                  </select>
-                  {errors.donationVolume && <p className="text-xs text-red-500 mt-1">{errors.donationVolume}</p>}
-                </div>
+                <Select
+                  label="Monthly Donation Volume Range"
+                  required
+                  id="donationVolume"
+                  name="donationVolume"
+                  value={formData.donationVolume}
+                  onChange={handleInputChange}
+                  error={errors.donationVolume}
+                  options={[
+                    { value: 'under_5k', label: 'Under $5,000' },
+                    { value: '5k_20k', label: '$5,000 - $20,000' },
+                    { value: '20k_100k', label: '$20,000 - $100,000' },
+                    { value: 'above_100k', label: 'Above $100,000' }
+                  ]}
+                />
 
-                <button
+                <Button
                   type="submit"
-                  className="w-full bg-sidqly-green-deep text-white py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:shadow-lg transition-all text-sm mt-4"
+                  variant="deep"
+                  className="w-full mt-4"
                 >
                   Apply for Guided Pilot
-                </button>
+                </Button>
               </form>
             )}
-          </div>
+          </Card>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 
