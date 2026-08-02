@@ -33,12 +33,12 @@ const ProductTour: React.FC = () => {
               Walk through the Sidqly workflow for verified giving, manual payment review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              <Link to="/guided-pilot" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                Apply for Guided Pilot
+              </Link>
+              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2">
                 <PlayCircle size={20} /> Book a Demo
               </a>
-              <Link to="/features" className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
-                Explore Features
-              </Link>
             </div>
           </div>
         </div>
@@ -219,12 +219,12 @@ const ProductTour: React.FC = () => {
             Tell us how your team currently handles payment proof, approvals, donor updates, Zakat, Sadaqah, Qurbani, Ramadan campaigns, or reporting. We will show where Sidqly fits into your workflow.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all text-lg">
+             <Link to="/guided-pilot" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all text-lg">
+                Apply for Guided Pilot
+             </Link>
+             <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all text-lg">
                 Book a Demo
              </a>
-             <Link to="/features" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all text-lg">
-                Explore Features
-             </Link>
           </div>
         </div>
       </section>
