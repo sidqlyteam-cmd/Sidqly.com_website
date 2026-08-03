@@ -77,10 +77,10 @@ indexableRoutes.forEach(route => {
     return;
   }
 
-  // 3. Is indexable (no noindex or nofollow meta tags present)
-  const isNoindex = html.includes('noindex') || html.includes('nofollow');
+  // 3. Is indexable (no noindex or nofollow meta robots tags present)
+  const isNoindex = /<meta\s+name="robots"\s+content="[^"]*noindex/i.test(html) || /<meta\s+name="robots"\s+content="[^"]*nofollow/i.test(html);
   if (isNoindex) {
-    console.error(`❌ Health Check Failed: Route '${route}' is inside sitemap but contains a 'noindex' or 'nofollow' tag!`);
+    console.error(`❌ Health Check Failed: Route '${route}' is inside sitemap but contains a 'noindex' or 'nofollow' meta robots tag!`);
     failedCount++;
     return;
   }

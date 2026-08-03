@@ -41,6 +41,9 @@ import Platform from './pages/Platform';
 import GuidedPilot from './pages/GuidedPilot';
 import DataMigration from './pages/DataMigration';
 import ContactSales from './pages/ContactSales';
+import IslamicCharitySoftware from './pages/IslamicCharitySoftware';
+import IslamicGivingPlatform from './pages/IslamicGivingPlatform';
+import ZakatManagementSoftware from './pages/ZakatManagementSoftware';
 
 // Islamic Utilities Pages
 import IslamicUtilitiesPage from './pages/islamic/IslamicUtilitiesPage';
@@ -145,6 +148,9 @@ function App() {
             <Route path="guided-pilot" element={<GuidedPilot />} />
             <Route path="data-migration" element={<DataMigration />} />
             <Route path="contact-sales" element={<ContactSales />} />
+            <Route path="islamic-charity-software" element={<IslamicCharitySoftware />} />
+            <Route path="islamic-giving-operations-platform" element={<IslamicGivingPlatform />} />
+            <Route path="zakat-management-software" element={<ZakatManagementSoftware />} />
             <Route path="what-is-sidqly" element={<WhatIsSidqly />} />
             <Route path="why-sidqly" element={<WhySidqly />} />
             <Route path="how-sidqly-works" element={<Navigate to="/how-it-works" replace />} />

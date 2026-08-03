@@ -122,4 +122,19 @@ test.describe('Sidqly UI Smoke Tests', () => {
     await expect(page.locator('h3', { hasText: 'Receive Intention' })).toBeVisible();
   });
 
+  test('Phase 8 Priority Commercial Pages Render correctly', async ({ page }) => {
+    const commercialRoutes = [
+      '/islamic-charity-software',
+      '/islamic-giving-operations-platform',
+      '/zakat-management-software'
+    ];
+
+    for (const route of commercialRoutes) {
+      await page.goto(BASE_URL + route);
+      await expect(page.locator('h1').first()).toBeVisible();
+      await expect(page.locator('h2').first()).toBeVisible();
+      await expect(page.locator('h2', { hasText: 'Frequently Asked Questions' }).first()).toBeVisible();
+    }
+  });
+
 });

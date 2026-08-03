@@ -43,7 +43,10 @@ const pagesRoutes = [
     '/sadqa-zakat-planner',
     '/guided-pilot',
     '/data-migration',
-    '/contact-sales'
+    '/contact-sales',
+    '/islamic-charity-software',
+    '/islamic-giving-operations-platform',
+    '/zakat-management-software'
 ];
 
 const modulesRoutes = [
