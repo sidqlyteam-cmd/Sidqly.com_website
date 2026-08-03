@@ -58,7 +58,13 @@ const pagesRoutes = [
     '/alternatives/donorbox-alternatives',
     '/alternatives/launchgood-alternatives',
     '/alternatives/qurbanapp-alternatives',
-    '/alternatives/zakat-management-software-alternatives'
+    '/alternatives/zakat-management-software-alternatives',
+    '/knowledge-hub',
+    '/knowledge-hub/guide-islamic-charity-operations',
+    '/knowledge-hub/zakat-management-systems-guide',
+    '/knowledge-hub/ramadan-food-distribution-logistics',
+    '/knowledge-hub/manual-payment-verification-process',
+    '/knowledge-hub/what-is-tamleek'
 ];
 
 const modulesRoutes = [

@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "validate:seo": "node scripts/validate-seo-routes.mjs",
     "validate:locations": "tsx scripts/validate-locations.mjs",
-    "validate:content": "node scripts/validate-content-quality.mjs"
+    "validate:content": "node scripts/validate-content-quality.mjs",
+    "validate:media": "tsx scripts/validate-media-integrity.mjs"
   },
   "dependencies": {
     "@xyflow/react": "^12.11.2",

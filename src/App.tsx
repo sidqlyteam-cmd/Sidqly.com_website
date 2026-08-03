@@ -44,6 +44,8 @@ import ContactSales from './pages/ContactSales';
 import IslamicCharitySoftware from './pages/IslamicCharitySoftware';
 import IslamicGivingPlatform from './pages/IslamicGivingPlatform';
 import ZakatManagementSoftware from './pages/ZakatManagementSoftware';
+import KnowledgeHub from './pages/KnowledgeHub';
+import KnowledgeDetail from './pages/KnowledgeDetail';
 
 // Islamic Utilities Pages
 import IslamicUtilitiesPage from './pages/islamic/IslamicUtilitiesPage';
@@ -126,6 +128,8 @@ function App() {
             <Route path="islamic-charity-software" element={<IslamicCharitySoftware />} />
             <Route path="islamic-giving-operations-platform" element={<IslamicGivingPlatform />} />
             <Route path="zakat-management-software" element={<ZakatManagementSoftware />} />
+            <Route path="knowledge-hub" element={<KnowledgeHub />} />
+            <Route path="knowledge-hub/:slug" element={<KnowledgeDetail />} />
             <Route path="what-is-sidqly" element={<WhatIsSidqly />} />
             <Route path="why-sidqly" element={<WhySidqly />} />
             <Route path="how-sidqly-works" element={<Navigate to="/how-it-works" replace />} />

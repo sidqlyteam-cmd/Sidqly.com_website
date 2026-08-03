@@ -66,6 +66,12 @@ export const routeClassifications: RouteClassification[] = [
   { path: "/islamic-charity-software", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-charity-software", type: "public" },
   { path: "/islamic-giving-operations-platform", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-giving-operations-platform", type: "public" },
   { path: "/zakat-management-software", status: 200, indexable: true, canonical: "https://www.sidqly.com/zakat-management-software", type: "public" },
+  { path: "/knowledge-hub", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub", type: "public" },
+  { path: "/knowledge-hub/guide-islamic-charity-operations", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/guide-islamic-charity-operations", type: "public" },
+  { path: "/knowledge-hub/zakat-management-systems-guide", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/zakat-management-systems-guide", type: "public" },
+  { path: "/knowledge-hub/ramadan-food-distribution-logistics", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/ramadan-food-distribution-logistics", type: "public" },
+  { path: "/knowledge-hub/manual-payment-verification-process", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/manual-payment-verification-process", type: "public" },
+  { path: "/knowledge-hub/what-is-tamleek", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/what-is-tamleek", type: "public" },
 
   // System/Private Noindex Pages (200 but noindex)
   { path: "/billing", status: 200, indexable: false, canonical: "https://www.sidqly.com/billing", type: "noindex" },

@@ -303,6 +303,54 @@
         "destination": "/index.html"
       },
       {
+        "source": "/knowledge-hub",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/guide-islamic-charity-operations",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/guide-islamic-charity-operations/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/manual-payment-verification-process",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/manual-payment-verification-process/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/ramadan-food-distribution-logistics",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/ramadan-food-distribution-logistics/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/what-is-tamleek",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/what-is-tamleek/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/zakat-management-systems-guide",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/knowledge-hub/zakat-management-systems-guide/",
+        "destination": "/index.html"
+      },
+      {
         "source": "/locations",
         "destination": "/index.html"
       },
