@@ -80,6 +80,14 @@ import RegionDetail from './pages/regions/RegionDetail';
 import LocationsIndex from './pages/locations/LocationsIndex';
 import LocationDetail from './pages/locations/LocationDetail';
 
+
+import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './pages/auth/Login';
+import SuperAdminLayout from './pages/super-admin/SuperAdminLayout';
+import Overview from './pages/super-admin/Overview';
+import TeamManagement from './pages/super-admin/TeamManagement';
+
 import { brand } from './config/brand';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -102,11 +110,28 @@ const NotFound = () => (
 
 function App() {
   return (
-    <HelmetProvider>
+    <AuthProvider>
+<HelmetProvider>
       <Router>
         <AnalyticsProvider />
         <ScrollToTop />
         <Routes>
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/super-admin" element={
+          <ProtectedRoute requireSuperAdmin={true}>
+            <SuperAdminLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<Overview />} />
+          <Route path="team" element={<TeamManagement />} />
+          <Route path="organizations" element={<div className="p-4">Organizations Management</div>} />
+          <Route path="users" element={<div className="p-4">Users Management</div>} />
+          <Route path="audit" element={<div className="p-4">Audit Logs</div>} />
+        </Route>
+
+
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
 
@@ -226,6 +251,7 @@ function App() {
         </Routes>
       </Router>
     </HelmetProvider>
+</AuthProvider>
   );
 }
 
