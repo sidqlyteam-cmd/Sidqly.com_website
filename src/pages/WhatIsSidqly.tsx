@@ -4,6 +4,7 @@ import { brand } from '../config/brand';
 import { ShieldCheck, AlertCircle, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
 import { Link } from 'react-router-dom';
+import { WorkflowVisualizer } from '../components/ui/WorkflowVisualizer';
 
 const WhatIsSidqly: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -132,6 +133,13 @@ const WhatIsSidqly: React.FC = () => {
                        </div>
                     </div>
                  ))}
+              </div>
+
+              {/* Interactive Privacy Workflow */}
+              <h2 className="text-3xl font-bold text-sidqly-navy mt-12">Dignity-First Privacy Controls</h2>
+              <p>Explore the visual workflow of how Sidqly automatically ensures recipient dignity and removes sensitive EXIF metrics before updates reach donors:</p>
+              <div className="not-prose my-8">
+                 <WorkflowVisualizer initialWorkflowId="recipient-privacy" />
               </div>
 
               {/* Strict Boundaries Section */}

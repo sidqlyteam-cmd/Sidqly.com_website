@@ -96,4 +96,30 @@ test.describe('Sidqly UI Smoke Tests', () => {
     await expect(page.locator('h3', { hasText: 'Pilot Application Submitted!' })).toBeVisible();
   });
 
+  test('Interactive 2D Workflow Visualizer works on Homepage', async ({ page }) => {
+    await page.goto(BASE_URL);
+
+    // Verify WorkflowVisualizer container and default title
+    const container = page.locator('.bg-white.rounded-\\[32px\\].border.border-gray-100');
+    await expect(container.first()).toBeVisible();
+
+    // Verify step-by-step panel displays "Receive Intention" (default active step)
+    await expect(page.locator('h3', { hasText: 'Receive Intention' })).toBeVisible();
+
+    // Verify Next/Previous buttons
+    const nextButton = page.getByRole('button', { name: 'Next step' });
+    const prevButton = page.getByRole('button', { name: 'Previous step' });
+
+    await expect(nextButton).toBeVisible();
+    await expect(prevButton).toBeVisible();
+
+    // Click next step and verify detail panel updates
+    await nextButton.click();
+    await expect(page.locator('h3', { hasText: 'Verify Payment' })).toBeVisible();
+
+    // Click previous step to go back
+    await prevButton.click();
+    await expect(page.locator('h3', { hasText: 'Receive Intention' })).toBeVisible();
+  });
+
 });

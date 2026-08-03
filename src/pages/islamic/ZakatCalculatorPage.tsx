@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '../../components/SEO';
 import ZakatCalculator from '../../components/islamic/ZakatCalculator';
+import { WorkflowVisualizer } from '../../components/ui/WorkflowVisualizer';
 
 const ZakatCalculatorPage: React.FC = () => {
   return (
@@ -22,6 +23,14 @@ const ZakatCalculatorPage: React.FC = () => {
           </div>
 
           <ZakatCalculator />
+
+          <div className="mt-20 max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+               <h2 className="text-2xl md:text-3xl font-extrabold text-sidqly-navy mb-4">Shariah-Conscious Zakat Lifecycle</h2>
+               <p className="text-gray-600 text-sm max-w-xl mx-auto">See how Sidqly secures the Zakat process, separating ledgers, screening cases, and compiling reports securely.</p>
+            </div>
+            <WorkflowVisualizer initialWorkflowId="zakat-lifecycle" />
+          </div>
         </div>
       </div>
     </>

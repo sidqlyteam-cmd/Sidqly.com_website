@@ -1,8 +1,11 @@
 import React from 'react';
 import SEO from '../components/SEO';
-import { Link } from 'react-router-dom';
 import { generateBreadcrumbSchema } from '../lib/schema';
 import { Database, Shield, AlertTriangle, ArrowRight, Lock } from 'lucide-react';
+import { tokens } from '../design/tokens';
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
+import { PageTransition } from '../components/ui/PageTransition';
 
 const DataMigration: React.FC = () => {
   const schema = {
@@ -23,7 +26,7 @@ const DataMigration: React.FC = () => {
   ];
 
   return (
-    <>
+    <PageTransition>
       <SEO
         title="Sidqly Data Migration | Move Securely from Excel & WhatsApp"
         description="Learn how to safely migrate your donor lists, campaigns, and Zakat case files from spreadsheets and chat logs to Sidqly's secure platform."
@@ -40,12 +43,12 @@ const DataMigration: React.FC = () => {
               Stop relying on scattered spreadsheets and WhatsApp groups. Learn how Sidqly securely transitions your team into standard, audit-ready database configurations with zero downtime.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link to="/guided-pilot" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
+              <Button variant="emerald" onClick={() => window.location.href = "/guided-pilot"}>
                 Start a Guided Pilot
-              </Link>
-              <Link to="/contact-sales" className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+              </Button>
+              <Button variant="secondary" onClick={() => window.location.href = "/contact-sales"}>
                 Talk to Sales
-              </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -61,13 +64,13 @@ const DataMigration: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {preparationSteps.map((step, i) => (
-              <div key={i} className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 flex flex-col items-start hover:border-sidqly-green-soft transition-all">
+              <Card variant="ivory" key={i} className="flex flex-col items-start hoverable">
                 <div className="w-10 h-10 rounded-xl bg-sidqly-navy text-white flex items-center justify-center font-bold mb-6">
                   {i + 1}
                 </div>
                 <h3 className="text-lg font-bold text-sidqly-navy mb-2">{step.title}</h3>
                 <p className="text-gray-600 text-xs leading-relaxed">{step.desc}</p>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
@@ -76,9 +79,9 @@ const DataMigration: React.FC = () => {
       {/* Safety & Privacy Policy */}
       <section className="py-20 bg-sidqly-ivory border-t border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-sm border border-gray-100">
+          <Card variant="white" className="p-8 md:p-12 shadow-sm border border-gray-100">
             <h2 className="text-2xl md:text-4xl font-bold text-sidqly-navy mb-6 text-center flex items-center justify-center gap-2">
-              <Shield className="text-sidqly-green-emerald" size={32} /> Data Safety & Privacy Guaranteed
+              <Shield className="text-sidqly-green-emerald" size={tokens.iconSizes.xl} /> Data Safety & Privacy Guaranteed
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-8 text-center max-w-2xl mx-auto">
               We understand that the information you hold is a trust (Amanah). Our platform enforces state-of-the-art security practices to ensure maximum protection.
@@ -87,7 +90,7 @@ const DataMigration: React.FC = () => {
             <div className="space-y-6">
               <div className="flex gap-4 items-start">
                 <div className="w-10 h-10 rounded-lg bg-sidqly-ivory text-sidqly-green-deep flex items-center justify-center flex-shrink-0">
-                  <Lock size={20} />
+                  <Lock size={tokens.iconSizes.md} />
                 </div>
                 <div>
                   <h4 className="font-bold text-sidqly-navy mb-1">Row-Level Access Boundaries</h4>
@@ -97,7 +100,7 @@ const DataMigration: React.FC = () => {
 
               <div className="flex gap-4 items-start">
                 <div className="w-10 h-10 rounded-lg bg-sidqly-ivory text-sidqly-green-deep flex items-center justify-center flex-shrink-0">
-                  <Database size={20} />
+                  <Database size={tokens.iconSizes.md} />
                 </div>
                 <div>
                   <h4 className="font-bold text-sidqly-navy mb-1">Encrypted In-Transit & At-Rest</h4>
@@ -107,7 +110,7 @@ const DataMigration: React.FC = () => {
 
               <div className="flex gap-4 items-start">
                 <div className="w-10 h-10 rounded-lg bg-sidqly-ivory text-sidqly-green-deep flex items-center justify-center flex-shrink-0">
-                  <AlertTriangle size={20} />
+                  <AlertTriangle size={tokens.iconSizes.md} />
                 </div>
                 <div>
                   <h4 className="font-bold text-sidqly-navy mb-1">Strict No-Sell Policy</h4>
@@ -115,7 +118,7 @@ const DataMigration: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
         </div>
       </section>
 
@@ -127,13 +130,13 @@ const DataMigration: React.FC = () => {
             Begin with our Guided Pilot program to test migration on a single category, such as Zakat list management or a specific seasonal campaign.
           </p>
           <div className="flex justify-center gap-4">
-            <Link to="/guided-pilot" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all text-sm flex items-center gap-2">
-              Apply for Pilot <ArrowRight size={16} />
-            </Link>
+            <Button variant="deep" className="flex items-center gap-2" onClick={() => window.location.href = "/guided-pilot"}>
+              Apply for Pilot <ArrowRight size={tokens.iconSizes.sm} />
+            </Button>
           </div>
         </div>
       </section>
-    </>
+    </PageTransition>
   );
 };
 

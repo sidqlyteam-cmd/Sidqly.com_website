@@ -4,6 +4,7 @@ import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import { CheckCircle2, ArrowRight, PlayCircle, Shield, FileText, CheckSquare, EyeOff, LayoutTemplate } from 'lucide-react';
 import { generateBreadcrumbSchema } from '../lib/schema';
+import { WorkflowVisualizer } from '../components/ui/WorkflowVisualizer';
 
 const ProductTour: React.FC = () => {
   const schema = {
@@ -119,6 +120,10 @@ const ProductTour: React.FC = () => {
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-sidqly-navy mb-6">Step-by-Step Product Workflow</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">See how data moves through Sidqly from submission to board-ready reporting.</p>
+          </div>
+
+          <div className="mb-16">
+              <WorkflowVisualizer initialWorkflowId="donation-lifecycle" />
           </div>
 
           <div className="space-y-12 max-w-4xl mx-auto relative">

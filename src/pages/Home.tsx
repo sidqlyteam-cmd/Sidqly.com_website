@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import TrustPillars from '../components/diagrams/TrustPillars';
 import OperatingJourney from '../components/diagrams/OperatingJourney';
+import { WorkflowVisualizer } from '../components/ui/WorkflowVisualizer';
 import ManualPaymentReview from '../components/diagrams/ManualPaymentReview';
 import ProofTrustEngine from '../components/diagrams/ProofTrustEngine';
 import { modules, solutions } from '../data/solutions_modules';
@@ -271,6 +272,9 @@ const Home: React.FC = () => {
               <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
                  Sidqly transforms fragmented manual processes into a professional end-to-end giving lifecycle.
               </p>
+           </div>
+           <div className="mb-16">
+              <WorkflowVisualizer initialWorkflowId="donation-lifecycle" />
            </div>
            <OperatingJourney />
            <div className="mt-20 text-center">
