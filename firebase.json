@@ -183,6 +183,14 @@
         "destination": "/index.html"
       },
       {
+        "source": "/islamic-giving-operations-platform",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/islamic-giving-operations-platform/",
+        "destination": "/index.html"
+      },
+      {
         "source": "/islamic-glossary",
         "destination": "/index.html"
       },
@@ -1316,6 +1324,14 @@
       },
       {
         "source": "/zakat-fund-separation/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/zakat-management-software",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/zakat-management-software/",
         "destination": "/index.html"
       }
     ],

@@ -51,6 +51,9 @@ export const routeClassifications: RouteClassification[] = [
   { path: "/guided-pilot", status: 200, indexable: true, canonical: "https://www.sidqly.com/guided-pilot", type: "public" },
   { path: "/data-migration", status: 200, indexable: true, canonical: "https://www.sidqly.com/data-migration", type: "public" },
   { path: "/contact-sales", status: 200, indexable: true, canonical: "https://www.sidqly.com/contact-sales", type: "public" },
+  { path: "/islamic-charity-software", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-charity-software", type: "public" },
+  { path: "/islamic-giving-operations-platform", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-giving-operations-platform", type: "public" },
+  { path: "/zakat-management-software", status: 200, indexable: true, canonical: "https://www.sidqly.com/zakat-management-software", type: "public" },
 
   // System/Private Noindex Pages (200 but noindex)
   { path: "/billing", status: 200, indexable: false, canonical: "https://www.sidqly.com/billing", type: "noindex" },

@@ -38,7 +38,6 @@ const noindexRoutes = [
   '/ramadan-donation-management',
   '/charity-request-management',
   '/vendor-fulfillment-platform',
-  '/islamic-charity-software',
   '/mosque-donation-management'
 ];
 

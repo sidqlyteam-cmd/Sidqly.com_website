@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "validate:seo": "node scripts/validate-seo-routes.mjs",
-    "validate:locations": "tsx scripts/validate-locations.mjs"
+    "validate:locations": "tsx scripts/validate-locations.mjs",
+    "validate:content": "node scripts/validate-content-quality.mjs"
   },
   "dependencies": {
     "@xyflow/react": "^12.11.2",
