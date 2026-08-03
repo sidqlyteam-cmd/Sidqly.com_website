@@ -2,6 +2,7 @@ import React from 'react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import { Layout, MessageSquare, FileText } from 'lucide-react';
+import { WorkflowVisualizer } from '../components/ui/WorkflowVisualizer';
 
 const Migration: React.FC = () => {
   const steps = [
@@ -44,7 +45,15 @@ const Migration: React.FC = () => {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-sidqly-navy mb-4">Onboarding & Migration Map</h2>
+              <p className="text-sm text-gray-500 max-w-lg mx-auto">Explore how we transition your spreadsheets, train your volunteers, and deploy sandbox workspaces.</p>
+           </div>
+           <div className="mb-16">
+              <WorkflowVisualizer initialWorkflowId="onboarding-migration" />
+           </div>
+
            <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">The Migration Path</h2>
            <div className="space-y-6">
               {steps.map((step, i) => (

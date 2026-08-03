@@ -13,6 +13,8 @@
     "validate:locations": "tsx scripts/validate-locations.mjs"
   },
   "dependencies": {
+    "@xyflow/react": "^12.11.2",
+    "elkjs": "^0.12.0",
     "firebase": "^12.15.0",
     "framer-motion": "^12.43.0",
     "lucide-react": "^0.475.0",
