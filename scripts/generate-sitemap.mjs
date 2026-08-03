@@ -46,7 +46,19 @@ const pagesRoutes = [
     '/contact-sales',
     '/islamic-charity-software',
     '/islamic-giving-operations-platform',
-    '/zakat-management-software'
+    '/zakat-management-software',
+    '/compare/sidqly-vs-launchgood',
+    '/compare/sidqly-vs-donorbox',
+    '/compare/sidqly-vs-givebutter',
+    '/compare/sidqly-vs-bloomerang',
+    '/compare/sidqly-vs-qurbanapp',
+    '/compare/sidqly-vs-mosque-management',
+    '/compare/sidqly-vs-custom-software',
+    '/alternatives/islamic-charity-software-alternatives',
+    '/alternatives/donorbox-alternatives',
+    '/alternatives/launchgood-alternatives',
+    '/alternatives/qurbanapp-alternatives',
+    '/alternatives/zakat-management-software-alternatives'
 ];
 
 const modulesRoutes = [

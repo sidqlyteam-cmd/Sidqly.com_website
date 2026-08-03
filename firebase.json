@@ -1,16 +1,4 @@
 {
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
-  "emulators": {
-    "firestore": {
-      "port": 8080
-    },
-    "ui": {
-      "enabled": true
-    }
-  },
   "hosting": {
     "site": "sidqly-15-june",
     "public": "dist",
@@ -40,6 +28,46 @@
       },
       {
         "source": "/accessibility/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/donorbox-alternatives",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/donorbox-alternatives/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/islamic-charity-software-alternatives",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/islamic-charity-software-alternatives/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/launchgood-alternatives",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/launchgood-alternatives/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/qurbanapp-alternatives",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/qurbanapp-alternatives/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/zakat-management-software-alternatives",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/alternatives/zakat-management-software-alternatives/",
         "destination": "/index.html"
       },
       {
@@ -80,6 +108,62 @@
       },
       {
         "source": "/compare/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-bloomerang",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-bloomerang/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-custom-software",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-custom-software/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-donorbox",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-donorbox/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-givebutter",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-givebutter/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-launchgood",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-launchgood/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-mosque-management",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-mosque-management/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-qurbanapp",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/compare/sidqly-vs-qurbanapp/",
         "destination": "/index.html"
       },
       {
@@ -1350,7 +1434,20 @@
     "headers": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "headers": [
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=31536000; includeSubDomains"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          }
+        ]
       }
     ]
   }
