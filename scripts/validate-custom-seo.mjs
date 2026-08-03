@@ -155,9 +155,9 @@ function checkFiles(dir) {
         const noindexMatch = content.match(/noindex=\{?true\}?/);
 
         const relPath = fullPath.replace(srcDir, '').replace(/-/g, '');
-        const matchesNoindexRoute = noindexRoutes.some(r => {
+        const matchesNoindexRoute = (noindexRoutes.some(r => {
           return relPath.toLowerCase().includes(r.replace(/\//g, '').replace(/-/g, '').toLowerCase());
-        }) || fullPath.includes('ThankYou.tsx');
+        }) && !fullPath.includes('DataMigration.tsx')) || fullPath.includes('ThankYou.tsx');
 
         // Check if expected noindex page actually has noindex set
         if (matchesNoindexRoute) {

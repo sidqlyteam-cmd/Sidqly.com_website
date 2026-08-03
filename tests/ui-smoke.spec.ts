@@ -61,4 +61,65 @@ test.describe('Sidqly UI Smoke Tests', () => {
     await expect(searchInput).not.toBeVisible();
   });
 
+  test('Phase 4 Pages Render and Forms Submit successfully', async ({ page }) => {
+    // 1. Data Migration page renders
+    await page.goto(BASE_URL + '/data-migration');
+    await expect(page.locator('h1', { hasText: 'Secure Data Migration' })).toBeVisible();
+
+    // 2. Contact Sales page renders and submits form
+    await page.goto(BASE_URL + '/contact-sales');
+    await expect(page.locator('h1', { hasText: 'Enterprise & Partnerships Desk' })).toBeVisible();
+
+    await page.locator('#name').fill('Sales Tester');
+    await page.locator('#email').fill('tester@example.com');
+    await page.locator('#organizationName').fill('Sales Testing NGO');
+    await page.locator('#useCase').selectOption('enterprise_ngo');
+    await page.locator('#estimatedVolume').selectOption('500k_2m');
+    await page.locator('#requirements').fill('Testing custom integrations and scholar board alignment.');
+
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('h3', { hasText: 'Inquiry Received!' })).toBeVisible();
+
+    // 3. Guided Pilot page renders and submits application form
+    await page.goto(BASE_URL + '/guided-pilot');
+    await expect(page.locator('h1', { hasText: 'Sidqly Guided Pilot Program' })).toBeVisible();
+
+    await page.locator('#organizationName').fill('Pilot Testing Mosque');
+    await page.locator('#country').fill('Pakistan');
+    await page.locator('#organizationType').selectOption('mosque');
+    await page.locator('#teamSize').selectOption('6-15');
+    await page.locator('#currentTools').fill('WhatsApp, Excel, paper folders');
+    await page.locator('#mainProblem').fill('Chasing field workers for blurred pictures.');
+    await page.locator('#donationVolume').selectOption('5k_20k');
+
+    await page.locator('button[type="submit"]').click();
+    await expect(page.locator('h3', { hasText: 'Pilot Application Submitted!' })).toBeVisible();
+  });
+
+  test('Interactive 2D Workflow Visualizer works on Homepage', async ({ page }) => {
+    await page.goto(BASE_URL);
+
+    // Verify WorkflowVisualizer container and default title
+    const container = page.locator('.bg-white.rounded-\\[32px\\].border.border-gray-100');
+    await expect(container.first()).toBeVisible();
+
+    // Verify step-by-step panel displays "Receive Intention" (default active step)
+    await expect(page.locator('h3', { hasText: 'Receive Intention' })).toBeVisible();
+
+    // Verify Next/Previous buttons
+    const nextButton = page.getByRole('button', { name: 'Next step' });
+    const prevButton = page.getByRole('button', { name: 'Previous step' });
+
+    await expect(nextButton).toBeVisible();
+    await expect(prevButton).toBeVisible();
+
+    // Click next step and verify detail panel updates
+    await nextButton.click();
+    await expect(page.locator('h3', { hasText: 'Verify Payment' })).toBeVisible();
+
+    // Click previous step to go back
+    await prevButton.click();
+    await expect(page.locator('h3', { hasText: 'Receive Intention' })).toBeVisible();
+  });
+
 });

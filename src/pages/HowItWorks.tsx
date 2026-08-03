@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '../components/SEO';
 import OperatingJourney from '../components/diagrams/OperatingJourney';
+import { WorkflowVisualizer } from '../components/ui/WorkflowVisualizer';
 import ManualPaymentReview from '../components/diagrams/ManualPaymentReview';
 import ProofTrustEngine from '../components/diagrams/ProofTrustEngine';
 import ZakatSeparation from '../components/diagrams/ZakatSeparation';
@@ -46,6 +47,9 @@ const HowItWorks: React.FC = () => {
       <section className="py-24 bg-white border-b border-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
            <h2 className="text-3xl font-bold text-sidqly-navy mb-16">The Core Operating Journey</h2>
+           <div className="mb-16">
+              <WorkflowVisualizer initialWorkflowId="donation-lifecycle" />
+           </div>
            <OperatingJourney />
         </div>
       </section>

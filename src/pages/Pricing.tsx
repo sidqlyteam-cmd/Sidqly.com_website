@@ -84,6 +84,22 @@ const Pricing: React.FC = () => {
             {isAnnual && <p className="text-sm font-bold text-sidqly-green-emerald transition-opacity duration-300">Annual plans help organizations plan ahead and reduce monthly admin decisions.</p>}
           </div>
 
+          {/* Guided Pilot Conversion Banner */}
+          <div className="max-w-4xl mx-auto mb-16 bg-sidqly-navy text-white rounded-[32px] p-8 md:p-12 border border-sidqly-green-soft/30 flex flex-col md:flex-row gap-8 items-center justify-between shadow-xl">
+             <div className="text-left flex-1">
+                <span className="inline-block bg-sidqly-green-emerald/20 border border-sidqly-green-emerald/30 text-sidqly-green-soft text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Risk-Free Launch Offer</span>
+                <h3 className="text-2xl font-bold mb-2">Want to try Sidqly first?</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                   Launch a focused, risk-free 30-day **Guided Pilot** program. We'll assist with manual payment setup, data migration, and team training.
+                </p>
+             </div>
+             <div className="shrink-0">
+                <Link to="/guided-pilot" className="bg-sidqly-green-emerald hover:bg-white hover:text-sidqly-navy text-white px-8 py-4 rounded-xl font-bold transition-all text-sm inline-block shadow-lg">
+                   Explore Guided Pilot
+                </Link>
+             </div>
+          </div>
+
           {/* Pricing Cards */}
           <div className="mb-16">
   <h2 className="text-3xl font-bold mb-8 text-sidqly-navy text-center">What plan is best for whom?</h2>

@@ -2,6 +2,7 @@ import React from 'react';
 import SEO from '../../components/SEO';
 import EidQurbaniPlanner from '../../components/islamic/EidQurbaniPlanner';
 import { brand } from '../../config/brand';
+import { WorkflowVisualizer } from '../../components/ui/WorkflowVisualizer';
 
 const EidQurbaniPlannerPage: React.FC = () => {
   const schema = {
@@ -34,6 +35,14 @@ const EidQurbaniPlannerPage: React.FC = () => {
 
           <div className="mb-12">
              <EidQurbaniPlanner />
+          </div>
+
+          <div className="mt-20 max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+               <h2 className="text-2xl md:text-3xl font-extrabold text-sidqly-navy mb-4">Qurbani Fulfillment Lifecycle</h2>
+               <p className="text-gray-600 text-sm max-w-xl mx-auto">See how Sidqly tracks livestock orders, assigns vendor SLA tasks, checks slaughter proof, and archives certificates.</p>
+            </div>
+            <WorkflowVisualizer initialWorkflowId="qurbani-fulfillment" />
           </div>
         </div>
       </div>

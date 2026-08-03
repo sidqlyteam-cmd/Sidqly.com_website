@@ -40,7 +40,10 @@ const pagesRoutes = [
     '/hajj-countdown',
     '/ramadan-planner',
     '/eid-qurbani-planner',
-    '/sadqa-zakat-planner'
+    '/sadqa-zakat-planner',
+    '/guided-pilot',
+    '/data-migration',
+    '/contact-sales'
 ];
 
 const modulesRoutes = [
