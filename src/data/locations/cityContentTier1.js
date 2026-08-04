@@ -32,6 +32,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("London", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -64,6 +73,15 @@ export var cityContentTier1 = [
         relatedUtilities: [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
+        ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
         ],
         faqs: generateLocationFaqs("Birmingham", ["general", "mosque", "zakatSadaqah", "ramadan", "donorUpdates", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
@@ -98,6 +116,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Islamic Calendar", href: "/islamic-calendar" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Manchester", ["general", "mosque", "paymentProof", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo", "islamicCharity"])
     },
     {
@@ -130,6 +157,15 @@ export var cityContentTier1 = [
         relatedUtilities: [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Eid & Qurbani Planner", href: "/eid-qurbani-planner" }
+        ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
         ],
         faqs: generateLocationFaqs("Leicester", ["general", "mosque", "paymentProof", "ramadan", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
@@ -165,6 +201,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("New York", ["general", "mosque", "islamicCharity", "paymentProof", "donorUpdates", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -197,6 +242,15 @@ export var cityContentTier1 = [
         relatedUtilities: [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
+        ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
         ],
         faqs: generateLocationFaqs("Houston", ["general", "mosque", "zakatSadaqah", "ramadan", "donorUpdates", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
@@ -231,6 +285,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Islamic Calendar", href: "/islamic-calendar" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Chicago", ["general", "mosque", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -248,7 +311,7 @@ export var cityContentTier1 = [
         metaTitle: "Islamic Charity Software for Dallas | Sidqly",
         metaDescription: "Sidqly provides structured operational workflows for mosques and Islamic nonprofits in Dallas handling Zakat and Ramadan appeals.",
         h1: "Organized Charity Workflows for Dallas",
-        shortHero: "Clear, secure tracking for community-led giving campaigns.",
+        shortHero: "Tailored SaaS workflow tools to organize Zakat, Sadaqah, and Ramadan collections for Dallas mosques and nonprofit organizations.",
         quickAnswer: "Sidqly helps Islamic organizations in Dallas manage verified giving workflows with manual payment review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting. It is useful for mosques, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs that need clearer records and safer proof handling.",
         localNeeds: "Focus on Islamic nonprofits, mosque communities, high donor expectations, remote volunteers, Ramadan campaigns, Zakat/Sadaqah tracking, and board reporting.",
         culturalNote: "In diaspora Muslim communities, giving often flows through mosques, nonprofit appeals, Ramadan drives, and family/community networks. Sidqly helps teams keep proof, approvals, donor updates, and reporting more structured and dignity-safe.",
@@ -263,6 +326,15 @@ export var cityContentTier1 = [
         relatedUtilities: [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
+        ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
         ],
         faqs: generateLocationFaqs("Dallas", ["general", "mosque", "paymentProof", "ramadan", "zakatSadaqah", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
@@ -298,6 +370,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Toronto", ["general", "mosque", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -330,6 +411,15 @@ export var cityContentTier1 = [
         relatedUtilities: [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
+        ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
         ],
         faqs: generateLocationFaqs("Mississauga", ["general", "mosque", "zakatSadaqah", "ramadan", "donorUpdates", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
@@ -365,6 +455,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Eid & Qurbani Planner", href: "/eid-qurbani-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Dubai", ["general", "islamicCharity", "zakatSadaqah", "paymentProof", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -382,7 +481,7 @@ export var cityContentTier1 = [
         metaTitle: "Islamic Charity Software for Abu Dhabi | Sidqly",
         metaDescription: "Sidqly assists Islamic organizations in Abu Dhabi with Zakat workflows, manual payment reviews, and secure proof approval processes.",
         h1: "Structured Operations for Abu Dhabi Charities",
-        shortHero: "Organize Zakat and Sadaqah workflows with clarity and trust.",
+        shortHero: "Structure and optimize giving operations in Abu Dhabi with secure payment reviews and digital proof.",
         quickAnswer: "Sidqly helps Islamic organizations in Abu Dhabi manage verified giving workflows with manual payment review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting. It is useful for mosques, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs that need clearer records and safer proof handling.",
         localNeeds: "Focus on diverse Muslim communities, Zakat/Sadaqah, Ramadan giving, Qurbani/Udhiyah coordination, donor proof, and structured admin workflows.",
         culturalNote: "In Gulf communities, terms such as Zakat, Sadaqah, Amanah, Ihsan, and Udhiyah/Qurbani are closely connected to trust and responsibility. Sidqly supports the operational side of these giving workflows by helping teams organize payment proof, approvals, dignity-safe updates, and reporting.",
@@ -398,6 +497,15 @@ export var cityContentTier1 = [
             { label: "Islamic Calendar", href: "/islamic-calendar" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Abu Dhabi", ["general", "islamicCharity", "zakatSadaqah", "ramadan", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -408,9 +516,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "sharjah-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software for Sharjah | Sidqly",
         metaDescription: "Sidqly helps Sharjah-based Islamic charities organize donor-safe updates, manual payment reviews, and transparent reporting.",
@@ -431,6 +539,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Sharjah", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // SAUDI ARABIA
@@ -465,6 +575,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Hajj Countdown", href: "/hajj-countdown" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Riyadh", ["general", "islamicCharity", "zakatSadaqah", "paymentProof", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -497,6 +616,15 @@ export var cityContentTier1 = [
         relatedUtilities: [
             { label: "Eid & Qurbani Planner", href: "/eid-qurbani-planner" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
+        ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
         ],
         faqs: generateLocationFaqs("Jeddah", ["general", "islamicCharity", "zakatSadaqah", "ramadan", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
@@ -532,6 +660,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Doha", ["general", "islamicCharity", "paymentProof", "zakatSadaqah", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // KUWAIT
@@ -566,6 +703,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Islamic Calendar", href: "/islamic-calendar" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Kuwait City", ["general", "islamicCharity", "zakatSadaqah", "paymentProof", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
     // BAHRAIN
@@ -577,9 +723,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "manama-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software for Manama | Sidqly",
         metaDescription: "Sidqly helps Manama-based Islamic charities manage Zakat workflows, manual payment reviews, and secure proof approvals.",
@@ -600,6 +746,8 @@ export var cityContentTier1 = [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Manama", ["general", "islamicCharity", "zakatSadaqah", "ramadan", "donorUpdates", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // OMAN
@@ -611,9 +759,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "muscat-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software for Muscat | Sidqly",
         metaDescription: "Sidqly helps Islamic charities and Zakat committees in Muscat organize payment proof, approvals, and dignity-safe donor updates securely.",
@@ -634,6 +782,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Islamic Calendar", href: "/islamic-calendar" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Muscat", ["general", "islamicCharity", "zakatSadaqah", "paymentProof", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // PAKISTAN
@@ -668,6 +818,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Eid & Qurbani Planner", href: "/eid-qurbani-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Karachi", ["general", "mosque", "zakatSadaqah", "ramadan", "paymentProof", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -701,6 +860,15 @@ export var cityContentTier1 = [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Lahore", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -711,9 +879,9 @@ export var cityContentTier1 = [
         regionSlug: "south-asia",
         slug: "islamabad-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software for Islamabad | Sidqly",
         metaDescription: "Sidqly provides structured operational workflows for masjid committees in Islamabad handling Zakat and Ramadan ration drives.",
@@ -734,6 +902,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Islamabad", ["general", "mosque", "paymentProof", "ramadan", "zakatSadaqah", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // MALAYSIA
@@ -768,6 +938,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Kuala Lumpur", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
     // AUSTRALIA
@@ -786,7 +965,7 @@ export var cityContentTier1 = [
         metaTitle: "Islamic Charity Software for Sydney | Sidqly",
         metaDescription: "Sidqly helps Sydney-based Islamic charities and mosques manage Zakat workflows, manual payment reviews, and secure proof approvals.",
         h1: "Structured Operations for Sydney Charities",
-        shortHero: "Organize giving workflows with clarity and trust.",
+        shortHero: "SaaS bookkeeping systems and volunteer-tracking workflows for Sydney mosque appeals and charities.",
         quickAnswer: "Sidqly helps Islamic organizations in Sydney manage verified giving workflows with manual payment review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting. It is useful for mosques, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs that need clearer records and safer proof handling.",
         localNeeds: "Focus on diaspora Muslim communities, mosque fundraising, Ramadan appeals, volunteer coordination, donor confidence, and board-ready reporting.",
         culturalNote: "In Australian diaspora Muslim communities, support relies on mosque fundraising, Ramadan appeals, and strong donor trust. Sidqly helps organize the operational workflow for these campaigns, focusing on proof, approvals, and reporting.",
@@ -802,6 +981,15 @@ export var cityContentTier1 = [
             { label: "Namaz Timings", href: "/namaz-timings" },
             { label: "Sadqa & Zakat Planner", href: "/sadqa-zakat-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Sydney", ["general", "mosque", "zakatSadaqah", "ramadan", "donorUpdates", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -812,9 +1000,9 @@ export var cityContentTier1 = [
         regionSlug: "asia-pacific",
         slug: "melbourne-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software for Melbourne | Sidqly",
         metaDescription: "Sidqly supports Islamic organizations in Melbourne with tools for managing Zakat workflows, manual payment reviews, and secure proof approvals.",
@@ -835,6 +1023,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Islamic Calendar", href: "/islamic-calendar" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Melbourne", ["general", "mosque", "paymentProof", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo", "islamicCharity"])
     },
     // UNITED STATES (Batch 2)
@@ -869,6 +1059,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Boston", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -879,9 +1078,9 @@ export var cityContentTier1 = [
         regionSlug: "north-america",
         slug: "washington-dc-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Washington, DC | Sidqly",
         metaDescription: "Sidqly helps Washington, DC-based mosques, Islamic charities, Zakat committees, and donor-funded programs manage verified giving, payment proof, and board-ready reporting.",
@@ -902,6 +1101,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Washington, DC", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -934,6 +1135,15 @@ export var cityContentTier1 = [
         relatedUtilities: [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
+        ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
         ],
         faqs: generateLocationFaqs("Los Angeles", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
@@ -968,6 +1178,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("San Francisco Bay Area", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -978,9 +1197,9 @@ export var cityContentTier1 = [
         regionSlug: "north-america",
         slug: "atlanta-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Atlanta | Sidqly",
         metaDescription: "Sidqly helps Atlanta-based mosques, Islamic charities, Zakat committees, Sadaqah teams, and donor-funded programs manage verified giving and payment proof.",
@@ -1001,6 +1220,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Atlanta", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1011,9 +1232,9 @@ export var cityContentTier1 = [
         regionSlug: "north-america",
         slug: "detroit-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Detroit | Sidqly",
         metaDescription: "Sidqly helps Detroit-based mosques, Islamic charities, Zakat committees, Qurbani organizers, and donor-funded programs manage verified giving and payment proof.",
@@ -1034,6 +1255,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Detroit", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1044,9 +1267,9 @@ export var cityContentTier1 = [
         regionSlug: "north-america",
         slug: "philadelphia-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Philadelphia | Sidqly",
         metaDescription: "Sidqly helps Philadelphia-based mosques, Islamic charities, Zakat committees, and donor-funded programs manage verified giving, payment proof, and clear reporting.",
@@ -1067,6 +1290,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Philadelphia", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // CANADA (Batch 2)
@@ -1101,6 +1326,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Calgary", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1134,6 +1368,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Vancouver", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1144,9 +1387,9 @@ export var cityContentTier1 = [
         regionSlug: "north-america",
         slug: "montreal-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Montreal | Sidqly",
         metaDescription: "Sidqly helps Montreal-based mosques, Islamic charities, Zakat committees, and donor-funded programs manage verified giving and payment proof.",
@@ -1167,6 +1410,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Montreal", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1177,9 +1422,9 @@ export var cityContentTier1 = [
         regionSlug: "north-america",
         slug: "ottawa-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Ottawa | Sidqly",
         metaDescription: "Sidqly helps Ottawa-based mosques, Islamic charities, and donor-funded programs manage verified giving, payment proof, and board-friendly records.",
@@ -1200,6 +1445,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Ottawa", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // UNITED KINGDOM (Batch 2)
@@ -1234,6 +1481,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Bradford", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1267,6 +1523,15 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [
+            { label: "Manual Payment Review", href: "/modules/manual-payment-review" },
+            { label: "Proof Approval", href: "/modules/proof-trust-engine" },
+            { label: "Donor-Safe Updates", href: "/modules/donor-safe-updates" }
+        ],
+        relatedKnowledgeHubArticles: [
+            { label: "Guide to Islamic Charity Operations", href: "/knowledge-hub/guide-islamic-charity-operations" },
+            { label: "Complete Guide to Zakat Management Systems", href: "/knowledge-hub/zakat-management-systems-guide" }
+        ],
         faqs: generateLocationFaqs("Glasgow", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1277,9 +1542,9 @@ export var cityContentTier1 = [
         regionSlug: "europe",
         slug: "leeds-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Leeds | Sidqly",
         metaDescription: "Sidqly helps Leeds-based mosques, Islamic charities, Zakat committees, Sadaqah teams, and donor-funded programs manage verified giving and payment proof.",
@@ -1300,6 +1565,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Leeds", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1310,9 +1577,9 @@ export var cityContentTier1 = [
         regionSlug: "europe",
         slug: "bolton-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Bolton | Sidqly",
         metaDescription: "Sidqly helps Bolton-based mosques, Islamic charities, Qurbani teams, and donor-funded programs manage verified giving and donor-safe updates.",
@@ -1333,6 +1600,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Bolton", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // SAUDI ARABIA (Batch 2)
@@ -1344,9 +1613,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "makkah-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Makkah | Sidqly",
         metaDescription: "Sidqly helps Makkah-based Islamic charities, Zakat committees, Qurbani teams, and donor-funded programs manage verified giving and payment proof.",
@@ -1367,6 +1636,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Makkah", ["general", "islamicCharity", "zakatSadaqah", "qurbani", "paymentProof", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1377,9 +1648,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "madinah-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Madinah | Sidqly",
         metaDescription: "Sidqly helps Madinah-based Islamic charities, Zakat committees, and donor-funded programs manage verified giving, payment proof, and clear internal records.",
@@ -1400,6 +1671,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Madinah", ["general", "islamicCharity", "zakatSadaqah", "ramadan", "paymentProof", "donorUpdates", "recipientDignity", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1410,9 +1683,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "dammam-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Dammam | Sidqly",
         metaDescription: "Sidqly helps Dammam-based mosques, Islamic charities, Zakat committees, Qurbani teams, and donor-funded programs manage verified giving and payment proof.",
@@ -1433,6 +1706,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Dammam", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1443,9 +1718,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "al-khobar-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Al Khobar | Sidqly",
         metaDescription: "Sidqly helps Al Khobar-based mosques, Islamic charities, Zakat committees, and donor-funded programs manage verified giving, payment proof, and clear reporting.",
@@ -1466,6 +1741,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Al Khobar", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // UNITED ARAB EMIRATES (Batch 2)
@@ -1477,9 +1754,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "ajman-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Ajman | Sidqly",
         metaDescription: "Sidqly helps Ajman-based mosques, Islamic charities, Zakat committees, and donor-funded programs manage verified giving and payment proof.",
@@ -1500,6 +1777,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Ajman", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1510,9 +1789,9 @@ export var cityContentTier1 = [
         regionSlug: "middle-east",
         slug: "al-ain-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Al Ain | Sidqly",
         metaDescription: "Sidqly helps Al Ain-based mosques, Islamic charities, Qurbani teams, and donor-funded programs manage verified giving and donor-safe updates.",
@@ -1533,6 +1812,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Al Ain", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // INDIA (Batch 2)
@@ -1544,9 +1825,9 @@ export var cityContentTier1 = [
         regionSlug: "south-asia",
         slug: "hyderabad-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Hyderabad | Sidqly",
         metaDescription: "Sidqly helps Hyderabad-based masjid trusts, Islamic charities, Zakat committees, Qurbani teams, and donor-funded programs manage verified giving and payment proof.",
@@ -1567,6 +1848,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Hyderabad", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     {
@@ -1577,9 +1860,9 @@ export var cityContentTier1 = [
         regionSlug: "south-asia",
         slug: "mumbai-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Mumbai | Sidqly",
         metaDescription: "Sidqly helps Mumbai-based masjid trusts, Islamic charities, Zakat committees, and donor-funded programs manage verified giving, payment proof, and clear reporting.",
@@ -1600,6 +1883,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Mumbai", ["general", "islamicCharity", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // INDONESIA (Batch 2)
@@ -1611,9 +1896,9 @@ export var cityContentTier1 = [
         regionSlug: "asia-pacific",
         slug: "jakarta-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Jakarta | Sidqly",
         metaDescription: "Sidqly helps Jakarta-based mosques, Islamic charities, zakat committees, kurban teams, and donor-funded programs manage verified giving and payment proof.",
@@ -1634,6 +1919,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Jakarta", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     },
     // SOUTH AFRICA (Batch 2)
@@ -1645,9 +1932,9 @@ export var cityContentTier1 = [
         regionSlug: "africa",
         slug: "cape-town-islamic-charity-software",
         pageType: "city",
-        priorityTier: 1,
-        indexStatus: "index",
-        includeInSitemap: true,
+        priorityTier: 2,
+        indexStatus: "noindex",
+        includeInSitemap: false,
         contentQuality: "strong",
         metaTitle: "Islamic Charity Software in Cape Town | Sidqly",
         metaDescription: "Sidqly helps Cape Town-based mosques, Islamic charities, Zakat committees, Sadaqah teams, and donor-funded programs manage verified giving and payment proof.",
@@ -1668,6 +1955,8 @@ export var cityContentTier1 = [
             { label: "Zakat Calculator", href: "/zakat-calculator" },
             { label: "Ramadan Planner", href: "/ramadan-planner" }
         ],
+        relatedProducts: [],
+        relatedKnowledgeHubArticles: [],
         faqs: generateLocationFaqs("Cape Town", ["general", "mosque", "paymentProof", "donorUpdates", "recipientDignity", "boardReporting", "remoteSaaS", "pricingDemo"])
     }
 ];
