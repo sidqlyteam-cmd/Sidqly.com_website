@@ -19,7 +19,8 @@ const CompareDetail: React.FC = () => {
   const displayDescription = comparisonData ? comparisonData.metaDescription : (isMosque ? "See why mosques and Islamic charities need more than a basic website to manage verified giving, donor updates, proof approval, and reporting." : "Why professional organizations choose Sidqly for their giving operations.");
   const metaTitle = comparisonData ? comparisonData.metaTitle : `${displayTitle} | ${brand.name}`;
 
-  const canonicalPath = slug ? `/compare/${slug}` : location.pathname;
+  const isAlternative = location.pathname.startsWith('/alternatives');
+  const canonicalPath = slug ? (isAlternative ? `/alternatives/${slug}` : `/compare/${slug}`) : location.pathname;
   const noindex = !comparisonData && !isMosque;
 
   const schema = {
@@ -55,14 +56,19 @@ const CompareDetail: React.FC = () => {
           </div>
 
           {comparisonData && (
-             <div className="mb-20 max-w-4xl mx-auto bg-white p-8 rounded-[2rem] border border-sidqly-green-soft/30 flex gap-6 items-start shadow-sm">
-                <div className="w-12 h-12 bg-sidqly-green-emerald text-white rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Shield size={24} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-sidqly-navy mb-2">Quick Answer</h3>
-                  <p className="text-gray-600 leading-relaxed">{comparisonData.quickAnswer}</p>
-                </div>
+             <div className="mb-20 max-w-4xl mx-auto">
+               <div className="bg-white p-8 rounded-[2rem] border border-sidqly-green-soft/30 flex gap-6 items-start shadow-sm mb-4">
+                  <div className="w-12 h-12 bg-sidqly-green-emerald text-white rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Shield size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-sidqly-navy mb-2">Quick Answer</h3>
+                    <p className="text-gray-600 leading-relaxed">{comparisonData.quickAnswer}</p>
+                  </div>
+               </div>
+               <div className="text-right text-xs font-bold text-gray-400 uppercase tracking-widest px-4">
+                  {comparisonData.lastReviewed}
+               </div>
              </div>
           )}
 
@@ -126,6 +132,37 @@ const CompareDetail: React.FC = () => {
                  ))}
               </div>
 
+              {/* Limitations Section */}
+              <div className="mb-16">
+                 <h3 className="text-2xl font-bold text-sidqly-navy text-center mb-8">Honest Platform Limitations</h3>
+                 <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-red-50/50 p-8 rounded-3xl border border-red-100">
+                       <h4 className="font-bold text-red-800 mb-4">Competitor/Traditional Limitations</h4>
+                       <ul className="space-y-3 text-sm text-red-900">
+                          {comparisonData.competitorLimitations?.map((lim, i) => (
+                             <li key={i} className="flex gap-2">
+                                <span>•</span> <span>{lim}</span>
+                             </li>
+                          )) || (
+                             <li>Traditional tools do not typically offer logical Zakat ledgers or automated beneficiary face blurring.</li>
+                          )}
+                       </ul>
+                    </div>
+                    <div className="bg-amber-50/30 p-8 rounded-3xl border border-amber-100">
+                       <h4 className="font-bold text-amber-800 mb-4">Sidqly Limitations</h4>
+                       <ul className="space-y-3 text-sm text-amber-900">
+                          {comparisonData.sidqlyLimitations?.map((lim, i) => (
+                             <li key={i} className="flex gap-2">
+                                <span>•</span> <span>{lim}</span>
+                             </li>
+                          )) || (
+                             <li>We do not process direct credit card transactions and rely on your staff to verify manual statements.</li>
+                          )}
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+
               <div className="grid md:grid-cols-2 gap-8">
                  <div className="bg-gray-50 p-8 rounded-3xl border border-gray-200">
                     <h3 className="text-xl font-bold text-sidqly-navy mb-4">Trust & Dignity</h3>
@@ -136,6 +173,13 @@ const CompareDetail: React.FC = () => {
                     <p className="text-gray-600 text-sm leading-relaxed">{comparisonData.reportingConsiderations}</p>
                  </div>
               </div>
+
+              {/* Source References */}
+              {comparisonData.sourceReferences && comparisonData.sourceReferences.length > 0 && (
+                 <div className="mt-12 text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                    Cited Sources: {comparisonData.sourceReferences.join(', ')}
+                 </div>
+              )}
            </div>
         </section>
       )}

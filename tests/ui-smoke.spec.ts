@@ -137,4 +137,26 @@ test.describe('Sidqly UI Smoke Tests', () => {
     }
   });
 
+  test('Phase 10 Knowledge Hub renders and filters successfully', async ({ page }) => {
+    // 1. Check main Knowledge Hub renders
+    await page.goto(BASE_URL + '/knowledge-hub');
+    await expect(page.locator('h1', { hasText: 'Operations Knowledge Hub' })).toBeVisible();
+
+    // Check tabs are active
+    const pillarTab = page.getByRole('button', { name: 'pillar' });
+    await expect(pillarTab).toBeVisible();
+    await pillarTab.click();
+
+    // Search and check results filter
+    const searchInput = page.getByPlaceholder('Search guides, definitions, and workflows...');
+    await searchInput.fill('zakat');
+    await expect(page.locator('h3', { hasText: 'Zakat' }).first()).toBeVisible();
+
+    // 2. Check dynamic detail route compiles and renders
+    await page.goto(BASE_URL + '/knowledge-hub/guide-islamic-charity-operations');
+    await expect(page.locator('h1', { hasText: 'Guide to Islamic Charity Operations' })).toBeVisible();
+    await expect(page.locator('h2', { hasText: 'What It Is' })).toBeVisible();
+    await expect(page.locator('h2', { hasText: 'Step-by-Step Workflow' })).toBeVisible();
+  });
+
 });

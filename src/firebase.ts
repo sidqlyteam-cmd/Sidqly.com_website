@@ -1,7 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDwLFWaHyWBjU4M2jI-R9UqInwjD2prQA0",
@@ -16,16 +14,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Auth and Firestore
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-
 // Initialize Analytics safely for SSR/Client execution
 export const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
-
-if (import.meta.env.MODE === 'development' || import.meta.env?.VITE_USE_FIREBASE_EMULATOR === 'true') {
-  // connectAuthEmulator(auth, "http://localhost:9099", { disableWarnings: true });
-  // connectFirestoreEmulator(db, 'localhost', 8080);
-}
-
 export default app;
