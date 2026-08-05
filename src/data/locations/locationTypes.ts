@@ -44,6 +44,8 @@ export interface LocationRecord {
   relatedUtilities?: LocationLink[];
   relatedResources?: LocationLink[];
   relatedTrustPages?: LocationLink[];
+  relatedKnowledgeHubArticles?: LocationLink[];
+  relatedProducts?: LocationLink[];
   faqs?: LocationFaq[];
   canonicalPath?: string;
 }

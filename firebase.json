@@ -367,54 +367,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/africa",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/africa/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/ajman-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/ajman-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/al-ain-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/al-ain-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/al-khobar-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/al-khobar-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/asia-pacific",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/asia-pacific/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/atlanta-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/atlanta-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/australia",
         "destination": "/index.html"
       },
@@ -423,27 +375,11 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/bahrain",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/bahrain/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/birmingham-islamic-charity-software",
         "destination": "/index.html"
       },
       {
         "source": "/locations/birmingham-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/bolton-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/bolton-islamic-charity-software/",
         "destination": "/index.html"
       },
       {
@@ -479,14 +415,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/cape-town-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/cape-town-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/chicago-islamic-charity-software",
         "destination": "/index.html"
       },
@@ -500,22 +428,6 @@
       },
       {
         "source": "/locations/dallas-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/dammam-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/dammam-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/detroit-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/detroit-islamic-charity-software/",
         "destination": "/index.html"
       },
       {
@@ -535,14 +447,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/europe",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/europe/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/glasgow-islamic-charity-software",
         "destination": "/index.html"
       },
@@ -551,51 +455,19 @@
         "destination": "/index.html"
       },
       {
+        "source": "/locations/gulf",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/locations/gulf/",
+        "destination": "/index.html"
+      },
+      {
         "source": "/locations/houston-islamic-charity-software",
         "destination": "/index.html"
       },
       {
         "source": "/locations/houston-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/hyderabad-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/hyderabad-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/india",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/india/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/indonesia",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/indonesia/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/islamabad-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/islamabad-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/jakarta-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/jakarta-islamic-charity-software/",
         "destination": "/index.html"
       },
       {
@@ -623,14 +495,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/kuwait",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/kuwait/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/kuwait-city-islamic-charity-software",
         "destination": "/index.html"
       },
@@ -644,14 +508,6 @@
       },
       {
         "source": "/locations/lahore-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/leeds-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/leeds-islamic-charity-software/",
         "destination": "/index.html"
       },
       {
@@ -679,35 +535,11 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/madinah-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/madinah-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/makkah-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/makkah-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/malaysia",
         "destination": "/index.html"
       },
       {
         "source": "/locations/malaysia/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/manama-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/manama-islamic-charity-software/",
         "destination": "/index.html"
       },
       {
@@ -719,51 +551,11 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/melbourne-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/melbourne-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/middle-east",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/middle-east/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/mississauga-islamic-charity-software",
         "destination": "/index.html"
       },
       {
         "source": "/locations/mississauga-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/montreal-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/montreal-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/mumbai-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/mumbai-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/muscat-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/muscat-islamic-charity-software/",
         "destination": "/index.html"
       },
       {
@@ -775,51 +567,11 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/north-america",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/north-america/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/oman",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/oman/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/ottawa-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/ottawa-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/pakistan",
         "destination": "/index.html"
       },
       {
         "source": "/locations/pakistan/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/philadelphia-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/philadelphia-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/qatar",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/qatar/",
         "destination": "/index.html"
       },
       {
@@ -839,38 +591,6 @@
         "destination": "/index.html"
       },
       {
-        "source": "/locations/saudi-arabia",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/saudi-arabia/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/sharjah-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/sharjah-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/south-africa",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/south-africa/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/south-asia",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/south-asia/",
-        "destination": "/index.html"
-      },
-      {
         "source": "/locations/sydney-islamic-charity-software",
         "destination": "/index.html"
       },
@@ -884,14 +604,6 @@
       },
       {
         "source": "/locations/toronto-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/united-arab-emirates",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/united-arab-emirates/",
         "destination": "/index.html"
       },
       {
@@ -916,14 +628,6 @@
       },
       {
         "source": "/locations/vancouver-islamic-charity-software/",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/washington-dc-islamic-charity-software",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/locations/washington-dc-islamic-charity-software/",
         "destination": "/index.html"
       },
       {
