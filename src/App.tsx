@@ -30,6 +30,7 @@ import Migration from './pages/Migration';
 import Purchase from './pages/Purchase';
 import Status from './pages/Status';
 import Legal from './pages/Legal';
+import LegalDetail from './pages/LegalDetail';
 import ThankYou from './pages/ThankYou';
 import SitemapPage from './pages/SitemapPage';
 import AISearchReadiness from './pages/AISearchReadiness';
@@ -156,6 +157,7 @@ function App() {
             <Route path="purchase" element={<Purchase />} />
             <Route path="status" element={<Status />} />
             <Route path="legal" element={<Legal />} />
+            <Route path="legal/:slug" element={<LegalDetail />} />
             <Route path="sitemap" element={<SitemapPage />} />
             <Route path="ai-search-readiness" element={<AISearchReadiness />} />
             <Route path="request-organization" element={<RequestOrganization />} />
