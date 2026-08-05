@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SEO from '../components/SEO';
 import { trackEvent } from '../lib/analytics';
 import { generateBreadcrumbSchema } from '../lib/schema';
@@ -6,60 +6,15 @@ import { CheckCircle2, Shield, Heart, HelpCircle, FileText, Users, Settings, Dat
 import { tokens } from '../design/tokens';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
-import { Input } from '../components/ui/Input';
-import { Select } from '../components/ui/Select';
 import { PageTransition } from '../components/ui/PageTransition';
 
 const GuidedPilot: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    organizationName: '',
-    country: '',
-    organizationType: '',
-    teamSize: '',
-    currentTools: '',
-    mainProblem: '',
-    donationVolume: ''
-  });
-
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Simple validation
-    const newErrors: Record<string, string> = {};
-    if (!formData.organizationName.trim()) newErrors.organizationName = 'Organization name is required';
-    if (!formData.country.trim()) newErrors.country = 'Country is required';
-    if (!formData.organizationType) newErrors.organizationType = 'Please select your organization type';
-    if (!formData.teamSize) newErrors.teamSize = 'Please select your team size';
-    if (!formData.currentTools.trim()) newErrors.currentTools = 'Please describe your current tools';
-    if (!formData.mainProblem.trim()) newErrors.mainProblem = 'Please describe your main operational problem';
-    if (!formData.donationVolume) newErrors.donationVolume = 'Please select monthly donation volume';
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    // Track application event
+  // Consolidated lead-capture tracking redirect
+  const handleApplyRedirect = () => {
     trackEvent('guided_pilot_apply', {
-      organization_type: formData.organizationType,
-      team_size: formData.teamSize,
-      donation_volume: formData.donationVolume,
-      country: formData.country,
-      cta_source: 'guided_pilot_page_form'
+      cta_source: 'guided_pilot_page_cta_redirect'
     });
-
-    setSubmitted(true);
+    window.open("https://forms.gle/BQ8jteZP2ufDcSgo9", "_blank", "noopener,noreferrer");
   };
 
   const schema = {
@@ -219,162 +174,40 @@ const GuidedPilot: React.FC = () => {
       {/* Form Section */}
       <section id="apply-form" className="py-20 bg-sidqly-ivory scroll-mt-10 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card variant="white" className="p-8 md:p-12 shadow-xl border border-gray-100">
-            {submitted ? (
-              <div className="text-center py-12">
-                <div className="w-20 h-20 bg-sidqly-green-soft/30 text-sidqly-green-emerald rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={tokens.iconSizes.xxl} />
-                </div>
-                <h3 className="text-3xl font-bold text-sidqly-navy mb-4">Pilot Application Submitted!</h3>
-                <p className="text-gray-600 max-w-md mx-auto mb-8 leading-relaxed">
-                  Thank you for applying. A Sidqly representative will review your organization details within 24-48 business hours.
-                </p>
-                <div className="bg-sidqly-ivory p-6 rounded-2xl text-left max-w-lg mx-auto border border-gray-100 mb-8">
-                  <h4 className="font-bold text-sidqly-navy mb-2 flex items-center gap-2">
-                    <Database size={tokens.iconSizes.sm} className="text-sidqly-green-deep" /> Next Steps:
-                  </h4>
-                  <ul className="space-y-3 text-sm text-gray-600">
-                    <li className="flex gap-2 items-start">
-                      <span className="font-bold text-sidqly-navy">1.</span>
-                      <span>Review of your operational challenges & current tools by our team.</span>
-                    </li>
-                    <li className="flex gap-2 items-start">
-                      <span className="font-bold text-sidqly-navy">2.</span>
-                      <span>A schedule link will be sent to your email to set up your pilot kick-off call.</span>
-                    </li>
-                    <li className="flex gap-2 items-start">
-                      <span className="font-bold text-sidqly-navy">3.</span>
-                      <span>Guided migration of your initial list into your custom sandbox.</span>
-                    </li>
-                  </ul>
-                </div>
-                <Button
-                  variant="deep"
-                  onClick={() => setSubmitted(false)}
-                >
-                  Submit Another Application
-                </Button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="text-center mb-10">
-                  <h3 className="text-3xl font-bold text-sidqly-navy mb-2">Apply for Guided Pilot</h3>
-                  <p className="text-gray-500 text-sm">Fill out the fields below and we'll design a customized roadmap for your organization.</p>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <Input
-                    label="Organization Name"
-                    required
-                    id="organizationName"
-                    name="organizationName"
-                    value={formData.organizationName}
-                    onChange={handleInputChange}
-                    error={errors.organizationName}
-                    placeholder="e.g. Al-Noor Mosque"
-                  />
-
-                  <Input
-                    label="Country"
-                    required
-                    id="country"
-                    name="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    error={errors.country}
-                    placeholder="e.g. Pakistan, United Kingdom"
-                  />
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <Select
-                    label="Organization Type"
-                    required
-                    id="organizationType"
-                    name="organizationType"
-                    value={formData.organizationType}
-                    onChange={handleInputChange}
-                    error={errors.organizationType}
-                    options={[
-                      { value: 'mosque', label: 'Mosque' },
-                      { value: 'charity', label: 'Islamic Charity' },
-                      { value: 'zakat_committee', label: 'Zakat Committee' },
-                      { value: 'campaign_group', label: 'Seasonal Campaign Group' },
-                      { value: 'other', label: 'Other' }
-                    ]}
-                  />
-
-                  <Select
-                    label="Team Size"
-                    required
-                    id="teamSize"
-                    name="teamSize"
-                    value={formData.teamSize}
-                    onChange={handleInputChange}
-                    error={errors.teamSize}
-                    options={[
-                      { value: '1-5', label: '1 - 5 members' },
-                      { value: '6-15', label: '6 - 15 members' },
-                      { value: '16-50', label: '16 - 50 members' },
-                      { value: '50+', label: '50+ members' }
-                    ]}
-                  />
-                </div>
-
-                <Input
-                  label="What tools do you currently use?"
-                  required
-                  id="currentTools"
-                  name="currentTools"
-                  value={formData.currentTools}
-                  onChange={handleInputChange}
-                  error={errors.currentTools}
-                  placeholder="e.g. WhatsApp, Excel, paper folders"
-                />
-
-                <div className="space-y-2">
-                  <label className="block text-sm font-bold text-sidqly-navy" htmlFor="mainProblem">
-                    What is your main operational problem? <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    id="mainProblem"
-                    name="mainProblem"
-                    rows={3}
-                    value={formData.mainProblem}
-                    onChange={handleInputChange}
-                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:outline-none focus:ring-2 focus:ring-sidqly-green-soft text-sm ${
-                      errors.mainProblem ? 'border-red-500 focus:ring-red-300' : 'border-gray-200'
-                    }`}
-                    placeholder="Please explain the primary bottleneck (e.g., matching screenshots manually, chasing vendors for proof)."
-                  />
-                  {errors.mainProblem && <p className="text-xs text-red-500 font-medium">{errors.mainProblem}</p>}
-                </div>
-
-                <Select
-                  label="Monthly Donation Volume Range"
-                  required
-                  id="donationVolume"
-                  name="donationVolume"
-                  value={formData.donationVolume}
-                  onChange={handleInputChange}
-                  error={errors.donationVolume}
-                  options={[
-                    { value: 'under_5k', label: 'Under $5,000' },
-                    { value: '5k_20k', label: '$5,000 - $20,000' },
-                    { value: '20k_100k', label: '$20,000 - $100,000' },
-                    { value: 'above_100k', label: 'Above $100,000' }
-                  ]}
-                />
-
-                <Button
-                  type="submit"
-                  variant="deep"
-                  className="w-full mt-4"
-                >
-                  Apply for Guided Pilot
-                </Button>
-              </form>
-            )}
+          <Card variant="white" className="p-8 md:p-12 shadow-xl border border-gray-100 text-center">
+            <div className="w-16 h-16 bg-sidqly-green-soft/30 text-sidqly-green-emerald rounded-full flex items-center justify-center mx-auto mb-6">
+              <Database size={tokens.iconSizes.xl} />
+            </div>
+            <h3 className="text-3xl font-bold text-sidqly-navy mb-4">Start Your Guided Pilot Transition</h3>
+            <p className="text-gray-600 max-w-xl mx-auto mb-8 leading-relaxed">
+              We have consolidated our onboarding and application workflows into our approved, single Sidqly Google Form to ensure secure, streamlined lead handling. Click below to submit your details securely.
+            </p>
+            <div className="bg-sidqly-ivory p-6 rounded-2xl text-left max-w-lg mx-auto border border-gray-100 mb-8">
+              <h4 className="font-bold text-sidqly-navy mb-2 flex items-center gap-2">
+                <Database size={tokens.iconSizes.sm} className="text-sidqly-green-deep" /> What Happens Next:
+              </h4>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li className="flex gap-2 items-start">
+                  <span className="font-bold text-sidqly-navy">1.</span>
+                  <span>Submission of your organization metrics through our secure Google Form.</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="font-bold text-sidqly-navy">2.</span>
+                  <span>Direct team review of your current spreadsheets and WhatsApp workflows.</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="font-bold text-sidqly-navy">3.</span>
+                  <span>Custom roadmap preparation and sandbox setup for your 30-day pilot.</span>
+                </li>
+              </ul>
+            </div>
+            <Button
+              variant="deep"
+              onClick={handleApplyRedirect}
+              className="w-full sm:w-auto px-10 py-4"
+            >
+              Open Pilot Application Form
+            </Button>
           </Card>
         </div>
       </section>
