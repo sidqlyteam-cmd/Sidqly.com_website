@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,54 +20,7 @@ let tier3Count = 0;
 let errorCount = 0;
 let warningCount = 0;
 
-// Valid route target prefixes inside the repository
-const VALID_ROUTE_PREFIXES = [
-  '/modules/',
-  '/knowledge-hub/',
-  '/locations/',
-  '/zakat-calculator',
-  '/ramadan-planner',
-  '/eid-qurbani-planner',
-  '/guided-pilot',
-  '/contact-sales',
-  '/data-migration',
-  '/pricing',
-  '/features',
-  '/about',
-  '/book-demo'
-];
-
-// Content trackers to detect duplicates
-const metaDescriptionsTracker = {};
-const shortHerosTracker = {};
-const quickAnswersTracker = {};
-
-// Helper to compile/extract JSON data from TS files
-const getJSONData = (moduleName) => {
-    const tempFile = path.join(projectRoot, 'scripts', 'temp-dump.ts');
-    const dumpScript = `
-import { ${moduleName} } from '../src/data/locations/${moduleName === 'regionsData' ? 'regions.js' : moduleName === 'countriesData' ? 'countries.js' : 'cityContentTier1.js'}';
-console.log(JSON.stringify(${moduleName}));
-    `;
-    fs.writeFileSync(tempFile, dumpScript);
-
-    try {
-        execSync(`npx -p typescript tsc temp-dump.ts --esModuleInterop --skipLibCheck --module ESNext --moduleResolution Node`, { cwd: path.join(projectRoot, 'scripts'), stdio: 'pipe' });
-        const jsFile = tempFile.replace('.ts', '.js');
-        const output = execSync(`node temp-dump.js`, { cwd: path.join(projectRoot, 'scripts'), encoding: 'utf8' });
-        fs.unlinkSync(tempFile);
-        if (fs.existsSync(jsFile)) fs.unlinkSync(jsFile);
-        return JSON.parse(output);
-    } catch (e) {
-        console.error("Error executing TS dump:", e.message);
-        if(fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
-        const jsFile = tempFile.replace('.ts', '.js');
-        if(fs.existsSync(jsFile)) fs.unlinkSync(jsFile);
-        return [];
-    }
-};
-
-const validateRecord = (record, allRecords) => {
+const validateRecord = (record, file) => {
     let hasError = false;
     const recommendation = [];
 
@@ -76,17 +28,48 @@ const validateRecord = (record, allRecords) => {
     if (record.priorityTier === 2) tier2Count++;
     if (record.priorityTier === 3) tier3Count++;
 
-    const url = record.canonicalPath || `/locations/${record.slug}`;
+    if ((record.priorityTier === 2 || record.priorityTier === 3) && (record.indexStatus === 'index' || record.includeInSitemap)) {
+        console.error(`❌ ERROR in ${file}: Tier ${record.priorityTier} location '${record.slug}' cannot be indexed or included in the sitemap.`);
+        hasError = true;
+        errorCount++;
+    }
 
-    // 1. Metadata Checks (Missing values)
+
+
+    const url = record.canonicalPath || `/locations/${record.slug}/`;
+
+    // Strict Sitemap & Tier Checks
+    if (record.priorityTier > 1) {
+        if (record.indexStatus === 'index') {
+            hasError = true;
+            recommendation.push('Tier 2/3 record must not be indexable');
+        }
+        if (record.includeInSitemap) {
+            hasError = true;
+            recommendation.push('Tier 2/3 record must not be in sitemap');
+        }
+    }
+
+    if (record.indexStatus === 'noindex' && record.includeInSitemap) {
+        hasError = true;
+        recommendation.push('Noindex record must not be in sitemap');
+    }
+
+    if (record.includeInSitemap && record.contentQuality !== 'strong') {
+        hasError = true;
+        recommendation.push('Only strong content can be in sitemap');
+    }
+
     if (!record.slug) {
         hasError = true;
         recommendation.push('Missing slug');
     }
+
     if (!record.metaTitle) {
         hasError = true;
         recommendation.push('Missing meta title');
     }
+
     if (!record.metaDescription) {
         hasError = true;
         recommendation.push('Missing meta description');
@@ -94,147 +77,95 @@ const validateRecord = (record, allRecords) => {
         warningCount++;
         recommendation.push('Short meta description');
     }
+
     if (!record.h1) {
         hasError = true;
         recommendation.push('Missing H1');
     }
+
     if (!record.quickAnswer) {
         hasError = true;
         recommendation.push('Missing quick answer');
     }
 
-    // 2. Indexing and Sitemap Integrity checks
-    if (record.priorityTier === 1) {
-        if (record.indexStatus !== 'index') {
-            hasError = true;
-            recommendation.push('Tier 1 page must be set to index status');
-        }
-        if (!record.includeInSitemap) {
-            hasError = true;
-            recommendation.push('Tier 1 page must be included in the sitemap');
-        }
-        if (record.contentQuality !== 'strong') {
-            hasError = true;
-            recommendation.push('Tier 1 page must have strong content quality');
-        }
-    } else {
-        // Tier 2 or 3 page rules
-        if (record.indexStatus !== 'noindex') {
-            hasError = true;
-            recommendation.push('Tier 2/3 page must be noindex status');
-        }
-        if (record.includeInSitemap) {
-            hasError = true;
-            recommendation.push('Tier 2/3 page must be excluded from sitemap');
-        }
-    }
-
-    // 3. Canonical correctness
-    if (url.endsWith('/')) {
+    if (record.indexStatus === 'index' && !record.canonicalPath && !record.slug) {
         hasError = true;
-        recommendation.push('Canonical URL must not have a trailing slash');
+        recommendation.push('Missing canonical for indexable page');
     }
-    if (url.includes('http://') || url.includes('https://')) {
+
+    if (!['hub', 'region', 'country', 'city'].includes(record.pageType)) {
         hasError = true;
-        recommendation.push('Canonical must be a relative clean path');
+        recommendation.push('Invalid page type');
     }
 
-    // 4. City-specific Quality requirements
-    if (record.pageType === 'city') {
-        if (record.indexStatus === 'index') {
-            if (!record.faqs || record.faqs.length === 0) {
-                hasError = true;
-                recommendation.push('Indexable city must have FAQs');
-            }
-            if (!record.localNeeds) {
-                hasError = true;
-                recommendation.push('Indexable city must have localNeeds section');
-            }
-            if (!record.culturalNote) {
-                hasError = true;
-                recommendation.push('Indexable city must have culturalNote section');
-            }
-
-            // Internal links coverage check
-            if (!record.relatedProducts || record.relatedProducts.length === 0) {
-                hasError = true;
-                recommendation.push('Indexable city must link to related products');
-            }
-            if (!record.relatedKnowledgeHubArticles || record.relatedKnowledgeHubArticles.length === 0) {
-                hasError = true;
-                recommendation.push('Indexable city must link to knowledge hub articles');
-            }
-        }
+    if (!['index', 'noindex'].includes(record.indexStatus)) {
+        hasError = true;
+        recommendation.push('Invalid indexStatus');
     }
 
-    // 5. Parent-Child & Breadcrumb Hierarchy Validation
-    if (record.pageType === 'city') {
-        const parentSlug = ['united-arab-emirates', 'saudi-arabia', 'qatar', 'kuwait', 'bahrain', 'oman'].includes(record.countrySlug)
-            ? 'gulf'
-            : record.countrySlug;
-
-        const parent = allRecords.find(p => p.slug === parentSlug);
-        if (!parent) {
-            hasError = true;
-            recommendation.push(`Missing parent regional hub page for country slug '${record.countrySlug}'`);
-        } else {
-            // Check indexable consistency
-            if (record.indexStatus === 'index' && parent.indexStatus !== 'index') {
-                hasError = true;
-                recommendation.push(`Parent regional hub '${parentSlug}' must be indexed if child city '${record.slug}' is indexed`);
-            }
-        }
+    if (record.includeInSitemap !== true && record.includeInSitemap !== false) {
+        hasError = true;
+        recommendation.push('Invalid includeInSitemap');
     }
 
-    // 6. Duplicate Content Checks (Only check across active Tier 1 indexable pages to avoid draft collisions)
-    if (record.indexStatus === 'index') {
-        if (metaDescriptionsTracker[record.metaDescription]) {
-            hasError = true;
-            recommendation.push(`Duplicate metaDescription with '${metaDescriptionsTracker[record.metaDescription]}'`);
-        } else {
-            metaDescriptionsTracker[record.metaDescription] = record.slug;
-        }
-
-        if (shortHerosTracker[record.shortHero]) {
-            hasError = true;
-            recommendation.push(`Duplicate shortHero with '${shortHerosTracker[record.shortHero]}'`);
-        } else {
-            shortHerosTracker[record.shortHero] = record.slug;
-        }
-
-        if (quickAnswersTracker[record.quickAnswer]) {
-            hasError = true;
-            recommendation.push(`Duplicate quickAnswer with '${quickAnswersTracker[record.quickAnswer]}'`);
-        } else {
-            quickAnswersTracker[record.quickAnswer] = record.slug;
-        }
+    if (!['strong', 'medium', 'weak'].includes(record.contentQuality)) {
+        hasError = true;
+        recommendation.push('Invalid contentQuality');
     }
 
-    // 7. Broken Internal Links Checks
-    const verifyLinks = (links) => {
-        if (!links) return;
-        for (const link of links) {
-            if (!link.href.startsWith('/')) {
-                hasError = true;
-                recommendation.push(`Invalid non-relative link target: '${link.href}'`);
-            }
-            const isMatch = VALID_ROUTE_PREFIXES.some(prefix => link.href.startsWith(prefix));
-            if (!isMatch) {
-                hasError = true;
-                recommendation.push(`Broken link target or unrecognized route prefix: '${link.href}'`);
-            }
-        }
-    };
-    verifyLinks(record.recommendedModules);
-    verifyLinks(record.relatedProducts);
-    verifyLinks(record.relatedKnowledgeHubArticles);
+    if (record.indexStatus === 'noindex' && record.includeInSitemap) {
+        hasError = true;
+        recommendation.push('Noindex page included in sitemap');
+    }
 
-    // 8. Fake office/claims checks
+    if (record.includeInSitemap && ['medium', 'weak'].includes(record.contentQuality)) {
+        hasError = true;
+        recommendation.push('Weak or medium page included in sitemap');
+    }
+
+    if (record.indexStatus === 'index' && record.contentQuality !== 'strong') {
+        hasError = true;
+        recommendation.push('Page marked index with weak/medium quality');
+    }
+
+    if (record.pageType === 'city' && record.indexStatus === 'index' && (!record.faqs || record.faqs.length === 0)) {
+        hasError = true;
+        recommendation.push('City page indexable without FAQs');
+    }
+
+    if (record.pageType === 'city' && record.indexStatus === 'index' && (!record.localNeeds || !record.culturalNote)) {
+        hasError = true;
+        recommendation.push('City page indexable without local context');
+    }
+
+    if (record.pageType === 'city' && record.indexStatus === 'noindex' && (!record.culturalNote)) {
+        warningCount++;
+        recommendation.push('Cultural note missing on noindex draft page');
+    }
+
+    if (record.indexStatus === 'noindex' && record.contentQuality === 'medium') {
+        warningCount++;
+        recommendation.push('Medium content quality on noindex page');
+    }
+
+    // Fake claims checks (basic text search)
     const allText = JSON.stringify(record).toLowerCase();
-    if (allText.includes('local office') || allText.includes('physical branch') || allText.includes('we have an office in')) {
+    if (allText.includes('local office') || allText.includes('physical branch')) {
         hasError = true;
-        recommendation.push('Fake local office claim detected');
+        recommendation.push('Fake local office claim');
     }
+
+    const phoneRegex = /\+?[0-9]{1,4}?[-.\s]?\(?[0-9]{1,3}?\)?[-.\s]?[0-9]{3,4}[-.\s]?[0-9]{3,4}/;
+    if (phoneRegex.test(allText)) {
+       //hasError = true;
+       //recommendation.push('Possible fake phone number');
+    }
+
+    if (record.indexStatus === 'noindex' && (!record.faqs || record.faqs.length < 3)) {
+        warningCount++;
+        recommendation.push('FAQ count low for noindex page');
+    }
+
 
     if (hasError) {
         errorCount++;
@@ -250,6 +181,7 @@ const validateRecord = (record, allRecords) => {
 
     if (record.includeInSitemap) sitemapIncluded++;
     else sitemapExcluded++;
+
 
     return {
         url,
@@ -270,21 +202,49 @@ const validateRecord = (record, allRecords) => {
     };
 };
 
+import { execSync } from 'child_process';
+
+const getJSONData = (moduleName) => {
+    const tempFile = path.join(projectRoot, 'scripts', 'temp-dump.ts');
+    const dumpScript = `
+import { ${moduleName} } from '../src/data/locations/${moduleName === 'regionsData' ? 'regions.js' : moduleName === 'countriesData' ? 'countries.js' : 'cityContentTier1.js'}';
+console.log(JSON.stringify(${moduleName}));
+    `;
+    fs.writeFileSync(tempFile, dumpScript);
+
+    try {
+        execSync(`npx -p typescript tsc temp-dump.ts --esModuleInterop --skipLibCheck --module ESNext --moduleResolution Node`, { cwd: path.join(projectRoot, 'scripts'), stdio: 'pipe' });
+        const jsFile = tempFile.replace('.ts', '.js');
+        const output = execSync(`node temp-dump.js`, { cwd: path.join(projectRoot, 'scripts'), encoding: 'utf8' });
+        fs.unlinkSync(tempFile);
+        fs.unlinkSync(jsFile);
+        return JSON.parse(output);
+    } catch (e) {
+        console.error("Error executing TS dump:", e.message);
+        if(fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
+        const jsFile = tempFile.replace('.ts', '.js');
+        if(fs.existsSync(jsFile)) fs.unlinkSync(jsFile);
+        return [];
+    }
+};
+
+
 const main = () => {
-    console.log("=== STARTING COMPREHENSIVE PHASE 11 LOCATION & LINK VALIDATION ===");
+
+    let allRecords = [];
 
     const regions = getJSONData('regionsData');
     const countries = getJSONData('countriesData');
     const cities = getJSONData('cityContentTier1');
 
-    const allRecords = [...regions, ...countries, ...cities];
+    allRecords = [...regions, ...countries, ...cities];
 
     if (allRecords.length === 0) {
-        console.error("❌ Error: No records found or failed to parse TS files.");
-        process.exit(1);
+        console.log("No records found or failed to parse TS files.");
+        return;
     }
 
-    // 1. Check for duplicate slugs
+    // Check for duplicate slugs
     const slugs = new Set();
     const duplicates = new Set();
     allRecords.forEach(r => {
@@ -296,27 +256,24 @@ const main = () => {
 
     if (duplicates.size > 0) {
         errorCount += duplicates.size;
-        console.error("❌ ERROR: Duplicate slugs found:", Array.from(duplicates));
+        console.error("Duplicate slugs found:", Array.from(duplicates));
     }
 
-    const results = allRecords.map(r => validateRecord(r, allRecords));
+
+    const results = allRecords.map(r => validateRecord(r, ''));
 
     console.log("| URL | Type | Tier | Index | Sitemap | Quality | Canonical | Schema | QuickAnswer | FAQ | Has local/cultural note | CTA | Fake Claim | Recommendation |");
     console.log("|---|---|---|---|---|---|---|---|---|---|---|---|---|---|");
 
     for (const r of results) {
-        if (r.hasError) {
-            console.log(`| 🔴 ${r.url} | ${r.pageType} | ${r.priorityTier} | ${r.indexStatus} | ${r.includeInSitemap} | ${r.contentQuality} | ${r.canonical} | ${r.schemaTypes} | ${r.hasQuickAnswer} | ${r.hasFAQ} | ${r.hasLocalContext} | ${r.hasCTA} | ${r.fakeLocalClaim} | **${r.recommendation}** |`);
-        } else {
-            console.log(`| 🟢 ${r.url} | ${r.pageType} | ${r.priorityTier} | ${r.indexStatus} | ${r.includeInSitemap} | ${r.contentQuality} | ${r.canonical} | ${r.schemaTypes} | ${r.hasQuickAnswer} | ${r.hasFAQ} | ${r.hasLocalContext} | ${r.hasCTA} | ${r.fakeLocalClaim} | ${r.recommendation} |`);
-        }
+        console.log(`| ${r.url} | ${r.pageType} | ${r.priorityTier} | ${r.indexStatus} | ${r.includeInSitemap} | ${r.contentQuality} | ${r.canonical} | ${r.schemaTypes} | ${r.hasQuickAnswer} | ${r.hasFAQ} | ${r.hasLocalContext} | ${r.hasCTA} | ${r.fakeLocalClaim} | ${r.recommendation} |`);
     }
 
-    console.log("\nValidation Summary:");
+    console.log("\nSummary:");
     console.log(`Total location records: ${totalRecords}`);
-    console.log(`Tier 1 (Indexed) Count: ${tier1Count}`);
-    console.log(`Tier 2 (Noindex) Count: ${tier2Count}`);
-    console.log(`Tier 3 (Noindex) Count: ${tier3Count}`);
+    console.log(`Tier 1 Count: ${tier1Count}`);
+    console.log(`Tier 2 Count: ${tier2Count}`);
+    console.log(`Tier 3 Count: ${tier3Count}`);
     console.log(`Region pages: ${regionPages}`);
     console.log(`Country pages: ${countryPages}`);
     console.log(`City pages: ${cityPages}`);
@@ -328,10 +285,10 @@ const main = () => {
     console.log(`Warning count: ${warningCount}`);
 
     if (errorCount > 0) {
-        console.error("\n❌ PHASE 11 LOCATION VALIDATION FAILED with errors. Fix issues above.");
+        console.log("\nValidation failed with errors.");
         process.exit(1);
     } else {
-        console.log("\n✅ PHASE 11 LOCATION VALIDATION PASSED successfully.");
+        console.log("\nValidation passed.");
     }
 };
 

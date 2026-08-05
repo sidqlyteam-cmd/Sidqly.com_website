@@ -8,6 +8,7 @@ import ZakatSeparation from '../components/diagrams/ZakatSeparation';
 import { brand } from '../config/brand';
 import { CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { TrustVisualPlaceholder } from '../components/ui/TrustVisualPlaceholder';
 
 const HowItWorks: React.FC = () => {
   const steps = [
@@ -40,6 +41,56 @@ const HowItWorks: React.FC = () => {
           <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto">
             Sidqly transforms fragmented manual work into a structured 12-step lifecycle that ensures trust, dignity, and clarity.
           </p>
+        </div>
+      </section>
+
+      {/* Transparency & Honest Evidence Section */}
+      <section className="py-20 bg-sidqly-ivory border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-extrabold text-sidqly-navy mb-4">
+              Honest Product Transparency & Visual Demos
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We do not fabricate testimonials or present mock visuals as real usage. Explore our verified capabilities and structural placeholders.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {/* Before-After Representation */}
+            <TrustVisualPlaceholder
+              title="Workflow Shift Model"
+              description="Comparing standard informal channels with Sidqly’s secure queues."
+              type="conceptual"
+              altText="Diagram of transition from spreadsheets to structured ledgers"
+              mockDataLayout="before-after"
+              beforeText="WhatsApp groups receiving unblurred transaction receipts, scattered Excel sheets, manual co-mingling of Zakat, and recipient photos exposed publicly."
+              afterText="Role-restricted manual payment queues, separate logical database balances, automated visual blur filters, and secure non-crawlable donor updates."
+              caption="Conceptual transition illustrating standard workflow improvements."
+            />
+
+            {/* Dashboard Demo representation */}
+            <TrustVisualPlaceholder
+              title="Platform Ledger Configuration"
+              description="A mock conceptual view of the administrative workspace."
+              type="demo"
+              altText="Mock visual of Sidqly admin panel showing isolated pool allocations"
+              mockDataLayout="dashboard"
+              caption="Demo representation of typical organization ledger separations."
+            />
+
+            {/* Testimonials Placeholder */}
+            <TrustVisualPlaceholder
+              title="Testimonial Slot Placeholder"
+              description="A transparent placeholder for validated pilot feedback."
+              type="conceptual"
+              altText="Placeholder illustrating where validated customer quotes will be displayed"
+              mockDataLayout="testimonial"
+              caption="Reserved for verified feedback from our upcoming live pilots."
+            />
+
+          </div>
         </div>
       </section>
 
