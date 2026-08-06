@@ -70,14 +70,14 @@ test.describe('Sidqly UI Smoke Tests', () => {
     await page.goto(BASE_URL + '/contact-sales');
     await expect(page.locator('h1', { hasText: 'Enterprise & Partnerships Desk' })).toBeVisible();
 
-    const salesCtaButton = page.locator('button:has-text("Open Sales Inquiry Form")');
+    const salesCtaButton = page.locator('a:has-text("Open Sales Inquiry Form")');
     await expect(salesCtaButton).toBeVisible();
 
     // 3. Guided Pilot page renders and CTA button is visible
     await page.goto(BASE_URL + '/guided-pilot');
     await expect(page.locator('h1', { hasText: 'Sidqly Guided Pilot Program' })).toBeVisible();
 
-    const pilotCtaButton = page.locator('button:has-text("Open Pilot Application Form")');
+    const pilotCtaButton = page.locator('a:has-text("Open Pilot Application Form")');
     await expect(pilotCtaButton).toBeVisible();
   });
 

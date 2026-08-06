@@ -4,18 +4,11 @@ import { trackEvent } from '../lib/analytics';
 import { generateBreadcrumbSchema } from '../lib/schema';
 import { CheckCircle2, Shield, Globe, Award } from 'lucide-react';
 import { tokens } from '../design/tokens';
-import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { PageTransition } from '../components/ui/PageTransition';
+import { LeadCaptureCTA } from '../components/LeadCaptureCTA';
 
 const ContactSales: React.FC = () => {
-  // Consolidated lead-capture tracking redirect
-  const handleContactSalesRedirect = () => {
-    trackEvent('contact_submit', {
-      cta_source: 'contact_sales_page_redirect'
-    });
-    window.open("https://forms.gle/BQ8jteZP2ufDcSgo9", "_blank", "noopener,noreferrer");
-  };
 
   const schema = {
     "@context": "https://schema.org",
@@ -109,13 +102,12 @@ const ContactSales: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <Button
-              variant="deep"
-              onClick={handleContactSalesRedirect}
-              className="w-full sm:w-auto px-10 py-4"
-            >
-              Open Sales Inquiry Form
-            </Button>
+            <LeadCaptureCTA
+              label="Open Sales Inquiry Form"
+              placement="contact_sales_page_bottom"
+              inquiryContext="enterprise_sales"
+              className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:shadow-lg transition-all inline-block w-full sm:w-auto focus:ring-2 focus:ring-sidqly-green-soft focus:outline-none"
+            />
           </Card>
         </div>
       </section>

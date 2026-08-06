@@ -4,18 +4,11 @@ import { trackEvent } from '../lib/analytics';
 import { generateBreadcrumbSchema } from '../lib/schema';
 import { CheckCircle2, Shield, Heart, HelpCircle, FileText, Users, Settings, Database } from 'lucide-react';
 import { tokens } from '../design/tokens';
-import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { PageTransition } from '../components/ui/PageTransition';
+import { LeadCaptureCTA } from '../components/LeadCaptureCTA';
 
 const GuidedPilot: React.FC = () => {
-  // Consolidated lead-capture tracking redirect
-  const handleApplyRedirect = () => {
-    trackEvent('guided_pilot_apply', {
-      cta_source: 'guided_pilot_page_cta_redirect'
-    });
-    window.open("https://forms.gle/BQ8jteZP2ufDcSgo9", "_blank", "noopener,noreferrer");
-  };
 
   const schema = {
     "@context": "https://schema.org",
@@ -44,9 +37,12 @@ const GuidedPilot: React.FC = () => {
             <p className="text-xl text-sidqly-green-soft leading-relaxed mb-10">
               Transform your manual workflows (WhatsApp, spreadsheets, paper receipts) into a structured, audit-ready giving process. Experience absolute operational clarity with dedicated support.
             </p>
-            <a href="#apply-form" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all inline-block">
-              Apply for Guided Pilot
-            </a>
+            <LeadCaptureCTA
+              label="Apply for Guided Pilot"
+              placement="guided_pilot_page_hero"
+              inquiryContext="guided_pilot_program"
+              className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all inline-block focus:ring-2 focus:ring-sidqly-green-soft focus:outline-none"
+            />
           </div>
         </div>
       </section>
@@ -201,13 +197,12 @@ const GuidedPilot: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <Button
-              variant="deep"
-              onClick={handleApplyRedirect}
-              className="w-full sm:w-auto px-10 py-4"
-            >
-              Open Pilot Application Form
-            </Button>
+            <LeadCaptureCTA
+              label="Open Pilot Application Form"
+              placement="guided_pilot_page_bottom"
+              inquiryContext="guided_pilot_program"
+              className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:shadow-lg transition-all inline-block w-full sm:w-auto focus:ring-2 focus:ring-sidqly-green-soft focus:outline-none"
+            />
           </Card>
         </div>
       </section>
