@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -13,6 +14,22 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* CSS Theme Variables */
+  --theme-bg: #F8FAFC;
+  --theme-text: #0B1D2A;
+  --theme-text-muted: #475569;
+  --theme-card-bg: #FFFFFF;
+  --theme-border: rgba(241, 245, 249, 1);
+}
+
+html.dark {
+  color-scheme: dark;
+  --theme-bg: #07131D;
+  --theme-text: #F8FAFC;
+  --theme-text-muted: #94A3B8;
+  --theme-card-bg: #0B1D2A;
+  --theme-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -21,8 +38,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  color: #0B1D2A;
-  background-color: #F8FAFC;
+  color: var(--theme-text);
+  background-color: var(--theme-bg);
 }
 
 #root {
@@ -45,4 +62,100 @@ body {
     scroll-behavior: auto !important;
   }
 }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* --- Dark Mode CSS Support --- */
+
+/* Smooth high-performance transition rules targeted specifically at theme elements */
+body, nav, footer, .theme-transition {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light / grayish backgrounds should map to dark navy/deep background elements */
+html.dark .bg-sidqly-ivory,
+html.dark .bg-gray-50,
+html.dark .bg-slate-50 {
+  background-color: var(--theme-bg) !important;
+}
+
+/* Highlight boxes/widgets that were originally bg-sidqly-ivory */
+html.dark .bg-sidqly-ivory {
+  background-color: #0F2537 !important;
+}
+
+/* Card structures and navigation should use solid dark navy to look elevated */
+html.dark .bg-white,
+html.dark .bg-white\/90,
+html.dark .bg-white\/80,
+html.dark nav {
+  background-color: var(--theme-card-bg) !important;
+}
+
+/* Muted or semi-transparent background helper classes */
+html.dark .bg-gray-50\/50,
+html.dark .bg-slate-50\/50,
+html.dark .bg-white\/50,
+html.dark .bg-white\/10 {
+  background-color: rgba(11, 29, 42, 0.5) !important;
+}
+
+/* Primary dark navy text mapping to white */
+html.dark .text-sidqly-navy,
+html.dark .text-gray-900,
+html.dark .text-slate-900 {
+  color: #FFFFFF !important;
+}
+
+/* Muted / description text styles */
+html.dark .text-gray-500,
+html.dark .text-gray-600,
+html.dark .text-gray-700,
+html.dark .text-slate-600,
+html.dark .text-slate-700 {
+  color: var(--theme-text-muted) !important;
+}
+
+html.dark .text-gray-400 {
+  color: #64748B !important;
+}
+
+/* Contrast adjustment for deep green texts to make them legible on dark background */
+html.dark .text-sidqly-green-deep {
+  color: #A7F3D0 !important;
+}
+
+/* Borders in Dark Mode mapped cleanly to CSS variable border */
+html.dark .border,
+html.dark .border-gray-50,
+html.dark .border-gray-100,
+html.dark .border-gray-200,
+html.dark .border-slate-100,
+html.dark .border-slate-200 {
+  border-color: var(--theme-border) !important;
+}
+
+/* Input structures and selection controls */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: var(--theme-bg) !important;
+  color: #FFFFFF !important;
+  border-color: var(--theme-border) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748B !important;
+}
+
+/* Interactive elements hover state in navbar */
+html.dark nav a:hover,
+html.dark nav button:hover {
+  color: #A7F3D0 !important;
+}
+
+html.dark footer {
+  background-color: #06121C !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
