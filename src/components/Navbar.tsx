@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SearchModal from './search/SearchModal';
-import { Menu, X, ChevronDown, Search } from 'lucide-react';
+import { Menu, X, ChevronDown, Search, Sun, Moon } from 'lucide-react';
 import { brand } from '../config/brand';
 import { trackEvent } from '../lib/analytics';
 
@@ -9,6 +9,32 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
+
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') {
+        return saved;
+      }
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return systemPrefersDark ? 'dark' : 'light';
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -93,36 +119,28 @@ const Navbar: React.FC = () => {
     <>
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center gap-3">
-              <img src="/brand/sidqly-mark.svg" alt="Sidqly" className="h-10 w-10" />
-              <span className="text-sidqly-navy text-2xl font-extrabold tracking-tighter">Sidqly</span>
+        <div className="flex justify-between h-20 gap-4">
+          <div className="flex items-center min-w-0 mr-2">
+            <Link to="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 min-w-0">
+              <img src="/brand/sidqly-mark.svg" alt="Sidqly" className="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0" />
+              <span className="text-sidqly-navy text-xl sm:text-2xl font-extrabold tracking-tighter truncate">Sidqly</span>
             </Link>
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <button
-              onClick={() => setIsSearchOpen(true)}
-              className="text-gray-600 hover:text-sidqly-green-deep p-2 hidden lg:block"
-              aria-label="Search"
-            >
-              <Search size={20} />
-            </button>
-
+          <div className="hidden lg:flex items-center gap-x-3 xl:gap-x-5 2xl:gap-x-8 min-w-0">
             {navigation.map((item) => (
-              <div key={item.name} className="relative group">
+              <div key={item.name} className="relative group flex-shrink-0">
                 {item.children ? (
                   <button
-                    className="flex items-center gap-1 text-gray-500 hover:text-sidqly-green-deep font-bold text-sm transition-colors py-8"
+                    className="flex items-center gap-1 text-gray-500 hover:text-sidqly-green-deep font-bold text-xs xl:text-sm transition-colors py-8"
                   >
                     {item.name} <ChevronDown size={14} className="opacity-50" />
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`text-sm font-bold transition-colors py-8 ${location.pathname === item.href ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-500 hover:text-sidqly-green-deep'}`}
+                    className={`text-xs xl:text-sm font-bold transition-colors py-8 ${location.pathname === item.href ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-500 hover:text-sidqly-green-deep'}`}
                   >
                     {item.name}
                   </Link>
@@ -145,10 +163,30 @@ const Navbar: React.FC = () => {
                 )}
               </div>
             ))}
-            <div className="flex items-center gap-4 pl-4 border-l border-gray-100">
+
+            {/* Utilities: Search & Theme Toggle */}
+            <div className="flex items-center gap-1 xl:gap-2 flex-shrink-0">
+              <button
+                onClick={() => setIsSearchOpen(true)}
+                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all"
+                aria-label="Search"
+              >
+                <Search size={20} />
+              </button>
+
+              <button
+                onClick={toggleTheme}
+                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all flex items-center justify-center"
+                aria-label="Toggle Theme"
+              >
+                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2 xl:gap-4 pl-2 xl:pl-4 border-l border-gray-100 dark:border-white/10 flex-shrink-0">
                <Link
                  to="/guided-pilot"
-                 className="bg-sidqly-green-deep text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:shadow-lg transition-all"
+                 className="bg-sidqly-green-deep text-white px-3 xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold text-xs xl:text-sm hover:shadow-lg transition-all"
                >
                  Guided Pilot
                </Link>
@@ -157,15 +195,15 @@ const Navbar: React.FC = () => {
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={() => trackEvent('demo_submit', { cta_source: 'navbar_desktop_cta' })}
-                 className="bg-white border border-gray-200 text-sidqly-navy px-6 py-2.5 rounded-xl font-bold text-sm hover:shadow-lg transition-all"
+                 className="bg-white border border-gray-200 text-sidqly-navy px-3 xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold text-xs xl:text-sm hover:shadow-lg transition-all"
                >
                  Book Demo
                </a>
             </div>
           </div>
 
-          {/* Mobile menu button & search */}
-          <div className="lg:hidden flex items-center gap-2">
+          {/* Mobile menu button, search, & theme toggle */}
+          <div className="lg:hidden flex items-center gap-1 sm:gap-2 flex-shrink-0">
             <button
               onClick={() => setIsSearchOpen(true)}
               className="text-gray-600 hover:text-sidqly-green-deep p-2"
@@ -178,6 +216,13 @@ const Navbar: React.FC = () => {
               className="text-gray-600 hover:text-sidqly-green-deep p-2"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all flex items-center justify-center"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
             </button>
           </div>
         </div>
