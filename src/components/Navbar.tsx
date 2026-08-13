@@ -128,19 +128,19 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-x-3 xl:gap-x-5 2xl:gap-x-8 min-w-0">
+          <div className="hidden lg:flex items-center lg:gap-x-2 xl:gap-x-4 2xl:gap-x-8 min-w-0">
             {navigation.map((item) => (
               <div key={item.name} className="relative group flex-shrink-0">
                 {item.children ? (
                   <button
-                    className="flex items-center gap-1 text-gray-500 hover:text-sidqly-green-deep font-bold text-xs xl:text-sm transition-colors py-8"
+                    className="flex items-center gap-1 text-gray-500 hover:text-sidqly-green-deep font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm transition-colors py-8"
                   >
                     {item.name} <ChevronDown size={14} className="opacity-50" />
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`text-xs xl:text-sm font-bold transition-colors py-8 ${location.pathname === item.href ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-500 hover:text-sidqly-green-deep'}`}
+                    className={`lg:text-[11px] xl:text-[13px] 2xl:text-sm font-bold transition-colors py-8 ${location.pathname === item.href ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-500 hover:text-sidqly-green-deep'}`}
                   >
                     {item.name}
                   </Link>
@@ -183,10 +183,10 @@ const Navbar: React.FC = () => {
               </button>
             </div>
 
-            <div className="flex items-center gap-2 xl:gap-4 pl-2 xl:pl-4 border-l border-gray-100 dark:border-white/10 flex-shrink-0">
+            <div className="flex items-center lg:gap-x-1.5 xl:gap-4 lg:pl-2 xl:pl-4 border-l border-gray-100 dark:border-white/10 flex-shrink-0">
                <Link
                  to="/guided-pilot"
-                 className="bg-sidqly-green-deep text-white px-3 xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold text-xs xl:text-sm hover:shadow-lg transition-all"
+                 className="bg-sidqly-green-deep text-white lg:px-2.5 xl:px-4 2xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm hover:shadow-lg transition-all"
                >
                  Guided Pilot
                </Link>
@@ -195,7 +195,7 @@ const Navbar: React.FC = () => {
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={() => trackEvent('demo_submit', { cta_source: 'navbar_desktop_cta' })}
-                 className="bg-white border border-gray-200 text-sidqly-navy px-3 xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold text-xs xl:text-sm hover:shadow-lg transition-all"
+                 className="bg-white border border-gray-200 text-sidqly-navy lg:px-2.5 xl:px-4 2xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm hover:shadow-lg transition-all"
                >
                  Book Demo
                </a>
@@ -216,13 +216,6 @@ const Navbar: React.FC = () => {
               className="text-gray-600 hover:text-sidqly-green-deep p-2"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-            <button
-              onClick={toggleTheme}
-              className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all flex items-center justify-center"
-              aria-label="Toggle Theme"
-            >
-              {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
             </button>
           </div>
         </div>
@@ -260,6 +253,28 @@ const Navbar: React.FC = () => {
               </div>
             ))}
             <div className="pt-6 px-3 flex flex-col gap-3">
+              {/* Theme Toggle */}
+              <div className="flex items-center justify-between py-3 px-4 bg-gray-50 dark:bg-white/5 rounded-xl mb-1 border border-gray-100/50 dark:border-white/5">
+                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Theme</span>
+                <button
+                  onClick={toggleTheme}
+                  className="bg-white dark:bg-neutral-800 text-gray-800 dark:text-gray-200 px-4 py-2 rounded-lg font-bold text-xs hover:shadow-sm border border-gray-200 dark:border-neutral-700 transition-all flex items-center gap-2"
+                  aria-label="Toggle Theme"
+                >
+                  {theme === 'light' ? (
+                    <>
+                      <Moon size={16} className="text-sidqly-navy" />
+                      <span>Dark Mode</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sun size={16} className="text-sidqly-green-deep dark:text-sidqly-green-soft" />
+                      <span>Light Mode</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
               <Link
                 to="/guided-pilot"
                 onClick={() => setIsOpen(false)}
