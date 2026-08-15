@@ -26,12 +26,17 @@ export interface LocationUseCaseStep {
   stepNumber: number;
   name: string;
   detail: string;
+  moduleSlug?: string;
+  moduleName?: string;
 }
 
 export interface LocationUseCase {
   title: string;
   description: string;
+  problemStatement?: string;
+  outcome?: string;
   steps: LocationUseCaseStep[];
+  relevantModules?: LocationLink[];
 }
 
 export interface LocationRelatedLink {

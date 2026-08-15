@@ -9,6 +9,7 @@ import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
 import LocationWorkflow from '../../components/locations/LocationWorkflow';
 import LocationRelevantModules from '../../components/locations/LocationRelevantModules';
+import LocationUseCaseBlock from '../../components/locations/LocationUseCaseBlock';
 import RelatedUseCases from '../../components/RelatedUseCases';
 import { getLocationModuleRecommendations } from '../../data/locations/locationModuleRecommendations';
 
@@ -186,35 +187,10 @@ const LocationDetail: React.FC = () => {
 
       {/* Location-Specific Use-Case Section */}
       {location.locationUseCase && (
-        <section className="py-20 bg-white border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-             <div className="max-w-3xl mb-12">
-                <div className="inline-flex items-center gap-2 bg-sidqly-green-soft/20 text-sidqly-green-deep text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-                  Local Operational Workflow
-                </div>
-                <h2 className="text-3xl font-bold text-sidqly-navy mb-4">
-                  {location.locationUseCase.title}
-                </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  {location.locationUseCase.description}
-                </p>
-             </div>
-
-             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {location.locationUseCase.steps.map((step) => (
-                   <div key={step.stepNumber} className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100 flex flex-col justify-between">
-                      <div>
-                        <div className="text-xs font-extrabold text-sidqly-green-emerald uppercase tracking-wider mb-2">
-                           Step {step.stepNumber}
-                        </div>
-                        <h3 className="text-lg font-bold text-sidqly-navy mb-2">{step.name}</h3>
-                        <p className="text-xs text-gray-600 leading-relaxed">{step.detail}</p>
-                      </div>
-                   </div>
-                ))}
-             </div>
-          </div>
-        </section>
+        <LocationUseCaseBlock
+          locationName={locationDisplayName}
+          useCase={location.locationUseCase}
+        />
       )}
 
       {/* Relevant Sidqly Modules Section */}
