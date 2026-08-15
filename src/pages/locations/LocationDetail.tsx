@@ -3,13 +3,14 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
-import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp, MapPin, BookOpen, Layers } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp, MapPin, BookOpen } from 'lucide-react';
 import { brand } from '../../config/brand';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
 import LocationWorkflow from '../../components/locations/LocationWorkflow';
-import RelatedSidqlyModules from '../../components/RelatedSidqlyModules';
+import LocationRelevantModules from '../../components/locations/LocationRelevantModules';
 import RelatedUseCases from '../../components/RelatedUseCases';
+import { getLocationModuleRecommendations } from '../../data/locations/locationModuleRecommendations';
 
 const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -38,6 +39,11 @@ const LocationDetail: React.FC = () => {
       ...(location.faqs && location.faqs.length > 0 ? [generateFAQSchema(location.faqs)] : [])
     ]
   };
+
+  const locationDisplayName = location.cityName || location.country || location.region;
+  const modules = (location.recommendedModules && location.recommendedModules.length > 0)
+    ? location.recommendedModules
+    : getLocationModuleRecommendations(location);
 
   // Safe Fallback Content based on pageType
   const getFallbackContext = () => {
@@ -211,6 +217,12 @@ const LocationDetail: React.FC = () => {
         </section>
       )}
 
+      {/* Relevant Sidqly Modules Section */}
+      <LocationRelevantModules
+        locationName={locationDisplayName}
+        modules={modules}
+      />
+
       {/* Sidqly Workflow Visual */}
       <LocationWorkflow />
 
@@ -291,9 +303,8 @@ const LocationDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Related Components */}
+      {/* Related Use Cases */}
       <RelatedUseCases className="bg-white" />
-      <RelatedSidqlyModules className="bg-sidqly-ivory" />
 
       {/* FAQs */}
       {location.faqs && location.faqs.length > 0 && (

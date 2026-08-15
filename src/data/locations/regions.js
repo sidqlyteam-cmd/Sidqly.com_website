@@ -104,6 +104,28 @@ export var regionsData = [
                 "label": "How To Replace WhatsApp For Charity Work",
                 "href": "/blog/how-to-replace-whatsapp-for-charity-work"
             }
+        ],
+        "recommendedModules": [
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Coordinates Udhiyah shares, slaughterhouse allocations, vendor updates, and donor certificates during Eid-ul-Adha across Gulf operations."
+            },
+            {
+                "label": "Corporate CSR / Zakat Reporting",
+                "href": "/modules/corporate-csr-zakat",
+                "description": "Produces executive PDF reporting summaries suitable for corporate sponsors, patrons, and institutional leadership in the Gulf."
+            },
+            {
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Centralizes review of high-volume direct bank transfer receipts and wire submissions for Gulf-based campaigns."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains strict operational ledger boundaries between Zakat-eligible welfare and general Sadaqah collections."
+            }
         ]
     },
     {
@@ -206,6 +228,28 @@ export var regionsData = [
             {
                 "label": "How To Replace WhatsApp For Charity Work",
                 "href": "/blog/how-to-replace-whatsapp-for-charity-work"
+            }
+        ],
+        "recommendedModules": [
+            {
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Streamlines verification of direct deposit receipts, Zelle transfers, and wire confirmations submitted by North American donors."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Enforces automatic face-blurring and privacy controls before distribution updates are shared with community donors."
+            },
+            {
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Generates clean financial balance sheets and operational summaries for 501(c)(3) and nonprofit board governance."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Provides clear fund segregation between designated Zakat hardship funds and general mosque capital or operational accounts."
             }
         ]
     },
@@ -310,6 +354,28 @@ export var regionsData = [
                 "label": "How To Replace WhatsApp For Charity Work",
                 "href": "/blog/how-to-replace-whatsapp-for-charity-work"
             }
+        ],
+        "recommendedModules": [
+            {
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank transfer receipts and payment confirmations across European banking channels."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends secure, dignity-safe campaign fulfillment updates to European Muslim community donors."
+            },
+            {
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped logs for internal governance and registered charity compliance across Europe."
+            },
+            {
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Coordinates seasonal Iftar drives, ration pack distributions, and volunteer schedules for European communities."
+            }
         ]
     },
     {
@@ -407,6 +473,28 @@ export var regionsData = [
             {
                 "label": "How To Replace WhatsApp For Charity Work",
                 "href": "/blog/how-to-replace-whatsapp-for-charity-work"
+            }
+        ],
+        "recommendedModules": [
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "End-to-end management of Udhiyah orders, animal share assignments, vendor tracking, and donor completion notices."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict operational tagging to keep Zakat assistance separate from general Sadaqah initiatives."
+            },
+            {
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Multi-stage field proof review that sanitizes distribution images before public release."
+            },
+            {
+                "label": "Donor Communication",
+                "href": "/modules/donor-communication",
+                "description": "Delivers clear, professional campaign updates directly to regional supporters."
             }
         ]
     },
@@ -506,6 +594,28 @@ export var regionsData = [
                 "label": "How To Replace WhatsApp For Charity Work",
                 "href": "/blog/how-to-replace-whatsapp-for-charity-work"
             }
+        ],
+        "recommendedModules": [
+            {
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Replaces chaotic WhatsApp screenshot verification with a structured queue for mobile bank transfers (EasyPaisa, JazzCash, UPI, direct deposit)."
+            },
+            {
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Manages large-scale Ramadan ration bag procurement, distribution route logs, and volunteer deployments."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Tracks animal share bookings, slaughterhouse vendor updates, and field proof during Bakra Eid drives."
+            },
+            {
+                "label": "Charity Request Intake",
+                "href": "/modules/charity-request-intake",
+                "description": "Processes family hardship applications and welfare assistance requests while preserving applicant dignity."
+            }
         ]
     },
     {
@@ -604,6 +714,28 @@ export var regionsData = [
                 "label": "How To Replace WhatsApp For Charity Work",
                 "href": "/blog/how-to-replace-whatsapp-for-charity-work"
             }
+        ],
+        "recommendedModules": [
+            {
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates electronic transfer receipts and bank deposit confirmations across Asia Pacific networks."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Deploys field volunteers, assigns delivery tasks, and collects completion proof seamlessly."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Tracks Korban / Udhiyah share assignments, vendor distribution logs, and donor proof certificates."
+            },
+            {
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Compiles concise operational and financial progress reports for community organization boards."
+            }
         ]
     },
     {
@@ -701,6 +833,28 @@ export var regionsData = [
             {
                 "label": "How To Replace WhatsApp For Charity Work",
                 "href": "/blog/how-to-replace-whatsapp-for-charity-work"
+            }
+        ],
+        "recommendedModules": [
+            {
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Multi-stage field evidence verification ensuring recipient dignity before publishing impact updates."
+            },
+            {
+                "label": "Vendor Fulfillment",
+                "href": "/modules/vendor-fulfillment",
+                "description": "Provides local suppliers and distribution partners a streamlined portal to upload field proof and delivery notes."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Generates private, encrypted update links for international donors funding African relief projects."
+            },
+            {
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Organizes food pack procurement, delivery routes, and field distribution logs across regional relief programs."
             }
         ]
     }
