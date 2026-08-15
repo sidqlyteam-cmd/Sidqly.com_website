@@ -111,38 +111,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in London",
-            "description": "A step-by-step operational flow for London Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Real-World Use Case for London: Multi-Campaign Ramadan & Relief Workflow",
+            "problemStatement": "A London Islamic charity running concurrent Ramadan campaigns, local food bank drives, and international relief appeals receives thousands of direct UK bank transfers (BACS/Faster Payments), making donation verification, volunteer coordination, field proof review, and trustee governance hard to manage.",
+            "description": "A step-by-step operational workflow for a London charity managing peak seasonal appeals, volunteer shifts, and trustee board reporting.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for London donors."
+                    "name": "Campaign Appeal Launch",
+                    "detail": "Launch designated Zakat and Sadaqah appeals for London community donors.",
+                    "moduleName": "Sadaqah Campaigns",
+                    "moduleSlug": "sadaqah-campaigns"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "UK Bank Transfer Verification",
+                    "detail": "Verify incoming direct bank transfer receipts and match donor references.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Volunteer Shift Assignment",
+                    "detail": "Deploy local volunteers for food bank packing and distribution tasks.",
+                    "moduleName": "Volunteer Coordination",
+                    "moduleSlug": "volunteer-coordination"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Recipient Dignity Check",
+                    "detail": "Filter and obscure sensitive recipient faces collected from distribution sites.",
+                    "moduleName": "Privacy and Dignity Controls",
+                    "moduleSlug": "privacy-dignity-controls"
                 },
                 {
                     "stepNumber": 5,
                     "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "detail": "Distribute dignity-safe digital impact updates and receipts to UK supporters.",
+                    "moduleName": "Donor Communication",
+                    "moduleSlug": "donor-communication"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Trustee Board Pack Export",
+                    "detail": "Compile audit-friendly financial summaries for charity trustee governance meetings.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing bank reconciliation, volunteer schedules, and trustee reports on separate systems, the charity maintains a unified workflow that keeps campaign data clear, accurate, and audit-ready.",
+            "relevantModules": [
+                {
+                    "label": "Sadaqah Campaigns",
+                    "href": "/modules/sadaqah-campaigns",
+                    "description": "Track general giving projects, emergency relief, and community appeals."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Volunteer Coordination",
+                    "href": "/modules/volunteer-coordination",
+                    "description": "Deploy volunteer teams, assign field tasks, and track activity completion."
+                },
+                {
+                    "label": "Privacy and Dignity Controls",
+                    "href": "/modules/privacy-dignity-controls",
+                    "description": "Enforce automatic face-blurring and access role boundaries."
                 }
             ]
         },
@@ -296,38 +332,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in Birmingham",
-            "description": "A step-by-step operational flow for Birmingham Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Example: How Sidqly Could Support Birmingham Operations",
+            "problemStatement": "A charity operating in Birmingham managing seasonal appeals and local community aid may receive direct bank transfers with missing references, making manual payment reconciliation, volunteer shift deployment, and trustee board reporting time-consuming.",
+            "description": "A practical operational scenario illustrating how an organization in Birmingham could manage ramadan appeal & local community welfare using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for Birmingham donors."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Birmingham.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -485,38 +557,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in Manchester",
-            "description": "A step-by-step operational flow for Manchester Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Example: How Sidqly Could Support Manchester Operations",
+            "problemStatement": "A charity operating in Manchester managing seasonal appeals and local community aid may receive direct bank transfers with missing references, making manual payment reconciliation, volunteer shift deployment, and trustee board reporting time-consuming.",
+            "description": "A practical operational scenario illustrating how an organization in Manchester could manage ramadan appeal & local community welfare using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for Manchester donors."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Manchester.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -669,38 +777,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in Leicester",
-            "description": "A step-by-step operational flow for Leicester Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Example: How Sidqly Could Support Leicester Operations",
+            "problemStatement": "A charity operating in Leicester managing seasonal appeals and local community aid may receive direct bank transfers with missing references, making manual payment reconciliation, volunteer shift deployment, and trustee board reporting time-consuming.",
+            "description": "A practical operational scenario illustrating how an organization in Leicester could manage ramadan appeal & local community welfare using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for Leicester donors."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Leicester.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -854,38 +998,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in New York",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support New York Operations",
+            "problemStatement": "An Islamic center or charity in New York receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in New York could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving New York."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for New York.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -1039,38 +1219,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Houston",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Houston Operations",
+            "problemStatement": "An Islamic center or charity in Houston receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Houston could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Houston."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Houston.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -1223,38 +1439,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Chicago",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Chicago Operations",
+            "problemStatement": "An Islamic center or charity in Chicago receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Chicago could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Chicago."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Chicago.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -1412,38 +1664,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Dallas",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Dallas Operations",
+            "problemStatement": "An Islamic center or charity in Dallas receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Dallas could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Dallas."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Dallas.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -1597,38 +1885,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Toronto",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Toronto Operations",
+            "problemStatement": "An Islamic center or charity in Toronto receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Toronto could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Toronto."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Toronto.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -1782,38 +2106,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Mississauga",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Mississauga Operations",
+            "problemStatement": "An Islamic center or charity in Mississauga receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Mississauga could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Mississauga."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Mississauga.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -1967,38 +2327,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Dubai",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Dubai.",
+            "title": "Real-World Use Case for Dubai: Ramadan & Zakat Donor Operations",
+            "problemStatement": "A Dubai-based nonprofit coordinating Ramadan Iftar meals and Zakat campaigns receives contributions from major corporate donors, wire transfers, and community members, making payment verification, vendor meal delivery tracking, and board-ready reporting difficult to synchronize.",
+            "description": "An operational scenario demonstrating how a Dubai Islamic organization could streamline Zakat collections, vendor Iftar catering, and corporate CSR reporting.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Dubai."
+                    "name": "Zakat & CSR Campaign Setup",
+                    "detail": "Establish designated Zakat fund accounts and corporate sponsorship tiers.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Wire & Payment Verification",
+                    "detail": "Verify bank deposit records and electronic payment confirmations manually.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Vendor Meal Allocation",
+                    "detail": "Assign Iftar meal counts and delivery schedules to licensed Dubai caterers.",
+                    "moduleName": "Vendor Fulfillment",
+                    "moduleSlug": "vendor-fulfillment"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Proof Review",
+                    "detail": "Inspect delivery timestamps and vendor proof photos in an internal queue.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Corporate Impact Reporting",
+                    "detail": "Generate executive CSR summary decks for corporate sponsors without exposing private recipient data.",
+                    "moduleName": "Corporate CSR / Zakat Reporting",
+                    "moduleSlug": "corporate-csr-zakat"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Audit Trail Export",
+                    "detail": "Compile permanent timestamped audit logs for internal governance.",
+                    "moduleName": "Audit-Ready Records",
+                    "moduleSlug": "audit-ready-records"
+                }
+            ],
+            "outcome": "Instead of handling donor updates and vendor coordination through separate channels, the organization connects donation verification, meal delivery proof, and corporate CSR reporting into one clear process.",
+            "relevantModules": [
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Vendor Fulfillment",
+                    "href": "/modules/vendor-fulfillment",
+                    "description": "Assign tasks to vendors and suppliers and collect delivery confirmations."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -2151,38 +2547,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Abu Dhabi",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Abu Dhabi.",
+            "title": "Example: How Sidqly Could Support Abu Dhabi Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Abu Dhabi may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Abu Dhabi could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Abu Dhabi."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Abu Dhabi.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -2335,38 +2767,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Sharjah",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Sharjah.",
+            "title": "Example: How Sidqly Could Support Sharjah Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Sharjah may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Sharjah could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Sharjah."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Sharjah.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -2520,38 +2988,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Riyadh",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Riyadh.",
+            "title": "Example: How Sidqly Could Support Riyadh Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Riyadh may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Riyadh could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Riyadh."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Riyadh.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -2704,38 +3208,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Jeddah",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Jeddah.",
+            "title": "Example: How Sidqly Could Support Jeddah Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Jeddah may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Jeddah could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Jeddah."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Jeddah.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -2888,38 +3428,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Doha",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Doha.",
+            "title": "Example: How Sidqly Could Support Doha Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Doha may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Doha could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Doha."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Doha.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -3066,38 +3642,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Kuwait City",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Kuwait City.",
+            "title": "Example: How Sidqly Could Support Kuwait City Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Kuwait City may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Kuwait City could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Kuwait City."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Kuwait City.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -3243,38 +3855,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Manama",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Manama.",
+            "title": "Example: How Sidqly Could Support Manama Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Manama may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Manama could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Manama."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Manama.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -3420,38 +4068,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Muscat",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Muscat.",
+            "title": "Example: How Sidqly Could Support Muscat Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Muscat may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Muscat could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Muscat."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Muscat.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -3607,38 +4291,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Ration Pack & Zakat Operations in Karachi",
-            "description": "Structured operational workflow for local welfare committees and non-profits executing ration distribution in Karachi.",
+            "title": "Real-World Use Case for Karachi: Ramadan Ration Distribution",
+            "problemStatement": "A Karachi welfare committee running a Ramadan food drive may receive hundreds of donation screenshots over WhatsApp, EasyPaisa, JazzCash, and bank transfers, making payment verification, ration pack allocation, field proof collection, and donor reporting difficult to manage across scattered chats.",
+            "description": "A complete operational workflow showing how a Karachi charity could organize Ramadan ration distribution from payment proof to donor updates.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Ration Drive Announcement",
-                    "detail": "Set up welfare and ration pack targets for Karachi neighborhoods."
+                    "name": "Campaign & Target Planning",
+                    "detail": "Configure ration pack targets and neighborhood distribution lists across Karachi.",
+                    "moduleName": "Sadaqah Campaigns",
+                    "moduleSlug": "sadaqah-campaigns"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Verification",
-                    "detail": "Review incoming mobile transfer receipts and direct deposit records from donors."
+                    "name": "Mobile Transfer Review",
+                    "detail": "Review incoming EasyPaisa, JazzCash, and bank transfer receipts in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Vendor Purchase Order",
-                    "detail": "Issue procurement orders to wholesale ration vendors with tracked line items."
+                    "name": "Ration Pack Procurement",
+                    "detail": "Issue tracked purchase orders to wholesale food vendors in Karachi markets.",
+                    "moduleName": "Ramadan Meals and Ration Packs",
+                    "moduleSlug": "ramadan-meals-rations"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity-Safe Delivery Verification",
-                    "detail": "Record delivery confirmations without storing unedited photos of recipient faces."
+                    "name": "Recipient Dignity Check",
+                    "detail": "Verify field delivery photos while automatically protecting beneficiary faces.",
+                    "moduleName": "Privacy and Dignity Controls",
+                    "moduleSlug": "privacy-dignity-controls"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Progress Notice",
-                    "detail": "Notify donors that their contribution reached verified local ration distribution."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Send verified impact updates and receipts directly to contributing donors.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Committee Summary Report",
-                    "detail": "Generate complete balance sheet and proof logs for local board review."
+                    "name": "Committee Board Report",
+                    "detail": "Export audit-ready financial and distribution balance sheets for committee trustees.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing donation receipts and delivery photos across WhatsApp groups, the organization maintains a connected workflow that ensures every donation is verified, allocated, and reported transparently.",
+            "relevantModules": [
+                {
+                    "label": "Sadaqah Campaigns",
+                    "href": "/modules/sadaqah-campaigns",
+                    "description": "Track general giving projects, emergency relief, and community appeals."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Ramadan Meals and Ration Packs",
+                    "href": "/modules/ramadan-meals-rations",
+                    "description": "Organize ration bag distribution, Iftar meal batching, and volunteer routes."
+                },
+                {
+                    "label": "Privacy and Dignity Controls",
+                    "href": "/modules/privacy-dignity-controls",
+                    "description": "Enforce automatic face-blurring and access role boundaries."
                 }
             ]
         },
@@ -3787,38 +4507,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Ration Pack & Zakat Operations in Lahore",
-            "description": "Structured operational workflow for local welfare committees and non-profits executing ration distribution in Lahore.",
+            "title": "Example: How Sidqly Could Support Lahore Operations",
+            "problemStatement": "A local welfare organization serving Lahore running a Ramadan ration pack drive may receive donations through mobile transfers (EasyPaisa/JazzCash) and direct bank deposits, making payment verification, wholesale procurement, delivery proof, and donor updates hard to coordinate.",
+            "description": "A practical operational scenario illustrating how an organization in Lahore could manage ramadan ration pack & zakat distribution using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Ration Drive Announcement",
-                    "detail": "Set up welfare and ration pack targets for Lahore neighborhoods."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Lahore.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
                     "name": "Payment Proof Verification",
-                    "detail": "Review incoming mobile transfer receipts and direct deposit records from donors."
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Vendor Purchase Order",
-                    "detail": "Issue procurement orders to wholesale ration vendors with tracked line items."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity-Safe Delivery Verification",
-                    "detail": "Record delivery confirmations without storing unedited photos of recipient faces."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Progress Notice",
-                    "detail": "Notify donors that their contribution reached verified local ration distribution."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Committee Summary Report",
-                    "detail": "Generate complete balance sheet and proof logs for local board review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -3972,38 +4728,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Ration Pack & Zakat Operations in Islamabad",
-            "description": "Structured operational workflow for local welfare committees and non-profits executing ration distribution in Islamabad.",
+            "title": "Example: How Sidqly Could Support Islamabad Operations",
+            "problemStatement": "A local welfare organization serving Islamabad running a Ramadan ration pack drive may receive donations through mobile transfers (EasyPaisa/JazzCash) and direct bank deposits, making payment verification, wholesale procurement, delivery proof, and donor updates hard to coordinate.",
+            "description": "A practical operational scenario illustrating how an organization in Islamabad could manage ramadan ration pack & zakat distribution using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Ration Drive Announcement",
-                    "detail": "Set up welfare and ration pack targets for Islamabad neighborhoods."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Islamabad.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
                     "name": "Payment Proof Verification",
-                    "detail": "Review incoming mobile transfer receipts and direct deposit records from donors."
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Vendor Purchase Order",
-                    "detail": "Issue procurement orders to wholesale ration vendors with tracked line items."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity-Safe Delivery Verification",
-                    "detail": "Record delivery confirmations without storing unedited photos of recipient faces."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Progress Notice",
-                    "detail": "Notify donors that their contribution reached verified local ration distribution."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Committee Summary Report",
-                    "detail": "Generate complete balance sheet and proof logs for local board review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -4149,38 +4941,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Community Relief & Giving Workflow in Kuala Lumpur",
-            "description": "How organizations in Kuala Lumpur utilize Sidqly to handle verified giving operations from campaign launch to board report.",
+            "title": "Example: How Sidqly Could Support Kuala Lumpur Operations",
+            "problemStatement": "An organization operating in Kuala Lumpur may receive campaign donations through bank transfers and direct deposits, making payment verification, fulfillment tracking, proof collection, and donor reporting difficult to coordinate across scattered tools.",
+            "description": "A practical operational scenario illustrating how an organization in Kuala Lumpur could manage community welfare & zakat operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Setup",
-                    "detail": "Configure designated giving appeals for communities in Kuala Lumpur."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Kuala Lumpur.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Review",
-                    "detail": "Review direct deposit and transfer receipts submitted by donors."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fulfillment Assignment",
-                    "detail": "Assign approved funds to local distribution or field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Privacy Check",
-                    "detail": "Review and sanitize distribution photos before publishing."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update",
-                    "detail": "Send verified impact confirmations to supporting donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Internal Report Export",
-                    "detail": "Compile clear summary balance sheets for administrative governance."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -4327,38 +5155,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Community Relief & Giving Workflow in Sydney",
-            "description": "How organizations in Sydney utilize Sidqly to handle verified giving operations from campaign launch to board report.",
+            "title": "Example: How Sidqly Could Support Sydney Operations",
+            "problemStatement": "An organization operating in Sydney may receive campaign donations through bank transfers and direct deposits, making payment verification, fulfillment tracking, proof collection, and donor reporting difficult to coordinate across scattered tools.",
+            "description": "A practical operational scenario illustrating how an organization in Sydney could manage community welfare & zakat operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Setup",
-                    "detail": "Configure designated giving appeals for communities in Sydney."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Sydney.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Review",
-                    "detail": "Review direct deposit and transfer receipts submitted by donors."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fulfillment Assignment",
-                    "detail": "Assign approved funds to local distribution or field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Privacy Check",
-                    "detail": "Review and sanitize distribution photos before publishing."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update",
-                    "detail": "Send verified impact confirmations to supporting donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Internal Report Export",
-                    "detail": "Compile clear summary balance sheets for administrative governance."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -4508,38 +5372,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Community Relief & Giving Workflow in Melbourne",
-            "description": "How organizations in Melbourne utilize Sidqly to handle verified giving operations from campaign launch to board report.",
+            "title": "Example: How Sidqly Could Support Melbourne Operations",
+            "problemStatement": "An organization operating in Melbourne may receive campaign donations through bank transfers and direct deposits, making payment verification, fulfillment tracking, proof collection, and donor reporting difficult to coordinate across scattered tools.",
+            "description": "A practical operational scenario illustrating how an organization in Melbourne could manage community welfare & zakat operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Setup",
-                    "detail": "Configure designated giving appeals for communities in Melbourne."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Melbourne.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Review",
-                    "detail": "Review direct deposit and transfer receipts submitted by donors."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fulfillment Assignment",
-                    "detail": "Assign approved funds to local distribution or field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Privacy Check",
-                    "detail": "Review and sanitize distribution photos before publishing."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update",
-                    "detail": "Send verified impact confirmations to supporting donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Internal Report Export",
-                    "detail": "Compile clear summary balance sheets for administrative governance."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -4687,38 +5587,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Boston",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Boston Operations",
+            "problemStatement": "An Islamic center or charity in Boston receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Boston could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Boston."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Boston.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -4873,38 +5809,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Washington, DC",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Washington, DC Operations",
+            "problemStatement": "An Islamic center or charity in Washington, DC receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Washington, DC could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Washington, DC."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Washington, DC.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -5059,38 +6031,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Los Angeles",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Los Angeles Operations",
+            "problemStatement": "An Islamic center or charity in Los Angeles receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Los Angeles could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Los Angeles."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Los Angeles.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -5245,38 +6253,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in San Francisco Bay Area",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support San Francisco Bay Area Operations",
+            "problemStatement": "An Islamic center or charity in San Francisco Bay Area receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in San Francisco Bay Area could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving San Francisco Bay Area."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for San Francisco Bay Area.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -5431,38 +6475,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Atlanta",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Atlanta Operations",
+            "problemStatement": "An Islamic center or charity in Atlanta receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Atlanta could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Atlanta."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Atlanta.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -5618,38 +6698,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Detroit",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Detroit Operations",
+            "problemStatement": "An Islamic center or charity in Detroit receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Detroit could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Detroit."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Detroit.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -5804,38 +6920,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Philadelphia",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Philadelphia Operations",
+            "problemStatement": "An Islamic center or charity in Philadelphia receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Philadelphia could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Philadelphia."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Philadelphia.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -5990,38 +7142,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Calgary",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Calgary Operations",
+            "problemStatement": "An Islamic center or charity in Calgary receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Calgary could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Calgary."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Calgary.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -6176,38 +7364,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Vancouver",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Vancouver Operations",
+            "problemStatement": "An Islamic center or charity in Vancouver receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Vancouver could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Vancouver."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Vancouver.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -6362,38 +7586,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Montreal",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Montreal Operations",
+            "problemStatement": "An Islamic center or charity in Montreal receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Montreal could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Montreal."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Montreal.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -6547,38 +7807,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Mosque Zakat & Community Welfare Workflow in Ottawa",
-            "description": "Structured operational process for North American mosques and Islamic centers distributing local welfare funds.",
+            "title": "Example: How Sidqly Could Support Ottawa Operations",
+            "problemStatement": "An Islamic center or charity in Ottawa receiving hardship applications and donor contributions via ACH, Zelle, or e-Transfers may struggle to verify payments, maintain strict Zakat fund separation, protect applicant privacy, and generate clean board balance sheets.",
+            "description": "A practical operational scenario illustrating how an organization in Ottawa could manage mosque zakat & community assistance workflow using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Welfare Drive Launch",
-                    "detail": "Announce designated welfare fund drives for families serving Ottawa."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Ottawa.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Queue",
-                    "detail": "Admins match submitted direct deposit and wire transfer proofs to campaign accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fund Allocation & Approval",
-                    "detail": "Log committee approval for local food pantry vouchers or rental assistance."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Anonymization",
-                    "detail": "Strip recipient personal identifiers from field logs and proof documentation."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Impact Release",
-                    "detail": "Share verified, anonymized impact stats with community donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Trustee Audit File",
-                    "detail": "Generate permanent internal audit file for board of directors review."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -6734,38 +8030,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in Bradford",
-            "description": "A step-by-step operational flow for Bradford Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Example: How Sidqly Could Support Bradford Operations",
+            "problemStatement": "A charity operating in Bradford managing seasonal appeals and local community aid may receive direct bank transfers with missing references, making manual payment reconciliation, volunteer shift deployment, and trustee board reporting time-consuming.",
+            "description": "A practical operational scenario illustrating how an organization in Bradford could manage ramadan appeal & local community welfare using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for Bradford donors."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Bradford.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -6919,38 +8251,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in Glasgow",
-            "description": "A step-by-step operational flow for Glasgow Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Example: How Sidqly Could Support Glasgow Operations",
+            "problemStatement": "A charity operating in Glasgow managing seasonal appeals and local community aid may receive direct bank transfers with missing references, making manual payment reconciliation, volunteer shift deployment, and trustee board reporting time-consuming.",
+            "description": "A practical operational scenario illustrating how an organization in Glasgow could manage ramadan appeal & local community welfare using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for Glasgow donors."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Glasgow.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -7106,38 +8474,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in Leeds",
-            "description": "A step-by-step operational flow for Leeds Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Example: How Sidqly Could Support Leeds Operations",
+            "problemStatement": "A charity operating in Leeds managing seasonal appeals and local community aid may receive direct bank transfers with missing references, making manual payment reconciliation, volunteer shift deployment, and trustee board reporting time-consuming.",
+            "description": "A practical operational scenario illustrating how an organization in Leeds could manage ramadan appeal & local community welfare using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for Leeds donors."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Leeds.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -7291,38 +8695,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Ramadan Appeal & Overseas Relief Proof Workflow in Bolton",
-            "description": "A step-by-step operational flow for Bolton Islamic charities managing peak Ramadan drives and international beneficiary updates.",
+            "title": "Example: How Sidqly Could Support Bolton Operations",
+            "problemStatement": "A charity operating in Bolton managing seasonal appeals and local community aid may receive direct bank transfers with missing references, making manual payment reconciliation, volunteer shift deployment, and trustee board reporting time-consuming.",
+            "description": "A practical operational scenario illustrating how an organization in Bolton could manage ramadan appeal & local community welfare using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Launch",
-                    "detail": "Launch designated Zakat and Sadaqah appeals for Bolton donors."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Bolton.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Manual Payment Review",
-                    "detail": "Admins verify incoming UK direct bank transfer receipts and match them to appeal accounts."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Field Fulfillment Assignment",
-                    "detail": "Assign approved funds to local food bank operations or verified overseas field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Protection Check",
-                    "detail": "Filter and obscure sensitive beneficiary images collected from distribution sites."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update Generation",
-                    "detail": "Distribute dignity-safe digital impact cards to donors across the UK."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Board Pack Generation",
-                    "detail": "Compile audit-friendly operational summaries for trustee governance meetings."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -7481,38 +8921,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Makkah",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Makkah.",
+            "title": "Example: How Sidqly Could Support Makkah Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Makkah may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Makkah could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Makkah."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Makkah.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -7671,38 +9147,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Madinah",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Madinah.",
+            "title": "Example: How Sidqly Could Support Madinah Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Madinah may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Madinah could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Madinah."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Madinah.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -7858,38 +9370,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Dammam",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Dammam.",
+            "title": "Example: How Sidqly Could Support Dammam Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Dammam may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Dammam could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Dammam."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Dammam.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -8044,38 +9592,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Al Khobar",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Al Khobar.",
+            "title": "Example: How Sidqly Could Support Al Khobar Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Al Khobar may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Al Khobar could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Al Khobar."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Al Khobar.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -8230,38 +9814,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Ajman",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Ajman.",
+            "title": "Example: How Sidqly Could Support Ajman Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Ajman may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Ajman could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Ajman."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Ajman.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -8416,38 +10036,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Qurbani & Seasonal Giving Fulfillment Workflow in Al Ain",
-            "description": "Operations lifecycle for organizations managing Udhiyah shares and seasonal relief projects in Al Ain.",
+            "title": "Example: How Sidqly Could Support Al Ain Operations",
+            "problemStatement": "An organization managing Qurbani shares and Ramadan distributions in Al Ain may receive high volumes of bank wire receipts during peak holiday periods, making vendor slaughterhouse assignments, field proof review, and donor notifications chaotic.",
+            "description": "A practical operational scenario illustrating how an organization in Al Ain could manage qurbani share & seasonal giving operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Share Booking & Appeal",
-                    "detail": "Open Qurbani share bookings for community members in Al Ain."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Al Ain.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Receipt Review",
-                    "detail": "Batch-verify direct bank transfers and payment confirmation documents."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Slaughterhouse Allocation",
-                    "detail": "Assign verified shares to licensed vendors and fulfillment centers."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Field Proof & Timestamp Check",
-                    "detail": "Log execution timestamps and vendor fulfillment records into admin audit trail."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Dignity-Safe Donor Notification",
-                    "detail": "Send automated completion notices and dignified impact summaries to donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Executive Report Export",
-                    "detail": "Produce executive summary metrics for committee members and patrons."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -8603,38 +10259,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Community Relief & Giving Workflow in Hyderabad",
-            "description": "How organizations in Hyderabad utilize Sidqly to handle verified giving operations from campaign launch to board report.",
+            "title": "Example: How Sidqly Could Support Hyderabad Operations",
+            "problemStatement": "An organization operating in Hyderabad may receive campaign donations through bank transfers and direct deposits, making payment verification, fulfillment tracking, proof collection, and donor reporting difficult to coordinate across scattered tools.",
+            "description": "A practical operational scenario illustrating how an organization in Hyderabad could manage community welfare & zakat operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Setup",
-                    "detail": "Configure designated giving appeals for communities in Hyderabad."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Hyderabad.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Review",
-                    "detail": "Review direct deposit and transfer receipts submitted by donors."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fulfillment Assignment",
-                    "detail": "Assign approved funds to local distribution or field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Privacy Check",
-                    "detail": "Review and sanitize distribution photos before publishing."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update",
-                    "detail": "Send verified impact confirmations to supporting donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Internal Report Export",
-                    "detail": "Compile clear summary balance sheets for administrative governance."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -8781,38 +10473,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Community Relief & Giving Workflow in Mumbai",
-            "description": "How organizations in Mumbai utilize Sidqly to handle verified giving operations from campaign launch to board report.",
+            "title": "Example: How Sidqly Could Support Mumbai Operations",
+            "problemStatement": "An organization operating in Mumbai may receive campaign donations through bank transfers and direct deposits, making payment verification, fulfillment tracking, proof collection, and donor reporting difficult to coordinate across scattered tools.",
+            "description": "A practical operational scenario illustrating how an organization in Mumbai could manage community welfare & zakat operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Setup",
-                    "detail": "Configure designated giving appeals for communities in Mumbai."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Mumbai.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Review",
-                    "detail": "Review direct deposit and transfer receipts submitted by donors."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fulfillment Assignment",
-                    "detail": "Assign approved funds to local distribution or field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Privacy Check",
-                    "detail": "Review and sanitize distribution photos before publishing."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update",
-                    "detail": "Send verified impact confirmations to supporting donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Internal Report Export",
-                    "detail": "Compile clear summary balance sheets for administrative governance."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -8960,38 +10688,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Community Relief & Giving Workflow in Jakarta",
-            "description": "How organizations in Jakarta utilize Sidqly to handle verified giving operations from campaign launch to board report.",
+            "title": "Example: How Sidqly Could Support Jakarta Operations",
+            "problemStatement": "An organization operating in Jakarta may receive campaign donations through bank transfers and direct deposits, making payment verification, fulfillment tracking, proof collection, and donor reporting difficult to coordinate across scattered tools.",
+            "description": "A practical operational scenario illustrating how an organization in Jakarta could manage community welfare & zakat operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Setup",
-                    "detail": "Configure designated giving appeals for communities in Jakarta."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Jakarta.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Review",
-                    "detail": "Review direct deposit and transfer receipts submitted by donors."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fulfillment Assignment",
-                    "detail": "Assign approved funds to local distribution or field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Privacy Check",
-                    "detail": "Review and sanitize distribution photos before publishing."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update",
-                    "detail": "Send verified impact confirmations to supporting donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Internal Report Export",
-                    "detail": "Compile clear summary balance sheets for administrative governance."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
@@ -9140,38 +10904,74 @@ export var cityContentTier1 = [
             ]
         },
         "locationUseCase": {
-            "title": "Example: Community Relief & Giving Workflow in Cape Town",
-            "description": "How organizations in Cape Town utilize Sidqly to handle verified giving operations from campaign launch to board report.",
+            "title": "Example: How Sidqly Could Support Cape Town Operations",
+            "problemStatement": "An organization operating in Cape Town may receive campaign donations through bank transfers and direct deposits, making payment verification, fulfillment tracking, proof collection, and donor reporting difficult to coordinate across scattered tools.",
+            "description": "A practical operational scenario illustrating how an organization in Cape Town could manage community welfare & zakat operations using Sidqly modules.",
             "steps": [
                 {
                     "stepNumber": 1,
-                    "name": "Campaign Setup",
-                    "detail": "Configure designated giving appeals for communities in Cape Town."
+                    "name": "Campaign Planning & Intake",
+                    "detail": "Configure designated giving appeals and intake requirements for Cape Town.",
+                    "moduleName": "Charity Request Intake",
+                    "moduleSlug": "charity-request-intake"
                 },
                 {
                     "stepNumber": 2,
-                    "name": "Payment Proof Review",
-                    "detail": "Review direct deposit and transfer receipts submitted by donors."
+                    "name": "Payment Proof Verification",
+                    "detail": "Review direct deposit receipts, bank transfers, and payment confirmations in a structured queue.",
+                    "moduleName": "Manual Payment Review",
+                    "moduleSlug": "manual-payment-review"
                 },
                 {
                     "stepNumber": 3,
-                    "name": "Fulfillment Assignment",
-                    "detail": "Assign approved funds to local distribution or field partners."
+                    "name": "Zakat & Fund Allocation",
+                    "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+                    "moduleName": "Zakat Fund Separation",
+                    "moduleSlug": "zakat-fund-separation"
                 },
                 {
                     "stepNumber": 4,
-                    "name": "Dignity Privacy Check",
-                    "detail": "Review and sanitize distribution photos before publishing."
+                    "name": "Field Fulfillment & Proof",
+                    "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+                    "moduleName": "Proof Trust Engine",
+                    "moduleSlug": "proof-trust-engine"
                 },
                 {
                     "stepNumber": 5,
-                    "name": "Donor Update",
-                    "detail": "Send verified impact confirmations to supporting donors."
+                    "name": "Dignity-Safe Donor Update",
+                    "detail": "Generate encrypted impact updates for donors while enforcing recipient face-blurring and privacy.",
+                    "moduleName": "Donor-Safe Impact Updates",
+                    "moduleSlug": "donor-safe-updates"
                 },
                 {
                     "stepNumber": 6,
-                    "name": "Internal Report Export",
-                    "detail": "Compile clear summary balance sheets for administrative governance."
+                    "name": "Board Reporting & Audits",
+                    "detail": "Export structured balance sheets and governance summaries for committee review.",
+                    "moduleName": "Reports and Board Packs",
+                    "moduleSlug": "reports-board-packs"
+                }
+            ],
+            "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+            "relevantModules": [
+                {
+                    "label": "Charity Request Intake",
+                    "href": "/modules/charity-request-intake",
+                    "description": "Process family hardship applications while protecting sensitive applicant data."
+                },
+                {
+                    "label": "Manual Payment Review",
+                    "href": "/modules/manual-payment-review",
+                    "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+                },
+                {
+                    "label": "Zakat Fund Separation",
+                    "href": "/modules/zakat-fund-separation",
+                    "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+                },
+                {
+                    "label": "Proof Trust Engine",
+                    "href": "/modules/proof-trust-engine",
+                    "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
                 }
             ]
         },
