@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
-import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp, MapPin, BookOpen } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
 import { brand } from '../../config/brand';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
@@ -12,6 +12,9 @@ import LocationRelevantModules from '../../components/locations/LocationRelevant
 import LocationUseCaseBlock from '../../components/locations/LocationUseCaseBlock';
 import RelatedUseCases from '../../components/RelatedUseCases';
 import { getLocationModuleRecommendations } from '../../data/locations/locationModuleRecommendations';
+import LocationBreadcrumbs from '../../components/locations/LocationBreadcrumbs';
+import LocationHierarchyNav from '../../components/locations/LocationHierarchyNav';
+import RelatedLocationsSection from '../../components/locations/RelatedLocationsSection';
 
 const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -74,18 +77,24 @@ const LocationDetail: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-16 md:py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8 text-center items-center">
-             <Link to="/locations" className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold mb-4 hover:gap-3 transition-all">
-                <ArrowRight className="rotate-180" size={16} /> Back to Global Service Areas
-             </Link>
-             <h1 className="text-4xl md:text-6xl font-extrabold max-w-4xl">{location.h1}</h1>
-             <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
+          {/* Accessible Breadcrumbs */}
+          <LocationBreadcrumbs location={location} />
+
+          <div className="flex flex-col text-center items-center mt-4">
+             <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold max-w-4xl leading-tight">{location.h1}</h1>
+             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed mt-6">
                {location.shortHero}
              </p>
+
+             {/* Location Hierarchy Jump Navigation */}
+             <div className="w-full max-w-3xl mt-6">
+               <LocationHierarchyNav location={location} />
+             </div>
+
              {location.pageType === 'city' && (
-                <p className="text-xs text-gray-400 mt-4 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
+                <p className="text-xs text-gray-400 mt-2 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
                    {location.priorityTier > 1 ? (
                        `Sidqly can support Islamic organizations serving ${location.cityName || location.slug} through a cloud SaaS workflow for payment proof review, approvals, donor-safe updates, and reporting. This page is part of Sidqly’s service-area content and does not claim a physical Sidqly office in ${location.cityName || location.slug}.`
                    ) : (
@@ -94,7 +103,7 @@ const LocationDetail: React.FC = () => {
                 </p>
              )}
              {location.pageType === 'country' && (
-                <p className="text-xs text-gray-400 mt-4 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
+                <p className="text-xs text-gray-400 mt-2 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
                    Sidqly supports operational clarity, proof workflows, donor updates, and internal reporting. Organizations should confirm legal, accounting, tax, payment, and Shariah requirements with their own qualified advisors.
                 </p>
              )}
@@ -202,52 +211,29 @@ const LocationDetail: React.FC = () => {
       {/* Sidqly Workflow Visual */}
       <LocationWorkflow />
 
-      {/* Related Locations & Internal Links Section */}
+      {/* Related Locations & Recommended Articles Section */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Related Locations */}
-            {location.relatedLocations && location.relatedLocations.length > 0 && (
-              <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100">
-                 <h3 className="text-xl font-bold text-sidqly-navy mb-4 flex items-center gap-2">
-                    <MapPin size={20} className="text-sidqly-green-emerald" /> Related Locations & Service Areas
-                 </h3>
-                 <p className="text-xs text-gray-500 mb-6">Explore parent region, country, and neighboring service areas supported by Sidqly.</p>
-                 <div className="flex flex-wrap gap-3">
-                    {location.relatedLocations.map((loc, idx) => (
-                       <Link
-                         key={idx}
-                         to={loc.href}
-                         className="inline-flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm"
-                       >
-                         {loc.label}
-                         {loc.relationship && (
-                            <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-md uppercase tracking-wider">
-                               {loc.relationship}
-                            </span>
-                         )}
-                       </Link>
-                    ))}
-                 </div>
-              </div>
-            )}
+          <div className="space-y-8">
+            {/* Context-Aware Related Locations Component */}
+            <RelatedLocationsSection location={location} />
 
             {/* Related Blogs & Resources */}
             {location.relatedBlogs && location.relatedBlogs.length > 0 && (
-              <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100">
+              <div className="bg-sidqly-ivory p-6 sm:p-8 rounded-3xl border border-gray-100">
                  <h3 className="text-xl font-bold text-sidqly-navy mb-4 flex items-center gap-2">
                     <BookOpen size={20} className="text-sidqly-green-emerald" /> Recommended Operations Articles
                  </h3>
                  <p className="text-xs text-gray-500 mb-6">Operational guides for Islamic charities and giving teams.</p>
-                 <div className="space-y-3">
+                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                     {location.relatedBlogs.map((blog, idx) => (
                        <Link
                          key={idx}
                          to={blog.href}
-                         className="block bg-white p-4 rounded-xl border border-gray-200 text-sm font-bold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm flex items-center justify-between"
+                         className="bg-white p-4 rounded-xl border border-gray-200 text-sm font-bold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm flex items-center justify-between"
                        >
-                         <span>{blog.label}</span>
-                         <ArrowRight size={16} className="text-gray-400" />
+                         <span className="pr-2 line-clamp-2">{blog.label}</span>
+                         <span className="text-sidqly-green-emerald text-xs flex-shrink-0">Read →</span>
                        </Link>
                     ))}
                  </div>

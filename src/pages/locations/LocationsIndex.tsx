@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { regionsData } from '../../data/locations/regions';
 import { countriesData } from '../../data/locations/countries';
-
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateItemListSchema } from '../../lib/schema';
 import { brand } from '../../config/brand';
-import { ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronDown, ChevronUp, Globe, Building2, MapPin } from 'lucide-react';
 
 const faqList = [
   { question: "Does Sidqly serve Islamic organizations in multiple countries?", answer: "Yes, Sidqly serves mosques, Islamic charities, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs across multiple regions globally." },
@@ -28,6 +27,10 @@ const LocationsIndex: React.FC = () => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+  const indexedRegions = regionsData.filter((r) => r.indexStatus === 'index');
+  const indexedCountries = countriesData.filter((c) => c.indexStatus === 'index');
+  const indexedCities = allLocations.filter((c) => c.pageType === 'city' && c.indexStatus === 'index');
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -39,9 +42,9 @@ const LocationsIndex: React.FC = () => {
       },
       generateFAQSchema(faqList),
       generateItemListSchema([
-        ...regionsData.filter(r => r.indexStatus === 'index').map(r => ({ name: r.region, url: `/locations/${r.slug}` })),
-        ...countriesData.filter(c => c.indexStatus === 'index').map(c => ({ name: c.country, url: `/locations/${c.slug}` })),
-        ...allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map(c => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}` }))
+        ...indexedRegions.map((r) => ({ name: r.region, url: `/locations/${r.slug}` })),
+        ...indexedCountries.map((c) => ({ name: c.country, url: `/locations/${c.slug}` })),
+        ...indexedCities.filter((c) => c.priorityTier === 1).map((c) => ({ name: c.cityName || c.slug, url: `/locations/${c.slug}` }))
       ])
     ]
   };
@@ -49,121 +52,269 @@ const LocationsIndex: React.FC = () => {
   return (
     <>
       <SEO
-        title="Global Service Areas"
-        description="Sidqly helps mosques, Islamic charities, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs manage verified giving, payment proof, donor-safe updates, and board-ready reporting across global service areas."
+        title="Global Service Areas & Location Hierarchy"
+        description="Explore Sidqly's global service area hierarchy across regions, countries, and city hubs. Managed verified giving, payment proof, and board-ready reporting."
         canonical="/locations"
         schema={schema}
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-ivory">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-sidqly-navy mb-8">
-            Islamic Charity Software for Global Giving Teams
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
-            Sidqly helps Islamic organizations across regions manage verified giving, manual payment review, proof approval, recipient-safe updates, Zakat, Sadaqah, Qurbani, Ramadan campaigns, and board-ready reporting through a secure cloud platform.
-          </p>
-
-          <div className="bg-white p-8 rounded-[40px] shadow-sm max-w-4xl mx-auto border border-gray-100 text-left mb-16">
-            <h2 className="text-2xl font-bold text-sidqly-navy mb-4">Quick Answer</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Sidqly serves mosques, Islamic charities, Zakat committees, Qurbani organizers, Ramadan teams, and donor-funded programs across multiple regions. The platform helps teams review payment proof, approve field evidence, protect recipient dignity, update donors safely, and prepare clearer internal reports.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Hero Section */}
       <section className="py-20 bg-sidqly-navy text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-6">Global Islamic Giving, Verified and Dignified</h1>
-          <p className="text-xl text-sidqly-green-soft mb-8 leading-relaxed">
-            Sidqly is a premium Islamic SaaS operating platform helping organizations worldwide manage manual payment review, proof approval, donor-safe updates, and board-ready reporting.
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-xs font-bold text-sidqly-green-soft mb-6 uppercase tracking-wider border border-white/10">
+            <Globe size={14} /> Global Location Hierarchy
+          </div>
+          <h1 className="text-4xl sm:text-6xl font-extrabold mb-6 leading-tight">
+            Global Islamic Giving, Verified and Dignified
+          </h1>
+          <p className="text-xl text-sidqly-green-soft mb-10 max-w-3xl mx-auto leading-relaxed">
+            Sidqly helps Islamic organizations across regions, countries, and city service hubs manage verified giving, manual payment reviews, proof approvals, donor-safe updates, and board-ready reporting.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <Link to="/demo" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all">Book a Demo</Link>
-             <Link to="/product-tour" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">See How Sidqly Works</Link>
+             <Link to="/book-demo" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all shadow-lg">
+               Book a Demo
+             </Link>
+             <Link to="/product-tour" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+               See How Sidqly Works
+             </Link>
           </div>
         </div>
       </section>
 
-      {/* Quick Answer */}
-      <section className="py-12 bg-sidqly-ivory">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-white p-8 rounded-3xl border-l-4 border-sidqly-green-emerald shadow-sm">
-             <h2 className="text-xl font-bold text-sidqly-navy mb-4">Quick Answer</h2>
-             <p className="text-gray-700 leading-relaxed font-medium">
-                Sidqly serves organizations globally through a cloud-based platform. Whether you are managing Zakat in London, a Ramadan campaign in Dubai, or Sadaqah in Toronto, Sidqly helps structure your payment proof and donor updates.
+      {/* Quick Answer Banner */}
+      <section className="py-10 bg-sidqly-ivory border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="bg-white p-6 sm:p-8 rounded-3xl border-l-4 border-sidqly-green-emerald shadow-sm">
+             <h2 className="text-lg font-bold text-sidqly-navy mb-2 flex items-center gap-2">
+               Quick Navigation Overview
+             </h2>
+             <p className="text-gray-700 leading-relaxed text-sm sm:text-base font-medium">
+                Sidqly's service area hierarchy is structured logically: <strong className="text-sidqly-navy">Regions → Countries → Cities</strong>. Visitors can easily navigate back and forth between parent regions, national service areas, and local city hubs to explore relevant workflows.
              </p>
            </div>
         </div>
       </section>
 
-      {/* Regions Section */}
+      {/* HIERARCHY LEVEL 1: REGIONS */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Main Regions</h2>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-sidqly-ivory px-3 py-1 rounded-md border border-gray-100">
+              Level 1 Navigation
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-sidqly-navy mb-4">
+              1. Global Regions
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Explore Sidqly's regional coverage and operational frameworks tailored to major global zones.
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {regionsData.filter(r => r.indexStatus === 'index').map((region) => (
-              <Link
-                key={region.slug}
-                to={`/locations/${region.slug}`}
-                className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-xl transition-all group flex flex-col"
-              >
-                <h3 className="text-2xl font-bold text-sidqly-navy mb-4 group-hover:text-sidqly-green-emerald transition-colors">{region.region}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-grow">
-                  {region.shortHero || region.metaDescription}
-                </p>
-                <div className="flex items-center gap-2 text-sidqly-green-deep font-bold text-sm">
-                  View region <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            {indexedRegions.map((region) => {
+              const regionCountries = indexedCountries.filter(
+                (c) => c.regionSlug === region.slug || c.region.toLowerCase() === region.region.toLowerCase()
+              );
+
+              return (
+                <div
+                  key={region.slug}
+                  className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-200/80 shadow-sm hover:border-sidqly-green-emerald hover:shadow-xl transition-all group flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-sidqly-green-emerald mb-6 shadow-sm border border-gray-100 group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors">
+                      <Globe size={24} />
+                    </div>
+                    <h3 className="text-2xl font-bold text-sidqly-navy mb-3 group-hover:text-sidqly-green-emerald transition-colors">
+                      {region.region}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                      {region.shortHero || region.metaDescription}
+                    </p>
+
+                    {regionCountries.length > 0 && (
+                      <div className="mb-6 pt-4 border-t border-gray-200/60">
+                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block mb-2">
+                          Countries in {region.region}:
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {regionCountries.map((c) => (
+                            <Link
+                              key={c.slug}
+                              to={`/locations/${c.slug}`}
+                              className="text-xs bg-white text-sidqly-navy hover:bg-sidqly-green-emerald hover:text-white px-2.5 py-1 rounded-lg border border-gray-200/80 font-semibold transition-colors"
+                            >
+                              {c.country}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <Link
+                    to={`/locations/${region.slug}`}
+                    className="inline-flex items-center justify-between bg-white text-sidqly-navy px-5 py-3 rounded-xl border border-gray-200 text-sm font-bold group-hover:bg-sidqly-green-emerald group-hover:text-white group-hover:border-sidqly-green-emerald transition-all shadow-sm mt-4"
+                  >
+                    <span>View {region.region} Region</span>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Priority Countries Section */}
-      <section className="py-20 bg-sidqly-ivory">
+      {/* HIERARCHY LEVEL 2: COUNTRIES BY REGION */}
+      <section className="py-20 bg-sidqly-ivory border-t border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Priority Countries</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {countriesData.filter(c => c.indexStatus === 'index').map((country) => (
-              <Link
-                key={country.slug}
-                to={`/locations/${country.slug}`}
-                className="bg-white px-6 py-4 rounded-xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-md transition-all text-center font-bold text-sidqly-navy hover:text-sidqly-green-emerald"
-              >
-                {country.country}
-              </Link>
-            ))}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-white px-3 py-1 rounded-md border border-gray-100">
+              Level 2 Navigation
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-sidqly-navy mb-4">
+              2. Countries Organized by Region
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Find national giving operations and charity software guides organized under their respective parent regions.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {indexedRegions.map((region) => {
+              const countriesInRegion = indexedCountries.filter(
+                (c) => c.regionSlug === region.slug || c.region.toLowerCase() === region.region.toLowerCase()
+              );
+
+              if (countriesInRegion.length === 0) return null;
+
+              return (
+                <div key={region.slug} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-gray-100 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-sidqly-ivory rounded-xl text-sidqly-green-emerald border border-gray-100">
+                        <Building2 size={22} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-sidqly-navy">{region.region} Countries</h3>
+                        <p className="text-xs text-gray-500">{countriesInRegion.length} national service area pages</p>
+                      </div>
+                    </div>
+                    <Link
+                      to={`/locations/${region.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-sidqly-green-deep hover:text-sidqly-green-emerald hover:underline"
+                    >
+                      View {region.region} Region Hub <ArrowRight size={14} />
+                    </Link>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {countriesInRegion.map((country) => {
+                      const citiesInCountryCount = indexedCities.filter(
+                        (ct) => ct.countrySlug === country.slug || ct.country.toLowerCase() === country.country.toLowerCase()
+                      ).length;
+
+                      return (
+                        <Link
+                          key={country.slug}
+                          to={`/locations/${country.slug}`}
+                          className="bg-sidqly-ivory p-5 rounded-2xl border border-gray-200/60 hover:border-sidqly-green-emerald hover:shadow-md transition-all flex flex-col justify-between group"
+                        >
+                          <div>
+                            <div className="flex items-center justify-between mb-2">
+                              <span className="font-bold text-sidqly-navy group-hover:text-sidqly-green-emerald transition-colors">
+                                {country.country}
+                              </span>
+                              <Building2 size={16} className="text-gray-400 group-hover:text-sidqly-green-emerald transition-colors" />
+                            </div>
+                            <span className="text-xs text-gray-500 block">
+                              {citiesInCountryCount > 0 ? `${citiesInCountryCount} featured cities` : 'National Service Area'}
+                            </span>
+                          </div>
+                          <div className="mt-4 pt-3 border-t border-gray-200/50 flex items-center justify-between text-xs font-bold text-sidqly-green-deep">
+                            <span>View Country</span>
+                            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Top Cities Section */}
+      {/* HIERARCHY LEVEL 3: CITIES BY COUNTRY */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Featured Service Areas</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {allLocations.filter(c => c.pageType === 'city' && c.indexStatus === 'index' && c.priorityTier === 1).map((city) => (
-              <Link
-                key={city.slug}
-                to={`/locations/${city.slug}`}
-                className="bg-sidqly-ivory px-6 py-4 rounded-xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-md transition-all text-center font-medium text-gray-700 hover:text-sidqly-navy"
-              >
-                {city.cityName}
-              </Link>
-            ))}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-sidqly-ivory px-3 py-1 rounded-md border border-gray-100">
+              Level 3 Navigation
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-sidqly-navy mb-4">
+              3. City Service Hubs by Country
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Explore local city pages categorized under their parent countries for local mosques, charities, and giving teams.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {indexedCountries.map((country) => {
+              const citiesInCountry = indexedCities.filter(
+                (c) => c.countrySlug === country.slug || c.country.toLowerCase() === country.country.toLowerCase()
+              );
+
+              if (citiesInCountry.length === 0) return null;
+
+              return (
+                <div key={country.slug} className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-200/70">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-gray-200/60 gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 bg-white rounded-xl text-sidqly-green-emerald border border-gray-100 shadow-sm">
+                        <MapPin size={22} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-sidqly-navy">{country.country} Cities</h3>
+                        <p className="text-xs text-gray-500">
+                          {citiesInCountry.length} city hubs in {country.country} ({country.region} region)
+                        </p>
+                      </div>
+                    </div>
+                    <Link
+                      to={`/locations/${country.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-sidqly-green-deep hover:text-sidqly-green-emerald hover:underline"
+                    >
+                      View {country.country} Country Page <ArrowRight size={14} />
+                    </Link>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                    {citiesInCountry.map((city) => (
+                      <Link
+                        key={city.slug}
+                        to={`/locations/${city.slug}`}
+                        className="bg-white px-4 py-3 rounded-xl border border-gray-200/80 shadow-sm hover:border-sidqly-green-emerald hover:shadow-md transition-all text-center font-semibold text-sm text-sidqly-navy hover:text-sidqly-green-emerald truncate"
+                        title={city.cityName || city.slug}
+                      >
+                        {city.cityName || city.slug}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Browse by Workflow */}
+      {/* Browse by Giving Workflow */}
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Browse by giving workflow</h2>
+          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Browse by Giving Workflow</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { title: "Manual payment review", link: "/modules/manual-payment-review" },
@@ -294,7 +445,7 @@ const LocationsIndex: React.FC = () => {
              </ul>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <Link to="/demo" className="inline-block bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:text-white transition-all shadow-lg hover:shadow-xl">
+             <Link to="/book-demo" className="inline-block bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:text-white transition-all shadow-lg hover:shadow-xl">
                 Book a Demo
              </Link>
              <Link to="/product-tour" className="inline-block bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
