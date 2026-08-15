@@ -29,15 +29,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates high-volume UK bank transfer screenshots from London donors into a secure, audit-ready admin queue."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Generates executive summaries and financial packs for London mosque trustees and registered charity boards."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends dignity-safe impact reports to Greater London donors funding local community or international aid."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains strict ledger boundaries between London Zakat hardship funds and general mosque collections."
             }
         ],
         "relatedUtilities": [
@@ -205,16 +213,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Zakat Fund Separation",
-                "href": "/modules/zakat-fund-separation"
-            },
-            {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Processes direct bank deposit receipts from Birmingham community appeals with clear admin approvals."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Coordinates local food parcel drives and Iftar distribution across Birmingham neighborhoods."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Manages local volunteer shifts for community food banks and mosque collection drives in Birmingham."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local beneficiary privacy by auto-blurring faces before updates are shared with donors."
             }
         ],
         "relatedUtilities": [
@@ -382,16 +398,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Tracks donor bank transfer receipts for Greater Manchester mosque and charity campaigns."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Charity Request Intake",
+                "href": "/modules/charity-request-intake",
+                "description": "Processes community welfare and hardship applications in Manchester through a private, secure queue."
             },
             {
                 "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "href": "/modules/audit-ready-records",
+                "description": "Keeps timestamped records of all payment approvals and fund disbursements for Manchester trustee reviews."
+            },
+            {
+                "label": "Donor Communication",
+                "href": "/modules/donor-communication",
+                "description": "Automates clear, professional receipt notifications to Manchester community supporters."
             }
         ],
         "relatedUtilities": [
@@ -563,15 +587,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Simplifies verification of bank transfers submitted during Leicester mosque and charity drives."
             },
             {
-                "label": "Privacy & Dignity Controls",
-                "href": "/modules/privacy-dignity-controls"
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Organizes seasonal ration box assembly and distribution logs across Leicester."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Ensures local Zakat collections remain strictly separated from general Sadaqah and operating expenses."
             },
             {
                 "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "href": "/modules/reports-board-packs",
+                "description": "Provides structured financial summaries for Leicester committee meetings."
             }
         ],
         "relatedUtilities": [
@@ -739,16 +771,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, and direct deposit receipts from NYC donors into a unified admin queue."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational ledgers between local NYC Zakat hardship funds and general Islamic center accounts."
             },
             {
                 "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "href": "/modules/audit-ready-records",
+                "description": "Generates permanent timestamped logs required for NY 501(c)(3) nonprofit compliance and board audits."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Safeguards local food pantry and welfare recipients by anonymizing field images before donor sharing."
             }
         ],
         "relatedUtilities": [
@@ -916,16 +956,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Zakat Fund Separation",
-                "href": "/modules/zakat-fund-separation"
-            },
-            {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank deposits and transfer confirmations submitted for Houston mosque and relief initiatives."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "label": "Sadaqah Campaigns",
+                "href": "/modules/sadaqah-campaigns",
+                "description": "Manages local disaster relief, emergency assistance, and community welfare projects across Houston."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Organizes volunteer shifts for food drives, disaster relief dispatch, and Ramadan activities in Houston."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends verified, privacy-sanitized impact updates to supporting donors in Greater Houston."
             }
         ],
         "relatedUtilities": [
@@ -1092,16 +1140,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Replaces scattered chat receipts with a structured admin review queue for Chicago community appeals."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Charity Request Intake",
+                "href": "/modules/charity-request-intake",
+                "description": "Handles sensitive community assistance requests and hardship applications in Chicagoland discreetly."
             },
             {
-                "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Compiles clear board presentation packs for Chicago Islamic center trustees."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Ensures strict ledger segregation between Zakat eligibility cases and general charity funds."
             }
         ],
         "relatedUtilities": [
@@ -1270,15 +1326,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Organizes bank transfers and payment proof for Dallas-Fort Worth Islamic center campaigns."
             },
             {
-                "label": "Privacy & Dignity Controls",
-                "href": "/modules/privacy-dignity-controls"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains clear financial logs and reviewer activity tracking for DFW nonprofit board governance."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Verifies distribution evidence before public release while protecting recipient privacy."
+            },
+            {
+                "label": "Donor Communication",
+                "href": "/modules/donor-communication",
+                "description": "Automates professional receipting and campaign updates for Dallas donor networks."
             }
         ],
         "relatedUtilities": [
@@ -1451,15 +1515,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates e-Transfer screenshots and direct bank transfer confirmations for GTA Islamic charities."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food bank and hardship beneficiaries in Toronto by automatically blurring faces in updates."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Produces audit-friendly balance sheets for Toronto mosque committees and charity board members."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Coordinates volunteer dispatch for local community drives, food banks, and Ramadan events in Toronto."
             }
         ],
         "relatedUtilities": [
@@ -1627,16 +1699,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Zakat Fund Separation",
-                "href": "/modules/zakat-fund-separation"
-            },
-            {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Tracks incoming direct bank deposit receipts for Mississauga Islamic organizations and mosques."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Organizes seasonal food pack distribution and volunteer schedules across Mississauga."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear ledger separation between Zakat hardship relief and mosque capital funds."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers encrypted, dignity-safe progress reports to community donors in Mississauga."
             }
         ],
         "relatedUtilities": [
@@ -1804,16 +1884,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Corporate CSR / Zakat Reporting",
+                "href": "/modules/corporate-csr-zakat",
+                "description": "Generates executive PDF impact reports tailored for corporate sponsors and institutional foundations in Dubai."
             },
             {
                 "label": "Zakat Fund Separation",
-                "href": "/modules/zakat-fund-separation"
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains strict operational ledger boundaries for Dubai-based Zakat eligibility reviews and campaign funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Coordinates Udhiyah share allocations, slaughterhouse vendor updates, and digital certificates during Eid."
+            },
+            {
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Streamlines verification of corporate and individual bank transfer submissions in Dubai."
             }
         ],
         "relatedUtilities": [
@@ -1980,16 +2068,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
-            },
-            {
-                "label": "Qurbani Lifecycle",
-                "href": "/modules/qurbani-lifecycle"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Verifies multi-stage field evidence and enforces privacy protection for local and international distribution."
             },
             {
                 "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent administrative logs of payment reviews, approvals, and disbursement notes in Abu Dhabi."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Provides structured fund tracking separating Zakat allocations from general Sadaqah initiatives."
+            },
+            {
+                "label": "Corporate CSR / Zakat Reporting",
+                "href": "/modules/corporate-csr-zakat",
+                "description": "Produces board-ready summary packs for Abu Dhabi leadership and institutional patrons."
             }
         ],
         "relatedUtilities": [
@@ -2156,16 +2252,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Provides strict operational fund tagging for Zakat campaigns and welfare initiatives in the UAE."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Ensures multi-stage review of fulfillment evidence and recipient privacy before sharing impact proof."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Coordinates Udhiyah share assignments, slaughterhouse fulfillment, and verified delivery proof across the Emirates."
+            },
+            {
+                "label": "Corporate CSR / Zakat Reporting",
+                "href": "/modules/corporate-csr-zakat",
+                "description": "Generates executive PDF summaries tailored for corporate CSR sponsors and institutional giving partners in the UAE."
             }
         ],
         "relatedUtilities": [
@@ -2333,16 +2437,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Zakat Fund Separation",
-                "href": "/modules/zakat-fund-separation"
-            },
-            {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank deposit receipts and transaction proof for charity appeals across Riyadh."
             },
             {
-                "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Separates Zakat hardship relief logically from general Sadaqah and seasonal campaigns in Riyadh."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Tracks Udhiyah share assignments, vendor slaughter schedules, and delivery confirmations during Eid."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends sanitized completion updates to Riyadh patrons while preserving recipient privacy."
             }
         ],
         "relatedUtilities": [
@@ -2509,16 +2621,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank transfer receipts and payment confirmations for charity appeals across the Kingdom."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational segregation for Zakat eligibility workflows and general welfare funds."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends dignified, privacy-protected completion reports to community patrons and institutional donors."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Manages Udhiyah share allocations, vendor slaughter schedules, and execution proof during Eid-ul-Adha."
             }
         ],
         "relatedUtilities": [
@@ -2685,16 +2805,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
-            },
-            {
-                "label": "Privacy & Dignity Controls",
-                "href": "/modules/privacy-dignity-controls"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Verifies field evidence and sanitizes beneficiary images before publishing campaign updates in Qatar."
             },
             {
                 "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "href": "/modules/audit-ready-records",
+                "description": "Keeps an immutable administrative log of all payment reviews, approvals, and fund disbursements."
+            },
+            {
+                "label": "Corporate CSR / Zakat Reporting",
+                "href": "/modules/corporate-csr-zakat",
+                "description": "Compiles board-ready reporting packs for institutional sponsors and CSR foundation committees in Qatar."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict operational boundaries between Zakat-designated relief and general Sadaqah collections."
             }
         ],
         "relatedUtilities": [
@@ -2855,16 +2983,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates direct bank transfer confirmations and wire receipts into a structured admin review queue in Kuwait."
+            },
+            {
                 "label": "Zakat Fund Separation",
-                "href": "/modules/zakat-fund-separation"
+                "href": "/modules/zakat-fund-separation",
+                "description": "Logically separates Zakat allocations from general Sadaqah and Waqf operational funds."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Prepares executive reporting summaries for committee leadership and patron boards."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor Communication",
+                "href": "/modules/donor-communication",
+                "description": "Automates clear, dignified status updates for donors supporting local and international appeals."
             }
         ],
         "relatedUtilities": [
@@ -3024,16 +3160,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Multi-stage verification queue that ensures field distribution photos protect recipient dignity before release."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Provides encrypted, privacy-safe update links to community donors in Bahrain."
+            },
+            {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Manages direct bank deposit screenshot reviews and contribution logging systematically."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
-            },
-            {
-                "label": "Privacy & Dignity Controls",
-                "href": "/modules/privacy-dignity-controls"
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Organizes local volunteer teams for community food drives and seasonal campaign tasks."
             }
         ],
         "relatedUtilities": [
@@ -3193,16 +3337,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Structures incoming direct bank transfer proof and payment confirmations for Omani welfare teams."
             },
             {
                 "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains full action history and reviewer logs for all financial and fulfillment approvals in Oman."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Separates Zakat hardship funds from general community charity and Amanah initiatives."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers dignified, sanitized delivery confirmation reports to donors across Oman."
             }
         ],
         "relatedUtilities": [
@@ -3364,15 +3516,28 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
-            },
-            {
-                "label": "Qurbani Lifecycle",
-                "href": "/modules/qurbani-lifecycle"
+                "href": "/modules/manual-payment-review",
+                "description": "Replaces chaotic WhatsApp screenshot reviews with a structured admin queue for mobile bank transfers (EasyPaisa, JazzCash, bank receipts) in Karachi."
             },
             {
                 "label": "Ramadan Meals & Rations",
-                "href": "/modules/ramadan-meals-rations"
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Coordinates large-scale ration pack procurement, delivery route logs, and volunteer tasks across Karachi neighborhoods."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Tracks Bakra Eid animal share bookings, slaughterhouse vendor updates, field proof, and donor completion certificates in Karachi."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains strict operational ledgers separating Zakat funds from general Sadaqah collections for Karachi welfare organizations."
+            },
+            {
+                "label": "Charity Request Intake",
+                "href": "/modules/charity-request-intake",
+                "description": "Processes family hardship applications and welfare support requests in Karachi through a private, dignity-preserving queue."
             }
         ],
         "relatedUtilities": [
@@ -3539,16 +3704,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies mobile bank transfer screenshots and direct deposit receipts for Lahore welfare organizations."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Manages Udhiyah share assignments, vendor slaughterhouse tracking, and donor proof certificates across Lahore."
             },
             {
-                "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Organizes Iftar ration pack assembly, volunteer schedules, and daily distribution reports in Lahore."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Deploys field volunteer teams with clear task instructions and proof submission rules."
             }
         ],
         "relatedUtilities": [
@@ -3713,15 +3886,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
-            },
-            {
-                "label": "Privacy & Dignity Controls",
-                "href": "/modules/privacy-dignity-controls"
+                "href": "/modules/manual-payment-review",
+                "description": "Organizes bank transfer proof and donor receipts into an administrative review queue in Islamabad."
             },
             {
                 "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "href": "/modules/reports-board-packs",
+                "description": "Generates clean financial and operational reporting packs for Islamabad charity trust boards."
+            },
+            {
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains complete audit trails of reviewer approvals and welfare disbursements."
+            },
+            {
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers privacy-protected fulfillment updates to Islamabad donors and institutional patrons."
             }
         ],
         "relatedUtilities": [
@@ -3890,15 +4071,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Organizes online bank transfer screenshots into a structured verification queue for KL charity teams."
             },
             {
                 "label": "Qurbani Lifecycle",
-                "href": "/modules/qurbani-lifecycle"
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Tracks Korban share orders, vendor slaughter schedules, and digital proof certificates in Kuala Lumpur."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Generates financial summary reports and progress updates for organization leadership in KL."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Coordinates volunteer assignments for sedekah distribution and community events."
             }
         ],
         "relatedUtilities": [
@@ -4055,16 +4244,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Zakat Fund Separation",
-                "href": "/modules/zakat-fund-separation"
-            },
-            {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates direct bank deposit receipts and EFT proofs for Sydney mosque and charity appeals."
             },
             {
-                "label": "Reports & Board Packs",
-                "href": "/modules/reports-board-packs"
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Enforces privacy safeguards so local welfare recipients receive support without public photo exposure."
+            },
+            {
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains complete, timestamped audit logs for Sydney Islamic center board governance."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Organizes volunteer shifts for Sydney community food drives and mosque events."
             }
         ],
         "relatedUtilities": [
@@ -4224,16 +4421,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Manual Payment Review",
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank transfer confirmations for Melbourne charity campaigns."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Produces audit-ready financial summaries and campaign progress packs for Melbourne trustees."
             },
             {
-                "label": "Audit-Ready Records",
-                "href": "/modules/audit-ready-records"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers privacy-protected impact reports to Melbourne community donors."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Ensures local Zakat welfare funds remain strictly segregated from general operating funds."
             }
         ],
         "relatedUtilities": [
@@ -4400,15 +4605,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, ACH deposits, and check receipts into a single verification queue for US nonprofits."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict ledger segregation between local Zakat assistance and mosque expansion or general Sadaqah funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped approval logs required for board audits and 501(c)(3) internal compliance in the US."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food pantry and hardship recipients by blurring faces prior to sharing impact media."
             }
         ],
         "relatedUtilities": [
@@ -4578,15 +4791,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, ACH deposits, and check receipts into a single verification queue for US nonprofits."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict ledger segregation between local Zakat assistance and mosque expansion or general Sadaqah funds."
             },
             {
-                "label": "Board Reporting",
-                "href": "/modules/reports-board-packs"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped approval logs required for board audits and 501(c)(3) internal compliance in the US."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food pantry and hardship recipients by blurring faces prior to sharing impact media."
             }
         ],
         "relatedUtilities": [
@@ -4756,15 +4977,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, ACH deposits, and check receipts into a single verification queue for US nonprofits."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict ledger segregation between local Zakat assistance and mosque expansion or general Sadaqah funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped approval logs required for board audits and 501(c)(3) internal compliance in the US."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food pantry and hardship recipients by blurring faces prior to sharing impact media."
             }
         ],
         "relatedUtilities": [
@@ -4934,15 +5163,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, ACH deposits, and check receipts into a single verification queue for US nonprofits."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict ledger segregation between local Zakat assistance and mosque expansion or general Sadaqah funds."
             },
             {
-                "label": "Board Reporting",
-                "href": "/modules/reports-board-packs"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped approval logs required for board audits and 501(c)(3) internal compliance in the US."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food pantry and hardship recipients by blurring faces prior to sharing impact media."
             }
         ],
         "relatedUtilities": [
@@ -5112,15 +5349,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, ACH deposits, and check receipts into a single verification queue for US nonprofits."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict ledger segregation between local Zakat assistance and mosque expansion or general Sadaqah funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped approval logs required for board audits and 501(c)(3) internal compliance in the US."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food pantry and hardship recipients by blurring faces prior to sharing impact media."
             }
         ],
         "relatedUtilities": [
@@ -5291,15 +5536,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, ACH deposits, and check receipts into a single verification queue for US nonprofits."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict ledger segregation between local Zakat assistance and mosque expansion or general Sadaqah funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped approval logs required for board audits and 501(c)(3) internal compliance in the US."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food pantry and hardship recipients by blurring faces prior to sharing impact media."
             }
         ],
         "relatedUtilities": [
@@ -5469,15 +5722,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates Zelle, wire transfers, ACH deposits, and check receipts into a single verification queue for US nonprofits."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Enforces strict ledger segregation between local Zakat assistance and mosque expansion or general Sadaqah funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Audit-Ready Records",
+                "href": "/modules/audit-ready-records",
+                "description": "Maintains permanent timestamped approval logs required for board audits and 501(c)(3) internal compliance in the US."
+            },
+            {
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Protects local food pantry and hardship recipients by blurring faces prior to sharing impact media."
             }
         ],
         "relatedUtilities": [
@@ -5647,15 +5908,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Simplifies verification of direct deposit receipts and e-Transfer confirmations for Canadian Islamic charities."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Filters and anonymizes local beneficiary images before publishing updates to Canadian community donors."
             },
             {
-                "label": "Board Reporting",
-                "href": "/modules/reports-board-packs"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Generates clear, structured financial reports for Canadian mosque committees and charity board meetings."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Coordinates field teams for local food drives, community events, and Ramadan volunteer shifts across Canada."
             }
         ],
         "relatedUtilities": [
@@ -5825,15 +6094,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Simplifies verification of direct deposit receipts and e-Transfer confirmations for Canadian Islamic charities."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Filters and anonymizes local beneficiary images before publishing updates to Canadian community donors."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Generates clear, structured financial reports for Canadian mosque committees and charity board meetings."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Coordinates field teams for local food drives, community events, and Ramadan volunteer shifts across Canada."
             }
         ],
         "relatedUtilities": [
@@ -6003,15 +6280,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Simplifies verification of direct deposit receipts and e-Transfer confirmations for Canadian Islamic charities."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Filters and anonymizes local beneficiary images before publishing updates to Canadian community donors."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Generates clear, structured financial reports for Canadian mosque committees and charity board meetings."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Coordinates field teams for local food drives, community events, and Ramadan volunteer shifts across Canada."
             }
         ],
         "relatedUtilities": [
@@ -6180,15 +6465,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Simplifies verification of direct deposit receipts and e-Transfer confirmations for Canadian Islamic charities."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Privacy & Dignity Controls",
+                "href": "/modules/privacy-dignity-controls",
+                "description": "Filters and anonymizes local beneficiary images before publishing updates to Canadian community donors."
             },
             {
-                "label": "Board Reporting",
-                "href": "/modules/reports-board-packs"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Generates clear, structured financial reports for Canadian mosque committees and charity board meetings."
+            },
+            {
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Coordinates field teams for local food drives, community events, and Ramadan volunteer shifts across Canada."
             }
         ],
         "relatedUtilities": [
@@ -6359,15 +6652,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Organizes UK direct bank transfer receipts and online donation proof into a secure admin queue for UK charity teams."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Produces audit-ready financial summaries and campaign status packs for UK charity trustees and governance meetings."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers dignified, privacy-filtered progress reports to UK donors supporting domestic or international appeals."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational ledger separation between Zakat hardship funds and general charity accounts in the UK."
             }
         ],
         "relatedUtilities": [
@@ -6536,15 +6837,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Organizes UK direct bank transfer receipts and online donation proof into a secure admin queue for UK charity teams."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Produces audit-ready financial summaries and campaign status packs for UK charity trustees and governance meetings."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers dignified, privacy-filtered progress reports to UK donors supporting domestic or international appeals."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational ledger separation between Zakat hardship funds and general charity accounts in the UK."
             }
         ],
         "relatedUtilities": [
@@ -6715,15 +7024,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Organizes UK direct bank transfer receipts and online donation proof into a secure admin queue for UK charity teams."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Produces audit-ready financial summaries and campaign status packs for UK charity trustees and governance meetings."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers dignified, privacy-filtered progress reports to UK donors supporting domestic or international appeals."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational ledger separation between Zakat hardship funds and general charity accounts in the UK."
             }
         ],
         "relatedUtilities": [
@@ -6892,15 +7209,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Organizes UK direct bank transfer receipts and online donation proof into a secure admin queue for UK charity teams."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Reports & Board Packs",
+                "href": "/modules/reports-board-packs",
+                "description": "Produces audit-ready financial summaries and campaign status packs for UK charity trustees and governance meetings."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Delivers dignified, privacy-filtered progress reports to UK donors supporting domestic or international appeals."
+            },
+            {
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational ledger separation between Zakat hardship funds and general charity accounts in the UK."
             }
         ],
         "relatedUtilities": [
@@ -7070,15 +7395,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank transfer receipts and payment confirmations for charity appeals across the Kingdom."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational segregation for Zakat eligibility workflows and general welfare funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends dignified, privacy-protected completion reports to community patrons and institutional donors."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Manages Udhiyah share allocations, vendor slaughter schedules, and execution proof during Eid-ul-Adha."
             }
         ],
         "relatedUtilities": [
@@ -7252,15 +7585,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank transfer receipts and payment confirmations for charity appeals across the Kingdom."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational segregation for Zakat eligibility workflows and general welfare funds."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends dignified, privacy-protected completion reports to community patrons and institutional donors."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Manages Udhiyah share allocations, vendor slaughter schedules, and execution proof during Eid-ul-Adha."
             }
         ],
         "relatedUtilities": [
@@ -7435,15 +7776,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank transfer receipts and payment confirmations for charity appeals across the Kingdom."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational segregation for Zakat eligibility workflows and general welfare funds."
             },
             {
-                "label": "Board Reporting",
-                "href": "/modules/reports-board-packs"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends dignified, privacy-protected completion reports to community patrons and institutional donors."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Manages Udhiyah share allocations, vendor slaughter schedules, and execution proof during Eid-ul-Adha."
             }
         ],
         "relatedUtilities": [
@@ -7613,15 +7962,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies direct bank transfer receipts and payment confirmations for charity appeals across the Kingdom."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Maintains clear operational segregation for Zakat eligibility workflows and general welfare funds."
             },
             {
-                "label": "Board Reporting",
-                "href": "/modules/reports-board-packs"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends dignified, privacy-protected completion reports to community patrons and institutional donors."
+            },
+            {
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Manages Udhiyah share allocations, vendor slaughter schedules, and execution proof during Eid-ul-Adha."
             }
         ],
         "relatedUtilities": [
@@ -7790,16 +8147,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Provides strict operational fund tagging for Zakat campaigns and welfare initiatives in the UAE."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Ensures multi-stage review of fulfillment evidence and recipient privacy before sharing impact proof."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Coordinates Udhiyah share assignments, slaughterhouse fulfillment, and verified delivery proof across the Emirates."
+            },
+            {
+                "label": "Corporate CSR / Zakat Reporting",
+                "href": "/modules/corporate-csr-zakat",
+                "description": "Generates executive PDF summaries tailored for corporate CSR sponsors and institutional giving partners in the UAE."
             }
         ],
         "relatedUtilities": [
@@ -7968,16 +8333,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Provides strict operational fund tagging for Zakat campaigns and welfare initiatives in the UAE."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Ensures multi-stage review of fulfillment evidence and recipient privacy before sharing impact proof."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Qurbani Lifecycle",
+                "href": "/modules/qurbani-lifecycle",
+                "description": "Coordinates Udhiyah share assignments, slaughterhouse fulfillment, and verified delivery proof across the Emirates."
+            },
+            {
+                "label": "Corporate CSR / Zakat Reporting",
+                "href": "/modules/corporate-csr-zakat",
+                "description": "Generates executive PDF summaries tailored for corporate CSR sponsors and institutional giving partners in the UAE."
             }
         ],
         "relatedUtilities": [
@@ -8148,15 +8521,23 @@ export var cityContentTier1 = [
         "recommendedModules": [
             {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Consolidates UPI screenshots and direct bank transfer proofs for Hyderabad masjid trusts and welfare groups."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Coordinates food pack distribution and Iftar meal drives across Hyderabad localities."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Zakat Fund Separation",
+                "href": "/modules/zakat-fund-separation",
+                "description": "Ensures Zakat eligibility funds remain separate from general Sadaqah and masjid funds."
+            },
+            {
+                "label": "Charity Request Intake",
+                "href": "/modules/charity-request-intake",
+                "description": "Processes community hardship and medical aid applications privately to maintain applicant dignity."
             }
         ],
         "relatedUtilities": [
@@ -8317,16 +8698,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Enforces image sanitization and face-blurring before sharing welfare distribution updates in Mumbai."
+            },
+            {
+                "label": "Sadaqah Campaigns",
+                "href": "/modules/sadaqah-campaigns",
+                "description": "Tracks general relief projects, medical assistance, and community welfare initiatives in Mumbai."
+            },
+            {
                 "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "href": "/modules/manual-payment-review",
+                "description": "Verifies incoming bank deposit receipts and online transfer proofs systematically."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
-            },
-            {
-                "label": "Board Reporting",
-                "href": "/modules/reports-board-packs"
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Manages local volunteer deployments for field distribution and campaign activities across Mumbai."
             }
         ],
         "relatedUtilities": [
@@ -8488,16 +8877,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Verifies field evidence and blurs beneficiary faces before publishing updates for Jakarta zakat programs."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Volunteer Coordination",
+                "href": "/modules/volunteer-coordination",
+                "description": "Deploys volunteer field teams for sembako distribution and community welfare drives in Jakarta."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends encrypted, privacy-safe completion notices to supporters across Greater Jakarta."
+            },
+            {
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Manages ration package procurement, distribution routes, and daily logs during Ramadan."
             }
         ],
         "relatedUtilities": [
@@ -8660,16 +9057,24 @@ export var cityContentTier1 = [
         ],
         "recommendedModules": [
             {
-                "label": "Manual Payment Review",
-                "href": "/modules/manual-payment-review"
+                "label": "Proof Trust Engine",
+                "href": "/modules/proof-trust-engine",
+                "description": "Verifies distribution evidence and sanitizes field images before donor update release in Cape Town."
             },
             {
-                "label": "Proof Approval",
-                "href": "/modules/proof-trust-engine"
+                "label": "Donor-Safe Impact Updates",
+                "href": "/modules/donor-safe-updates",
+                "description": "Sends encrypted update links to donors supporting Cape Town feeding schemes and welfare programs."
             },
             {
-                "label": "Donor-Safe Updates",
-                "href": "/modules/donor-safe-updates"
+                "label": "Vendor Fulfillment",
+                "href": "/modules/vendor-fulfillment",
+                "description": "Connects local suppliers to upload delivery notes and proof of goods received."
+            },
+            {
+                "label": "Ramadan Meals & Rations",
+                "href": "/modules/ramadan-meals-rations",
+                "description": "Coordinates food parcel distribution and daily Iftar meal logistics across Cape Town communities."
             }
         ],
         "relatedUtilities": [
