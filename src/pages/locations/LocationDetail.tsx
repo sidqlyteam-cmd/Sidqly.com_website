@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
-import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp, MapPin, BookOpen, Layers } from 'lucide-react';
 import { brand } from '../../config/brand';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
@@ -147,8 +147,127 @@ const LocationDetail: React.FC = () => {
         </div>
       </section>
 
+      {/* Why Sidqly for Location Section */}
+      {location.whySidqlyForLocation && location.whySidqlyForLocation.benefits && location.whySidqlyForLocation.benefits.length > 0 && (
+        <section className="py-20 bg-sidqly-ivory border-t border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="text-center max-w-3xl mx-auto mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-sidqly-navy mb-4">
+                  {location.whySidqlyForLocation.title}
+                </h2>
+                {location.whySidqlyForLocation.subtitle && (
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {location.whySidqlyForLocation.subtitle}
+                  </p>
+                )}
+             </div>
+             <div className="grid md:grid-cols-2 gap-8">
+                {location.whySidqlyForLocation.benefits.map((benefit, idx) => (
+                   <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                      <div>
+                        <div className="w-10 h-10 bg-sidqly-green-soft/20 text-sidqly-green-deep rounded-xl flex items-center justify-center font-bold text-lg mb-4">
+                          0{idx + 1}
+                        </div>
+                        <h3 className="text-xl font-bold text-sidqly-navy mb-3">{benefit.title}</h3>
+                        <p className="text-gray-600 leading-relaxed text-sm">{benefit.description}</p>
+                      </div>
+                   </div>
+                ))}
+             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Location-Specific Use-Case Section */}
+      {location.locationUseCase && (
+        <section className="py-20 bg-white border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="max-w-3xl mb-12">
+                <div className="inline-flex items-center gap-2 bg-sidqly-green-soft/20 text-sidqly-green-deep text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+                  Local Operational Workflow
+                </div>
+                <h2 className="text-3xl font-bold text-sidqly-navy mb-4">
+                  {location.locationUseCase.title}
+                </h2>
+                <p className="text-gray-600 leading-relaxed">
+                  {location.locationUseCase.description}
+                </p>
+             </div>
+
+             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {location.locationUseCase.steps.map((step) => (
+                   <div key={step.stepNumber} className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100 flex flex-col justify-between">
+                      <div>
+                        <div className="text-xs font-extrabold text-sidqly-green-emerald uppercase tracking-wider mb-2">
+                           Step {step.stepNumber}
+                        </div>
+                        <h3 className="text-lg font-bold text-sidqly-navy mb-2">{step.name}</h3>
+                        <p className="text-xs text-gray-600 leading-relaxed">{step.detail}</p>
+                      </div>
+                   </div>
+                ))}
+             </div>
+          </div>
+        </section>
+      )}
+
       {/* Sidqly Workflow Visual */}
       <LocationWorkflow />
+
+      {/* Related Locations & Internal Links Section */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Related Locations */}
+            {location.relatedLocations && location.relatedLocations.length > 0 && (
+              <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100">
+                 <h3 className="text-xl font-bold text-sidqly-navy mb-4 flex items-center gap-2">
+                    <MapPin size={20} className="text-sidqly-green-emerald" /> Related Locations & Service Areas
+                 </h3>
+                 <p className="text-xs text-gray-500 mb-6">Explore parent region, country, and neighboring service areas supported by Sidqly.</p>
+                 <div className="flex flex-wrap gap-3">
+                    {location.relatedLocations.map((loc, idx) => (
+                       <Link
+                         key={idx}
+                         to={loc.href}
+                         className="inline-flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm"
+                       >
+                         {loc.label}
+                         {loc.relationship && (
+                            <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-md uppercase tracking-wider">
+                               {loc.relationship}
+                            </span>
+                         )}
+                       </Link>
+                    ))}
+                 </div>
+              </div>
+            )}
+
+            {/* Related Blogs & Resources */}
+            {location.relatedBlogs && location.relatedBlogs.length > 0 && (
+              <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100">
+                 <h3 className="text-xl font-bold text-sidqly-navy mb-4 flex items-center gap-2">
+                    <BookOpen size={20} className="text-sidqly-green-emerald" /> Recommended Operations Articles
+                 </h3>
+                 <p className="text-xs text-gray-500 mb-6">Operational guides for Islamic charities and giving teams.</p>
+                 <div className="space-y-3">
+                    {location.relatedBlogs.map((blog, idx) => (
+                       <Link
+                         key={idx}
+                         to={blog.href}
+                         className="block bg-white p-4 rounded-xl border border-gray-200 text-sm font-bold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm flex items-center justify-between"
+                       >
+                         <span>{blog.label}</span>
+                         <ArrowRight size={16} className="text-gray-400" />
+                       </Link>
+                    ))}
+                 </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
 
       {/* Stakeholders Section */}
       <section className="py-20 bg-sidqly-ivory">
