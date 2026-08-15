@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
-import { CheckCircle2, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ChevronUp, BookOpen, Calendar, ArrowRight } from 'lucide-react';
 import { brand } from '../../config/brand';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
@@ -88,8 +88,25 @@ const LocationDetail: React.FC = () => {
                {location.shortHero}
              </p>
 
+             {/* Hero Action CTAs */}
+             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8 w-full max-w-md">
+                <Link
+                  to="/book-demo"
+                  className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald text-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all shadow-lg text-center"
+                >
+                  <Calendar size={18} /> Book a Demo
+                </Link>
+                <Link
+                  to={location.pageType === 'city' ? '/use-cases' : '/modules'}
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all text-center"
+                >
+                  {location.pageType === 'city' ? `Explore ${locationDisplayName} Use Cases` : `Explore Sidqly Modules`}
+                  <ArrowRight size={16} />
+                </Link>
+             </div>
+
              {/* Location Hierarchy Jump Navigation */}
-             <div className="w-full max-w-3xl mt-6">
+             <div className="w-full max-w-3xl mt-8">
                <LocationHierarchyNav location={location} />
              </div>
 
@@ -160,6 +177,34 @@ const LocationDetail: React.FC = () => {
                  </ul>
               </div>
            </div>
+        </div>
+      </section>
+
+      {/* Contextual Mid-Page CTA Banner */}
+      <section className="py-12 bg-sidqly-navy text-white text-center border-t border-b border-white/10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left max-w-2xl">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+              Ready to streamline giving operations in {locationDisplayName}?
+            </h3>
+            <p className="text-sm sm:text-base text-gray-300">
+              See how Sidqly helps teams review payment proof, manage approvals, and send donor-safe updates.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">
+            <Link
+              to="/book-demo"
+              className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald hover:bg-white hover:text-sidqly-navy text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
+            >
+              <Calendar size={18} /> Book a Demo
+            </Link>
+            <Link
+              to="/modules"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3.5 rounded-xl transition-all border border-white/20 text-sm text-center"
+            >
+              Explore Relevant Modules
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -300,7 +345,10 @@ const LocationDetail: React.FC = () => {
       )}
 
       {/* CTA Section */}
-      <LocationCtaBlock />
+      <LocationCtaBlock
+        locationName={locationDisplayName}
+        pageType={location.pageType}
+      />
     </>
   );
 };

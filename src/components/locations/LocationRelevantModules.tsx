@@ -68,6 +68,17 @@ const LocationRelevantModules: React.FC<LocationRelevantModulesProps> = ({
             </div>
           ))}
         </div>
+
+        {/* Section Secondary CTA */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/modules"
+            className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-sidqly-navy dark:text-white border border-gray-200 dark:border-gray-700 px-8 py-3.5 rounded-xl font-bold hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald dark:hover:text-sidqly-green-soft focus:outline-none focus:ring-2 focus:ring-sidqly-green-emerald transition-all shadow-sm"
+          >
+            <span>Explore All Sidqly Modules</span>
+            <ArrowRight size={16} className="text-sidqly-green-emerald" />
+          </Link>
+        </div>
       </div>
     </section>
   );
