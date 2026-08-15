@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { regions } from '../../data/regions';
-import { CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ShieldCheck, Calendar } from 'lucide-react';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 
 const RegionDetail: React.FC = () => {
@@ -35,9 +35,25 @@ const RegionDetail: React.FC = () => {
                    <ArrowRight className="rotate-180" size={16} /> Back to Regions
                 </Link>
                 <h1 className="text-3xl md:text-6xl font-extrabold mb-8">{region.name}</h1>
-                <p className="text-xl text-sidqly-green-soft leading-relaxed">
+                <p className="text-xl text-sidqly-green-soft leading-relaxed mb-8">
                   {region.description}
                 </p>
+
+                {/* Hero CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    to="/book-demo"
+                    className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald text-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-white transition-all shadow-lg text-center"
+                  >
+                    <Calendar size={18} /> Book a Demo
+                  </Link>
+                  <Link
+                    to="/modules"
+                    className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white transition-all text-center"
+                  >
+                    Explore Regional Modules <ArrowRight size={16} />
+                  </Link>
+                </div>
              </div>
              <div className="flex-1 bg-white/5 p-8 rounded-[40px] border border-white/10">
                 <h3 className="text-lg font-bold mb-6 text-sidqly-green-soft">Coverage Includes:</h3>
@@ -120,7 +136,10 @@ const RegionDetail: React.FC = () => {
          </section>
       )}
 
-      <LocationCtaBlock />
+      <LocationCtaBlock
+        locationName={region.name}
+        pageType="region"
+      />
 
       <section className="py-8 bg-sidqly-ivory border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
