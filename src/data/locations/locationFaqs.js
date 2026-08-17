@@ -1,4 +1,4 @@
-export var locationFaqBanks = [
+export const locationFaqBanks = [
     {
         category: "localCulture",
         suitableFor: ["city", "country"],
@@ -86,23 +86,19 @@ export var locationFaqBanks = [
     }
 ];
 export function generateLocationFaqs(city, categories) {
-    var faqs = [];
+    const faqs = [];
     // Ensure the mandatory remoteSaaS FAQ is included for cities
     if (!categories.includes("remoteSaaS")) {
         categories.push("remoteSaaS");
     }
-    var _loop_1 = function (category) {
-        var template = locationFaqBanks.find(function (faq) { return faq.category === category; });
+    for (const category of categories) {
+        const template = locationFaqBanks.find((faq) => faq.category === category);
         if (template) {
             faqs.push({
                 question: template.questionTemplate.replace(/\{City\}/g, city),
                 answer: template.answerTemplate.replace(/\{City\}/g, city)
             });
         }
-    };
-    for (var _i = 0, categories_1 = categories; _i < categories_1.length; _i++) {
-        var category = categories_1[_i];
-        _loop_1(category);
     }
     return faqs;
 }

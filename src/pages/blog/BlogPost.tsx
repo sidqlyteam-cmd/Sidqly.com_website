@@ -87,7 +87,10 @@ const BlogPost: React.FC = () => {
 
           <header className="mb-12">
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
-              <span className="flex items-center gap-1.5"><Calendar size={16} /> {post.date}</span>
+              <span className="flex items-center gap-1.5" title="Published Date"><Calendar size={16} /> Published: {post.date}</span>
+              {post.modifiedDate && post.modifiedDate !== post.date && (
+                <span className="flex items-center gap-1.5 text-sidqly-green-deep font-semibold" title="Last Updated Date"><Calendar size={16} /> Updated: {post.modifiedDate}</span>
+              )}
               <span className="flex items-center gap-1.5"><Clock size={16} /> {post.readingTime}</span>
               <span className="flex items-center gap-1.5"><User size={16} /> Sidqly Team</span>
               <span className="flex items-center gap-1.5 px-3 py-1 bg-sidqly-ivory rounded-full text-sidqly-green-deep font-bold"><Tag size={14} /> {post.category}</span>

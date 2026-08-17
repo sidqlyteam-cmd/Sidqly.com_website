@@ -1,6 +1,7 @@
 export const modules = [
   {
     slug: "manual-payment-review",
+    category: "donations-funds",
     title: "Manual Payment Review for Verified Donations",
     desc: "Human-verified bank transfers and screenshots.",
     quickAnswer: "Sidqly’s manual payment review workflow helps Islamic charities, mosques, and giving teams review donor payment proof before marking a donation, campaign contribution, or fulfillment request as approved.",
@@ -30,6 +31,7 @@ export const modules = [
   },
   {
     slug: "proof-trust-engine",
+    category: "proof-privacy-trust",
     title: "Proof Trust Engine",
     desc: "Multi-stage field evidence verification.",
     quickAnswer: "Sidqly's Proof Trust Engine helps organizations protect recipient dignity by reviewing and blurring photos before they are shared with donors or sponsors.",
@@ -48,6 +50,7 @@ export const modules = [
   },
   {
     slug: "donor-safe-updates",
+    category: "donor-communication",
     title: "Donor-Safe Impact Updates",
     desc: "Dignified updates with automated face-blurring.",
     quickAnswer: "Sidqly's donor-safe updates allow your team to send impact reports and fulfillment proof to donors using private, restricted links that protect sensitive data.",
@@ -60,6 +63,7 @@ export const modules = [
   },
   {
     slug: "zakat-fund-separation",
+    category: "donations-funds",
     title: "Zakat Fund Separation",
     desc: "Logical filters to keep Zakat and Sadaqah distinct.",
     quickAnswer: "Sidqly provides strict operational filters to keep Zakat and Sadaqah funds clearly separated in reporting and fulfillment workflows.",
@@ -79,6 +83,7 @@ export const modules = [
   },
   {
     slug: "sadaqah-campaigns",
+    category: "donations-funds",
     title: "Sadaqah/Sadqa Campaigns",
     desc: "Versatile tracking for projects and emergency aid.",
     quickAnswer: "Sidqly organizes Sadaqah campaigns by tracking general giving goals, volunteer coordination, and non-restricted fund allocation in real time.",
@@ -92,6 +97,7 @@ export const modules = [
   },
   {
     slug: "qurbani-lifecycle",
+    category: "programs-fulfillment",
     title: "Qurbani/Udhiya Lifecycle",
     desc: "End-to-end share allocation and distribution tracking.",
     quickAnswer: "Sidqly tracks Qurbani from donor payment and share assignment to vendor fulfillment and verified field proof.",
@@ -111,6 +117,7 @@ export const modules = [
   },
   {
     slug: "ramadan-meals-rations",
+    category: "programs-fulfillment",
     title: "Ramadan/Ramzan Meals and Ration Packs",
     desc: "Scalable workflows for peak holy month distribution.",
     quickAnswer: "Sidqly’s Ramadan module coordinates ration pack distribution, Iftar scheduling, and volunteer tasks with verifiable field tracking.",
@@ -124,6 +131,7 @@ export const modules = [
   },
   {
     slug: "charity-request-intake",
+    category: "programs-fulfillment",
     title: "Charity Request Intake",
     desc: "Dignified screening for community aid applications.",
     benefit: "Organizations can receive and review support requests while protecting sensitive information.",
@@ -136,6 +144,7 @@ export const modules = [
   },
   {
     slug: "vendor-fulfillment",
+    category: "programs-fulfillment",
     title: "Vendor Fulfillment",
     desc: "Collaborative portal for fulfillment partners.",
     benefit: "Vendors can receive tasks, update status, upload proof, and report issues.",
@@ -147,6 +156,7 @@ export const modules = [
   },
   {
     slug: "volunteer-coordination",
+    category: "programs-fulfillment",
     title: "Volunteer Coordination",
     desc: "Shift and task management for field teams.",
     benefit: "Volunteers can receive assignments and complete delivery/service tasks with proof instructions.",
@@ -158,6 +168,7 @@ export const modules = [
   },
   {
     slug: "corporate-csr-zakat",
+    category: "reporting-management",
     title: "Corporate CSR/Zakat Reporting",
     desc: "Board-ready reports for institutional sponsors.",
     benefit: "Corporate sponsors can receive safe impact summaries without exposing private recipient data.",
@@ -169,6 +180,7 @@ export const modules = [
   },
   {
     slug: "receipts-certificates",
+    category: "donor-communication",
     title: "Receipts and Certificates",
     desc: "Automated, branded donor documents.",
     benefit: "Organizations can prepare professional receipts and certificates where applicable.",
@@ -180,6 +192,7 @@ export const modules = [
   },
   {
     slug: "qr-code-verification",
+    category: "proof-privacy-trust",
     title: "QR/Code Verification",
     desc: "Instant validity checks for issued records.",
     benefit: "Receipts, certificates, and selected proof items can be verified public-safely.",
@@ -191,6 +204,7 @@ export const modules = [
   },
   {
     slug: "reports-board-packs",
+    category: "reporting-management",
     title: "Reports and Board Packs",
     desc: "One-click operational and financial summaries.",
     quickAnswer: "Sidqly generates board-ready reports summarizing Zakat distributions, Sadaqah totals, and operational metrics with full audit trails.",
@@ -203,6 +217,7 @@ export const modules = [
   },
   {
     slug: "privacy-dignity-controls",
+    category: "proof-privacy-trust",
     title: "Privacy and Dignity Controls",
     desc: "Granular data boundaries and access logs.",
     quickAnswer: "Sidqly enforces dignity controls like automated face-blurring and strict access roles to ensure charity requests and recipient identities are never exposed inappropriately.",
@@ -215,6 +230,7 @@ export const modules = [
   },
   {
     slug: "audit-ready-records",
+    category: "reporting-management",
     title: "Audit-Ready Records",
     desc: "Comprehensive action logs for compliance teams.",
     quickAnswer: "Sidqly maintains a permanent log of all approvals, proof uploads, and fund separations to ensure compliance during internal or external reviews.",
@@ -227,6 +243,7 @@ export const modules = [
   },
   {
     slug: "donor-communication",
+    category: "donor-communication",
     title: "Donor Communication",
     desc: "Automated but dignified recipient updates.",
     benefit: "Donor updates can be clearer, safer, and more professional.",
@@ -238,6 +255,7 @@ export const modules = [
   },
   {
     slug: "pilot-launch-support",
+    category: "launch-support",
     title: "Pilot Launch Support",
     desc: "Guided onboarding for starting your digital journey safely.",
     benefit: "Organizations can start with a pilot workflow before expanding.",
@@ -253,7 +271,7 @@ export const solutions = [
   { slug: "mosques", title: "Mosques", desc: "Managing Friday collections and community funds.", who: ["Mosque admins", "Imams"], problem: ["Unorganized donation tracking"], benefit: ["Centralized fund management"], workflow: ["Collection", "Review", "Reporting"], output: ["Financial summaries"], relevantModules: [] },
   { slug: "islamic-charities", title: "Islamic Charities", desc: "Audit-ready operations for registered organizations.", who: ["Charity managers"], problem: ["Lack of clear audit trails"], benefit: ["Audit-ready records"], workflow: ["Submission", "Approval", "Reporting"], output: ["Board-ready reports"], relevantModules: [] },
   { slug: "qurbani-organizers", title: "Qurbani Organizers", desc: "Manage Qurbani donor records, payment proof, animal shares, fulfillment updates, and dignity-safe reporting with Sidqly.", who: ["Qurbani teams"], problem: ["Chaos matching donors to shares"], benefit: ["End-to-end tracking"], workflow: ["Order Received", "Slaughtered", "Distributed"], output: ["Donor certificates"], relevantModules: [] },
-  { slug: "sadaqah-campaign-teams", title: "Sadaqah Campaign Teams", desc: "Run Sadaqah campaigns with verified payment review, donor tracking, proof approval, dignity-safe updates, and transparent reporting.", who: ["Logistics teams"], problem: ["High volume tracking"], benefit: ["Scalable batch processing"], workflow: ["Route assignment", "Delivery proof", "Daily report"], output: ["Distribution logs"], relevantModules: [] },
+  { slug: "sadaqah-campaign-teams", title: "Sadaqah Campaign Teams", desc: "Run Sadaqah campaigns with verified payment review, donor tracking, proof approval, dignity-safe updates, and transparent reporting.", who: ["Logistics teams"], problem: ["High volume tracking"], benefit: ["Scalable batch processing"], workflow: ["Route assignment", "Daily report"], output: ["Distribution logs"], relevantModules: [] },
   { slug: "zakat-teams", title: "Zakat Teams", desc: "Specialized workflows for eligible Zakat distribution.", who: ["Zakat committees"], problem: ["Co-mingling Zakat with Sadaqah"], benefit: ["Logical fund separation"], workflow: ["Case intake", "Verification", "Disbursement"], output: ["Eligibility reports"], relevantModules: [] },
   { slug: "corporate-csr-zakat", title: "Corporate CSR / Zakat", desc: "Transparency for corporate community investments.", who: ["Corporate liaisons"], problem: ["Sponsors demanding detailed impact"], benefit: ["Corporate-safe reporting"], workflow: ["Sponsored campaign", "Impact proof", "Report generation"], output: ["Professional PDF summaries"], relevantModules: [] },
   { slug: "vendors", title: "Vendors & Partners", desc: "Portals for fulfillment and field delivery partners.", who: ["Vendors"], problem: ["Chasing proof via WhatsApp"], benefit: ["Centralized vendor portals"], workflow: ["Task assignment", "Acceptance", "Proof upload"], output: ["Vendor proof collection"], relevantModules: [] },

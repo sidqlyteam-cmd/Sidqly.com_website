@@ -3,13 +3,18 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
-import { CheckCircle2, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ChevronUp, BookOpen, Calendar, ArrowRight } from 'lucide-react';
 import { brand } from '../../config/brand';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
 import LocationWorkflow from '../../components/locations/LocationWorkflow';
-import RelatedSidqlyModules from '../../components/RelatedSidqlyModules';
+import LocationRelevantModules from '../../components/locations/LocationRelevantModules';
+import LocationUseCaseBlock from '../../components/locations/LocationUseCaseBlock';
 import RelatedUseCases from '../../components/RelatedUseCases';
+import { getLocationModuleRecommendations } from '../../data/locations/locationModuleRecommendations';
+import LocationBreadcrumbs from '../../components/locations/LocationBreadcrumbs';
+import LocationHierarchyNav from '../../components/locations/LocationHierarchyNav';
+import RelatedLocationsSection from '../../components/locations/RelatedLocationsSection';
 
 const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -39,6 +44,11 @@ const LocationDetail: React.FC = () => {
     ]
   };
 
+  const locationDisplayName = location.cityName || location.country || location.region;
+  const modules = (location.recommendedModules && location.recommendedModules.length > 0)
+    ? location.recommendedModules
+    : getLocationModuleRecommendations(location);
+
   // Safe Fallback Content based on pageType
   const getFallbackContext = () => {
     if (location.pageType === 'city') {
@@ -67,18 +77,41 @@ const LocationDetail: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-16 md:py-20 bg-sidqly-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8 text-center items-center">
-             <Link to="/locations" className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold mb-4 hover:gap-3 transition-all">
-                <ArrowRight className="rotate-180" size={16} /> Back to Global Service Areas
-             </Link>
-             <h1 className="text-4xl md:text-6xl font-extrabold max-w-4xl">{location.h1}</h1>
-             <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
+          {/* Accessible Breadcrumbs */}
+          <LocationBreadcrumbs location={location} />
+
+          <div className="flex flex-col text-center items-center mt-4">
+             <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold max-w-4xl leading-tight">{location.h1}</h1>
+             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed mt-6">
                {location.shortHero}
              </p>
+
+             {/* Hero Action CTAs */}
+             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8 w-full max-w-md">
+                <Link
+                  to="/book-demo"
+                  className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald text-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all shadow-lg text-center"
+                >
+                  <Calendar size={18} /> Book a Demo
+                </Link>
+                <Link
+                  to={location.pageType === 'city' ? '/use-cases' : '/modules'}
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all text-center"
+                >
+                  {location.pageType === 'city' ? `Explore ${locationDisplayName} Use Cases` : `Explore Sidqly Modules`}
+                  <ArrowRight size={16} />
+                </Link>
+             </div>
+
+             {/* Location Hierarchy Jump Navigation */}
+             <div className="w-full max-w-3xl mt-8">
+               <LocationHierarchyNav location={location} />
+             </div>
+
              {location.pageType === 'city' && (
-                <p className="text-xs text-gray-400 mt-4 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
+                <p className="text-xs text-gray-400 mt-2 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
                    {location.priorityTier > 1 ? (
                        `Sidqly can support Islamic organizations serving ${location.cityName || location.slug} through a cloud SaaS workflow for payment proof review, approvals, donor-safe updates, and reporting. This page is part of Sidqly’s service-area content and does not claim a physical Sidqly office in ${location.cityName || location.slug}.`
                    ) : (
@@ -87,7 +120,7 @@ const LocationDetail: React.FC = () => {
                 </p>
              )}
              {location.pageType === 'country' && (
-                <p className="text-xs text-gray-400 mt-4 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
+                <p className="text-xs text-gray-400 mt-2 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
                    Sidqly supports operational clarity, proof workflows, donor updates, and internal reporting. Organizations should confirm legal, accounting, tax, payment, and Shariah requirements with their own qualified advisors.
                 </p>
              )}
@@ -147,8 +180,113 @@ const LocationDetail: React.FC = () => {
         </div>
       </section>
 
+      {/* Contextual Mid-Page CTA Banner */}
+      <section className="py-12 bg-sidqly-navy text-white text-center border-t border-b border-white/10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left max-w-2xl">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+              Ready to streamline giving operations in {locationDisplayName}?
+            </h3>
+            <p className="text-sm sm:text-base text-gray-300">
+              See how Sidqly helps teams review payment proof, manage approvals, and send donor-safe updates.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">
+            <Link
+              to="/book-demo"
+              className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald hover:bg-white hover:text-sidqly-navy text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
+            >
+              <Calendar size={18} /> Book a Demo
+            </Link>
+            <Link
+              to="/modules"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3.5 rounded-xl transition-all border border-white/20 text-sm text-center"
+            >
+              Explore Relevant Modules
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Sidqly for Location Section */}
+      {location.whySidqlyForLocation && location.whySidqlyForLocation.benefits && location.whySidqlyForLocation.benefits.length > 0 && (
+        <section className="py-20 bg-sidqly-ivory border-t border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="text-center max-w-3xl mx-auto mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-sidqly-navy mb-4">
+                  {location.whySidqlyForLocation.title}
+                </h2>
+                {location.whySidqlyForLocation.subtitle && (
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {location.whySidqlyForLocation.subtitle}
+                  </p>
+                )}
+             </div>
+             <div className="grid md:grid-cols-2 gap-8">
+                {location.whySidqlyForLocation.benefits.map((benefit, idx) => (
+                   <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                      <div>
+                        <div className="w-10 h-10 bg-sidqly-green-soft/20 text-sidqly-green-deep rounded-xl flex items-center justify-center font-bold text-lg mb-4">
+                          0{idx + 1}
+                        </div>
+                        <h3 className="text-xl font-bold text-sidqly-navy mb-3">{benefit.title}</h3>
+                        <p className="text-gray-600 leading-relaxed text-sm">{benefit.description}</p>
+                      </div>
+                   </div>
+                ))}
+             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Location-Specific Use-Case Section */}
+      {location.locationUseCase && (
+        <LocationUseCaseBlock
+          locationName={locationDisplayName}
+          useCase={location.locationUseCase}
+        />
+      )}
+
+      {/* Relevant Sidqly Modules Section */}
+      <LocationRelevantModules
+        locationName={locationDisplayName}
+        modules={modules}
+      />
+
       {/* Sidqly Workflow Visual */}
       <LocationWorkflow />
+
+      {/* Related Locations & Recommended Articles Section */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            {/* Context-Aware Related Locations Component */}
+            <RelatedLocationsSection location={location} />
+
+            {/* Related Blogs & Resources */}
+            {location.relatedBlogs && location.relatedBlogs.length > 0 && (
+              <div className="bg-sidqly-ivory p-6 sm:p-8 rounded-3xl border border-gray-100">
+                 <h3 className="text-xl font-bold text-sidqly-navy mb-4 flex items-center gap-2">
+                    <BookOpen size={20} className="text-sidqly-green-emerald" /> Recommended Operations Articles
+                 </h3>
+                 <p className="text-xs text-gray-500 mb-6">Operational guides for Islamic charities and giving teams.</p>
+                 <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    {location.relatedBlogs.map((blog, idx) => (
+                       <Link
+                         key={idx}
+                         to={blog.href}
+                         className="bg-white p-4 rounded-xl border border-gray-200 text-sm font-bold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm flex items-center justify-between"
+                       >
+                         <span className="pr-2 line-clamp-2">{blog.label}</span>
+                         <span className="text-sidqly-green-emerald text-xs flex-shrink-0">Read →</span>
+                       </Link>
+                    ))}
+                 </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
 
       {/* Stakeholders Section */}
       <section className="py-20 bg-sidqly-ivory">
@@ -172,9 +310,8 @@ const LocationDetail: React.FC = () => {
         </div>
       </section>
 
-      {/* Related Components */}
+      {/* Related Use Cases */}
       <RelatedUseCases className="bg-white" />
-      <RelatedSidqlyModules className="bg-sidqly-ivory" />
 
       {/* FAQs */}
       {location.faqs && location.faqs.length > 0 && (
@@ -208,7 +345,10 @@ const LocationDetail: React.FC = () => {
       )}
 
       {/* CTA Section */}
-      <LocationCtaBlock />
+      <LocationCtaBlock
+        locationName={locationDisplayName}
+        pageType={location.pageType}
+      />
     </>
   );
 };

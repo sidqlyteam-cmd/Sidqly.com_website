@@ -1,11 +1,10 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import {
   BarChart3, ShieldCheck, Heart, Beef, ShoppingBag,
-  MessageSquare, Layout, CheckCircle2, ArrowRight, Store, ClipboardCheck, QrCode, FileText, Shield, Zap
+  MessageSquare, Layout, CheckCircle2, Store, ClipboardCheck, QrCode, FileText, Shield, Zap, Check
 } from 'lucide-react';
 import SEO from '../components/SEO';
-import { brand } from '../config/brand';
 import { generateCollectionSchema, generateItemListSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
 import { seoData } from '../data/seo';
 import { modules } from '../data/solutions_modules';
@@ -13,6 +12,16 @@ import { modules } from '../data/solutions_modules';
 const modulesFaqs = [
   { question: "Can we purchase just one module?", answer: "Yes, many organizations start with a single module pilot (like Manual Payment Review) before rolling out the full platform." },
   { question: "Are all modules included in every plan?", answer: "Access to specific modules depends on your tier (Starter, Growth, or Premium). Review our Pricing page or book a demo to learn more." }
+];
+
+const categories = [
+  { id: "all", name: "All Modules", desc: "View every single operational module built for verified giving." },
+  { id: "donations-funds", name: "Donations & Funds", desc: "Process payments, secure bank validations, and separate fund categories seamlessly." },
+  { id: "programs-fulfillment", name: "Programs & Fulfillment", desc: "Coordinate distributions, schedule seasonal workflows, and capture field records." },
+  { id: "proof-privacy-trust", name: "Proof, Privacy & Trust", desc: "Verify impact, anonymize sensitive details, and secure public-facing transparency records." },
+  { id: "donor-communication", name: "Donor Communication", desc: "Engage contributors with secure notifications, certificates, and automated receipts." },
+  { id: "reporting-management", name: "Reporting & Management", desc: "Provide trustees, compliance boards, and managers with immutable audits and packs." },
+  { id: "launch-support", name: "Launch & Support", desc: "Adopt digital workflows easily with our expert pilot onboarding assistance." }
 ];
 
 const getModuleIcon = (slug: string) => {
@@ -40,9 +49,16 @@ const getModuleIcon = (slug: string) => {
 };
 
 const Modules: React.FC = () => {
-  const { slug } = useParams();
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const currentModule = slug ? modules.find(m => m.slug === slug) : null;
+  const filteredModules = useMemo(() => {
+    if (selectedCategory === "all") return modules;
+    return modules.filter(mod => mod.category === selectedCategory);
+  }, [selectedCategory]);
+
+  const activeCategoryInfo = useMemo(() => {
+    return categories.find(c => c.id === selectedCategory) || categories[0];
+  }, [selectedCategory]);
 
   const schema = {
     "@context": "https://schema.org",
@@ -56,93 +72,6 @@ const Modules: React.FC = () => {
       generateFAQSchema(modulesFaqs)
     ]
   };
-
-  if (currentModule) {
-    return (
-      <>
-        <SEO
-          title={`${currentModule.title} Module`}
-          description={currentModule.desc}
-          canonical={`/modules/${currentModule.slug}`}
-        />
-        <section className="py-20 bg-sidqly-ivory">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link to="/modules" className="text-sidqly-green-emerald font-bold mb-8 inline-flex items-center gap-2 hover:translate-x-1 transition-transform">
-              ← Back to Modules
-            </Link>
-
-            <div className="grid lg:grid-cols-2 gap-16 items-center mt-8">
-              <div>
-                <div className="w-16 h-16 bg-white text-sidqly-green-emerald rounded-2xl flex items-center justify-center mb-8 shadow-sm">
-                  {getModuleIcon(currentModule.slug)}
-                </div>
-                <h1 className="text-3xl md:text-5xl font-bold text-sidqly-navy mb-6">{currentModule.title}</h1>
-                <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                  {currentModule.benefit}
-                </p>
-                <div className="mb-10 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                  <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Problem Solved</h3>
-                  <p className="text-sm text-gray-700">{currentModule.problem}</p>
-                </div>
-
-                <div className="flex flex-wrap gap-4">
-                  <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
-                    Book Demo
-                  </a>
-                  <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-white text-sidqly-navy border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
-                    Fill Inquiry Form
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-gray-100 shadow-sm">
-                <h2 className="text-2xl font-bold text-sidqly-green-deep mb-6">Workflow Details</h2>
-                <div className="space-y-4 mb-8">
-                  {currentModule.workflow.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 text-gray-700">
-                      <div className="w-6 h-6 rounded-full bg-sidqly-ivory text-sidqly-green-deep flex items-center justify-center font-bold text-[10px] flex-shrink-0 mt-0.5">{i + 1}</div>
-                      <span className="capitalize">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-sidqly-ivory p-6 rounded-2xl border border-gray-100">
-                  <h3 className="font-bold text-sidqly-navy text-xs uppercase tracking-wider mb-2">Result & Output</h3>
-                  <p className="text-gray-700 text-sm font-medium">{currentModule.output}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-20 grid md:grid-cols-3 gap-8">
-              <div className="bg-sidqly-navy text-white p-8 rounded-3xl">
-                <Layout className="text-sidqly-gold mb-4" />
-                <h3 className="font-bold mb-2">Book a Demo</h3>
-                <p className="text-sm text-gray-400 mb-6">See the {currentModule.title.toLowerCase()} module in action.</p>
-                <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="text-sidqly-gold font-bold flex items-center gap-2 text-sm">
-                  Book on Calendly <ArrowRight size={14} />
-                </a>
-              </div>
-              <div className="bg-white p-8 rounded-3xl border border-gray-100">
-                <ClipboardCheck className="text-sidqly-green-emerald mb-4" />
-                <h3 className="font-bold mb-2">Inquiry Form</h3>
-                <p className="text-sm text-gray-500 mb-6">Request this module for your organization.</p>
-                <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
-                  Fill the Form <ArrowRight size={14} />
-                </a>
-              </div>
-              <div className="bg-white p-8 rounded-3xl border border-gray-100">
-                <MessageSquare className="text-sidqly-green-emerald mb-4" />
-                <h3 className="font-bold mb-2">Ask a Question</h3>
-                <p className="text-sm text-gray-500 mb-6">Have a query about how this module works?</p>
-                <a href={brand.links.emailInquiry} className="text-sidqly-green-emerald font-bold flex items-center gap-2 text-sm">
-                  Email the Team <ArrowRight size={14} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </>
-    );
-  }
 
   return (
     <>
@@ -162,6 +91,7 @@ const Modules: React.FC = () => {
             </p>
           </div>
 
+          {/* Value Prop Columns */}
           <div className="grid lg:grid-cols-3 gap-8 mb-24">
              <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
                 <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-deep rounded-xl flex items-center justify-center mb-6 text-xl">
@@ -193,27 +123,129 @@ const Modules: React.FC = () => {
           </div>
 
           <div className="mb-16">
-             <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-12">Explore the Modules</h2>
-             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-               {modules.map((mod, i) => (
-                 <Link key={i} to={`/modules/${mod.slug}`} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-md transition-all group flex flex-col h-full">
-                   <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-emerald rounded-xl flex items-center justify-center mb-6 group-hover:bg-sidqly-green-soft/30 transition-colors">
-                     {getModuleIcon(mod.slug)}
+             <h2 className="text-3xl font-extrabold text-sidqly-navy text-center mb-12">Explore the Modules</h2>
+
+             {/* Main Layout containing Sidebar and Module Grid */}
+             <div className="grid lg:grid-cols-4 gap-10 items-start w-full min-w-0">
+
+               {/* 1. Category Navigation (Sidebar for Desktop, Pill Row for Mobile/Tablet) */}
+               <div className="lg:col-span-1 space-y-6 lg:sticky lg:top-24 w-full min-w-0 overflow-hidden lg:overflow-visible">
+
+                 {/* Mobile Selector Dropdown/Scroller */}
+                 <div className="block lg:hidden w-full overflow-hidden">
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Category Filter</label>
+                    <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-thin snap-x max-w-full">
+                      {categories.map((cat) => (
+                        <button
+                          key={cat.id}
+                          onClick={() => setSelectedCategory(cat.id)}
+                          className={`snap-center shrink-0 px-4 py-2.5 rounded-full text-xs font-bold transition-all ${
+                            selectedCategory === cat.id
+                              ? 'bg-sidqly-green-deep text-white shadow-md'
+                              : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+                          }`}
+                        >
+                          {cat.name}
+                        </button>
+                      ))}
+                    </div>
+                 </div>
+
+                 {/* Desktop Sidebar Selector */}
+                 <div className="hidden lg:block bg-white rounded-2xl border border-gray-100 p-6 shadow-sm space-y-1">
+                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest px-3 mb-4">Categories</h3>
+                    {categories.map((cat) => (
+                      <button
+                        key={cat.id}
+                        onClick={() => setSelectedCategory(cat.id)}
+                        className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
+                          selectedCategory === cat.id
+                            ? 'bg-sidqly-green-soft/20 text-sidqly-green-deep'
+                            : 'text-gray-600 hover:bg-gray-50'
+                        }`}
+                      >
+                        <span>{cat.name}</span>
+                        {selectedCategory === cat.id && <Check size={16} className="text-sidqly-green-deep" />}
+                      </button>
+                    ))}
+                 </div>
+
+                 {/* Selected Category Header (Visual context) */}
+                 <div className="bg-white/80 border border-gray-100 p-6 rounded-2xl shadow-sm hidden lg:block">
+                   <h4 className="text-xs font-bold text-sidqly-green-deep uppercase tracking-widest mb-2">Currently Viewing</h4>
+                   <p className="font-extrabold text-sidqly-navy text-lg mb-2">{activeCategoryInfo.name}</p>
+                   <p className="text-xs text-gray-500 leading-relaxed">{activeCategoryInfo.desc}</p>
+                 </div>
+               </div>
+
+               {/* 2. Grid displaying grouped/filtered modules */}
+               <div className="lg:col-span-3 space-y-8 w-full min-w-0">
+                 {/* Header for dynamic display */}
+                 <div className="border-b border-gray-200/60 pb-4 block lg:hidden w-full">
+                   <p className="text-sm text-sidqly-green-deep font-bold mb-1">{activeCategoryInfo.name}</p>
+                   <p className="text-xs text-gray-500 leading-relaxed">{activeCategoryInfo.desc}</p>
+                 </div>
+
+                 <div className="grid md:grid-cols-2 gap-6 w-full min-w-0">
+                   {filteredModules.map((mod, i) => {
+                     const catObj = categories.find(c => c.id === mod.category);
+                     return (
+                       <Link
+                         key={i}
+                         to={`/modules/${mod.slug}`}
+                         className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-md transition-all group flex flex-col h-full min-w-0"
+                       >
+                         {/* Icon + Category Capsule */}
+                         <div className="flex justify-between items-start mb-6 gap-2">
+                           <div className="w-12 h-12 bg-sidqly-ivory text-sidqly-green-emerald rounded-xl flex items-center justify-center group-hover:bg-sidqly-green-soft/30 transition-colors shrink-0">
+                             {getModuleIcon(mod.slug)}
+                           </div>
+                           {catObj && (
+                             <span className="text-[10px] uppercase font-extrabold tracking-wider bg-sidqly-ivory text-sidqly-navy/80 px-2.5 py-1 rounded-full border border-gray-100 truncate shrink-0">
+                               {catObj.name}
+                             </span>
+                           )}
+                         </div>
+
+                         <h3 className="text-lg font-bold text-sidqly-navy mb-2 group-hover:text-sidqly-green-emerald transition-colors truncate">
+                           {mod.title}
+                         </h3>
+
+                         <p className="text-gray-600 text-xs leading-relaxed mb-4">
+                           {mod.benefit}
+                         </p>
+
+                         {/* Problems Solved block */}
+                         <div className="mb-4 bg-gray-50 p-4 rounded-xl text-xs flex-grow min-w-0">
+                           <p className="text-gray-400 font-bold uppercase tracking-widest text-[9px] mb-1">Problem Solved</p>
+                           <p className="text-gray-700 font-medium line-clamp-2">{mod.problem}</p>
+                         </div>
+
+                         {/* Who Uses It */}
+                         <div className="mb-6">
+                           <p className="text-gray-400 text-[9px] uppercase font-bold tracking-widest mb-1">Who uses it</p>
+                           <p className="text-sidqly-navy text-xs font-semibold">{mod.who}</p>
+                         </div>
+
+                         <span className="text-sidqly-green-deep font-bold text-xs flex items-center gap-2 mt-auto">
+                           View Module <span className="group-hover:translate-x-1 transition-transform">→</span>
+                         </span>
+                       </Link>
+                     );
+                   })}
+                 </div>
+
+                 {filteredModules.length === 0 && (
+                   <div className="bg-white text-center p-12 rounded-2xl border border-gray-100">
+                     <p className="text-gray-500 font-medium">No modules found in this category.</p>
                    </div>
-                   <h3 className="text-lg font-bold text-sidqly-navy mb-2 group-hover:text-sidqly-green-emerald transition-colors">{mod.title}</h3>
-                   <p className="text-gray-600 text-xs leading-relaxed mb-3">{mod.benefit}</p>
-                   <div className="flex-grow">
-                     <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mb-1">Who uses it</p>
-                     <p className="text-sidqly-navy text-xs font-medium mb-6">{mod.who}</p>
-                   </div>
-                   <span className="text-sidqly-green-deep font-bold text-xs flex items-center gap-2 mt-auto">
-                     View Module <span className="group-hover:translate-x-1 transition-transform">→</span>
-                   </span>
-                 </Link>
-               ))}
+                 )}
+               </div>
+
              </div>
           </div>
 
+          {/* FAQ Block */}
           <div className="mt-20 max-w-3xl mx-auto text-center">
              <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Frequently Asked Questions</h2>
              <div className="text-left space-y-4">

@@ -17,6 +17,34 @@ export interface LocationLink {
   description?: string;
 }
 
+export interface LocationBenefit {
+  title: string;
+  description: string;
+}
+
+export interface LocationUseCaseStep {
+  stepNumber: number;
+  name: string;
+  detail: string;
+  moduleSlug?: string;
+  moduleName?: string;
+}
+
+export interface LocationUseCase {
+  title: string;
+  description: string;
+  problemStatement?: string;
+  outcome?: string;
+  steps: LocationUseCaseStep[];
+  relevantModules?: LocationLink[];
+}
+
+export interface LocationRelatedLink {
+  label: string;
+  href: string;
+  relationship?: string;
+}
+
 export interface LocationRecord {
   cityName?: string;
   country: string;
@@ -39,6 +67,14 @@ export interface LocationRecord {
   localLanguageNote?: string;
   stakeholderSummary?: string;
   organizationTypes?: string[];
+  whySidqlyForLocation?: {
+    title: string;
+    subtitle?: string;
+    benefits: LocationBenefit[];
+  };
+  locationUseCase?: LocationUseCase;
+  relatedLocations?: LocationRelatedLink[];
+  relatedBlogs?: LocationLink[];
   recommendedModules?: LocationLink[];
   relatedUseCases?: LocationLink[];
   relatedUtilities?: LocationLink[];
