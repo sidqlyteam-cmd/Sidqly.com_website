@@ -6,100 +6,38 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.join(__dirname, '..');
 
-const publicDir = path.join(projectRoot, 'public');
 const firebaseJsonPath = path.join(projectRoot, 'firebase.json');
 
-async function generateRewrites() {
-    const sitemaps = [
-        'sitemap-pages.xml',
-        'sitemap-modules.xml',
-        'sitemap-use-cases.xml',
-        'sitemap-resources.xml',
-        'sitemap-blog.xml',
-        'sitemap-locations.xml'
-    ];
-
-    let allRoutes = new Set();
-
-    for (const sitemapFile of sitemaps) {
-        if (fs.existsSync(path.join(publicDir, sitemapFile))) {
-            const content = fs.readFileSync(path.join(publicDir, sitemapFile), 'utf8');
-            const matches = [...content.matchAll(/<loc>https:\/\/www\.sidqly\.com([^<]*)<\/loc>/g)];
-            for (const match of matches) {
-                let route = match[1].trim();
-                if (route === '') route = '/';
-                allRoutes.add(route);
-            }
-        }
-    }
-
-    // Explicit valid routes that are noindex and thus not in sitemaps
-    const noindexRoutes = [
-        "/billing",
-        "/start-pilot",
-        "/implementation",
-        "/migration",
-        "/purchase",
-        "/status",
-        "/request-organization",
-        "/why-fill-the-form",
-        "/thank-you",
-        "/thank-you/demo",
-        "/thank-you/contact",
-        "/thank-you/pricing",
-        "/ask-sidqly",
-        "/trust-and-dignity",
-        "/proof-trust-engine",
-        "/verified-giving",
-        "/manual-payment-review",
-        "/donor-safe-impact",
-        "/corporate-reporting",
-        "/zakat-fund-separation",
-        "/qurbani-management-software",
-        "/ramadan-donation-management",
-        "/charity-request-management",
-        "/vendor-fulfillment-platform",
-        "/islamic-charity-software",
-        "/mosque-donation-management"
-    ];
-
-    noindexRoutes.forEach(r => allRoutes.add(r));
-
-    // Convert to sorted array for deterministic output
-    const sortedRoutes = Array.from(allRoutes).sort();
-
-    const rewrites = [];
-
-    for (const route of sortedRoutes) {
-        rewrites.push({ source: route, destination: "/index.html" });
-
-        // Handle trailing slash variants
-        if (route !== '/') {
-           if (route.endsWith('/')) {
-               rewrites.push({ source: route.slice(0, -1), destination: "/index.html" });
-           } else {
-               rewrites.push({ source: route + '/', destination: "/index.html" });
-           }
-        }
-    }
-
-    // Deduplicate
-    const uniqueSources = new Set();
-    const finalRewrites = [];
-    for (const r of rewrites) {
-        if (!uniqueSources.has(r.source)) {
-            uniqueSources.add(r.source);
-            finalRewrites.push(r);
-        }
-    }
-
+async function updateFirebaseConfig() {
     const firebaseConfig = JSON.parse(fs.readFileSync(firebaseJsonPath, 'utf8'));
 
-    // Replace rewrites
-    firebaseConfig.hosting.rewrites = finalRewrites;
+    // Server-side 301 redirects for client-side alias routes
+    const redirects = [
+        {
+            source: "/demo",
+            destination: "/book-demo",
+            type: 301
+        },
+        {
+            source: "/how-sidqly-works",
+            destination: "/how-it-works",
+            type: 301
+        },
+        {
+            source: "/trust",
+            destination: "/trust-center",
+            type: 301
+        }
+    ];
+
+    // All valid routes are pre-rendered into static HTML files in dist/ by scripts/prerender.mjs.
+    // With cleanUrls: true, Firebase Hosting serves pre-rendered HTML files (e.g. dist/features.html for /features)
+    // without requiring rewrites to /index.html, ensuring page-specific canonical HTML is served on HTTP 200.
+    firebaseConfig.hosting.redirects = redirects;
+    firebaseConfig.hosting.rewrites = [];
 
     fs.writeFileSync(firebaseJsonPath, JSON.stringify(firebaseConfig, null, 2));
-    console.log(`Generated ${finalRewrites.length} deterministic Firebase rewrites. Catch-all ** rewrite removed to support strict 404s.`);
+    console.log(`Updated firebase.json: ${redirects.length} server-side redirects configured, rewrites cleared for static pre-rendered HTML serving.`);
 }
 
-generateRewrites();
+updateFirebaseConfig();
