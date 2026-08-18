@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { getIndexableLocations } from './build-locations-sitemap.mjs';
+import { blogPosts } from '../src/data/blogs.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -107,7 +108,8 @@ const resourcesRoutes = [
 ];
 
 const blogRoutes = [
-    '/blog'
+    '/blog',
+    ...blogPosts.map(post => `/blog/${post.slug}`)
 ];
 
 

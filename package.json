@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/generate-sitemap.mjs && node scripts/generate-firebase-rewrites.mjs",
+    "prebuild": "npx tsx scripts/generate-sitemap.mjs && node scripts/generate-firebase-rewrites.mjs",
     "build": "tsc -b && vite build && npx tsx scripts/prerender.mjs && npx tsx scripts/indexnow.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
