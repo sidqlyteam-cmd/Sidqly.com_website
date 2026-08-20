@@ -15,12 +15,15 @@ import { getLocationModuleRecommendations } from '../../data/locations/locationM
 import LocationBreadcrumbs from '../../components/locations/LocationBreadcrumbs';
 import LocationHierarchyNav from '../../components/locations/LocationHierarchyNav';
 import RelatedLocationsSection from '../../components/locations/RelatedLocationsSection';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [openFaqIndex, setOpenFaqIndex] = React.useState<number | null>(null);
+  const { getLocationTranslation, t } = useLanguage();
 
-  const location = allLocations.find(l => l.slug === slug || l.canonicalPath === `/locations/${slug}`);
+  const rawLocation = allLocations.find(l => l.slug === slug || l.canonicalPath === `/locations/${slug}`);
+  const location = rawLocation ? getLocationTranslation(rawLocation) : undefined;
 
   if (!location) {
     return (
@@ -94,7 +97,7 @@ const LocationDetail: React.FC = () => {
                   to="/book-demo"
                   className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald text-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all shadow-lg text-center"
                 >
-                  <Calendar size={18} /> Book a Demo
+                  <Calendar size={18} /> {t('common.bookDemo', 'Book a Demo')}
                 </Link>
                 <Link
                   to={location.pageType === 'city' ? '/use-cases' : '/modules'}
@@ -133,7 +136,7 @@ const LocationDetail: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-sm border border-gray-100">
-              <h3 className="text-xl font-bold text-sidqly-navy mb-4">What Sidqly means in simple words</h3>
+              <h3 className="text-xl font-bold text-sidqly-navy mb-4">{t('locationUI.quickAnswerTitle', 'What Sidqly means in simple words')}</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                  Sidqly is software for Islamic giving teams. It helps organizations review payment proof, approve donation and fulfillment records, manage Zakat, Sadaqah, Qurbani, and Ramadan campaigns, protect recipient dignity, update donors safely, and prepare clearer internal reports.
               </p>
@@ -150,7 +153,7 @@ const LocationDetail: React.FC = () => {
            <div className="grid md:grid-cols-2 gap-12">
               <div>
                  <h2 className="text-3xl font-bold text-sidqly-navy mb-6">
-                    Local Islamic giving context
+                    {t('locationUI.localNeedsTitle', 'Local Giving Needs & Operational Context')}
                  </h2>
                  <p className="text-gray-600 leading-relaxed mb-6">
                     {location.localNeeds || getFallbackContext()}
@@ -196,7 +199,7 @@ const LocationDetail: React.FC = () => {
               to="/book-demo"
               className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald hover:bg-white hover:text-sidqly-navy text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
             >
-              <Calendar size={18} /> Book a Demo
+              <Calendar size={18} /> {t('common.bookDemo', 'Book a Demo')}
             </Link>
             <Link
               to="/modules"
@@ -291,7 +294,7 @@ const LocationDetail: React.FC = () => {
       {/* Stakeholders Section */}
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Who Sidqly helps</h2>
+          <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">{t('locationUI.stakeholdersTitle', 'Who Sidqly helps')}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
              {[
                { title: "Mosque committees", desc: "Organize campaigns, payment proof, approvals, donor updates, and internal records without relying only on scattered messages or spreadsheets." },
@@ -317,7 +320,7 @@ const LocationDetail: React.FC = () => {
       {location.faqs && location.faqs.length > 0 && (
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-12">{t('locationUI.frequentlyAskedQuestions', 'Frequently Asked Questions')}</h2>
           <div className="space-y-4">
             {location.faqs.map((faq, index) => (
               <div key={index} className="border border-gray-100 rounded-2xl overflow-hidden bg-white">

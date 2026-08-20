@@ -1,7 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams, Outlet } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import MainLayout from './layout/MainLayout';
 import { ScrollToTop } from './components/ScrollToTop';
+import { LanguageProvider } from './i18n/LanguageContext';
+import { isSupportedLanguage } from './i18n/config';
 
 // Pages
 import Home from './pages/Home';
@@ -106,136 +108,132 @@ const NotFound = () => (
   </section>
 );
 
+const LanguageGuard = () => {
+  const { lang } = useParams<{ lang: string }>();
+  if (!lang || !isSupportedLanguage(lang) || lang === 'en') {
+    return <NotFound />;
+  }
+  return <Outlet />;
+};
+
+const siteRoutes = [
+  <Route key="home" index element={<Home />} />,
+  <Route key="features" path="features" element={<Features />} />,
+  <Route key="product-tour" path="product-tour" element={<ProductTour />} />,
+  <Route key="how-it-works" path="how-it-works" element={<HowItWorks />} />,
+  <Route key="pricing" path="pricing" element={<Pricing />} />,
+  <Route key="demo" path="demo" element={<Navigate to="/book-demo" replace />} />,
+  <Route key="book-demo" path="book-demo" element={<BookDemo />} />,
+  <Route key="guided-pilot" path="guided-pilot" element={<GuidedPilot />} />,
+  <Route key="data-migration" path="data-migration" element={<DataMigration />} />,
+  <Route key="contact-sales" path="contact-sales" element={<ContactSales />} />,
+  <Route key="islamic-charity-software" path="islamic-charity-software" element={<IslamicCharitySoftware />} />,
+  <Route key="islamic-giving-operations-platform" path="islamic-giving-operations-platform" element={<IslamicGivingPlatform />} />,
+  <Route key="zakat-management-software" path="zakat-management-software" element={<ZakatManagementSoftware />} />,
+  <Route key="knowledge-hub" path="knowledge-hub" element={<KnowledgeHub />} />,
+  <Route key="knowledge-hub-detail" path="knowledge-hub/:slug" element={<KnowledgeDetail />} />,
+  <Route key="what-is-sidqly" path="what-is-sidqly" element={<WhatIsSidqly />} />,
+  <Route key="why-sidqly" path="why-sidqly" element={<WhySidqly />} />,
+  <Route key="how-sidqly-works" path="how-sidqly-works" element={<Navigate to="/how-it-works" replace />} />,
+  <Route key="mission-and-values" path="mission-and-values" element={<MissionAndValues />} />,
+  <Route key="platform" path="platform" element={<Platform />} />,
+  <Route key="trust" path="trust" element={<Navigate to="/trust-center" replace />} />,
+  <Route key="inquiry-form" path="inquiry-form" element={<InquiryForm />} />,
+  <Route key="ask-sidqly" path="ask-sidqly" element={<AskSidqly />} />,
+  <Route key="why-fill-the-form" path="why-fill-the-form" element={<WhyFillForm />} />,
+  <Route key="faqs" path="faqs" element={<FAQs />} />,
+  <Route key="help" path="help" element={<Help />} />,
+  <Route key="about" path="about" element={<About />} />,
+  <Route key="contact" path="contact" element={<Contact />} />,
+  <Route key="privacy" path="privacy" element={<Privacy />} />,
+  <Route key="terms" path="terms" element={<Terms />} />,
+  <Route key="security" path="security" element={<Security />} />,
+  <Route key="brand" path="brand" element={<Brand />} />,
+  <Route key="trust-center" path="trust-center" element={<TrustCenter />} />,
+  <Route key="accessibility" path="accessibility" element={<Accessibility />} />,
+  <Route key="billing" path="billing" element={<Billing />} />,
+  <Route key="start-pilot" path="start-pilot" element={<StartPilot />} />,
+  <Route key="implementation" path="implementation" element={<Implementation />} />,
+  <Route key="migration" path="migration" element={<Migration />} />,
+  <Route key="purchase" path="purchase" element={<Purchase />} />,
+  <Route key="status" path="status" element={<Status />} />,
+  <Route key="legal" path="legal" element={<Legal />} />,
+  <Route key="legal-detail" path="legal/:slug" element={<LegalDetail />} />,
+  <Route key="sitemap" path="sitemap" element={<SitemapPage />} />,
+  <Route key="ai-search-readiness" path="ai-search-readiness" element={<AISearchReadiness />} />,
+  <Route key="request-organization" path="request-organization" element={<RequestOrganization />} />,
+  <Route key="regions" path="regions" element={<RegionsIndex />} />,
+  <Route key="locations" path="locations" element={<LocationsIndex />} />,
+  <Route key="locations-detail" path="locations/:slug" element={<LocationDetail />} />,
+  <Route key="newsroom" path="newsroom" element={<Newsroom />} />,
+  <Route key="press-releases" path="press-releases" element={<PressReleases />} />,
+  <Route key="media-kit" path="media-kit" element={<MediaKit />} />,
+  <Route key="regions-detail" path="regions/:slug" element={<RegionDetail />} />,
+  <Route key="solutions" path="solutions" element={<Solutions />} />,
+  <Route key="solutions-detail" path="solutions/:slug" element={<SolutionDetail />} />,
+  <Route key="modules" path="modules" element={<Modules />} />,
+  <Route key="modules-detail" path="modules/:slug" element={<ModuleDetail />} />,
+  <Route key="use-cases" path="use-cases" element={<UseCases />} />,
+  <Route key="use-cases-detail" path="use-cases/:slug" element={<UseCaseDetail />} />,
+  <Route key="blog" path="blog" element={<BlogIndex />} />,
+  <Route key="blog-detail" path="blog/:slug" element={<BlogPost />} />,
+  <Route key="thank-you" path="thank-you" element={<ThankYou />} />,
+  <Route key="thank-you-demo" path="thank-you/demo" element={<ThankYou type="demo" />} />,
+  <Route key="thank-you-contact" path="thank-you/contact" element={<ThankYou type="contact" />} />,
+  <Route key="thank-you-pricing" path="thank-you/pricing" element={<ThankYou type="pricing" />} />,
+  <Route key="compare" path="compare" element={<CompareIndex />} />,
+  <Route key="trust-and-dignity" path="trust-and-dignity" element={<CompareDetail />} />,
+  <Route key="proof-trust-engine" path="proof-trust-engine" element={<CompareDetail />} />,
+  <Route key="verified-giving" path="verified-giving" element={<CompareDetail />} />,
+  <Route key="manual-payment-review" path="manual-payment-review" element={<CompareDetail />} />,
+  <Route key="donor-safe-impact" path="donor-safe-impact" element={<CompareDetail />} />,
+  <Route key="corporate-reporting" path="corporate-reporting" element={<CompareDetail />} />,
+  <Route key="zakat-fund-separation" path="zakat-fund-separation" element={<CompareDetail />} />,
+  <Route key="qurbani-management-software" path="qurbani-management-software" element={<CompareDetail />} />,
+  <Route key="ramadan-donation-management" path="ramadan-donation-management" element={<CompareDetail />} />,
+  <Route key="charity-request-management" path="charity-request-management" element={<CompareDetail />} />,
+  <Route key="vendor-fulfillment-platform" path="vendor-fulfillment-platform" element={<CompareDetail />} />,
+  <Route key="mosque-donation-management" path="mosque-donation-management" element={<CompareDetail />} />,
+  <Route key="compare-detail" path="compare/:slug" element={<CompareDetail />} />,
+  <Route key="alternatives-detail" path="alternatives/:slug" element={<CompareDetail />} />,
+  <Route key="islamic-utilities" path="islamic-utilities" element={<IslamicUtilitiesPage />} />,
+  <Route key="namaz-timings" path="namaz-timings" element={<NamazTimingsPage />} />,
+  <Route key="zakat-calculator" path="zakat-calculator" element={<ZakatCalculatorPage />} />,
+  <Route key="islamic-calendar" path="islamic-calendar" element={<IslamicCalendarPage />} />,
+  <Route key="moon-phase" path="moon-phase-islamic-calendar" element={<MoonPhasePage />} />,
+  <Route key="qibla" path="qibla-direction" element={<QiblaDirectionPage />} />,
+  <Route key="weather" path="weather-charity-distribution" element={<WeatherPlanningPage />} />,
+  <Route key="hajj" path="hajj-countdown" element={<HajjCountdownPage />} />,
+  <Route key="ramadan" path="ramadan-planner" element={<RamadanPlannerPage />} />,
+  <Route key="eid" path="eid-qurbani-planner" element={<EidQurbaniPlannerPage />} />,
+  <Route key="sadqa" path="sadqa-zakat-planner" element={<SadqaZakatPlannerPage />} />,
+  <Route key="glossary" path="islamic-glossary" element={<IslamicGlossaryPage />} />,
+  <Route key="resources" path="resources" element={<Resources />} />,
+  <Route key="resources-detail" path="resources/:slug" element={<ResourceDetail />} />,
+  <Route key="not-found" path="*" element={<NotFound />} />,
+];
+
 function App() {
   return (
     <HelmetProvider>
       <Router>
-        <AnalyticsProvider />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
+        <LanguageProvider>
+          <AnalyticsProvider />
+          <ScrollToTop />
+          <Routes>
+            {/* English Default Root Routes */}
+            <Route path="/" element={<MainLayout />}>
+              {siteRoutes}
+            </Route>
 
-            {/* Core Routes */}
-            <Route path="features" element={<Features />} />
-            <Route path="product-tour" element={<ProductTour />} />
-            <Route path="how-it-works" element={<HowItWorks />} />
-            <Route path="pricing" element={<Pricing />} />
-            <Route path="demo" element={<Navigate to="/book-demo" replace />} />
-            <Route path="book-demo" element={<BookDemo />} />
-            <Route path="guided-pilot" element={<GuidedPilot />} />
-            <Route path="data-migration" element={<DataMigration />} />
-            <Route path="contact-sales" element={<ContactSales />} />
-            <Route path="islamic-charity-software" element={<IslamicCharitySoftware />} />
-            <Route path="islamic-giving-operations-platform" element={<IslamicGivingPlatform />} />
-            <Route path="zakat-management-software" element={<ZakatManagementSoftware />} />
-            <Route path="knowledge-hub" element={<KnowledgeHub />} />
-            <Route path="knowledge-hub/:slug" element={<KnowledgeDetail />} />
-            <Route path="what-is-sidqly" element={<WhatIsSidqly />} />
-            <Route path="why-sidqly" element={<WhySidqly />} />
-            <Route path="how-sidqly-works" element={<Navigate to="/how-it-works" replace />} />
-            <Route path="mission-and-values" element={<MissionAndValues />} />
-            <Route path="platform" element={<Platform />} />
-            <Route path="trust" element={<Navigate to="/trust-center" replace />} />
-            <Route path="inquiry-form" element={<InquiryForm />} />
-            <Route path="ask-sidqly" element={<AskSidqly />} />
-            <Route path="why-fill-the-form" element={<WhyFillForm />} />
-            <Route path="faqs" element={<FAQs />} />
-            <Route path="help" element={<Help />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="privacy" element={<Privacy />} />
-            <Route path="terms" element={<Terms />} />
-            <Route path="security" element={<Security />} />
-            <Route path="brand" element={<Brand />} />
-            <Route path="trust-center" element={<TrustCenter />} />
-            <Route path="accessibility" element={<Accessibility />} />
-            <Route path="billing" element={<Billing />} />
-            <Route path="start-pilot" element={<StartPilot />} />
-            <Route path="implementation" element={<Implementation />} />
-            <Route path="migration" element={<Migration />} />
-            <Route path="purchase" element={<Purchase />} />
-            <Route path="status" element={<Status />} />
-            <Route path="legal" element={<Legal />} />
-            <Route path="legal/:slug" element={<LegalDetail />} />
-            <Route path="sitemap" element={<SitemapPage />} />
-            <Route path="ai-search-readiness" element={<AISearchReadiness />} />
-            <Route path="request-organization" element={<RequestOrganization />} />
-            <Route path="regions" element={<RegionsIndex />} />
-
-            {/* Global Locations System */}
-            <Route path="locations" element={<LocationsIndex />} />
-            <Route path="locations/:slug" element={<LocationDetail />} />
-
-            {/* Newsroom */}
-            <Route path="newsroom" element={<Newsroom />} />
-            <Route path="press-releases" element={<PressReleases />} />
-            <Route path="media-kit" element={<MediaKit />} />
-            <Route path="regions/:slug" element={<RegionDetail />} />
-
-            {/* Solutions Routes */}
-            <Route path="solutions" element={<Solutions />} />
-            <Route path="solutions/:slug" element={<SolutionDetail />} />
-
-            {/* Modules Routes */}
-            <Route path="modules" element={<Modules />} />
-            <Route path="modules/:slug" element={<ModuleDetail />} />
-
-            {/* Use Cases Routes */}
-            <Route path="use-cases" element={<UseCases />} />
-            <Route path="use-cases/:slug" element={<UseCaseDetail />} />
-
-            {/* Blog Routes */}
-            <Route path="blog" element={<BlogIndex />} />
-            <Route path="blog/:slug" element={<BlogPost />} />
-
-            {/* Thank You Routes */}
-            <Route path="thank-you" element={<ThankYou />} />
-            <Route path="thank-you/demo" element={<ThankYou type="demo" />} />
-            <Route path="thank-you/contact" element={<ThankYou type="contact" />} />
-            <Route path="thank-you/pricing" element={<ThankYou type="pricing" />} />
-
-            {/* Comparison / GEO / LLMO Routes */}
-            <Route path="compare" element={<CompareIndex />} />
-            <Route path="trust-and-dignity" element={<CompareDetail />} />
-            <Route path="proof-trust-engine" element={<CompareDetail />} />
-            <Route path="verified-giving" element={<CompareDetail />} />
-            <Route path="manual-payment-review" element={<CompareDetail />} />
-            <Route path="donor-safe-impact" element={<CompareDetail />} />
-            <Route path="corporate-reporting" element={<CompareDetail />} />
-            <Route path="zakat-fund-separation" element={<CompareDetail />} />
-            <Route path="qurbani-management-software" element={<CompareDetail />} />
-            <Route path="ramadan-donation-management" element={<CompareDetail />} />
-            <Route path="charity-request-management" element={<CompareDetail />} />
-            <Route path="vendor-fulfillment-platform" element={<CompareDetail />} />
-            <Route path="islamic-charity-software" element={<CompareDetail />} />
-            <Route path="mosque-donation-management" element={<CompareDetail />} />
-
-            <Route path="compare/:slug" element={<CompareDetail />} />
-            <Route path="alternatives/:slug" element={<CompareDetail />} />
-
-            {/* Islamic Utilities Routes */}
-            <Route path="islamic-utilities" element={<IslamicUtilitiesPage />} />
-            <Route path="namaz-timings" element={<NamazTimingsPage />} />
-            <Route path="zakat-calculator" element={<ZakatCalculatorPage />} />
-            <Route path="islamic-calendar" element={<IslamicCalendarPage />} />
-            <Route path="moon-phase-islamic-calendar" element={<MoonPhasePage />} />
-            <Route path="qibla-direction" element={<QiblaDirectionPage />} />
-            <Route path="weather-charity-distribution" element={<WeatherPlanningPage />} />
-            <Route path="hajj-countdown" element={<HajjCountdownPage />} />
-            <Route path="ramadan-planner" element={<RamadanPlannerPage />} />
-            <Route path="eid-qurbani-planner" element={<EidQurbaniPlannerPage />} />
-            <Route path="sadqa-zakat-planner" element={<SadqaZakatPlannerPage />} />
-            <Route path="islamic-glossary" element={<IslamicGlossaryPage />} />
-
-            {/* Resources Routes */}
-            <Route path="resources" element={<Resources />} />
-            <Route path="resources/:slug" element={<ResourceDetail />} />
-
-            {/* 404 Route */}
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
+            {/* Localized Language Routes (/ar, /ur) */}
+            <Route path="/:lang" element={<LanguageGuard />}>
+              <Route element={<MainLayout />}>
+                {siteRoutes}
+              </Route>
+            </Route>
+          </Routes>
+        </LanguageProvider>
       </Router>
     </HelmetProvider>
   );
