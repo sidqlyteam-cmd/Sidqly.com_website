@@ -10,7 +10,7 @@ const publicDir = path.join(__dirname, '../public');
 
 const domain = 'https://www.sidqly.com';
 
-const pagesRoutes = [
+const basePagesRoutes = [
     '/',
     '/what-is-sidqly',
     '/why-sidqly',
@@ -68,7 +68,7 @@ const pagesRoutes = [
     '/knowledge-hub/what-is-tamleek'
 ];
 
-const modulesRoutes = [
+const baseModulesRoutes = [
     '/modules',
     '/modules/manual-payment-review',
     '/modules/proof-trust-engine',
@@ -90,7 +90,7 @@ const modulesRoutes = [
     '/modules/pilot-launch-support'
 ];
 
-const useCasesRoutes = [
+const baseUseCasesRoutes = [
     '/use-cases',
     '/use-cases/mosques',
     '/use-cases/islamic-charities',
@@ -100,25 +100,40 @@ const useCasesRoutes = [
     '/use-cases/corporate-sponsors'
 ];
 
-const resourcesRoutes = [
+const baseResourcesRoutes = [
     '/resources',
     '/resources/eid-giving',
     '/resources/what-is-islamic-charity-management-software',
     '/resources/how-to-manage-zakat-requests'
 ];
 
-const blogRoutes = [
+const baseBlogRoutes = [
     '/blog',
     ...blogPosts.map(post => `/blog/${post.slug}`)
 ];
 
-
-// Dynamically build location routes
-const locationsRoutes = [
+const baseLocationsRoutes = [
     '/regions',
     '/locations',
     ...getIndexableLocations()
 ];
+
+const expandWithMultilingual = (routes) => {
+    const set = new Set();
+    routes.forEach(r => {
+        set.add(r);
+        set.add(r === '/' ? '/ar' : `/ar${r}`);
+        set.add(r === '/' ? '/ur' : `/ur${r}`);
+    });
+    return Array.from(set);
+};
+
+const pagesRoutes = expandWithMultilingual(basePagesRoutes);
+const modulesRoutes = expandWithMultilingual(baseModulesRoutes);
+const useCasesRoutes = expandWithMultilingual(baseUseCasesRoutes);
+const resourcesRoutes = expandWithMultilingual(baseResourcesRoutes);
+const blogRoutes = expandWithMultilingual(baseBlogRoutes);
+const locationsRoutes = expandWithMultilingual(baseLocationsRoutes);
 
 const aiRoutes = [
     '/llms.txt',

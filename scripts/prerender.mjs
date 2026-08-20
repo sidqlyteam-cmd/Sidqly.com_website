@@ -9,21 +9,17 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.join(__dirname, '..');
 const distDir = path.join(projectRoot, 'dist');
 
-// Read all routes from Route Classification dataset
-import { routeClassifications } from '../src/data/routeClassification';
+import { routeClassifications } from '../src/data/routeClassification.ts';
 
-// Simple static file server serving 'dist' folder with fallback to index.html for SPA routing
 function startPreviewServer(port) {
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
       let filePath = path.join(distDir, req.url.split('?')[0]);
 
-      // If trailing slash, append index.html
       if (req.url.endsWith('/')) {
         filePath = path.join(filePath, 'index.html');
       }
 
-      // Check if file exists, if not fall back to dist/index.html
       if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
         filePath = path.join(distDir, 'index.html');
       }
@@ -72,7 +68,6 @@ async function runPrerender() {
 
   let routesToPrerender = new Set();
 
-  // Add all URLs from generated sitemaps
   for (const sitemapFile of sitemaps) {
     const sitemapPath = path.join(projectRoot, 'public', sitemapFile);
     if (fs.existsSync(sitemapPath)) {
@@ -86,7 +81,6 @@ async function runPrerender() {
     }
   }
 
-  // Add explicit noindex/system routes from Route Classification
   routeClassifications.forEach(({ path: route, type }) => {
     if (type !== 'redirect') {
       routesToPrerender.add(route);
@@ -97,38 +91,47 @@ async function runPrerender() {
 
   const port = 5174;
   const server = await startPreviewServer(port);
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
+  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 
-  console.log(`Starting pre-rendering of ${routesList.length} total URLs...`);
+  console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
 
-  for (const route of routesList) {
-    console.log(`Pre-rendering: ${route}`);
-    await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'networkidle' });
+  const CONCURRENCY = 4;
+  const queue = [...routesList];
 
-    // Wait a brief moment to ensure hydration/animations are complete
-    await page.waitForTimeout(500);
+  const prerenderWorker = async (workerId) => {
+    const page = await browser.newPage();
+    while (queue.length > 0) {
+      const route = queue.shift();
+      if (!route) break;
 
-    const html = await page.content();
+      try {
+        await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'networkidle', timeout: 15000 });
+        await page.waitForTimeout(200);
 
-    // Compute the target static file path
-    let targetFile;
-    if (route === '/') {
-      targetFile = path.join(distDir, 'index.html');
-    } else {
-      // e.g. /features -> /features.html
-      // e.g. /locations/london -> /locations/london.html
-      targetFile = path.join(distDir, `${route.slice(1)}.html`);
+        const html = await page.content();
+
+        let targetFile;
+        if (route === '/') {
+          targetFile = path.join(distDir, 'index.html');
+        } else {
+          targetFile = path.join(distDir, `${route.slice(1)}.html`);
+        }
+
+        const dir = path.dirname(targetFile);
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, { recursive: true });
+        }
+
+        fs.writeFileSync(targetFile, html, 'utf8');
+      } catch (err) {
+        console.error(`Worker ${workerId} failed to pre-render ${route}: ${err.message}`);
+      }
     }
+    await page.close();
+  };
 
-    // Ensure directory exists
-    const dir = path.dirname(targetFile);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
-    fs.writeFileSync(targetFile, html, 'utf8');
-  }
+  const workers = Array.from({ length: CONCURRENCY }, (_, i) => prerenderWorker(i + 1));
+  await Promise.all(workers);
 
   await browser.close();
   server.close();
