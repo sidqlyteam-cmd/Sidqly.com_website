@@ -25,6 +25,9 @@ export function getLocationTranslation(
 
   return {
     ...record,
+    cityName: translation.cityName || record.cityName,
+    country: translation.country || record.country,
+    region: translation.region || record.region,
     h1: translation.h1 || record.h1,
     metaTitle: translation.metaTitle || record.metaTitle,
     metaDescription: translation.metaDescription || record.metaDescription,

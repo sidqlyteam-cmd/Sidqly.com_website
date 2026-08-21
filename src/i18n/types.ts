@@ -72,6 +72,9 @@ export interface UITranslationKeys {
 }
 
 export interface LocationTranslation {
+  cityName?: string;
+  country?: string;
+  region?: string;
   h1?: string;
   metaTitle?: string;
   metaDescription?: string;

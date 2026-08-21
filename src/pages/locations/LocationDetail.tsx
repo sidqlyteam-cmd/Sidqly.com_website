@@ -20,7 +20,7 @@ import { useLanguage } from '../../i18n/LanguageContext';
 const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [openFaqIndex, setOpenFaqIndex] = React.useState<number | null>(null);
-  const { getLocationTranslation, t, getLocalizedPath, dir } = useLanguage();
+  const { language, getLocationTranslation, t, getLocalizedPath, dir } = useLanguage();
 
   const rawLocation = allLocations.find(l => l.slug === slug || l.canonicalPath === `/locations/${slug}`);
   const location = rawLocation ? getLocationTranslation(rawLocation) : undefined;
@@ -77,7 +77,11 @@ const LocationDetail: React.FC = () => {
       {/* City Disclaimer */}
       {location.pageType === 'city' && (
         <div className="bg-sidqly-ivory py-3 text-center border-b border-gray-200 text-xs font-medium text-gray-500 px-4">
-           Sidqly supports organizations serving {location.cityName || 'this region'} and nearby communities through a remote SaaS platform. This page does not claim a physical Sidqly office in {location.cityName || 'this region'} unless confirmed elsewhere on the website.
+           {language === 'ur'
+             ? `صدقلی ${locationDisplayName} اور قرب و جوار میں کام کرنے والی تنظیموں کی کلاؤڈ ساس پلیٹ فارم کے ذریعے معاونت کرتا ہے۔ یہ صفحہ ${locationDisplayName} میں صدقلی کے کسی جسمانی دفتر کا دعویٰ نہیں کرتا۔`
+             : language === 'ar'
+             ? `يدعم صدقلي المؤسسات العاملة في ${locationDisplayName} والمناطق المجاورة عبر منصة سحابية. لا تدعي هذه الصفحة وجود مكتب فعلي لصدقلي في ${locationDisplayName}.`
+             : `Sidqly supports organizations serving ${location.cityName || 'this region'} and nearby communities through a remote SaaS platform. This page does not claim a physical Sidqly office in ${location.cityName || 'this region'} unless confirmed elsewhere on the website.`}
         </div>
       )}
 
@@ -105,7 +109,17 @@ const LocationDetail: React.FC = () => {
                   to={getLocalizedPath(location.pageType === 'city' ? '/use-cases' : '/modules')}
                   className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all text-center"
                 >
-                  {location.pageType === 'city' ? `Explore ${locationDisplayName} Use Cases` : `Explore Sidqly Modules`}
+                  {location.pageType === 'city'
+                    ? (language === 'ur'
+                        ? `${locationDisplayName} کے لیے استعمال کے مواقع`
+                        : language === 'ar'
+                        ? `حالات الاستخدام في ${locationDisplayName}`
+                        : `Explore ${locationDisplayName} Use Cases`)
+                    : (language === 'ur'
+                        ? `صدقلی ماڈیولز دیکھیں`
+                        : language === 'ar'
+                        ? `استكشف وحدات صدقلي`
+                        : `Explore Sidqly Modules`)}
                   <ArrowIcon size={16} />
                 </Link>
              </div>
@@ -117,7 +131,11 @@ const LocationDetail: React.FC = () => {
 
              {location.pageType === 'city' && (
                 <p className="text-xs text-gray-400 mt-2 max-w-2xl bg-white/5 p-4 rounded-xl border border-white/10">
-                   {location.priorityTier > 1 ? (
+                   {language === 'ur' ? (
+                       `صدقلی ${locationDisplayName} میں کام کرنے والی اسلامی تنظیموں کو ادائیگیاں، منظوریوں، اور رپورٹس کی تیاری میں معاونت فراہم کرتا ہے۔ یہ صفحہ خدمات کے احاطے سے متعلق ہے اور ${locationDisplayName} میں صدقلی کے کسی جسمانی دفتر کا دعویٰ نہیں کرتا۔`
+                   ) : language === 'ar' ? (
+                       `يدعم صدقلي المؤسسات الإسلامية في ${locationDisplayName} من خلال حلول سحابية للمراجعة والاعتماد والتقارير. لا تدعي هذه الصفحة وجود مكتب فعلي في ${locationDisplayName}.`
+                   ) : location.priorityTier > 1 ? (
                        `Sidqly can support Islamic organizations serving ${location.cityName || location.slug} through a cloud SaaS workflow for payment proof review, approvals, donor-safe updates, and reporting. This page is part of Sidqly’s service-area content and does not claim a physical Sidqly office in ${location.cityName || location.slug}.`
                    ) : (
                        `Sidqly supports organizations serving ${location.cityName || location.slug} and nearby communities through a remote SaaS platform. This page does not claim a physical Sidqly office in ${location.cityName || location.slug} unless confirmed elsewhere on the website.`
@@ -190,10 +208,18 @@ const LocationDetail: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left max-w-2xl">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
-              Ready to streamline giving operations in {locationDisplayName}?
+              {language === 'ur'
+                ? `کیا آپ ${locationDisplayName} میں اپنے فلاحی آپریشنز کو بہتر بنانے کے لیے تیار ہیں؟`
+                : language === 'ar'
+                ? `هل أنت مستعد لتطوير العمليات الخيرية في ${locationDisplayName}؟`
+                : `Ready to streamline giving operations in ${locationDisplayName}?`}
             </h3>
             <p className="text-sm sm:text-base text-gray-300">
-              See how Sidqly helps teams review payment proof, manage approvals, and send donor-safe updates.
+              {language === 'ur'
+                ? `دیکھیں کہ کس طرح صدقلی آپ کی ٹیم کو ادائیگیوں کی تصدیق، منظوری اور ڈونر رپورٹس کی ارسال میں مدد کرتی ہے۔`
+                : language === 'ar'
+                ? `تعرف على كيفية مساعدة صدقلي لفريقك في مراجعة إثباتات الدفع وإدارة الاعتمادات.`
+                : `See how Sidqly helps teams review payment proof, manage approvals, and send donor-safe updates.`}
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">

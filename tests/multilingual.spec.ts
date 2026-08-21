@@ -73,4 +73,33 @@ test.describe('Multilingual Architecture & i18n Foundation Tests', () => {
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
     await expect(page.locator('h1')).toContainText('کراچی');
   });
+
+  test('All 6 Pakistan locations render correctly in Urdu with RTL, H1, and breadcrumbs', async ({ page }) => {
+    const pkLocations = [
+      { slug: 'karachi-islamic-charity-software', cityUrdu: 'کراچی' },
+      { slug: 'lahore-islamic-charity-software', cityUrdu: 'لاہور' },
+      { slug: 'islamabad-islamic-charity-software', cityUrdu: 'اسلام آباد' },
+      { slug: 'rawalpindi-islamic-charity-software', cityUrdu: 'راولپنڈی' },
+      { slug: 'faisalabad-islamic-charity-software', cityUrdu: 'فیصل آباد' },
+      { slug: 'peshawar-islamic-charity-software', cityUrdu: 'پشاور' },
+    ];
+
+    for (const loc of pkLocations) {
+      await page.goto(`/ur/locations/${loc.slug}`);
+
+      // Verify HTML language and RTL direction
+      await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
+      await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+
+      // Verify H1 contains localized city name in Urdu
+      await expect(page.locator('h1')).toContainText(loc.cityUrdu);
+
+      // Verify Breadcrumbs elements in Urdu
+      const breadcrumbNav = page.locator('nav[aria-label="Breadcrumb"]');
+      await expect(breadcrumbNav).toBeVisible();
+      await expect(breadcrumbNav.locator('a', { hasText: 'ہوم' })).toBeVisible();
+      await expect(breadcrumbNav.locator('a', { hasText: 'پاکستان' })).toBeVisible();
+      await expect(breadcrumbNav.locator('span[aria-current="page"]', { hasText: loc.cityUrdu })).toBeVisible();
+    }
+  });
 });
