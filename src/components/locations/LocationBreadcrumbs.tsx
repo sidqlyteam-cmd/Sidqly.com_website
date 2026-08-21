@@ -12,7 +12,7 @@ interface LocationBreadcrumbsProps {
 }
 
 export const LocationBreadcrumbs: React.FC<LocationBreadcrumbsProps> = ({ location }) => {
-  const { getLocalizedPath, dir, t } = useLanguage();
+  const { getLocalizedPath, dir, t, getLocationTranslation } = useLanguage();
 
   const items: { name: string; path: string }[] = [
     { name: t('nav.home', 'Home'), path: '/' },
@@ -20,14 +20,16 @@ export const LocationBreadcrumbs: React.FC<LocationBreadcrumbsProps> = ({ locati
   ];
 
   // Helper to find parent region object
-  const regionObj = allLocations.find(
+  const rawRegionObj = allLocations.find(
     (l) => l.pageType === 'region' && (l.slug === location.regionSlug || l.region.toLowerCase() === location.region.toLowerCase())
   );
+  const regionObj = rawRegionObj ? getLocationTranslation(rawRegionObj) : undefined;
 
   // Helper to find parent country object
-  const countryObj = allLocations.find(
+  const rawCountryObj = allLocations.find(
     (l) => l.pageType === 'country' && (l.slug === location.countrySlug || l.country.toLowerCase() === location.country.toLowerCase())
   );
+  const countryObj = rawCountryObj ? getLocationTranslation(rawCountryObj) : undefined;
 
   if (location.pageType === 'region') {
     items.push({

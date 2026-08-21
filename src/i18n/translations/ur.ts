@@ -2,6 +2,7 @@ import type { UITranslationKeys } from '../types';
 
 export const urTranslations: UITranslationKeys = {
   nav: {
+    home: 'ہوم',
     product: 'پروڈکٹ',
     whatIsSidqly: 'صدقلی کیا ہے؟',
     features: 'خصوصیات',
