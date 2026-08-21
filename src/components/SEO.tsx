@@ -75,10 +75,10 @@ const SEO: React.FC<SEOProps> = ({
       {focusKeyword && <meta name="keywords" content={[focusKeyword, ...(secondaryKeywords || [])].join(', ')} />}
 
       {/* Multilingual Alternate Links */}
-      {isIndexable && <link rel="alternate" hreflang="en" href={enUrl} />}
-      {isIndexable && <link rel="alternate" hreflang="ar" href={arUrl} />}
-      {isIndexable && <link rel="alternate" hreflang="ur" href={urUrl} />}
-      {isIndexable && <link rel="alternate" hreflang="x-default" href={enUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="en" href={enUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="ar" href={arUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="ur" href={urUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="x-default" href={enUrl} />}
 
       <meta property="og:title" content={ogTitle || fullTitle} />
       <meta property="og:description" content={ogDescription || description} />

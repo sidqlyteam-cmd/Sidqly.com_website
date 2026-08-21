@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { allLocations } from '../../data/locations/locations';
 import { generateFAQSchema, generateWebPageSchema } from '../../lib/schema';
-import { CheckCircle2, ChevronDown, ChevronUp, BookOpen, Calendar, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ChevronUp, BookOpen, Calendar, ArrowRight, ArrowLeft } from 'lucide-react';
 import { brand } from '../../config/brand';
 import LocationCtaBlock from '../../components/locations/LocationCtaBlock';
 import LocationQuickAnswer from '../../components/locations/LocationQuickAnswer';
@@ -20,7 +20,7 @@ import { useLanguage } from '../../i18n/LanguageContext';
 const LocationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [openFaqIndex, setOpenFaqIndex] = React.useState<number | null>(null);
-  const { getLocationTranslation, t } = useLanguage();
+  const { getLocationTranslation, t, getLocalizedPath, dir } = useLanguage();
 
   const rawLocation = allLocations.find(l => l.slug === slug || l.canonicalPath === `/locations/${slug}`);
   const location = rawLocation ? getLocationTranslation(rawLocation) : undefined;
@@ -30,7 +30,7 @@ const LocationDetail: React.FC = () => {
       <div className="py-20 text-center">
         <h1 className="text-3xl font-bold text-sidqly-navy">Location Not Found</h1>
         <p className="mt-4 text-gray-600 mb-8">The location page you are looking for does not exist or has been moved.</p>
-        <Link to="/locations" className="text-white bg-sidqly-green-emerald px-6 py-3 rounded-xl font-bold">View Global Service Areas</Link>
+        <Link to={getLocalizedPath('/locations')} className="text-white bg-sidqly-green-emerald px-6 py-3 rounded-xl font-bold">View Global Service Areas</Link>
       </div>
     );
   }
@@ -51,6 +51,8 @@ const LocationDetail: React.FC = () => {
   const modules = (location.recommendedModules && location.recommendedModules.length > 0)
     ? location.recommendedModules
     : getLocationModuleRecommendations(location);
+
+  const ArrowIcon = dir === 'rtl' ? ArrowLeft : ArrowRight;
 
   // Safe Fallback Content based on pageType
   const getFallbackContext = () => {
@@ -94,17 +96,17 @@ const LocationDetail: React.FC = () => {
              {/* Hero Action CTAs */}
              <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8 w-full max-w-md">
                 <Link
-                  to="/book-demo"
+                  to={getLocalizedPath('/book-demo')}
                   className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald text-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all shadow-lg text-center"
                 >
                   <Calendar size={18} /> {t('common.bookDemo', 'Book a Demo')}
                 </Link>
                 <Link
-                  to={location.pageType === 'city' ? '/use-cases' : '/modules'}
+                  to={getLocalizedPath(location.pageType === 'city' ? '/use-cases' : '/modules')}
                   className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all text-center"
                 >
                   {location.pageType === 'city' ? `Explore ${locationDisplayName} Use Cases` : `Explore Sidqly Modules`}
-                  <ArrowRight size={16} />
+                  <ArrowIcon size={16} />
                 </Link>
              </div>
 
@@ -196,13 +198,13 @@ const LocationDetail: React.FC = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">
             <Link
-              to="/book-demo"
+              to={getLocalizedPath('/book-demo')}
               className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald hover:bg-white hover:text-sidqly-navy text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
             >
               <Calendar size={18} /> {t('common.bookDemo', 'Book a Demo')}
             </Link>
             <Link
-              to="/modules"
+              to={getLocalizedPath('/modules')}
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3.5 rounded-xl transition-all border border-white/20 text-sm text-center"
             >
               Explore Relevant Modules
@@ -277,7 +279,7 @@ const LocationDetail: React.FC = () => {
                     {location.relatedBlogs.map((blog, idx) => (
                        <Link
                          key={idx}
-                         to={blog.href}
+                         to={getLocalizedPath(blog.href)}
                          className="bg-white p-4 rounded-xl border border-gray-200 text-sm font-bold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm flex items-center justify-between"
                        >
                          <span className="pr-2 line-clamp-2">{blog.label}</span>

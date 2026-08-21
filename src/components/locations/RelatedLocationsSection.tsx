@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import { MapPin, Building2, Globe } from 'lucide-react';
 import type { LocationRecord, LocationRelatedLink } from '../../data/locations/locationTypes';
 import { allLocations } from '../../data/locations/locations';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 interface RelatedLocationsSectionProps {
   location: LocationRecord;
 }
 
 export const RelatedLocationsSection: React.FC<RelatedLocationsSectionProps> = ({ location }) => {
+  const { getLocalizedPath } = useLanguage();
+
   // Build context-aware related locations
   const getContextualLocations = (): LocationRelatedLink[] => {
     const results: LocationRelatedLink[] = [];
@@ -140,7 +143,7 @@ export const RelatedLocationsSection: React.FC<RelatedLocationsSectionProps> = (
         {relatedList.map((item, idx) => (
           <Link
             key={idx + item.href}
-            to={item.href}
+            to={getLocalizedPath(item.href)}
             className="flex items-center justify-between bg-white px-4 py-3 rounded-xl border border-gray-200 text-sm font-semibold text-sidqly-navy hover:border-sidqly-green-emerald hover:text-sidqly-green-emerald transition-all shadow-sm group"
           >
             <div className="flex items-center gap-2 min-w-0 pr-2">

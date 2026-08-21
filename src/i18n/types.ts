@@ -1,6 +1,7 @@
 import type { LocationBenefit, LocationFaq } from '../data/locations/locationTypes';
 
 export interface NavTranslations {
+  home?: string;
   product: string;
   whatIsSidqly: string;
   features: string;
