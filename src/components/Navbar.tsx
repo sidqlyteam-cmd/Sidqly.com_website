@@ -130,26 +130,26 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center lg:gap-x-2 xl:gap-x-4 2xl:gap-x-8 min-w-0">
+          <div className="hidden lg:flex items-center gap-x-1 xl:gap-x-3 2xl:gap-x-6 min-w-0">
             {navigation.map((item) => (
               <div key={item.name} className="relative group flex-shrink-0">
                 {item.children ? (
                   <button
-                    className="flex items-center gap-1 text-gray-500 hover:text-sidqly-green-deep font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm transition-colors py-8"
+                    className="flex items-center gap-0.5 text-gray-500 hover:text-sidqly-green-deep font-bold lg:text-[11px] xl:text-[12px] 2xl:text-sm transition-colors py-8"
                   >
-                    {item.name} <ChevronDown size={14} className="opacity-50" />
+                    {item.name} <ChevronDown size={12} className="opacity-50" />
                   </button>
                 ) : (
                   <Link
                     to={getLocalizedPath(item.href)}
-                    className={`lg:text-[11px] xl:text-[13px] 2xl:text-sm font-bold transition-colors py-8 ${location.pathname === getLocalizedPath(item.href) ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-500 hover:text-sidqly-green-deep'}`}
+                    className={`lg:text-[11px] xl:text-[12px] 2xl:text-sm font-bold transition-colors py-8 ${location.pathname === getLocalizedPath(item.href) ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-500 hover:text-sidqly-green-deep'}`}
                   >
                     {item.name}
                   </Link>
                 )}
 
                 {item.children && (
-                  <div className="absolute left-0 mt-0 w-64 bg-white border border-gray-100 rounded-b-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left translate-y-0 group-hover:translate-y-0">
+                  <div className="absolute left-0 mt-0 w-64 bg-white border border-gray-100 rounded-b-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left translate-y-0 group-hover:translate-y-0 z-50">
                     <div className="py-3 px-2">
                       {item.children.map((child) => (
                         <Link
@@ -167,30 +167,30 @@ const Navbar: React.FC = () => {
             ))}
 
             {/* Language Switcher, Search & Theme Toggle */}
-            <div className="flex items-center gap-1 xl:gap-2 flex-shrink-0">
+            <div className="flex items-center gap-1 xl:gap-1.5 flex-shrink-0">
               <LanguageSwitcher />
 
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all"
+                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-1.5 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all"
                 aria-label="Search"
               >
-                <Search size={20} />
+                <Search size={18} />
               </button>
 
               <button
                 onClick={toggleTheme}
-                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all flex items-center justify-center"
+                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-1.5 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all flex items-center justify-center"
                 aria-label="Toggle Theme"
               >
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
               </button>
             </div>
 
-            <div className="flex items-center lg:gap-x-1.5 xl:gap-4 lg:pl-2 xl:pl-4 border-l border-gray-100 dark:border-white/10 flex-shrink-0">
+            <div className="flex items-center gap-x-1 xl:gap-2 pl-1 xl:pl-2 border-l border-gray-100 dark:border-white/10 flex-shrink-0">
                <Link
                  to={getLocalizedPath('/guided-pilot')}
-                 className="bg-sidqly-green-deep text-white lg:px-2.5 xl:px-4 2xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm hover:shadow-lg transition-all"
+                 className="bg-sidqly-green-deep text-white px-2 xl:px-3.5 2xl:px-5 py-1.5 xl:py-2 rounded-xl font-bold lg:text-[11px] xl:text-[12px] 2xl:text-sm hover:shadow-lg transition-all whitespace-nowrap"
                >
                  {t('common.applyGuidedPilot', 'Guided Pilot')}
                </Link>
@@ -199,7 +199,7 @@ const Navbar: React.FC = () => {
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={() => trackEvent('demo_submit', { cta_source: 'navbar_desktop_cta' })}
-                 className="bg-white border border-gray-200 text-sidqly-navy lg:px-2.5 xl:px-4 2xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm hover:shadow-lg transition-all"
+                 className="bg-white border border-gray-200 text-sidqly-navy px-2 xl:px-3.5 2xl:px-5 py-1.5 xl:py-2 rounded-xl font-bold lg:text-[11px] xl:text-[12px] 2xl:text-sm hover:shadow-lg transition-all whitespace-nowrap"
                >
                  {t('common.bookDemo', 'Book a Demo')}
                </a>
