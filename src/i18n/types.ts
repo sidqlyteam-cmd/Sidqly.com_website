@@ -18,6 +18,7 @@ export interface NavTranslations {
   trust: string;
   demo: string;
   locations: string;
+  more?: string;
 }
 
 export interface CommonTranslations {

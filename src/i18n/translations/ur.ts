@@ -19,6 +19,7 @@ export const urTranslations: UITranslationKeys = {
     trust: 'اعتماد اور شفافیت',
     demo: 'ڈیمو بُک کریں',
     locations: 'عالمی مراکز',
+    more: 'مزید',
   },
   common: {
     bookDemo: 'ڈیمو بُک کریں',
