@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { brand } from '../config/brand';
-import { Calendar, FileText, Mail } from 'lucide-react';
+import { Calendar, FileText, Mail, X } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const StickyLeadCTA: React.FC = () => {
+  const [isDismissed, setIsDismissed] = useState(false);
+  const { t } = useLanguage();
+
+  if (isDismissed) return null;
+
   return (
     <>
       {/* Desktop Sticky CTA */}
-      <div className="hidden lg:block fixed bottom-8 right-8 z-40">
-        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 w-80 transform transition-transform hover:-translate-y-1">
-          <h4 className="font-bold text-sidqly-navy mb-4">Ready to start?</h4>
-          <div className="space-y-3">
+      <div className="hidden xl:block fixed bottom-16 ltr:right-6 rtl:left-6 z-40">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-gray-100 dark:border-neutral-800 p-5 w-72 transform transition-all hover:-translate-y-1 relative">
+          <button
+            onClick={() => setIsDismissed(true)}
+            className="absolute top-3 ltr:right-3 rtl:left-3 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+            aria-label="Close"
+          >
+            <X size={16} />
+          </button>
+          <h4 className="font-bold text-sidqly-navy dark:text-white mb-3 text-base">{t('common.readyToStart', 'Ready to start?')}</h4>
+          <div className="space-y-2.5">
             <a
               href={brand.calendlyUrl}
               target="_blank"
