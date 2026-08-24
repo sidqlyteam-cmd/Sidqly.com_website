@@ -49,7 +49,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = 
 
       {isOpen && (
         <div
-          className={`absolute ${dropUp ? 'bottom-full mb-2' : 'top-full mt-2'} right-0 sm:right-auto sm:left-0 w-44 bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-2xl shadow-xl z-50 py-2 transform origin-top transition-all`}
+          className={`absolute ${dropUp ? 'bottom-full mb-2' : 'top-full mt-2'} ltr:right-0 ltr:sm:right-auto ltr:sm:left-0 rtl:left-0 rtl:sm:left-auto rtl:sm:right-0 w-44 bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-2xl shadow-xl z-50 py-2 transform origin-top transition-all`}
           role="menu"
           aria-orientation="vertical"
         >
