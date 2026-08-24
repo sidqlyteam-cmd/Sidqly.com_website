@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Globe, Check } from 'lucide-react';
+import { Globe, Check, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { SUPPORTED_LANGUAGES, LANGUAGE_CODES } from '../i18n/config';
 import type { Language } from '../i18n/config';
@@ -36,14 +36,15 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = 
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-semibold text-gray-700 hover:text-sidqly-green-deep dark:text-gray-200 dark:hover:text-sidqly-green-soft bg-gray-50 hover:bg-gray-100 dark:bg-white/5 dark:hover:bg-white/10 rounded-xl transition-all border border-gray-200/60 dark:border-white/10"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold text-gray-700 hover:text-sidqly-green-deep dark:text-gray-200 dark:hover:text-sidqly-green-soft bg-gray-50 hover:bg-gray-100 dark:bg-white/5 dark:hover:bg-white/10 rounded-xl transition-all border border-gray-200/60 dark:border-white/10"
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label={t('common.selectLanguage', 'Select Language')}
         data-testid="language-switcher-button"
       >
-        <Globe size={16} className="text-sidqly-green-deep dark:text-sidqly-green-soft flex-shrink-0" />
-        <span className="truncate max-w-[80px] sm:max-w-none">{currentConfig.nativeName}</span>
+        <Globe size={15} className="text-sidqly-green-deep dark:text-sidqly-green-soft flex-shrink-0" />
+        <span className="truncate">{currentConfig.nativeName}</span>
+        <ChevronDown size={12} className="opacity-60 flex-shrink-0" />
       </button>
 
       {isOpen && (
