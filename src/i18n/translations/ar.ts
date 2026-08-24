@@ -18,6 +18,7 @@ export const arTranslations: UITranslationKeys = {
     trust: 'مركز الثقة والامتثال',
     demo: 'حجز عرض توضيحي',
     locations: 'المراكز العالمية',
+    more: 'المزيد',
   },
   common: {
     bookDemo: 'حجز عرض توضيحي',

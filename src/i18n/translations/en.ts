@@ -19,6 +19,7 @@ export const enTranslations: UITranslationKeys = {
     trust: 'Trust',
     demo: 'Book a Demo',
     locations: 'Locations',
+    more: 'More',
   },
   common: {
     bookDemo: 'Book a Demo',

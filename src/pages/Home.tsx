@@ -65,13 +65,13 @@ const Home: React.FC = () => {
             <span className="inline-block px-4 py-1.5 mb-6 md:mb-8 text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10 max-w-full truncate">
               International Operating Standard for Amanah
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 md:mb-8 leading-snug md:leading-tight tracking-tight dir-auto text-balance">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 md:mb-8 leading-tight tracking-tight dir-auto max-w-4xl mx-auto text-balance">
               Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed font-medium mb-6 max-w-3xl mx-auto dir-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-medium mb-6 max-w-3xl mx-auto dir-auto">
               The premium operating platform for Islamic charities. We help organizations manage verified donations, manual payment review, proof approval, donor updates, and board-ready reporting.
             </p>
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto dir-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto dir-auto">
               Most giving teams do not fail because they lack intention. They struggle because the work is scattered across WhatsApp chats, bank screenshots, Excel sheets, volunteer updates, vendor messages, and donor requests. Sidqly brings these moving parts into one clear workflow, so teams can protect dignity, verify proof, and report impact with confidence.
             </p>
           </div>
