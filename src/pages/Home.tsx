@@ -55,23 +55,23 @@ const Home: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-sidqly-navy py-24 md:py-32 overflow-hidden">
+      <section className="relative bg-sidqly-navy py-16 sm:py-20 md:py-28 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-4xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-[0.2em] text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10">
+          <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
+            <span className="inline-block px-4 py-1.5 mb-6 md:mb-8 text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10 max-w-full truncate">
               International Operating Standard for Amanah
             </span>
-            <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 md:mb-8 leading-snug md:leading-tight tracking-tight dir-auto text-balance">
               Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-medium mb-6">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed font-medium mb-6 max-w-3xl mx-auto dir-auto">
               The premium operating platform for Islamic charities. We help organizations manage verified donations, manual payment review, proof approval, donor updates, and board-ready reporting.
             </p>
-            <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto dir-auto">
               Most giving teams do not fail because they lack intention. They struggle because the work is scattered across WhatsApp chats, bank screenshots, Excel sheets, volunteer updates, vendor messages, and donor requests. Sidqly brings these moving parts into one clear workflow, so teams can protect dignity, verify proof, and report impact with confidence.
             </p>
           </div>
