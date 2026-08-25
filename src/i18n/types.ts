@@ -122,6 +122,100 @@ export interface ZakatToolTranslations {
   religiousDisclaimer: string;
 }
 
+export interface IslamicCalendarToolTranslations {
+  title: string;
+  subtitle: string;
+  today: string;
+  todaysDate: string;
+  previous: string;
+  next: string;
+  previousMonth: string;
+  nextMonth: string;
+  previousYear: string;
+  nextYear: string;
+  currentMonth: string;
+  currentYear: string;
+  hijriDate: string;
+  gregorianDate: string;
+  islamicMonth: string;
+  importantDates: string;
+  selectedDateDetails: string;
+  selectDatePrompt: string;
+  estimated: string;
+  officiallyConfirmed: string;
+  planningDisclaimer: string;
+  twelveMonthEstimate: string;
+  estimatedHijriOverlap: string;
+  operationalAlignmentTitle: string;
+  operationalAlignmentSubtitle: string;
+  ramadanSpike: string;
+  dhulHijjahSpike: string;
+  muharramSpike: string;
+  ramadanPlannerTitle: string;
+  ramadanPlannerDesc: string;
+  eidPlannerTitle: string;
+  eidPlannerDesc: string;
+  hajjCountdownTitle: string;
+  hajjCountdownDesc: string;
+  zakatPlanningTitle: string;
+  zakatPlanningDesc: string;
+  months: {
+    muharram: string;
+    safar: string;
+    rabiAlAwwal: string;
+    rabiAlThani: string;
+    jumadaAlAwwal: string;
+    jumadaAlThani: string;
+    rajab: string;
+    shaban: string;
+    ramadan: string;
+    shawwal: string;
+    dhulQadah: string;
+    dhulHijjah: string;
+  };
+  events: {
+    islamicNewYear: string;
+    dayOfAshura: string;
+    mawlid: string;
+    israMiraj: string;
+    nisfuShaban: string;
+    firstRamadan: string;
+    ramadanMonth: string;
+    eidAlFitr: string;
+    dayOfArafah: string;
+    eidAlAdha: string;
+    daysOfDhulHijjah: string;
+  };
+}
+
+export interface MoonPhaseToolTranslations {
+  title: string;
+  subtitle: string;
+  currentPhase: string;
+  illumination: string;
+  lunarAge: string;
+  days: string;
+  nextPhase: string;
+  astronomicalEstimate: string;
+  astronomicalDisclaimer: string;
+  operationalReadinessTitle: string;
+  operationalReadinessDesc: string;
+  preparationGuidelinesTitle: string;
+  prepStep1: string;
+  prepStep2: string;
+  prepStep3: string;
+  phases: {
+    newMoon: string;
+    waxingCrescent: string;
+    firstQuarter: string;
+    waxingGibbous: string;
+    fullMoon: string;
+    waningGibbous: string;
+    lastQuarter: string;
+    waningCrescent: string;
+  };
+}
+
 export interface IslamicToolsTranslations {
   calculate: string;
   reset: string;
@@ -142,6 +236,8 @@ export interface IslamicToolsTranslations {
   namaz: NamazToolTranslations;
   qibla: QiblaToolTranslations;
   zakat: ZakatToolTranslations;
+  calendar: IslamicCalendarToolTranslations;
+  moonPhase: MoonPhaseToolTranslations;
 }
 
 export interface UITranslationKeys {
