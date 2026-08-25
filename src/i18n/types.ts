@@ -72,6 +72,56 @@ export interface NamazToolTranslations {
   enterCityCountry: string;
 }
 
+export interface QiblaToolTranslations {
+  title: string;
+  subtitle: string;
+  qiblaBearing: string;
+  fromNorth: string;
+  orEnterManually: string;
+  calculateDirection: string;
+  recalculate: string;
+  liveCompassActive: string;
+  compassUnavailable: string;
+  locationPermissionDenied: string;
+  unableToDetermineLocation: string;
+  invalidCoordinates: string;
+  privacyDisclaimer: string;
+  accuracyDisclaimer: string;
+}
+
+export interface ZakatToolTranslations {
+  title: string;
+  subtitle: string;
+  nisabSectionTitle: string;
+  assetsSectionTitle: string;
+  liabilitiesSectionTitle: string;
+  goldNisab: string;
+  silverNisab: string;
+  customNisab: string;
+  currentNisabValue: string;
+  nisabNote: string;
+  cash: string;
+  bankBalance: string;
+  gold: string;
+  silver: string;
+  investments: string;
+  businessAssets: string;
+  receivables: string;
+  otherAssets: string;
+  liabilities: string;
+  estimatedSummary: string;
+  totalAssets: string;
+  deductibleLiabilities: string;
+  netZakatableWealth: string;
+  nisabThreshold: string;
+  zakatRate: string;
+  estimatedZakat: string;
+  belowNisab: string;
+  eligibleForZakat: string;
+  enterNisabPrompt: string;
+  religiousDisclaimer: string;
+}
+
 export interface IslamicToolsTranslations {
   calculate: string;
   reset: string;
@@ -90,6 +140,8 @@ export interface IslamicToolsTranslations {
   tryAgain: string;
   privacyNotice: string;
   namaz: NamazToolTranslations;
+  qibla: QiblaToolTranslations;
+  zakat: ZakatToolTranslations;
 }
 
 export interface UITranslationKeys {
