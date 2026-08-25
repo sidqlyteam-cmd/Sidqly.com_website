@@ -25,13 +25,9 @@ export function getRawPath(path: string): string {
 
   const normalized = path.startsWith('/') ? path : `/${path}`;
 
-  if (normalized === '/ar' || normalized.startsWith('/ar/')) {
-    const stripped = normalized.replace(/^\/ar(\/|$)/, '/');
-    return stripped === '' ? '/' : stripped;
-  }
-
-  if (normalized === '/ur' || normalized.startsWith('/ur/')) {
-    const stripped = normalized.replace(/^\/ur(\/|$)/, '/');
+  const langMatch = normalized.match(/^\/(ar|ur|fr|de)(\/|$)/);
+  if (langMatch) {
+    const stripped = normalized.replace(/^\/(ar|ur|fr|de)(\/|$)/, '/');
     return stripped === '' ? '/' : stripped;
   }
 
@@ -63,11 +59,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const currentPathLanguage = useMemo<Language>(() => {
     const pathname = location.pathname;
-    if (pathname === '/ar' || pathname.startsWith('/ar/')) {
-      return 'ar';
-    }
-    if (pathname === '/ur' || pathname.startsWith('/ur/')) {
-      return 'ur';
+    const match = pathname.match(/^\/(ar|ur|fr|de)(\/|$)/);
+    if (match && isSupportedLanguage(match[1])) {
+      return match[1];
     }
     return 'en';
   }, [location.pathname]);

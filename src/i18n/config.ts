@@ -1,4 +1,4 @@
-export type Language = 'en' | 'ar' | 'ur';
+export type Language = 'en' | 'ar' | 'ur' | 'fr' | 'de';
 
 export type Direction = 'ltr' | 'rtl';
 
@@ -32,9 +32,21 @@ export const SUPPORTED_LANGUAGES: Record<Language, LanguageConfig> = {
     nativeName: 'اردو',
     dir: 'rtl',
   },
+  fr: {
+    code: 'fr',
+    name: 'French',
+    nativeName: 'Français',
+    dir: 'ltr',
+  },
+  de: {
+    code: 'de',
+    name: 'German',
+    nativeName: 'Deutsch',
+    dir: 'ltr',
+  },
 };
 
-export const LANGUAGE_CODES: Language[] = ['en', 'ar', 'ur'];
+export const LANGUAGE_CODES: Language[] = ['en', 'ar', 'ur', 'fr', 'de'];
 
 export function isSupportedLanguage(code: string | undefined | null): code is Language {
   if (!code) return false;

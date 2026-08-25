@@ -28,7 +28,27 @@ test.describe('Multilingual Architecture & i18n Foundation Tests', () => {
     await expect(page.locator('nav')).toContainText('اردو');
   });
 
-  test('Language Switcher allows switching between English, Arabic, and Urdu', async ({ page }) => {
+  test('French prefix /fr sets lang="fr" and dir="ltr"', async ({ page }) => {
+    await page.goto('/fr');
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'fr');
+    await expect(html).toHaveAttribute('dir', 'ltr');
+
+    // Check French UI option display in navbar switcher button
+    await expect(page.locator('nav')).toContainText('Français');
+  });
+
+  test('German prefix /de sets lang="de" and dir="ltr"', async ({ page }) => {
+    await page.goto('/de');
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'de');
+    await expect(html).toHaveAttribute('dir', 'ltr');
+
+    // Check German UI option display in navbar switcher button
+    await expect(page.locator('nav')).toContainText('Deutsch');
+  });
+
+  test('Language Switcher allows switching between English, Arabic, Urdu, French, and German', async ({ page }) => {
     await page.goto('/features');
 
     // Open language switcher
@@ -54,6 +74,28 @@ test.describe('Multilingual Architecture & i18n Foundation Tests', () => {
     await page.waitForURL('**/ur/features');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+
+    // Switch to French
+    const urSwitcherButton = page.locator('nav [data-testid="language-switcher-button"]').first();
+    await urSwitcherButton.click();
+
+    const frenchOption = page.locator('[data-testid="language-option-fr"]');
+    await frenchOption.click();
+
+    await page.waitForURL('**/fr/features');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
+
+    // Switch to German
+    const frSwitcherButton = page.locator('nav [data-testid="language-switcher-button"]').first();
+    await frSwitcherButton.click();
+
+    const germanOption = page.locator('[data-testid="language-option-de"]');
+    await germanOption.click();
+
+    await page.waitForURL('**/de/features');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'de');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
   });
 
   test('Localized Location page renders translated content in Arabic and Urdu', async ({ page }) => {
