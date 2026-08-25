@@ -1,26 +1,30 @@
 import React, { useState } from 'react';
 import { fetchWeatherEstimate, fetchWeatherByCoords, type WeatherEstimate } from '../../lib/weatherPlanning';
+import { useGeolocation } from '../../hooks/useGeolocation';
 import { CloudSun, MapPin, Search, AlertCircle, Thermometer, Wind, Umbrella, Shield } from 'lucide-react';
 
 const WeatherPlanningWidget: React.FC = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState<WeatherEstimate | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [localError, setLocalError] = useState<string | null>(null);
+
+  const { loading: geoLoading, error: geoError, clearError, getCurrentPosition } = useGeolocation();
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!city) {
-      setError('Please enter a city.');
+    clearError();
+    if (!city.trim()) {
+      setLocalError('Please enter a city.');
       return;
     }
     setLoading(true);
-    setError(null);
+    setLocalError(null);
     try {
-      const data = await fetchWeatherEstimate(city);
+      const data = await fetchWeatherEstimate(city.trim());
       setWeatherData(data);
     } catch {
-      setError('Weather estimate is temporarily unavailable. Please check your local weather service before distribution.');
+      setLocalError('Weather estimate is temporarily unavailable. Please check your local weather service before distribution.');
       setWeatherData(null);
     } finally {
       setLoading(false);
@@ -28,38 +32,30 @@ const WeatherPlanningWidget: React.FC = () => {
   };
 
   const handleUseLocation = () => {
-    if (!navigator.geolocation) {
-      setError('Geolocation is not supported by your browser.');
-      return;
-    }
-    setLoading(true);
-    setError(null);
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        try {
-            const data = await fetchWeatherByCoords(latitude, longitude);
-            setWeatherData(data);
-            setCity('Current Location');
-        } catch {
-            setError('Weather estimate is temporarily unavailable. Please check your local weather service before distribution.');
-            setWeatherData(null);
-        } finally {
-            setLoading(false);
-        }
-      },
-      () => {
-        setError('Location permission denied. Please enter city manually.');
+    setLocalError(null);
+    clearError();
+    getCurrentPosition(async (coords) => {
+      setLoading(true);
+      try {
+        const data = await fetchWeatherByCoords(coords.latitude, coords.longitude);
+        setWeatherData(data);
+        setCity('Current Location');
+      } catch {
+        setLocalError('Weather estimate is temporarily unavailable. Please check your local weather service before distribution.');
+        setWeatherData(null);
+      } finally {
         setLoading(false);
-      },
-      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
-    );
+      }
+    });
   };
 
+  const activeError = localError || geoError;
+  const isBusy = loading || geoLoading;
+
   const getRiskColor = (risk: string) => {
-      if (risk === 'High') return 'bg-red-50 text-red-700 border-red-200';
-      if (risk === 'Medium') return 'bg-yellow-50 text-yellow-700 border-yellow-200';
-      return 'bg-green-50 text-green-700 border-green-200';
+    if (risk === 'High') return 'bg-red-50 text-red-700 border-red-200';
+    if (risk === 'Medium') return 'bg-yellow-50 text-yellow-700 border-yellow-200';
+    return 'bg-green-50 text-green-700 border-green-200';
   };
 
   return (
@@ -88,7 +84,7 @@ const WeatherPlanningWidget: React.FC = () => {
            <div className="flex gap-2">
                <button
                  type="submit"
-                 disabled={loading}
+                 disabled={isBusy}
                  className="bg-sidqly-green-deep text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                >
                  <Search size={18} />
@@ -97,7 +93,7 @@ const WeatherPlanningWidget: React.FC = () => {
                <button
                  type="button"
                  onClick={handleUseLocation}
-                 disabled={loading}
+                 disabled={isBusy}
                  className="bg-sidqly-ivory text-sidqly-navy px-4 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all border border-gray-200 flex items-center justify-center disabled:opacity-50"
                  title="Use my location"
                >
@@ -106,10 +102,10 @@ const WeatherPlanningWidget: React.FC = () => {
            </div>
         </form>
 
-        {error && (
+        {activeError && (
           <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm flex items-start gap-2 border border-red-100">
              <AlertCircle size={16} className="shrink-0 mt-0.5" />
-             <p>{error}</p>
+             <p>{activeError}</p>
           </div>
         )}
 
