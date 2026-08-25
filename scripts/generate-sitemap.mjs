@@ -124,6 +124,8 @@ const expandWithMultilingual = (routes) => {
         set.add(r);
         set.add(r === '/' ? '/ar' : `/ar${r}`);
         set.add(r === '/' ? '/ur' : `/ur${r}`);
+        set.add(r === '/' ? '/fr' : `/fr${r}`);
+        set.add(r === '/' ? '/de' : `/de${r}`);
     });
     return Array.from(set);
 };
