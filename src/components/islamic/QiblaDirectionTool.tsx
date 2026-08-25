@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { calculateQiblaDirection, type QiblaResult } from '../../lib/qibla';
+import { useGeolocation } from '../../hooks/useGeolocation';
 import { Compass, MapPin, AlertCircle, Shield } from 'lucide-react';
 
 const QiblaDirectionTool: React.FC = () => {
   const [qiblaResult, setQiblaResult] = useState<QiblaResult | null>(null);
   const [deviceHeading, setDeviceHeading] = useState<number | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [localError, setLocalError] = useState<string | null>(null);
   const [usingCompass, setUsingCompass] = useState(false);
+
+  const { loading: geoLoading, error: geoError, clearError, getCurrentPosition } = useGeolocation();
 
   // Fallback manual entry state
   const [manualLat, setManualLat] = useState('');
@@ -28,12 +30,10 @@ const QiblaDirectionTool: React.FC = () => {
 
   useEffect(() => {
     const handleOrientation = (event: DeviceOrientationEvent) => {
-      // Use webkitCompassHeading for iOS, or standard alpha for others
       let heading = null;
       if ('webkitCompassHeading' in event) {
         heading = (event as unknown as { webkitCompassHeading: number }).webkitCompassHeading;
       } else if (event.alpha !== null) {
-        // This is a rough estimation for non-iOS devices.
         heading = 360 - event.alpha;
       }
 
@@ -54,59 +54,47 @@ const QiblaDirectionTool: React.FC = () => {
   }, [usingCompass]);
 
   const handleGetLocation = async () => {
-    setLoading(true);
-    setError(null);
+    setLocalError(null);
+    clearError();
     setUsingCompass(false);
-
-    if (!navigator.geolocation) {
-      setError('Geolocation is not supported by your browser.');
-      setLoading(false);
-      return;
-    }
 
     const hasCompassPermission = await requestCompassPermission();
 
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        const result = calculateQiblaDirection(latitude, longitude);
+    getCurrentPosition(
+      (coords) => {
+        const result = calculateQiblaDirection(coords.latitude, coords.longitude);
         setQiblaResult(result);
 
         if (hasCompassPermission && window.DeviceOrientationEvent) {
-            setUsingCompass(true);
+          setUsingCompass(true);
         }
-
-        setLoading(false);
-      },
-      () => {
-        setError('Location permission denied or unavailable. You can enter coordinates manually.');
-        setLoading(false);
-      },
-      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+      }
     );
   };
 
   const handleManualCalculate = (e: React.FormEvent) => {
     e.preventDefault();
     setUsingCompass(false);
+    clearError();
 
     const lat = parseFloat(manualLat);
     const lng = parseFloat(manualLng);
 
     if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
-      setError('Please enter valid coordinates (-90 to 90 for latitude, -180 to 180 for longitude).');
+      setLocalError('Please enter valid coordinates (-90 to 90 for latitude, -180 to 180 for longitude).');
       return;
     }
 
-    setError(null);
+    setLocalError(null);
     const result = calculateQiblaDirection(lat, lng);
     setQiblaResult(result);
   };
 
-  // Calculate arrow rotation based on device heading if available, otherwise static bearing
+  const activeError = localError || geoError;
+
   let arrowRotation = qiblaResult?.bearing || 0;
   if (usingCompass && deviceHeading !== null && qiblaResult) {
-      arrowRotation = qiblaResult.bearing - deviceHeading;
+    arrowRotation = qiblaResult.bearing - deviceHeading;
   }
 
   return (
@@ -123,11 +111,11 @@ const QiblaDirectionTool: React.FC = () => {
         <div className="space-y-6">
            <button
              onClick={handleGetLocation}
-             disabled={loading}
+             disabled={geoLoading}
              className="w-full flex items-center justify-center gap-2 bg-sidqly-green-deep text-white px-6 py-4 rounded-xl font-bold hover:shadow-lg transition-all disabled:opacity-50"
            >
              <MapPin size={20} />
-             {loading ? 'Requesting Location...' : 'Use My Location'}
+             {geoLoading ? 'Requesting Location...' : 'Use My Location'}
            </button>
 
            <div className="relative">
@@ -172,10 +160,10 @@ const QiblaDirectionTool: React.FC = () => {
         </div>
       )}
 
-      {error && (
+      {activeError && (
         <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-xl text-sm flex items-start gap-2">
            <AlertCircle size={16} className="shrink-0 mt-0.5" />
-           <p>{error}</p>
+           <p>{activeError}</p>
         </div>
       )}
 
@@ -184,7 +172,6 @@ const QiblaDirectionTool: React.FC = () => {
            <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Approximate Qibla Direction</p>
 
            <div className="relative w-48 h-48 mx-auto mb-6 bg-sidqly-ivory rounded-full border-4 border-gray-100 flex items-center justify-center shadow-inner overflow-hidden">
-             {/* Compass Ticks (rotate opposite to arrow to simulate compass card if live, otherwise static) */}
              <div
                className="absolute inset-2 border border-gray-200 rounded-full transition-transform duration-100 ease-out"
                style={{ transform: usingCompass && deviceHeading !== null ? `rotate(${-deviceHeading}deg)` : 'rotate(0deg)' }}
@@ -195,12 +182,10 @@ const QiblaDirectionTool: React.FC = () => {
                 <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">W</span>
              </div>
 
-             {/* Arrow Container */}
              <div
                 className="absolute inset-0 transition-transform duration-100 ease-out flex items-center justify-center"
                 style={{ transform: `rotate(${arrowRotation}deg)` }}
              >
-                {/* Arrow Head (pointing up relative to its rotated container) */}
                 <div className="absolute top-4 text-sidqly-green-deep">
                    <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 0L24 20L12 15L0 20L12 0Z" fill="currentColor"/>
@@ -221,7 +206,7 @@ const QiblaDirectionTool: React.FC = () => {
            )}
 
            <button
-             onClick={() => { setQiblaResult(null); setUsingCompass(false); }}
+             onClick={() => { setQiblaResult(null); setUsingCompass(false); setManualLat(''); setManualLng(''); clearError(); setLocalError(null); }}
              className="text-sm font-bold text-sidqly-green-deep hover:underline mt-4 block mx-auto"
            >
              Calculate for another location

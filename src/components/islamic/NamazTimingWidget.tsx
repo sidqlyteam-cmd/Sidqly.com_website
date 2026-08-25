@@ -1,30 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { fetchNamazTimingsByCity, fetchNamazTimingsByCoords, CALCULATION_METHODS, getNextPrayer, type NamazTimings } from '../../lib/namazTimings';
-import { MapPin, Search, Clock, AlertCircle, Shield } from 'lucide-react';
+import { useGeolocation } from '../../hooks/useGeolocation';
+import { useLanguage } from '../../i18n/LanguageContext';
+import { MapPin, Search, Clock, AlertCircle, Shield, RotateCcw } from 'lucide-react';
 
 const NamazTimingWidget: React.FC = () => {
+  const { t } = useLanguage();
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [method, setMethod] = useState(1);
   const [timingsData, setTimingsData] = useState<NamazTimings | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [nextPrayer, setNextPrayer] = useState<{name: string, time: string} | null>(null);
+  const [localError, setLocalError] = useState<string | null>(null);
+  const [nextPrayer, setNextPrayer] = useState<{ name: string; time: string } | null>(null);
+
+  const { loading: geoLoading, error: geoError, clearError, getCurrentPosition } = useGeolocation();
 
   const fetchTimings = async (fetcher: () => Promise<NamazTimings>) => {
     setLoading(true);
-    setError(null);
+    setLocalError(null);
+    clearError();
     try {
       const data = await fetcher();
       setTimingsData(data);
       setNextPrayer(getNextPrayer(data));
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message);
+        setLocalError(err.message);
       } else {
-        setError('Failed to fetch timings');
+        setLocalError(t('islamicTools.unableToCalculate', 'Unable to calculate prayer times for this location. Please check the city and country and try again.'));
       }
       setTimingsData(null);
+      setNextPrayer(null);
     } finally {
       setLoading(false);
     }
@@ -32,42 +39,49 @@ const NamazTimingWidget: React.FC = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!city || !country) {
-      setError('Please enter both city and country.');
+    const trimmedCity = city.trim();
+    const trimmedCountry = country.trim();
+
+    if (!trimmedCity || !trimmedCountry) {
+      setLocalError(t('islamicTools.namaz.enterCityCountry', 'Please enter both city and country.'));
       return;
     }
-    fetchTimings(() => fetchNamazTimingsByCity(city, country, method));
+    fetchTimings(() => fetchNamazTimingsByCity(trimmedCity, trimmedCountry, method));
   };
 
   const handleUseLocation = () => {
-    if (!navigator.geolocation) {
-      setError('Geolocation is not supported by your browser.');
-      return;
-    }
-    setLoading(true);
-    setError(null);
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        fetchTimings(() => fetchNamazTimingsByCoords(latitude, longitude, method));
-      },
-      () => {
-        setError('Location permission denied. Please enter city and country manually.');
-        setLoading(false);
-      },
-      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
-    );
+    setLocalError(null);
+    clearError();
+    getCurrentPosition((coords) => {
+      fetchTimings(() => fetchNamazTimingsByCoords(coords.latitude, coords.longitude, method));
+    });
+  };
+
+  const handleReset = () => {
+    setCity('');
+    setCountry('');
+    setMethod(1);
+    setTimingsData(null);
+    setNextPrayer(null);
+    setLocalError(null);
+    clearError();
   };
 
   // Re-fetch when method changes if we already have data
   useEffect(() => {
-    if (timingsData && (city && country)) {
-        // We purposely omit city, country, timingsData from dependencies
-        // to only trigger when the user explicitly changes the method selector.
-        fetchTimings(() => fetchNamazTimingsByCity(city, country, method));
+    if (timingsData) {
+      if (city.trim() && country.trim()) {
+        fetchTimings(() => fetchNamazTimingsByCity(city.trim(), country.trim(), method));
+      } else if (timingsData) {
+        // If calculated by coords or previous query, re-fetch with current city/country or default method
+        fetchTimings(() => fetchNamazTimingsByCity(city.trim() || 'Lahore', country.trim() || 'Pakistan', method));
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [method]);
+
+  const activeError = localError || geoError;
+  const isBusy = loading || geoLoading;
 
   return (
     <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto">
@@ -75,15 +89,15 @@ const NamazTimingWidget: React.FC = () => {
          <div className="bg-sidqly-green-deep/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Clock className="text-sidqly-green-deep w-8 h-8" />
          </div>
-         <h2 className="text-2xl font-bold text-sidqly-navy mb-2">Namaz Timings</h2>
-         <p className="text-gray-500 text-sm">Calculate prayer times for planning.</p>
+         <h2 className="text-2xl font-bold text-sidqly-navy mb-2">{t('islamicTools.namaz.title', 'Namaz Timings')}</h2>
+         <p className="text-gray-500 text-sm">{t('islamicTools.namaz.subtitle', 'Calculate prayer times for planning.')}</p>
       </div>
 
       <div className="space-y-6">
         <form onSubmit={handleSearch} className="space-y-4">
            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                 <label className="block text-sm font-medium text-gray-700 mb-1">City</label>
+                 <label className="block text-sm font-medium text-gray-700 mb-1">{t('islamicTools.city', 'City')}</label>
                  <input
                    type="text"
                    value={city}
@@ -93,7 +107,7 @@ const NamazTimingWidget: React.FC = () => {
                  />
               </div>
               <div>
-                 <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                 <label className="block text-sm font-medium text-gray-700 mb-1">{t('islamicTools.country', 'Country')}</label>
                  <input
                    type="text"
                    value={country}
@@ -105,7 +119,7 @@ const NamazTimingWidget: React.FC = () => {
            </div>
 
            <div>
-             <label className="block text-sm font-medium text-gray-700 mb-1">Calculation Method</label>
+             <label className="block text-sm font-medium text-gray-700 mb-1">{t('islamicTools.calculationMethod', 'Calculation Method')}</label>
              <select
                value={method}
                onChange={(e) => setMethod(Number(e.target.value))}
@@ -120,28 +134,42 @@ const NamazTimingWidget: React.FC = () => {
            <div className="flex flex-col sm:flex-row gap-3">
                <button
                  type="submit"
-                 disabled={loading}
+                 disabled={isBusy}
                  className="flex-1 bg-sidqly-green-deep text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                >
                  <Search size={18} />
-                 Calculate
+                 {isBusy ? t('islamicTools.loading', 'Loading...') : t('islamicTools.calculate', 'Calculate')}
                </button>
                <button
                  type="button"
                  onClick={handleUseLocation}
-                 disabled={loading}
+                 disabled={isBusy}
                  className="flex-1 bg-sidqly-ivory text-sidqly-navy px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all border border-gray-200 flex items-center justify-center gap-2 disabled:opacity-50"
                >
                  <MapPin size={18} />
-                 Use My Location
+                 {t('islamicTools.useMyLocation', 'Use My Location')}
                </button>
+               {(timingsData || activeError || city || country) && (
+                 <button
+                   type="button"
+                   onClick={handleReset}
+                   disabled={isBusy}
+                   className="px-4 py-3 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                   title={t('islamicTools.reset', 'Reset')}
+                 >
+                   <RotateCcw size={18} />
+                   <span className="sm:hidden md:inline">{t('islamicTools.reset', 'Reset')}</span>
+                 </button>
+               )}
            </div>
         </form>
 
-        {error && (
-          <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm flex items-start gap-2">
+        {activeError && (
+          <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm flex items-start gap-2 border border-red-100">
              <AlertCircle size={16} className="shrink-0 mt-0.5" />
-             <p>{error}</p>
+             <div className="flex-1">
+               <p>{activeError}</p>
+             </div>
           </div>
         )}
 
@@ -155,7 +183,7 @@ const NamazTimingWidget: React.FC = () => {
 
             {nextPrayer && (
               <div className="mb-6 bg-sidqly-green-soft/30 border border-sidqly-green-emerald/30 p-4 rounded-xl text-center">
-                 <p className="text-sm font-semibold text-sidqly-green-deep">Next Prayer</p>
+                 <p className="text-sm font-semibold text-sidqly-green-deep">{t('islamicTools.namaz.nextPrayer', 'Next Prayer')}</p>
                  <p className="text-xl font-bold text-sidqly-navy">{nextPrayer.name} at {nextPrayer.time}</p>
               </div>
             )}

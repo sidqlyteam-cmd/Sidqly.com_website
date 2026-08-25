@@ -2,6 +2,7 @@ import type { UITranslationKeys } from '../types';
 
 export const arTranslations: UITranslationKeys = {
   nav: {
+    home: 'الرئيسية',
     product: 'المنتج',
     whatIsSidqly: 'ما منصة صدقلي؟',
     features: 'المميزات',
@@ -60,5 +61,29 @@ export const arTranslations: UITranslationKeys = {
     submit: 'إرسال الطلب',
     submitting: 'جاري الإرسال...',
     successMessage: 'شكراً لك! سنتواصل معك في أقرب وقت.',
+  },
+  islamicTools: {
+    calculate: 'حساب',
+    reset: 'إعادة ضبط',
+    retry: 'إعادة المحاولة',
+    loading: 'جاري التحميل...',
+    error: 'خطأ',
+    location: 'الموقع',
+    useMyLocation: 'استخدام موقعي',
+    latitude: 'خط العرض',
+    longitude: 'خط الطول',
+    city: 'المدينة',
+    country: 'الدولة',
+    calculationMethod: 'طريقة الحساب',
+    result: 'النتيجة',
+    unableToCalculate: 'تعذر حساب أوقات الصلاة لهذا الموقع. يرجى التحقق من المدينة والدولة والمحاولة مرة أخرى.',
+    tryAgain: 'يرجى المحاولة مرة أخرى.',
+    privacyNotice: 'يتم استخدام موقعك فقط في متصفحك لتقدير الأوقات. لا تقوم صدقلي بحفظ أو تتبع موقعك.',
+    namaz: {
+      title: 'أوقات الصلاة',
+      subtitle: 'حساب مواقيت الصلاة للتخطيط التشغيلي.',
+      nextPrayer: 'الصلاة القادمة',
+      enterCityCountry: 'يرجى إدخال اسم المدينة والدولة.',
+    },
   },
 };

@@ -95,18 +95,25 @@ async function runPrerender() {
 
   console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
 
-  const CONCURRENCY = 4;
+  const CONCURRENCY = 6;
   const queue = [...routesList];
 
   const prerenderWorker = async (workerId) => {
-    const page = await browser.newPage();
+    let page = await browser.newPage();
+    let count = 0;
     while (queue.length > 0) {
       const route = queue.shift();
       if (!route) break;
 
       try {
-        await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'networkidle', timeout: 15000 });
-        await page.waitForTimeout(200);
+        if (page.isClosed() || count > 50) {
+          if (!page.isClosed()) await page.close().catch(() => {});
+          page = await browser.newPage();
+          count = 0;
+        }
+
+        await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        await page.waitForTimeout(50);
 
         const html = await page.content();
 
@@ -123,11 +130,19 @@ async function runPrerender() {
         }
 
         fs.writeFileSync(targetFile, html, 'utf8');
+        count++;
       } catch (err) {
         console.error(`Worker ${workerId} failed to pre-render ${route}: ${err.message}`);
+        try {
+          if (!page.isClosed()) await page.close().catch(() => {});
+        } catch (_) {}
+        page = await browser.newPage();
+        count = 0;
       }
     }
-    await page.close();
+    try {
+      if (!page.isClosed()) await page.close().catch(() => {});
+    } catch (_) {}
   };
 
   const workers = Array.from({ length: CONCURRENCY }, (_, i) => prerenderWorker(i + 1));

@@ -65,11 +65,39 @@ export interface FormTranslations {
   successMessage: string;
 }
 
+export interface NamazToolTranslations {
+  title: string;
+  subtitle: string;
+  nextPrayer: string;
+  enterCityCountry: string;
+}
+
+export interface IslamicToolsTranslations {
+  calculate: string;
+  reset: string;
+  retry: string;
+  loading: string;
+  error: string;
+  location: string;
+  useMyLocation: string;
+  latitude: string;
+  longitude: string;
+  city: string;
+  country: string;
+  calculationMethod: string;
+  result: string;
+  unableToCalculate: string;
+  tryAgain: string;
+  privacyNotice: string;
+  namaz: NamazToolTranslations;
+}
+
 export interface UITranslationKeys {
   nav: NavTranslations;
   common: CommonTranslations;
   locationUI: LocationUITranslations;
   forms: FormTranslations;
+  islamicTools: IslamicToolsTranslations;
 }
 
 export interface LocationTranslation {
