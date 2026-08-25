@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { brand } from '../config/brand';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildLocalizedPath, getRawPath } from '../i18n/LanguageContext';
+import type { Language, Direction } from '../i18n/config';
 
 interface SEOProps {
   title?: string;
@@ -35,8 +36,8 @@ const SEO: React.FC<SEOProps> = ({
   schema,
   noindex
 }) => {
-  let activeLang: 'en' | 'ar' | 'ur' = 'en';
-  let activeDir: 'ltr' | 'rtl' = 'ltr';
+  let activeLang: Language = 'en';
+  let activeDir: Direction = 'ltr';
 
   try {
     const langCtx = useLanguage();

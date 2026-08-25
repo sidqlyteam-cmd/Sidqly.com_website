@@ -7,6 +7,8 @@ import { urLocationTranslations } from './ur';
 export const locationTranslations: Record<Exclude<Language, 'en'>, Record<string, LocationTranslation>> = {
   ar: arLocationTranslations,
   ur: urLocationTranslations,
+  fr: {},
+  de: {},
 };
 
 export function getLocationTranslation(

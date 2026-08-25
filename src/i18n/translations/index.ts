@@ -8,6 +8,8 @@ export const uiTranslations: Record<Language, UITranslationKeys> = {
   en: enTranslations,
   ar: arTranslations,
   ur: urTranslations,
+  fr: enTranslations,
+  de: enTranslations,
 };
 
 export function getUITranslations(lang: Language): UITranslationKeys {
