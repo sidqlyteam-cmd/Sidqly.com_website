@@ -18,6 +18,12 @@ const testUrls = [
   { url: '/ur', lang: 'ur', dir: 'rtl', file: 'ur.html' },
   { url: '/ur/locations', lang: 'ur', dir: 'rtl', file: 'ur/locations.html' },
   { url: '/ur/locations/karachi-islamic-charity-software', lang: 'ur', dir: 'rtl', file: 'ur/locations/karachi-islamic-charity-software.html' },
+  { url: '/fr', lang: 'fr', dir: 'ltr', file: 'fr.html' },
+  { url: '/fr/locations', lang: 'fr', dir: 'ltr', file: 'fr/locations.html' },
+  { url: '/fr/locations/karachi-islamic-charity-software', lang: 'fr', dir: 'ltr', file: 'fr/locations/karachi-islamic-charity-software.html' },
+  { url: '/de', lang: 'de', dir: 'ltr', file: 'de.html' },
+  { url: '/de/locations', lang: 'de', dir: 'ltr', file: 'de/locations.html' },
+  { url: '/de/locations/karachi-islamic-charity-software', lang: 'de', dir: 'ltr', file: 'de/locations/karachi-islamic-charity-software.html' },
 ];
 
 console.log('--- STARTING PRODUCTION SEO MULTILINGUAL VERIFICATION ---');
@@ -57,6 +63,8 @@ function checkHtmlFile(target) {
   const hasHreflangEn = content.includes('hrefLang="en"') || content.includes('hreflang="en"');
   const hasHreflangAr = content.includes('hrefLang="ar"') || content.includes('hreflang="ar"');
   const hasHreflangUr = content.includes('hrefLang="ur"') || content.includes('hreflang="ur"');
+  const hasHreflangFr = content.includes('hrefLang="fr"') || content.includes('hreflang="fr"');
+  const hasHreflangDe = content.includes('hrefLang="de"') || content.includes('hreflang="de"');
   const hasHreflangDefault = content.includes('hrefLang="x-default"') || content.includes('hreflang="x-default"');
 
   const checks = {
@@ -66,7 +74,7 @@ function checkHtmlFile(target) {
     hasTitle,
     hasMetaDesc,
     canonicalCorrect,
-    hasHreflangs: hasHreflangEn && hasHreflangAr && hasHreflangUr && hasHreflangDefault,
+    hasHreflangs: hasHreflangEn && hasHreflangAr && hasHreflangUr && hasHreflangFr && hasHreflangDe && hasHreflangDefault,
   };
 
   const pass = Object.values(checks).every(Boolean);

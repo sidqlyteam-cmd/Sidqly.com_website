@@ -63,6 +63,8 @@ const SEO: React.FC<SEOProps> = ({
   const enUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'en')}`;
   const arUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'ar')}`;
   const urUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'ur')}`;
+  const frUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'fr')}`;
+  const deUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'de')}`;
 
   const isIndexable = !noindex;
 
@@ -79,6 +81,8 @@ const SEO: React.FC<SEOProps> = ({
       {isIndexable && <link rel="alternate" hrefLang="en" href={enUrl} />}
       {isIndexable && <link rel="alternate" hrefLang="ar" href={arUrl} />}
       {isIndexable && <link rel="alternate" hrefLang="ur" href={urUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="fr" href={frUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="de" href={deUrl} />}
       {isIndexable && <link rel="alternate" hrefLang="x-default" href={enUrl} />}
 
       <meta property="og:title" content={ogTitle || fullTitle} />
