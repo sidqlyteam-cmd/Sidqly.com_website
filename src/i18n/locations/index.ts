@@ -3,12 +3,14 @@ import type { LocationRecord } from '../../data/locations/locationTypes';
 import type { LocationTranslation } from '../types';
 import { arLocationTranslations } from './ar';
 import { urLocationTranslations } from './ur';
+import { frLocationTranslations } from './fr';
+import { deLocationTranslations } from './de';
 
 export const locationTranslations: Record<Exclude<Language, 'en'>, Record<string, LocationTranslation>> = {
   ar: arLocationTranslations,
   ur: urLocationTranslations,
-  fr: {},
-  de: {},
+  fr: frLocationTranslations,
+  de: deLocationTranslations,
 };
 
 export function getLocationTranslation(
