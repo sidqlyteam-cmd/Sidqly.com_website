@@ -91,7 +91,26 @@ async function runPrerender() {
 
   const port = 5174;
   const server = await startPreviewServer(port);
-  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+
+  const candidates = [
+    '/home/jules/.cache/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-linux64/chrome-headless-shell',
+    '/home/jules/.cache/ms-playwright/chromium-1228/chrome-linux/chrome',
+    '/home/jules/.cache/ms-playwright/chromium-1208/chrome-linux/chrome',
+    '/home/jules/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell',
+  ];
+  const executablePath = candidates.find(p => fs.existsSync(p));
+
+  const launchOpts = { args: ['--no-sandbox', '--disable-setuid-sandbox'] };
+  if (executablePath) {
+    launchOpts.executablePath = executablePath;
+  }
+
+  let browser;
+  try {
+    browser = await chromium.launch(launchOpts);
+  } catch {
+    browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  }
 
   console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
 
