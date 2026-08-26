@@ -216,6 +216,106 @@ export interface MoonPhaseToolTranslations {
   };
 }
 
+export interface RamadanToolTranslations {
+  title: string;
+  subtitle: string;
+  daysRemaining: string;
+  daysAway: string;
+  targetEstimateLabel: string;
+  estimatedDate: string;
+  officiallyConfirmed: string;
+  disclaimerText: string;
+  ramadanActiveTitle: string;
+  ramadanActiveSubtitle: string;
+  currentDayLabel: string;
+  day: string;
+  suhoor: string;
+  iftar: string;
+  fastingGoal: string;
+  quranGoal: string;
+  charityGoal: string;
+  dhikrGoal: string;
+  dailyChecklist: string;
+  operationalChecklist: string;
+  completed: string;
+  remaining: string;
+  reset: string;
+  ramadanModule: string;
+  vendorFulfillment: string;
+  bookDemo: string;
+  preRamadanPlanning: string;
+  duringRamadanOperations: string;
+  taskIftarModule: string;
+  taskVendorRation: string;
+  taskSponsorTemplates: string;
+  taskWeatherGuidelines: string;
+  taskDailyProof: string;
+  taskDonorUpdates: string;
+  taskVolunteerMapping: string;
+  taskMonitorNamaz: string;
+}
+
+export interface EidQurbaniToolTranslations {
+  title: string;
+  subtitle: string;
+  targetPlanningWindow: string;
+  daysToPrepare: string;
+  estimatedDate: string;
+  officiallyConfirmed: string;
+  disclaimerText: string;
+  eidActiveTitle: string;
+  eidActiveSubtitle: string;
+  shareTrackingTitle: string;
+  participantCountLabel: string;
+  sharesLabel: string;
+  invalidParticipantError: string;
+  completedSharesLabel: string;
+  operationalChecklistTitle: string;
+  operationalReadiness: string;
+  executionReporting: string;
+  qurbaniSelection: string;
+  participantPlanning: string;
+  paymentConfirmation: string;
+  slaughterConfirmation: string;
+  distribution: string;
+  recipientConfirmation: string;
+  proofDocumentation: string;
+  donorUpdate: string;
+  certificateCompletion: string;
+  completed: string;
+  remaining: string;
+  reset: string;
+  exploreModule: string;
+  requestDemo: string;
+}
+
+export interface HajjToolTranslations {
+  title: string;
+  subtitle: string;
+  daysRemaining: string;
+  daysAway: string;
+  targetEstimateLabel: string;
+  estimatedDate: string;
+  officiallyConfirmed: string;
+  disclaimerText: string;
+  preparationTimelineTitle: string;
+  upcomingHajj: string;
+  currentHajjSeason: string;
+  nextHajj: string;
+  hajjActiveTitle: string;
+  hajjActiveSubtitle: string;
+  timeline90Days: string;
+  timeline60Days: string;
+  timeline30Days: string;
+  timeline10Days: string;
+  timelineAction90: string;
+  timelineAction60: string;
+  timelineAction30: string;
+  timelineAction10: string;
+  qurbaniWorkflows: string;
+  requestDemo: string;
+}
+
 export interface IslamicToolsTranslations {
   calculate: string;
   reset: string;
@@ -238,6 +338,9 @@ export interface IslamicToolsTranslations {
   zakat: ZakatToolTranslations;
   calendar: IslamicCalendarToolTranslations;
   moonPhase: MoonPhaseToolTranslations;
+  ramadan: RamadanToolTranslations;
+  eidQurbani: EidQurbaniToolTranslations;
+  hajj: HajjToolTranslations;
 }
 
 export interface UITranslationKeys {
