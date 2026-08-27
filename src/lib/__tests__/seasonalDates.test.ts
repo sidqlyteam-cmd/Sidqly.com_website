@@ -6,6 +6,11 @@ import {
   getHajjPreparationTimeline,
 } from '../seasonalDates';
 
+import {
+  getEidFitrSeasonInfo,
+  getEidSeasonInfo,
+} from '../seasonalDates';
+
 describe('Seasonal Dates Utility Engine', () => {
   describe('Ramadan Date Logic', () => {
     it('calculates countdown before Ramadan', () => {
@@ -15,6 +20,7 @@ describe('Seasonal Dates Utility Engine', () => {
       expect(info.phase).toBe('before');
       expect(info.hijriYear).toBe(1446);
       expect(info.daysRemaining).toBeGreaterThan(0);
+      expect(isNaN(info.daysRemaining)).toBe(false);
     });
 
     it('identifies active Ramadan during Ramadan', () => {
@@ -23,6 +29,7 @@ describe('Seasonal Dates Utility Engine', () => {
       const info = getRamadanSeasonInfo(refDate, false);
       expect(info.phase).toBe('during');
       expect(info.currentSeasonDay).toBeGreaterThanOrEqual(1);
+      expect(info.currentSeasonDay).toBeLessThanOrEqual(30);
       expect(info.daysRemaining).toBe(0);
     });
 
@@ -33,16 +40,49 @@ describe('Seasonal Dates Utility Engine', () => {
       expect(info.phase).toBe('before');
       expect(info.hijriYear).toBe(1447);
       expect(info.daysRemaining).toBeGreaterThan(0);
+      expect(isNaN(info.daysRemaining)).toBe(false);
+    });
+
+    it('handles midnight timezone boundaries cleanly', () => {
+      const midnightUTC = new Date(Date.UTC(2025, 2, 1, 0, 0, 0));
+      const info = getRamadanSeasonInfo(midnightUTC, false);
+      expect(isNaN(info.daysRemaining)).toBe(false);
+      expect(info.targetDate.getHours()).toBe(12);
     });
 
     it('handles officially confirmed state flag', () => {
       const refDate = new Date(2025, 0, 15, 12, 0, 0);
       const info = getRamadanSeasonInfo(refDate, true);
       expect(info.isConfirmed).toBe(true);
+      expect(info.status).toBe('officially_confirmed');
     });
   });
 
-  describe('Eid & Qurbani Date Logic', () => {
+  describe('Eid al-Fitr & Eid al-Adha Date Logic', () => {
+    it('calculates countdown before Eid al-Fitr', () => {
+      const refDate = new Date(2025, 0, 15, 12, 0, 0);
+      const info = getEidFitrSeasonInfo(refDate, false);
+      expect(info.phase).toBe('before');
+      expect(info.daysRemaining).toBeGreaterThan(0);
+      expect(info.id).toBe('eid_al_fitr');
+    });
+
+    it('identifies active Eid al-Fitr period', () => {
+      // March 31, 2025 is 1st Shawwal 1446
+      const refDate = new Date(2025, 2, 31, 12, 0, 0);
+      const info = getEidFitrSeasonInfo(refDate, false);
+      expect(info.phase).toBe('during');
+      expect(info.daysRemaining).toBe(0);
+    });
+
+    it('calculates unified getEidSeasonInfo for fitr and adha', () => {
+      const refDate = new Date(2025, 0, 15, 12, 0, 0);
+      const fitr = getEidSeasonInfo('fitr', refDate);
+      const adha = getEidSeasonInfo('adha', refDate);
+      expect(fitr.id).toBe('eid_al_fitr');
+      expect(adha.id).toBe('eid_al_adha');
+    });
+
     it('calculates countdown before Dhul Hijjah / Eid al-Adha', () => {
       const refDate = new Date(2025, 0, 15, 12, 0, 0);
       const info = getEidQurbaniSeasonInfo(refDate, false);

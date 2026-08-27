@@ -53,7 +53,16 @@ const EidQurbaniPlanner: React.FC = () => {
     try {
       const saved = localStorage.getItem(CHECKLIST_STORAGE_KEY);
       if (saved) {
-        return { ...DEFAULT_CHECKLIST, ...JSON.parse(saved) };
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === 'object') {
+          const validated: Partial<QurbaniChecklistState> = {};
+          (Object.keys(DEFAULT_CHECKLIST) as Array<keyof QurbaniChecklistState>).forEach((key) => {
+            if (typeof parsed[key] === 'boolean') {
+              validated[key] = parsed[key];
+            }
+          });
+          return { ...DEFAULT_CHECKLIST, ...validated };
+        }
       }
     } catch {
       // Fallback
@@ -118,25 +127,32 @@ const EidQurbaniPlanner: React.FC = () => {
     }
   };
 
+  const parseStrictPositiveInteger = (val: string): number | null => {
+    if (typeof val !== 'string' || val.trim() === '') return null;
+    const num = Number(val);
+    if (!Number.isFinite(num) || !Number.isInteger(num) || num < 0) return null;
+    return num;
+  };
+
   const handleParticipantChange = (val: string) => {
-    const num = parseInt(val, 10);
-    if (isNaN(num) || num < 0) {
+    const parsed = parseStrictPositiveInteger(val);
+    if (parsed === null) {
       setShareError(t('islamicTools.eidQurbani.invalidParticipantError'));
       setShareData((prev) => ({ ...prev, participants: 0 }));
     } else {
       setShareError(null);
-      setShareData((prev) => ({ ...prev, participants: num }));
+      setShareData((prev) => ({ ...prev, participants: parsed }));
     }
   };
 
   const handleSharesChange = (val: string) => {
-    const num = parseInt(val, 10);
-    if (isNaN(num) || num < 0) {
+    const parsed = parseStrictPositiveInteger(val);
+    if (parsed === null) {
       setShareError(t('islamicTools.eidQurbani.invalidParticipantError'));
       setShareData((prev) => ({ ...prev, shares: 0 }));
     } else {
       setShareError(null);
-      setShareData((prev) => ({ ...prev, shares: num }));
+      setShareData((prev) => ({ ...prev, shares: parsed }));
     }
   };
 

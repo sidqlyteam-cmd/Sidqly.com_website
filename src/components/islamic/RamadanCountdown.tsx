@@ -49,7 +49,15 @@ const RamadanCountdown: React.FC = () => {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        return { ...DEFAULT_CHECKLIST, ...parsed };
+        if (parsed && typeof parsed === 'object') {
+          const validated: Partial<ChecklistState> = {};
+          (Object.keys(DEFAULT_CHECKLIST) as Array<keyof ChecklistState>).forEach((key) => {
+            if (typeof parsed[key] === 'boolean') {
+              validated[key] = parsed[key];
+            }
+          });
+          return { ...DEFAULT_CHECKLIST, ...validated };
+        }
       }
     } catch {
       // Fallback
