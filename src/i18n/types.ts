@@ -316,6 +316,68 @@ export interface HajjToolTranslations {
   requestDemo: string;
 }
 
+export interface WeatherToolTranslations {
+  title: string;
+  subtitle: string;
+  enterCityPlaceholder: string;
+  check: string;
+  riskLevel: string;
+  temperature: string;
+  condition: string;
+  wind: string;
+  adviceTitle: string;
+  privacyNote: string;
+  disclaimer: string;
+  errorFallback: string;
+  enterCityError: string;
+  currentLocationLabel: string;
+}
+
+export interface SadqaZakatPlannerTranslations {
+  title: string;
+  subtitle: string;
+  sadqaTitle: string;
+  zakatTitle: string;
+  zakatModuleLink: string;
+  sadaqahModuleLink: string;
+  disclaimer: string;
+  items: {
+    s1: string;
+    s2: string;
+    s3: string;
+    s4: string;
+    z1: string;
+    z2: string;
+    z3: string;
+    z4: string;
+  };
+}
+
+export interface IslamicGlossaryTranslations {
+  title: string;
+  subtitle: string;
+  searchPlaceholder: string;
+  viewRelatedModule: string;
+  noTermsFound: string;
+  disclaimer: string;
+}
+
+export interface IslamicUtilitiesHubTranslations {
+  title: string;
+  subtitle: string;
+  openTool: string;
+}
+
+export interface PrayerTimePlanningCardTranslations {
+  title: string;
+  description: string;
+  supportsTitle: string;
+  point1: string;
+  point2: string;
+  point3: string;
+  disclaimer: string;
+}
+
 export interface IslamicToolsTranslations {
   calculate: string;
   reset: string;
@@ -341,6 +403,11 @@ export interface IslamicToolsTranslations {
   ramadan: RamadanToolTranslations;
   eidQurbani: EidQurbaniToolTranslations;
   hajj: HajjToolTranslations;
+  weather: WeatherToolTranslations;
+  sadqaZakatPlanner: SadqaZakatPlannerTranslations;
+  glossary: IslamicGlossaryTranslations;
+  utilitiesHub: IslamicUtilitiesHubTranslations;
+  prayerPlanningCard: PrayerTimePlanningCardTranslations;
 }
 
 export interface UITranslationKeys {

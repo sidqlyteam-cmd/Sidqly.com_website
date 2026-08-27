@@ -5,7 +5,7 @@ import { useLanguage } from '../../i18n/LanguageContext';
 import { MapPin, Search, Clock, AlertCircle, Shield, RotateCcw } from 'lucide-react';
 
 const NamazTimingWidget: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, dir } = useLanguage();
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [method, setMethod] = useState(1);
@@ -84,7 +84,7 @@ const NamazTimingWidget: React.FC = () => {
   const isBusy = loading || geoLoading;
 
   return (
-    <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto">
+    <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto" dir={dir}>
       <div className="text-center mb-8">
          <div className="bg-sidqly-green-deep/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Clock className="text-sidqly-green-deep w-8 h-8" />
@@ -210,11 +210,11 @@ const NamazTimingWidget: React.FC = () => {
       <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
          <div className="flex items-start gap-2 text-xs text-gray-500">
             <Shield size={14} className="shrink-0 mt-0.5 text-sidqly-green-soft" />
-            <p><strong>Privacy Note:</strong> Your location is used only in your browser to estimate Namaz timings. Sidqly does not store or track your location.</p>
+            <p>{t('islamicTools.privacyNotice')}</p>
          </div>
          <div className="flex items-start gap-2 text-xs text-gray-500">
             <AlertCircle size={14} className="shrink-0 mt-0.5 text-gray-400" />
-            <p>Prayer times may differ by calculation method, mosque timetable, local authority, school of thought, and official adjustments. Confirm final Namaz timings with your local mosque or trusted authority.</p>
+            <p>{t('islamicTools.calendar.planningDisclaimer')}</p>
          </div>
       </div>
     </div>

@@ -1,71 +1,80 @@
 import React from 'react';
 import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
+import { useLanguage } from '../../i18n/LanguageContext';
 import { Link } from 'react-router-dom';
-import { Calendar, Compass, CloudSun, Moon, Gift, Heart, BookOpen, Clock, Activity, Calculator } from 'lucide-react';
-
-const utilities = [
-  { title: "Namaz Timings", path: "/namaz-timings", desc: "Calculate approximate prayer times for operational planning.", icon: <Clock size={24} /> },
-  { title: "Zakat Calculator", path: "/zakat-calculator", desc: "Estimate your Zakat for operational and personal planning.", icon: <Calculator size={24} /> },
-  { title: "Qibla Direction", path: "/qibla-direction", desc: "Compass for site logistics and prayer area setup.", icon: <Compass size={24} /> },
-  { title: "Islamic Calendar", path: "/islamic-calendar", desc: "Plan your charity workflows with current Hijri date awareness.", icon: <Calendar size={24} /> },
-  { title: "Moon Phase", path: "/moon-phase-islamic-calendar", desc: "Approximate lunar phase planning tool.", icon: <Moon size={24} /> },
-  { title: "Weather-Aware Distribution", path: "/weather-charity-distribution", desc: "Plan open-air distributions with local weather in mind.", icon: <CloudSun size={24} /> },
-  { title: "Ramadan Planner", path: "/ramadan-planner", desc: "Timeline checklist for Iftar and Sadqa processing.", icon: <Heart size={24} /> },
-  { title: "Eid/Qurbani Planner", path: "/eid-qurbani-planner", desc: "Qurbani workflow management and share allocation checklist.", icon: <Gift size={24} /> },
-  { title: "Hajj Countdown", path: "/hajj-countdown", desc: "Estimated timeline to align Qurbani planning seasons.", icon: <Clock size={24} /> },
-  { title: "Sadqa/Zakat Planner", path: "/sadqa-zakat-planner", desc: "Zakat separation and Sadqa flexibility checklists.", icon: <Activity size={24} /> },
-  { title: "Islamic Glossary", path: "/islamic-glossary", desc: "Definitions of Islamic giving terms and operational contexts.", icon: <BookOpen size={24} /> },
-];
+import { Calendar, Compass, CloudSun, Moon, Gift, Heart, BookOpen, Clock, Activity, Calculator, ArrowRight } from 'lucide-react';
 
 const IslamicUtilitiesPage: React.FC = () => {
+  const { t, dir } = useLanguage();
+
+  const utilities = [
+    { titleKey: "islamicTools.namaz.title", path: "/namaz-timings", descKey: "islamicTools.namaz.subtitle", icon: <Clock size={24} /> },
+    { titleKey: "islamicTools.zakat.title", path: "/zakat-calculator", descKey: "islamicTools.zakat.subtitle", icon: <Calculator size={24} /> },
+    { titleKey: "islamicTools.qibla.title", path: "/qibla-direction", descKey: "islamicTools.qibla.subtitle", icon: <Compass size={24} /> },
+    { titleKey: "islamicTools.calendar.title", path: "/islamic-calendar", descKey: "islamicTools.calendar.subtitle", icon: <Calendar size={24} /> },
+    { titleKey: "islamicTools.moonPhase.title", path: "/moon-phase-islamic-calendar", descKey: "islamicTools.moonPhase.subtitle", icon: <Moon size={24} /> },
+    { titleKey: "islamicTools.weather.title", path: "/weather-charity-distribution", descKey: "islamicTools.weather.subtitle", icon: <CloudSun size={24} /> },
+    { titleKey: "islamicTools.ramadan.title", path: "/ramadan-planner", descKey: "islamicTools.ramadan.subtitle", icon: <Heart size={24} /> },
+    { titleKey: "islamicTools.eidQurbani.title", path: "/eid-qurbani-planner", descKey: "islamicTools.eidQurbani.subtitle", icon: <Gift size={24} /> },
+    { titleKey: "islamicTools.hajj.title", path: "/hajj-countdown", descKey: "islamicTools.hajj.subtitle", icon: <Clock size={24} /> },
+    { titleKey: "islamicTools.sadqaZakatPlanner.title", path: "/sadqa-zakat-planner", descKey: "islamicTools.sadqaZakatPlanner.subtitle", icon: <Activity size={24} /> },
+    { titleKey: "islamicTools.glossary.title", path: "/islamic-glossary", descKey: "islamicTools.glossary.subtitle", icon: <BookOpen size={24} /> },
+  ];
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Islamic Utilities Hub | Sidqly",
-    "description": "Practical tools built for Islamic charity operations. Plan Ramadan, Qurbani, Sadqa, and Zakat with Qibla direction, Namaz timings, Hijri dates, and weather-aware tools.",
+    "name": `${t('islamicTools.utilitiesHub.title')} | Sidqly`,
+    "description": t('islamicTools.utilitiesHub.subtitle'),
     "url": `${brand.domain}/islamic-utilities`,
   };
 
   return (
-    <>
+    <div dir={dir}>
       <SEO
-        title="Islamic Utilities & Planning Tools | Sidqly"
-        description="Plan Ramadan, Qurbani, Sadqa, Zakat, Qibla direction, Namaz timings and weather-aware distributions with practical tools for Islamic charity operations."
+        title={`${t('islamicTools.utilitiesHub.title')} | Sidqly`}
+        description={t('islamicTools.utilitiesHub.subtitle')}
         canonical="https://www.sidqly.com/islamic-utilities"
         schema={schema}
       />
 
-      <div className="bg-sidqly-ivory min-h-screen py-20">
+      <div className="bg-sidqly-ivory min-h-screen py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">
-              Islamic <span className="text-sidqly-green-deep">Utilities</span>
+              {t('islamicTools.utilitiesHub.title')}
             </h1>
             <p className="text-lg text-gray-600 mb-4">
-              Practical planning tools and utilities built to support giving teams, mosques, and charities globally.
+              {t('islamicTools.utilitiesHub.subtitle')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {utilities.map((util, idx) => (
-              <Link key={idx} to={util.path} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald hover:shadow-md transition-all flex flex-col group">
-                <div className="flex items-center gap-3 mb-4">
-                   <div className="bg-sidqly-ivory p-3 rounded-xl text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors">
-                      {util.icon}
-                   </div>
-                   <h3 className="font-bold text-lg text-sidqly-navy">{util.title}</h3>
-                </div>
-                <p className="text-sm text-gray-600 flex-grow">{util.desc}</p>
-                <div className="mt-6 font-bold text-sm text-sidqly-green-deep flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Open {util.title} <span>&rarr;</span>
-                </div>
-              </Link>
-            ))}
+            {utilities.map((util, idx) => {
+              const title = t(util.titleKey as any);
+              const desc = t(util.descKey as any);
+
+              return (
+                <Link key={idx} to={util.path} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald hover:shadow-md transition-all flex flex-col group">
+                  <div className="flex items-center gap-3 mb-4">
+                     <div className="bg-sidqly-ivory p-3 rounded-xl text-sidqly-green-deep group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors shrink-0">
+                        {util.icon}
+                     </div>
+                     <h3 className="font-bold text-lg text-sidqly-navy">{title}</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 flex-grow leading-relaxed">{desc}</p>
+                  <div className="mt-6 font-bold text-sm text-sidqly-green-deep flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>{t('islamicTools.utilitiesHub.openTool')} {title}</span>
+                    <ArrowRight size={16} className={dir === 'rtl' ? 'rotate-180' : ''} />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
