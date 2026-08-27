@@ -132,6 +132,65 @@ export const getNextRamadanEstimate = (currentDate: Date = new Date()): Seasonal
 };
 
 /**
+ * Gets seasonal info for Eid al-Fitr planning (1st Shawwal).
+ */
+export const getEidFitrSeasonInfo = (
+  inputDate: Date = new Date(),
+  isConfirmedOverride: boolean = false
+): SeasonalEventDetails => {
+  const currentDate = normalizeToNoon(inputDate);
+  const islamicInfo = getIslamicDateInfo(currentDate);
+
+  let targetYear = islamicInfo.hijriYear;
+  const monthIdx = islamicInfo.hijriMonthIndex; // Shawwal is 9
+
+  if (monthIdx > 9 || (monthIdx === 9 && islamicInfo.hijriDay > 3)) {
+    targetYear += 1;
+  }
+
+  let eidStart = hijriToGregorian(targetYear, 9, 1) || new Date(currentDate.getFullYear(), 2, 31, 12, 0, 0);
+  let eidEnd = hijriToGregorian(targetYear, 9, 3) || new Date(eidStart.getTime() + 2 * 24 * 60 * 60 * 1000);
+
+  eidStart = normalizeToNoon(eidStart);
+  eidEnd = normalizeToNoon(eidEnd);
+
+  let phase: SeasonalPhase = 'before';
+  let daysRemaining = 0;
+  let currentSeasonDay: number | null = null;
+
+  if (currentDate.getTime() < eidStart.getTime()) {
+    phase = 'before';
+    daysRemaining = calculateDaysRemaining(currentDate, eidStart);
+  } else if (currentDate.getTime() <= eidEnd.getTime()) {
+    phase = 'during';
+    daysRemaining = 0;
+    const daysSinceStart = Math.floor((currentDate.getTime() - eidStart.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+    currentSeasonDay = Math.min(3, Math.max(1, daysSinceStart));
+  } else {
+    targetYear += 1;
+    eidStart = normalizeToNoon(hijriToGregorian(targetYear, 9, 1) || new Date(eidStart.getFullYear() + 1, eidStart.getMonth(), eidStart.getDate(), 12, 0, 0));
+    eidEnd = normalizeToNoon(hijriToGregorian(targetYear, 9, 3) || new Date(eidStart.getTime() + 2 * 24 * 60 * 60 * 1000));
+    phase = 'before';
+    daysRemaining = calculateDaysRemaining(currentDate, eidStart);
+  }
+
+  return {
+    id: 'eid_al_fitr',
+    titleKey: 'eidAlFitrPlanner',
+    defaultTitle: 'Eid al-Fitr Planner',
+    phase,
+    status: isConfirmedOverride ? 'officially_confirmed' : 'estimated',
+    targetDate: eidStart,
+    endDate: eidEnd,
+    daysRemaining,
+    currentSeasonDay,
+    totalDaysInSeason: 3,
+    hijriYear: targetYear,
+    isConfirmed: isConfirmedOverride,
+  };
+};
+
+/**
  * Gets seasonal info for Eid al-Adha & Qurbani planning (10th Dhul Hijjah).
  */
 export const getEidQurbaniSeasonInfo = (
@@ -188,6 +247,19 @@ export const getEidQurbaniSeasonInfo = (
     hijriYear: targetYear,
     isConfirmed: isConfirmedOverride,
   };
+};
+
+/**
+ * Unified getter for Eid information (Fitr or Adha).
+ */
+export const getEidSeasonInfo = (
+  type: 'fitr' | 'adha',
+  inputDate: Date = new Date(),
+  isConfirmedOverride: boolean = false
+): SeasonalEventDetails => {
+  return type === 'fitr'
+    ? getEidFitrSeasonInfo(inputDate, isConfirmedOverride)
+    : getEidQurbaniSeasonInfo(inputDate, isConfirmedOverride);
 };
 
 /**
