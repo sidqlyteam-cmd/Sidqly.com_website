@@ -53,20 +53,62 @@ export function buildLocalizedPath(rawPath: string, targetLang: Language): strin
   return `/${targetLang}${cleanRaw}`;
 }
 
+export function detectBrowserLanguage(): Language | null {
+  if (typeof navigator === 'undefined') return null;
+
+  const languages = navigator.languages || (navigator.language ? [navigator.language] : []);
+  for (const lang of languages) {
+    if (!lang) continue;
+    const code = lang.split('-')[0].toLowerCase();
+    if (isSupportedLanguage(code)) {
+      return code;
+    }
+  }
+  return null;
+}
+
+export function getSavedLanguage(): Language | null {
+  if (typeof localStorage === 'undefined') return null;
+  const saved = localStorage.getItem('sidqly_lang');
+  if (saved && isSupportedLanguage(saved)) {
+    return saved as Language;
+  }
+  return null;
+}
+
+export function getPreferredLanguage(): Language {
+  const saved = getSavedLanguage();
+  if (saved) return saved;
+
+  const browserLang = detectBrowserLanguage();
+  if (browserLang) return browserLang;
+
+  return DEFAULT_LANGUAGE;
+}
+
+export function getUrlLanguage(pathname: string): Language | null {
+  const match = pathname.match(/^\/(ar|ur|fr|de)(\/|$)/);
+  if (match && isSupportedLanguage(match[1])) {
+    return match[1];
+  }
+  return null;
+}
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const currentPathLanguage = useMemo<Language>(() => {
-    const pathname = location.pathname;
-    const match = pathname.match(/^\/(ar|ur|fr|de)(\/|$)/);
-    if (match && isSupportedLanguage(match[1])) {
-      return match[1];
-    }
-    return 'en';
+  const urlLanguage = useMemo<Language | null>(() => {
+    return getUrlLanguage(location.pathname);
   }, [location.pathname]);
 
-  const activeLanguage = currentPathLanguage;
+  const activeLanguage = useMemo<Language>(() => {
+    if (urlLanguage) {
+      return urlLanguage;
+    }
+    return getPreferredLanguage();
+  }, [urlLanguage]);
+
   const activeDir = getLanguageDir(activeLanguage);
 
   useEffect(() => {
@@ -78,6 +120,18 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       localStorage.setItem('sidqly_lang', activeLanguage);
     }
   }, [activeLanguage, activeDir]);
+
+  useEffect(() => {
+    if (urlLanguage === null) {
+      const preferred = getPreferredLanguage();
+      if (preferred !== DEFAULT_LANGUAGE) {
+        const targetPath = buildLocalizedPath(location.pathname, preferred);
+        if (targetPath !== location.pathname) {
+          navigate(targetPath, { replace: true });
+        }
+      }
+    }
+  }, [location.pathname, urlLanguage, navigate]);
 
   const setLanguage = useCallback((newLang: Language) => {
     if (!isSupportedLanguage(newLang)) return;

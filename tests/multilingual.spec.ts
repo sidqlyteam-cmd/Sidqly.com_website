@@ -1,11 +1,79 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Multilingual Architecture & i18n Foundation Tests', () => {
-  test('Default root route renders in English (ltr)', async ({ page }) => {
+  test('Default root route renders in English (ltr) when browser language is English and no saved preference', async ({ page }) => {
     await page.goto('/');
     const html = page.locator('html');
     await expect(html).toHaveAttribute('lang', 'en');
     await expect(html).toHaveAttribute('dir', 'ltr');
+  });
+
+  test('Browser language detection: redirect to /ar when browser language is Arabic', async ({ browser }) => {
+    const context = await browser.newContext({ locale: 'ar-SA' });
+    const page = await context.newPage();
+    await page.goto('/features');
+    await page.waitForURL('**/ar/features');
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'ar');
+    await expect(html).toHaveAttribute('dir', 'rtl');
+    await context.close();
+  });
+
+  test('Browser language detection: redirect to /fr when browser language is French', async ({ browser }) => {
+    const context = await browser.newContext({ locale: 'fr-FR' });
+    const page = await context.newPage();
+    await page.goto('/pricing');
+    await page.waitForURL('**/fr/pricing');
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'fr');
+    await expect(html).toHaveAttribute('dir', 'ltr');
+    await context.close();
+  });
+
+  test('Saved language preference: localStorage sidqly_lang="ur" redirects un-prefixed URL to /ur', async ({ page }) => {
+    await page.goto('/');
+    await page.evaluate(() => localStorage.setItem('sidqly_lang', 'ur'));
+    await page.goto('/how-it-works');
+    await page.waitForURL('**/ur/how-it-works');
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'ur');
+    await expect(html).toHaveAttribute('dir', 'rtl');
+  });
+
+  test('Explicit language URL priority over saved localStorage preference', async ({ page }) => {
+    await page.goto('/');
+    await page.evaluate(() => localStorage.setItem('sidqly_lang', 'ar'));
+    // Navigate explicitly to /fr/features
+    await page.goto('/fr/features');
+    await expect(page).toHaveURL(/\/fr\/features$/);
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'fr');
+    await expect(html).toHaveAttribute('dir', 'ltr');
+  });
+
+  test('Explicit language URL priority over browser language preference', async ({ browser }) => {
+    const context = await browser.newContext({ locale: 'ar-SA' });
+    const page = await context.newPage();
+    // Navigate explicitly to /de/features
+    await page.goto('/de/features');
+    await expect(page).toHaveURL(/\/de\/features$/);
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'de');
+    await expect(html).toHaveAttribute('dir', 'ltr');
+    await context.close();
+  });
+
+  test('Manual language selection updates localStorage', async ({ page }) => {
+    await page.goto('/features');
+    const switcherButton = page.locator('nav [data-testid="language-switcher-button"]').first();
+    await switcherButton.click();
+
+    const germanOption = page.locator('[data-testid="language-option-de"]');
+    await germanOption.click();
+
+    await page.waitForURL('**/de/features');
+    const savedLang = await page.evaluate(() => localStorage.getItem('sidqly_lang'));
+    expect(savedLang).toBe('de');
   });
 
   test('Arabic prefix /ar sets lang="ar" and dir="rtl"', async ({ page }) => {
