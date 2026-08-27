@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, MapPin, Building2, Globe, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, MapPin, Building2, Globe, ChevronRight, ChevronLeft } from 'lucide-react';
 import type { LocationRecord } from '../../data/locations/locationTypes';
 import { allLocations } from '../../data/locations/locations';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 interface LocationHierarchyNavProps {
   location: LocationRecord;
 }
 
 export const LocationHierarchyNav: React.FC<LocationHierarchyNavProps> = ({ location }) => {
+  const { getLocalizedPath, dir } = useLanguage();
+  const ArrowNext = dir === 'rtl' ? ChevronLeft : ChevronRight;
+
   // Find parent region
   const regionObj = allLocations.find(
     (l) => l.pageType === 'region' && (l.slug === location.regionSlug || l.region.toLowerCase() === location.region.toLowerCase())
@@ -30,7 +34,7 @@ export const LocationHierarchyNav: React.FC<LocationHierarchyNavProps> = ({ loca
     : [];
 
   return (
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 text-left my-6">
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 text-left dir-override my-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         {/* City Hierarchy Context */}
         {location.pageType === 'city' && (
@@ -53,18 +57,18 @@ export const LocationHierarchyNav: React.FC<LocationHierarchyNavProps> = ({ loca
             <div className="flex flex-wrap gap-2 pt-2 md:pt-0">
               {countryObj && (
                 <Link
-                  to={countryObj.canonicalPath || `/locations/${countryObj.slug}`}
+                  to={getLocalizedPath(countryObj.canonicalPath || `/locations/${countryObj.slug}`)}
                   className="inline-flex items-center gap-1.5 bg-sidqly-green-emerald/20 text-sidqly-green-soft hover:bg-sidqly-green-emerald hover:text-white px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-sidqly-green-soft/30"
                 >
-                  <Building2 size={14} /> View {countryObj.country} <ChevronRight size={14} />
+                  <Building2 size={14} /> View {countryObj.country} <ArrowNext size={14} />
                 </Link>
               )}
               {regionObj && (
                 <Link
-                  to={regionObj.canonicalPath || `/locations/${regionObj.slug}`}
+                  to={getLocalizedPath(regionObj.canonicalPath || `/locations/${regionObj.slug}`)}
                   className="inline-flex items-center gap-1.5 bg-white/10 text-white hover:bg-white/20 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-white/10"
                 >
-                  <Globe size={14} /> Explore {regionObj.region} <ChevronRight size={14} />
+                  <Globe size={14} /> Explore {regionObj.region} <ArrowNext size={14} />
                 </Link>
               )}
             </div>
@@ -92,14 +96,14 @@ export const LocationHierarchyNav: React.FC<LocationHierarchyNavProps> = ({ loca
             <div className="flex flex-wrap gap-2 pt-2 md:pt-0">
               {regionObj && (
                 <Link
-                  to={regionObj.canonicalPath || `/locations/${regionObj.slug}`}
+                  to={getLocalizedPath(regionObj.canonicalPath || `/locations/${regionObj.slug}`)}
                   className="inline-flex items-center gap-1.5 bg-sidqly-green-emerald/20 text-sidqly-green-soft hover:bg-sidqly-green-emerald hover:text-white px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-sidqly-green-soft/30"
                 >
-                  <Globe size={14} /> Explore {regionObj.region} Region <ChevronRight size={14} />
+                  <Globe size={14} /> Explore {regionObj.region} Region <ArrowNext size={14} />
                 </Link>
               )}
               <Link
-                to="/locations"
+                to={getLocalizedPath('/locations')}
                 className="inline-flex items-center gap-1.5 bg-white/10 text-white hover:bg-white/20 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-white/10"
               >
                 All Global Service Areas <ArrowUpRight size={14} />
@@ -125,10 +129,10 @@ export const LocationHierarchyNav: React.FC<LocationHierarchyNavProps> = ({ loca
 
             <div className="flex flex-wrap gap-2 pt-2 md:pt-0">
               <Link
-                to="/locations"
+                to={getLocalizedPath('/locations')}
                 className="inline-flex items-center gap-1.5 bg-sidqly-green-emerald/20 text-sidqly-green-soft hover:bg-sidqly-green-emerald hover:text-white px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-sidqly-green-soft/30"
               >
-                View All Global Locations <ChevronRight size={14} />
+                View All Global Locations <ArrowNext size={14} />
               </Link>
             </div>
           </>
@@ -145,7 +149,7 @@ export const LocationHierarchyNav: React.FC<LocationHierarchyNavProps> = ({ loca
             {childCities.map((city) => (
               <Link
                 key={city.slug}
-                to={city.canonicalPath || `/locations/${city.slug}`}
+                to={getLocalizedPath(city.canonicalPath || `/locations/${city.slug}`)}
                 className="bg-white/10 hover:bg-sidqly-green-emerald text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors"
               >
                 {city.cityName || city.slug}
@@ -164,7 +168,7 @@ export const LocationHierarchyNav: React.FC<LocationHierarchyNavProps> = ({ loca
             {childCountries.map((country) => (
               <Link
                 key={country.slug}
-                to={country.canonicalPath || `/locations/${country.slug}`}
+                to={getLocalizedPath(country.canonicalPath || `/locations/${country.slug}`)}
                 className="bg-white/10 hover:bg-sidqly-green-emerald text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors"
               >
                 {country.country}

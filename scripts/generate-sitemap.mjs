@@ -120,11 +120,23 @@ const baseLocationsRoutes = [
 
 const expandWithMultilingual = (routes) => {
     const set = new Set();
+
     routes.forEach(r => {
         set.add(r);
+
+        // Arabic
         set.add(r === '/' ? '/ar' : `/ar${r}`);
+
+        // Urdu
         set.add(r === '/' ? '/ur' : `/ur${r}`);
+
+        // French
+        set.add(r === '/' ? '/fr' : `/fr${r}`);
+
+        // German
+        set.add(r === '/' ? '/de' : `/de${r}`);
     });
+
     return Array.from(set);
 };
 
@@ -153,7 +165,10 @@ const generateUrlset = (routesList) => {
     xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
 
     routesList.forEach(route => {
-        const fullUrl = route.startsWith('/') ? `${domain}${route}` : route;
+        const fullUrl = route.startsWith('/')
+            ? `${domain}${route}`
+            : route;
+
         xml += `  <url>\n`;
         xml += `    <loc>${fullUrl}</loc>\n`;
         xml += `    <lastmod>${today}</lastmod>\n`;
@@ -161,6 +176,7 @@ const generateUrlset = (routesList) => {
     });
 
     xml += `</urlset>\n`;
+
     return xml;
 };
 
@@ -176,17 +192,45 @@ const generateIndex = (sitemapsList) => {
     });
 
     xml += `</sitemapindex>\n`;
+
     return xml;
 };
 
 // Write individual sitemaps
-fs.writeFileSync(path.join(publicDir, 'sitemap-pages.xml'), generateUrlset(pagesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-modules.xml'), generateUrlset(modulesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-use-cases.xml'), generateUrlset(useCasesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-resources.xml'), generateUrlset(resourcesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-blog.xml'), generateUrlset(blogRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-ai.xml'), generateUrlset(aiRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-locations.xml'), generateUrlset(locationsRoutes));
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap-pages.xml'),
+    generateUrlset(pagesRoutes)
+);
+
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap-modules.xml'),
+    generateUrlset(modulesRoutes)
+);
+
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap-use-cases.xml'),
+    generateUrlset(useCasesRoutes)
+);
+
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap-resources.xml'),
+    generateUrlset(resourcesRoutes)
+);
+
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap-blog.xml'),
+    generateUrlset(blogRoutes)
+);
+
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap-ai.xml'),
+    generateUrlset(aiRoutes)
+);
+
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap-locations.xml'),
+    generateUrlset(locationsRoutes)
+);
 
 // Write sitemap index
 const sitemapFiles = [
@@ -198,6 +242,12 @@ const sitemapFiles = [
     'sitemap-ai.xml',
     'sitemap-locations.xml'
 ];
-fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), generateIndex(sitemapFiles));
 
-console.log(`Successfully generated sitemap index and ${sitemapFiles.length} child sitemaps in ${publicDir}`);
+fs.writeFileSync(
+    path.join(publicDir, 'sitemap.xml'),
+    generateIndex(sitemapFiles)
+);
+
+console.log(
+    `Successfully generated sitemap index and ${sitemapFiles.length} child sitemaps in ${publicDir}`
+);

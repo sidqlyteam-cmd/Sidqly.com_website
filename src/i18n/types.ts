@@ -1,6 +1,7 @@
 import type { LocationBenefit, LocationFaq } from '../data/locations/locationTypes';
 
 export interface NavTranslations {
+  home?: string;
   product: string;
   whatIsSidqly: string;
   features: string;
@@ -17,6 +18,7 @@ export interface NavTranslations {
   trust: string;
   demo: string;
   locations: string;
+  more?: string;
 }
 
 export interface CommonTranslations {
@@ -71,6 +73,9 @@ export interface UITranslationKeys {
 }
 
 export interface LocationTranslation {
+  cityName?: string;
+  country?: string;
+  region?: string;
   h1?: string;
   metaTitle?: string;
   metaDescription?: string;

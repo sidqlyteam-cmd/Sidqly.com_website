@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Globe, Check } from 'lucide-react';
+import { Globe, Check, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { SUPPORTED_LANGUAGES, LANGUAGE_CODES } from '../i18n/config';
 import type { Language } from '../i18n/config';
@@ -9,7 +9,10 @@ interface LanguageSwitcherProps {
   dropUp?: boolean;
 }
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = '', dropUp = false }) => {
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
+  className = '',
+  dropUp = false,
+}) => {
   const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -18,11 +21,16 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = 
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
+
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
@@ -32,7 +40,10 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = 
   };
 
   return (
-    <div className={`relative inline-block text-left ${className}`} ref={dropdownRef}>
+    <div
+      className={`relative inline-block text-left ${className}`}
+      ref={dropdownRef}
+    >
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -42,19 +53,33 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = 
         aria-label={t('common.selectLanguage', 'Select Language')}
         data-testid="language-switcher-button"
       >
-        <Globe size={16} className="text-sidqly-green-deep dark:text-sidqly-green-soft flex-shrink-0" />
-        <span className="truncate max-w-[80px] sm:max-w-none">{currentConfig.nativeName}</span>
+        <Globe
+          size={16}
+          className="text-sidqly-green-deep dark:text-sidqly-green-soft flex-shrink-0"
+        />
+
+        <span className="truncate max-w-[80px] sm:max-w-none">
+          {currentConfig.nativeName}
+        </span>
+
+        <ChevronDown
+          size={12}
+          className="opacity-60 flex-shrink-0"
+        />
       </button>
 
       {isOpen && (
         <div
-          className={`absolute ${dropUp ? 'bottom-full mb-2' : 'top-full mt-2'} ltr:right-0 ltr:sm:right-auto ltr:sm:left-0 rtl:left-0 rtl:sm:left-auto rtl:sm:right-0 w-44 bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-2xl shadow-xl z-50 py-2 transform origin-top transition-all`}
+          className={`absolute ${
+            dropUp ? 'bottom-full mb-2' : 'top-full mt-2'
+          } ltr:right-0 ltr:sm:right-auto ltr:sm:left-0 rtl:left-0 rtl:sm:left-auto rtl:sm:right-0 w-44 bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 rounded-2xl shadow-xl z-50 py-2 transform origin-top transition-all`}
           role="menu"
           aria-orientation="vertical"
         >
           {LANGUAGE_CODES.map((code) => {
             const config = SUPPORTED_LANGUAGES[code];
             const isSelected = code === language;
+
             return (
               <button
                 key={code}
@@ -69,9 +94,17 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className = 
               >
                 <div className="flex flex-col">
                   <span className="font-bold">{config.nativeName}</span>
-                  <span className="text-[11px] text-gray-400 dark:text-gray-500">{config.name}</span>
+                  <span className="text-[11px] text-gray-400 dark:text-gray-500">
+                    {config.name}
+                  </span>
                 </div>
-                {isSelected && <Check size={16} className="text-sidqly-green-deep dark:text-sidqly-green-soft" />}
+
+                {isSelected && (
+                  <Check
+                    size={16}
+                    className="text-sidqly-green-deep dark:text-sidqly-green-soft"
+                  />
+                )}
               </button>
             );
           })}

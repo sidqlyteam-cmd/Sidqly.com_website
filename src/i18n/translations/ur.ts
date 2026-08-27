@@ -2,6 +2,7 @@ import type { UITranslationKeys } from '../types';
 
 export const urTranslations: UITranslationKeys = {
   nav: {
+    home: 'ہوم',
     product: 'پروڈکٹ',
     whatIsSidqly: 'صدقلی کیا ہے؟',
     features: 'خصوصیات',
@@ -18,7 +19,9 @@ export const urTranslations: UITranslationKeys = {
     trust: 'اعتماد اور شفافیت',
     demo: 'ڈیمو بُک کریں',
     locations: 'عالمی مراکز',
+    more: 'مزید',
   },
+
   common: {
     bookDemo: 'ڈیمو بُک کریں',
     applyGuidedPilot: 'پائلٹ کے لیے درخواست دیں',
@@ -35,6 +38,7 @@ export const urTranslations: UITranslationKeys = {
     protectedDignity: 'محفوظ عزت نفس',
     clearImpact: 'واضح اثرات',
   },
+
   locationUI: {
     operatingIn: 'میں عملیات اور تعمیل کی نگرانی',
     locationOverview: 'مقام کا خلاصہ',
@@ -50,6 +54,7 @@ export const urTranslations: UITranslationKeys = {
     startPilotForLocation: 'میں پائلٹ کا آغاز کریں',
     backToLocations: 'عالمی مقامات کی فہرست پر واپس جائیں',
   },
+
   forms: {
     fullName: 'پورا نام',
     emailAddress: 'ای میل ایڈریس',

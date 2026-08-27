@@ -19,37 +19,54 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function getRawPath(path: string): string {
   if (!path) return '/';
-  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('mailto:') || path.startsWith('tel:') || path.startsWith('#')) {
+
+  if (
+    path.startsWith('http://') ||
+    path.startsWith('https://') ||
+    path.startsWith('mailto:') ||
+    path.startsWith('tel:') ||
+    path.startsWith('#')
+  ) {
     return path;
   }
 
   const normalized = path.startsWith('/') ? path : `/${path}`;
 
-  if (normalized === '/ar' || normalized.startsWith('/ar/')) {
-    const stripped = normalized.replace(/^\/ar(\/|$)/, '/');
-    return stripped === '' ? '/' : stripped;
-  }
+  // Remove any supported language prefix before rebuilding a localized path.
+  const langMatch = normalized.match(/^\/(ar|ur|fr|de)(\/|$)/);
 
-  if (normalized === '/ur' || normalized.startsWith('/ur/')) {
-    const stripped = normalized.replace(/^\/ur(\/|$)/, '/');
+  if (langMatch) {
+    const stripped = normalized.replace(/^\/(ar|ur|fr|de)(\/|$)/, '/');
     return stripped === '' ? '/' : stripped;
   }
 
   return normalized;
 }
 
-export function buildLocalizedPath(rawPath: string, targetLang: Language): string {
+export function buildLocalizedPath(
+  rawPath: string,
+  targetLang: Language
+): string {
   if (!rawPath) return '/';
-  if (rawPath.startsWith('http://') || rawPath.startsWith('https://') || rawPath.startsWith('mailto:') || rawPath.startsWith('tel:') || rawPath.startsWith('#')) {
+
+  if (
+    rawPath.startsWith('http://') ||
+    rawPath.startsWith('https://') ||
+    rawPath.startsWith('mailto:') ||
+    rawPath.startsWith('tel:') ||
+    rawPath.startsWith('#')
+  ) {
     return rawPath;
   }
 
   const cleanRaw = getRawPath(rawPath);
 
+  // English is the default language and has no URL prefix.
   if (targetLang === DEFAULT_LANGUAGE) {
     return cleanRaw;
   }
 
+  // Language homepage.
   if (cleanRaw === '/') {
     return `/${targetLang}`;
   }
@@ -57,18 +74,21 @@ export function buildLocalizedPath(rawPath: string, targetLang: Language): strin
   return `/${targetLang}${cleanRaw}`;
 }
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const currentPathLanguage = useMemo<Language>(() => {
     const pathname = location.pathname;
-    if (pathname === '/ar' || pathname.startsWith('/ar/')) {
-      return 'ar';
+
+    const match = pathname.match(/^\/(ar|ur|fr|de)(\/|$)/);
+
+    if (match && isSupportedLanguage(match[1])) {
+      return match[1];
     }
-    if (pathname === '/ur' || pathname.startsWith('/ur/')) {
-      return 'ur';
-    }
+
     return 'en';
   }, [location.pathname]);
 
@@ -80,79 +100,106 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       document.documentElement.setAttribute('lang', activeLanguage);
       document.documentElement.setAttribute('dir', activeDir);
     }
+
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('sidqly_lang', activeLanguage);
     }
   }, [activeLanguage, activeDir]);
 
-  const setLanguage = useCallback((newLang: Language) => {
-    if (!isSupportedLanguage(newLang)) return;
+  const setLanguage = useCallback(
+    (newLang: Language) => {
+      if (!isSupportedLanguage(newLang)) return;
 
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('sidqly_lang', newLang);
-    }
-
-    const targetPath = buildLocalizedPath(location.pathname, newLang);
-    if (targetPath !== location.pathname) {
-      navigate(targetPath);
-    }
-  }, [location.pathname, navigate]);
-
-  const t = useCallback((keyPath: string, defaultValue?: string): string => {
-    const translations = getUITranslations(activeLanguage);
-    const keys = keyPath.split('.');
-    let result: any = translations;
-
-    for (const k of keys) {
-      if (result && typeof result === 'object' && k in result) {
-        result = result[k];
-      } else {
-        result = undefined;
-        break;
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('sidqly_lang', newLang);
       }
-    }
 
-    if (typeof result === 'string') {
-      return result;
-    }
+      const targetPath = buildLocalizedPath(location.pathname, newLang);
 
-    // Fallback to English dictionary if key is missing in active language
-    if (activeLanguage !== DEFAULT_LANGUAGE) {
-      const enDict = getUITranslations(DEFAULT_LANGUAGE);
-      let enResult: any = enDict;
+      if (targetPath !== location.pathname) {
+        navigate(targetPath);
+      }
+    },
+    [location.pathname, navigate]
+  );
+
+  const t = useCallback(
+    (keyPath: string, defaultValue?: string): string => {
+      const translations = getUITranslations(activeLanguage);
+      const keys = keyPath.split('.');
+      let result: any = translations;
+
       for (const k of keys) {
-        if (enResult && typeof enResult === 'object' && k in enResult) {
-          enResult = enResult[k];
+        if (result && typeof result === 'object' && k in result) {
+          result = result[k];
         } else {
-          enResult = undefined;
+          result = undefined;
           break;
         }
       }
-      if (typeof enResult === 'string') {
-        return enResult;
+
+      if (typeof result === 'string') {
+        return result;
       }
-    }
 
-    return defaultValue || keyPath;
-  }, [activeLanguage]);
+      // Fallback to English dictionary if key is missing
+      // in the active language.
+      if (activeLanguage !== DEFAULT_LANGUAGE) {
+        const enDict = getUITranslations(DEFAULT_LANGUAGE);
+        let enResult: any = enDict;
 
-  const getLocalizedPath = useCallback((path: string, targetLang?: Language): string => {
-    const lang = targetLang || activeLanguage;
-    return buildLocalizedPath(path, lang);
-  }, [activeLanguage]);
+        for (const k of keys) {
+          if (enResult && typeof enResult === 'object' && k in enResult) {
+            enResult = enResult[k];
+          } else {
+            enResult = undefined;
+            break;
+          }
+        }
 
-  const getLocationTranslation = useCallback((record: LocationRecord): LocationRecord => {
-    return translateLocation(record, activeLanguage);
-  }, [activeLanguage]);
+        if (typeof enResult === 'string') {
+          return enResult;
+        }
+      }
 
-  const contextValue = useMemo(() => ({
-    language: activeLanguage,
-    dir: activeDir,
-    setLanguage,
-    t,
-    getLocalizedPath,
-    getLocationTranslation,
-  }), [activeLanguage, activeDir, setLanguage, t, getLocalizedPath, getLocationTranslation]);
+      return defaultValue || keyPath;
+    },
+    [activeLanguage]
+  );
+
+  const getLocalizedPath = useCallback(
+    (path: string, targetLang?: Language): string => {
+      const lang = targetLang || activeLanguage;
+      return buildLocalizedPath(path, lang);
+    },
+    [activeLanguage]
+  );
+
+  const getLocationTranslation = useCallback(
+    (record: LocationRecord): LocationRecord => {
+      return translateLocation(record, activeLanguage);
+    },
+    [activeLanguage]
+  );
+
+  const contextValue = useMemo(
+    () => ({
+      language: activeLanguage,
+      dir: activeDir,
+      setLanguage,
+      t,
+      getLocalizedPath,
+      getLocationTranslation,
+    }),
+    [
+      activeLanguage,
+      activeDir,
+      setLanguage,
+      t,
+      getLocalizedPath,
+      getLocationTranslation,
+    ]
+  );
 
   return (
     <LanguageContext.Provider value={contextValue}>
@@ -163,8 +210,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
 export function useLanguage(): LanguageContextType {
   const context = useContext(LanguageContext);
+
   if (!context) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
+
   return context;
 }

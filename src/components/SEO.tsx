@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { brand } from '../config/brand';
 import { useLanguage } from '../i18n/LanguageContext';
 import { buildLocalizedPath, getRawPath } from '../i18n/LanguageContext';
+import type { Language, Direction } from '../i18n/config';
 
 interface SEOProps {
   title?: string;
@@ -35,8 +36,8 @@ const SEO: React.FC<SEOProps> = ({
   schema,
   noindex
 }) => {
-  let activeLang: 'en' | 'ar' | 'ur' = 'en';
-  let activeDir: 'ltr' | 'rtl' = 'ltr';
+  let activeLang: Language = 'en';
+  let activeDir: Direction = 'ltr';
 
   try {
     const langCtx = useLanguage();
@@ -62,6 +63,8 @@ const SEO: React.FC<SEOProps> = ({
   const enUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'en')}`;
   const arUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'ar')}`;
   const urUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'ur')}`;
+  const frUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'fr')}`;
+  const deUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'de')}`;
 
   const isIndexable = !noindex;
 
@@ -75,10 +78,12 @@ const SEO: React.FC<SEOProps> = ({
       {focusKeyword && <meta name="keywords" content={[focusKeyword, ...(secondaryKeywords || [])].join(', ')} />}
 
       {/* Multilingual Alternate Links */}
-      {isIndexable && <link rel="alternate" hreflang="en" href={enUrl} />}
-      {isIndexable && <link rel="alternate" hreflang="ar" href={arUrl} />}
-      {isIndexable && <link rel="alternate" hreflang="ur" href={urUrl} />}
-      {isIndexable && <link rel="alternate" hreflang="x-default" href={enUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="en" href={enUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="ar" href={arUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="ur" href={urUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="fr" href={frUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="de" href={deUrl} />}
+      {isIndexable && <link rel="alternate" hrefLang="x-default" href={enUrl} />}
 
       <meta property="og:title" content={ogTitle || fullTitle} />
       <meta property="og:description" content={ogDescription || description} />

@@ -2,6 +2,7 @@ import type { UITranslationKeys } from '../types';
 
 export const enTranslations: UITranslationKeys = {
   nav: {
+    home: 'Home',
     product: 'Product',
     whatIsSidqly: 'What is Sidqly?',
     features: 'Features',
@@ -18,6 +19,7 @@ export const enTranslations: UITranslationKeys = {
     trust: 'Trust',
     demo: 'Book a Demo',
     locations: 'Global Hubs',
+    more: 'More',
   },
   common: {
     bookDemo: 'Book a Demo',

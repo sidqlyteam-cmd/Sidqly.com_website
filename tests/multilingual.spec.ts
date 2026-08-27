@@ -14,7 +14,6 @@ test.describe('Multilingual Architecture & i18n Foundation Tests', () => {
     await expect(html).toHaveAttribute('lang', 'ar');
     await expect(html).toHaveAttribute('dir', 'rtl');
 
-    // Check Arabic UI text in navbar
     await expect(page.locator('nav')).toContainText('العربية');
   });
 
@@ -24,53 +23,162 @@ test.describe('Multilingual Architecture & i18n Foundation Tests', () => {
     await expect(html).toHaveAttribute('lang', 'ur');
     await expect(html).toHaveAttribute('dir', 'rtl');
 
-    // Check Urdu UI text in navbar
     await expect(page.locator('nav')).toContainText('اردو');
   });
 
-  test('Language Switcher allows switching between English, Arabic, and Urdu', async ({ page }) => {
+  test('French prefix /fr sets lang="fr" and dir="ltr"', async ({ page }) => {
+    await page.goto('/fr');
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'fr');
+    await expect(html).toHaveAttribute('dir', 'ltr');
+
+    await expect(page.locator('nav')).toContainText('Français');
+  });
+
+  test('German prefix /de sets lang="de" and dir="ltr"', async ({ page }) => {
+    await page.goto('/de');
+    const html = page.locator('html');
+    await expect(html).toHaveAttribute('lang', 'de');
+    await expect(html).toHaveAttribute('dir', 'ltr');
+
+    await expect(page.locator('nav')).toContainText('Deutsch');
+  });
+
+  test('Language Switcher allows switching between English, Arabic, Urdu, French, and German', async ({ page }) => {
     await page.goto('/features');
 
-    // Open language switcher
-    const switcherButton = page.locator('nav [data-testid="language-switcher-button"]').first();
+    const switcherButton = page.locator(
+      'nav [data-testid="language-switcher-button"]'
+    ).first();
+
     await switcherButton.click();
 
-    // Select Arabic
-    const arabicOption = page.locator('[data-testid="language-option-ar"]');
+    const arabicOption = page.locator(
+      '[data-testid="language-option-ar"]'
+    );
     await arabicOption.click();
 
-    // Verify URL navigated to /ar/features and dir is rtl
     await page.waitForURL('**/ar/features');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
 
-    // Switch to Urdu
-    const arSwitcherButton = page.locator('nav [data-testid="language-switcher-button"]').first();
+    const arSwitcherButton = page.locator(
+      'nav [data-testid="language-switcher-button"]'
+    ).first();
+
     await arSwitcherButton.click();
 
-    const urduOption = page.locator('[data-testid="language-option-ur"]');
+    const urduOption = page.locator(
+      '[data-testid="language-option-ur"]'
+    );
     await urduOption.click();
 
     await page.waitForURL('**/ur/features');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+
+    const urSwitcherButton = page.locator(
+      'nav [data-testid="language-switcher-button"]'
+    ).first();
+
+    await urSwitcherButton.click();
+
+    const frenchOption = page.locator(
+      '[data-testid="language-option-fr"]'
+    );
+    await frenchOption.click();
+
+    await page.waitForURL('**/fr/features');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
+
+    const frSwitcherButton = page.locator(
+      'nav [data-testid="language-switcher-button"]'
+    ).first();
+
+    await frSwitcherButton.click();
+
+    const germanOption = page.locator(
+      '[data-testid="language-option-de"]'
+    );
+    await germanOption.click();
+
+    await page.waitForURL('**/de/features');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'de');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
   });
 
   test('Localized Location page renders translated content in Arabic and Urdu', async ({ page }) => {
-    // English version
     await page.goto('/locations/makkah-islamic-charity-software');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 
-    // Arabic version
     await page.goto('/ar/locations/makkah-islamic-charity-software');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
     await expect(page.locator('h1')).toContainText('مكة المكرمة');
 
-    // Urdu version
     await page.goto('/ur/locations/karachi-islamic-charity-software');
     await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
     await expect(page.locator('h1')).toContainText('کراچی');
+  });
+
+  test('All 6 Pakistan locations render correctly in Urdu with RTL, H1, and breadcrumbs', async ({ page }) => {
+    const pkLocations = [
+      {
+        slug: 'karachi-islamic-charity-software',
+        cityUrdu: 'کراچی',
+      },
+      {
+        slug: 'lahore-islamic-charity-software',
+        cityUrdu: 'لاہور',
+      },
+      {
+        slug: 'islamabad-islamic-charity-software',
+        cityUrdu: 'اسلام آباد',
+      },
+      {
+        slug: 'rawalpindi-islamic-charity-software',
+        cityUrdu: 'راولپنڈی',
+      },
+      {
+        slug: 'faisalabad-islamic-charity-software',
+        cityUrdu: 'فیصل آباد',
+      },
+      {
+        slug: 'peshawar-islamic-charity-software',
+        cityUrdu: 'پشاور',
+      },
+    ];
+
+    for (const loc of pkLocations) {
+      await page.goto(`/ur/locations/${loc.slug}`);
+
+      await expect(page.locator('html')).toHaveAttribute('lang', 'ur');
+      await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+
+      await expect(page.locator('h1')).toContainText(loc.cityUrdu);
+
+      const breadcrumbNav = page.locator(
+        'nav[aria-label="Breadcrumb"]'
+      );
+
+      await expect(breadcrumbNav).toBeVisible();
+
+      await expect(
+        breadcrumbNav.locator('a', { hasText: 'ہوم' })
+      ).toBeVisible();
+
+      await expect(
+        breadcrumbNav.locator('a', { hasText: 'پاکستان' })
+      ).toBeVisible();
+
+      await expect(
+        breadcrumbNav.locator(
+          'span[aria-current="page"]',
+          { hasText: loc.cityUrdu }
+        )
+      ).toBeVisible();
+    }
   });
 });

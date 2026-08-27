@@ -3,10 +3,14 @@ import type { LocationRecord } from '../../data/locations/locationTypes';
 import type { LocationTranslation } from '../types';
 import { arLocationTranslations } from './ar';
 import { urLocationTranslations } from './ur';
+import { frLocationTranslations } from './fr';
+import { deLocationTranslations } from './de';
 
 export const locationTranslations: Record<Exclude<Language, 'en'>, Record<string, LocationTranslation>> = {
   ar: arLocationTranslations,
   ur: urLocationTranslations,
+  fr: frLocationTranslations,
+  de: deLocationTranslations,
 };
 
 export function getLocationTranslation(
@@ -25,6 +29,9 @@ export function getLocationTranslation(
 
   return {
     ...record,
+    cityName: translation.cityName || record.cityName,
+    country: translation.country || record.country,
+    region: translation.region || record.region,
     h1: translation.h1 || record.h1,
     metaTitle: translation.metaTitle || record.metaTitle,
     metaDescription: translation.metaDescription || record.metaDescription,

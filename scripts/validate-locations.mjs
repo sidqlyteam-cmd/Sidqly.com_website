@@ -202,40 +202,17 @@ const validateRecord = (record, file) => {
     };
 };
 
-import { execSync } from 'child_process';
-
-const getJSONData = (moduleName) => {
-    const tempFile = path.join(projectRoot, 'scripts', 'temp-dump.ts');
-    const dumpScript = `
-import { ${moduleName} } from '../src/data/locations/${moduleName === 'regionsData' ? 'regions.js' : moduleName === 'countriesData' ? 'countries.js' : 'cityContentTier1.js'}';
-console.log(JSON.stringify(${moduleName}));
-    `;
-    fs.writeFileSync(tempFile, dumpScript);
-
-    try {
-        execSync(`npx -p typescript tsc temp-dump.ts --esModuleInterop --skipLibCheck --module ESNext --moduleResolution Node`, { cwd: path.join(projectRoot, 'scripts'), stdio: 'pipe' });
-        const jsFile = tempFile.replace('.ts', '.js');
-        const output = execSync(`node temp-dump.js`, { cwd: path.join(projectRoot, 'scripts'), encoding: 'utf8' });
-        fs.unlinkSync(tempFile);
-        fs.unlinkSync(jsFile);
-        return JSON.parse(output);
-    } catch (e) {
-        console.error("Error executing TS dump:", e.message);
-        if(fs.existsSync(tempFile)) fs.unlinkSync(tempFile);
-        const jsFile = tempFile.replace('.ts', '.js');
-        if(fs.existsSync(jsFile)) fs.unlinkSync(jsFile);
-        return [];
-    }
-};
-
+import { regionsData } from '../src/data/locations/regions.js';
+import { countriesData } from '../src/data/locations/countries.js';
+import { cityContentTier1 } from '../src/data/locations/cityContentTier1.js';
 
 const main = () => {
 
     let allRecords = [];
 
-    const regions = getJSONData('regionsData');
-    const countries = getJSONData('countriesData');
-    const cities = getJSONData('cityContentTier1');
+    const regions = regionsData || [];
+    const countries = countriesData || [];
+    const cities = cityContentTier1 || [];
 
     allRecords = [...regions, ...countries, ...cities];
 

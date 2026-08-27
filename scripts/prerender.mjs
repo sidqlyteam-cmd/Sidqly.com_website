@@ -91,22 +91,34 @@ async function runPrerender() {
 
   const port = 5174;
   const server = await startPreviewServer(port);
-  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] });
 
   console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
 
-  const CONCURRENCY = 4;
+  const CONCURRENCY = 5;
   const queue = [...routesList];
+  let completed = 0;
 
   const prerenderWorker = async (workerId) => {
-    const page = await browser.newPage();
+    let page = await browser.newPage();
+    let pageUsageCount = 0;
+
     while (queue.length > 0) {
       const route = queue.shift();
       if (!route) break;
 
       try {
-        await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'networkidle', timeout: 15000 });
-        await page.waitForTimeout(200);
+        // Periodically refresh page instance to prevent browser memory leak
+        if (pageUsageCount > 40) {
+          await page.close();
+          page = await browser.newPage();
+          pageUsageCount = 0;
+        }
+
+        await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'load', timeout: 15000 });
+        await page.waitForSelector('#root > *', { timeout: 3000 }).catch(() => {});
+        await page.waitForTimeout(150);
+        pageUsageCount++;
 
         const html = await page.content();
 
@@ -123,6 +135,10 @@ async function runPrerender() {
         }
 
         fs.writeFileSync(targetFile, html, 'utf8');
+        completed++;
+        if (completed % 200 === 0 || completed === routesList.length) {
+          console.log(`Pre-rendered ${completed}/${routesList.length} pages...`);
+        }
       } catch (err) {
         console.error(`Worker ${workerId} failed to pre-render ${route}: ${err.message}`);
       }
@@ -134,8 +150,12 @@ async function runPrerender() {
   await Promise.all(workers);
 
   await browser.close();
+  if (typeof server.closeAllConnections === 'function') {
+    server.closeAllConnections();
+  }
   server.close();
   console.log('✅ Static pre-rendering completed successfully!');
+  process.exit(0);
 }
 
 runPrerender().catch(err => {

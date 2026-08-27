@@ -2665,5 +2665,539 @@ export const countriesData: LocationRecord[] = [
         "href": "/blog/how-to-replace-whatsapp-for-charity-work"
       }
     ]
+  },
+  {
+    "country": "Ireland",
+    "countrySlug": "ireland",
+    "region": "Europe",
+    "regionSlug": "europe",
+    "slug": "ireland",
+    "pageType": "country",
+    "priorityTier": 1,
+    "indexStatus": "index",
+    "includeInSitemap": true,
+    "contentQuality": "strong",
+    "metaTitle": "Islamic Charity Software for Ireland | Sidqly",
+    "metaDescription": "Sidqly provides structured operational workflows for Irish mosques, Islamic foundations, and Zakat committees in Dublin and across Ireland.",
+    "h1": "Verified Islamic Giving Platform for Ireland",
+    "shortHero": "Clear operations and structured proof for Irish Islamic charities and community trusts.",
+    "quickAnswer": "Sidqly helps Irish Islamic organizations manage verified giving workflows with manual payment review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.",
+    "localNeeds": "Irish Islamic charities require organized tracking for mosque fundraising, Ramadan appeals, volunteer coordination, and clear board reporting expectations.",
+    "culturalNote": "In Ireland's Muslim community, giving flows through mosques, cultural centers, and local community appeals. Sidqly helps teams keep proof, approvals, donor updates, and reporting structured and dignity-safe.",
+    "localLanguageNote": "Sidqly focuses strictly on the operational layer of campaigns like Zakat, Sadaqah, and Qurbani, ensuring administrative clarity.",
+    "stakeholderSummary": "Sidqly supports Irish mosques, Islamic foundations, Zakat committees, Ramadan teams, and trustees.",
+    "organizationTypes": [
+      "Islamic Charities",
+      "Mosques & Cultural Centers",
+      "Zakat Committees"
+    ],
+    "recommendedModules": [
+      {
+        "label": "Manual Payment Review",
+        "href": "/modules/manual-payment-review",
+        "description": "Organizes Irish direct bank transfer receipts and online donation proof into a secure admin queue."
+      },
+      {
+        "label": "Reports & Board Packs",
+        "href": "/modules/reports-board-packs",
+        "description": "Produces audit-ready financial summaries for Irish charity trustees and governance meetings."
+      },
+      {
+        "label": "Donor-Safe Impact Updates",
+        "href": "/modules/donor-safe-updates",
+        "description": "Delivers dignified, privacy-filtered progress reports to donors supporting local and international appeals."
+      },
+      {
+        "label": "Zakat Fund Separation",
+        "href": "/modules/zakat-fund-separation",
+        "description": "Maintains clear operational ledger separation between Zakat hardship funds and general charity accounts in Ireland."
+      }
+    ],
+    "relatedUtilities": [
+      {
+        "label": "Zakat Calculator",
+        "href": "/zakat-calculator"
+      },
+      {
+        "label": "Ramadan Planner",
+        "href": "/ramadan-planner"
+      }
+    ],
+    "whySidqlyForLocation": {
+      "title": "Why Sidqly for Ireland?",
+      "subtitle": "Tailored operational governance, payment verification, and donor trust tools for Islamic organizations serving Ireland.",
+      "benefits": [
+        {
+          "title": "Centralized Direct Deposit Verification",
+          "description": "Consolidates donor bank transfer receipts into a unified admin verification queue for Irish organizations."
+        },
+        {
+          "title": "Audit-Ready Trustee Governance",
+          "description": "Provides clear fund separation logs and campaign balance sheets for board meetings across Ireland."
+        },
+        {
+          "title": "Recipient Dignity Protection",
+          "description": "Ensures community assistance photos are sanitized and anonymized before sending updates to donors."
+        },
+        {
+          "title": "Separate Zakat vs. Sadaqah Rules",
+          "description": "Maintains strict operational ledger boundaries between Zakat-eligible welfare funds and general Sadaqah collections."
+        }
+      ]
+    },
+    "locationUseCase": {
+      "title": "Example: How Sidqly Could Support Ireland Operations",
+      "problemStatement": "An organization in Ireland managing seasonal appeals and community aid may receive direct bank deposits with missing references, making manual reconciliation and board reporting time-consuming.",
+      "description": "A practical operational scenario illustrating how an organization in Ireland could manage community welfare using Sidqly modules.",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "name": "Campaign Planning & Intake",
+          "detail": "Configure designated giving appeals and intake requirements for Ireland.",
+          "moduleName": "Charity Request Intake",
+          "moduleSlug": "charity-request-intake"
+        },
+        {
+          "stepNumber": 2,
+          "name": "Payment Proof Verification",
+          "detail": "Review direct deposit receipts and payment confirmations in a structured queue.",
+          "moduleName": "Manual Payment Review",
+          "moduleSlug": "manual-payment-review"
+        },
+        {
+          "stepNumber": 3,
+          "name": "Zakat & Fund Allocation",
+          "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+          "moduleName": "Zakat Fund Separation",
+          "moduleSlug": "zakat-fund-separation"
+        },
+        {
+          "stepNumber": 4,
+          "name": "Field Fulfillment & Proof",
+          "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+          "moduleName": "Proof Trust Engine",
+          "moduleSlug": "proof-trust-engine"
+        },
+        {
+          "stepNumber": 5,
+          "name": "Dignity-Safe Donor Update",
+          "detail": "Generate encrypted impact updates for donors while enforcing recipient privacy.",
+          "moduleName": "Donor-Safe Impact Updates",
+          "moduleSlug": "donor-safe-updates"
+        },
+        {
+          "stepNumber": 6,
+          "name": "Board Reporting & Audits",
+          "detail": "Export structured balance sheets and governance summaries for committee review.",
+          "moduleName": "Reports and Board Packs",
+          "moduleSlug": "reports-board-packs"
+        }
+      ],
+      "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+      "relevantModules": [
+        {
+          "label": "Charity Request Intake",
+          "href": "/modules/charity-request-intake",
+          "description": "Process family hardship applications while protecting sensitive applicant data."
+        },
+        {
+          "label": "Manual Payment Review",
+          "href": "/modules/manual-payment-review",
+          "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+        },
+        {
+          "label": "Zakat Fund Separation",
+          "href": "/modules/zakat-fund-separation",
+          "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+        },
+        {
+          "label": "Proof Trust Engine",
+          "href": "/modules/proof-trust-engine",
+          "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
+        }
+      ]
+    },
+    "relatedLocations": [
+      {
+        "label": "Europe",
+        "href": "/locations/europe",
+        "relationship": "Region"
+      },
+      {
+        "label": "Global Service Areas",
+        "href": "/locations",
+        "relationship": "Hub"
+      }
+    ],
+    "relatedBlogs": [
+      {
+        "label": "How To Protect Charity Recipient Dignity",
+        "href": "/blog/how-to-protect-charity-recipient-dignity"
+      },
+      {
+        "label": "How To Separate Zakat And Sadaqah Funds",
+        "href": "/blog/how-to-separate-zakat-and-sadaqah-funds"
+      },
+      {
+        "label": "How To Replace WhatsApp For Charity Work",
+        "href": "/blog/how-to-replace-whatsapp-for-charity-work"
+      }
+    ]
+  },
+  {
+    "country": "Jordan",
+    "countrySlug": "jordan",
+    "region": "Middle East",
+    "regionSlug": "middle-east",
+    "slug": "jordan",
+    "pageType": "country",
+    "priorityTier": 1,
+    "indexStatus": "index",
+    "includeInSitemap": true,
+    "contentQuality": "strong",
+    "metaTitle": "Islamic Charity Software for Jordan | Sidqly",
+    "metaDescription": "Sidqly provides structured operational software for Islamic charities, Zakat committees, and humanitarian foundations in Jordan with payment review and audit controls.",
+    "h1": "Verified Islamic Giving Platform for Jordan",
+    "shortHero": "Clear operational governance and verified proof for Jordanian Islamic charities and relief organizations.",
+    "quickAnswer": "Sidqly enables charitable organizations in Jordan to manage Zakat, Sadaqah, and seasonal humanitarian appeals with automated bank transfer verification, strict Zakat fund separation, and dignity-first distribution tracking.",
+    "localNeeds": "Jordanian relief organizations and Zakat committees manage major domestic and regional refugee aid programs requiring transparent financial accounting and instant receipt generation.",
+    "culturalNote": "Charitable giving in Jordan is deeply rooted in Islamic values of Solidarity (Takaful) and Trust (Amanah). Sidqly supports the operational workflow of these initiatives with complete dignity safeguards.",
+    "localLanguageNote": "Fully supports Arabic operational interfaces and bilingual reporting for board trustees and international humanitarian partners.",
+    "stakeholderSummary": "Sidqly supports Jordanian Islamic charities, Zakat committees, humanitarian relief leads, and administrative boards.",
+    "organizationTypes": [
+      "Humanitarian Relief Nonprofits",
+      "Zakat & Welfare Committees",
+      "Community Mosques & Foundations"
+    ],
+    "recommendedModules": [
+      {
+        "label": "Manual Payment Review",
+        "href": "/modules/manual-payment-review",
+        "description": "Consolidates direct bank transfer receipts into an administrative queue."
+      },
+      {
+        "label": "Zakat Fund Separation",
+        "href": "/modules/zakat-fund-separation",
+        "description": "Maintains clear operational ledgers between Zakat and general Sadaqah accounts."
+      },
+      {
+        "label": "Reports & Board Packs",
+        "href": "/modules/reports-board-packs",
+        "description": "Produces audit-ready financial summaries for charity board trustees."
+      },
+      {
+        "label": "Donor-Safe Impact Updates",
+        "href": "/modules/donor-safe-updates",
+        "description": "Delivers privacy-filtered progress updates to community donors."
+      }
+    ],
+    "relatedUtilities": [
+      {
+        "label": "Zakat Calculator",
+        "href": "/zakat-calculator"
+      },
+      {
+        "label": "Ramadan Planner",
+        "href": "/ramadan-planner"
+      }
+    ],
+    "whySidqlyForLocation": {
+      "title": "Why Sidqly for Jordan?",
+      "subtitle": "Tailored operational governance, payment verification, and donor trust tools for Islamic organizations serving Jordan.",
+      "benefits": [
+        {
+          "title": "Centralized Bank Deposit Queue",
+          "description": "Consolidates wire transfer receipts and payment confirmations into an administrative review queue."
+        },
+        {
+          "title": "Audit-Ready Board Governance",
+          "description": "Provides clear fund separation logs and campaign balance sheets for board meetings across Jordan."
+        },
+        {
+          "title": "Recipient Dignity Protection",
+          "description": "Ensures field relief photos are sanitized and anonymized before sending updates to donors."
+        },
+        {
+          "title": "Isolated Zakat Accounting",
+          "description": "Maintains strict operational ledger boundaries between Zakat-eligible funds and general Sadaqah."
+        }
+      ]
+    },
+    "locationUseCase": {
+      "title": "Example: How Sidqly Could Support Jordan Operations",
+      "problemStatement": "An organization in Jordan managing regional hardship assistance and seasonal appeals may receive high volumes of bank transfer confirmations, making payment verification and trustee reporting difficult.",
+      "description": "A practical operational scenario illustrating how an organization in Jordan could manage humanitarian assistance using Sidqly modules.",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "name": "Campaign Planning & Intake",
+          "detail": "Configure designated giving appeals and intake requirements for Jordan.",
+          "moduleName": "Charity Request Intake",
+          "moduleSlug": "charity-request-intake"
+        },
+        {
+          "stepNumber": 2,
+          "name": "Payment Proof Verification",
+          "detail": "Review direct deposit receipts and bank transfer confirmations in a structured queue.",
+          "moduleName": "Manual Payment Review",
+          "moduleSlug": "manual-payment-review"
+        },
+        {
+          "stepNumber": 3,
+          "name": "Zakat & Fund Allocation",
+          "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+          "moduleName": "Zakat Fund Separation",
+          "moduleSlug": "zakat-fund-separation"
+        },
+        {
+          "stepNumber": 4,
+          "name": "Field Fulfillment & Proof",
+          "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+          "moduleName": "Proof Trust Engine",
+          "moduleSlug": "proof-trust-engine"
+        },
+        {
+          "stepNumber": 5,
+          "name": "Dignity-Safe Donor Update",
+          "detail": "Generate encrypted impact updates for donors while enforcing recipient privacy.",
+          "moduleName": "Donor-Safe Impact Updates",
+          "moduleSlug": "donor-safe-updates"
+        },
+        {
+          "stepNumber": 6,
+          "name": "Board Reporting & Audits",
+          "detail": "Export structured balance sheets and governance summaries for committee review.",
+          "moduleName": "Reports and Board Packs",
+          "moduleSlug": "reports-board-packs"
+        }
+      ],
+      "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+      "relevantModules": [
+        {
+          "label": "Charity Request Intake",
+          "href": "/modules/charity-request-intake",
+          "description": "Process family hardship applications while protecting sensitive applicant data."
+        },
+        {
+          "label": "Manual Payment Review",
+          "href": "/modules/manual-payment-review",
+          "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+        },
+        {
+          "label": "Zakat Fund Separation",
+          "href": "/modules/zakat-fund-separation",
+          "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+        },
+        {
+          "label": "Proof Trust Engine",
+          "href": "/modules/proof-trust-engine",
+          "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
+        }
+      ]
+    },
+    "relatedLocations": [
+      {
+        "label": "Middle East",
+        "href": "/locations/middle-east",
+        "relationship": "Region"
+      },
+      {
+        "label": "Global Service Areas",
+        "href": "/locations",
+        "relationship": "Hub"
+      }
+    ],
+    "relatedBlogs": [
+      {
+        "label": "How To Protect Charity Recipient Dignity",
+        "href": "/blog/how-to-protect-charity-recipient-dignity"
+      },
+      {
+        "label": "How To Separate Zakat And Sadaqah Funds",
+        "href": "/blog/how-to-separate-zakat-and-sadaqah-funds"
+      },
+      {
+        "label": "How To Replace WhatsApp For Charity Work",
+        "href": "/blog/how-to-replace-whatsapp-for-charity-work"
+      }
+    ]
+  },
+  {
+    "country": "Egypt",
+    "countrySlug": "egypt",
+    "region": "Middle East",
+    "regionSlug": "middle-east",
+    "slug": "egypt",
+    "pageType": "country",
+    "priorityTier": 1,
+    "indexStatus": "index",
+    "includeInSitemap": true,
+    "contentQuality": "strong",
+    "metaTitle": "Islamic Charity Software for Egypt | Sidqly",
+    "metaDescription": "Sidqly equips Islamic charities, Zakat committees, and social development foundations in Egypt with manual payment verification and transparent Zakat accounting.",
+    "h1": "Verified Islamic Giving Platform for Egypt",
+    "shortHero": "Operational management software for Egyptian Islamic charities, medical relief, and social assistance funds.",
+    "quickAnswer": "Sidqly helps charitable foundations in Egypt manage high-volume Zakat, Sadaqah, and Ramadan distribution workflows with structured bank transfer reviews, proof verification, and board-ready reporting.",
+    "localNeeds": "Egyptian non-governmental organizations and social welfare foundations coordinate large-scale daily meals, medical assistance, and seasonal relief requiring robust financial governance.",
+    "culturalNote": "Egypt has a vast charitable ecosystem centered on Islamic generosity and social welfare. Sidqly operationalizes campaign tracking and proof verification while upholding beneficiary dignity.",
+    "localLanguageNote": "Provides complete Arabic user interface support alongside English reporting tools for international donors and board trustees.",
+    "stakeholderSummary": "Designed for Egyptian charity directors, Zakat committee heads, social welfare managers, and field volunteer leads.",
+    "organizationTypes": [
+      "Islamic Social Development Foundations",
+      "Zakat Committees & Mosques",
+      "Medical & Family Welfare Nonprofits"
+    ],
+    "recommendedModules": [
+      {
+        "label": "Manual Payment Review",
+        "href": "/modules/manual-payment-review",
+        "description": "Consolidates direct bank transfer receipts into an administrative queue."
+      },
+      {
+        "label": "Zakat Fund Separation",
+        "href": "/modules/zakat-fund-separation",
+        "description": "Maintains clear operational ledgers between Zakat and general Sadaqah accounts."
+      },
+      {
+        "label": "Reports & Board Packs",
+        "href": "/modules/reports-board-packs",
+        "description": "Produces audit-ready financial summaries for charity board trustees."
+      },
+      {
+        "label": "Donor-Safe Impact Updates",
+        "href": "/modules/donor-safe-updates",
+        "description": "Delivers privacy-filtered progress updates to community donors."
+      }
+    ],
+    "relatedUtilities": [
+      {
+        "label": "Zakat Calculator",
+        "href": "/zakat-calculator"
+      },
+      {
+        "label": "Ramadan Planner",
+        "href": "/ramadan-planner"
+      }
+    ],
+    "whySidqlyForLocation": {
+      "title": "Why Sidqly for Egypt?",
+      "subtitle": "Tailored operational governance, payment verification, and donor trust tools for Islamic organizations serving Egypt.",
+      "benefits": [
+        {
+          "title": "High-Volume Bank Transfer Verification",
+          "description": "Consolidates direct deposit screenshots and payment receipts into a streamlined admin review queue."
+        },
+        {
+          "title": "Isolated Zakat Accounting Ledgers",
+          "description": "Keeps Zakat contributions strictly separated from operational and general charity funds."
+        },
+        {
+          "title": "Recipient Dignity Controls",
+          "description": "Enforces face-blurring and privacy controls so family aid is documented respectfully."
+        },
+        {
+          "title": "Board & Committee Reporting",
+          "description": "Generates comprehensive balance sheets and impact summaries for foundation trustees."
+        }
+      ]
+    },
+    "locationUseCase": {
+      "title": "Example: How Sidqly Could Support Egypt Operations",
+      "problemStatement": "An organization in Egypt managing regional hardship assistance and seasonal appeals may receive high volumes of bank transfer confirmations, making payment verification and trustee reporting difficult.",
+      "description": "A practical operational scenario illustrating how an organization in Egypt could manage humanitarian assistance using Sidqly modules.",
+      "steps": [
+        {
+          "stepNumber": 1,
+          "name": "Campaign Planning & Intake",
+          "detail": "Configure designated giving appeals and intake requirements for Egypt.",
+          "moduleName": "Charity Request Intake",
+          "moduleSlug": "charity-request-intake"
+        },
+        {
+          "stepNumber": 2,
+          "name": "Payment Proof Verification",
+          "detail": "Review direct deposit receipts and bank transfer confirmations in a structured queue.",
+          "moduleName": "Manual Payment Review",
+          "moduleSlug": "manual-payment-review"
+        },
+        {
+          "stepNumber": 3,
+          "name": "Zakat & Fund Allocation",
+          "detail": "Tag donations to specific fund ledgers to keep Zakat separate from general Sadaqah.",
+          "moduleName": "Zakat Fund Separation",
+          "moduleSlug": "zakat-fund-separation"
+        },
+        {
+          "stepNumber": 4,
+          "name": "Field Fulfillment & Proof",
+          "detail": "Assign fulfillment tasks to staff or vendors and collect timestamped delivery photos.",
+          "moduleName": "Proof Trust Engine",
+          "moduleSlug": "proof-trust-engine"
+        },
+        {
+          "stepNumber": 5,
+          "name": "Dignity-Safe Donor Update",
+          "detail": "Generate encrypted impact updates for donors while enforcing recipient privacy.",
+          "moduleName": "Donor-Safe Impact Updates",
+          "moduleSlug": "donor-safe-updates"
+        },
+        {
+          "stepNumber": 6,
+          "name": "Board Reporting & Audits",
+          "detail": "Export structured balance sheets and governance summaries for committee review.",
+          "moduleName": "Reports and Board Packs",
+          "moduleSlug": "reports-board-packs"
+        }
+      ],
+      "outcome": "Instead of managing these steps separately, the organization can keep the campaign workflow connected in Sidqly, making it easier to track donations, fulfillment, proof, and reporting.",
+      "relevantModules": [
+        {
+          "label": "Charity Request Intake",
+          "href": "/modules/charity-request-intake",
+          "description": "Process family hardship applications while protecting sensitive applicant data."
+        },
+        {
+          "label": "Manual Payment Review",
+          "href": "/modules/manual-payment-review",
+          "description": "Review donor bank transfer screenshots and deposit receipts in a structured queue."
+        },
+        {
+          "label": "Zakat Fund Separation",
+          "href": "/modules/zakat-fund-separation",
+          "description": "Maintain strict operational ledger boundaries between Zakat and Sadaqah funds."
+        },
+        {
+          "label": "Proof Trust Engine",
+          "href": "/modules/proof-trust-engine",
+          "description": "Verify field proof photos and enforce dignity controls prior to donor sharing."
+        }
+      ]
+    },
+    "relatedLocations": [
+      {
+        "label": "Middle East",
+        "href": "/locations/middle-east",
+        "relationship": "Region"
+      },
+      {
+        "label": "Global Service Areas",
+        "href": "/locations",
+        "relationship": "Hub"
+      }
+    ],
+    "relatedBlogs": [
+      {
+        "label": "How To Protect Charity Recipient Dignity",
+        "href": "/blog/how-to-protect-charity-recipient-dignity"
+      },
+      {
+        "label": "How To Separate Zakat And Sadaqah Funds",
+        "href": "/blog/how-to-separate-zakat-and-sadaqah-funds"
+      },
+      {
+        "label": "How To Replace WhatsApp For Charity Work",
+        "href": "/blog/how-to-replace-whatsapp-for-charity-work"
+      }
+    ]
   }
 ];
