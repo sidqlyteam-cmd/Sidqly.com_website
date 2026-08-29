@@ -73,6 +73,7 @@ async function runPrerender() {
     if (fs.existsSync(sitemapPath)) {
       const content = fs.readFileSync(sitemapPath, 'utf8');
       const matches = [...content.matchAll(/<loc>https:\/\/www\.sidqly\.com([^<]*)<\/loc>/g)];
+
       for (const match of matches) {
         let route = match[1].trim();
         if (route === '') route = '/';
@@ -91,7 +92,41 @@ async function runPrerender() {
 
   const port = 5174;
   const server = await startPreviewServer(port);
-  const browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] });
+
+  const candidates = [
+    '/home/jules/.cache/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-linux64/chrome-headless-shell',
+    '/home/jules/.cache/ms-playwright/chromium-1228/chrome-linux/chrome',
+    '/home/jules/.cache/ms-playwright/chromium-1208/chrome-linux/chrome',
+    '/home/jules/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell',
+  ];
+
+  const executablePath = candidates.find(p => fs.existsSync(p));
+
+  const launchOpts = {
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage'
+    ]
+  };
+
+  if (executablePath) {
+    launchOpts.executablePath = executablePath;
+  }
+
+  let browser;
+
+  try {
+    browser = await chromium.launch(launchOpts);
+  } catch {
+    browser = await chromium.launch({
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage'
+      ]
+    });
+  }
 
   console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
 
@@ -115,14 +150,24 @@ async function runPrerender() {
           pageUsageCount = 0;
         }
 
-        await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'load', timeout: 15000 });
-        await page.waitForSelector('#root > *', { timeout: 3000 }).catch(() => {});
+        await page.goto(
+          `http://localhost:${port}${route}`,
+          {
+            waitUntil: 'load',
+            timeout: 15000
+          }
+        );
+
+        await page.waitForSelector('#root > *', {
+          timeout: 3000
+        }).catch(() => {});
+
         await page.waitForTimeout(150);
-        pageUsageCount++;
 
         const html = await page.content();
 
         let targetFile;
+
         if (route === '/') {
           targetFile = path.join(distDir, 'index.html');
         } else {
@@ -130,30 +175,59 @@ async function runPrerender() {
         }
 
         const dir = path.dirname(targetFile);
+
         if (!fs.existsSync(dir)) {
           fs.mkdirSync(dir, { recursive: true });
         }
 
         fs.writeFileSync(targetFile, html, 'utf8');
+
+        pageUsageCount++;
         completed++;
+
         if (completed % 200 === 0 || completed === routesList.length) {
-          console.log(`Pre-rendered ${completed}/${routesList.length} pages...`);
+          console.log(
+            `Pre-rendered ${completed}/${routesList.length} pages...`
+          );
         }
       } catch (err) {
-        console.error(`Worker ${workerId} failed to pre-render ${route}: ${err.message}`);
+        console.error(
+          `Worker ${workerId} failed to pre-render ${route}: ${err.message}`
+        );
+
+        try {
+          if (!page.isClosed()) {
+            await page.close().catch(() => {});
+          }
+        } catch (_) {}
+
+        page = await browser.newPage();
+        pageUsageCount = 0;
       }
     }
-    await page.close();
+
+    try {
+      if (!page.isClosed()) {
+        await page.close().catch(() => {});
+      }
+    } catch (_) {}
   };
 
-  const workers = Array.from({ length: CONCURRENCY }, (_, i) => prerenderWorker(i + 1));
+  const workers = Array.from(
+    { length: CONCURRENCY },
+    (_, i) => prerenderWorker(i + 1)
+  );
+
   await Promise.all(workers);
 
   await browser.close();
+
   if (typeof server.closeAllConnections === 'function') {
     server.closeAllConnections();
   }
+
   server.close();
+
   console.log('✅ Static pre-rendering completed successfully!');
   process.exit(0);
 }

@@ -21,6 +21,7 @@ export const enTranslations: UITranslationKeys = {
     locations: 'Global Hubs',
     more: 'More',
   },
+
   common: {
     bookDemo: 'Book a Demo',
     applyGuidedPilot: 'Apply for Guided Pilot',
@@ -37,6 +38,7 @@ export const enTranslations: UITranslationKeys = {
     protectedDignity: 'Protected Dignity',
     clearImpact: 'Clear Impact',
   },
+
   locationUI: {
     operatingIn: 'Operating Operations & Compliance in',
     locationOverview: 'Location Overview',
@@ -52,6 +54,7 @@ export const enTranslations: UITranslationKeys = {
     startPilotForLocation: 'Start Guided Pilot in',
     backToLocations: 'Back to Global Locations Index',
   },
+
   forms: {
     fullName: 'Full Name',
     emailAddress: 'Email Address',
@@ -61,5 +64,420 @@ export const enTranslations: UITranslationKeys = {
     submit: 'Submit Request',
     submitting: 'Submitting...',
     successMessage: 'Thank you! We will get back to you shortly.',
+  },
+
+  islamicTools: {
+    calculate: 'Calculate',
+    reset: 'Reset',
+    retry: 'Retry',
+    loading: 'Loading...',
+    error: 'Error',
+    location: 'Location',
+    useMyLocation: 'Use My Location',
+    latitude: 'Latitude',
+    longitude: 'Longitude',
+    city: 'City',
+    country: 'Country',
+    calculationMethod: 'Calculation Method',
+    result: 'Result',
+    unableToCalculate:
+      'Unable to calculate prayer times for this location. Please check the city and country and try again.',
+    tryAgain: 'Please try again.',
+    privacyNotice:
+      'Your location is used only in your browser to estimate timings. Sidqly does not store or track your location.',
+
+    namaz: {
+      title: 'Namaz Timings',
+      subtitle: 'Calculate prayer times for planning.',
+      nextPrayer: 'Next Prayer',
+      enterCityCountry: 'Please enter both city and country.',
+    },
+
+    qibla: {
+      title: 'Qibla Direction Tool',
+      subtitle:
+        'Calculate approximate Qibla direction for operational planning.',
+      qiblaBearing: 'Qibla Bearing',
+      fromNorth: 'from North',
+      orEnterManually: 'Or enter manually',
+      calculateDirection: 'Calculate Direction',
+      recalculate: 'Calculate for another location',
+      liveCompassActive:
+        'Live compass active. Turn your device until the arrow points up.',
+      compassUnavailable:
+        'Live compass sensor is unavailable on this device. The calculated bearing is displayed above.',
+      locationPermissionDenied:
+        'Location permission was denied. Please enter coordinates manually.',
+      unableToDetermineLocation:
+        'Unable to determine location. Please enter coordinates manually.',
+      invalidCoordinates:
+        'Please enter valid coordinates (-90 to 90 for latitude, -180 to 180 for longitude).',
+      privacyDisclaimer:
+        'Privacy Note: Your location is used only in your browser to estimate Qibla direction. Sidqly does not store or track your location.',
+      accuracyDisclaimer:
+        'Accuracy Note: Qibla direction is approximate and may depend on device compass accuracy, location permission, and calibration. Confirm with local scholars or official authorities.',
+    },
+
+    zakat: {
+      title: 'Zakat Calculator',
+      subtitle:
+        'Estimate your Zakat for operational and personal planning.',
+      nisabSectionTitle: '1. Nisab Threshold',
+      assetsSectionTitle: '2. Zakatable Assets',
+      liabilitiesSectionTitle: '3. Deductible Liabilities',
+      goldNisab: 'Gold Nisab (87.48g)',
+      silverNisab: 'Silver Nisab (612.36g)',
+      customNisab: 'Custom Nisab',
+      currentNisabValue: 'Current Nisab Value',
+      nisabNote:
+        'Enter the current Nisab value based on your local scholar, committee, or trusted metal price source.',
+      cash: 'Cash on Hand',
+      bankBalance: 'Bank Balance',
+      gold: 'Gold Value',
+      silver: 'Silver Value',
+      investments: 'Investments / Shares',
+      businessAssets: 'Business Inventory',
+      receivables: 'Receivables / Loans Given',
+      otherAssets: 'Other Eligible Assets',
+      liabilities: 'Short-term Debts & Liabilities',
+      estimatedSummary: 'Estimated Summary',
+      totalAssets: 'Total Assets',
+      deductibleLiabilities: 'Deductible Liabilities',
+      netZakatableWealth: 'Net Zakatable Wealth',
+      nisabThreshold: 'Nisab Threshold',
+      zakatRate: 'Zakat Rate',
+      estimatedZakat: 'Estimated Zakat Due',
+      belowNisab: 'Net zakatable wealth is below the Nisab threshold.',
+      eligibleForZakat: 'Eligible for Zakat',
+      enterNisabPrompt:
+        'Please enter a valid Nisab Threshold value to calculate your estimate.',
+      religiousDisclaimer:
+        'Disclaimer: This tool provides a calculation estimate based on inputs. Zakat eligibility and rules should be verified with a qualified scholar.',
+    },
+
+    calendar: {
+      title: 'Islamic Calendar & Hijri Date Planning Tool',
+      subtitle:
+        'Plan your giving workflows, campaigns, and distribution operations with estimated Hijri dates.',
+      today: 'Today',
+      todaysDate: "Today's Date",
+      previous: 'Previous',
+      next: 'Next',
+      previousMonth: 'Previous Month',
+      nextMonth: 'Next Month',
+      previousYear: 'Previous Year',
+      nextYear: 'Next Year',
+      currentMonth: 'Current Month',
+      currentYear: 'Current Year',
+      hijriDate: 'Hijri Date',
+      gregorianDate: 'Gregorian Date',
+      islamicMonth: 'Islamic Month',
+      importantDates: 'Important Dates',
+      selectedDateDetails: 'Selected Date Details',
+      selectDatePrompt: 'Select a date to view details.',
+      estimated: 'Estimated / Calculated',
+      officiallyConfirmed: 'Officially Confirmed',
+      planningDisclaimer:
+        'Disclaimer: Sidqly provides operational planning tools for Islamic giving workflows. Islamic dates may vary by country, moon sighting, local authority, calculation method, and official announcements. Dates shown here are planning estimates only.',
+      twelveMonthEstimate: '12-Month Estimate',
+      estimatedHijriOverlap: 'Estimated Hijri Overlap',
+      operationalAlignmentTitle: 'Operational Alignment',
+      operationalAlignmentSubtitle:
+        'Mosques and charities face operational spikes during specific Islamic months. Sidqly provides workflow tools to handle these spikes securely.',
+      ramadanSpike:
+        'Ramadan: High-volume Iftar and Sadqa processing.',
+      dhulHijjahSpike:
+        'Dhul Hijjah: Qurbani vendor tracking and share allocation.',
+      muharramSpike:
+        'Muharram: Annual reporting and new campaign setups.',
+      ramadanPlannerTitle: 'Ramadan Planner',
+      ramadanPlannerDesc:
+        'Checklists for Iftar, ration packs, volunteer coordination, and Sadqa workflows.',
+      eidPlannerTitle: 'Eid & Qurbani Planner',
+      eidPlannerDesc:
+        'Vendor assignments, order tracking, manual payment review, and proof approval.',
+      hajjCountdownTitle: 'Hajj Countdown',
+      hajjCountdownDesc:
+        'Estimated Dhul Hijjah timelines for sponsor reporting and donor updates.',
+      zakatPlanningTitle: 'Sadqa & Zakat Planning',
+      zakatPlanningDesc:
+        'Zakat fund separation checklists and calculation tools for your campaigns.',
+
+      months: {
+        muharram: 'Muharram',
+        safar: 'Safar',
+        rabiAlAwwal: 'Rabi al-Awwal',
+        rabiAlThani: 'Rabi al-Thani',
+        jumadaAlAwwal: 'Jumada al-Awwal',
+        jumadaAlThani: 'Jumada al-Thani',
+        rajab: 'Rajab',
+        shaban: "Sha'ban",
+        ramadan: 'Ramadan',
+        shawwal: 'Shawwal',
+        dhulQadah: 'Dhul Qadah',
+        dhulHijjah: 'Dhul Hijjah',
+      },
+
+      events: {
+        islamicNewYear: 'Islamic New Year (1st Muharram)',
+        dayOfAshura: 'Day of Ashura (10th Muharram)',
+        mawlid: 'Mawlid an-Nabi (12th Rabi al-Awwal)',
+        israMiraj: "Isra and Mi'raj (27th Rajab)",
+        nisfuShaban: "Nisfu Sha'ban (15th Sha'ban)",
+        firstRamadan: 'First Day of Ramadan',
+        ramadanMonth: 'Ramadan (Month of Fasting)',
+        eidAlFitr: 'Eid al-Fitr (1st Shawwal)',
+        dayOfArafah: 'Day of Arafah (9th Dhul Hijjah)',
+        eidAlAdha: 'Eid al-Adha / Days of Qurbani',
+        daysOfDhulHijjah: 'First 10 Days of Dhul Hijjah',
+      },
+    },
+
+    moonPhase: {
+      title: 'Moon Phase & Lunar Planning',
+      subtitle:
+        'Align your organizational readiness and campaign workflows with the astronomical moon phase.',
+      currentPhase: 'Current Moon Phase',
+      illumination: 'Illumination',
+      lunarAge: 'Lunar Age',
+      days: 'days',
+      nextPhase: 'Next Major Phase',
+      astronomicalEstimate: 'Astronomical Estimate',
+      astronomicalDisclaimer:
+        'Moon phase shown is an astronomical estimate and does not represent official moon-sighting confirmation.',
+      operationalReadinessTitle: 'Operational Readiness',
+      operationalReadinessDesc:
+        'As the lunar month progresses, charities must prepare for month-end reconciliation and new month campaign launches.',
+      preparationGuidelinesTitle: 'Preparation Guidelines',
+      prepStep1:
+        'Launch new monthly giving appeals and Sadaqah campaigns.',
+      prepStep2:
+        'Mid-month check on vendor fulfillment and volunteer availability.',
+      prepStep3:
+        'Generate board-ready reports for the closing month and prepare receipts.',
+
+      phases: {
+        newMoon: 'New Moon',
+        waxingCrescent: 'Waxing Crescent',
+        firstQuarter: 'First Quarter',
+        waxingGibbous: 'Waxing Gibbous',
+        fullMoon: 'Full Moon',
+        waningGibbous: 'Waning Gibbous',
+        lastQuarter: 'Last Quarter',
+        waningCrescent: 'Waning Crescent',
+      },
+    },
+
+    ramadan: {
+      title: 'Ramadan Planner & Operational Checklist',
+      subtitle:
+        'Prepare your mosque or charity for Ramadan distributions with our countdown and operational checklist.',
+      daysRemaining: 'Days Remaining',
+      daysAway: 'days away',
+      targetEstimateLabel: 'Targeting approx.',
+      estimatedDate: 'Astronomical / Calculated Estimate',
+      officiallyConfirmed: 'Officially Confirmed',
+      disclaimerText:
+        'Disclaimer: Final Ramadan dates depend on official moon-sighting committees. Dates shown are planning estimates only.',
+      ramadanActiveTitle: 'Ramadan Season is Active',
+      ramadanActiveSubtitle:
+        'Currently in the holy month of fasting. Monitor daily operations and timings.',
+      currentDayLabel: 'Ramadan Day',
+      day: 'Day',
+      suhoor: 'Suhoor',
+      iftar: 'Iftar',
+      fastingGoal: 'Fasting Goal',
+      quranGoal: "Qur'an Goal",
+      charityGoal: 'Charity Goal',
+      dhikrGoal: 'Dhikr Goal',
+      dailyChecklist: 'Daily Personal & Team Checklist',
+      operationalChecklist: 'Distribution Workflow Checklists',
+      completed: 'Completed',
+      remaining: 'Remaining',
+      reset: 'Reset Progress',
+      ramadanModule: 'Ramadan Module',
+      vendorFulfillment: 'Vendor Fulfillment',
+      bookDemo: 'Book Demo',
+      preRamadanPlanning: 'Pre-Ramadan Planning',
+      duringRamadanOperations: 'During Ramadan Operations',
+      taskIftarModule: 'Set up Iftar campaign modules',
+      taskVendorRation:
+        'Assign vendor fulfillments for ration packs',
+      taskSponsorTemplates: 'Sponsor communication templates',
+      taskWeatherGuidelines:
+        'Review Weather Distribution guidelines',
+      taskDailyProof:
+        'Daily proof review and approval workflows',
+      taskDonorUpdates: 'Donor-safe update dispatches',
+      taskVolunteerMapping:
+        'Volunteer coordination mapping',
+      taskMonitorNamaz:
+        'Monitor local Namaz timings for operations',
+    },
+
+    eidQurbani: {
+      title: 'Eid & Qurbani Operations Planner',
+      subtitle:
+        'Interactive checklist to manage Qurbani vendors, verify manual payments, and send donor-safe updates.',
+      targetPlanningWindow: 'Target Planning Window',
+      daysToPrepare: 'Days to prepare',
+      estimatedDate: 'Estimated / Calculated Date',
+      officiallyConfirmed: 'Officially Confirmed Date',
+      disclaimerText:
+        'Disclaimer: Eid ul Adha dates depend on official moon-sighting. Organization administrators should not publish exact operational dates until confirmed.',
+      eidActiveTitle: 'Eid & Days of Qurbani Active',
+      eidActiveSubtitle:
+        'Current Season: Slaughtering, share distribution, and donor reporting workflows active.',
+      shareTrackingTitle:
+        'Qurbani Share & Participant Calculator',
+      participantCountLabel: 'Number of Participants',
+      sharesLabel:
+        'Qurbani Shares Needed (1 Animal = 7 Shares for Cattle/Camel, 1 for Goat/Sheep)',
+      invalidParticipantError:
+        'Please enter valid positive numbers for participants and shares.',
+      completedSharesLabel: 'Completed Shares Processed',
+      operationalChecklistTitle: 'Qurbani Operational Checklist',
+      operationalReadiness: 'Operational Readiness',
+      executionReporting: 'Execution & Reporting',
+      qurbaniSelection:
+        'Qurbani selection & animal sourcing',
+      participantPlanning:
+        'Participant & share allocation planning',
+      paymentConfirmation:
+        'Manual payment review & confirmation',
+      slaughterConfirmation:
+        'Vendor slaughter confirmation & timing SLA',
+      distribution:
+        'Distribution & recipient confirmation',
+      recipientConfirmation:
+        'Recipient proof verification',
+      proofDocumentation:
+        'Photo/video proof documentation',
+      donorUpdate:
+        'Donor-safe SMS/email updates dispatch',
+      certificateCompletion:
+        'Completion certificate generation',
+      completed: 'Completed',
+      remaining: 'Remaining',
+      reset: 'Reset State',
+      exploreModule: 'Explore Qurbani Module',
+      requestDemo: 'Request Demo',
+    },
+
+    hajj: {
+      title: 'Hajj & Dhul Hijjah Operational Planner',
+      subtitle:
+        'Plan your Qurbani and Dhul Hijjah charity workflows with our estimated countdown and timeline planner.',
+      daysRemaining: 'Days Remaining',
+      daysAway: 'days away',
+      targetEstimateLabel: 'Targeting approx.',
+      estimatedDate: 'Estimated / Calculated Date',
+      officiallyConfirmed: 'Officially Confirmed Date',
+      disclaimerText:
+        'Final Hajj and Eid dates depend on official Saudi announcements and lunar calendar confirmation. Organizations should confirm official Hajj and Umrah updates through official authorities.',
+      preparationTimelineTitle:
+        'Operational Preparation Timeline',
+      upcomingHajj: 'Upcoming Hajj Season',
+      currentHajjSeason: 'Hajj Season Active',
+      nextHajj: 'Next Hajj Season',
+      hajjActiveTitle:
+        'Hajj Season is Currently Active',
+      hajjActiveSubtitle:
+        'Days 8-13 Dhul Hijjah are underway. Focus on live updates and Qurbani SLA tracking.',
+      timeline90Days: '90 days before',
+      timeline60Days: '60 days before',
+      timeline30Days: '30 days before',
+      timeline10Days: '10 days before',
+      timelineAction90:
+        'Campaign setup & module activation',
+      timelineAction60:
+        'Vendor planning & animal sourcing readiness',
+      timelineAction30:
+        'Donor communication, share allocation & sponsor updates',
+      timelineAction10:
+        'Certificates, proof review templates & report readiness',
+      qurbaniWorkflows: 'Qurbani Workflows',
+      requestDemo: 'Request Organization Demo',
+    },
+
+    weather: {
+      title: 'Weather-Aware Distribution Planning',
+      subtitle:
+        'Plan open-air distributions and charity operations safely based on weather forecasts.',
+      enterCityPlaceholder:
+        'Enter city (e.g. Dhaka, Cairo, London)',
+      check: 'Check Weather',
+      riskLevel: 'Distribution Risk Level',
+      temperature: 'Temperature',
+      condition: 'Condition',
+      wind: 'Wind',
+      adviceTitle: 'Charity Operation Advice',
+      privacyNote:
+        'Privacy Note: Your location is used only in your browser to check the weather. Sidqly does not store or track your location.',
+      disclaimer:
+        'Weather forecasts and risk levels are automated operational estimates. Verify local conditions before field operations.',
+      errorFallback:
+        'Weather estimate is temporarily unavailable. Please check your local weather service before distribution.',
+      enterCityError: 'Please enter a city.',
+      currentLocationLabel: 'Current Location',
+    },
+
+    sadqaZakatPlanner: {
+      title: 'Sadqa & Zakat Operations Planner',
+      subtitle:
+        'Ensure operational compliance, fund separation, and timely distribution tracking.',
+      sadqaTitle: 'Sadaqah Workflows',
+      zakatTitle: 'Zakat Management',
+      zakatModuleLink: 'Zakat Module',
+      sadaqahModuleLink: 'Sadaqah Module',
+      disclaimer:
+        'Disclaimer: Organizations should confirm Sadqa Fitr amounts, Zakat rules, and eligibility decisions with authorized scholars or local committees. Sidqly handles operations, not religious rulings.',
+
+      items: {
+        s1: 'Set up general Sadaqah campaigns',
+        s2: 'Configure Sadqa Fitr limits and deadlines',
+        s3: 'Assign volunteers for local distribution',
+        s4: 'Approve field proof before donor reporting',
+        z1: 'Enable Zakat fund separation logic',
+        z2: 'Review incoming charity requests',
+        z3: 'Document eligibility decisions and records',
+        z4: 'Generate Zakat-specific impact reports',
+      },
+    },
+
+    glossary: {
+      title: 'Islamic Charity Operations Glossary',
+      subtitle:
+        'Definitions of common Islamic giving terms and how they translate into operational workflows within Sidqly.',
+      searchPlaceholder:
+        'Search terms (e.g., Zakat, Proof, Qurbani)...',
+      viewRelatedModule: 'View related module',
+      noTermsFound:
+        'No terms found matching your search.',
+      disclaimer:
+        'Disclaimer: This glossary defines terms within the context of operational workflows on the Sidqly platform. It is not intended as religious interpretation or fatwa.',
+    },
+
+    utilitiesHub: {
+      title: 'Islamic Utilities & Operational Tools Hub',
+      subtitle:
+        'Practical planning tools and utilities built to support giving teams, mosques, and charities globally.',
+      openTool: 'Open',
+    },
+
+    prayerPlanningCard: {
+      title: 'Prayer Time Operational Planning',
+      description:
+        'Organizations often plan Iftar, Suhoor, and general distributions around local prayer times. Sidqly helps you manage operational workflows before and after these critical windows.',
+      supportsTitle: 'How Sidqly Supports Timing:',
+      point1:
+        'Schedule vendor fulfillment deadlines before Asr or Maghrib.',
+      point2:
+        'Assign volunteer shifts based on local community timing.',
+      point3:
+        'Timestamp proof uploads automatically during distributions.',
+      disclaimer:
+        'Note: Official prayer times should be checked with local mosques or trusted regional calendars.',
+    },
   },
 };

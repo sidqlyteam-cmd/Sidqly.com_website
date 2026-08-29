@@ -1,20 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { calculateQiblaDirection, type QiblaResult } from '../../lib/qibla';
-import { Compass, MapPin, AlertCircle, Shield } from 'lucide-react';
+import { calculateQiblaDirection, validateCoordinates, type QiblaResult } from '../../lib/qibla';
+import { useGeolocation } from '../../hooks/useGeolocation';
+import { useLanguage } from '../../i18n/LanguageContext';
+import { Compass, MapPin, AlertCircle, Shield, RefreshCw } from 'lucide-react';
 
 const QiblaDirectionTool: React.FC = () => {
+  const { t } = useLanguage();
   const [qiblaResult, setQiblaResult] = useState<QiblaResult | null>(null);
   const [deviceHeading, setDeviceHeading] = useState<number | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [localError, setLocalError] = useState<string | null>(null);
   const [usingCompass, setUsingCompass] = useState(false);
 
-  // Fallback manual entry state
+  const { loading: geoLoading, error: geoError, clearError, getCurrentPosition } = useGeolocation();
+
+  // Manual entry state
   const [manualLat, setManualLat] = useState('');
   const [manualLng, setManualLng] = useState('');
 
-  const requestCompassPermission = async () => {
-    if (typeof (DeviceOrientationEvent as unknown as { requestPermission: () => Promise<string> }).requestPermission === 'function') {
+  const requestCompassPermission = async (): Promise<boolean> => {
+    if (typeof window === 'undefined') return false;
+
+    // Check if DeviceOrientationEvent is supported
+    if (!('DeviceOrientationEvent' in window)) {
+      return false;
+    }
+
+    if (typeof (DeviceOrientationEvent as unknown as { requestPermission?: () => Promise<string> }).requestPermission === 'function') {
       try {
         const permissionState = await (DeviceOrientationEvent as unknown as { requestPermission: () => Promise<string> }).requestPermission();
         return permissionState === 'granted';
@@ -23,21 +34,19 @@ const QiblaDirectionTool: React.FC = () => {
         return false;
       }
     }
-    return true; // Non-iOS 13+ devices
+    return true;
   };
 
   useEffect(() => {
     const handleOrientation = (event: DeviceOrientationEvent) => {
-      // Use webkitCompassHeading for iOS, or standard alpha for others
-      let heading = null;
-      if ('webkitCompassHeading' in event) {
+      let heading: number | null = null;
+      if ('webkitCompassHeading' in event && typeof (event as unknown as { webkitCompassHeading: number }).webkitCompassHeading === 'number') {
         heading = (event as unknown as { webkitCompassHeading: number }).webkitCompassHeading;
       } else if (event.alpha !== null) {
-        // This is a rough estimation for non-iOS devices.
-        heading = 360 - event.alpha;
+        heading = (360 - event.alpha) % 360;
       }
 
-      if (heading !== null) {
+      if (heading !== null && !isNaN(heading)) {
         setDeviceHeading(heading);
       }
     };
@@ -54,80 +63,86 @@ const QiblaDirectionTool: React.FC = () => {
   }, [usingCompass]);
 
   const handleGetLocation = async () => {
-    setLoading(true);
-    setError(null);
+    setLocalError(null);
+    clearError();
     setUsingCompass(false);
-
-    if (!navigator.geolocation) {
-      setError('Geolocation is not supported by your browser.');
-      setLoading(false);
-      return;
-    }
 
     const hasCompassPermission = await requestCompassPermission();
 
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const { latitude, longitude } = position.coords;
-        const result = calculateQiblaDirection(latitude, longitude);
-        setQiblaResult(result);
+    getCurrentPosition(
+      (coords) => {
+        try {
+          const result = calculateQiblaDirection(coords.latitude, coords.longitude);
+          setQiblaResult(result);
 
-        if (hasCompassPermission && window.DeviceOrientationEvent) {
+          if (hasCompassPermission && 'DeviceOrientationEvent' in window) {
             setUsingCompass(true);
+          }
+        } catch (err: any) {
+          setLocalError(err.message || t('islamicTools.qibla.invalidCoordinates'));
         }
-
-        setLoading(false);
-      },
-      () => {
-        setError('Location permission denied or unavailable. You can enter coordinates manually.');
-        setLoading(false);
-      },
-      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+      }
     );
   };
 
   const handleManualCalculate = (e: React.FormEvent) => {
     e.preventDefault();
     setUsingCompass(false);
+    clearError();
 
-    const lat = parseFloat(manualLat);
-    const lng = parseFloat(manualLng);
-
-    if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
-      setError('Please enter valid coordinates (-90 to 90 for latitude, -180 to 180 for longitude).');
+    const validation = validateCoordinates(manualLat, manualLng);
+    if (!validation.isValid || validation.lat === undefined || validation.lng === undefined) {
+      setLocalError(t('islamicTools.qibla.invalidCoordinates'));
       return;
     }
 
-    setError(null);
-    const result = calculateQiblaDirection(lat, lng);
-    setQiblaResult(result);
+    setLocalError(null);
+    try {
+      const result = calculateQiblaDirection(validation.lat, validation.lng);
+      setQiblaResult(result);
+    } catch (err: any) {
+      setLocalError(err.message || t('islamicTools.qibla.invalidCoordinates'));
+    }
   };
 
-  // Calculate arrow rotation based on device heading if available, otherwise static bearing
+  const handleReset = () => {
+    setQiblaResult(null);
+    setUsingCompass(false);
+    setDeviceHeading(null);
+    setManualLat('');
+    setManualLng('');
+    clearError();
+    setLocalError(null);
+  };
+
+  const activeError = localError || (geoError ? (
+    geoError.includes('denied') ? t('islamicTools.qibla.locationPermissionDenied') : t('islamicTools.qibla.unableToDetermineLocation')
+  ) : null);
+
   let arrowRotation = qiblaResult?.bearing || 0;
   if (usingCompass && deviceHeading !== null && qiblaResult) {
-      arrowRotation = qiblaResult.bearing - deviceHeading;
+    arrowRotation = (qiblaResult.bearing - deviceHeading + 360) % 360;
   }
 
   return (
-    <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto">
+    <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto w-full">
       <div className="text-center mb-8">
          <div className="bg-sidqly-green-deep/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Compass className="text-sidqly-green-deep w-8 h-8" />
          </div>
-         <h2 className="text-2xl font-bold text-sidqly-navy mb-2">Qibla Direction Tool</h2>
-         <p className="text-gray-500 text-sm">Calculate approximate Qibla direction for operational planning.</p>
+         <h2 className="text-2xl font-bold text-sidqly-navy mb-2">{t('islamicTools.qibla.title')}</h2>
+         <p className="text-gray-500 text-sm">{t('islamicTools.qibla.subtitle')}</p>
       </div>
 
       {!qiblaResult && (
         <div className="space-y-6">
            <button
              onClick={handleGetLocation}
-             disabled={loading}
-             className="w-full flex items-center justify-center gap-2 bg-sidqly-green-deep text-white px-6 py-4 rounded-xl font-bold hover:shadow-lg transition-all disabled:opacity-50"
+             disabled={geoLoading}
+             className="w-full flex items-center justify-center gap-2 bg-sidqly-green-deep text-white px-6 py-4 rounded-xl font-bold hover:shadow-lg transition-all disabled:opacity-50 text-base"
            >
              <MapPin size={20} />
-             {loading ? 'Requesting Location...' : 'Use My Location'}
+             {geoLoading ? t('islamicTools.loading') : t('islamicTools.useMyLocation')}
            </button>
 
            <div className="relative">
@@ -135,56 +150,60 @@ const QiblaDirectionTool: React.FC = () => {
                 <div className="w-full border-t border-gray-200" />
               </div>
               <div className="relative flex justify-center text-sm font-medium leading-6">
-                <span className="bg-white px-6 text-gray-400">Or enter manually</span>
+                <span className="bg-white px-6 text-gray-400">{t('islamicTools.qibla.orEnterManually')}</span>
               </div>
            </div>
 
            <form onSubmit={handleManualCalculate} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Latitude</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t('islamicTools.latitude')}</label>
                     <input
                       type="text"
                       value={manualLat}
                       onChange={(e) => setManualLat(e.target.value)}
-                      placeholder="e.g. 51.5074"
-                      className="w-full rounded-xl border-gray-200 border p-3 focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
+                      placeholder="e.g. 31.5204"
+                      className="w-full rounded-xl border-gray-200 border p-3 focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald text-sm"
                     />
                  </div>
                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Longitude</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t('islamicTools.longitude')}</label>
                     <input
                       type="text"
                       value={manualLng}
                       onChange={(e) => setManualLng(e.target.value)}
-                      placeholder="e.g. -0.1278"
-                      className="w-full rounded-xl border-gray-200 border p-3 focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
+                      placeholder="e.g. 74.3587"
+                      className="w-full rounded-xl border-gray-200 border p-3 focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald text-sm"
                     />
                  </div>
               </div>
               <button
                  type="submit"
-                 className="w-full bg-sidqly-ivory text-sidqly-navy px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all border border-gray-200"
+                 className="w-full bg-sidqly-ivory text-sidqly-navy px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all border border-gray-200 text-sm"
                >
-                 Calculate Direction
+                 {t('islamicTools.qibla.calculateDirection')}
                </button>
            </form>
         </div>
       )}
 
-      {error && (
+      {activeError && (
         <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-xl text-sm flex items-start gap-2">
            <AlertCircle size={16} className="shrink-0 mt-0.5" />
-           <p>{error}</p>
+           <p>{activeError}</p>
         </div>
       )}
 
       {qiblaResult && (
-        <div className="text-center mt-6">
-           <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Approximate Qibla Direction</p>
+        <div className="text-center mt-6 space-y-6">
+           <div>
+             <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">{t('islamicTools.qibla.qiblaBearing')}</p>
+             <p className="text-xs text-gray-400">
+               {t('islamicTools.latitude')}: {qiblaResult.userLat.toFixed(4)}, {t('islamicTools.longitude')}: {qiblaResult.userLng.toFixed(4)}
+             </p>
+           </div>
 
-           <div className="relative w-48 h-48 mx-auto mb-6 bg-sidqly-ivory rounded-full border-4 border-gray-100 flex items-center justify-center shadow-inner overflow-hidden">
-             {/* Compass Ticks (rotate opposite to arrow to simulate compass card if live, otherwise static) */}
+           <div className="relative w-48 h-48 mx-auto bg-sidqly-ivory rounded-full border-4 border-gray-100 flex items-center justify-center shadow-inner overflow-hidden shrink-0">
              <div
                className="absolute inset-2 border border-gray-200 rounded-full transition-transform duration-100 ease-out"
                style={{ transform: usingCompass && deviceHeading !== null ? `rotate(${-deviceHeading}deg)` : 'rotate(0deg)' }}
@@ -195,12 +214,10 @@ const QiblaDirectionTool: React.FC = () => {
                 <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs font-bold text-gray-400">W</span>
              </div>
 
-             {/* Arrow Container */}
              <div
                 className="absolute inset-0 transition-transform duration-100 ease-out flex items-center justify-center"
                 style={{ transform: `rotate(${arrowRotation}deg)` }}
              >
-                {/* Arrow Head (pointing up relative to its rotated container) */}
                 <div className="absolute top-4 text-sidqly-green-deep">
                    <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 0L24 20L12 15L0 20L12 0Z" fill="currentColor"/>
@@ -210,21 +227,28 @@ const QiblaDirectionTool: React.FC = () => {
              </div>
            </div>
 
-           <div className="text-5xl font-extrabold text-sidqly-navy mb-2">
-             {qiblaResult.bearing}° <span className="text-xl text-gray-400 font-normal">from North</span>
+           <div>
+             <div className="text-4xl sm:text-5xl font-extrabold text-sidqly-navy mb-1">
+               {qiblaResult.bearing}° <span className="text-lg text-gray-400 font-normal">{t('islamicTools.qibla.fromNorth')} ({qiblaResult.cardinalDirection})</span>
+             </div>
            </div>
 
-           {usingCompass && deviceHeading !== null && (
-             <p className="text-sm text-sidqly-green-emerald font-semibold mb-4">
-               Live compass active. Turn your device until the arrow points up.
+           {usingCompass && deviceHeading !== null ? (
+             <p className="text-sm text-sidqly-green-emerald font-semibold">
+               {t('islamicTools.qibla.liveCompassActive')}
+             </p>
+           ) : (
+             <p className="text-xs text-gray-500 bg-gray-50 p-3 rounded-xl border border-gray-100">
+               {t('islamicTools.qibla.compassUnavailable')}
              </p>
            )}
 
            <button
-             onClick={() => { setQiblaResult(null); setUsingCompass(false); }}
-             className="text-sm font-bold text-sidqly-green-deep hover:underline mt-4 block mx-auto"
+             onClick={handleReset}
+             className="inline-flex items-center gap-2 text-sm font-bold text-sidqly-green-deep hover:underline mt-4 mx-auto"
            >
-             Calculate for another location
+             <RefreshCw size={14} />
+             {t('islamicTools.qibla.recalculate')}
            </button>
         </div>
       )}
@@ -232,11 +256,11 @@ const QiblaDirectionTool: React.FC = () => {
       <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
          <div className="flex items-start gap-2 text-xs text-gray-500">
             <Shield size={14} className="shrink-0 mt-0.5 text-sidqly-green-soft" />
-            <p><strong>Privacy Note:</strong> Your location is used only in your browser to estimate Qibla direction. Sidqly does not store or track your location.</p>
+            <p>{t('islamicTools.qibla.privacyDisclaimer')}</p>
          </div>
          <div className="flex items-start gap-2 text-xs text-gray-500">
             <AlertCircle size={14} className="shrink-0 mt-0.5 text-gray-400" />
-            <p><strong>Accuracy Note:</strong> Qibla direction is approximate and may depend on device compass accuracy, location permission, and calibration. Confirm with local scholars, official authorities, or the organization’s authorized reviewers.</p>
+            <p>{t('islamicTools.qibla.accuracyDisclaimer')}</p>
          </div>
       </div>
     </div>

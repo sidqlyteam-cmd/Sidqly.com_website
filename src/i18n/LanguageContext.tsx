@@ -1,3 +1,4 @@
+```tsx
 import React, { createContext, useContext, useEffect, useMemo, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { Language, Direction } from './config';
@@ -74,27 +75,114 @@ export function buildLocalizedPath(
   return `/${targetLang}${cleanRaw}`;
 }
 
+/**
+ * Detect the user's preferred supported language from browser settings.
+ *
+ * navigator.languages is checked first so that browser language priority
+ * is respected. Regional variants such as fr-FR or de-DE are reduced to
+ * their base language code.
+ */
+export function detectBrowserLanguage(): Language | null {
+  if (typeof navigator === 'undefined') return null;
+
+  const languages =
+    navigator.languages ||
+    (navigator.language ? [navigator.language] : []);
+
+  for (const lang of languages) {
+    if (!lang) continue;
+
+    const code = lang.split('-')[0].toLowerCase();
+
+    if (isSupportedLanguage(code)) {
+      return code;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Return the user's manually saved language preference.
+ */
+export function getSavedLanguage(): Language | null {
+  if (typeof localStorage === 'undefined') return null;
+
+  const saved = localStorage.getItem('sidqly_lang');
+
+  if (saved && isSupportedLanguage(saved)) {
+    return saved as Language;
+  }
+
+  return null;
+}
+
+/**
+ * Language preference priority:
+ *
+ * 1. Saved manual preference
+ * 2. Browser language
+ * 3. English default
+ */
+export function getPreferredLanguage(): Language {
+  const saved = getSavedLanguage();
+
+  if (saved) return saved;
+
+  const browserLang = detectBrowserLanguage();
+
+  if (browserLang) return browserLang;
+
+  return DEFAULT_LANGUAGE;
+}
+
+/**
+ * Detect a language from the current URL.
+ *
+ * English is represented by the absence of a language prefix.
+ */
+export function getUrlLanguage(pathname: string): Language | null {
+  const match = pathname.match(/^\/(ar|ur|fr|de)(\/|$)/);
+
+  if (match && isSupportedLanguage(match[1])) {
+    return match[1];
+  }
+
+  return null;
+}
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const currentPathLanguage = useMemo<Language>(() => {
-    const pathname = location.pathname;
-
-    const match = pathname.match(/^\/(ar|ur|fr|de)(\/|$)/);
-
-    if (match && isSupportedLanguage(match[1])) {
-      return match[1];
-    }
-
-    return 'en';
+  const urlLanguage = useMemo<Language | null>(() => {
+    return getUrlLanguage(location.pathname);
   }, [location.pathname]);
 
-  const activeLanguage = currentPathLanguage;
+  /**
+   * URL language always wins over saved/browser preference.
+   *
+   * Example:
+   * /fr/... -> French
+   * /de/... -> German
+   * /ur/... -> Urdu
+   * /ar/... -> Arabic
+   */
+  const activeLanguage = useMemo<Language>(() => {
+    if (urlLanguage) {
+      return urlLanguage;
+    }
+
+    return getPreferredLanguage();
+  }, [urlLanguage]);
+
   const activeDir = getLanguageDir(activeLanguage);
 
+  /**
+   * Keep the document language and direction synchronized.
+   */
   useEffect(() => {
     if (typeof document !== 'undefined') {
       document.documentElement.setAttribute('lang', activeLanguage);
@@ -106,6 +194,38 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, [activeLanguage, activeDir]);
 
+  /**
+   * If the visitor opens the English/unprefixed URL and has a supported
+   * saved/browser language, redirect them to that localized URL.
+   *
+   * Example:
+   * Browser = fr-FR
+   * Visit = /
+   * Result = /fr
+   */
+  useEffect(() => {
+    if (urlLanguage === null) {
+      const preferred = getPreferredLanguage();
+
+      if (preferred !== DEFAULT_LANGUAGE) {
+        const targetPath = buildLocalizedPath(
+          location.pathname,
+          preferred
+        );
+
+        if (targetPath !== location.pathname) {
+          navigate(targetPath, { replace: true });
+        }
+      }
+    }
+  }, [location.pathname, urlLanguage, navigate]);
+
+  /**
+   * Manually change the language.
+   *
+   * The selected language is persisted in localStorage so future visits
+   * continue using the user's explicit choice.
+   */
   const setLanguage = useCallback(
     (newLang: Language) => {
       if (!isSupportedLanguage(newLang)) return;
@@ -114,7 +234,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
         localStorage.setItem('sidqly_lang', newLang);
       }
 
-      const targetPath = buildLocalizedPath(location.pathname, newLang);
+      const targetPath = buildLocalizedPath(
+        location.pathname,
+        newLang
+      );
 
       if (targetPath !== location.pathname) {
         navigate(targetPath);
@@ -123,14 +246,26 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     [location.pathname, navigate]
   );
 
+  /**
+   * Resolve a translated UI string using dot notation.
+   *
+   * Example:
+   * t('nav.home')
+   * t('islamicTools.namaz.title')
+   */
   const t = useCallback(
     (keyPath: string, defaultValue?: string): string => {
       const translations = getUITranslations(activeLanguage);
       const keys = keyPath.split('.');
+
       let result: any = translations;
 
       for (const k of keys) {
-        if (result && typeof result === 'object' && k in result) {
+        if (
+          result &&
+          typeof result === 'object' &&
+          k in result
+        ) {
           result = result[k];
         } else {
           result = undefined;
@@ -142,14 +277,20 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
         return result;
       }
 
-      // Fallback to English dictionary if key is missing
-      // in the active language.
+      /**
+       * Fallback to English when a translation is missing from
+       * the currently active language.
+       */
       if (activeLanguage !== DEFAULT_LANGUAGE) {
         const enDict = getUITranslations(DEFAULT_LANGUAGE);
         let enResult: any = enDict;
 
         for (const k of keys) {
-          if (enResult && typeof enResult === 'object' && k in enResult) {
+          if (
+            enResult &&
+            typeof enResult === 'object' &&
+            k in enResult
+          ) {
             enResult = enResult[k];
           } else {
             enResult = undefined;
@@ -170,6 +311,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   const getLocalizedPath = useCallback(
     (path: string, targetLang?: Language): string => {
       const lang = targetLang || activeLanguage;
+
       return buildLocalizedPath(path, lang);
     },
     [activeLanguage]
@@ -212,8 +354,11 @@ export function useLanguage(): LanguageContextType {
   const context = useContext(LanguageContext);
 
   if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error(
+      'useLanguage must be used within a LanguageProvider'
+    );
   }
 
   return context;
 }
+```
