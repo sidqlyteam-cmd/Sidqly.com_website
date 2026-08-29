@@ -119,6 +119,11 @@ async function runPrerender() {
 
   const prerenderWorker = async (workerId) => {
     let page = await browser.newPage();
+    await page.addInitScript(() => {
+      try {
+        localStorage.clear();
+      } catch (_) {}
+    });
     let count = 0;
     while (queue.length > 0) {
       const route = queue.shift();
@@ -128,8 +133,19 @@ async function runPrerender() {
         if (page.isClosed() || count > 50) {
           if (!page.isClosed()) await page.close().catch(() => {});
           page = await browser.newPage();
+          await page.addInitScript(() => {
+            try {
+              localStorage.clear();
+            } catch (_) {}
+          });
           count = 0;
         }
+
+        await page.evaluate(() => {
+          try {
+            localStorage.clear();
+          } catch (_) {}
+        }).catch(() => {});
 
         await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'domcontentloaded', timeout: 15000 });
         await page.waitForTimeout(50);
