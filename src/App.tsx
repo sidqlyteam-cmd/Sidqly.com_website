@@ -63,6 +63,7 @@ import RamadanPlannerPage from './pages/islamic/RamadanPlannerPage';
 import EidQurbaniPlannerPage from './pages/islamic/EidQurbaniPlannerPage';
 import SadqaZakatPlannerPage from './pages/islamic/SadqaZakatPlannerPage';
 import IslamicGlossaryPage from './pages/islamic/IslamicGlossaryPage';
+import IslamicDashboardPage from './pages/islamic/IslamicDashboardPage';
 
 // Newsroom
 import Newsroom from './pages/Newsroom';
@@ -208,6 +209,7 @@ const siteRoutes = [
   <Route key="eid" path="eid-qurbani-planner" element={<EidQurbaniPlannerPage />} />,
   <Route key="sadqa" path="sadqa-zakat-planner" element={<SadqaZakatPlannerPage />} />,
   <Route key="glossary" path="islamic-glossary" element={<IslamicGlossaryPage />} />,
+  <Route key="islamic-dashboard" path="islamic-dashboard" element={<IslamicDashboardPage />} />,
   <Route key="resources" path="resources" element={<Resources />} />,
   <Route key="resources-detail" path="resources/:slug" element={<ResourceDetail />} />,
   <Route key="not-found" path="*" element={<NotFound />} />,
