@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { getIslamicDateInfo, HIJRI_MONTHS, type IslamicDateInfo } from '../../lib/islamicCalendar';
-import { fetchNamazTimingsByCity, fetchNamazTimingsByCoords, getNextPrayer, type NamazTimings } from '../../lib/namazTimings';
+import { fetchNamazTimingsByCity, fetchNamazTimingsByCoords, reverseGeocodeCoords, getNextPrayer, type NamazTimings } from '../../lib/namazTimings';
 import { calculateQiblaDirection, type QiblaResult } from '../../lib/qibla';
 import { getRamadanSeasonInfo, getEidFitrSeasonInfo, getEidQurbaniSeasonInfo, getHajjSeasonInfo, type SeasonalEventDetails } from '../../lib/seasonalDates';
 import { getApproximateMoonPhase, type MoonPhaseResult } from '../../lib/moonPhase';
@@ -149,6 +149,12 @@ const IslamicDailyDashboard: React.FC = () => {
         setNextPrayer(getNextPrayer(data));
         setUserCoords({ lat: coords.latitude, lng: coords.longitude });
         setQiblaResult(calculateQiblaDirection(coords.latitude, coords.longitude));
+
+        const geoInfo = await reverseGeocodeCoords(coords.latitude, coords.longitude);
+        if (geoInfo) {
+          if (geoInfo.city) setCity(geoInfo.city);
+          if (geoInfo.country) setCountry(geoInfo.country);
+        }
       } catch (err: unknown) {
         if (err instanceof Error) {
           setNamazError(err.message);

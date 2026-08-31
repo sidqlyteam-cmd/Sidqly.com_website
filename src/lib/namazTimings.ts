@@ -131,6 +131,33 @@ export async function fetchNamazTimingsByCity(city: string, country: string, met
   }
 }
 
+/**
+ * Attempts reverse geocoding for a given coordinate pair using a free client-side API.
+ * Returns detected city and country names, or null if reverse geocoding is unavailable or fails.
+ */
+export async function reverseGeocodeCoords(lat: number, lng: number): Promise<{ city: string; country: string } | null> {
+  if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+    return null;
+  }
+
+  try {
+    const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data || typeof data !== 'object') return null;
+
+    const city = (data.city || data.locality || data.principalSubdivision || '').toString().trim();
+    const country = (data.countryName || '').toString().trim();
+
+    if (city || country) {
+      return { city, country };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export async function fetchNamazTimingsByCoords(lat: number, lng: number, method: number = 1): Promise<NamazTimings> {
   if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
     throw new Error('Please provide valid location coordinates (Latitude -90 to 90, Longitude -180 to 180).');

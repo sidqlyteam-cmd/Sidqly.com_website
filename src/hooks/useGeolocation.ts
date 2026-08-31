@@ -13,9 +13,16 @@ export interface UseGeolocationReturn {
   clearError: () => void;
   getCurrentPosition: (
     onSuccess?: (coords: GeolocationCoords) => void,
-    onError?: (errMessage: string) => void
+    onError?: (errMessage: string) => void,
+    options?: PositionOptions
   ) => void;
 }
+
+const DEFAULT_GEOLOCATION_OPTIONS: PositionOptions = {
+  enableHighAccuracy: false,
+  timeout: 15000,
+  maximumAge: 300000,
+};
 
 export function useGeolocation(): UseGeolocationReturn {
   const [loading, setLoading] = useState(false);
@@ -29,18 +36,24 @@ export function useGeolocation(): UseGeolocationReturn {
   const getCurrentPosition = useCallback(
     (
       onSuccess?: (coords: GeolocationCoords) => void,
-      onError?: (errMessage: string) => void
+      onError?: (errMessage: string) => void,
+      options?: PositionOptions
     ) => {
       clearError();
 
       if (typeof navigator === 'undefined' || !navigator.geolocation) {
-        const msg = 'Geolocation is not supported by your browser.';
+        const msg = 'Geolocation is not supported by your browser. Please enter details manually.';
         setError(msg);
         if (onError) onError(msg);
         return;
       }
 
       setLoading(true);
+
+      const mergedOptions: PositionOptions = {
+        ...DEFAULT_GEOLOCATION_OPTIONS,
+        ...options,
+      };
 
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -58,15 +71,15 @@ export function useGeolocation(): UseGeolocationReturn {
           if (geoError.code === geoError.PERMISSION_DENIED) {
             msg = 'Location permission denied. Please enter details manually.';
           } else if (geoError.code === geoError.TIMEOUT) {
-            msg = 'Location request timed out. Please try again.';
+            msg = 'Location request timed out. Please click "Use My Location" to try again or enter details manually.';
           } else if (geoError.code === geoError.POSITION_UNAVAILABLE) {
-            msg = 'Location position is currently unavailable.';
+            msg = 'Location position is currently unavailable. Please enter details manually.';
           }
           setError(msg);
           setLoading(false);
           if (onError) onError(msg);
         },
-        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+        mergedOptions
       );
     },
     [clearError]

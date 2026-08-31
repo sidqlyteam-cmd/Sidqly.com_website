@@ -100,7 +100,7 @@ async function runPrerender() {
   ];
   const executablePath = candidates.find(p => fs.existsSync(p));
 
-  const launchOpts = { args: ['--no-sandbox', '--disable-setuid-sandbox'] };
+  const launchOpts = { args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] };
   if (executablePath) {
     launchOpts.executablePath = executablePath;
   }
@@ -109,7 +109,7 @@ async function runPrerender() {
   try {
     browser = await chromium.launch(launchOpts);
   } catch {
-    browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    browser = await chromium.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] });
   }
 
   console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
