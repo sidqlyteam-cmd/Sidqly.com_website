@@ -4,6 +4,7 @@ import {
   getNextPrayer,
   fetchNamazTimingsByCity,
   fetchNamazTimingsByCoords,
+  reverseGeocodeCoords,
   type NamazTimings,
 } from '../namazTimings';
 
@@ -116,6 +117,17 @@ describe('fetchNamazTimings input validation', () => {
     await expect(fetchNamazTimingsByCoords(100, 74)).rejects.toThrow('Please provide valid location coordinates');
     await expect(fetchNamazTimingsByCoords(31.5, -200)).rejects.toThrow('Please provide valid location coordinates');
     await expect(fetchNamazTimingsByCoords(NaN, 74)).rejects.toThrow('Please provide valid location coordinates');
+  });
+});
+
+describe('reverseGeocodeCoords robustness', () => {
+  test('returns null safely for invalid coordinates', async () => {
+    expect(await reverseGeocodeCoords(999, 0)).toBeNull();
+    expect(await reverseGeocodeCoords(NaN, 50)).toBeNull();
+  });
+
+  test('handles fetch errors or bad API responses gracefully without throwing', async () => {
+    expect(await reverseGeocodeCoords(0, 0)).not.toThrow;
   });
 });
 

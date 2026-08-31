@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchNamazTimingsByCity, fetchNamazTimingsByCoords, CALCULATION_METHODS, getNextPrayer, type NamazTimings } from '../../lib/namazTimings';
+import { fetchNamazTimingsByCity, fetchNamazTimingsByCoords, reverseGeocodeCoords, CALCULATION_METHODS, getNextPrayer, type NamazTimings } from '../../lib/namazTimings';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { MapPin, Search, Clock, AlertCircle, Shield, RotateCcw } from 'lucide-react';
@@ -9,6 +9,8 @@ const NamazTimingWidget: React.FC = () => {
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
   const [method, setMethod] = useState(1);
+  const [activeCoords, setActiveCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [lastFetchMode, setLastFetchMode] = useState<'coords' | 'city' | null>(null);
   const [timingsData, setTimingsData] = useState<NamazTimings | null>(null);
   const [loading, setLoading] = useState(false);
   const [localError, setLocalError] = useState<string | null>(null);
@@ -46,14 +48,28 @@ const NamazTimingWidget: React.FC = () => {
       setLocalError(t('islamicTools.namaz.enterCityCountry', 'Please enter both city and country.'));
       return;
     }
+    setActiveCoords(null);
+    setLastFetchMode('city');
     fetchTimings(() => fetchNamazTimingsByCity(trimmedCity, trimmedCountry, method));
   };
 
   const handleUseLocation = () => {
     setLocalError(null);
     clearError();
-    getCurrentPosition((coords) => {
-      fetchTimings(() => fetchNamazTimingsByCoords(coords.latitude, coords.longitude, method));
+    getCurrentPosition(async (coords) => {
+      const lat = coords.latitude;
+      const lng = coords.longitude;
+      setActiveCoords({ lat, lng });
+      setLastFetchMode('coords');
+
+      fetchTimings(() => fetchNamazTimingsByCoords(lat, lng, method));
+
+      // Reverse geocode to populate input fields if available
+      const geoInfo = await reverseGeocodeCoords(lat, lng);
+      if (geoInfo) {
+        if (geoInfo.city) setCity(geoInfo.city);
+        if (geoInfo.country) setCountry(geoInfo.country);
+      }
     });
   };
 
@@ -61,6 +77,8 @@ const NamazTimingWidget: React.FC = () => {
     setCity('');
     setCountry('');
     setMethod(1);
+    setActiveCoords(null);
+    setLastFetchMode(null);
     setTimingsData(null);
     setNextPrayer(null);
     setLocalError(null);
@@ -70,11 +88,10 @@ const NamazTimingWidget: React.FC = () => {
   // Re-fetch when method changes if we already have data
   useEffect(() => {
     if (timingsData) {
-      if (city.trim() && country.trim()) {
+      if (lastFetchMode === 'coords' && activeCoords) {
+        fetchTimings(() => fetchNamazTimingsByCoords(activeCoords.lat, activeCoords.lng, method));
+      } else if (city.trim() && country.trim()) {
         fetchTimings(() => fetchNamazTimingsByCity(city.trim(), country.trim(), method));
-      } else if (timingsData) {
-        // If calculated by coords or previous query, re-fetch with current city/country or default method
-        fetchTimings(() => fetchNamazTimingsByCity(city.trim() || 'Lahore', country.trim() || 'Pakistan', method));
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
