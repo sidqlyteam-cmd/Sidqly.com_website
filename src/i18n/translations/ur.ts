@@ -1,4 +1,32 @@
+```ts
 import type { UITranslationKeys } from '../types';
+
+const defaultNamazTranslator = {
+  title: 'نماز کا ترجمہ اور نماز کی تسبیحات کے معانی',
+  subtitle:
+    'نماز کی تسبیحات، اعراب کے ساتھ عربی متن، اردو ترجمہ، لفظ بہ لفظ تشریح اور مستند احادیث سے مسنون طریقے دیکھیں۔',
+  verifiedDatasetBadge: 'انسانی تصدیق شدہ شرعی ماخذ',
+  linkNamazTimings: 'نماز کے اوقات',
+  linkQibla: 'قبلہ رخ',
+  searchPlaceholder: 'نماز کی تسبیحات، عربی یا ترجمہ تلاش کریں...',
+  allSectionsOption: 'نماز کے تمام ارکان',
+  toggleTransliteration: 'تلفظ (ٹرانسلیٹریشن)',
+  toggleTranslation: 'ترجمہ',
+  transliterationLabel: 'تلفظ',
+  translationLabel: 'ترجمہ',
+  showWordBreakdown: 'لفظ بہ لفظ ترجمہ دیکھیں',
+  hideWordBreakdown: 'لفظ بہ لفظ ترجمہ چھپائیں',
+  showVariants: 'مسنون روایات دیکھیں',
+  hideVariants: 'مسنون روایات چھپائیں',
+  noResultsTitle: 'کوئی تسبیح نہیں ملی',
+  noResultsDesc: 'براہ کرم تلاش کے الفاظ تبدیل کریں یا فلٹر ختم کریں۔',
+  clearFilters: 'فلٹر ختم کریں',
+  disclaimerTitle: 'علمی و آموزشی تنبیہ',
+  disclaimerText:
+    'یہ ٹول تعلیمی اور آپریشنل منصوبہ بندی کے لیے فراہم کیا گیا ہے۔ تمام تراجم اور احادیث کے حوالاجات جید علماء اور مستند کتب سے مرتب کیے گئے ہیں۔ مختلف مسنون روایات کو بلا تعصب صراحت کے ساتھ درج کیا گیا ہے۔',
+  sourcesNote:
+    'ذرائع: صحیح البخاری، صحیح مسلم، سنن ابی داؤد، جامع الترمذی، فتح محمد جالندھری، معارف القرآن۔',
+};
 
 export const urTranslations: UITranslationKeys = {
   nav: {
@@ -94,6 +122,8 @@ export const urTranslations: UITranslationKeys = {
       yourLocation: 'آپ کا مقام',
     },
 
+    namazTranslator: defaultNamazTranslator,
+
     qibla: {
       title: 'قبلہ رخ ٹول',
       subtitle: 'عملی منصوبہ بندی کے لیے تقریبی قبلہ رخ کا حساب لگائیں۔',
@@ -183,10 +213,12 @@ export const urTranslations: UITranslationKeys = {
       operationalAlignmentTitle: 'عملی ہم آہنگی',
       operationalAlignmentSubtitle:
         'مساجد اور فلاحی ادارے مخصوص اسلامی مہینوں میں عملی کام کے دباؤ کا سامنا کرتے ہیں۔ صدقلی ان کو محفوظ طریقے سے سنبھالنے کے لیے ماڈیولز فراہم کرتی ہے۔',
-      ramadanSpike: 'رمضان: افطار اور صدقات کی اعلیٰ مقدار کی پروسیسنگ۔',
+      ramadanSpike:
+        'رمضان: افطار اور صدقات کی اعلیٰ مقدار کی پروسیسنگ۔',
       dhulHijjahSpike:
         'ذی الحجہ: قربانی کے سپلائرز کی ٹریکنگ اور حصوں کی تقسیم۔',
-      muharramSpike: 'محرم: سالانہ رپورٹس اور نئی مہمات کی تیاری۔',
+      muharramSpike:
+        'محرم: سالانہ رپورٹس اور نئی مہمات کی تیاری۔',
       ramadanPlannerTitle: 'رمضان پلانر',
       ramadanPlannerDesc:
         'افطار، راشن پیک، رضا کاروں کی ہم آہنگی اور صدقہ کے کاموں کے لیے چیک لسٹ۔',
@@ -430,7 +462,8 @@ export const urTranslations: UITranslationKeys = {
       searchPlaceholder:
         'اصطلاح تلاش کریں (مثلاً زکوٰۃ، ثبوت، قربانی)...',
       viewRelatedModule: 'متعلقہ ماڈیول دیکھیں',
-      noTermsFound: 'آپ کی تلاش کے مطابق کوئی اصطلاح نہیں ملی۔',
+      noTermsFound:
+        'آپ کی تلاش کے مطابق کوئی اصطلاح نہیں ملی۔',
       disclaimer:
         'تنبیہ: یہ لغت صدقلی پلیٹ فارم کے عملی تناظر میں اصطلاحات کی وضاحت کرتی ہے۔ یہ شرعی فتویٰ کا متبادل نہیں ہے۔',
     },
@@ -459,3 +492,4 @@ export const urTranslations: UITranslationKeys = {
     },
   },
 };
+```

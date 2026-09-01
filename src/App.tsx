@@ -53,6 +53,7 @@ import KnowledgeDetail from './pages/KnowledgeDetail';
 // Islamic Utilities Pages
 import IslamicUtilitiesPage from './pages/islamic/IslamicUtilitiesPage';
 import NamazTimingsPage from './pages/islamic/NamazTimingsPage';
+import NamazTranslatorPage from './pages/islamic/NamazTranslatorPage';
 import ZakatCalculatorPage from './pages/islamic/ZakatCalculatorPage';
 import IslamicCalendarPage from './pages/islamic/IslamicCalendarPage';
 import MoonPhasePage from './pages/islamic/MoonPhasePage';
@@ -199,6 +200,7 @@ const siteRoutes = [
   <Route key="alternatives-detail" path="alternatives/:slug" element={<CompareDetail />} />,
   <Route key="islamic-utilities" path="islamic-utilities" element={<IslamicUtilitiesPage />} />,
   <Route key="namaz-timings" path="namaz-timings" element={<NamazTimingsPage />} />,
+  <Route key="namaz-translator" path="namaz-translator" element={<NamazTranslatorPage />} />,
   <Route key="zakat-calculator" path="zakat-calculator" element={<ZakatCalculatorPage />} />,
   <Route key="islamic-calendar" path="islamic-calendar" element={<IslamicCalendarPage />} />,
   <Route key="moon-phase" path="moon-phase-islamic-calendar" element={<MoonPhasePage />} />,

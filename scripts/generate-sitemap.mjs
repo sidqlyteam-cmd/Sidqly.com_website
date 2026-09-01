@@ -33,6 +33,7 @@ const basePagesRoutes = [
     '/islamic-utilities',
     '/islamic-glossary',
     '/namaz-timings',
+    '/namaz-translator',
     '/islamic-calendar',
     '/moon-phase-islamic-calendar',
     '/qibla-direction',

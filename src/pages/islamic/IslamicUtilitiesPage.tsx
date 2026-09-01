@@ -3,12 +3,13 @@ import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { Link } from 'react-router-dom';
-import { Calendar, Compass, CloudSun, Moon, Gift, Heart, BookOpen, Clock, Activity, Calculator, ArrowRight } from 'lucide-react';
+import { Calendar, Compass, CloudSun, Moon, Gift, Heart, BookOpen, Clock, Activity, Calculator, ArrowRight, Languages } from 'lucide-react';
 
 const IslamicUtilitiesPage: React.FC = () => {
   const { t, dir } = useLanguage();
 
   const utilities = [
+    { titleKey: "islamicTools.namazTranslator.title", path: "/namaz-translator", descKey: "islamicTools.namazTranslator.subtitle", icon: <Languages size={24} /> },
     { titleKey: "islamicTools.namaz.title", path: "/namaz-timings", descKey: "islamicTools.namaz.subtitle", icon: <Clock size={24} /> },
     { titleKey: "islamicTools.zakat.title", path: "/zakat-calculator", descKey: "islamicTools.zakat.subtitle", icon: <Calculator size={24} /> },
     { titleKey: "islamicTools.qibla.title", path: "/qibla-direction", descKey: "islamicTools.qibla.subtitle", icon: <Compass size={24} /> },

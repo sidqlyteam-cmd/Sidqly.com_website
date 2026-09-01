@@ -1,5 +1,29 @@
 import type { UITranslationKeys } from '../types';
 
+const defaultNamazTranslator = {
+  title: 'Traducteur de Namaz & Significations de la Salah',
+  subtitle: 'Explorez les récitations authentiques de la prière avec le texte arabe Outhmani, la translittération, les traductions multilingues, la décomposition mot à mot et les variantes de la Sunnah.',
+  verifiedDatasetBadge: 'Sources religieuses vérifiées par des experts',
+  linkNamazTimings: 'Horaires de prière',
+  linkQibla: 'Direction de la Qibla',
+  searchPlaceholder: 'Rechercher des récitations, de l\'arabe ou des traductions...',
+  allSectionsOption: 'Toutes les sections de la Salah',
+  toggleTransliteration: 'Translittération',
+  toggleTranslation: 'Traduction',
+  transliterationLabel: 'Translittération',
+  translationLabel: 'Traduction',
+  showWordBreakdown: 'Afficher le mot à mot',
+  hideWordBreakdown: 'Masquer le mot à mot',
+  showVariants: 'Afficher les variantes de la Sunnah',
+  hideVariants: 'Masquer les variantes de la Sunnah',
+  noResultsTitle: 'Aucune récitation trouvée',
+  noResultsDesc: 'Essayez de modifier vos termes de recherche ou de réinitialiser le filtre.',
+  clearFilters: 'Réinitialiser les filtres',
+  disclaimerTitle: 'Avertissement éducatif et érudit',
+  disclaimerText: 'Cet outil est fourni à des fins éducatives et de planification opérationnelle. Toutes les traductions et références de Hadiths proviennent de collections classiques vérifiées par des érudits.',
+  sourcesNote: 'Sources : Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami` at-Tirmidhi, Muhammad Hamidullah.',
+};
+
 const defaultRamadan = {
   title: 'Planificateur de Ramadan & Liste de contrôle',
   subtitle: 'Préparez votre organisation ou mosquée avec un compte à rebours et une liste de contrôle.',
@@ -186,6 +210,7 @@ export const frTranslations: UITranslationKeys = {
       enterCityCountry: 'Veuillez entrer la ville et le pays.',
       yourLocation: 'Votre emplacement',
     },
+    namazTranslator: defaultNamazTranslator,
     qibla: {
       title: 'Direction de la Qibla',
       subtitle: 'Calculez la direction approximative de la Qibla pour la planification opérationnelle.',

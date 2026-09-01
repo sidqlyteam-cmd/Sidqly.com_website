@@ -1,5 +1,29 @@
 import type { UITranslationKeys } from '../types';
 
+const defaultNamazTranslator = {
+  title: 'مترجم أذكار الصلاة ومعاني الألفاظ',
+  subtitle: 'استكشف أذكار الصلاة الموثقة بالنص العثماني المشكول، مع الترجمة اللفظية، والترجمات المتعددة، وتحليل الكلمات، والروايات النبوية المعتمدة.',
+  verifiedDatasetBadge: 'مصادر شرعية موثقة بشرياً',
+  linkNamazTimings: 'مواقيت الصلاة',
+  linkQibla: 'اتجاه القبلة',
+  searchPlaceholder: 'ابحث في الأذكار، النصوص العربية، أو الترجمات...',
+  allSectionsOption: 'جميع أركان وأذكار الصلاة',
+  toggleTransliteration: 'النقحرة الحرفية',
+  toggleTranslation: 'الترجمة',
+  transliterationLabel: 'النقحرة الحرفية',
+  translationLabel: 'الترجمة',
+  showWordBreakdown: 'عرض تحليل المفردات',
+  hideWordBreakdown: 'إخفاء تحليل المفردات',
+  showVariants: 'عرض الروايات والسنن',
+  hideVariants: 'إخفاء الروايات والسنن',
+  noResultsTitle: 'لم يتم العثور على أذكار مطابقة',
+  noResultsDesc: 'جرب تعديل كلمات البحث أو إلغاء تصفية الأقسام.',
+  clearFilters: 'إلغاء التصفية',
+  disclaimerTitle: 'تنبيه علمي وتربوي',
+  disclaimerText: 'تم توفير هذه الأداة لأغراض التعلم والتخطيط التشغيلي. جميع النصوص والترجمات مصاغة ومراجعة بشرياً بناءً على أمات كتب الحديث والتفاسير المعتمدة دون الانحياز لرأي واقتار دون غيره.',
+  sourcesNote: 'المصادر: صحيح البخاري، صحيح مسلم، سنن أبي داود، جامع الترمذي، تفاسير ابن كثير والقرطبي والجلالين.',
+};
+
 export const arTranslations: UITranslationKeys = {
   nav: {
     home: 'الرئيسية',
@@ -86,6 +110,7 @@ export const arTranslations: UITranslationKeys = {
       enterCityCountry: 'يرجى إدخال اسم المدينة والدولة.',
       yourLocation: 'موقعك',
     },
+    namazTranslator: defaultNamazTranslator,
     qibla: {
       title: 'أداة تحديد اتجاه القبلة',
       subtitle: 'حساب اتجاه القبلة التقريبي للتخطيط التشغيلي والميداني.',

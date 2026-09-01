@@ -49,6 +49,7 @@ export const routeClassifications: RouteClassification[] = [
   { path: "/blog", status: 200, indexable: true, canonical: "https://www.sidqly.com/blog", type: "public" },
   { path: "/islamic-utilities", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-utilities", type: "public" },
   { path: "/namaz-timings", status: 200, indexable: true, canonical: "https://www.sidqly.com/namaz-timings", type: "public" },
+  { path: "/namaz-translator", status: 200, indexable: true, canonical: "https://www.sidqly.com/namaz-translator", type: "public" },
   { path: "/zakat-calculator", status: 200, indexable: true, canonical: "https://www.sidqly.com/zakat-calculator", type: "public" },
   { path: "/islamic-calendar", status: 200, indexable: true, canonical: "https://www.sidqly.com/islamic-calendar", type: "public" },
   { path: "/moon-phase-islamic-calendar", status: 200, indexable: true, canonical: "https://www.sidqly.com/moon-phase-islamic-calendar", type: "public" },
@@ -70,7 +71,7 @@ export const routeClassifications: RouteClassification[] = [
   { path: "/knowledge-hub/guide-islamic-charity-operations", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/guide-islamic-charity-operations", type: "public" },
   { path: "/knowledge-hub/zakat-management-systems-guide", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/zakat-management-systems-guide", type: "public" },
   { path: "/knowledge-hub/ramadan-food-distribution-logistics", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/ramadan-food-distribution-logistics", type: "public" },
-  { path: "/knowledge-hub/manual-payment-verification-process", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/manual-payment-verification-process", type: "public" },
+  { path: "/knowledge-hub/manual-payment-verification-process", status: 200, indexable: true, canonical: "https://www.sidqly.com/manual-payment-verification-process", type: "public" },
   { path: "/knowledge-hub/what-is-tamleek", status: 200, indexable: true, canonical: "https://www.sidqly.com/knowledge-hub/what-is-tamleek", type: "public" },
 
   // System/Private Noindex Pages (200 but noindex)

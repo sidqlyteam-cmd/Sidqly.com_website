@@ -1,5 +1,29 @@
 import type { UITranslationKeys } from '../types';
 
+const defaultNamazTranslator = {
+  title: 'Namaz-Übersetzer & Salah-Bedeutungstool',
+  subtitle: 'Erkunden Sie authentische Gebetsrezitationen mit othmanischem arabischem Text, Transliteration, mehrsprachigen Übersetzungen, Wort-für-Wort-Aufschlüsselungen und Sunnah-Varianten.',
+  verifiedDatasetBadge: 'Menschlich verifizierte religiöse Quellen',
+  linkNamazTimings: 'Gebetszeiten',
+  linkQibla: 'Qibla-Ausrichtung',
+  searchPlaceholder: 'Rezitationen, Arabisch oder Übersetzungen suchen...',
+  allSectionsOption: 'Alle Gebetsabschnitte',
+  toggleTransliteration: 'Transliteration',
+  toggleTranslation: 'Übersetzung',
+  transliterationLabel: 'Transliteration',
+  translationLabel: 'Übersetzung',
+  showWordBreakdown: 'Wort-für-Wort-Aufschlüsselung anzeigen',
+  hideWordBreakdown: 'Wort-für-Wort-Aufschlüsselung ausblenden',
+  showVariants: 'Sunnah-Varianten anzeigen',
+  hideVariants: 'Sunnah-Varianten ausblenden',
+  noResultsTitle: 'Keine Rezitationen gefunden',
+  noResultsDesc: 'Versuchen Sie, Ihre Suchbegriffe anzupassen oder die Filter zurückzusetzen.',
+  clearFilters: 'Filter zurücksetzen',
+  disclaimerTitle: 'Wissenschaftlicher & bildungsbezogener Haftungsausschluss',
+  disclaimerText: 'Dieses Tool dient Bildungs- und betrieblichen Planungszwecken. Alle Übersetzungen und Hadith-Referenzen stammen aus klassischen Sammlungen, die von Experten überprüft wurden.',
+  sourcesNote: 'Quellen: Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami` at-Tirmidhi, Bubenheim & Elyas.',
+};
+
 const defaultRamadan = {
   title: 'Ramadan-Planer & Checkliste',
   subtitle: 'Bereiten Sie Ihre Organisation oder Moschee mit Countdown und Checkliste vor.',
@@ -186,6 +210,7 @@ export const deTranslations: UITranslationKeys = {
       enterCityCountry: 'Bitte geben Sie sowohl Stadt als auch Land ein.',
       yourLocation: 'Ihr Standort',
     },
+    namazTranslator: defaultNamazTranslator,
     qibla: {
       title: 'Qibla-Richtung',
       subtitle: 'Berechnen Sie die ungefähre Qibla-Richtung für die Betriebsplanung.',
