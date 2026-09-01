@@ -15,6 +15,8 @@ export interface NamazTimings {
     method: {
       name: string;
     };
+    latitude?: number;
+    longitude?: number;
   };
 }
 
@@ -78,6 +80,25 @@ export function validateAndMapNamazResponse(apiData: unknown): NamazTimings {
   const methodObj = metaObj.method || {};
   const methodName = typeof methodObj.name === 'string' ? methodObj.name : 'Standard Method';
 
+  const metaLatRaw = metaObj.latitude;
+  const metaLngRaw = metaObj.longitude;
+  let metaLat: number | undefined = undefined;
+  let metaLng: number | undefined = undefined;
+
+  if (metaLatRaw !== undefined && metaLatRaw !== null) {
+    const parsedLat = Number(metaLatRaw);
+    if (Number.isFinite(parsedLat) && parsedLat >= -90 && parsedLat <= 90) {
+      metaLat = parsedLat;
+    }
+  }
+
+  if (metaLngRaw !== undefined && metaLngRaw !== null) {
+    const parsedLng = Number(metaLngRaw);
+    if (Number.isFinite(parsedLng) && parsedLng >= -180 && parsedLng <= 180) {
+      metaLng = parsedLng;
+    }
+  }
+
   // Timezone can be in meta.timezone or payload.timezone
   const timezoneStr = typeof metaObj.timezone === 'string'
     ? metaObj.timezone
@@ -104,6 +125,8 @@ export function validateAndMapNamazResponse(apiData: unknown): NamazTimings {
       method: {
         name: methodName,
       },
+      latitude: metaLat,
+      longitude: metaLng,
     },
   };
 }
@@ -128,6 +151,33 @@ export async function fetchNamazTimingsByCity(city: string, country: string, met
       throw err;
     }
     throw new Error('Prayer time data is temporarily unavailable. Please try again.');
+  }
+}
+
+/**
+ * Attempts reverse geocoding for a given coordinate pair using a free client-side API.
+ * Returns detected city and country names, or null if reverse geocoding is unavailable or fails.
+ */
+export async function reverseGeocodeCoords(lat: number, lng: number): Promise<{ city: string; country: string } | null> {
+  if (typeof lat !== 'number' || typeof lng !== 'number' || isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+    return null;
+  }
+
+  try {
+    const res = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data || typeof data !== 'object') return null;
+
+    const city = (data.city || data.locality || data.principalSubdivision || '').toString().trim();
+    const country = (data.countryName || '').toString().trim();
+
+    if (city || country) {
+      return { city, country };
+    }
+    return null;
+  } catch {
+    return null;
   }
 }
 

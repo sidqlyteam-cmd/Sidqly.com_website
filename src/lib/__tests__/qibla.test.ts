@@ -43,6 +43,15 @@ describe('Qibla Direction Calculation & Validation', () => {
       expect(res.cardinalDirection).toMatch(/W|WSW/);
     });
 
+    it('calculates expected Qibla bearing for test coordinates (31.5826, 74.3276)', () => {
+      const res = calculateQiblaDirection(31.5826, 74.3276);
+      expect(res.userLat).toBe(31.5826);
+      expect(res.userLng).toBe(74.3276);
+      expect(res.bearing).toBeGreaterThanOrEqual(258);
+      expect(res.bearing).toBeLessThanOrEqual(263);
+      expect(res.cardinalDirection).toMatch(/W|WSW/);
+    });
+
     it('calculates expected bearing for Karachi, Pakistan', () => {
       // Approx 266° (West)
       const res = calculateQiblaDirection(24.8607, 67.0011);

@@ -84,6 +84,7 @@ export const arTranslations: UITranslationKeys = {
       subtitle: 'حساب مواقيت الصلاة للتخطيط التشغيلي.',
       nextPrayer: 'الصلاة القادمة',
       enterCityCountry: 'يرجى إدخال اسم المدينة والدولة.',
+      yourLocation: 'موقعك',
     },
     qibla: {
       title: 'أداة تحديد اتجاه القبلة',
