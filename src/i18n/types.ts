@@ -73,6 +73,30 @@ export interface NamazToolTranslations {
   yourLocation?: string;
 }
 
+export interface NamazTranslatorToolTranslations {
+  title: string;
+  subtitle: string;
+  verifiedDatasetBadge: string;
+  linkNamazTimings: string;
+  linkQibla: string;
+  searchPlaceholder: string;
+  allSectionsOption: string;
+  toggleTransliteration: string;
+  toggleTranslation: string;
+  transliterationLabel: string;
+  translationLabel: string;
+  showWordBreakdown: string;
+  hideWordBreakdown: string;
+  showVariants: string;
+  hideVariants: string;
+  noResultsTitle: string;
+  noResultsDesc: string;
+  clearFilters: string;
+  disclaimerTitle: string;
+  disclaimerText: string;
+  sourcesNote: string;
+}
+
 export interface QiblaToolTranslations {
   title: string;
   subtitle: string;
@@ -397,6 +421,7 @@ export interface IslamicToolsTranslations {
   tryAgain: string;
   privacyNotice: string;
   namaz: NamazToolTranslations;
+  namazTranslator: NamazTranslatorToolTranslations;
   qibla: QiblaToolTranslations;
   zakat: ZakatToolTranslations;
   calendar: IslamicCalendarToolTranslations;

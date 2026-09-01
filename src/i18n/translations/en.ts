@@ -1,5 +1,29 @@
 import type { UITranslationKeys } from '../types';
 
+const defaultNamazTranslator = {
+  title: 'Namaz Translator & Salah Meaning Tool',
+  subtitle: 'Explore authentic Salah recitations with Uthmani Arabic text, transliteration, multi-language translations, word-by-word breakdowns, and Sunnah variants.',
+  verifiedDatasetBadge: 'Human-Verified Religious Sources',
+  linkNamazTimings: 'Namaz Timings',
+  linkQibla: 'Qibla Direction',
+  searchPlaceholder: 'Search recitations, Arabic, or translations...',
+  allSectionsOption: 'All Salah Sections',
+  toggleTransliteration: 'Transliteration',
+  toggleTranslation: 'Translation',
+  transliterationLabel: 'Transliteration',
+  translationLabel: 'Translation',
+  showWordBreakdown: 'Show Word-by-Word Breakdown',
+  hideWordBreakdown: 'Hide Word-by-Word Breakdown',
+  showVariants: 'Show Sunnah Variants',
+  hideVariants: 'Hide Sunnah Variants',
+  noResultsTitle: 'No Recitations Found',
+  noResultsDesc: 'Try adjusting your search terms or clearing section filters.',
+  clearFilters: 'Clear Filters',
+  disclaimerTitle: 'Scholarly & Educational Disclaimer',
+  disclaimerText: 'This tool is provided for educational and operational planning purposes. All translations and Hadith references are sourced from human-verified classical collections. Where Sunnah variants exist, they are explicitly cited rather than presenting a single wording as mandatory.',
+  sourcesNote: 'Sources: Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami` at-Tirmidhi, Sahih International, Fateh Muhammad Jalandhri, Muhammad Hamidullah, Bubenheim & Elyas.',
+};
+
 export const enTranslations: UITranslationKeys = {
   nav: {
     home: 'Home',
@@ -86,6 +110,7 @@ export const enTranslations: UITranslationKeys = {
       enterCityCountry: 'Please enter both city and country.',
       yourLocation: 'Your Location',
     },
+    namazTranslator: defaultNamazTranslator,
     qibla: {
       title: 'Qibla Direction Tool',
       subtitle: 'Calculate approximate Qibla direction for operational planning.',

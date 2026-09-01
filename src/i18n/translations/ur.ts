@@ -1,5 +1,29 @@
 import type { UITranslationKeys } from '../types';
 
+const defaultNamazTranslator = {
+  title: 'نماز کا ترجمہ اور نماز کی تسبیحات کے معانی',
+  subtitle: 'نماز کی تسبیحات، اعراب کے ساتھ عربی متن، اردو ترجمہ، لفظ بہ لفظ تشریح اور مستند احادیث سے مسنون طریقے دیکھیں۔',
+  verifiedDatasetBadge: 'انسانی تصدیق شدہ شرعی ماخذ',
+  linkNamazTimings: 'نماز کے اوقات',
+  linkQibla: 'قبلہ رخ',
+  searchPlaceholder: 'نماز کی تسبیحات، عربی یا ترجمہ تلاش کریں...',
+  allSectionsOption: 'نماز کے تمام ارکان',
+  toggleTransliteration: 'تلفظ (ٹرانسلیٹریشن)',
+  toggleTranslation: 'ترجمہ',
+  transliterationLabel: 'تلفظ',
+  translationLabel: 'ترجمہ',
+  showWordBreakdown: 'لفظ بہ لفظ ترجمہ دیکھیں',
+  hideWordBreakdown: 'لفظ بہ لفظ ترجمہ چھپائیں',
+  showVariants: 'مسنون روایات دیکھیں',
+  hideVariants: 'مسنون روایات چھپائیں',
+  noResultsTitle: 'کوئی تسبیح نہیں ملی',
+  noResultsDesc: 'براہ کرم تلاش کے الفاظ تبدیل کریں یا فلٹر ختم کریں۔',
+  clearFilters: 'فلٹر ختم کریں',
+  disclaimerTitle: 'علمی و آموزشی تنبیہ',
+  disclaimerText: 'یہ ٹول تعلیمی اور آپریشنل منصوبہ بندی کے لیے فراہم کیا گیا ہے۔ تمام تراجم اور احادیث کے حوالاجات جید علماء اور مستند کتب سے مرتب کیے گئے ہیں۔ مختلف مسنون روایات کو بلا تعصب صراحت کے ساتھ درج کیا گیا ہے۔',
+  sourcesNote: 'ذرائع: صحیح البخاری، صحیح مسلم، سنن ابی داؤد، جامع الترمذی، فتح محمد جالندھری، معارف القرآن۔',
+};
+
 export const urTranslations: UITranslationKeys = {
   nav: {
     home: 'ہوم',
@@ -86,6 +110,7 @@ export const urTranslations: UITranslationKeys = {
       enterCityCountry: 'براہ کرم شہر اور ملک دونوں درج کریں۔',
       yourLocation: 'آپ کا مقام',
     },
+    namazTranslator: defaultNamazTranslator,
     qibla: {
       title: 'قبلہ رخ ٹول',
       subtitle: 'عملی منصوبہ بندی کے لیے تقریبی قبلہ رخ کا حساب لگائیں۔',
