@@ -84,6 +84,7 @@ export const enTranslations: UITranslationKeys = {
       subtitle: 'Calculate prayer times for planning.',
       nextPrayer: 'Next Prayer',
       enterCityCountry: 'Please enter both city and country.',
+      yourLocation: 'Your Location',
     },
     qibla: {
       title: 'Qibla Direction Tool',

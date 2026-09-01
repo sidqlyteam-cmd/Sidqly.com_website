@@ -15,6 +15,8 @@ export interface NamazTimings {
     method: {
       name: string;
     };
+    latitude?: number;
+    longitude?: number;
   };
 }
 
@@ -78,6 +80,25 @@ export function validateAndMapNamazResponse(apiData: unknown): NamazTimings {
   const methodObj = metaObj.method || {};
   const methodName = typeof methodObj.name === 'string' ? methodObj.name : 'Standard Method';
 
+  const metaLatRaw = metaObj.latitude;
+  const metaLngRaw = metaObj.longitude;
+  let metaLat: number | undefined = undefined;
+  let metaLng: number | undefined = undefined;
+
+  if (metaLatRaw !== undefined && metaLatRaw !== null) {
+    const parsedLat = Number(metaLatRaw);
+    if (Number.isFinite(parsedLat) && parsedLat >= -90 && parsedLat <= 90) {
+      metaLat = parsedLat;
+    }
+  }
+
+  if (metaLngRaw !== undefined && metaLngRaw !== null) {
+    const parsedLng = Number(metaLngRaw);
+    if (Number.isFinite(parsedLng) && parsedLng >= -180 && parsedLng <= 180) {
+      metaLng = parsedLng;
+    }
+  }
+
   // Timezone can be in meta.timezone or payload.timezone
   const timezoneStr = typeof metaObj.timezone === 'string'
     ? metaObj.timezone
@@ -104,6 +125,8 @@ export function validateAndMapNamazResponse(apiData: unknown): NamazTimings {
       method: {
         name: methodName,
       },
+      latitude: metaLat,
+      longitude: metaLng,
     },
   };
 }

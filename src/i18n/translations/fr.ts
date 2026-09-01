@@ -184,6 +184,7 @@ export const frTranslations: UITranslationKeys = {
       subtitle: 'Calculez les heures de prière pour la planification.',
       nextPrayer: 'Prochaine prière',
       enterCityCountry: 'Veuillez entrer la ville et le pays.',
+      yourLocation: 'Votre emplacement',
     },
     qibla: {
       title: 'Direction de la Qibla',

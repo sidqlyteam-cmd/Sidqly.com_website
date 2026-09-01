@@ -4,7 +4,21 @@ import { useGeolocation } from '../../hooks/useGeolocation';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { Compass, MapPin, AlertCircle, Shield, RefreshCw } from 'lucide-react';
 
-const QiblaDirectionTool: React.FC = () => {
+export interface QiblaDirectionToolProps {
+  externalCoords?: { lat: number; lng: number } | null;
+  externalError?: string | null;
+  showCardHeader?: boolean;
+  className?: string;
+  onReset?: () => void;
+}
+
+const QiblaDirectionTool: React.FC<QiblaDirectionToolProps> = ({
+  externalCoords,
+  externalError,
+  showCardHeader = true,
+  className = '',
+  onReset,
+}) => {
   const { t } = useLanguage();
   const [qiblaResult, setQiblaResult] = useState<QiblaResult | null>(null);
   const [deviceHeading, setDeviceHeading] = useState<number | null>(null);
@@ -17,10 +31,27 @@ const QiblaDirectionTool: React.FC = () => {
   const [manualLat, setManualLat] = useState('');
   const [manualLng, setManualLng] = useState('');
 
+  // Handle external coordinates update
+  useEffect(() => {
+    if (externalCoords) {
+      try {
+        const result = calculateQiblaDirection(externalCoords.lat, externalCoords.lng);
+        setQiblaResult(result);
+        setLocalError(null);
+      } catch (err: unknown) {
+        console.error('Qibla calculation error:', err);
+        const errMsg = err instanceof Error ? err.message : t('islamicTools.qibla.invalidCoordinates');
+        setLocalError(errMsg);
+        setQiblaResult(null);
+      }
+    } else if (externalCoords === null && !manualLat && !manualLng) {
+      setQiblaResult(null);
+    }
+  }, [externalCoords, manualLat, manualLng, t]);
+
   const requestCompassPermission = async (): Promise<boolean> => {
     if (typeof window === 'undefined') return false;
 
-    // Check if DeviceOrientationEvent is supported
     if (!('DeviceOrientationEvent' in window)) {
       return false;
     }
@@ -78,8 +109,10 @@ const QiblaDirectionTool: React.FC = () => {
           if (hasCompassPermission && 'DeviceOrientationEvent' in window) {
             setUsingCompass(true);
           }
-        } catch (err: any) {
-          setLocalError(err.message || t('islamicTools.qibla.invalidCoordinates'));
+        } catch (err: unknown) {
+          console.error('Qibla calculation error:', err);
+          const errMsg = err instanceof Error ? err.message : t('islamicTools.qibla.invalidCoordinates');
+          setLocalError(errMsg);
         }
       }
     );
@@ -100,8 +133,10 @@ const QiblaDirectionTool: React.FC = () => {
     try {
       const result = calculateQiblaDirection(validation.lat, validation.lng);
       setQiblaResult(result);
-    } catch (err: any) {
-      setLocalError(err.message || t('islamicTools.qibla.invalidCoordinates'));
+    } catch (err: unknown) {
+      console.error('Qibla calculation error:', err);
+      const errMsg = err instanceof Error ? err.message : t('islamicTools.qibla.invalidCoordinates');
+      setLocalError(errMsg);
     }
   };
 
@@ -113,9 +148,10 @@ const QiblaDirectionTool: React.FC = () => {
     setManualLng('');
     clearError();
     setLocalError(null);
+    if (onReset) onReset();
   };
 
-  const activeError = localError || (geoError ? (
+  const activeError = externalError || localError || (geoError ? (
     geoError.includes('denied') ? t('islamicTools.qibla.locationPermissionDenied') : t('islamicTools.qibla.unableToDetermineLocation')
   ) : null);
 
@@ -125,16 +161,18 @@ const QiblaDirectionTool: React.FC = () => {
   }
 
   return (
-    <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto w-full">
-      <div className="text-center mb-8">
-         <div className="bg-sidqly-green-deep/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <Compass className="text-sidqly-green-deep w-8 h-8" />
-         </div>
-         <h2 className="text-2xl font-bold text-sidqly-navy mb-2">{t('islamicTools.qibla.title')}</h2>
-         <p className="text-gray-500 text-sm">{t('islamicTools.qibla.subtitle')}</p>
-      </div>
+    <div className={`bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm max-w-2xl mx-auto w-full ${className}`}>
+      {showCardHeader && (
+        <div className="text-center mb-8">
+           <div className="bg-sidqly-green-deep/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Compass className="text-sidqly-green-deep w-8 h-8" />
+           </div>
+           <h2 className="text-2xl font-bold text-sidqly-navy mb-2">{t('islamicTools.qibla.title')}</h2>
+           <p className="text-gray-500 text-sm">{t('islamicTools.qibla.subtitle')}</p>
+        </div>
+      )}
 
-      {!qiblaResult && (
+      {!qiblaResult && !activeError && (
         <div className="space-y-6">
            <button
              onClick={handleGetLocation}
@@ -188,14 +226,14 @@ const QiblaDirectionTool: React.FC = () => {
       )}
 
       {activeError && (
-        <div className="mt-4 p-4 bg-red-50 text-red-700 rounded-xl text-sm flex items-start gap-2">
+        <div className="p-4 bg-red-50 text-red-700 rounded-xl text-sm flex items-start gap-2 border border-red-100">
            <AlertCircle size={16} className="shrink-0 mt-0.5" />
-           <p>{activeError}</p>
+           <p className="flex-1">{activeError}</p>
         </div>
       )}
 
       {qiblaResult && (
-        <div className="text-center mt-6 space-y-6">
+        <div className="text-center mt-2 space-y-6">
            <div>
              <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">{t('islamicTools.qibla.qiblaBearing')}</p>
              <p className="text-xs text-gray-400">
