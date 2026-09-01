@@ -403,6 +403,84 @@ export interface PrayerTimePlanningCardTranslations {
   disclaimer: string;
 }
 
+export interface QuranReaderToolTranslations {
+  title: string;
+  subtitle: string;
+  searchPlaceholder: string;
+  selectSurah: string;
+  surahList: string;
+  ayahsCount: string;
+  meccan: string;
+  medinan: string;
+  bookmarks: string;
+  lastRead: string;
+  copyAyah: string;
+  shareAyah: string;
+  copied: string;
+  noBookmarks: string;
+  searchResults: string;
+  noSearchResults: string;
+  loadingSurah: string;
+  errorLoading: string;
+  backToSurahs: string;
+}
+
+export interface DuasAzkarToolTranslations {
+  title: string;
+  subtitle: string;
+  searchPlaceholder: string;
+  categoriesTab: string;
+  favoritesTab: string;
+  dailyDuaTitle: string;
+  copyDua: string;
+  shareDua: string;
+  copied: string;
+  noFavorites: string;
+  noResults: string;
+  repeatCount: string;
+  reference: string;
+  categories: {
+    morning: string;
+    evening: string;
+    afterSalah: string;
+    sleeping: string;
+    waking: string;
+    travel: string;
+    food: string;
+    protection: string;
+    forgiveness: string;
+    stress: string;
+    gratitude: string;
+    general: string;
+  };
+}
+
+export interface SalahTrackerToolTranslations {
+  title: string;
+  subtitle: string;
+  todaySummary: string;
+  completedPrayers: string;
+  missedPrayers: string;
+  qazaPrayers: string;
+  completionRate: string;
+  markCompleted: string;
+  markMissed: string;
+  markQaza: string;
+  clearStatus: string;
+  qazaTrackerTitle: string;
+  qazaTrackerSubtitle: string;
+  weeklyHistoryTitle: string;
+  disclaimerTitle: string;
+  disclaimerText: string;
+  prayers: {
+    fajr: string;
+    dhuhr: string;
+    asr: string;
+    maghrib: string;
+    isha: string;
+  };
+}
+
 export interface IslamicToolsTranslations {
   calculate: string;
   reset: string;
@@ -434,6 +512,9 @@ export interface IslamicToolsTranslations {
   glossary: IslamicGlossaryTranslations;
   utilitiesHub: IslamicUtilitiesHubTranslations;
   prayerPlanningCard: PrayerTimePlanningCardTranslations;
+  quranReader: QuranReaderToolTranslations;
+  duasAzkar: DuasAzkarToolTranslations;
+  salahTracker: SalahTrackerToolTranslations;
 }
 
 export interface UITranslationKeys {

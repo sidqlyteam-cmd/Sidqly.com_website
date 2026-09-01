@@ -9,6 +9,9 @@ const IslamicUtilitiesPage: React.FC = () => {
   const { t, dir } = useLanguage();
 
   const utilities = [
+    { titleKey: "islamicTools.quranReader.title", path: "/quran-reader", descKey: "islamicTools.quranReader.subtitle", icon: <BookOpen size={24} /> },
+    { titleKey: "islamicTools.duasAzkar.title", path: "/duas-azkar", descKey: "islamicTools.duasAzkar.subtitle", icon: <Heart size={24} /> },
+    { titleKey: "islamicTools.salahTracker.title", path: "/salah-tracker", descKey: "islamicTools.salahTracker.subtitle", icon: <Activity size={24} /> },
     { titleKey: "islamicTools.namazTranslator.title", path: "/namaz-translator", descKey: "islamicTools.namazTranslator.subtitle", icon: <Languages size={24} /> },
     { titleKey: "islamicTools.namaz.title", path: "/namaz-timings", descKey: "islamicTools.namaz.subtitle", icon: <Clock size={24} /> },
     { titleKey: "islamicTools.zakat.title", path: "/zakat-calculator", descKey: "islamicTools.zakat.subtitle", icon: <Calculator size={24} /> },
