@@ -1,4 +1,4 @@
-```tsx
+
 import React, { createContext, useContext, useEffect, useMemo, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { Language, Direction } from './config';
@@ -361,4 +361,4 @@ export function useLanguage(): LanguageContextType {
 
   return context;
 }
-```
+
