@@ -84,6 +84,7 @@ export const urTranslations: UITranslationKeys = {
       subtitle: 'منصوبہ بندی کے لیے نماز کے اوقات کا حساب لگائیں۔',
       nextPrayer: 'اگلی نماز',
       enterCityCountry: 'براہ کرم شہر اور ملک دونوں درج کریں۔',
+      yourLocation: 'آپ کا مقام',
     },
     qibla: {
       title: 'قبلہ رخ ٹول',

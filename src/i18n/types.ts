@@ -70,6 +70,7 @@ export interface NamazToolTranslations {
   subtitle: string;
   nextPrayer: string;
   enterCityCountry: string;
+  yourLocation?: string;
 }
 
 export interface QiblaToolTranslations {

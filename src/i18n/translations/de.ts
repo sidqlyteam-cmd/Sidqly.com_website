@@ -184,6 +184,7 @@ export const deTranslations: UITranslationKeys = {
       subtitle: 'Berechnen Sie Gebetszeiten für die Planung.',
       nextPrayer: 'Nächstes Gebet',
       enterCityCountry: 'Bitte geben Sie sowohl Stadt als auch Land ein.',
+      yourLocation: 'Ihr Standort',
     },
     qibla: {
       title: 'Qibla-Richtung',
