@@ -1,4 +1,4 @@
-```ts
+
 import type { UITranslationKeys } from '../types';
 
 const defaultNamazTranslator = {
@@ -492,4 +492,4 @@ export const urTranslations: UITranslationKeys = {
     },
   },
 };
-```
+
