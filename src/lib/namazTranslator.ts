@@ -4,18 +4,104 @@ import {
   type SalahRecitationItem,
   type SalahSectionCategory,
 } from '../data/namazTranslatorData';
+import type { LanguageCode, NamazTranslationPack } from '../i18n/namazTypes';
 
 export type SupportedLang = 'en' | 'ar' | 'ur' | 'fr' | 'de';
 
 /**
  * Helper to extract localized text with graceful fallback to English.
  */
-export function getLocalizedField<T extends Record<SupportedLang, string>>(
+export function getLocalizedField<T extends Record<string, string>>(
   field: T | undefined,
-  lang: SupportedLang
+  lang: LanguageCode
 ): string {
   if (!field) return '';
-  return field[lang] || field.en || '';
+  if (field[lang]) return field[lang];
+
+  // Try subtag fallback (e.g., 'en-US' -> 'en')
+  const baseCode = (lang || '').split('-')[0];
+  if (field[baseCode]) return field[baseCode];
+
+  return field.en || '';
+}
+
+/**
+ * Get localized item title using loaded dynamic translation pack or Tier 1 verified dictionary.
+ */
+export function getItemTitle(
+  item: SalahRecitationItem,
+  lang: LanguageCode,
+  pack?: NamazTranslationPack | null
+): string {
+  if (pack?.items?.[item.id]?.title) {
+    return pack.items[item.id].title!;
+  }
+  return getLocalizedField(item.title, lang);
+}
+
+/**
+ * Get localized primary translation using loaded dynamic translation pack or Tier 1 verified dictionary.
+ */
+export function getItemPrimaryTranslation(
+  item: SalahRecitationItem,
+  lang: LanguageCode,
+  pack?: NamazTranslationPack | null
+): string {
+  if (pack?.items?.[item.id]?.primaryTranslation) {
+    return pack.items[item.id].primaryTranslation!;
+  }
+  return getLocalizedField(item.primaryTranslations, lang);
+}
+
+/**
+ * Get localized word translation using loaded dynamic translation pack or Tier 1 verified dictionary.
+ */
+export function getWordTranslation(
+  wordItem: { arabic: string; translations: Record<string, string> },
+  itemKey: string,
+  wordIndex: number,
+  lang: LanguageCode,
+  pack?: NamazTranslationPack | null
+): string {
+  if (pack?.items?.[itemKey]?.wordBreakdown?.[wordIndex]?.translation) {
+    return pack.items[itemKey].wordBreakdown![wordIndex].translation;
+  }
+  return getLocalizedField(wordItem.translations, lang);
+}
+
+/**
+ * Get localized variant translation using loaded dynamic translation pack or Tier 1 verified dictionary.
+ */
+export function getVariantTranslation(
+  variant: { id: string; name: Record<string, string>; translations: Record<string, string> },
+  itemKey: string,
+  variantIndex: number,
+  lang: LanguageCode,
+  pack?: NamazTranslationPack | null
+): { name: string; translation: string } {
+  const packVariant = pack?.items?.[itemKey]?.variants?.[variantIndex];
+
+  return {
+    name: packVariant?.name || getLocalizedField(variant.name, lang),
+    translation: packVariant?.translation || getLocalizedField(variant.translations, lang),
+  };
+}
+
+/**
+ * Get localized section name.
+ */
+export function getSectionName(
+  sectionId: SalahSectionCategory,
+  lang: LanguageCode,
+  pack?: NamazTranslationPack | null
+): string {
+  if (pack?.sections?.[sectionId]) {
+    return pack.sections[sectionId];
+  }
+
+  const meta = SALAH_SECTIONS_META.find((s) => s.id === sectionId);
+  if (!meta) return sectionId;
+  return getLocalizedField(meta.name, lang);
 }
 
 /**
@@ -49,11 +135,12 @@ export function getSalahItemById(id: string): SalahRecitationItem | undefined {
 
 /**
  * Search recitations by query string matching title, Arabic text, transliteration,
- * or translations across all supported languages.
+ * or translations across all supported languages and active translation pack.
  */
 export function searchSalahRecitations(
   query: string,
-  sectionFilter?: SalahSectionCategory | 'all'
+  sectionFilter?: SalahSectionCategory | 'all',
+  activePack?: NamazTranslationPack | null
 ): SalahRecitationItem[] {
   const normalizedQuery = query.trim().toLowerCase();
   const baseItems = getSalahRecitationsBySection(sectionFilter);
@@ -63,10 +150,10 @@ export function searchSalahRecitations(
   }
 
   return baseItems.filter((item) => {
-    // Match in title
-    const matchTitle = Object.values(item.title).some((t) =>
-      t.toLowerCase().includes(normalizedQuery)
-    );
+    // Match in title (static + dynamic pack)
+    const matchTitle =
+      Object.values(item.title).some((t) => t.toLowerCase().includes(normalizedQuery)) ||
+      (activePack?.items?.[item.id]?.title?.toLowerCase().includes(normalizedQuery) ?? false);
     if (matchTitle) return true;
 
     // Match in primary Arabic or Transliteration
@@ -77,10 +164,12 @@ export function searchSalahRecitations(
       return true;
     }
 
-    // Match in primary Translations
-    const matchTranslation = Object.values(item.primaryTranslations).some((t) =>
-      t.toLowerCase().includes(normalizedQuery)
-    );
+    // Match in primary Translations (static + dynamic pack)
+    const matchTranslation =
+      Object.values(item.primaryTranslations).some((t) =>
+        t.toLowerCase().includes(normalizedQuery)
+      ) ||
+      (activePack?.items?.[item.id]?.primaryTranslation?.toLowerCase().includes(normalizedQuery) ?? false);
     if (matchTranslation) return true;
 
     // Match in Source Reference

@@ -1,18 +1,28 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { Link } from 'react-router-dom';
+import type { LanguageCode, NamazTranslationPack } from '../../i18n/namazTypes';
+import { getNamazLanguage } from '../../data/namazLanguagesRegistry';
+import {
+  loadNamazTranslationPack,
+} from '../../lib/namazTranslationLoader';
 import {
   getAllSalahSections,
   searchSalahRecitations,
-  type SupportedLang,
+  getItemTitle,
+  getItemPrimaryTranslation,
+  getWordTranslation,
+  getVariantTranslation,
+  getSectionName,
 } from '../../lib/namazTranslator';
 import type { SalahSectionCategory } from '../../data/namazTranslatorData';
+import LanguageSelectorModal from './LanguageSelectorModal';
 import {
   Search,
   BookOpen,
   Eye,
   EyeOff,
-  Layers,
+  Globe,
   Sparkles,
   Clock,
   Compass,
@@ -20,12 +30,30 @@ import {
   ChevronUp,
   Info,
   CheckCircle2,
+  AlertTriangle,
+  Loader2,
+  Layers,
 } from 'lucide-react';
 
 export const NamazTranslator: React.FC = () => {
-  const { language, dir, t } = useLanguage();
-  const currentLang = (language as SupportedLang) || 'en';
+  const { language: globalLang, dir: globalDir, t } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  // Selected Translator Language Code (URL query param -> saved preference -> global UI lang -> 'en')
+  const initialLangCode = useMemo(() => {
+    const urlLang = searchParams.get('lang');
+    if (urlLang) return urlLang;
+    return globalLang || 'en';
+  }, [searchParams, globalLang]);
+
+  const [selectedLangCode, setSelectedLangCode] = useState<LanguageCode>(initialLangCode);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  // Dynamic Translation Pack Loading State
+  const [activePack, setActivePack] = useState<NamazTranslationPack | null>(null);
+  const [isLoadingPack, setIsLoadingPack] = useState<boolean>(false);
+
+  // Filters & UI Visibility
   const [selectedSection, setSelectedSection] = useState<SalahSectionCategory | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [showTransliteration, setShowTransliteration] = useState<boolean>(true);
@@ -33,11 +61,47 @@ export const NamazTranslator: React.FC = () => {
   const [expandedWordBreakdown, setExpandedWordBreakdown] = useState<Record<string, boolean>>({});
   const [expandedVariants, setExpandedVariants] = useState<Record<string, boolean>>({});
 
+  const activeLangMeta = useMemo(() => getNamazLanguage(selectedLangCode), [selectedLangCode]);
+  const isContentRtl = activeLangMeta.direction === 'rtl';
+  const contentDir = isContentRtl ? 'rtl' : 'ltr';
+
+  // Load dynamic translation pack whenever language changes
+  useEffect(() => {
+    let isSubscribed = true;
+
+    async function fetchPack() {
+      setIsLoadingPack(true);
+      const res = await loadNamazTranslationPack(selectedLangCode);
+      if (isSubscribed) {
+        setActivePack(res.pack);
+        setIsLoadingPack(false);
+      }
+    }
+
+    fetchPack();
+
+    return () => {
+      isSubscribed = false;
+    };
+  }, [selectedLangCode]);
+
+  // Update language selection and sync query param cleanly
+  const handleSelectLanguage = (code: LanguageCode) => {
+    setSelectedLangCode(code);
+    const newParams = new URLSearchParams(searchParams);
+    if (code === globalLang) {
+      newParams.delete('lang');
+    } else {
+      newParams.set('lang', code);
+    }
+    setSearchParams(newParams, { replace: true });
+  };
+
   const sections = useMemo(() => getAllSalahSections(), []);
 
   const filteredItems = useMemo(() => {
-    return searchSalahRecitations(searchQuery, selectedSection);
-  }, [searchQuery, selectedSection]);
+    return searchSalahRecitations(searchQuery, selectedSection, activePack);
+  }, [searchQuery, selectedSection, activePack]);
 
   const toggleWordBreakdown = (itemId: string) => {
     setExpandedWordBreakdown((prev) => ({
@@ -53,12 +117,8 @@ export const NamazTranslator: React.FC = () => {
     }));
   };
 
-  const getTranslatedText = (obj: Record<SupportedLang, string>): string => {
-    return obj[currentLang] || obj.en || '';
-  };
-
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" dir={dir}>
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" dir={globalDir}>
       {/* Header Banner */}
       <div className="bg-white rounded-3xl p-6 md:p-10 border border-gray-100 shadow-sm mb-8 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-sidqly-green-emerald/5 rounded-full blur-3xl pointer-events-none" />
@@ -79,14 +139,14 @@ export const NamazTranslator: React.FC = () => {
           {/* Quick Nav Links */}
           <div className="flex flex-wrap gap-3 shrink-0">
             <Link
-              to={language === 'en' ? '/namaz-timings' : `/${language}/namaz-timings`}
+              to={globalLang === 'en' ? '/namaz-timings' : `/${globalLang}/namaz-timings`}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sidqly-ivory text-sidqly-navy font-bold text-sm border border-gray-200 hover:border-sidqly-green-emerald hover:text-sidqly-green-deep transition-all"
             >
               <Clock size={16} />
               <span>{t('islamicTools.namazTranslator.linkNamazTimings')}</span>
             </Link>
             <Link
-              to={language === 'en' ? '/qibla-direction' : `/${language}/qibla-direction`}
+              to={globalLang === 'en' ? '/qibla-direction' : `/${globalLang}/qibla-direction`}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sidqly-ivory text-sidqly-navy font-bold text-sm border border-gray-200 hover:border-sidqly-green-emerald hover:text-sidqly-green-deep transition-all"
             >
               <Compass size={16} />
@@ -96,8 +156,54 @@ export const NamazTranslator: React.FC = () => {
         </div>
       </div>
 
-      {/* Control Bar: Search, Section Filter, Toggles */}
+      {/* 140+ Language Selector Bar & Status Badge */}
       <div className="bg-white rounded-2xl p-4 sm:p-6 border border-gray-100 shadow-sm mb-8 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-100 pb-4">
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
+              Translate Salah Into:
+            </span>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sidqly-ivory text-sidqly-navy font-bold text-sm border border-sidqly-green-emerald/30 hover:border-sidqly-green-emerald transition-all hover:shadow-sm"
+            >
+              <Globe size={18} className="text-sidqly-green-emerald" />
+              <span>{activeLangMeta.nativeName} ({activeLangMeta.name})</span>
+              {activeLangMeta.verified ? (
+                <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">
+                  Verified Tier 1
+                </span>
+              ) : (
+                <span className="text-[10px] px-2 py-0.5 rounded bg-gray-100 text-gray-600 font-semibold">
+                  Dynamic Pack
+                </span>
+              )}
+              <ChevronDown size={16} className="text-gray-400" />
+            </button>
+          </div>
+
+          {/* Status Indicator */}
+          <div className="flex items-center gap-2 text-xs">
+            {isLoadingPack ? (
+              <span className="inline-flex items-center gap-1.5 text-sidqly-green-deep font-semibold">
+                <Loader2 size={14} className="animate-spin" />
+                <span>Loading {activeLangMeta.name} translation pack...</span>
+              </span>
+            ) : activeLangMeta.verified ? (
+              <span className="inline-flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100 font-medium">
+                <CheckCircle2 size={14} />
+                <span>Verified Scholarly Human Translation</span>
+              </span>
+            ) : (
+              <span className="inline-flex items-center gap-1.5 text-amber-800 bg-amber-50 px-3 py-1.5 rounded-lg border border-amber-100 font-medium">
+                <AlertTriangle size={14} />
+                <span>Informational Translation (Machine-Generated)</span>
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Control Bar: Search, Section Filter, Toggles */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Search Box */}
           <div className="md:col-span-5 relative">
@@ -121,7 +227,7 @@ export const NamazTranslator: React.FC = () => {
               <option value="all">{t('islamicTools.namazTranslator.allSectionsOption')}</option>
               {sections.map((sec) => (
                 <option key={sec.id} value={sec.id}>
-                  {getTranslatedText(sec.name)}
+                  {getSectionName(sec.id, selectedLangCode, activePack)}
                 </option>
               ))}
             </select>
@@ -177,11 +283,22 @@ export const NamazTranslator: React.FC = () => {
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
-              {getTranslatedText(sec.name)}
+              {getSectionName(sec.id, selectedLangCode, activePack)}
             </button>
           ))}
         </div>
       </div>
+
+      {/* Extended Language Machine Disclaimer Notice */}
+      {!activeLangMeta.verified && activePack && (
+        <div className="bg-amber-50/70 border border-amber-200 p-4 rounded-2xl mb-8 flex items-start gap-3">
+          <Info className="text-amber-700 shrink-0 mt-0.5" size={18} />
+          <p className="text-xs text-amber-900 leading-relaxed font-medium">
+            {activePack.disclaimer ||
+              `Translations for ${activeLangMeta.name} are generated for educational reference. The original Arabic text and transliteration remain the primary authoritative sources.`}
+          </p>
+        </div>
+      )}
 
       {/* Recitation Content List */}
       {filteredItems.length === 0 ? (
@@ -211,6 +328,9 @@ export const NamazTranslator: React.FC = () => {
             const isBreakdownOpen = !!expandedWordBreakdown[item.id];
             const isVariantsOpen = !!expandedVariants[item.id];
 
+            const translatedTitle = getItemTitle(item, selectedLangCode, activePack);
+            const translatedPrimary = getItemPrimaryTranslation(item, selectedLangCode, activePack);
+
             return (
               <div
                 key={item.id}
@@ -220,10 +340,10 @@ export const NamazTranslator: React.FC = () => {
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-6 border-b border-gray-100 pb-4">
                   <div>
                     <span className="text-xs font-bold text-sidqly-green-deep uppercase tracking-wider block mb-1">
-                      {item.section.replace('_', ' ')}
+                      {getSectionName(item.section, selectedLangCode, activePack)}
                     </span>
-                    <h3 className="text-lg sm:text-xl font-bold text-sidqly-navy">
-                      {getTranslatedText(item.title)}
+                    <h3 className="text-lg sm:text-xl font-bold text-sidqly-navy" dir={contentDir}>
+                      {translatedTitle}
                     </h3>
                   </div>
 
@@ -256,10 +376,13 @@ export const NamazTranslator: React.FC = () => {
                 {showTranslation && (
                   <div className="mb-6 bg-sidqly-ivory p-4 rounded-2xl border border-gray-200/60">
                     <span className="text-xs font-bold text-sidqly-navy uppercase tracking-wider block mb-1">
-                      {t('islamicTools.namazTranslator.translationLabel')} ({currentLang.toUpperCase()})
+                      {t('islamicTools.namazTranslator.translationLabel')} ({activeLangMeta.nativeName})
                     </span>
-                    <p className="text-sidqly-navy font-semibold text-base sm:text-lg leading-relaxed">
-                      {getTranslatedText(item.primaryTranslations)}
+                    <p
+                      className="text-sidqly-navy font-semibold text-base sm:text-lg leading-relaxed"
+                      dir={contentDir}
+                    >
+                      {translatedPrimary}
                     </p>
                   </div>
                 )}
@@ -282,22 +405,32 @@ export const NamazTranslator: React.FC = () => {
 
                     {isBreakdownOpen && (
                       <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                        {item.wordBreakdown.map((wb, idx) => (
-                          <div
-                            key={idx}
-                            className="bg-gray-50 p-3 rounded-2xl border border-gray-200/60 text-center flex flex-col justify-between"
-                          >
-                            <p className="font-arabic text-xl text-sidqly-navy mb-1" dir="rtl">
-                              {wb.arabic}
-                            </p>
-                            <p className="text-xs font-serif italic text-emerald-700 mb-1">
-                              {wb.transliteration}
-                            </p>
-                            <p className="text-xs font-bold text-sidqly-navy">
-                              {getTranslatedText(wb.translations)}
-                            </p>
-                          </div>
-                        ))}
+                        {item.wordBreakdown.map((wb, idx) => {
+                          const translatedWord = getWordTranslation(
+                            wb,
+                            item.id,
+                            idx,
+                            selectedLangCode,
+                            activePack
+                          );
+
+                          return (
+                            <div
+                              key={idx}
+                              className="bg-gray-50 p-3 rounded-2xl border border-gray-200/60 text-center flex flex-col justify-between"
+                            >
+                              <p className="font-arabic text-xl text-sidqly-navy mb-1" dir="rtl">
+                                {wb.arabic}
+                              </p>
+                              <p className="text-xs font-serif italic text-emerald-700 mb-1">
+                                {wb.transliteration}
+                              </p>
+                              <p className="text-xs font-bold text-sidqly-navy" dir={contentDir}>
+                                {translatedWord}
+                              </p>
+                            </div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -321,37 +454,47 @@ export const NamazTranslator: React.FC = () => {
 
                     {isVariantsOpen && (
                       <div className="mt-4 space-y-4">
-                        {item.variants.map((variant) => (
-                          <div
-                            key={variant.id}
-                            className="bg-amber-50/40 p-4 sm:p-5 rounded-2xl border border-amber-200/60"
-                          >
-                            <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                              <span className="text-xs font-bold text-amber-800">
-                                {getTranslatedText(variant.name)}
-                              </span>
-                              <span className="text-[11px] font-mono bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md">
-                                {variant.sourceReference}
-                              </span>
+                        {item.variants.map((variant, vIdx) => {
+                          const variantInfo = getVariantTranslation(
+                            variant,
+                            item.id,
+                            vIdx,
+                            selectedLangCode,
+                            activePack
+                          );
+
+                          return (
+                            <div
+                              key={variant.id}
+                              className="bg-amber-50/40 p-4 sm:p-5 rounded-2xl border border-amber-200/60"
+                            >
+                              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                                <span className="text-xs font-bold text-amber-800" dir={contentDir}>
+                                  {variantInfo.name}
+                                </span>
+                                <span className="text-[11px] font-mono bg-amber-100 text-amber-900 px-2.5 py-1 rounded-md">
+                                  {variant.sourceReference}
+                                </span>
+                              </div>
+
+                              <p className="font-arabic text-xl text-sidqly-navy text-right mb-3" dir="rtl">
+                                {variant.arabicText}
+                              </p>
+
+                              {showTransliteration && (
+                                <p className="text-xs font-serif italic text-gray-700 mb-2">
+                                  {variant.transliteration}
+                                </p>
+                              )}
+
+                              {showTranslation && (
+                                <p className="text-xs font-medium text-sidqly-navy" dir={contentDir}>
+                                  {variantInfo.translation}
+                                </p>
+                              )}
                             </div>
-
-                            <p className="font-arabic text-xl text-sidqly-navy text-right mb-3" dir="rtl">
-                              {variant.arabicText}
-                            </p>
-
-                            {showTransliteration && (
-                              <p className="text-xs font-serif italic text-gray-700 mb-2">
-                                {variant.transliteration}
-                              </p>
-                            )}
-
-                            {showTranslation && (
-                              <p className="text-xs font-medium text-sidqly-navy">
-                                {getTranslatedText(variant.translations)}
-                              </p>
-                            )}
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -379,6 +522,14 @@ export const NamazTranslator: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Accessible Language Selector Modal */}
+      <LanguageSelectorModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        selectedLanguageCode={selectedLangCode}
+        onSelectLanguage={handleSelectLanguage}
+      />
     </div>
   );
 };
