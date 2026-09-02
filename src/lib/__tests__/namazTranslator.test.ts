@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import {
   SALAH_DATASET,
 } from '../../data/namazTranslatorData';
@@ -9,10 +9,22 @@ import {
   searchSalahRecitations,
   getSalahDatasetStats,
   getLocalizedField,
+  getItemPrimaryTranslation,
+  getSectionName,
   type SupportedLang,
 } from '../namazTranslator';
+import {
+  NAMAZ_LANGUAGES_REGISTRY,
+  getNamazLanguage,
+  isRtlLanguage,
+  searchNamazLanguages,
+} from '../../data/namazLanguagesRegistry';
+import {
+  loadNamazTranslationPack,
+  clearNamazTranslationCache,
+} from '../namazTranslationLoader';
 
-describe('Namaz Translator Dataset & Library Tests', () => {
+describe('Namaz Translator Dataset & Core Functionality Tests', () => {
   const supportedLangs: SupportedLang[] = ['en', 'ar', 'ur', 'fr', 'de'];
 
   it('should contain all 13 required Salah sections in metadata', () => {
@@ -151,5 +163,121 @@ describe('Namaz Translator Dataset & Library Tests', () => {
     expect(stats.totalSections).toBe(13);
     expect(stats.itemsWithBreakdown).toBeGreaterThan(5);
     expect(stats.itemsWithVariants).toBeGreaterThan(3);
+  });
+});
+
+describe('Namaz 140+ Language Registry Tests', () => {
+  it('should contain 140+ languages in the registry with valid metadata', () => {
+    expect(NAMAZ_LANGUAGES_REGISTRY.length).toBeGreaterThanOrEqual(140);
+
+    const codes = new Set<string>();
+    NAMAZ_LANGUAGES_REGISTRY.forEach((lang) => {
+      expect(lang.code).toBeDefined();
+      expect(lang.code.length).toBeGreaterThan(0);
+      expect(lang.name).toBeDefined();
+      expect(lang.nativeName).toBeDefined();
+      expect(['ltr', 'rtl']).toContain(lang.direction);
+      expect(typeof lang.verified).toBe('boolean');
+
+      // Ensure uniqueness of codes
+      expect(codes.has(lang.code)).toBe(false);
+      codes.add(lang.code);
+    });
+  });
+
+  it('should identify Tier 1 verified languages correctly', () => {
+    const verifiedCodes = ['en', 'ar', 'ur', 'fr', 'de'];
+    verifiedCodes.forEach((code) => {
+      const lang = getNamazLanguage(code);
+      expect(lang.verified).toBe(true);
+    });
+  });
+
+  it('should correctly detect RTL languages', () => {
+    expect(isRtlLanguage('ar')).toBe(true);
+    expect(isRtlLanguage('ur')).toBe(true);
+    expect(isRtlLanguage('fa')).toBe(true);
+    expect(isRtlLanguage('ps')).toBe(true);
+    expect(isRtlLanguage('sd')).toBe(true);
+    expect(isRtlLanguage('he')).toBe(true);
+    expect(isRtlLanguage('ug')).toBe(true);
+
+    expect(isRtlLanguage('en')).toBe(false);
+    expect(isRtlLanguage('tr')).toBe(false);
+    expect(isRtlLanguage('es')).toBe(false);
+  });
+
+  it('should filter languages by search query', () => {
+    const turkishResult = searchNamazLanguages('Türkçe');
+    expect(turkishResult.some((l) => l.code === 'tr')).toBe(true);
+
+    const pashtoResult = searchNamazLanguages('Pashto');
+    expect(pashtoResult.some((l) => l.code === 'ps')).toBe(true);
+
+    const nonExistent = searchNamazLanguages('xyz123nonexistentlanguage');
+    expect(nonExistent.length).toBe(0);
+  });
+});
+
+describe('Dynamic Translation Loader & 140+ Languages Resolution Tests', () => {
+  beforeEach(() => {
+    clearNamazTranslationCache();
+  });
+
+  it('should handle Tier 1 verified language loading directly', async () => {
+    const res = await loadNamazTranslationPack('en');
+    expect(res.provider).toBe('verified_static');
+    expect(res.verified).toBe(true);
+    expect(res.pack).toBeNull();
+  });
+
+  it('should dynamically load authored extended language packs (e.g. Turkish)', async () => {
+    const res = await loadNamazTranslationPack('tr');
+    expect(res.provider).toBe('dynamic_pack');
+    expect(res.verified).toBe(false);
+    expect(res.isMachineGenerated).toBe(true);
+    expect(res.pack).not.toBeNull();
+    expect(res.pack?.items['takbir-1'].primaryTranslation).toBe('Allah en büyüktür.');
+  });
+
+  it('should resolve every single registered language (145/145) to an authentic localized translation pack without template strings or placeholders', async () => {
+    const takbirItem = getSalahItemById('takbir-1')!;
+
+    for (const lang of NAMAZ_LANGUAGES_REGISTRY) {
+      if (lang.verified) continue; // Skip Tier 1 static languages
+
+      const res = await loadNamazTranslationPack(lang.code);
+      expect(res.pack).not.toBeNull();
+      expect(res.pack?.languageCode).toBe(lang.code);
+
+      const translation = getItemPrimaryTranslation(takbirItem, lang.code, res.pack);
+      expect(translation).toBeDefined();
+      expect(translation.length).toBeGreaterThan(0);
+
+      // Verify no generic English template string placeholders like ${langMeta.name} exist
+      expect(translation).not.toContain('${');
+      expect(translation).not.toContain(lang.name);
+    }
+  });
+
+  it('should use client-side memory cache on consecutive loads', async () => {
+    const load1 = await loadNamazTranslationPack('tr');
+    const load2 = await loadNamazTranslationPack('tr');
+
+    expect(load1.pack).toBe(load2.pack);
+  });
+
+  it('should resolve localized item fields cleanly with fallback', async () => {
+    const takbirItem = getSalahItemById('takbir-1')!;
+
+    // Verified English
+    expect(getItemPrimaryTranslation(takbirItem, 'en', null)).toBe('Allah is the Greatest.');
+
+    // Dynamic Turkish Pack
+    const trRes = await loadNamazTranslationPack('tr');
+    expect(getItemPrimaryTranslation(takbirItem, 'tr', trRes.pack)).toBe('Allah en büyüktür.');
+
+    // Section title
+    expect(getSectionName('takbir', 'tr', trRes.pack)).toBe('Tekbir-i İhram');
   });
 });
