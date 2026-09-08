@@ -1,4 +1,3 @@
-
 import type { UITranslationKeys } from '../types';
 
 const defaultNamazTranslator = {
@@ -230,7 +229,7 @@ export const urTranslations: UITranslationKeys = {
         'کفیلوں کی رپورٹنگ اور عطیہ دہندگان کی اپ ڈیٹس کے لیے ذی الحجہ کے تخمینی وقت کا جدول۔',
       zakatPlanningTitle: 'صدقہ اور زکوٰۃ کی منصوبہ بندی',
       zakatPlanningDesc:
-        'زکوٰۃ کی فنڈ علیحدگی اور مہمات کے لیے حساب کتاب کے ٹولز۔',
+        'زکوٰۃ کی فنڈ علیحدگی اور مہمات کے لیے حساب کتاب کے ٹولز.',
 
       months: {
         muharram: 'محرم',
@@ -490,6 +489,94 @@ export const urTranslations: UITranslationKeys = {
       disclaimer:
         'نوٹ: باضابطہ اوقاتِ نماز کے لیے مقامی مساجد یا مستند اوقات کے تقاویم سے رجوع کریں۔',
     },
+
+    quranReader: {
+      title: 'قرآن ریڈر اور تلاش',
+      subtitle:
+        '114 سورتوں، واضح عربی متن، تراجم، تلاش، بک مارکس اور آخری پڑھے گئے مقام کے ساتھ قرآن مجید کا مطالعہ کریں۔',
+      searchPlaceholder:
+        'کلیدی لفظ سے سورت یا آیت تلاش کریں...',
+      selectSurah: 'سورت منتخب کریں',
+      surahList: 'تمام سورتیں (114)',
+      ayahsCount: 'آیات',
+      meccan: 'مکی',
+      medinan: 'مدنی',
+      bookmarks: 'بک مارک کی گئی آیات',
+      lastRead: 'آخری پڑھا گیا مقام',
+      copyAyah: 'آیت کاپی کریں',
+      shareAyah: 'آیت شیئر کریں',
+      copied: 'کلپ بورڈ پر کاپی ہو گیا!',
+      noBookmarks: 'ابھی کوئی آیت بک مارک نہیں کی گئی۔',
+      searchResults: 'تلاش کے نتائج',
+      noSearchResults:
+        'آپ کی تلاش سے مطابقت رکھنے والی کوئی آیت نہیں ملی۔',
+      loadingSurah: 'سورت کا متن لوڈ ہو رہا ہے...',
+      errorLoading:
+        'سورت کا متن لوڈ نہیں ہو سکا۔ براہ کرم اپنا نیٹ ورک کنکشن چیک کریں۔',
+      backToSurahs: 'سورتوں کی فہرست پر واپس جائیں',
+    },
+
+    duasAzkar: {
+      title: 'دعائیں اور روزانہ کے اذکار',
+      subtitle:
+        'قرآن و سنت سے ماخوذ مستند دعائیں اور روزانہ کی یاد دہانیاں، مختلف اقسام میں۔',
+      searchPlaceholder:
+        'کلیدی لفظ یا زمرے سے دعائیں تلاش کریں...',
+      categoriesTab: 'زمرے',
+      favoritesTab: 'پسندیدہ',
+      dailyDuaTitle: 'آج کی منتخب دعا',
+      copyDua: 'دعا کاپی کریں',
+      shareDua: 'دعا شیئر کریں',
+      copied: 'کلپ بورڈ پر کاپی ہو گیا!',
+      noFavorites:
+        'ابھی کوئی پسندیدہ دعا محفوظ نہیں کی گئی۔',
+      noResults:
+        'آپ کی تلاش سے مطابقت رکھنے والی کوئی دعا نہیں ملی۔',
+      repeatCount: 'اتنی مرتبہ پڑھیں:',
+      reference: 'حوالہ:',
+      categories: {
+        morning: 'صبح کے اذکار',
+        evening: 'شام کے اذکار',
+        afterSalah: 'نماز کے بعد',
+        sleeping: 'سونے سے پہلے',
+        waking: 'جاگنے کے بعد',
+        travel: 'سفر',
+        food: 'کھانا پینا',
+        protection: 'حفاظت',
+        forgiveness: 'مغفرت',
+        stress: 'پریشانی اور مشکل',
+        gratitude: 'شکرگزاری',
+        general: 'عام دعائیں',
+      },
+    },
+
+    salahTracker: {
+      title: 'نماز اور قضا نماز ٹریکر',
+      subtitle:
+        'روزانہ نماز کی عادات، تکمیل کی کارکردگی اور چھوٹی ہوئی قضا نمازوں کا محفوظ ریکارڈ رکھیں۔',
+      todaySummary: 'آج کا خلاصہ',
+      completedPrayers: 'مکمل',
+      missedPrayers: 'چھوٹی ہوئی',
+      qazaPrayers: 'قضا نمازیں',
+      completionRate: 'تکمیل کی شرح',
+      markCompleted: 'مکمل',
+      markMissed: 'چھوٹی ہوئی',
+      markQaza: 'قضا درج کریں',
+      clearStatus: 'ری سیٹ',
+      qazaTrackerTitle: 'قضا نمازوں کا ریکارڈ',
+      qazaTrackerSubtitle:
+        'جمع شدہ قضا نمازوں کو درج کریں اور بتدریج ادا کرنے کے لیے ان کا انتظام کریں۔',
+      weeklyHistoryTitle: '7 دن کی تاریخ کا خلاصہ',
+      disclaimerTitle: 'ذاتی ٹریکنگ کا اعلان',
+      disclaimerText:
+        'یہ ٹریکنگ ٹول آپ کی نمازوں کی ذاتی عادت اور پیداواری صلاحیت کو ٹریک کرنے کے لیے فراہم کیا گیا ہے۔ ذاتی ڈیٹا صرف آپ کے براؤزر میں محفوظ ہوتا ہے اور کبھی شیئر نہیں کیا جاتا۔',
+      prayers: {
+        fajr: 'فجر',
+        dhuhr: 'ظہر',
+        asr: 'عصر',
+        maghrib: 'مغرب',
+        isha: 'عشاء',
+      },
+    },
   },
 };
-
