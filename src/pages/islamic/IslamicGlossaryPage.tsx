@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
-import { BookOpen, Search, AlertCircle } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
+import { BookOpen, Search, AlertCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const terms = [
@@ -26,57 +27,58 @@ const terms = [
 ];
 
 const IslamicGlossaryPage: React.FC = () => {
+  const { t, dir } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredTerms = terms.filter(t =>
-    t.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    t.def.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredTerms = terms.filter(tItem =>
+    tItem.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    tItem.def.toLowerCase().includes(searchTerm.toLowerCase())
   ).sort((a, b) => a.term.localeCompare(b.term));
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Islamic Charity Operations Glossary | Sidqly",
-    "description": "Learn key operational terms for Islamic giving workflows, including Zakat, Qurbani, and Sadqa.",
+    "name": `${t('islamicTools.glossary.title')} | Sidqly`,
+    "description": t('islamicTools.glossary.subtitle'),
     "url": `${brand.domain}/islamic-glossary`,
     "mainEntity": {
       "@type": "ItemList",
-      "itemListElement": filteredTerms.map((t, index) => ({
+      "itemListElement": filteredTerms.map((item, index) => ({
         "@type": "ListItem",
         "position": index + 1,
-        "name": t.term,
-        "description": t.def
+        "name": item.term,
+        "description": item.def
       }))
     }
   };
 
   return (
-    <>
+    <div dir={dir}>
       <SEO
-        title="Islamic Charity Operations Glossary | Sidqly"
-        description="Learn key operational terms for Islamic giving workflows, including Zakat, Qurbani, and Sadqa, defined in the context of Sidqly's management platform."
+        title={`${t('islamicTools.glossary.title')} | Sidqly`}
+        description={t('islamicTools.glossary.subtitle')}
         canonical="/islamic-glossary"
         schema={schema}
       />
 
-      <div className="bg-sidqly-ivory min-h-screen py-20">
+      <div className="bg-sidqly-ivory min-h-screen py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6">
-              Islamic Operations <span className="text-sidqly-green-deep">Glossary</span>
+              {t('islamicTools.glossary.title')}
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-              Definitions of common Islamic giving terms and how they translate into operational workflows within Sidqly.
+              {t('islamicTools.glossary.subtitle')}
             </p>
 
             <div className="max-w-xl mx-auto relative">
-               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+               <Search className={`absolute ${dir === 'rtl' ? 'right-4' : 'left-4'} top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 pointer-events-none`} />
                <input
                  type="text"
-                 placeholder="Search terms (e.g., Zakat, Proof)..."
+                 placeholder={t('islamicTools.glossary.searchPlaceholder')}
                  value={searchTerm}
                  onChange={(e) => setSearchTerm(e.target.value)}
-                 className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sidqly-green-emerald outline-none shadow-sm"
+                 className={`w-full ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sidqly-green-emerald outline-none shadow-sm text-start`}
                />
             </div>
           </div>
@@ -85,15 +87,16 @@ const IslamicGlossaryPage: React.FC = () => {
             {filteredTerms.map((item, i) => (
               <div key={i} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-sidqly-green-emerald transition-colors flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-3">
-                   <div className="bg-sidqly-ivory p-2 rounded-lg text-sidqly-green-deep">
+                   <div className="bg-sidqly-ivory p-2 rounded-lg text-sidqly-green-deep shrink-0">
                       <BookOpen size={18} />
                    </div>
                    <h3 className="font-bold text-lg text-sidqly-navy">{item.term}</h3>
                 </div>
-                <p className="text-sm text-gray-600 mb-6 flex-grow">{item.def}</p>
+                <p className="text-sm text-gray-600 mb-6 flex-grow leading-relaxed">{item.def}</p>
                 <div className="mt-auto pt-4 border-t border-gray-50">
-                   <Link to={item.moduleLink} className="text-xs font-bold text-sidqly-green-deep hover:underline">
-                      View related module &rarr;
+                   <Link to={item.moduleLink} className="text-xs font-bold text-sidqly-green-deep hover:underline flex items-center gap-1.5">
+                      <span>{t('islamicTools.glossary.viewRelatedModule')}</span>
+                      <ArrowRight size={14} className={dir === 'rtl' ? 'rotate-180' : ''} />
                    </Link>
                 </div>
               </div>
@@ -102,17 +105,17 @@ const IslamicGlossaryPage: React.FC = () => {
 
           {filteredTerms.length === 0 && (
              <div className="text-center text-gray-500 py-12 bg-white rounded-2xl border border-gray-100">
-                No terms found for "{searchTerm}".
+                {t('islamicTools.glossary.noTermsFound')}
              </div>
           )}
 
           <div className="flex items-start gap-2 text-xs text-yellow-800 bg-yellow-50 p-4 rounded-xl border border-yellow-200">
              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
-             <p><strong>Disclaimer:</strong> This glossary defines terms within the context of operational workflows on the Sidqly platform. It is not intended as religious interpretation or fatwa. Where religious interpretation may vary (e.g., specific Zakat calculation logic), organizations should defer to their authorized scholars.</p>
+             <p>{t('islamicTools.glossary.disclaimer')}</p>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,3 +1,4 @@
+
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
@@ -9,21 +10,17 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.join(__dirname, '..');
 const distDir = path.join(projectRoot, 'dist');
 
-// Read all routes from Route Classification dataset
-import { routeClassifications } from '../src/data/routeClassification';
+import { routeClassifications } from '../src/data/routeClassification.ts';
 
-// Simple static file server serving 'dist' folder with fallback to index.html for SPA routing
 function startPreviewServer(port) {
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
       let filePath = path.join(distDir, req.url.split('?')[0]);
 
-      // If trailing slash, append index.html
       if (req.url.endsWith('/')) {
         filePath = path.join(filePath, 'index.html');
       }
 
-      // Check if file exists, if not fall back to dist/index.html
       if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
         filePath = path.join(distDir, 'index.html');
       }
@@ -72,12 +69,12 @@ async function runPrerender() {
 
   let routesToPrerender = new Set();
 
-  // Add all URLs from generated sitemaps
   for (const sitemapFile of sitemaps) {
     const sitemapPath = path.join(projectRoot, 'public', sitemapFile);
     if (fs.existsSync(sitemapPath)) {
       const content = fs.readFileSync(sitemapPath, 'utf8');
       const matches = [...content.matchAll(/<loc>https:\/\/www\.sidqly\.com([^<]*)<\/loc>/g)];
+
       for (const match of matches) {
         let route = match[1].trim();
         if (route === '') route = '/';
@@ -86,7 +83,6 @@ async function runPrerender() {
     }
   }
 
-  // Add explicit noindex/system routes from Route Classification
   routeClassifications.forEach(({ path: route, type }) => {
     if (type !== 'redirect') {
       routesToPrerender.add(route);
@@ -97,45 +93,148 @@ async function runPrerender() {
 
   const port = 5174;
   const server = await startPreviewServer(port);
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
 
-  console.log(`Starting pre-rendering of ${routesList.length} total URLs...`);
+  const candidates = [
+    '/home/jules/.cache/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-linux64/chrome-headless-shell',
+    '/home/jules/.cache/ms-playwright/chromium-1228/chrome-linux/chrome',
+    '/home/jules/.cache/ms-playwright/chromium-1208/chrome-linux/chrome',
+    '/home/jules/.cache/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-linux64/chrome-headless-shell',
+  ];
 
-  for (const route of routesList) {
-    console.log(`Pre-rendering: ${route}`);
-    await page.goto(`http://localhost:${port}${route}`, { waitUntil: 'networkidle' });
+  const executablePath = candidates.find(p => fs.existsSync(p));
 
-    // Wait a brief moment to ensure hydration/animations are complete
-    await page.waitForTimeout(500);
+  const launchOpts = {
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage'
+    ]
+  };
 
-    const html = await page.content();
-
-    // Compute the target static file path
-    let targetFile;
-    if (route === '/') {
-      targetFile = path.join(distDir, 'index.html');
-    } else {
-      // e.g. /features -> /features.html
-      // e.g. /locations/london -> /locations/london.html
-      targetFile = path.join(distDir, `${route.slice(1)}.html`);
-    }
-
-    // Ensure directory exists
-    const dir = path.dirname(targetFile);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-
-    fs.writeFileSync(targetFile, html, 'utf8');
+  if (executablePath) {
+    launchOpts.executablePath = executablePath;
   }
 
+  let browser;
+
+  try {
+    browser = await chromium.launch(launchOpts);
+  } catch {
+    browser = await chromium.launch({
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage'
+      ]
+    });
+  }
+
+  console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
+
+  const CONCURRENCY = 5;
+  const queue = [...routesList];
+  let completed = 0;
+
+  const prerenderWorker = async (workerId) => {
+    let page = await browser.newPage();
+    let pageUsageCount = 0;
+
+    while (queue.length > 0) {
+      const route = queue.shift();
+      if (!route) break;
+
+      try {
+        // Periodically refresh page instance to prevent browser memory leak
+        if (pageUsageCount > 40) {
+          await page.close();
+          page = await browser.newPage();
+          pageUsageCount = 0;
+        }
+
+        await page.goto(
+          `http://localhost:${port}${route}`,
+          {
+            waitUntil: 'load',
+            timeout: 15000
+          }
+        );
+
+        await page.waitForSelector('#root > *', {
+          timeout: 3000
+        }).catch(() => {});
+
+        await page.waitForTimeout(150);
+
+        const html = await page.content();
+
+        let targetFile;
+
+        if (route === '/') {
+          targetFile = path.join(distDir, 'index.html');
+        } else {
+          targetFile = path.join(distDir, `${route.slice(1)}.html`);
+        }
+
+        const dir = path.dirname(targetFile);
+
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, { recursive: true });
+        }
+
+        fs.writeFileSync(targetFile, html, 'utf8');
+
+        pageUsageCount++;
+        completed++;
+
+        if (completed % 200 === 0 || completed === routesList.length) {
+          console.log(
+            `Pre-rendered ${completed}/${routesList.length} pages...`
+          );
+        }
+      } catch (err) {
+        console.error(
+          `Worker ${workerId} failed to pre-render ${route}: ${err.message}`
+        );
+
+        try {
+          if (!page.isClosed()) {
+            await page.close().catch(() => {});
+          }
+        } catch (_) {}
+
+        page = await browser.newPage();
+        pageUsageCount = 0;
+      }
+    }
+
+    try {
+      if (!page.isClosed()) {
+        await page.close().catch(() => {});
+      }
+    } catch (_) {}
+  };
+
+  const workers = Array.from(
+    { length: CONCURRENCY },
+    (_, i) => prerenderWorker(i + 1)
+  );
+
+  await Promise.all(workers);
+
   await browser.close();
+
+  if (typeof server.closeAllConnections === 'function') {
+    server.closeAllConnections();
+  }
+
   server.close();
+
   console.log('✅ Static pre-rendering completed successfully!');
+  process.exit(0);
 }
 
 runPrerender().catch(err => {
   console.error('❌ Error during pre-rendering:', err);
   process.exit(1);
 });
+

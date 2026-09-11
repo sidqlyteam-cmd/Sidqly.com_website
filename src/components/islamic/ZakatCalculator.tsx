@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { calculateZakatEstimate, type ZakatState, type ZakatResult } from '../../lib/zakatCalculator';
-import { Calculator, AlertCircle, Info } from 'lucide-react';
+import { useLanguage } from '../../i18n/LanguageContext';
+import { Calculator, AlertCircle, Info, RefreshCw } from 'lucide-react';
+
+const NISAB_DEFAULTS = {
+  gold: 7000,   // Estimated baseline threshold for 87.48g gold
+  silver: 600   // Estimated baseline threshold for 612.36g silver
+};
 
 const INITIAL_STATE: ZakatState = {
   cash: 0,
@@ -10,31 +16,31 @@ const INITIAL_STATE: ZakatState = {
   businessInventory: 0,
   receivables: 0,
   investments: 0,
+  otherAssets: 0,
   shortTermLiabilities: 0,
-  manualNisabValue: 0,
+  manualNisabValue: NISAB_DEFAULTS.gold,
   nisabMethod: 'gold'
 };
 
 const ZakatCalculator: React.FC = () => {
+  const { t } = useLanguage();
   const [state, setState] = useState<ZakatState>(INITIAL_STATE);
   const [result, setResult] = useState<ZakatResult | null>(null);
 
   useEffect(() => {
-    // Only calculate if a nisab value is provided
-    if (state.manualNisabValue > 0) {
-      setResult(calculateZakatEstimate(state));
-    } else {
-      setResult(null);
-    }
+    setResult(calculateZakatEstimate(state));
   }, [state]);
 
   const handleChange = (field: keyof ZakatState, value: string) => {
     if (field === 'nisabMethod') {
-      setState(prev => ({ ...prev, [field]: value as 'gold' | 'silver' }));
+      const method = value as 'gold' | 'silver' | 'custom';
+      let defaultVal = state.manualNisabValue;
+      if (method === 'gold') defaultVal = NISAB_DEFAULTS.gold;
+      if (method === 'silver') defaultVal = NISAB_DEFAULTS.silver;
+      setState(prev => ({ ...prev, nisabMethod: method, manualNisabValue: defaultVal }));
       return;
     }
 
-    // Parse to float, or 0 if empty/invalid
     const numValue = value === '' ? 0 : parseFloat(value);
     if (!isNaN(numValue) && numValue >= 0) {
       setState(prev => ({ ...prev, [field]: numValue }));
@@ -42,30 +48,36 @@ const ZakatCalculator: React.FC = () => {
   };
 
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-      if (e.target.value === '0') {
-          e.target.value = '';
-      }
-  }
+    if (e.target.value === '0') {
+      e.target.value = '';
+    }
+  };
+
+  const handleReset = () => {
+    setState(INITIAL_STATE);
+  };
 
   return (
-    <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm max-w-4xl mx-auto">
+    <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-sm max-w-4xl mx-auto w-full">
       <div className="text-center mb-8">
          <div className="bg-sidqly-green-deep/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Calculator className="text-sidqly-green-deep w-8 h-8" />
          </div>
-         <h2 className="text-2xl font-bold text-sidqly-navy mb-2">Zakat Planning Calculator</h2>
-         <p className="text-gray-500 text-sm">Estimate your Zakat for operational and personal planning.</p>
+         <h2 className="text-2xl sm:text-3xl font-bold text-sidqly-navy mb-2">{t('islamicTools.zakat.title')}</h2>
+         <p className="text-gray-500 text-sm">{t('islamicTools.zakat.subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         {/* Left Col: Inputs */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-             <h3 className="text-lg font-bold text-sidqly-navy mb-4 border-b pb-2">1. Nisab Threshold</h3>
+          <div className="bg-gray-50 p-5 sm:p-6 rounded-2xl border border-gray-100">
+             <h3 className="text-base sm:text-lg font-bold text-sidqly-navy mb-4 border-b pb-2">
+               {t('islamicTools.zakat.nisabSectionTitle')}
+             </h3>
              <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <label className="flex items-center gap-2">
+                <div className="flex flex-wrap gap-4">
+                  <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
                     <input
                       type="radio"
                       name="nisabMethod"
@@ -74,9 +86,9 @@ const ZakatCalculator: React.FC = () => {
                       onChange={(e) => handleChange('nisabMethod', e.target.value)}
                       className="text-sidqly-green-emerald focus:ring-sidqly-green-emerald"
                     />
-                    <span className="text-sm text-gray-700">Gold Nisab (87.48g)</span>
+                    <span>{t('islamicTools.zakat.goldNisab')}</span>
                   </label>
-                  <label className="flex items-center gap-2">
+                  <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
                     <input
                       type="radio"
                       name="nisabMethod"
@@ -85,55 +97,71 @@ const ZakatCalculator: React.FC = () => {
                       onChange={(e) => handleChange('nisabMethod', e.target.value)}
                       className="text-sidqly-green-emerald focus:ring-sidqly-green-emerald"
                     />
-                    <span className="text-sm text-gray-700">Silver Nisab (612.36g)</span>
+                    <span>{t('islamicTools.zakat.silverNisab')}</span>
+                  </label>
+                  <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="nisabMethod"
+                      value="custom"
+                      checked={state.nisabMethod === 'custom'}
+                      onChange={(e) => handleChange('nisabMethod', e.target.value)}
+                      className="text-sidqly-green-emerald focus:ring-sidqly-green-emerald"
+                    />
+                    <span>{t('islamicTools.zakat.customNisab')}</span>
                   </label>
                 </div>
 
                 <div>
-                   <label className="block text-sm font-medium text-gray-700 mb-1">Current Nisab Value</label>
+                   <label className="block text-sm font-medium text-gray-700 mb-1">
+                     {t('islamicTools.zakat.currentNisabValue')}
+                   </label>
                    <div className="relative">
-                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
                      <input
                        type="number"
                        min="0"
                        value={state.manualNisabValue || ''}
                        onFocus={handleFocus}
                        onChange={(e) => handleChange('manualNisabValue', e.target.value)}
-                       placeholder="Enter today's threshold"
-                       className="w-full rounded-xl border-gray-200 border py-3 pl-8 pr-3 focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
+                       placeholder="Enter current threshold"
+                       className="w-full rounded-xl border-gray-200 border py-3 pl-8 pr-3 text-sm focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
                      />
                    </div>
                    <p className="text-xs text-gray-500 mt-2 flex items-start gap-1">
-                     <Info size={14} className="shrink-0 mt-0.5" />
-                     Enter the current nisab value based on your local scholar, committee, or trusted gold/silver price source.
+                     <Info size={14} className="shrink-0 mt-0.5 text-sidqly-green-deep" />
+                     <span>{t('islamicTools.zakat.nisabNote')}</span>
                    </p>
                 </div>
              </div>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-             <h3 className="text-lg font-bold text-sidqly-navy mb-4 border-b pb-2">2. Zakatable Assets</h3>
+          <div className="bg-gray-50 p-5 sm:p-6 rounded-2xl border border-gray-100">
+             <h3 className="text-base sm:text-lg font-bold text-sidqly-navy mb-4 border-b pb-2">
+               {t('islamicTools.zakat.assetsSectionTitle')}
+             </h3>
              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                {[
-                 { key: 'cash', label: 'Cash on Hand' },
-                 { key: 'bankBalance', label: 'Bank Balance' },
-                 { key: 'goldValue', label: 'Gold Value' },
-                 { key: 'silverValue', label: 'Silver Value' },
-                 { key: 'businessInventory', label: 'Business Inventory' },
-                 { key: 'receivables', label: 'Receivables / Loans given' },
-                 { key: 'investments', label: 'Investments / Shares' }
+                 { key: 'cash', labelKey: 'islamicTools.zakat.cash' },
+                 { key: 'bankBalance', labelKey: 'islamicTools.zakat.bankBalance' },
+                 { key: 'goldValue', labelKey: 'islamicTools.zakat.gold' },
+                 { key: 'silverValue', labelKey: 'islamicTools.zakat.silver' },
+                 { key: 'businessInventory', labelKey: 'islamicTools.zakat.businessAssets' },
+                 { key: 'receivables', labelKey: 'islamicTools.zakat.receivables' },
+                 { key: 'investments', labelKey: 'islamicTools.zakat.investments' },
+                 { key: 'otherAssets', labelKey: 'islamicTools.zakat.otherAssets' }
                ].map((field) => (
                  <div key={field.key}>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">{field.label}</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t(field.labelKey)}</label>
                     <div className="relative">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
                       <input
                         type="number"
                         min="0"
                         value={state[field.key as keyof ZakatState] || ''}
                         onFocus={handleFocus}
                         onChange={(e) => handleChange(field.key as keyof ZakatState, e.target.value)}
-                        className="w-full rounded-xl border-gray-200 border py-2 pl-8 pr-3 focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
+                        className="w-full rounded-xl border-gray-200 border py-2.5 pl-8 pr-3 text-sm focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
                       />
                     </div>
                  </div>
@@ -141,61 +169,89 @@ const ZakatCalculator: React.FC = () => {
              </div>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-             <h3 className="text-lg font-bold text-sidqly-navy mb-4 border-b pb-2">3. Deductible Liabilities</h3>
+          <div className="bg-gray-50 p-5 sm:p-6 rounded-2xl border border-gray-100">
+             <h3 className="text-base sm:text-lg font-bold text-sidqly-navy mb-4 border-b pb-2">
+               {t('islamicTools.zakat.liabilitiesSectionTitle')}
+             </h3>
              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Short-term Debts & Liabilities</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t('islamicTools.zakat.liabilities')}</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
                   <input
                     type="number"
                     min="0"
                     value={state.shortTermLiabilities || ''}
                     onFocus={handleFocus}
                     onChange={(e) => handleChange('shortTermLiabilities', e.target.value)}
-                    className="w-full rounded-xl border-gray-200 border py-2 pl-8 pr-3 focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
+                    className="w-full rounded-xl border-gray-200 border py-2.5 pl-8 pr-3 text-sm focus:ring-sidqly-green-emerald focus:border-sidqly-green-emerald"
                   />
                 </div>
              </div>
           </div>
+
+          <div className="flex justify-end">
+             <button
+               onClick={handleReset}
+               className="inline-flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-sidqly-navy hover:underline transition-all"
+             >
+               <RefreshCw size={14} />
+               {t('islamicTools.reset')}
+             </button>
+          </div>
         </div>
 
-        {/* Right Col: Results */}
+        {/* Right Col: Detailed Result Summary */}
         <div className="lg:col-span-1">
-          <div className="bg-sidqly-navy text-white p-6 rounded-3xl sticky top-8 shadow-xl">
-             <h3 className="text-lg font-bold mb-6 border-b border-white/20 pb-4">Estimated Summary</h3>
+          <div className="bg-sidqly-navy text-white p-6 rounded-3xl sticky top-8 shadow-xl space-y-4">
+             <h3 className="text-lg font-bold border-b border-white/20 pb-4">{t('islamicTools.zakat.estimatedSummary')}</h3>
 
-             {state.manualNisabValue === 0 ? (
+             {state.manualNisabValue <= 0 ? (
                <div className="text-sm text-gray-300 italic text-center py-8">
-                 Please enter a Nisab Threshold value to see your estimate.
+                 {t('islamicTools.zakat.enterNisabPrompt')}
                </div>
              ) : result && (
                <div className="space-y-4">
                  <div className="flex justify-between items-center text-sm text-gray-300">
-                    <span>Total Assets</span>
-                    <span>${result.totalAssets.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    <span>{t('islamicTools.zakat.totalAssets')}</span>
+                    <span className="font-semibold">${result.totalAssets.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                  </div>
                  <div className="flex justify-between items-center text-sm text-gray-300">
-                    <span>Liabilities</span>
-                    <span>-${result.totalLiabilities.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    <span>{t('islamicTools.zakat.deductibleLiabilities')}</span>
+                    <span className="font-semibold">-${result.totalLiabilities.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                  </div>
-                 <div className="flex justify-between items-center text-sm font-semibold border-t border-white/20 pt-3">
-                    <span>Net Zakatable</span>
-                    <span>${result.zakatableAssets.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                 <div className="flex justify-between items-center text-sm font-bold border-t border-white/20 pt-3">
+                    <span>{t('islamicTools.zakat.netZakatableWealth')}</span>
+                    <span>${result.netZakatableWealth.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                 </div>
+
+                 <div className="flex justify-between items-center text-xs text-gray-300 pt-1">
+                    <span>{t('islamicTools.zakat.nisabThreshold')}</span>
+                    <span>${result.nisabThreshold.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                 </div>
+                 <div className="flex justify-between items-center text-xs text-gray-300">
+                    <span>{t('islamicTools.zakat.zakatRate')}</span>
+                    <span>2.5%</span>
                  </div>
 
                  <div className="mt-6 pt-6 border-t border-white/20">
                     {result.isEligible ? (
                       <div className="text-center">
-                         <p className="text-sm text-sidqly-green-soft mb-1">Estimated Zakat (2.5%)</p>
-                         <p className="text-3xl font-bold text-white mb-2">
+                         <span className="inline-block px-3 py-1 bg-sidqly-green-emerald/20 text-sidqly-green-soft text-xs font-bold rounded-full mb-3">
+                           {t('islamicTools.zakat.eligibleForZakat')}
+                         </span>
+                         <p className="text-xs text-gray-300 mb-1">{t('islamicTools.zakat.estimatedZakat')}</p>
+                         <p className="text-3xl font-extrabold text-white">
                            ${result.estimatedZakat.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                          </p>
                       </div>
                     ) : (
-                      <div className="text-center py-4 bg-white/10 rounded-xl">
-                         <p className="text-sm text-gray-200">Net assets are below the Nisab threshold of ${state.manualNisabValue.toLocaleString()}.</p>
-                         <p className="text-sm font-bold text-white mt-2">Zakat may not be obligatory.</p>
+                      <div className="text-center py-4 bg-white/10 rounded-xl px-3">
+                         <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 text-xs font-bold rounded-full mb-2">
+                           {t('islamicTools.zakat.belowNisab')}
+                         </span>
+                         <p className="text-xs text-gray-300 mt-1">
+                           ${result.netZakatableWealth.toLocaleString(undefined, { minimumFractionDigits: 2 })} &lt; ${result.nisabThreshold.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                         </p>
                       </div>
                     )}
                  </div>
@@ -208,7 +264,7 @@ const ZakatCalculator: React.FC = () => {
       <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
          <div className="flex items-start gap-2 text-xs text-gray-500">
             <AlertCircle size={14} className="shrink-0 mt-0.5 text-gray-400" />
-            <p><strong>Disclaimer:</strong> This calculator is for planning support only. Zakat rules, nisab values, eligibility, deductions, and final obligations should be confirmed with authorized scholars, local committees, or official guidance.</p>
+            <p>{t('islamicTools.zakat.religiousDisclaimer')}</p>
          </div>
       </div>
     </div>

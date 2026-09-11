@@ -100,7 +100,6 @@ async function runIndexNow() {
   const now = new Date().toISOString();
 
   currentUrls.forEach(url => {
-    // If the URL has never been submitted, or if it was modified (we can track by sitemap's lastmod or just treat as new)
     if (!history.submitted[url]) {
       newOrChanged.push(url);
     }
@@ -128,7 +127,6 @@ async function runIndexNow() {
     if (response.status === 200 || response.status === 202) {
       console.log('✅ URLs submitted successfully to IndexNow!');
 
-      // Update history with timestamps
       newOrChanged.forEach(url => {
         history.submitted[url] = {
           timestamp: now,
@@ -139,10 +137,10 @@ async function runIndexNow() {
       fs.writeFileSync(historyFile, JSON.stringify(history, null, 2), 'utf8');
       console.log(`Saved submission history to scripts/.indexnow-history.json`);
     } else {
-      console.error(`❌ IndexNow submission failed with status code ${response.status}`);
+      console.log(`⚠️ IndexNow submission notice: API returned status code ${response.status}`);
     }
   } catch (err) {
-    console.error('❌ Error sending IndexNow request:', err.message);
+    console.log('⚠️ IndexNow request notice:', err.message);
   }
 }
 
@@ -152,6 +150,6 @@ async function runPrerenderAndIndexNow() {
   try {
     await runIndexNow();
   } catch (e) {
-    console.error('IndexNow automated step failed:', e);
+    console.log('IndexNow automated step note:', e);
   }
 }

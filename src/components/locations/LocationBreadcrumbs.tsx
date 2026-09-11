@@ -1,30 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Home } from 'lucide-react';
 import type { LocationRecord } from '../../data/locations/locationTypes';
 import { allLocations } from '../../data/locations/locations';
 import { generateBreadcrumbSchema } from '../../lib/schema';
 import { Helmet } from 'react-helmet-async';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 interface LocationBreadcrumbsProps {
   location: LocationRecord;
 }
 
 export const LocationBreadcrumbs: React.FC<LocationBreadcrumbsProps> = ({ location }) => {
+  const { getLocalizedPath, dir, t, getLocationTranslation } = useLanguage();
+
   const items: { name: string; path: string }[] = [
-    { name: 'Home', path: '/' },
-    { name: 'Locations', path: '/locations' },
+    { name: t('nav.home', 'Home'), path: '/' },
+    { name: t('nav.locations', 'Locations'), path: '/locations' },
   ];
 
   // Helper to find parent region object
-  const regionObj = allLocations.find(
+  const rawRegionObj = allLocations.find(
     (l) => l.pageType === 'region' && (l.slug === location.regionSlug || l.region.toLowerCase() === location.region.toLowerCase())
   );
+  const regionObj = rawRegionObj ? getLocationTranslation(rawRegionObj) : undefined;
 
   // Helper to find parent country object
-  const countryObj = allLocations.find(
+  const rawCountryObj = allLocations.find(
     (l) => l.pageType === 'country' && (l.slug === location.countrySlug || l.country.toLowerCase() === location.country.toLowerCase())
   );
+  const countryObj = rawCountryObj ? getLocationTranslation(rawCountryObj) : undefined;
 
   if (location.pageType === 'region') {
     items.push({
@@ -78,12 +83,14 @@ export const LocationBreadcrumbs: React.FC<LocationBreadcrumbsProps> = ({ locati
     });
   }
 
-  // Generate schema format
+  // Generate schema format with localized links
   const schemaBreadcrumbs = items.map((item) => ({
     name: item.name,
-    item: item.path,
+    item: getLocalizedPath(item.path),
   }));
   const breadcrumbSchema = generateBreadcrumbSchema(schemaBreadcrumbs);
+
+  const SeparatorIcon = dir === 'rtl' ? ChevronLeft : ChevronRight;
 
   return (
     <>
@@ -96,16 +103,17 @@ export const LocationBreadcrumbs: React.FC<LocationBreadcrumbsProps> = ({ locati
         <ol className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm text-gray-400 font-medium">
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
+            const localizedPath = getLocalizedPath(item.path);
             return (
               <li key={item.path + index} className="flex items-center gap-1.5">
-                {index > 0 && <ChevronRight size={14} className="text-gray-500 flex-shrink-0" />}
+                {index > 0 && <SeparatorIcon size={14} className="text-gray-500 flex-shrink-0" />}
                 {isLast ? (
                   <span className="text-sidqly-green-soft font-bold truncate max-w-[180px] sm:max-w-xs" aria-current="page">
                     {item.name}
                   </span>
                 ) : (
                   <Link
-                    to={item.path}
+                    to={localizedPath}
                     className="hover:text-white transition-colors flex items-center gap-1 text-gray-300"
                   >
                     {index === 0 && <Home size={14} className="inline-block" />}

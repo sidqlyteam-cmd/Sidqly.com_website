@@ -6,44 +6,77 @@ export interface ZakatState {
   businessInventory: number;
   receivables: number;
   investments: number;
+  otherAssets: number;
   shortTermLiabilities: number;
   manualNisabValue: number;
-  nisabMethod: 'gold' | 'silver';
+  nisabMethod: 'gold' | 'silver' | 'custom';
 }
 
 export interface ZakatResult {
   totalAssets: number;
   totalLiabilities: number;
-  zakatableAssets: number;
+  netZakatableWealth: number;
+  nisabThreshold: number;
   isEligible: boolean;
+  zakatRate: number; // e.g. 0.025 (2.5%)
   estimatedZakat: number;
 }
 
+/**
+ * Sanitizes and validates a numeric input for Zakat calculation.
+ * Returns 0 if negative, NaN, Infinity, non-numeric, or invalid.
+ */
+export function sanitizeAmount(value: unknown): number {
+  if (value === undefined || value === null || value === '') {
+    return 0;
+  }
+  const num = typeof value === 'number' ? value : Number(String(value).trim());
+  if (!Number.isFinite(num) || Number.isNaN(num) || num < 0) {
+    return 0;
+  }
+  // Round to 2 decimal places to avoid floating point anomalies while retaining precision
+  return Math.round((num + Number.EPSILON) * 100) / 100;
+}
+
+/**
+ * Calculates Zakat estimate transparently based on net zakatable wealth and Nisab threshold.
+ */
 export function calculateZakatEstimate(state: ZakatState): ZakatResult {
-  const totalAssets =
-    (state.cash || 0) +
-    (state.bankBalance || 0) +
-    (state.goldValue || 0) +
-    (state.silverValue || 0) +
-    (state.businessInventory || 0) +
-    (state.receivables || 0) +
-    (state.investments || 0);
+  const cash = sanitizeAmount(state.cash);
+  const bankBalance = sanitizeAmount(state.bankBalance);
+  const goldValue = sanitizeAmount(state.goldValue);
+  const silverValue = sanitizeAmount(state.silverValue);
+  const businessInventory = sanitizeAmount(state.businessInventory);
+  const receivables = sanitizeAmount(state.receivables);
+  const investments = sanitizeAmount(state.investments);
+  const otherAssets = sanitizeAmount(state.otherAssets);
 
-  const totalLiabilities = state.shortTermLiabilities || 0;
+  const totalAssets = Math.round(
+    (cash + bankBalance + goldValue + silverValue + businessInventory + receivables + investments + otherAssets + Number.EPSILON) * 100
+  ) / 100;
 
-  const zakatableAssets = Math.max(0, totalAssets - totalLiabilities);
+  const totalLiabilities = sanitizeAmount(state.shortTermLiabilities);
 
-  const nisabThreshold = state.manualNisabValue || 0;
+  // Net zakatable wealth cannot be negative
+  const netZakatableWealth = Math.max(0, Math.round((totalAssets - totalLiabilities + Number.EPSILON) * 100) / 100);
 
-  const isEligible = zakatableAssets >= nisabThreshold && nisabThreshold > 0;
+  const nisabThreshold = sanitizeAmount(state.manualNisabValue);
 
-  const estimatedZakat = isEligible ? zakatableAssets * 0.025 : 0;
+  const isEligible = netZakatableWealth >= nisabThreshold && nisabThreshold > 0;
+
+  const zakatRate = 0.025;
+
+  const estimatedZakat = isEligible
+    ? Math.round((netZakatableWealth * zakatRate + Number.EPSILON) * 100) / 100
+    : 0;
 
   return {
     totalAssets,
     totalLiabilities,
-    zakatableAssets,
+    netZakatableWealth,
+    nisabThreshold,
     isEligible,
+    zakatRate,
     estimatedZakat
   };
 }

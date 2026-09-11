@@ -4,11 +4,14 @@ import SearchModal from './search/SearchModal';
 import { Menu, X, ChevronDown, Search, Sun, Moon } from 'lucide-react';
 import { brand } from '../config/brand';
 import { trackEvent } from '../lib/analytics';
+import { useLanguage } from '../i18n/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
+  const { t, getLocalizedPath } = useLanguage();
 
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
@@ -54,20 +57,24 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
-  const navigation = [
-    { name: "Product", href: "/how-it-works", children: [
-        { name: 'What is Sidqly?', href: '/what-is-sidqly' },
-        { name: 'Features', href: '/features' },
-        { name: 'Modules', href: '/modules' },
-        { name: 'Compare', href: '/compare' },
-        { name: 'Pricing', href: '/pricing' },
-        { name: 'Guided Pilot', href: '/guided-pilot' },
-        { name: 'Data Migration', href: '/data-migration' },
-        { name: 'Contact Sales', href: '/contact-sales' }
-    ] },
-    { name: 'Use Cases', href: '/use-cases' },
+  const primaryNavigation = [
     {
-      name: 'Islamic Tools',
+      name: t('nav.product', 'Product'),
+      href: "/how-it-works",
+      children: [
+        { name: t('nav.whatIsSidqly', 'What is Sidqly?'), href: '/what-is-sidqly' },
+        { name: t('nav.features', 'Features'), href: '/features' },
+        { name: t('nav.modules', 'Modules'), href: '/modules' },
+        { name: t('nav.compare', 'Compare'), href: '/compare' },
+        { name: t('nav.pricing', 'Pricing'), href: '/pricing' },
+        { name: t('nav.guidedPilot', 'Guided Pilot'), href: '/guided-pilot' },
+        { name: t('nav.dataMigration', 'Data Migration'), href: '/data-migration' },
+        { name: t('nav.contactSales', 'Contact Sales'), href: '/contact-sales' }
+      ]
+    },
+    { name: t('nav.useCases', 'Use Cases'), href: '/use-cases' },
+    {
+      name: t('nav.islamicTools', 'Islamic Tools'),
       href: '/islamic-utilities',
       children: [
         { name: 'Islamic Utilities', href: '/islamic-utilities' },
@@ -85,7 +92,7 @@ const Navbar: React.FC = () => {
       ]
     },
     {
-      name: 'Resources',
+      name: t('nav.resources', 'Resources'),
       href: '/resources',
       children: [
         { name: 'Resources Hub', href: '/resources' },
@@ -95,9 +102,12 @@ const Navbar: React.FC = () => {
         { name: 'Sitemap', href: '/sitemap' },
         { name: 'Request Organization', href: '/request-organization' }
       ]
-    },
+    }
+  ];
+
+  const secondaryNavigation = [
     {
-      name: 'Newsroom',
+      name: t('nav.newsroom', 'Newsroom'),
       href: '/newsroom',
       children: [
         { name: 'Newsroom', href: '/newsroom' },
@@ -109,51 +119,55 @@ const Navbar: React.FC = () => {
         { name: 'Ramadan and Qurbani Planning', href: '/newsroom' }
       ]
     },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Trust', href: '/trust-center' },
-    { name: 'Demo', href: brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz', external: true }
-  ] as Array<{ name: string; href: string; external?: boolean; children?: Array<{ name: string; href: string; }> }>;
+    { name: t('nav.locations', 'Global Hubs'), href: '/locations' },
+    { name: t('nav.pricing', 'Pricing'), href: '/pricing' },
+    { name: t('nav.trust', 'Trust'), href: '/trust-center' }
+  ];
 
+  const fullNavigation = [...primaryNavigation, ...secondaryNavigation];
 
   return (
     <>
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 gap-4">
-          <div className="flex items-center min-w-0 mr-2">
-            <Link to="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 min-w-0">
-              <img src="/brand/sidqly-mark.svg" alt="Sidqly" className="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0" />
+      <div className="max-w-[1920px] mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20 gap-2">
+          {/* Logo */}
+          <div className="flex items-center shrink-0 ltr:mr-1 xl:ltr:mr-3 rtl:ml-1 xl:rtl:ml-3">
+            <Link to={getLocalizedPath('/')} className="shrink-0 flex items-center gap-1.5 sm:gap-3">
+              <img src="/brand/sidqly-mark.svg" alt="Sidqly" className="h-8 w-8 sm:h-10 sm:w-10 shrink-0" />
               <span className="text-sidqly-navy text-xl sm:text-2xl font-extrabold tracking-tighter truncate">Sidqly</span>
             </Link>
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center lg:gap-x-2 xl:gap-x-4 2xl:gap-x-8 min-w-0">
-            {navigation.map((item) => (
-              <div key={item.name} className="relative group flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-x-1.5 xl:gap-x-2 2xl:gap-x-4 min-w-0">
+            {/* Primary Nav Links */}
+            {primaryNavigation.map((item) => (
+              <div key={item.name} className="relative group shrink-0">
                 {item.children ? (
                   <button
-                    className="flex items-center gap-1 text-gray-500 hover:text-sidqly-green-deep font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm transition-colors py-8"
+                    className="flex items-center gap-1 text-gray-600 hover:text-sidqly-green-deep font-bold text-xs xl:text-[13px] 2xl:text-sm transition-colors py-8 whitespace-nowrap"
                   >
-                    {item.name} <ChevronDown size={14} className="opacity-50" />
+                    <span>{item.name}</span>
+                    <ChevronDown size={13} className="opacity-60 shrink-0" />
                   </button>
                 ) : (
                   <Link
-                    to={item.href}
-                    className={`lg:text-[11px] xl:text-[13px] 2xl:text-sm font-bold transition-colors py-8 ${location.pathname === item.href ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-500 hover:text-sidqly-green-deep'}`}
+                    to={getLocalizedPath(item.href)}
+                    className={`text-xs xl:text-[13px] 2xl:text-sm font-bold transition-colors py-8 inline-block whitespace-nowrap ${location.pathname === getLocalizedPath(item.href) ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-600 hover:text-sidqly-green-deep'}`}
                   >
                     {item.name}
                   </Link>
                 )}
 
                 {item.children && (
-                  <div className="absolute left-0 mt-0 w-64 bg-white border border-gray-100 rounded-b-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left translate-y-0 group-hover:translate-y-0">
+                  <div className="absolute ltr:left-0 rtl:right-0 mt-0 w-64 bg-white border border-gray-100 rounded-b-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform ltr:origin-top-left rtl:origin-top-right translate-y-0 group-hover:translate-y-0 z-50">
                     <div className="py-3 px-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
-                          to={child.href}
-                          className="block px-4 py-3 text-sm text-gray-600 hover:bg-sidqly-ivory hover:text-sidqly-green-deep rounded-xl font-medium transition-colors"
+                          to={getLocalizedPath(child.href)}
+                          className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-sidqly-ivory hover:text-sidqly-green-deep rounded-xl font-medium transition-colors"
                         >
                           {child.name}
                         </Link>
@@ -164,58 +178,123 @@ const Navbar: React.FC = () => {
               </div>
             ))}
 
-            {/* Utilities: Search & Theme Toggle */}
-            <div className="flex items-center gap-1 xl:gap-2 flex-shrink-0">
+            {/* Secondary Nav Links (Expanded on 2XL+ (1536px+), collapsed under 'More' on LG/XL) */}
+            {secondaryNavigation.map((item) => (
+              <div key={item.name} className="hidden 2xl:block relative group shrink-0">
+                {item.children ? (
+                  <button
+                    className="flex items-center gap-1 text-gray-600 hover:text-sidqly-green-deep font-bold text-sm transition-colors py-8 whitespace-nowrap"
+                  >
+                    <span>{item.name}</span>
+                    <ChevronDown size={13} className="opacity-60 shrink-0" />
+                  </button>
+                ) : (
+                  <Link
+                    to={getLocalizedPath(item.href)}
+                    className={`text-sm font-bold transition-colors py-8 inline-block whitespace-nowrap ${location.pathname === getLocalizedPath(item.href) ? 'text-sidqly-green-deep border-b-2 border-sidqly-green-emerald' : 'text-gray-600 hover:text-sidqly-green-deep'}`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+
+                {item.children && (
+                  <div className="absolute ltr:left-0 rtl:right-0 mt-0 w-64 bg-white border border-gray-100 rounded-b-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform ltr:origin-top-left rtl:origin-top-right translate-y-0 group-hover:translate-y-0 z-50">
+                    <div className="py-3 px-2">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.name}
+                          to={getLocalizedPath(child.href)}
+                          className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-sidqly-ivory hover:text-sidqly-green-deep rounded-xl font-medium transition-colors"
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* "More" Dropdown Menu for LG/XL Breakpoints (1024px - 1535px) */}
+            <div className="2xl:hidden relative group shrink-0">
+              <button
+                className="flex items-center gap-1 text-gray-600 hover:text-sidqly-green-deep font-bold text-xs xl:text-[13px] transition-colors py-8 whitespace-nowrap"
+              >
+                <span>{t('nav.more', 'More')}</span>
+                <ChevronDown size={13} className="opacity-60 shrink-0" />
+              </button>
+
+              <div className="absolute ltr:left-0 rtl:right-0 mt-0 w-56 bg-white border border-gray-100 rounded-b-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform ltr:origin-top-left rtl:origin-top-right translate-y-0 group-hover:translate-y-0 z-50">
+                <div className="py-3 px-2">
+                  {secondaryNavigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={getLocalizedPath(item.href)}
+                      className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-sidqly-ivory hover:text-sidqly-green-deep rounded-xl font-bold transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Language Switcher, Search & Theme Toggle */}
+            <div className="flex items-center gap-1 xl:gap-1.5 shrink-0 ltr:ml-1 rtl:mr-1">
+              <LanguageSwitcher />
+
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all"
+                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-1.5 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all shrink-0"
                 aria-label="Search"
               >
-                <Search size={20} />
+                <Search size={18} />
               </button>
 
               <button
                 onClick={toggleTheme}
-                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-2 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all flex items-center justify-center"
+                className="text-gray-600 hover:text-sidqly-green-deep dark:text-gray-300 dark:hover:text-sidqly-green-soft p-1.5 hover:bg-gray-100 dark:hover:bg-white/5 rounded-xl transition-all flex items-center justify-center shrink-0"
                 aria-label="Toggle Theme"
               >
-                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
               </button>
             </div>
 
-            <div className="flex items-center lg:gap-x-1.5 xl:gap-4 lg:pl-2 xl:pl-4 border-l border-gray-100 dark:border-white/10 flex-shrink-0">
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-1.5 xl:gap-2 ltr:pl-1.5 xl:ltr:pl-2.5 ltr:border-l rtl:pr-1.5 xl:rtl:pr-2.5 rtl:border-r border-gray-100 dark:border-white/10 shrink-0">
                <Link
-                 to="/guided-pilot"
-                 className="bg-sidqly-green-deep text-white lg:px-2.5 xl:px-4 2xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm hover:shadow-lg transition-all"
+                 to={getLocalizedPath('/guided-pilot')}
+                 className="hidden xl:inline-block bg-sidqly-green-deep text-white px-3 2xl:px-5 py-2 rounded-xl font-bold text-[12px] 2xl:text-sm hover:shadow-lg transition-all whitespace-nowrap shrink-0"
                >
-                 Guided Pilot
+                 {t('common.applyGuidedPilot', 'Guided Pilot')}
                </Link>
                <a
                  href={brand.calendlyUrl}
                  target="_blank"
                  rel="noopener noreferrer"
                  onClick={() => trackEvent('demo_submit', { cta_source: 'navbar_desktop_cta' })}
-                 className="bg-white border border-gray-200 text-sidqly-navy lg:px-2.5 xl:px-4 2xl:px-6 py-2 xl:py-2.5 rounded-xl font-bold lg:text-[11px] xl:text-[13px] 2xl:text-sm hover:shadow-lg transition-all"
+                 className="bg-sidqly-green-deep xl:bg-white border border-transparent xl:border-gray-200 text-white xl:text-sidqly-navy px-2.5 xl:px-3 2xl:px-5 py-1.5 xl:py-2 rounded-xl font-bold text-xs xl:text-[12px] 2xl:text-sm hover:shadow-lg transition-all whitespace-nowrap shrink-0"
                >
-                 Book Demo
+                 {t('common.bookDemo', 'Book a Demo')}
                </a>
             </div>
           </div>
 
-          {/* Mobile menu button, search, & theme toggle */}
+          {/* Mobile menu button & search */}
           <div className="lg:hidden flex items-center gap-1 sm:gap-2 flex-shrink-0">
             <button
               onClick={() => setIsSearchOpen(true)}
               className="text-gray-600 hover:text-sidqly-green-deep p-2"
               aria-label="Search"
             >
-              <Search size={24} />
+              <Search size={22} />
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-sidqly-green-deep p-2"
+              aria-label="Toggle menu"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </div>
@@ -225,24 +304,24 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="lg:hidden bg-white border-t border-gray-50 overflow-y-auto max-h-[calc(100vh-80px)]">
           <div className="px-4 pt-4 pb-8 space-y-2">
-            {navigation.map((item) => (
+            {fullNavigation.map((item) => (
               <div key={item.name} className="border-b border-gray-50 last:border-0 pb-2">
-                <div className="flex items-center justify-between py-4 px-3">
+                <div className="flex items-center justify-between py-3 px-3">
                    <Link
-                     to={item.href}
-                     className="text-lg font-extrabold text-sidqly-navy"
+                     to={getLocalizedPath(item.href)}
+                     className="text-base sm:text-lg font-extrabold text-sidqly-navy"
                      onClick={() => setIsOpen(false)}
                    >
                      {item.name}
                    </Link>
                 </div>
                 {item.children && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-4 px-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-2 px-3">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
-                        to={child.href}
-                        className="block px-3 py-2 bg-sidqly-ivory rounded-lg text-xs font-bold text-gray-500"
+                        to={getLocalizedPath(child.href)}
+                        className="block px-3 py-2 bg-sidqly-ivory rounded-lg text-xs font-bold text-gray-600"
                         onClick={() => setIsOpen(false)}
                       >
                         {child.name}
@@ -253,6 +332,12 @@ const Navbar: React.FC = () => {
               </div>
             ))}
             <div className="pt-6 px-3 flex flex-col gap-3">
+              {/* Language Selector */}
+              <div className="flex items-center justify-between py-3 px-4 bg-gray-50 dark:bg-white/5 rounded-xl mb-1 border border-gray-100/50 dark:border-white/5">
+                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Language</span>
+                <LanguageSwitcher />
+              </div>
+
               {/* Theme Toggle */}
               <div className="flex items-center justify-between py-3 px-4 bg-gray-50 dark:bg-white/5 rounded-xl mb-1 border border-gray-100/50 dark:border-white/5">
                 <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Theme</span>
@@ -276,11 +361,11 @@ const Navbar: React.FC = () => {
               </div>
 
               <Link
-                to="/guided-pilot"
+                to={getLocalizedPath('/guided-pilot')}
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center bg-sidqly-green-deep text-white py-4 rounded-xl font-bold"
+                className="block w-full text-center bg-sidqly-green-deep text-white py-3.5 rounded-xl font-bold"
               >
-                Apply for Guided Pilot
+                {t('common.applyGuidedPilot', 'Apply for Guided Pilot')}
               </Link>
               <a
                 href={brand.calendlyUrl}
@@ -290,9 +375,9 @@ const Navbar: React.FC = () => {
                   trackEvent('demo_submit', { cta_source: 'navbar_mobile_menu_demo' });
                   setIsOpen(false);
                 }}
-                className="block w-full text-center bg-white border border-gray-200 text-sidqly-navy py-4 rounded-xl font-bold"
+                className="block w-full text-center bg-white border border-gray-200 text-sidqly-navy py-3.5 rounded-xl font-bold"
               >
-                Book Demo
+                {t('common.bookDemo', 'Book a Demo')}
               </a>
             </div>
           </div>
