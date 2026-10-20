@@ -15,7 +15,7 @@ const ManualPaymentReview: React.FC = () => {
 
          {/* Gate */}
          <div className="relative group">
-            <div className="w-24 h-24 bg-sidqly-navy rounded-[32px] flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
+            <div className="w-24 h-24 bg-gradient-to-br from-emerald-600 to-teal-700 rounded-[32px] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
                <div className="text-white text-xs font-bold text-center leading-tight">
                   Sidqly<br/>Manual<br/>Gate
                </div>

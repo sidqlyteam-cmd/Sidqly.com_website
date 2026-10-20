@@ -30,11 +30,11 @@ const TrustCenter: React.FC = () => {
 
       <TrustLinkStrip />
 
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Trust Center</h1>
-            <p className="text-xl text-sidqly-green-soft leading-relaxed">
+            <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-slate-900">Trust Center</h1>
+            <p className="text-xl text-slate-600 leading-relaxed">
               At Sidqly, trust is not just a feature—it's the foundation of everything we build. We empower Islamic organizations to operate with complete integrity.
             </p>
           </div>

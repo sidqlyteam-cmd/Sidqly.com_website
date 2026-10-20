@@ -35,10 +35,10 @@ const HowItWorks: React.FC = () => {
       />
 
       {/* Hero */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Professional Lifecycle</h1>
-          <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-slate-900">Professional Lifecycle</h1>
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
             Sidqly transforms fragmented manual work into a structured 12-step lifecycle that ensures trust, dignity, and clarity.
           </p>
         </div>
@@ -171,10 +171,10 @@ const HowItWorks: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-sidqly-navy text-white text-center">
+      <section className="py-24 bg-gradient-to-b from-emerald-50/30 via-white to-white border-t border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-           <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to organize your lifecycle?</h2>
-           <p className="text-sidqly-green-soft mb-12 max-w-2xl mx-auto text-lg">
+           <h2 className="text-3xl md:text-5xl font-extrabold mb-8 text-slate-900">Ready to organize your lifecycle?</h2>
+           <p className="text-slate-600 mb-12 max-w-2xl mx-auto text-lg">
               Book a Sidqly demo to discuss your specific giving operations and reporting needs.
            </p>
            <div className="flex flex-wrap justify-center gap-4">

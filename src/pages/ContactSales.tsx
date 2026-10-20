@@ -78,11 +78,11 @@ const ContactSales: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">Enterprise & Partnerships Desk</h1>
-            <p className="text-xl text-sidqly-green-soft leading-relaxed">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight text-slate-900">Enterprise & Partnerships Desk</h1>
+            <p className="text-xl text-slate-600 leading-relaxed">
               Tailored solutions for large-scale NGOs, corporate Zakat distributors, international networks, and custom integrations.
             </p>
           </div>
@@ -94,7 +94,7 @@ const ContactSales: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card variant="ivory" className="flex flex-col items-start">
-              <div className="w-10 h-10 rounded-xl bg-sidqly-navy text-white flex items-center justify-center font-bold mb-6">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center font-bold mb-6">
                 <Globe size={tokens.iconSizes.sm} />
               </div>
               <h4 className="font-bold text-sidqly-navy mb-2">Multi-Region Entities</h4>
@@ -102,7 +102,7 @@ const ContactSales: React.FC = () => {
             </Card>
 
             <Card variant="ivory" className="flex flex-col items-start">
-              <div className="w-10 h-10 rounded-xl bg-sidqly-navy text-white flex items-center justify-center font-bold mb-6">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center font-bold mb-6">
                 <Award size={tokens.iconSizes.sm} />
               </div>
               <h4 className="font-bold text-sidqly-navy mb-2">Shariah Board Advisory</h4>
@@ -110,7 +110,7 @@ const ContactSales: React.FC = () => {
             </Card>
 
             <Card variant="ivory" className="flex flex-col items-start">
-              <div className="w-10 h-10 rounded-xl bg-sidqly-navy text-white flex items-center justify-center font-bold mb-6">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center font-bold mb-6">
                 <Shield size={tokens.iconSizes.sm} />
               </div>
               <h4 className="font-bold text-sidqly-navy mb-2">SLA & Priority Support</h4>

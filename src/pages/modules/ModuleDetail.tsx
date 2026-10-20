@@ -366,20 +366,17 @@ const ModuleDetail: React.FC = () => {
                   </div>
 
                   {/* Privacy & Dignity */}
-                  <div className="bg-sidqly-navy p-8 rounded-3xl text-white shadow-lg relative overflow-hidden">
-                      <div className="absolute -right-10 -bottom-10 opacity-10">
-                        <ShieldCheck size={160} />
-                      </div>
-                      <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-sidqly-gold mb-6 relative z-10">
-                        <ShieldCheck size={24} />
-                      </div>
-                      <h3 className="text-xl font-bold mb-4 relative z-10">Privacy & Dignity</h3>
-                      <ul className="space-y-3 relative z-10">
-                        <li className="flex items-start gap-2">
-                          <ShieldCheck size={18} className="text-sidqly-gold shrink-0 mt-0.5" />
-                          <span className="text-gray-300 text-sm leading-relaxed">{moduleData.disclaimer || "Standard privacy boundary applies. Beneficiary faces and sensitive information are redacted or blurred before sharing with external sponsors."}</span>
-                        </li>
-                      </ul>
+                  <div className="bg-slate-50 border border-slate-200 p-8 rounded-3xl text-slate-900 shadow-sm relative overflow-hidden">
+                    <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-700 mb-6 relative z-10">
+                      <ShieldCheck size={24} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 relative z-10 text-slate-900">Privacy & Dignity</h3>
+                    <ul className="space-y-3 relative z-10">
+                      <li className="flex items-start gap-2">
+                        <ShieldCheck size={18} className="text-emerald-600 shrink-0 mt-0.5" />
+                        <span className="text-slate-600 text-sm leading-relaxed">{moduleData.disclaimer || "Standard privacy boundary applies. Beneficiary faces and sensitive information are redacted or blurred before sharing with external sponsors."}</span>
+                      </li>
+                    </ul>
                   </div>
 
                 </div>
@@ -570,25 +567,25 @@ const ModuleDetail: React.FC = () => {
           </section>
 
           {/* Next Steps CTA Grid */}
-          <section id="next-steps" className="py-20 bg-sidqly-navy text-white">
+          <section id="next-steps" className="py-20 bg-slate-50 border-t border-slate-200 text-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-2xl font-bold mb-10 text-center">Explore Related Capabilities</h2>
+              <h2 className="text-2xl font-extrabold mb-10 text-center text-slate-900">Explore Related Capabilities</h2>
               <div className="grid md:grid-cols-3 gap-8">
 
                 {/* Related Modules / Links */}
-                <div className="bg-white/5 rounded-2xl p-6 border border-white/10 md:col-span-2">
-                    <h3 className="font-bold text-lg mb-4 text-sidqly-gold flex items-center gap-2"><Box size={18} /> Related Modules</h3>
+                <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm md:col-span-2">
+                    <h3 className="font-bold text-lg mb-4 text-emerald-700 flex items-center gap-2"><Box size={18} /> Related Modules</h3>
                     <ul className="grid sm:grid-cols-2 gap-3">
                       {moduleData.internalLinks ? moduleData.internalLinks.map((link: { title: string, url: string }, i: number) => (
                          <li key={i}>
-                           <Link to={link.url} className="text-white hover:text-sidqly-green-soft flex items-center gap-2 group text-sm font-semibold">
+                           <Link to={link.url} className="text-slate-800 hover:text-emerald-700 flex items-center gap-2 group text-sm font-semibold">
                              <span className="group-hover:translate-x-1 transition-transform">{link.title}</span>
                              <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                            </Link>
                          </li>
                       )) : (
                          <li>
-                           <Link to="/modules" className="text-white hover:text-sidqly-green-soft flex items-center gap-2 group text-sm font-semibold">
+                           <Link to="/modules" className="text-slate-800 hover:text-emerald-700 flex items-center gap-2 group text-sm font-semibold">
                              <span className="group-hover:translate-x-1 transition-transform">Explore All Modules</span>
                              <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                            </Link>
@@ -598,13 +595,13 @@ const ModuleDetail: React.FC = () => {
                 </div>
 
                 {/* Helpful Links */}
-                <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                    <h3 className="font-bold text-lg mb-4 text-white flex items-center gap-2"><LinkIcon size={18} /> Helpful Links</h3>
+                <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <h3 className="font-bold text-lg mb-4 text-slate-900 flex items-center gap-2"><LinkIcon size={18} className="text-emerald-700" /> Helpful Links</h3>
                     <ul className="space-y-3 text-sm font-semibold">
-                      <li><Link to="/compare" className="text-gray-300 hover:text-white transition-colors">Compare Sidqly</Link></li>
-                      <li><Link to="/pricing" className="text-gray-300 hover:text-white transition-colors">Pricing Plans</Link></li>
-                      <li><a href={brand.links?.inquiryForm || "/inquiry-form"} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Request Organization</a></li>
-                      <li><Link to="/modules" className="text-sidqly-gold hover:text-white font-bold mt-2 inline-block transition-colors">← Back to All Modules</Link></li>
+                      <li><Link to="/compare" className="text-slate-600 hover:text-emerald-700 transition-colors">Compare Sidqly</Link></li>
+                      <li><Link to="/pricing" className="text-slate-600 hover:text-emerald-700 transition-colors">Pricing Plans</Link></li>
+                      <li><a href={brand.links?.inquiryForm || "/inquiry-form"} target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-emerald-700 transition-colors">Request Organization</a></li>
+                      <li><Link to="/modules" className="text-emerald-700 hover:text-emerald-800 font-bold mt-2 inline-block transition-colors">← Back to All Modules</Link></li>
                     </ul>
                 </div>
 

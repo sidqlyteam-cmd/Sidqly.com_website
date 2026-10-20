@@ -25,10 +25,10 @@ const PlatformPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-6xl font-extrabold mb-8">The Giving Operations Platform</h1>
-          <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-slate-900">The Giving Operations Platform</h1>
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
              Replace fragmented workflows with a secure, modular, and verified SaaS operating system built for modern Islamic charities.
           </p>
         </div>

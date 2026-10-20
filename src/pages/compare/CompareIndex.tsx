@@ -105,11 +105,11 @@ const CompareIndex: React.FC = () => {
 
       <section className="py-24 bg-white border-y border-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-sidqly-navy text-white rounded-[60px] p-10 md:p-16 text-center">
-              <h2 className="text-3xl font-bold mb-8">Ready for professional operations?</h2>
+           <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 border border-emerald-200/80 text-slate-900 rounded-[40px] p-10 md:p-16 text-center shadow-sm">
+              <h2 className="text-3xl font-extrabold mb-8 text-slate-900">Ready for professional operations?</h2>
               <div className="flex flex-wrap justify-center gap-4">
-                 <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all">Book Comparison Demo</a>
-                 <Link to="/pricing" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">View Pricing</Link>
+                 <a href={brand.calendlyUrl} className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-md">Book Comparison Demo</a>
+                 <Link to="/pricing" className="bg-white text-slate-800 border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">View Pricing</Link>
               </div>
            </div>
         </div>

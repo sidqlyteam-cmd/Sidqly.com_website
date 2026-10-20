@@ -154,7 +154,7 @@ export const DuasAzkar: React.FC = () => {
                 onClick={() => setActiveTab('categories')}
                 className={`flex-1 md:flex-none px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                   activeTab === 'categories'
-                    ? 'bg-sidqly-navy text-white shadow-sm'
+                    ? 'bg-emerald-600 text-white shadow-sm'
                     : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200'
                 }`}
               >
@@ -164,7 +164,7 @@ export const DuasAzkar: React.FC = () => {
                 onClick={() => setActiveTab('favorites')}
                 className={`flex-1 md:flex-none px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
                   activeTab === 'favorites'
-                    ? 'bg-sidqly-navy text-white shadow-sm'
+                    ? 'bg-emerald-600 text-white shadow-sm'
                     : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200'
                 }`}
               >

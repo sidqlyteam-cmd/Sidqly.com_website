@@ -97,7 +97,7 @@ export const TrustVisualPlaceholder: React.FC<TrustVisualPlaceholderProps> = ({
                       </div>
                     ))}
                   </div>
-                  <div className="bg-sidqly-navy text-white text-[10px] font-bold text-center py-2.5 rounded-xl border border-white/10 flex items-center justify-center gap-2">
+                  <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-bold text-center py-2.5 rounded-xl flex items-center justify-center gap-2">
                     <ShieldAlert size={14} className="text-sidqly-green-soft" />
                     DISCLAIMER: All values represent demo workflow data for demonstration purposes only.
                   </div>
@@ -133,7 +133,7 @@ export const TrustVisualPlaceholder: React.FC<TrustVisualPlaceholderProps> = ({
                     "This is a structural placeholder reserved for future authenticated pilot testimonials. We do not fabricate user endorsements or success metrics."
                   </p>
                   <div className="flex items-center justify-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-sidqly-navy text-white text-[10px] font-bold flex items-center justify-center">
+                    <div className="w-6 h-6 rounded-full bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center">
                       SP
                     </div>
                     <span className="text-[10px] font-bold text-sidqly-navy uppercase tracking-wider">

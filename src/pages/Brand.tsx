@@ -76,7 +76,7 @@ const BrandPage: React.FC = () => {
 
           {/* Brand Voice */}
           <div className="grid md:grid-cols-2 gap-12 mb-20">
-             <div className="bg-sidqly-navy text-white p-10 md:p-16 rounded-[40px]">
+             <div className="bg-slate-50 border border-slate-200 text-slate-900 p-10 md:p-16 rounded-[40px] shadow-sm">
                 <h2 className="text-3xl font-bold mb-8">Brand Voice</h2>
                 <ul className="space-y-4">
                   {['Premium', 'Calm', 'Trustworthy', 'Human', 'Board-ready'].map((item, i) => (

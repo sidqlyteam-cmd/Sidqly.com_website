@@ -17,18 +17,18 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
   if (!useCase) return null;
 
   return (
-    <section className={`py-20 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 ${className}`}>
+    <section className={`py-20 bg-white dark:bg-gray-950 border-b border-gray-100 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 bg-sidqly-green-soft/20 text-sidqly-green-deep dark:text-sidqly-green-soft text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 bg-sidqly-green-soft/20 text-sidqly-green-deep text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
             <Layers size={14} /> Real-World Use Case Scenario
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy dark:text-white mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy mb-4 leading-tight">
             {useCase.title}
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed">
             {useCase.description}
           </p>
         </div>
@@ -55,10 +55,10 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
         {/* Workflow Steps Section */}
         <div className="mb-16">
           <div className="mb-8 flex items-center justify-between">
-            <h3 className="text-2xl font-bold text-sidqly-navy dark:text-white">
+            <h3 className="text-2xl font-bold text-sidqly-navy">
               Connected Operational Workflow
             </h3>
-            <span className="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
+            <span className="text-xs font-bold text-gray-500 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">
               {useCase.steps.length} Steps Sequence
             </span>
           </div>
@@ -67,7 +67,7 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
             {useCase.steps.map((step, idx) => (
               <div
                 key={step.stepNumber}
-                className="bg-sidqly-ivory dark:bg-gray-900 p-6 rounded-3xl border border-gray-100 dark:border-gray-800 flex flex-col justify-between hover:shadow-md transition-all duration-200 group relative"
+                className="bg-sidqly-ivory p-6 rounded-3xl border border-gray-100 flex flex-col justify-between hover:shadow-md transition-all duration-200 group relative"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -75,22 +75,22 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
                       Step 0{step.stepNumber}
                     </span>
                     {idx < useCase.steps.length - 1 && (
-                      <ArrowDown className="md:hidden text-gray-300 dark:text-gray-600" size={16} />
+                      <ArrowDown className="md:hidden text-gray-300" size={16} />
                     )}
                   </div>
-                  <h4 className="text-lg font-bold text-sidqly-navy dark:text-white mb-2 group-hover:text-sidqly-green-emerald dark:group-hover:text-sidqly-green-soft transition-colors">
+                  <h4 className="text-lg font-bold text-sidqly-navy mb-2 group-hover:text-sidqly-green-emerald dark:group-hover:text-sidqly-green-soft transition-colors">
                     {step.name}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
                     {step.detail}
                   </p>
                 </div>
 
                 {step.moduleSlug && (
-                  <div className="pt-3 border-t border-gray-200/60 dark:border-gray-800">
+                  <div className="pt-3 border-t border-gray-200/60">
                     <Link
                       to={`/modules/${step.moduleSlug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-sidqly-green-deep dark:text-sidqly-green-soft hover:underline group-hover:translate-x-0.5 transition-all"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-sidqly-green-deep hover:underline group-hover:translate-x-0.5 transition-all"
                     >
                       <span>Module: {step.moduleName || step.moduleSlug}</span>
                       <ExternalLink size={12} />
@@ -110,7 +110,7 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
                 <CheckCircle2 size={22} />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-sidqly-navy dark:text-white mb-2">
+                <h3 className="text-lg font-bold text-sidqly-navy mb-2">
                   Expected Operational Outcome
                 </h3>
                 <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed">
@@ -123,8 +123,8 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
 
         {/* Relevant Modules Grid */}
         {useCase.relevantModules && useCase.relevantModules.length > 0 && (
-          <div className="mb-16 pt-8 border-t border-gray-100 dark:border-gray-800">
-            <h3 className="text-2xl font-bold text-sidqly-navy dark:text-white mb-6">
+          <div className="mb-16 pt-8 border-t border-gray-100">
+            <h3 className="text-2xl font-bold text-sidqly-navy mb-6">
               Relevant Sidqly Modules
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -132,19 +132,19 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
                 <Link
                   key={i}
                   to={mod.href}
-                  className="bg-sidqly-ivory dark:bg-gray-900 p-5 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-sidqly-green-emerald hover:shadow-sm transition-all group flex flex-col justify-between"
+                  className="bg-sidqly-ivory p-5 rounded-2xl border border-gray-100 hover:border-sidqly-green-emerald hover:shadow-sm transition-all group flex flex-col justify-between"
                 >
                   <div>
-                    <h4 className="font-bold text-sidqly-navy dark:text-white text-sm group-hover:text-sidqly-green-emerald dark:group-hover:text-sidqly-green-soft transition-colors mb-2">
+                    <h4 className="font-bold text-sidqly-navy text-sm group-hover:text-sidqly-green-emerald dark:group-hover:text-sidqly-green-soft transition-colors mb-2">
                       {mod.label}
                     </h4>
                     {mod.description && (
-                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-3 line-clamp-2">
+                      <p className="text-xs text-gray-500 leading-relaxed mb-3 line-clamp-2">
                         {mod.description}
                       </p>
                     )}
                   </div>
-                  <span className="inline-flex items-center gap-1 text-xs font-bold text-sidqly-green-emerald dark:text-sidqly-green-soft">
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-sidqly-green-emerald">
                     View Module <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
@@ -154,25 +154,25 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
         )}
 
         {/* Use Case CTA Card */}
-        <div className="bg-sidqly-navy dark:bg-gray-900 text-white p-8 md:p-10 rounded-3xl shadow-md text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 border border-sidqly-navy dark:border-gray-800">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 text-slate-900 p-8 md:p-10 rounded-3xl shadow-sm text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 border border-emerald-200">
           <div className="max-w-2xl">
-            <h3 className="text-xl md:text-2xl font-bold mb-2">
+            <h3 className="text-xl md:text-2xl font-bold mb-2 text-slate-900">
               Want to see how this workflow could work for your organization in {locationName}?
             </h3>
-            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
               Book a live demo with the Sidqly team to walk through payment verification, proof review, and reporting for your local giving operations.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">
             <Link
               to="/book-demo"
-              className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald hover:bg-sidqly-green-soft hover:text-sidqly-navy text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
+              className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
             >
               <Calendar size={18} /> Book a Demo
             </Link>
             <Link
               to="/product-tour"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3.5 rounded-xl transition-all border border-white/20 text-sm text-center"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-bold px-5 py-3.5 rounded-xl transition-all border border-slate-200 text-sm text-center shadow-xs"
             >
               See Product Tour
             </Link>

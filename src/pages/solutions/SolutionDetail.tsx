@@ -88,11 +88,11 @@ const SolutionDetail: React.FC = () => {
         schema={schema}
       />
 
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-3xl md:text-6xl font-extrabold mb-8">{solution.title}</h1>
-            <p className="text-xl text-sidqly-green-soft leading-relaxed">
+            <p className="text-xl text-slate-600 leading-relaxed">
               {solution.desc}
             </p>
           </div>

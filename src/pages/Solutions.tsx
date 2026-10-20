@@ -179,7 +179,7 @@ const Solutions: React.FC = () => {
             </div>
 
             <div className="mt-20 grid md:grid-cols-3 gap-8">
-              <div className="bg-sidqly-navy text-white p-8 rounded-3xl">
+              <div className="bg-slate-50 border border-slate-200 text-slate-900 p-8 rounded-3xl shadow-sm">
                 <Calendar className="text-sidqly-gold mb-4" />
                 <h3 className="font-bold mb-2">Book a Demo</h3>
                 <p className="text-sm text-gray-400 mb-6">See how Sidqly fits your {currentSolution.title.toLowerCase()} workflow.</p>

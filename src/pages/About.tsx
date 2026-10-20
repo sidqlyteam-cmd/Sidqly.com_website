@@ -28,11 +28,11 @@ const About: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
              <div className="relative">
-                <div className="aspect-square bg-sidqly-navy rounded-[60px] flex items-center justify-center p-12 overflow-hidden">
+                <div className="aspect-square bg-gradient-to-br from-emerald-50 via-teal-50 to-emerald-100/60 border border-emerald-200/80 rounded-[60px] flex items-center justify-center p-12 overflow-hidden shadow-sm">
                    <div className="absolute inset-0 opacity-20">
                       <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
                    </div>
-                   <img src="/brand/sidqly-mark.svg" alt="Sidqly Mark" className="w-48 h-48 brightness-0 invert relative z-10" />
+                   <img src="/brand/sidqly-mark.svg" alt="Sidqly Mark" className="w-48 h-48 relative z-10" />
                 </div>
                 <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 max-w-xs hidden lg:block">
                    <p className="text-sidqly-navy font-bold leading-tight mb-4 text-lg italic">

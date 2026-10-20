@@ -74,7 +74,7 @@ const RequestOrganization: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-sidqly-navy p-8 md:p-12 rounded-[40px] text-white">
+            <div className="bg-slate-50 border border-slate-200 p-8 md:p-12 rounded-[40px] text-slate-900 shadow-sm">
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                 <MessageSquare className="text-sidqly-green-soft" /> Suggested Message
               </h2>

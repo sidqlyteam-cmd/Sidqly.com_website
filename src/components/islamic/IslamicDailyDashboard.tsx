@@ -328,7 +328,7 @@ const IslamicDailyDashboard: React.FC = () => {
                       <span>Season Active (Day {activeSeason.currentSeasonDay} of {activeSeason.totalDaysInSeason})</span>
                     </div>
                   ) : (
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-sidqly-navy text-white rounded-full text-xs font-bold">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-600 text-white rounded-full text-xs font-bold">
                       <Clock size={14} />
                       <span>{activeSeason.daysRemaining} days remaining ({activeSeason.targetDate.toLocaleDateString()})</span>
                     </div>
@@ -383,7 +383,7 @@ const IslamicDailyDashboard: React.FC = () => {
             <button
               type="submit"
               disabled={isNamazBusy}
-              className="px-3 py-1.5 bg-sidqly-navy text-white text-xs font-bold rounded-xl hover:bg-sidqly-green-deep transition-colors flex items-center gap-1 disabled:opacity-50"
+              className="px-3 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded-xl hover:bg-emerald-700 transition-colors flex items-center gap-1 disabled:opacity-50"
             >
               <Search size={14} />
               <span>{isNamazBusy ? t('islamicTools.loading') : t('islamicTools.calculate')}</span>
@@ -493,7 +493,7 @@ const IslamicDailyDashboard: React.FC = () => {
 
           <Link
             to={getLocalizedPath('/qibla-direction')}
-            className="inline-flex items-center justify-between w-full p-3 bg-sidqly-navy hover:bg-sidqly-green-deep text-white rounded-xl text-xs font-bold transition-all"
+            className="inline-flex items-center justify-between w-full p-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all"
           >
             <span>Open Qibla Direction Tool</span>
             <ArrowRight size={14} className={dir === 'rtl' ? 'rotate-180' : ''} />
@@ -530,7 +530,7 @@ const IslamicDailyDashboard: React.FC = () => {
 
           <Link
             to={getLocalizedPath('/moon-phase-islamic-calendar')}
-            className="inline-flex items-center justify-between w-full p-3 bg-sidqly-navy hover:bg-sidqly-green-deep text-white rounded-xl text-xs font-bold transition-all"
+            className="inline-flex items-center justify-between w-full p-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all"
           >
             <span>Open Moon Phase Tool</span>
             <ArrowRight size={14} className={dir === 'rtl' ? 'rotate-180' : ''} />

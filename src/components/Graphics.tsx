@@ -26,7 +26,7 @@ export const PrivacyBoundaryGraphic: React.FC = () => {
         {/* Boundary (The Wall) */}
         <div className="flex flex-col justify-center items-center px-4 relative">
           <div className="w-px h-full bg-gradient-to-b from-transparent via-sidqly-navy to-transparent absolute left-1/2 -translate-x-1/2 hidden md:block"></div>
-          <div className="bg-sidqly-navy text-white p-4 rounded-xl shadow-lg relative z-10">
+          <div className="bg-white border border-slate-200 text-slate-900 p-4 rounded-xl shadow-md relative z-10">
              <Shield size={24} className="mb-2 mx-auto text-sidqly-gold" />
              <div className="text-[10px] font-bold uppercase tracking-widest text-center">Review<br/>Gate</div>
           </div>
@@ -52,7 +52,7 @@ export const PrivacyBoundaryGraphic: React.FC = () => {
 
 export const ReviewGateGraphic: React.FC = () => {
   return (
-    <div className="bg-sidqly-navy rounded-3xl p-8 shadow-xl overflow-hidden relative my-10 text-white">
+    <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-sm overflow-hidden relative my-10 text-slate-900">
       <div className="absolute top-0 right-0 w-64 h-64 bg-sidqly-gold rounded-full mix-blend-multiply filter blur-[80px] opacity-10"></div>
 
       <div className="text-center mb-8 relative z-10">

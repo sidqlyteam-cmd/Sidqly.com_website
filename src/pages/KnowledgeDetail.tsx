@@ -61,23 +61,23 @@ const KnowledgeDetail: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <Link to="/knowledge-hub" className="inline-flex items-center text-sidqly-green-soft hover:text-white font-bold text-sm mb-6 transition-colors">
+            <Link to="/knowledge-hub" className="inline-flex items-center text-emerald-700 hover:text-emerald-800 font-bold text-sm mb-6 transition-colors">
               <ChevronLeft size={16} /> Back to Knowledge Hub
             </Link>
 
             <div className="flex flex-wrap gap-4 items-center mb-6">
-              <span className="px-3 py-1 rounded-full bg-sidqly-green-soft/20 text-sidqly-green-soft text-[10px] font-bold uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 text-[10px] font-bold uppercase tracking-wider">
                 {item.type}
               </span>
-              <div className="flex items-center gap-1.5 text-xs text-gray-300 font-bold uppercase">
+              <div className="flex items-center gap-1.5 text-xs text-slate-500 font-bold uppercase">
                 <Calendar size={14} /> Last Updated: {item.lastUpdated}
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-slate-900">
               {item.title}
             </h1>
             <p className="text-xl text-sidqly-green-soft leading-relaxed mb-8">
@@ -185,7 +185,7 @@ const KnowledgeDetail: React.FC = () => {
       </section>
 
       {/* Product Onboarding CTA */}
-      <section className="py-24 bg-sidqly-navy text-white text-center border-t border-white/5">
+      <section className="py-24 bg-gradient-to-b from-emerald-50/30 via-white to-white border-t border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">See If Sidqly Fits Your Operations</h2>
           <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">

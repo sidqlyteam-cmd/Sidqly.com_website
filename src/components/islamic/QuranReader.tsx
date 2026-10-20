@@ -196,7 +196,7 @@ export const QuranReader: React.FC = () => {
                 onClick={() => setActiveTab('browse')}
                 className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                   activeTab === 'browse'
-                    ? 'bg-sidqly-navy text-white'
+                    ? 'bg-emerald-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200'
                 }`}
               >
@@ -206,7 +206,7 @@ export const QuranReader: React.FC = () => {
                 onClick={() => setActiveTab('bookmarks')}
                 className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 ${
                   activeTab === 'bookmarks'
-                    ? 'bg-sidqly-navy text-white'
+                    ? 'bg-emerald-600 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200'
                 }`}
               >

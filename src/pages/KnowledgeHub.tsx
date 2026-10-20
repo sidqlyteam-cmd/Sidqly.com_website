@@ -39,15 +39,15 @@ const KnowledgeHub: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10 tracking-wider">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-emerald-800 uppercase bg-emerald-50 rounded-full border border-emerald-200 tracking-wider">
             Authoritative Sourcing & AI-Overview Optimized Hub
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight text-slate-900">
             Operations Knowledge Hub
           </h1>
-          <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
             The premium reference directory for Islamic giving operations, fund separations, beneficiary modesty controls, and compliance standards.
           </p>
         </div>

@@ -156,7 +156,7 @@ const WeatherPlanningWidget: React.FC = () => {
                </div>
             </div>
 
-            <div className="bg-sidqly-navy text-white p-6 rounded-2xl shadow-inner">
+            <div className="bg-slate-50 border border-slate-200 text-slate-900 p-6 rounded-2xl shadow-sm">
                <h3 className="font-bold mb-4 flex items-center gap-2">
                  <AlertCircle size={18} className="text-sidqly-green-soft shrink-0" />
                  <span>{t('islamicTools.weather.adviceTitle')}</span>

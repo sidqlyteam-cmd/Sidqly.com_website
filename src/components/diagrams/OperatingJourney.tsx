@@ -4,7 +4,7 @@ const OperatingJourney: React.FC = () => {
   const steps = [
     { title: "Intake", desc: "Donations & Requests", color: "bg-sidqly-ivory" },
     { title: "Verify", desc: "Manual Review Gate", color: "bg-sidqly-green-soft/20" },
-    { title: "Fulfill", desc: "Vendor & Operations", color: "bg-sidqly-navy" },
+    { title: "Fulfill", desc: "Vendor & Operations", color: "bg-emerald-600" },
     { title: "Proof", desc: "Dignity-Safe Impact", color: "bg-sidqly-green-emerald" }
   ];
 

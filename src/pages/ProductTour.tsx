@@ -26,11 +26,11 @@ const ProductTour: React.FC = () => {
         schema={schema}
       />
 
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-8">See How Sidqly Works</h1>
-            <p className="text-xl text-sidqly-green-soft leading-relaxed mb-10">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-slate-900">See How Sidqly Works</h1>
+            <p className="text-xl text-slate-600 leading-relaxed mb-10">
               Walk through the Sidqly workflow for verified giving, manual payment review, proof approval, donor-safe updates, recipient dignity protection, and board-ready reporting.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -91,7 +91,7 @@ const ProductTour: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-sidqly-navy p-8 rounded-3xl shadow-lg">
+            <div className="bg-slate-50 border border-slate-200 p-8 rounded-3xl shadow-sm text-slate-900">
               <h3 className="text-xl font-bold text-sidqly-green-soft mb-6 flex items-center gap-2">
                 <span className="w-8 h-8 rounded-full bg-sidqly-green-deep flex items-center justify-center text-sm">✓</span> After Sidqly
               </h3>
@@ -142,12 +142,12 @@ const ProductTour: React.FC = () => {
               { title: "Generate board-ready report", what: "Download a PDF or Excel summary.", helps: "Aggregates all approved proof and financial data.", matters: "Makes audits and trustee meetings stress-free." }
             ].map((step, i) => (
               <div key={i} className="flex gap-8 items-start relative bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm hover:border-sidqly-green-soft transition-all">
-                <div className="w-16 h-16 bg-sidqly-navy text-white rounded-2xl flex items-center justify-center font-bold text-xl flex-shrink-0 z-10 shadow-lg hidden md:flex">
+                <div className="w-16 h-16 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-2xl flex items-center justify-center font-bold text-xl flex-shrink-0 z-10 shadow-lg hidden md:flex">
                   {i + 1}
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-sidqly-navy mb-4 flex items-center gap-3">
-                    <span className="md:hidden w-8 h-8 bg-sidqly-navy text-white rounded-lg flex items-center justify-center text-sm">{i + 1}</span>
+                    <span className="md:hidden w-8 h-8 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-lg flex items-center justify-center text-sm">{i + 1}</span>
                     {step.title}
                   </h3>
                   <div className="space-y-3">
@@ -217,7 +217,7 @@ const ProductTour: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-sidqly-navy text-white text-center">
+      <section className="py-24 bg-gradient-to-b from-emerald-50/30 via-white to-white border-t border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to see it in action?</h2>
           <p className="text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">

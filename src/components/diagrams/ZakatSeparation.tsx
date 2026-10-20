@@ -13,13 +13,13 @@ const ZakatSeparation: React.FC = () => {
         </div>
 
         {/* Separator Box */}
-        <div className="flex-1 h-48 bg-sidqly-navy rounded-[32px] flex flex-col items-center justify-center p-6 relative">
+        <div className="flex-1 h-48 bg-gradient-to-b from-emerald-50 via-teal-50 to-emerald-100/60 border border-emerald-200 rounded-[32px] flex flex-col items-center justify-center p-6 relative shadow-sm">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-sidqly-green-emerald text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
             Sidqly Logical Filter
           </div>
-          <div className="w-full h-px bg-white/10 my-4"></div>
-          <div className="text-white text-sm font-bold">Amanah-Safe Engine</div>
-          <div className="w-full h-px bg-white/10 my-4"></div>
+          <div className="w-full h-px bg-emerald-200/50 my-4"></div>
+          <div className="text-slate-900 text-sm font-bold">Amanah-Safe Engine</div>
+          <div className="w-full h-px bg-emerald-200/50 my-4"></div>
         </div>
 
         {/* Outputs */}

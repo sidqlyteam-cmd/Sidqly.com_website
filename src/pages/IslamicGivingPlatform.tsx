@@ -44,15 +44,15 @@ const IslamicGivingPlatform: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10 tracking-wider">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-emerald-800 uppercase bg-emerald-50 rounded-full border border-emerald-200 tracking-wider">
             Premium Operations Solution for Islamic NGOs & Mosques
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight text-slate-900">
             Islamic Giving Operations Platform
           </h1>
-          <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
             Professionalize backend coordination. Securely manage manual bank transfer verification, logical fund separation, volunteer routing, photo proof approvals, and audit-ready board reporting.
           </p>
           <div className="flex justify-center gap-4">
@@ -183,16 +183,16 @@ const IslamicGivingPlatform: React.FC = () => {
       {/* Security, Privacy & Recipient Dignity */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-sidqly-navy text-white rounded-[40px] p-8 md:p-12 border border-white/10 relative overflow-hidden shadow-xl">
+          <div className="bg-slate-50 text-slate-900 border border-slate-200 shadow-sm rounded-[40px] p-8 md:p-12 border border-white/10 relative overflow-hidden shadow-xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-sidqly-green-emerald rounded-full filter blur-[80px] opacity-15"></div>
             <div className="relative z-10">
               <h2 className="text-2xl md:text-3xl font-extrabold mb-6 flex items-center gap-3">
                 <Shield className="text-sidqly-green-emerald" size={28} /> Advanced Dignity & Access Controls
               </h2>
-              <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
                 Protecting beneficiary modesty is a central focus of Islamic operations. Sidqly enforces rigid technical boundaries to keep raw, un-blurred photos uploaded from the field locked securely behind authorized roles.
               </p>
-              <ul className="space-y-4 text-xs text-gray-400">
+              <ul className="space-y-4 text-xs text-slate-500">
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-sidqly-green-emerald"></div>
                   <span><strong>Automatic Face-Blurring:</strong> Detects and blurs beneficiary features instantly before export.</span>
@@ -238,17 +238,17 @@ const IslamicGivingPlatform: React.FC = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-sidqly-navy text-white text-center">
+      <section className="py-24 bg-gradient-to-b from-emerald-50/30 via-white to-white border-t border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Organize Your Operations with Absolute Integrity</h2>
-          <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-slate-900">Organize Your Operations with Absolute Integrity</h2>
+          <p className="text-lg text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
             Ready to transition your mosque or charity to a professional operating standard? Begin today with our risk-free, 30-day Guided Pilot program.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="emerald" className="px-10 py-4 text-base" onClick={() => window.location.href = "/guided-pilot"}>
               Apply for Guided Pilot
             </Button>
-            <Button variant="outline" className="px-10 py-4 text-base text-white hover:text-sidqly-navy" onClick={() => window.location.href = "/contact-sales"}>
+            <Button variant="outline" className="px-10 py-4 text-base text-slate-800 hover:text-emerald-700 bg-white border border-slate-200" onClick={() => window.location.href = "/contact-sales"}>
               Contact Sales Team
             </Button>
           </div>

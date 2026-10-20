@@ -65,7 +65,7 @@ const Purchase: React.FC = () => {
                   </div>
                </div>
 
-               <div className="bg-sidqly-navy p-8 rounded-3xl text-white">
+               <div className="bg-slate-50 border border-slate-200 p-8 rounded-3xl text-slate-900 shadow-sm">
                   <h2 className="text-xl font-bold mb-4 flex items-center gap-2"><ShieldCheck className="text-sidqly-green-soft" /> Setup Options</h2>
                   <ul className="space-y-4 text-gray-300 text-sm">
                     <li><strong className="text-white block">Single Module Pilot:</strong> Ideal for testing workflows like an upcoming Qurbani campaign.</li>

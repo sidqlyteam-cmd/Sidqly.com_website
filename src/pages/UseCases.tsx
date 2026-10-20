@@ -37,22 +37,22 @@ const UseCases: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-sidqly-navy py-24 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-emerald-50/40 via-white to-white py-24 border-b border-slate-200 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h1 className="text-3xl md:text-6xl font-extrabold text-white mb-6">
+          <h1 className="text-3xl md:text-6xl font-extrabold text-slate-900 mb-6">
             Built for Every Role in <span className="text-sidqly-gold">Islamic Giving</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-10">
             From mosque admins and charity directors to volunteers, vendors, and corporate sponsors—see how Sidqly’s verified workflows solve your specific operational challenges.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-             <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center gap-2">
+             <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-md">
                Book Demo <ArrowRight size={18} />
              </a>
-             <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+             <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 text-slate-800 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">
                Fill Inquiry Form
              </a>
           </div>
@@ -166,32 +166,32 @@ const UseCases: React.FC = () => {
                   </li>
                 </ul>
               </div>
-              <div className="bg-sidqly-navy p-10 rounded-3xl text-white">
+              <div className="bg-slate-50 border border-slate-200 p-10 rounded-3xl text-slate-900 shadow-sm">
                  <h3 className="text-2xl font-bold mb-8">Essential Modules</h3>
                  <div className="space-y-6">
                     <div className="flex flex-col sm:flex-row gap-4 items-center">
                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0"><Layout size={24} className="text-sidqly-gold" /></div>
                        <div>
                           <h4 className="font-bold">Campaigns & Zakat Module</h4>
-                          <p className="text-sm text-gray-400">Core fund separation and campaign tracking.</p>
+                          <p className="text-sm text-slate-500">Core fund separation and campaign tracking.</p>
                        </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 items-center">
                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0"><Users size={24} className="text-sidqly-gold" /></div>
                        <div>
                           <h4 className="font-bold">Volunteer & Vendor Modules</h4>
-                          <p className="text-sm text-gray-400">External coordination and task assignment.</p>
+                          <p className="text-sm text-slate-500">External coordination and task assignment.</p>
                        </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 items-center">
                        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0"><PieChart size={24} className="text-sidqly-gold" /></div>
                        <div>
                           <h4 className="font-bold">Reporting & Proof Modules</h4>
-                          <p className="text-sm text-gray-400">Internal review gates and output generation.</p>
+                          <p className="text-sm text-slate-500">Internal review gates and output generation.</p>
                        </div>
                     </div>
                  </div>
-                 <Link to="/modules" className="mt-8 inline-block text-sidqly-green-soft font-bold text-sm hover:text-white transition-colors">View all 18 modules &rarr;</Link>
+                 <Link to="/modules" className="mt-8 inline-block text-emerald-700 font-bold text-sm hover:text-emerald-800 transition-colors">View all 18 modules &rarr;</Link>
               </div>
            </div>
         </div>
@@ -224,18 +224,18 @@ const UseCases: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-sidqly-navy text-center relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-emerald-50/30 via-white to-white border-t border-slate-200 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">Ready to professionalize your operations?</h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Join the organizations that trust Sidqly to handle their manual review, proof approval, and reporting workflows.</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Ready to professionalize your operations?</h2>
+          <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">Join the organizations that trust Sidqly to handle their manual review, proof approval, and reporting workflows.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+             <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 shadow-md">
                Book a Demo <ArrowRight size={18} />
              </a>
-             <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all text-center">
+             <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 text-slate-800 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm text-center">
                Fill Inquiry Form
              </a>
           </div>

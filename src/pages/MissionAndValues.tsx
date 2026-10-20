@@ -43,10 +43,10 @@ const MissionAndValues: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Mission & Values</h1>
-          <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-slate-900">Mission & Values</h1>
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
              A Sadaqah-inspired model built to organize modern giving operations with trust, dignity, and professional accountability.
           </p>
         </div>
@@ -73,22 +73,21 @@ const MissionAndValues: React.FC = () => {
            </div>
 
            {/* Non-Authoritative Boundary Block */}
-           <div className="bg-sidqly-navy text-white p-10 md:p-16 rounded-[40px] max-w-4xl mx-auto mb-20 text-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
+           <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 p-10 md:p-16 rounded-[40px] max-w-4xl mx-auto mb-20 text-center relative overflow-hidden shadow-sm">
               <div className="relative z-10">
-                 <h2 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
-                    <Heart className="text-sidqly-gold" /> Strict Operational Boundaries
+                 <h2 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2 text-slate-900">
+                    <Heart className="text-emerald-600" /> Strict Operational Boundaries
                  </h2>
-                 <p className="text-gray-300 leading-relaxed mb-6 text-sm max-w-2xl mx-auto">
+                 <p className="text-slate-600 leading-relaxed mb-6 text-sm max-w-2xl mx-auto">
                     Sidqly provides cloud-based administrative software. We do not issue religious rulings, Shariah fatwas, or legal/tax advisory opinions. All eligibility reviews, Shariah compliance standards, and local tax reporting remain strictly under the purview of your organization's appointed scholars and legal advisors.
                  </p>
-                 <div className="inline-block px-4 py-2 bg-white/10 rounded-lg text-xs font-bold text-sidqly-green-soft uppercase tracking-widest border border-white/10">
+                 <div className="inline-block px-4 py-2 bg-emerald-100 rounded-lg text-xs font-bold text-emerald-800 uppercase tracking-widest border border-emerald-300">
                     SaaS Platform • Non-Authoritative
                  </div>
               </div>
            </div>
 
-           <div className="text-center">
+            <div className="text-center">
               <h2 className="text-2xl font-bold text-sidqly-navy mb-6">Want to explore our platform?</h2>
               <div className="flex flex-wrap justify-center gap-4">
                  <Link to="/what-is-sidqly" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center gap-2">

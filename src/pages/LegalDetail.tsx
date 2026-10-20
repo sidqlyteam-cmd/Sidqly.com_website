@@ -61,12 +61,12 @@ const LegalDetail: React.FC = () => {
               {policy.sections.map((section, idx) => {
                 if (section.isAlert) {
                   return (
-                    <div key={idx} className="bg-sidqly-navy text-white p-8 rounded-3xl border border-white/10 relative overflow-hidden">
+                    <div key={idx} className="bg-emerald-50/70 text-slate-900 p-8 rounded-3xl border border-emerald-200 relative overflow-hidden shadow-xs">
                       <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full translate-x-12 -translate-y-12" />
-                      <h3 className="text-xl font-bold text-sidqly-green-soft mb-3 flex items-center gap-2">
+                      <h3 className="text-xl font-bold text-emerald-800 mb-3 flex items-center gap-2">
                         <ShieldAlert size={20} /> {section.title}
                       </h3>
-                      <p className="text-sm text-gray-300 leading-relaxed font-medium">
+                      <p className="text-sm text-slate-700 leading-relaxed font-medium">
                         {section.content}
                       </p>
                     </div>

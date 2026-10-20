@@ -41,7 +41,7 @@ const AskSidqly: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-             <div className="bg-sidqly-navy text-white p-10 rounded-3xl text-center flex flex-col items-center">
+             <div className="bg-gradient-to-b from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 p-10 rounded-3xl text-center flex flex-col items-center shadow-sm">
                 <MessageCircle className="text-sidqly-green-soft mb-6" size={40} />
                 <h4 className="text-xl font-bold mb-4">Direct Email</h4>
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">For specific queries, partnerships, or billing questions.</p>

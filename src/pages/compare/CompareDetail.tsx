@@ -90,20 +90,20 @@ const CompareDetail: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-sidqly-navy text-white p-10 rounded-[40px] shadow-xl relative transform md:-translate-y-4">
-              <div className="absolute top-0 right-10 -translate-y-1/2 bg-sidqly-green-emerald text-white px-4 py-1 rounded-full text-sm font-bold border border-sidqly-green-soft">
+            <div className="bg-emerald-50/70 border-2 border-emerald-500/80 text-slate-900 p-10 rounded-[40px] shadow-lg relative transform md:-translate-y-4">
+              <div className="absolute top-0 right-10 -translate-y-1/2 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-sm">
                 Sidqly Platform
               </div>
-              <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">The Sidqly Way</h2>
+              <h2 className="text-2xl font-bold mb-8 flex items-center gap-2 text-slate-900">The Sidqly Way</h2>
               <div className="space-y-6">
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-slate-700 leading-relaxed font-medium">
                   {comparisonData ? comparisonData.sidqlyImproves : "A structured operating system that organizes Zakat logic, payment review, proof approval, and dignity-safe donor updates in one secure environment."}
                 </p>
 
                 {comparisonData && (
-                  <div className="bg-white/10 p-5 rounded-2xl border border-white/10 mt-6">
-                     <h4 className="font-bold text-sidqly-gold uppercase tracking-wider text-xs mb-3">When Sidqly may not be the right fit</h4>
-                     <p className="text-gray-300 text-xs leading-relaxed">{comparisonData.notRightFit}</p>
+                  <div className="bg-white p-5 rounded-2xl border border-emerald-200 mt-6 shadow-xs">
+                     <h4 className="font-bold text-amber-800 uppercase tracking-wider text-xs mb-3">When Sidqly may not be the right fit</h4>
+                     <p className="text-slate-600 text-xs leading-relaxed">{comparisonData.notRightFit}</p>
                   </div>
                 )}
               </div>

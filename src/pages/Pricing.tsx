@@ -85,16 +85,16 @@ const Pricing: React.FC = () => {
           </div>
 
           {/* Guided Pilot Conversion Banner */}
-          <div className="max-w-4xl mx-auto mb-16 bg-sidqly-navy text-white rounded-[32px] p-8 md:p-12 border border-sidqly-green-soft/30 flex flex-col md:flex-row gap-8 items-center justify-between shadow-xl">
+          <div className="max-w-4xl mx-auto mb-16 bg-gradient-to-r from-emerald-50 via-teal-50 to-white text-slate-900 rounded-[32px] p-8 md:p-12 border border-emerald-200/80 flex flex-col md:flex-row gap-8 items-center justify-between shadow-sm">
              <div className="text-left flex-1">
-                <span className="inline-block bg-sidqly-green-emerald/20 border border-sidqly-green-emerald/30 text-sidqly-green-soft text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Risk-Free Launch Offer</span>
-                <h3 className="text-2xl font-bold mb-2">Want to try Sidqly first?</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <span className="inline-block bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Risk-Free Launch Offer</span>
+                <h3 className="text-2xl font-bold mb-2 text-slate-900">Want to try Sidqly first?</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
                    Launch a focused, risk-free 30-day **Guided Pilot** program. We'll assist with manual payment setup, data migration, and team training.
                 </p>
              </div>
              <div className="shrink-0">
-                <Link to="/guided-pilot" className="bg-sidqly-green-emerald hover:bg-white hover:text-sidqly-navy text-white px-8 py-4 rounded-xl font-bold transition-all text-sm inline-block shadow-lg">
+                <Link to="/guided-pilot" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all text-sm inline-block shadow-md">
                    Explore Guided Pilot
                 </Link>
              </div>
@@ -206,13 +206,13 @@ const Pricing: React.FC = () => {
                      <li className="flex gap-3 items-start"><CheckCircle2 className="text-sidqly-green-emerald flex-shrink-0" /> <span>Creates a professional first impression before scaling further.</span></li>
                   </ul>
                </div>
-               <div className="bg-sidqly-navy text-white p-10 md:p-16 rounded-[40px] shadow-2xl relative overflow-hidden">
+               <div className="bg-slate-50 text-slate-900 border border-slate-200 shadow-sm p-10 md:p-16 rounded-[40px] shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-8 opacity-5">
                      <PieChart size={200} />
                   </div>
                   <div className="relative z-10">
                      <h3 className="text-2xl font-bold mb-8">What Sidqly can replace</h3>
-                     <p className="text-sidqly-green-soft mb-8 leading-relaxed italic">
+                     <p className="text-emerald-700 mb-8 leading-relaxed font-medium">
                         Sidqly is not just another donation form. It is designed to organize the full giving workflow from intention to payment review, delivery, proof approval, donor-safe update, and reporting.
                      </p>
                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -222,8 +222,8 @@ const Pricing: React.FC = () => {
                            "Manual receipt creation", "Scattered donor updates", "Vendor follow-up messages",
                            "Volunteer confusion", "Manual report preparation"
                         ].map((item, i) => (
-                           <div key={i} className="flex gap-2 items-center text-sm text-gray-300">
-                              <XCircle size={14} className="text-red-400 opacity-50" /> {item}
+                           <div key={i} className="flex gap-2 items-center text-sm text-slate-600">
+                              <XCircle size={14} className="text-red-500 opacity-80" /> {item}
                            </div>
                         ))}
                      </div>
@@ -314,20 +314,20 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* Purchase Process CTA */}
-      <section className="py-24 bg-sidqly-navy text-white text-center">
+      <section className="py-24 bg-gradient-to-b from-emerald-50/40 via-white to-white border-t border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-           <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to upgrade your operations?</h2>
-           <p className="text-lg text-sidqly-green-soft mb-12 leading-relaxed">
+           <h2 className="text-3xl md:text-5xl font-extrabold mb-8 text-slate-900">Ready to upgrade your operations?</h2>
+           <p className="text-lg text-slate-600 mb-12 leading-relaxed">
               Review our plans, fill the inquiry form, and our team will guide you through the manual review and onboarding process to ensure Sidqly is the perfect fit.
            </p>
            <div className="grid md:grid-cols-3 gap-6">
-              <Link to="/purchase" className="bg-sidqly-green-emerald p-6 rounded-2xl font-bold hover:bg-white hover:text-sidqly-navy transition-all flex flex-col items-center gap-3">
+              <Link to="/purchase" className="bg-emerald-600 text-white p-6 rounded-2xl font-bold hover:bg-emerald-700 transition-all flex flex-col items-center gap-3 shadow-md">
                  <Layout size={24} /> <span>How to Purchase</span>
               </Link>
-              <a href={brand.calendlyUrl} className="bg-white/10 border border-white/20 p-6 rounded-2xl font-bold hover:bg-white/20 transition-all flex flex-col items-center gap-3">
+              <a href={brand.calendlyUrl} className="bg-white border border-slate-200 text-slate-800 p-6 rounded-2xl font-bold hover:bg-slate-50 hover:border-slate-300 transition-all flex flex-col items-center gap-3 shadow-sm">
                  <Calendar size={24} /> <span>Book Demo</span>
               </a>
-              <a href={brand.inquiryFormUrl} className="bg-white/10 border border-white/20 p-6 rounded-2xl font-bold hover:bg-white/20 transition-all flex flex-col items-center gap-3">
+              <a href={brand.inquiryFormUrl} className="bg-white border border-slate-200 text-slate-800 p-6 rounded-2xl font-bold hover:bg-slate-50 hover:border-slate-300 transition-all flex flex-col items-center gap-3 shadow-sm">
                  <FileText size={24} /> <span>Fill Inquiry Form</span>
               </a>
            </div>

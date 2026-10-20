@@ -309,7 +309,7 @@ const RamadanCountdown: React.FC = () => {
         </Link>
         <Link
           to="/book-demo"
-          className="inline-flex items-center gap-2 bg-sidqly-green-deep text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-sidqly-navy transition-colors"
+          className="inline-flex items-center gap-2 bg-sidqly-green-deep text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold hover:bg-emerald-600 transition-colors"
         >
           {t('islamicTools.ramadan.bookDemo')} <ArrowRight size={14} className={dir === 'rtl' ? 'rotate-180' : ''} />
         </Link>

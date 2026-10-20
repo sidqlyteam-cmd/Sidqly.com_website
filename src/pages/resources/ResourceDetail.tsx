@@ -164,16 +164,16 @@ const ResourceDetail: React.FC = () => {
              )}
 
              <div className="mt-16 pt-16 border-t border-gray-100">
-                <div className="bg-sidqly-navy rounded-3xl p-8 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 rounded-3xl p-8 text-slate-900 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
                    <div>
-                      <h4 className="font-bold text-xl mb-2">Need a tailored {resource.category.toLowerCase()}?</h4>
-                      <p className="text-gray-400 text-sm">Our strategy team can help your organization implement these professional standards.</p>
+                      <h4 className="font-bold text-xl mb-2 text-slate-900">Need a tailored {resource.category.toLowerCase()}?</h4>
+                      <p className="text-slate-600 text-sm">Our strategy team can help your organization implement these professional standards.</p>
                    </div>
                    <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                      <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all text-center">
+                      <a href={brand.calendlyUrl} className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold hover:shadow-md transition-all text-center">
                          Book Demo
                       </a>
-                      <a href={brand.inquiryFormUrl} className="bg-white/10 text-white px-8 py-3 rounded-xl font-bold hover:bg-white/20 transition-all text-center">
+                      <a href={brand.inquiryFormUrl} className="bg-white border border-slate-200 text-slate-800 px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all text-center shadow-xs">
                          Fill Inquiry Form
                       </a>
                    </div>

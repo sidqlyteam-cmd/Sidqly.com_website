@@ -203,29 +203,8 @@ const generateIndex = (sitemapsList) => {
     return xml;
 };
 
-// Write individual sitemaps
-fs.writeFileSync(path.join(publicDir, 'sitemap-pages.xml'), generateUrlset(pagesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-modules.xml'), generateUrlset(modulesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-use-cases.xml'), generateUrlset(useCasesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-resources.xml'), generateUrlset(resourcesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-blog.xml'), generateUrlset(blogRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-ai.xml'), generateUrlset(aiRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-locations.xml'), generateUrlset(locationsRoutes));
-
-// Write sitemap index
-const sitemapFiles = [
-    'sitemap-pages.xml',
-    'sitemap-modules.xml',
-    'sitemap-use-cases.xml',
-    'sitemap-resources.xml',
-    'sitemap-blog.xml',
-    'sitemap-ai.xml',
-    'sitemap-locations.xml'
-];
-fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), generateIndex(sitemapFiles));
-
-// Print required statistics
-const totalUniqueUrls = new Set([
+// Collect ALL unique URLs for master sitemap
+const allMasterRoutes = Array.from(new Set([
     ...pagesRoutes,
     ...modulesRoutes,
     ...useCasesRoutes,
@@ -233,7 +212,39 @@ const totalUniqueUrls = new Set([
     ...blogRoutes,
     ...aiRoutes,
     ...locationsRoutes
-]).size;
+])).sort();
+
+// Write individual sitemaps
+fs.writeFileSync(path.join(publicDir, 'sitemap-pages.xml'), generateUrlset(pagesRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-modules.xml'), generateUrlset(modulesRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-use-cases.xml'), generateUrlset(useCasesRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-resources.xml'), generateUrlset(resourcesRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-blog.xml'), generateUrlset(blogRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-ai.xml'), generateUrlset(aiRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-aeo.xml'), generateUrlset(aiRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-locations.xml'), generateUrlset(locationsRoutes));
+fs.writeFileSync(path.join(publicDir, 'sitemap-geo.xml'), generateUrlset(locationsRoutes));
+
+// Write master comprehensive sitemap containing all 1693 URLs directly
+fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), generateUrlset(allMasterRoutes));
+
+// Also write sitemap index for engines requesting sitemapindex
+const sitemapFiles = [
+    'sitemap.xml',
+    'sitemap-pages.xml',
+    'sitemap-modules.xml',
+    'sitemap-use-cases.xml',
+    'sitemap-resources.xml',
+    'sitemap-blog.xml',
+    'sitemap-ai.xml',
+    'sitemap-aeo.xml',
+    'sitemap-locations.xml',
+    'sitemap-geo.xml'
+];
+fs.writeFileSync(path.join(publicDir, 'sitemap-index.xml'), generateIndex(sitemapFiles));
+
+// Print required statistics
+const totalUniqueUrls = allMasterRoutes.length;
 
 console.log(`Successfully generated sitemap index and ${sitemapFiles.length} child sitemaps in ${publicDir}`);
 console.log(`Pages: ${pagesRoutes.length}`);

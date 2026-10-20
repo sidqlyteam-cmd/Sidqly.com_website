@@ -43,7 +43,7 @@ const RegionsIndex: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-8">Scale your impact globally.</h2>
             <p className="text-sidqly-green-soft mb-12 max-w-2xl mx-auto">

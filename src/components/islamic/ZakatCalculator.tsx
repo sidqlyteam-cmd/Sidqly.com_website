@@ -202,20 +202,20 @@ const ZakatCalculator: React.FC = () => {
 
         {/* Right Col: Detailed Result Summary */}
         <div className="lg:col-span-1">
-          <div className="bg-sidqly-navy text-white p-6 rounded-3xl sticky top-8 shadow-xl space-y-4">
+          <div className="bg-gradient-to-b from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 p-6 rounded-3xl sticky top-8 shadow-sm space-y-4">
              <h3 className="text-lg font-bold border-b border-white/20 pb-4">{t('islamicTools.zakat.estimatedSummary')}</h3>
 
              {state.manualNisabValue <= 0 ? (
-               <div className="text-sm text-gray-300 italic text-center py-8">
+               <div className="text-sm text-slate-600 italic text-center py-8">
                  {t('islamicTools.zakat.enterNisabPrompt')}
                </div>
              ) : result && (
                <div className="space-y-4">
-                 <div className="flex justify-between items-center text-sm text-gray-300">
+                 <div className="flex justify-between items-center text-sm text-slate-600">
                     <span>{t('islamicTools.zakat.totalAssets')}</span>
                     <span className="font-semibold">${result.totalAssets.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                  </div>
-                 <div className="flex justify-between items-center text-sm text-gray-300">
+                 <div className="flex justify-between items-center text-sm text-slate-600">
                     <span>{t('islamicTools.zakat.deductibleLiabilities')}</span>
                     <span className="font-semibold">-${result.totalLiabilities.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                  </div>
@@ -224,11 +224,11 @@ const ZakatCalculator: React.FC = () => {
                     <span>${result.netZakatableWealth.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                  </div>
 
-                 <div className="flex justify-between items-center text-xs text-gray-300 pt-1">
+                 <div className="flex justify-between items-center text-xs text-slate-600 pt-1">
                     <span>{t('islamicTools.zakat.nisabThreshold')}</span>
                     <span>${result.nisabThreshold.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                  </div>
-                 <div className="flex justify-between items-center text-xs text-gray-300">
+                 <div className="flex justify-between items-center text-xs text-slate-600">
                     <span>{t('islamicTools.zakat.zakatRate')}</span>
                     <span>2.5%</span>
                  </div>
@@ -239,7 +239,7 @@ const ZakatCalculator: React.FC = () => {
                          <span className="inline-block px-3 py-1 bg-sidqly-green-emerald/20 text-sidqly-green-soft text-xs font-bold rounded-full mb-3">
                            {t('islamicTools.zakat.eligibleForZakat')}
                          </span>
-                         <p className="text-xs text-gray-300 mb-1">{t('islamicTools.zakat.estimatedZakat')}</p>
+                         <p className="text-xs text-slate-600 mb-1">{t('islamicTools.zakat.estimatedZakat')}</p>
                          <p className="text-3xl font-extrabold text-white">
                            ${result.estimatedZakat.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                          </p>
@@ -249,7 +249,7 @@ const ZakatCalculator: React.FC = () => {
                          <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-300 text-xs font-bold rounded-full mb-2">
                            {t('islamicTools.zakat.belowNisab')}
                          </span>
-                         <p className="text-xs text-gray-300 mt-1">
+                         <p className="text-xs text-slate-600 mt-1">
                            ${result.netZakatableWealth.toLocaleString(undefined, { minimumFractionDigits: 2 })} &lt; ${result.nisabThreshold.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                          </p>
                       </div>
@@ -263,7 +263,7 @@ const ZakatCalculator: React.FC = () => {
 
       <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
          <div className="flex items-start gap-2 text-xs text-gray-500">
-            <AlertCircle size={14} className="shrink-0 mt-0.5 text-gray-400" />
+            <AlertCircle size={14} className="shrink-0 mt-0.5 text-slate-500" />
             <p>{t('islamicTools.zakat.religiousDisclaimer')}</p>
          </div>
       </div>

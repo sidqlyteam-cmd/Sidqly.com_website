@@ -12,11 +12,11 @@ const Security: React.FC = () => {
         canonical="/security"
       />
 
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Security & Integrity</h1>
-            <p className="text-xl text-sidqly-green-soft leading-relaxed">
+            <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-slate-900">Security & Integrity</h1>
+            <p className="text-xl text-slate-600 leading-relaxed">
               We provide professional-grade security for the most sensitive aspect of your mission: the data of your donors and those you serve.
             </p>
           </div>
@@ -91,15 +91,15 @@ const Security: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-slate-50 border-t border-slate-200 text-slate-900 text-center">
          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8">Have security questions?</h2>
-            <p className="text-sidqly-green-soft mb-12 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-extrabold mb-8 text-slate-900">Have security questions?</h2>
+            <p className="text-slate-600 mb-12 max-w-2xl mx-auto">
                Our team is ready to discuss our security architecture, data handling policies, and how we protect your organization's integrity.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-               <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all">Book Security Briefing</a>
-               <a href={`mailto:${brand.email}`} className="border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all">Email the team</a>
+               <a href={brand.calendlyUrl} className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-md">Book Security Briefing</a>
+               <a href={`mailto:${brand.email}`} className="border border-slate-200 text-slate-800 bg-white px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">Email the team</a>
             </div>
          </div>
       </section>

@@ -267,7 +267,7 @@ export const NamazTranslator: React.FC = () => {
             onClick={() => setSelectedSection('all')}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors ${
               selectedSection === 'all'
-                ? 'bg-sidqly-navy text-white'
+                ? 'bg-emerald-600 text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >

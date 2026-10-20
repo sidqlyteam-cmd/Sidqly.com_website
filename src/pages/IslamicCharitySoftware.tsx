@@ -44,15 +44,15 @@ const IslamicCharitySoftware: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10 tracking-wider">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-emerald-800 uppercase bg-emerald-50 rounded-full border border-emerald-200 tracking-wider">
             Premium Operations Solution for Registered NGOs
           </span>
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-8 leading-tight text-slate-900">
             Islamic Charity Management Software
           </h1>
-          <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
             Professionalize your organization's internal workflows. Replace scattered spreadsheets and messaging backups with one unified ledger built for absolute accountability, recipient modesty, and compliance.
           </p>
           <div className="flex justify-center gap-4">
@@ -183,16 +183,16 @@ const IslamicCharitySoftware: React.FC = () => {
       {/* Security, Privacy & Recipient Dignity */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-sidqly-navy text-white rounded-[40px] p-8 md:p-12 border border-white/10 relative overflow-hidden shadow-xl">
+          <div className="bg-slate-50 text-slate-900 border border-slate-200 shadow-sm rounded-[40px] p-8 md:p-12 border border-white/10 relative overflow-hidden shadow-xl">
             <div className="absolute top-0 right-0 w-64 h-64 bg-sidqly-green-emerald rounded-full filter blur-[80px] opacity-15"></div>
             <div className="relative z-10">
               <h2 className="text-2xl md:text-3xl font-extrabold mb-6 flex items-center gap-3">
                 <Shield className="text-sidqly-green-emerald" size={28} /> Dignity-Safe Privacy Controls
               </h2>
-              <p className="text-gray-300 text-sm leading-relaxed mb-6">
+              <p className="text-slate-600 text-sm leading-relaxed mb-6">
                 Protecting beneficiary modesty is a central tenet of Sadaqah giving. Sidqly enforces rigid security boundaries so that raw, un-blurred photos uploaded from the field are strictly locked behind authorized roles.
               </p>
-              <ul className="space-y-4 text-xs text-gray-400">
+              <ul className="space-y-4 text-xs text-slate-500">
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-sidqly-green-emerald"></div>
                   <span><strong>Face Detection Filters:</strong> Automated face-blurring is applied instantly to shield beneficiary features.</span>
@@ -238,17 +238,17 @@ const IslamicCharitySoftware: React.FC = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-sidqly-navy text-white text-center">
+      <section className="py-24 bg-gradient-to-b from-emerald-50/30 via-white to-white border-t border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Transition Your Operations Safely</h2>
-          <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 text-slate-900">Transition Your Operations Safely</h2>
+          <p className="text-lg text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
             Ready to upgrade your organization's compliance, reporting, and transparency? Get started today with our risk-free, 30-day Guided Pilot.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="emerald" className="px-10 py-4 text-base" onClick={() => window.location.href = "/guided-pilot"}>
               Apply for Guided Pilot
             </Button>
-            <Button variant="outline" className="px-10 py-4 text-base text-white hover:text-sidqly-navy" onClick={() => window.location.href = "/contact-sales"}>
+            <Button variant="outline" className="px-10 py-4 text-base text-slate-800 hover:text-emerald-700 bg-white border border-slate-200" onClick={() => window.location.href = "/contact-sales"}>
               Contact Sales Team
             </Button>
           </div>

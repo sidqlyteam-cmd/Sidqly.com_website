@@ -69,7 +69,7 @@ const Help: React.FC = () => {
              ))}
           </div>
 
-          <div className="bg-sidqly-navy text-white rounded-[40px] p-10 md:p-16">
+          <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 rounded-[40px] p-10 md:p-16 shadow-sm">
              <div className="grid md:grid-cols-2 gap-16 items-center">
                 <div>
                    <h2 className="text-3xl font-bold mb-6">Can't find what you're looking for?</h2>

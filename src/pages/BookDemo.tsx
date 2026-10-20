@@ -81,9 +81,9 @@ const BookDemo: React.FC = () => {
                    </div>
                 </div>
 
-                <div className="p-8 rounded-3xl bg-sidqly-navy text-white">
-                   <h2 className="font-bold text-xl mb-4">What to prepare before the demo</h2>
-                   <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                <div className="p-8 rounded-3xl bg-gradient-to-br from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 shadow-sm">
+                   <h2 className="font-bold text-xl mb-4 text-slate-900">What to prepare before the demo</h2>
+                   <p className="text-slate-600 text-sm leading-relaxed mb-6">
                       To make our call productive, please fill out the detailed inquiry form. This helps the Sidqly team understand your organization type, current tools, and primary challenges before we meet.
                    </p>
                    <a
@@ -91,7 +91,7 @@ const BookDemo: React.FC = () => {
                      target="_blank"
                      rel="noopener noreferrer"
                      onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'book_demo_inquiry_card' })}
-                     className="inline-flex items-center gap-2 text-sidqly-green-soft font-bold hover:gap-3 transition-all"
+                     className="inline-flex items-center gap-2 text-emerald-700 font-bold hover:text-emerald-800 hover:gap-3 transition-all"
                    >
                       Fill Inquiry Form <ArrowRight size={18} />
                    </a>

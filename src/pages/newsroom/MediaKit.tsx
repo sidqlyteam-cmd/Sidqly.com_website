@@ -101,7 +101,7 @@ const MediaKit: React.FC = () => {
                    <div className="flex flex-col sm:flex-row items-center justify-center gap-8 bg-gray-50 p-8 rounded-xl border border-gray-200 mb-8">
                        <div className="text-3xl md:text-4xl font-extrabold text-sidqly-navy">Sidqly</div>
                        <div className="hidden sm:block w-px h-12 bg-gray-300"></div>
-                       <div className="text-3xl md:text-4xl font-extrabold text-white bg-sidqly-navy px-4 py-1 rounded">Sidqly</div>
+                       <div className="text-3xl md:text-4xl font-extrabold text-white bg-slate-900 px-4 py-1 rounded">Sidqly</div>
                    </div>
 
                    <div className="grid md:grid-cols-2 gap-8">

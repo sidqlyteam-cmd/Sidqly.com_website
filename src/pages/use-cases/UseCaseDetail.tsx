@@ -49,7 +49,7 @@ const UseCaseDetail: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-sidqly-navy py-20 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-emerald-50/40 via-white to-white py-20 lg:py-32 border-b border-slate-200 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
         </div>
@@ -57,23 +57,23 @@ const UseCaseDetail: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                 <Link to="/use-cases" className="inline-flex items-center text-sidqly-green-soft hover:text-white font-bold text-sm mb-6 transition-colors">
+                 <Link to="/use-cases" className="inline-flex items-center text-emerald-700 hover:text-emerald-800 font-bold text-sm mb-6 transition-colors">
                     &larr; Back to all use cases
                  </Link>
-                 <div className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10 tracking-wider">
+                 <div className="inline-block px-4 py-1.5 mb-6 text-xs font-bold text-emerald-800 uppercase bg-emerald-50 rounded-full border border-emerald-200 tracking-wider">
                     {useCase.audience}
                  </div>
-                 <h1 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+                 <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
                     {useCase.title}
                  </h1>
-                 <p className="text-xl text-gray-300 mb-8 max-w-xl">
+                 <p className="text-xl text-slate-600 mb-8 max-w-xl">
                     {useCase.heroSummary}
                  </p>
                  <div className="flex flex-wrap gap-4">
-                    <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all flex items-center gap-2">
+                    <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-md">
                       Book Demo <ArrowRight size={18} />
                     </a>
-                    <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+                    <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 text-slate-800 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">
                       Fill Inquiry Form
                     </a>
                  </div>
@@ -128,11 +128,11 @@ const UseCaseDetail: React.FC = () => {
       </section>
 
       {/* Scenario */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-slate-50 border-y border-slate-200 text-slate-900">
          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Activity className="mx-auto text-sidqly-gold mb-6" size={48} />
-            <h2 className="text-3xl font-bold mb-6">Example Scenario</h2>
-            <p className="text-xl text-gray-300 leading-relaxed italic">
+            <h2 className="text-3xl font-extrabold mb-6 text-slate-900">Example Scenario</h2>
+            <p className="text-xl text-slate-700 leading-relaxed italic">
                "{useCase.exampleScenario}"
             </p>
          </div>

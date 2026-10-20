@@ -22,7 +22,7 @@ export const Card: React.FC<CardProps> = ({
     white: 'bg-white border-gray-100 shadow-sm',
     ivory: 'bg-sidqly-ivory border-gray-100 shadow-sm',
     border: 'bg-white border-gray-100 hover:border-sidqly-green-soft shadow-sm',
-    navy: 'bg-sidqly-navy text-white border-white/10 shadow-lg',
+    navy: 'bg-slate-50 text-slate-900 border border-slate-200 shadow-sm',
   };
 
   const finalClassName = `${baseClasses} ${variantClasses[variant]} ${className}`;

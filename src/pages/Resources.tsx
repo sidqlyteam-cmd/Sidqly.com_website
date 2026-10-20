@@ -26,11 +26,11 @@ const Resources: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl text-center mx-auto">
             <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight">Resources for verified giving, donor trust, and dignity-safe operations</h1>
-            <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10">
               Operational guides, use cases, and best practices to help you transition from scattered tools to a professional SaaS platform.
             </p>
           </div>
@@ -280,7 +280,7 @@ const Resources: React.FC = () => {
       </section>
 
       {/* Glossary */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-slate-50 border-t border-slate-200 text-slate-900">
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-12 border-b border-white/10 pb-4">Glossary of Operational Terms</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

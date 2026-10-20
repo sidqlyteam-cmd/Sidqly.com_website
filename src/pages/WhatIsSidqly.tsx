@@ -57,11 +57,11 @@ const WhatIsSidqly: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-             <h1 className="text-3xl md:text-6xl font-extrabold mb-8">What is Sidqly?</h1>
-             <p className="text-xl text-sidqly-green-soft leading-relaxed">
+             <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-slate-900">What is Sidqly?</h1>
+             <p className="text-xl text-slate-600 leading-relaxed">
                 Sidqly is a specialized, remote SaaS operating platform built to help Islamic giving organizations manage verified operations, manual payment reviews, and proof approvals while strictly protecting recipient dignity.
              </p>
           </div>
@@ -205,7 +205,7 @@ const WhatIsSidqly: React.FC = () => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-slate-50 border-t border-slate-200 text-slate-900 text-center">
          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-6">Ready to learn more?</h2>
             <p className="text-lg text-gray-300 mb-10">Schedule a demo with our team to discuss your current workflows.</p>

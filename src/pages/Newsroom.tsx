@@ -60,7 +60,7 @@ const Newsroom: React.FC = () => {
                  onClick={() => setActiveCategory(cat)}
                  className={`px-4 py-2 rounded-full text-sm font-bold border transition-colors ${
                    activeCategory === cat
-                   ? 'bg-sidqly-navy text-white border-sidqly-navy'
+                   ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
                    : 'bg-white text-gray-600 border-gray-200 hover:border-sidqly-green-emerald hover:text-sidqly-green-deep'
                  }`}
                >
@@ -115,13 +115,13 @@ const Newsroom: React.FC = () => {
 
              {/* Sidebar Widgets */}
              <div className="space-y-6">
-                <div className="bg-sidqly-navy text-white p-6 rounded-2xl">
-                   <h3 className="font-bold text-lg mb-4 border-b border-white/20 pb-2">Media & Press</h3>
-                   <p className="text-sm text-gray-300 mb-4">For media inquiries, interview requests, or partnership discussions, please reach out to our team.</p>
-                   <a href={`mailto:${brand.email}`} className="block text-center bg-sidqly-green-deep text-white px-4 py-3 rounded-xl font-bold hover:bg-sidqly-green-emerald transition-colors">
-                      Contact Press Team
-                   </a>
-                </div>
+                <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 p-6 rounded-2xl shadow-sm">
+                    <h3 className="font-bold text-lg mb-4 text-slate-900 border-b border-slate-200 pb-2">Media & Press</h3>
+                    <p className="text-sm text-slate-600 mb-4">For media inquiries, interview requests, or partnership discussions, please reach out to our team.</p>
+                    <a href={`mailto:${brand.email}`} className="block text-center bg-emerald-600 text-white px-4 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-sm">
+                       Contact Press Team
+                    </a>
+                 </div>
 
                 <div className="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm">
                    <h3 className="font-bold text-lg text-sidqly-navy mb-4 border-b border-gray-100 pb-2">Makkah & Madinah Updates</h3>

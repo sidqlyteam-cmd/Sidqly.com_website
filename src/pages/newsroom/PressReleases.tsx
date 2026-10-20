@@ -34,7 +34,7 @@ const PressReleases: React.FC = () => {
 
           <div className="mb-12">
             <div className="flex items-center gap-4 mb-4">
-               <div className="bg-sidqly-navy text-white p-3 rounded-xl inline-block">
+               <div className="bg-emerald-50 text-emerald-700 border border-emerald-200 p-3 rounded-xl inline-block">
                  <Mic size={24} />
                </div>
                <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy">
@@ -72,12 +72,12 @@ const PressReleases: React.FC = () => {
              ))}
           </div>
 
-          <div className="mt-12 bg-sidqly-navy text-white p-8 rounded-3xl text-center">
-             <h3 className="text-2xl font-bold mb-4">Media Inquiries</h3>
-             <p className="text-gray-300 mb-6 max-w-lg mx-auto">
+          <div className="mt-12 bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 p-8 rounded-3xl text-center shadow-sm">
+             <h3 className="text-2xl font-bold mb-4 text-slate-900">Media Inquiries</h3>
+             <p className="text-slate-600 mb-6 max-w-lg mx-auto">
                 For press inquiries, quotes, or to request access to the Sidqly platform for review purposes, please contact our communications team.
              </p>
-             <a href={`mailto:${brand.email}`} className="inline-block bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
+             <a href={`mailto:${brand.email}`} className="inline-block bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold shadow-md transition-all">
                 Email {brand.email}
              </a>
           </div>

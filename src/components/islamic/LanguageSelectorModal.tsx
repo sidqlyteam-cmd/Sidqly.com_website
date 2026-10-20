@@ -67,20 +67,20 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
       aria-labelledby="language-selector-title"
     >
       <div
-        className="bg-white dark:bg-gray-900 rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden"
+        className="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl border border-gray-100 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-5 sm:p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+        <div className="p-5 sm:p-6 border-b border-gray-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-sidqly-green-emerald/10 text-sidqly-green-deep rounded-2xl">
               <Globe size={22} />
             </div>
             <div>
-              <h2 id="language-selector-title" className="text-lg sm:text-xl font-bold text-sidqly-navy dark:text-white">
+              <h2 id="language-selector-title" className="text-lg sm:text-xl font-bold text-sidqly-navy">
                 Select Translation Language
               </h2>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-xs text-gray-500">
                 140+ languages supported with verified human translations and dynamic packs.
               </p>
             </div>
@@ -95,7 +95,7 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
         </div>
 
         {/* Filter Controls */}
-        <div className="p-4 bg-gray-50/80 dark:bg-gray-800/40 border-b border-gray-100 dark:border-gray-800 space-y-3">
+        <div className="p-4 bg-gray-50/80 dark:bg-gray-800/40 border-b border-gray-100 space-y-3">
           <div className="relative">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
             <input
@@ -104,7 +104,7 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by language, native name, or region (e.g., Turkish, Türkçe, Pashto)..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-sidqly-navy dark:text-white focus:outline-none focus:ring-2 focus:ring-sidqly-green-emerald/30 focus:border-sidqly-green-emerald"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white text-sm text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-sidqly-green-emerald/30 focus:border-sidqly-green-emerald"
             />
           </div>
 
@@ -113,8 +113,8 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
               onClick={() => setSelectedCategory('all')}
               className={`px-3 py-1.5 rounded-lg font-medium transition-colors ${
                 selectedCategory === 'all'
-                  ? 'bg-sidqly-navy text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-100'
+                  ? 'bg-emerald-600 text-white'
+                  : 'bg-white dark:bg-gray-800 text-gray-600 border border-gray-200 dark:border-gray-700 hover:bg-gray-100'
               }`}
             >
               All Languages ({NAMAZ_LANGUAGES_REGISTRY.length})
@@ -124,7 +124,7 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
               className={`px-3 py-1.5 rounded-lg font-medium transition-colors ${
                 selectedCategory === 'verified'
                   ? 'bg-sidqly-green-deep text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-100'
+                  : 'bg-white dark:bg-gray-800 text-gray-600 border border-gray-200 dark:border-gray-700 hover:bg-gray-100'
               }`}
             >
               ✓ Verified Tier 1 (5)
@@ -134,7 +134,7 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
               className={`px-3 py-1.5 rounded-lg font-medium transition-colors ${
                 selectedCategory === 'rtl'
                   ? 'bg-sidqly-green-deep text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-100'
+                  : 'bg-white dark:bg-gray-800 text-gray-600 border border-gray-200 dark:border-gray-700 hover:bg-gray-100'
               }`}
             >
               RTL Scripts
@@ -147,7 +147,7 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
           {filteredLanguages.length === 0 ? (
             <div className="text-center py-12">
               <AlertCircle size={32} className="mx-auto text-gray-400 mb-2" />
-              <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">
+              <p className="text-sm font-semibold text-gray-600">
                 No languages match "{searchQuery}"
               </p>
               <button
@@ -170,12 +170,12 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
                     }}
                     className={`flex items-center justify-between p-3.5 rounded-2xl border text-left transition-all ${
                       isSelected
-                        ? 'bg-emerald-50/80 dark:bg-emerald-950/40 border-sidqly-green-emerald text-sidqly-navy dark:text-white shadow-sm'
-                        : 'bg-white dark:bg-gray-800/60 border-gray-100 dark:border-gray-800 text-gray-700 dark:text-gray-200 hover:border-sidqly-green-emerald/50 hover:bg-gray-50/50'
+                        ? 'bg-emerald-50/80 dark:bg-emerald-950/40 border-sidqly-green-emerald text-sidqly-navy shadow-sm'
+                        : 'bg-white dark:bg-gray-800/60 border-gray-100 text-gray-700 dark:text-gray-200 hover:border-sidqly-green-emerald/50 hover:bg-gray-50/50'
                     }`}
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="shrink-0 w-8 h-8 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xs font-mono font-bold text-gray-600 dark:text-gray-300 uppercase">
+                      <div className="shrink-0 w-8 h-8 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xs font-mono font-bold text-gray-600 uppercase">
                         {lang.code.slice(0, 3)}
                       </div>
                       <div className="truncate">
@@ -187,7 +187,7 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
                             </span>
                           )}
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
+                        <p className="text-xs text-gray-500 truncate">
                           {lang.name} {lang.region ? `• ${lang.region}` : ''}
                         </p>
                       </div>
@@ -199,7 +199,7 @@ export const LanguageSelectorModal: React.FC<LanguageSelectorModalProps> = ({
                           Verified
                         </span>
                       ) : (
-                        <span className="text-[11px] px-2 py-0.5 rounded-md bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 font-medium">
+                        <span className="text-[11px] px-2 py-0.5 rounded-md bg-gray-100 text-gray-600 dark:bg-gray-700 font-medium">
                           Dynamic
                         </span>
                       )}

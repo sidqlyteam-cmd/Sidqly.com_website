@@ -19,12 +19,12 @@ const Migration: React.FC = () => {
   return (
     <>
       <SEO title="Migration Guide" description="Moving from WhatsApp and Excel to professional giving operations with Sidqly." canonical="/migration" noindex={true} />
-      <section className="py-20 bg-sidqly-navy text-white">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-12 items-center">
              <div className="flex-1">
                 <h1 className="text-3xl md:text-6xl font-extrabold mb-8 leading-tight">Replace the mess.</h1>
-                <p className="text-xl text-sidqly-green-soft leading-relaxed">
+                <p className="text-xl text-slate-600 leading-relaxed">
                   Moving from years of WhatsApp groups and Excel sheets can feel overwhelming. Sidqly provides the path to a professional digital transition.
                 </p>
              </div>

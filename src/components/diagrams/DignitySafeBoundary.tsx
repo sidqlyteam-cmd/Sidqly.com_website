@@ -25,14 +25,14 @@ const DignitySafeBoundary: React.FC = () => {
             <div className="w-0.5 h-12 bg-sidqly-green-emerald animate-pulse"></div>
          </div>
 
-         <div className="w-full bg-sidqly-navy p-6 rounded-3xl text-center shadow-xl">
-            <div className="text-sidqly-green-soft font-bold text-sm mb-2">Donor-Safe Impact View</div>
+         <div className="w-full bg-emerald-50/70 border border-emerald-200 p-6 rounded-3xl text-center shadow-sm">
+            <div className="text-emerald-900 font-bold text-sm mb-2">Donor-Safe Impact View</div>
             <div className="flex gap-2 justify-center mb-2">
-               <div className="w-12 h-6 bg-white/10 rounded flex items-center justify-center text-[8px] font-bold text-white/40">BLURRED</div>
-               <div className="w-12 h-6 bg-white/10 rounded flex items-center justify-center text-[8px] font-bold text-white/40">HIDDEN</div>
+               <div className="w-12 h-6 bg-white border border-slate-200 rounded flex items-center justify-center text-[8px] font-bold text-slate-500">BLURRED</div>
+               <div className="w-12 h-6 bg-white border border-slate-200 rounded flex items-center justify-center text-[8px] font-bold text-slate-500">HIDDEN</div>
                <div className="w-12 h-6 bg-sidqly-green-emerald rounded flex items-center justify-center text-[8px] font-bold text-white">VERIFIED</div>
             </div>
-            <div className="text-gray-400 text-[10px] uppercase tracking-widest">Secure • Temporary • Non-Indexed</div>
+            <div className="text-slate-500 text-[10px] uppercase tracking-widest">Secure • Temporary • Non-Indexed</div>
          </div>
       </div>
     </div>

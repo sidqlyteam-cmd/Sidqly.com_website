@@ -66,11 +66,11 @@ const Billing: React.FC = () => {
              </div>
 
              <div className="space-y-8">
-                <div className="bg-sidqly-navy p-10 rounded-[40px] text-white shadow-xl">
+                <div className="bg-slate-50 border border-slate-200 p-10 rounded-[40px] text-slate-900 shadow-sm">
                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
                       <FileText className="text-sidqly-gold" /> Payment Proof Requirements
                    </h2>
-                   <p className="text-gray-300 mb-6 leading-relaxed">
+                   <p className="text-slate-600 mb-6 leading-relaxed">
                       To avoid delays in your account setup, ensure your payment proof includes:
                    </p>
                    <ul className="space-y-4">

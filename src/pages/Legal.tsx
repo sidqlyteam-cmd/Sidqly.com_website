@@ -107,7 +107,7 @@ const Legal: React.FC = () => {
           </div>
 
           {/* Bottom Commitment Box */}
-          <div className="mt-20 bg-sidqly-navy text-white p-10 md:p-16 rounded-[40px] text-center relative overflow-hidden">
+          <div className="mt-20 bg-slate-50 border border-slate-200 text-slate-900 p-10 md:p-16 rounded-[40px] text-center relative overflow-hidden shadow-sm">
              <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-24 -translate-y-24" />
              <div className="relative z-10 max-w-2xl mx-auto">
                <HeartHandshake className="mx-auto mb-6 text-sidqly-green-soft" size={48} />

@@ -63,24 +63,24 @@ const IslamicCalendarPanel: React.FC = () => {
   return (
     <div className="space-y-8" dir={dir}>
       {/* Current Overview */}
-      <div className="bg-sidqly-navy rounded-3xl p-6 sm:p-8 text-white relative overflow-hidden">
-        <div className={`absolute top-0 ${isRtl ? 'left-0' : 'right-0'} p-8 opacity-10 pointer-events-none`}>
+      <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 rounded-3xl p-6 sm:p-8 text-slate-900 relative overflow-hidden shadow-sm">
+        <div className={`absolute top-0 ${isRtl ? 'left-0' : 'right-0'} p-8 opacity-5 text-emerald-800 pointer-events-none`}>
           <CalendarDays size={120} />
         </div>
         <div className="relative z-10 max-w-2xl">
           <h2 className="text-2xl sm:text-3xl font-bold mb-2">{t('islamicTools.calendar.title')}</h2>
-          <p className="text-gray-300 text-sm sm:text-base mb-6 sm:mb-8">{t('islamicTools.calendar.subtitle')}</p>
+          <p className="text-slate-600 text-sm sm:text-base mb-6 sm:mb-8">{t('islamicTools.calendar.subtitle')}</p>
 
           <div className="grid sm:grid-cols-2 gap-4">
-            <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-              <p className="text-xs sm:text-sm text-sidqly-green-soft font-bold mb-1">{t('islamicTools.calendar.gregorianDate')}</p>
-              <p className="text-lg sm:text-xl font-bold">
+            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+              <p className="text-xs sm:text-sm text-emerald-700 font-bold mb-1">{t('islamicTools.calendar.gregorianDate')}</p>
+              <p className="text-lg sm:text-xl font-bold text-slate-900">
                 {today.toLocaleDateString(language === 'ar' ? 'ar-SA' : language === 'ur' ? 'ur-PK' : 'en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
               </p>
             </div>
-            <div className="bg-white/10 p-4 rounded-xl border border-white/20">
-              <p className="text-xs sm:text-sm text-sidqly-green-soft font-bold mb-1">{t('islamicTools.calendar.hijriDate')} ({t('islamicTools.calendar.estimated')})</p>
-              <p className="text-lg sm:text-xl font-bold">
+            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+              <p className="text-xs sm:text-sm text-emerald-700 font-bold mb-1">{t('islamicTools.calendar.hijriDate')} ({t('islamicTools.calendar.estimated')})</p>
+              <p className="text-lg sm:text-xl font-bold text-slate-900">
                 {currentIslamic?.hijriDay} {getLocalizedHijriMonthName(currentIslamic?.hijriMonthIndex ?? 0)} {currentIslamic?.hijriYear}
               </p>
             </div>

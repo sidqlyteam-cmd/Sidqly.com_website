@@ -206,32 +206,32 @@ const EidQurbaniPlanner: React.FC = () => {
 
       {/* Hero Countdown Box */}
       {seasonInfo.phase === 'during' ? (
-        <div className="bg-sidqly-navy rounded-2xl p-6 sm:p-8 text-white mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-inner">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 rounded-2xl p-6 sm:p-8 text-slate-900 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div>
             <div className="inline-block bg-sidqly-green-deep/40 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest mb-2 text-sidqly-green-soft border border-sidqly-green-soft/30">
               {t('islamicTools.eidQurbani.eidActiveTitle')}
             </div>
             <p className="text-xl sm:text-2xl font-extrabold text-amber-300 mb-1">{t('islamicTools.eidQurbani.eidActiveSubtitle')}</p>
-            <p className="text-xs text-white/70">
+            <p className="text-xs text-slate-500">
               AH {seasonInfo.hijriYear} — 10-12 Dhul Hijjah
             </p>
           </div>
-          <div className="bg-white/10 px-6 py-4 rounded-xl text-center shrink-0 border border-white/10">
+          <div className="bg-white border border-slate-200 text-slate-800 px-6 py-4 rounded-xl text-center shrink-0 border border-white/10">
             <span className="block text-3xl font-extrabold text-amber-300">Active</span>
-            <span className="text-xs text-white/80 uppercase">Qurbani Season</span>
+            <span className="text-xs text-slate-600 uppercase">Qurbani Season</span>
           </div>
         </div>
       ) : (
-        <div className="bg-sidqly-navy rounded-2xl p-6 sm:p-8 text-white mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-inner">
+        <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 rounded-2xl p-6 sm:p-8 text-slate-900 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div>
             <p className="text-xs sm:text-sm text-sidqly-green-soft font-bold uppercase tracking-widest mb-1">
               {t('islamicTools.eidQurbani.targetPlanningWindow')} ({isConfirmed ? t('islamicTools.eidQurbani.officiallyConfirmed') : t('islamicTools.eidQurbani.estimatedDate')})
             </p>
             <p className="text-xl sm:text-2xl font-bold">{formattedDate} (AH {seasonInfo.hijriYear})</p>
           </div>
-          <div className="bg-white/10 px-6 py-4 rounded-xl text-center shrink-0 border border-white/10">
+          <div className="bg-white border border-slate-200 text-slate-800 px-6 py-4 rounded-xl text-center shrink-0 border border-white/10">
             <span className="block text-3xl sm:text-4xl font-extrabold">{seasonInfo.daysRemaining}</span>
-            <span className="text-xs text-white/70 uppercase">{t('islamicTools.eidQurbani.daysToPrepare')}</span>
+            <span className="text-xs text-slate-500 uppercase">{t('islamicTools.eidQurbani.daysToPrepare')}</span>
           </div>
         </div>
       )}

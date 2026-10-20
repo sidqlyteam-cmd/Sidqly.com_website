@@ -41,7 +41,7 @@ const WhyFillForm: React.FC = () => {
              </div>
           </div>
 
-          <div className="bg-sidqly-navy text-white rounded-3xl p-10 text-center">
+          <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-white border border-emerald-200 text-slate-900 rounded-3xl p-10 text-center shadow-sm">
              <h3 className="text-2xl font-bold mb-6">Ready to share details?</h3>
              <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all inline-block">
                 Open Google Inquiry Form

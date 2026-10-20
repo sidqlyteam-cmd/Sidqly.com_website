@@ -25,10 +25,10 @@ const WhySidqly: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-6xl font-extrabold mb-8">Why Choose Sidqly?</h1>
-          <p className="text-xl text-sidqly-green-soft leading-relaxed max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-8 text-slate-900">Why Choose Sidqly?</h1>
+          <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
              Sidqly is the first purpose-built, remote SaaS operating platform designed specifically to replace fragmented tools with verified, secure, and dignity-safe workflows.
           </p>
         </div>
@@ -70,16 +70,16 @@ const WhySidqly: React.FC = () => {
              </div>
           </div>
 
-          <div className="bg-sidqly-navy text-white p-10 md:p-16 rounded-[40px] mb-20">
+          <div className="bg-slate-50 border border-slate-200 text-slate-900 p-10 md:p-16 rounded-[40px] mb-20 shadow-sm">
              <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                    <h2 className="text-3xl font-bold mb-6">Operational Clarity, Built Safely</h2>
-                   <p className="text-gray-300 mb-6 leading-relaxed">
+                   <p className="text-slate-600 mb-6 leading-relaxed">
                       We understand that the trust (Amanah) given to you by your donors is your most valuable asset. Sidqly acts as your secure backend, organizing the operations around campaigns such as Zakat, Sadaqah, Qurbani, and Ramadan.
                    </p>
-                   <div className="bg-white/10 p-5 border border-white/10 rounded-2xl">
-                      <h4 className="font-bold text-sidqly-gold uppercase text-xs mb-2">Our Non-Authoritative Boundary</h4>
-                      <p className="text-xs text-gray-300 leading-relaxed">
+                   <div className="bg-white p-5 border border-slate-200 rounded-2xl shadow-xs">
+                      <h4 className="font-bold text-emerald-800 font-bold uppercase text-xs mb-2">Our Non-Authoritative Boundary</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
                          Sidqly provides administrative and operational software. We are **not** a religious authority and do not issue Shariah rulings or Zakat eligibility decisions. The eligibility and fund allocation decisions remain entirely with your own scholars or trustees.
                       </p>
                    </div>

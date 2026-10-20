@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                 </div>
              </div>
 
-             <div className="bg-sidqly-navy text-white p-10 md:p-16 rounded-[40px]">
+             <div className="bg-slate-50 border border-slate-200 text-slate-900 p-10 md:p-16 rounded-[40px] shadow-sm">
                 <h3 className="text-3xl font-bold mb-8">Our Focus</h3>
                 <p className="text-gray-400 leading-relaxed mb-10">
                   Sidqly is dedicated to supporting organizations that prioritize Amanah and dignity. Our team is available to assist with onboarding, data migration from Excel/WhatsApp, and custom reporting setup.
