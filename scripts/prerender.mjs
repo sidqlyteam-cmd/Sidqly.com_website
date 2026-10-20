@@ -53,6 +53,10 @@ function startPreviewServer(port) {
 }
 
 async function runPrerender() {
+  if (process.env.SKIP_PRERENDER === 'true' || process.env.VERCEL === '1') {
+    console.log('ℹ️ Skipping static pre-rendering on Vercel/CI environment.');
+    return;
+  }
   if (!fs.existsSync(distDir)) {
     console.error('❌ dist directory not found. Please run npm run build first.');
     process.exit(1);
@@ -118,15 +122,27 @@ async function runPrerender() {
   let browser;
 
   try {
-    browser = await chromium.launch(launchOpts);
-  } catch {
-    browser = await chromium.launch({
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage'
-      ]
-    });
+    try {
+      browser = await chromium.launch(launchOpts);
+    } catch {
+      browser = await chromium.launch({
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage'
+        ]
+      });
+    }
+  } catch (err) {
+    console.warn('⚠️ Playwright Chromium browser is not available in this environment.');
+    console.warn('⚠️ Skipping pre-rendering step: ' + (err && err.message ? err.message : err));
+    if (server) {
+      if (typeof server.closeAllConnections === 'function') {
+        server.closeAllConnections();
+      }
+      server.close();
+    }
+    return;
   }
 
   console.log(`Starting pre-rendering of ${routesList.length} total URLs with parallel workers...`);
