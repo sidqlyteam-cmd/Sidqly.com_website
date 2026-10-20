@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Layout, ShieldCheck, BarChart3, Globe } from 'lucide-react';
+import { ArrowRight, Layout, ShieldCheck, BarChart3, Globe, Sparkles, QrCode, Languages, Scale, Building2, Handshake, BookOpenCheck } from 'lucide-react';
 import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import TrustPillars from '../components/diagrams/TrustPillars';
@@ -93,6 +93,17 @@ const Home: React.FC = () => {
         description="Manage verified giving, Zakat, Sadaqah, Qurbani, donor proof, privacy controls, and board-ready reports with Sidqly."
         schema={schema}
       />
+
+            {/* Top Release Banner */}
+      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white text-xs sm:text-sm font-semibold py-2.5 px-4 text-center shadow-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+          <span className="bg-white/20 uppercase tracking-widest text-[10px] px-2.5 py-0.5 rounded-full font-bold">New Release</span>
+          <span>🚀 Introducing Sidqly 2.0: Cashless Mosque TimeBank, AI Multilingual Khutbahs, 4-Eyes AAOIFI Treasury, and Corporate CSR Matching.</span>
+          <Link to="/features" className="underline font-bold hover:text-emerald-100 transition-colors inline-flex items-center gap-1">
+            Explore What's New &rarr;
+          </Link>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-emerald-50/40 via-white to-white py-16 sm:py-20 md:py-28 lg:py-32 overflow-hidden border-b border-slate-100">
@@ -190,6 +201,139 @@ const Home: React.FC = () => {
                 className="bg-transparent text-sidqly-gold border border-sidqly-gold/30 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-sidqly-gold/10 transition-all text-center"
               >
                 Request Your Organization
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We've Built for You: Sidqly 2.0 Feature Pillars */}
+      <section className="py-20 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 mb-4 text-xs font-bold text-emerald-800 uppercase bg-emerald-50 rounded-full border border-emerald-200 shadow-xs">
+              <Sparkles size={14} className="text-emerald-600" /> What We've Built in Sidqly 2.0
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+              Built for Transparency. Designed for Dignity.
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+              We've transformed Sidqly from a donation tracker into a complete <strong>Amanah Operating System</strong>. 100% digital cloud software built to empower your mosque, donors, and charity.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-6">
+                  <Handshake size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
+                  Mosque Khidmah TimeBank
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Cashless Skill Barter</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  An interest-free, moneyless exchange where every worshipper’s time is valued equally: <strong>1 hour of service = 1 TimeBank credit</strong>. Exchange tutoring, repairs, and community care with zero financial strain.
+                </p>
+              </div>
+              <Link to="/modules/khidmah-timebank" className="text-emerald-700 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                Learn about TimeBank &rarr;
+              </Link>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-6">
+                  <Languages size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
+                  Live AI Khutbah Reader
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Gemini AI Multilingual</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Real-time synchronized translation of Friday Jumu'ah sermons into 6 languages (Urdu, French, Arabic, Turkish, Bengali, Somali) on smartphones with zero login and zero hardware headsets.
+                </p>
+              </div>
+              <Link to="/modules/ai-khutbah-reader" className="text-emerald-700 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                Explore Khutbah AI &rarr;
+              </Link>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-6">
+                  <Scale size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
+                  4-Eyes AAOIFI Treasury
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Partitioned Zakat Ledger</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Strict dual-signature authorization (*Maker-Checker* principle) meeting AAOIFI Shariah governance standards. Zakat is mathematically partitioned so it is never co-mingled with mosque operating costs.
+                </p>
+              </div>
+              <Link to="/modules/aaoifi-treasury-ledger" className="text-emerald-700 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                Inspect Treasury Ledger &rarr;
+              </Link>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-6">
+                  <QrCode size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
+                  Dignity Aid QR Vouchers
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Zero-Exposure Family Relief</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Vulnerable families apply confidentially and receive digital QR vouchers on their phones, redeemable at local partner halal grocers and pharmacies with zero public exposure and 100% facial privacy.
+                </p>
+              </div>
+              <Link to="/modules/dignity-qr-vouchers" className="text-emerald-700 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                Discover Dignity Vouchers &rarr;
+              </Link>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-6">
+                  <Building2 size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
+                  Corporate CSR Matching
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">B2B Giving & Tax Portal</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Connect Muslim-owned businesses directly to your campaigns with automated 1:1 or 2:1 employee match caps, instant B2B tax certificates, and executive board impact packs.
+                </p>
+              </div>
+              <Link to="/modules/corporate-csr-matching" className="text-emerald-700 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                View Corporate Portal &rarr;
+              </Link>
+            </div>
+
+            {/* Card 6 */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:shadow-md hover:border-emerald-300 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-6">
+                  <BookOpenCheck size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
+                  Maktaba Digital Library
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Quiet Study & Book Lending</p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Transform the mosque into an active intellectual center with searchable digital book catalogs, barcode mobile checkouts, and quiet study carrel bookings with automated Wi-Fi passes.
+                </p>
+              </div>
+              <Link to="/modules/maktaba-library-desk" className="text-emerald-700 font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">
+                Explore Maktaba Desk &rarr;
               </Link>
             </div>
           </div>

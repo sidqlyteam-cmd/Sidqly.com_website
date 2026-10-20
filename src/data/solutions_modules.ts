@@ -264,7 +264,207 @@ export const modules = [
     workflow: ["first campaign setup", "team onboarding", "first report generation", "expansion plan discussion"],
     output: "A safe, structured digital transition.",
     disclaimer: null
-  }
+  },
+  {
+    slug: "khidmah-timebank",
+    category: "community-empowerment",
+    title: "Mosque Khidmah TimeBank (Cashless Skill Barter)",
+    desc: "Interest-free mutual aid exchange where 1 hour of service = 1 TimeBank credit.",
+    quickAnswer: "Sidqly's Mosque Khidmah TimeBank enables worshippers to exchange essential skills and services without cash. Every member's time is valued equally (1 hour = 1 credit) with oversight from the Mosque Welfare Committee.",
+    benefit: "Empowers the congregation through cashless mutual aid, skill-sharing, and community service recognition.",
+    who: "Mosque welfare committees, musallis, youth mentors, and skilled volunteers.",
+    problem: "Community members face financial strain and cannot afford tutoring, legal advice, or home repairs, while valuable community skills remain untapped.",
+    workflow: [
+      "Musalli registers verified profile and offers skills (tutoring, plumbing, coding, counseling)",
+      "Member requests assistance through the private community directory",
+      "Service is fulfilled and hours logged digitally",
+      "Both parties confirm completion with optional feedback",
+      "TimeBank credits automatically credited (1 hr = 1 credit)",
+      "Mosque Welfare Committee audits logs and awards volunteer recognition"
+    ],
+    output: "Verifiable cashless exchange ledger and volunteer service records.",
+    disclaimer: "Sidqly provides administrative tracking for mutual service exchanges. Sidqly is not an employer, broker, or licensed contractor service.",
+    faqs: [
+      {
+        question: "Can TimeBank credits be bought or sold for money?",
+        answer: "No. Sidqly TimeBank is strictly non-monetary and interest-free, designed to uphold mutual brotherhood (Ukhuwah) in line with Shariah principles."
+      },
+      {
+        question: "How does the mosque verify service quality?",
+        answer: "Both giver and receiver sign off digitally on the completed exchange, and welfare admins can review any flagged reports."
+      }
+    ],
+    internalLinks: [
+      { title: "Dignity QR Vouchers", url: "/modules/dignity-qr-vouchers" },
+      { title: "Maktaba Library Desk", url: "/modules/maktaba-library-desk" },
+      { title: "Book Demo", url: "/book-demo" }
+    ]
+  },
+  {
+    slug: "ai-khutbah-reader",
+    category: "worship-inclusion",
+    title: "Live AI Multilingual Khutbah Reader",
+    desc: "Real-time Friday sermon translation into 6 languages via Gemini AI on web and mobile.",
+    quickAnswer: "Sidqly's Live AI Khutbah Reader translates Friday Jumu'ah sermons into English, Urdu, French, Arabic, Turkish, Bengali, and Somali in real time with synchronized mobile web reading.",
+    benefit: "Ensures every congregant, new Muslim, and international worshipper understands the Khutbah live without hardware headsets.",
+    who: "Imams, AV engineers, non-native speakers, converts, and youth.",
+    problem: "Non-native speakers and new Muslims attend Friday prayers without understanding the sermon, missing out on spiritual guidance and community announcements.",
+    workflow: [
+      "Imam or admin paste or transcribe Khutbah text or stream live audio",
+      "Gemini AI translates into 6 synchronized community languages in seconds",
+      "Musallis scan a simple QR code at the sanctuary entrance (zero login required)",
+      "Stealth mobile reader displays dark/light synchronized text with optional whisper audio",
+      "Archives remain available for community study and reflection"
+    ],
+    output: "Live synchronized multilingual sermon stream and downloadable sermon archives.",
+    disclaimer: "Sidqly AI translations are provided for comprehension support. Religious interpretations remain with the speaking Imam.",
+    faqs: [
+      {
+        question: "Do congregants need to download an app or create an account?",
+        answer: "No. Musallis simply scan a QR code on the sanctuary screen or noticeboard to open the live web reader in any smartphone browser."
+      },
+      {
+        question: "Is there a distraction-free mode for the sanctuary?",
+        answer: "Yes. The mobile reader includes a stealth OLED mode with high-contrast text and zero ads or notifications."
+      }
+    ],
+    internalLinks: [
+      { title: "Maktaba Library Desk", url: "/modules/maktaba-library-desk" },
+      { title: "Islamic Daily Dashboard", url: "/islamic-daily-dashboard" },
+      { title: "Book Demo", url: "/book-demo" }
+    ]
+  },
+  {
+    slug: "aaoifi-treasury-ledger",
+    category: "governance-audit",
+    title: "Institutional 4-Eyes AAOIFI Treasury & Partitioned Zakat",
+    desc: "Maker-Checker dual authorization and strict mathematical fund segregation meeting AAOIFI standards.",
+    quickAnswer: "Sidqly's 4-Eyes AAOIFI Treasury provides dual-signature authorization for all disbursements and strict mathematical separation between Zakat and operational funds.",
+    benefit: "Guarantees zero fund leakage and protects board trustees with immutable audit trails.",
+    who: "Mosque treasurers, finance staff, board trustees, and Shariah auditors.",
+    problem: "Single-person signoffs, co-mingling of Zakat with mosque overhead, lost bank receipts, and lack of audit-ready compliance records.",
+    workflow: [
+      "Staff member initiates expense or Zakat disbursement request (Maker)",
+      "System verifies adequate balance in mathematically isolated Zakat/Sadaqah sub-ledger",
+      "Second authorized board trustee or treasurer reviews and approves with signature (Checker)",
+      "Disbursement marked complete with bank reference or cheque upload",
+      "Immutable AAOIFI-compliant transaction record logged with timestamp"
+    ],
+    output: "Audit-ready dual-signed disbursement records and fund-segregated ledgers.",
+    disclaimer: "Sidqly provides operational dual-approval workflows and bookkeeping tracking. Sidqly is not a chartered accounting firm or bank.",
+    faqs: [
+      {
+        question: "What is the 4-Eyes principle?",
+        answer: "The 4-Eyes (Maker-Checker) principle requires that at least two distinct individuals approve every financial disbursement, preventing fraud and unauthorized spending."
+      },
+      {
+        question: "Does Sidqly physically hold or move the money?",
+        answer: "No. Sidqly is a pure SaaS ledger and approval tracker. All funds remain in your organization's own bank accounts."
+      }
+    ],
+    internalLinks: [
+      { title: "Manual Payment Review", url: "/modules/manual-payment-review" },
+      { title: "Zakat Fund Separation", url: "/modules/zakat-fund-separation" },
+      { title: "Pricing", url: "/pricing" }
+    ]
+  },
+  {
+    slug: "dignity-qr-vouchers",
+    category: "dignity-relief",
+    title: "Zero-Exposure Dignity Aid Intake & Merchant QR Vouchers",
+    desc: "Confidential family relief with web merchant terminals at local halal grocers and pharmacies.",
+    quickAnswer: "Sidqly's Dignity QR Voucher module allows vulnerable families to receive digital aid vouchers on their phone, redeemable at partner halal grocers with zero cash handling and zero public exposure.",
+    benefit: "Protects recipient honor (Izzah) and eliminates humiliating food lines and photo ops.",
+    who: "Welfare committees, beneficiary families, and partner halal grocers.",
+    problem: "Needy families standing in public lines, camera exposure for proof, and unhygienic or chaotic cash handouts.",
+    workflow: [
+      "Family submits private intake form through secure online portal",
+      "Welfare committee reviews application under confidential alias",
+      "Approved family receives unique encrypted QR voucher via SMS or web pass",
+      "Family shops with dignity at local partner grocery store or pharmacy",
+      "Merchant scans QR voucher on their mobile browser to redeem approved amount",
+      "Mosque settles invoice with merchant using 4-Eyes Treasury"
+    ],
+    output: "Digital redemption receipts and sanitized, dignity-safe proof reports.",
+    disclaimer: "Sidqly provides voucher software. Vendor agreements and redemption policies are managed directly by your organization.",
+    faqs: [
+      {
+        question: "Do merchants need specialized point-of-sale hardware?",
+        answer: "No. Partner grocers simply open Sidqly's merchant web scanner on any smartphone or tablet to validate vouchers instantly."
+      },
+      {
+        question: "Are recipient identities visible to the public or donors?",
+        answer: "Never. Recipient names and faces are strictly quarantined. Donors only see sanitized categories, items provided, and redacted receipts."
+      }
+    ],
+    internalLinks: [
+      { title: "Proof Trust Engine", url: "/modules/proof-trust-engine" },
+      { title: "Zakat Fund Separation", url: "/modules/zakat-fund-separation" },
+      { title: "Book Demo", url: "/book-demo" }
+    ]
+  },
+  {
+    slug: "corporate-csr-matching",
+    category: "corporate-partnerships",
+    title: "Corporate CSR Matching & B2B Tax Portal",
+    desc: "Automated 1:1 or 2:1 corporate gift matching with instant B2B tax certificates.",
+    quickAnswer: "Sidqly's Corporate CSR Matching module connects local Muslim-owned businesses and corporate employers directly to mosque and charity campaigns with automated 1:1 matching rules and tax certificates.",
+    benefit: "Doubles giving volume and unlocks corporate community development budgets.",
+    who: "Corporate donors, business owners, mosque fundraising chairs, and finance teams.",
+    problem: "Chasing matching gifts manually through spreadsheets, missing corporate deadlines, and failing to provide institutional tax packages.",
+    workflow: [
+      "Corporate partner registers match profile with budget cap and match ratio (1:1 or 2:1)",
+      "Employees or congregants donate and select their matching employer",
+      "Corporate portal automatically queues matching donation against pledge budget",
+      "Corporate admin reviews and releases match funding in single monthly batch",
+      "Instant B2B tax receipts and comprehensive impact board pack generated"
+    ],
+    output: "Automated corporate matching ledgers and downloadable institutional tax packets.",
+    disclaimer: "Tax deductibility depends on local charity registration and tax laws in your jurisdiction.",
+    faqs: [
+      {
+        question: "Can companies set a maximum ceiling on their match budget?",
+        answer: "Yes. Corporate partners set precise limits (e.g., up to $25,000 for Ramadan) and the system automatically halts matching when reached."
+      }
+    ],
+    internalLinks: [
+      { title: "Manual Payment Review", url: "/modules/manual-payment-review" },
+      { title: "Reports and Board Packs", url: "/modules/reports-board-packs" },
+      { title: "Contact Sales", url: "/contact-sales" }
+    ]
+  },
+  {
+    slug: "maktaba-library-desk",
+    category: "education-maktaba",
+    title: "Maktaba Digital Library & Quiet Study Reservations",
+    desc: "Digital Islamic book catalog, QR checkouts, and quiet study desk booking with Wi-Fi credentials.",
+    quickAnswer: "Sidqly's Maktaba module transforms the mosque library into a modern intellectual center with searchable book catalogs, mobile barcode lending, and bookable study carrel desks.",
+    benefit: "Prevents book loss and provides students with structured quiet study spaces.",
+    who: "Mosque librarians, students, researchers, youth, and educators.",
+    problem: "Uncataloged Islamic books disappearing from mosque shelves, disorganized study areas, and lack of youth study engagement.",
+    workflow: [
+      "Librarian catalogs books with ISBN lookup or custom Islamic shelf tags",
+      "Musalli browses digital catalog on their phone and requests book",
+      "Simple QR scan checks book out with automatic due-date reminders via email/SMS",
+      "Students book quiet study carrel desks with auto-generated Wi-Fi access codes",
+      "Return scanned back into shelf inventory with dignity-safe fine waiver options"
+    ],
+    output: "Live book circulation records, carrel desk schedules, and catalog search portal.",
+    disclaimer: null,
+    faqs: [
+      {
+        question: "Does Maktaba support Arabic and Urdu titles?",
+        answer: "Yes. The catalog has native multilingual search supporting Arabic script, Urdu nastaliq, transliteration, and English."
+      }
+    ],
+    internalLinks: [
+      { title: "Khidmah TimeBank", url: "/modules/khidmah-timebank" },
+      { title: "AI Khutbah Reader", url: "/modules/ai-khutbah-reader" },
+      { title: "Book Demo", url: "/book-demo" }
+    ]
+  },
+
+
 ];
 
 export const solutions = [

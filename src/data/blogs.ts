@@ -960,3 +960,116 @@ blogPosts.push({
   `,
   faqs: []
 });
+
+
+blogPosts.push({
+  slug: "inside-the-new-sidqly-2-0-experience",
+  title: "Product Update: Inside the New Sidqly 2.0 Experience",
+  description: "Explore everything newly launched in Sidqly 2.0: Mosque Khidmah TimeBank, Live AI Multilingual Khutbah Reader, 4-Eyes AAOIFI Treasury, and Dignity QR Vouchers.",
+  category: "Product Update",
+  date: "2026-10-20",
+  modifiedDate: "2026-10-20",
+  author: "Sidqly Product & Engineering Team",
+  readingTime: "6 min read",
+  focusKeyword: "Sidqly 2.0 Islamic mosque operating software",
+  tags: ["Sidqly 2.0", "Mosque Software", "TimeBank", "Khutbah AI", "AAOIFI", "Zakat Treasury", "Dignity Vouchers"],
+  perspective: "Comprehensive platform upgrade and architectural release notes.",
+  content: `
+    <section id="overview" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Overview: Transforming into a Complete Amanah OS</h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-4">
+        To our community of donors, mosque trustees, scholars, and charity partners: over the past month, our engineering team has worked around the clock to upgrade the Sidqly platform. Our mission remains simple: <strong>to bridge sincere Islamic charity with verified, dignified execution.</strong>
+      </p>
+      <p class="text-base text-slate-600 leading-relaxed">
+        Sidqly 2.0 is a 100% digital, cloud-based operating system designed to eliminate manual chaos across worship spaces, welfare programs, and donor reporting. Here is a comprehensive walkthrough of what is now live in your workspace.
+      </p>
+    </section>
+
+    <section id="khidmah-timebank" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">1. The Mosque Khidmah TimeBank (Cashless Skill Barter)</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        <strong>What it is:</strong> An interest-free, moneyless exchange where every worshipper’s time is valued equally: <strong>1 hour of service = 1 TimeBank credit</strong>.
+      </p>
+      <p class="text-slate-600 leading-relaxed mb-4">
+        <strong>What it means for your community:</strong> Musallis can exchange vital skills without financial strain—tutoring for home plumbing, legal guidance for Arabic lessons, or elderly companion care for computer repair. Active volunteers can also be rewarded with community service credits approved by the Mosque Welfare Committee.
+      </p>
+      <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-sm text-emerald-900 mb-6">
+        <strong>Key Capability:</strong> Built-in double sign-off ensures service quality and prevents fraud, while maintaining strict adherence to Shariah principles prohibiting interest or monetization.
+      </div>
+    </section>
+
+    <section id="live-ai-khutbah" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">2. Live AI Multilingual Khutbah Reader</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        <strong>What it is:</strong> Real-time translation of Friday Jumu'ah sermons into 6 languages (Urdu, French, Arabic, Turkish, Bengali, and Somali) powered by Gemini AI.
+      </p>
+      <p class="text-slate-600 leading-relaxed mb-4">
+        <strong>What it means for your community:</strong> Youth, converts, international students, and non-native speakers can now follow along with the Imam's sermon live on their smartphones in clear, synchronized text—with zero login required and zero hardware headsets needed.
+      </p>
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-sm text-slate-700 mb-6">
+        <strong>Stealth Mobile View:</strong> Includes an OLED black/white stealth mode with whisper audio feed, keeping the sanctuary silent and respectful during prayer.
+      </div>
+    </section>
+
+    <section id="aaoifi-treasury" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">3. Institutional 4-Eyes AAOIFI Treasury & Partitioned Zakat</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        <strong>What it is:</strong> Strict dual-signature authorization (<em>Maker-Checker</em> principle) meeting international AAOIFI Shariah governance standards.
+      </p>
+      <p class="text-slate-600 leading-relaxed mb-4">
+        <strong>What it means for your community:</strong> Zero fund leakage. Donations are mathematically partitioned so Zakat funds can never be co-mingled with mosque operating costs, rent, or utility bills. Every disbursement requires dual sign-off from both finance staff and board trustees.
+      </p>
+    </section>
+
+    <section id="dignity-qr-vouchers" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">4. Zero-Exposure Dignity Aid Intake & Merchant QR Vouchers</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        <strong>What it is:</strong> A confidential aid distribution system where vulnerable families apply online in total privacy.
+      </p>
+      <p class="text-slate-600 leading-relaxed mb-4">
+        <strong>What it means for your community:</strong> Needy families receive a secure digital QR voucher on their phone to pick up groceries or medicine from local partner halal stores. No humiliating cameras, no line-standing, and no public disclosure. Donors receive verified delivery proofs with recipient faces completely protected.
+      </p>
+    </section>
+
+    <section id="corporate-matching" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">5. Corporate CSR Matching & B2B Tax Portal</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        <strong>What it is:</strong> An automated matching engine for Muslim-owned businesses and corporate employers.
+      </p>
+      <p class="text-slate-600 leading-relaxed mb-4">
+        <strong>What it means for your community:</strong> Companies can automatically double their employees' donations (1:1 or 2:1 matching) up to a set budget cap, with instant, automated corporate tax certificates and board impact packs.
+      </p>
+    </section>
+
+    <section id="maktaba-desk" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">6. Maktaba Digital Library & Quiet Study Reservations</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        <strong>What it is:</strong> A complete digital lending desk for Islamic literature, combined with quiet study desk bookings.
+      </p>
+      <p class="text-slate-600 leading-relaxed mb-4">
+        <strong>What it means for your community:</strong> Musallis and students can search the library catalog, borrow books with simple QR scans, and reserve quiet study spaces with temporary Wi-Fi passes—turning the mosque into an active intellectual hub.
+      </p>
+    </section>
+
+    <section id="conclusion" class="mb-12">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Conclusion & Getting Started</h2>
+      <p class="text-slate-700 leading-relaxed mb-6">
+        Sidqly 2.0 represents our continued dedication to institutional-grade, Shariah-conscious operational excellence. Log in to your workspace today to explore these capabilities, or book a personalized demo with our team.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/book-demo" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-sm">Book a Live Demo</a>
+        <a href="/pricing" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-bold px-6 py-3 rounded-xl transition-all shadow-xs">View Plans & Pricing</a>
+      </div>
+    </section>
+  `,
+  faqs: [
+    {
+      question: "Are these new features included in existing Sidqly plans?",
+      answer: "Yes! All existing Growth and Enterprise workspaces have immediate access to Sidqly 2.0 features, with module toggles in the admin console."
+    },
+    {
+      question: "Does Sidqly require any on-premise hardware or IoT devices?",
+      answer: "No. Sidqly is a 100% digital SaaS cloud platform. All tools run on any standard desktop or mobile web browser with zero hardware installation required."
+    }
+  ]
+});

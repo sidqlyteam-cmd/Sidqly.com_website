@@ -153,7 +153,70 @@ const Features: React.FC = () => {
              </a>
           </div>
         </div>
+      
+      {/* At-a-Glance Summary: What You Asked For vs What We Built */}
+      <section className="py-20 bg-slate-50 border-t border-b border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
+              Institutional Evolution
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900">At-a-Glance: What We Built in Sidqly 2.0</h2>
+            <p className="text-slate-600 text-sm mt-2">Listening to mosque trustees, scholars, and community directors around the world.</p>
+          </div>
+
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-slate-100/70 border-b border-slate-200 text-slate-800 text-xs uppercase tracking-wider font-extrabold">
+                  <th className="py-4 px-6">What You Asked For</th>
+                  <th className="py-4 px-6">What We Built in Sidqly 2.0 (100% Cloud SaaS)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-sm">
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-6 text-slate-700 italic">"We want to help worshippers connect and help each other without money."</td>
+                  <td className="py-4 px-6 font-semibold text-emerald-800">
+                    <strong>Mosque Khidmah TimeBank:</strong> Cashless skill exchange & volunteer rewards (1 hr = 1 credit).
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-6 text-slate-700 italic">"Our congregation speaks multiple languages during Friday prayers."</td>
+                  <td className="py-4 px-6 font-semibold text-emerald-800">
+                    <strong>Live AI Khutbah Reader:</strong> Real-time sermon translation in 6 languages via Gemini AI.
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-6 text-slate-700 italic">"Donors want absolute proof their Zakat isn't mixed with mosque overhead."</td>
+                  <td className="py-4 px-6 font-semibold text-emerald-800">
+                    <strong>4-Eyes AAOIFI Treasury:</strong> Dual-authorization partitioned Zakat ledger.
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-6 text-slate-700 italic">"We want to distribute food aid without embarrassing poor families."</td>
+                  <td className="py-4 px-6 font-semibold text-emerald-800">
+                    <strong>Dignity QR Vouchers:</strong> Merchant redemption web terminal with 100% facial privacy.
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-6 text-slate-700 italic">"Local companies want to match employee donations during Ramadan."</td>
+                  <td className="py-4 px-6 font-semibold text-emerald-800">
+                    <strong>Corporate Match Portal:</strong> Automated 1:1 matching and instant tax certificates.
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/60 transition-colors">
+                  <td className="py-4 px-6 text-slate-700 italic">"Our library books get lost and study carrels are unorganized."</td>
+                  <td className="py-4 px-6 font-semibold text-emerald-800">
+                    <strong>Maktaba Desk:</strong> Digital loan tracking and bookable study spaces with Wi-Fi passes.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
+
+</section>
     </>
   );
 };
