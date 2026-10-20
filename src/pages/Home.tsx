@@ -95,33 +95,33 @@ const Home: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-sidqly-navy py-16 sm:py-20 md:py-28 lg:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-emerald-50/40 via-white to-white py-16 sm:py-20 md:py-28 lg:py-32 overflow-hidden border-b border-slate-100">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sidqly-green-soft via-transparent to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
-            <span className="inline-block px-4 py-1.5 mb-6 md:mb-8 text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-sidqly-gold uppercase bg-white/5 rounded-full border border-white/10 max-w-full truncate">
+            <span className="inline-block px-4 py-1.5 mb-6 md:mb-8 text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-sidqly-green-deep uppercase bg-emerald-50 rounded-full border border-emerald-200/80 shadow-xs max-w-full truncate">
               International Operating Standard for Amanah
             </span>
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 md:mb-8 leading-tight tracking-tight dir-auto max-w-4xl mx-auto text-balance">
-              Verified giving. <span className="text-sidqly-green-soft">Protected dignity. Clear impact.</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-sidqly-navy mb-6 md:mb-8 leading-tight tracking-tight dir-auto max-w-4xl mx-auto text-balance">
+              Verified giving. <span className="text-sidqly-green-emerald">Protected dignity. Clear impact.</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-medium mb-6 max-w-3xl mx-auto dir-auto">
+            <p className="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed font-medium mb-6 max-w-3xl mx-auto dir-auto">
               The premium operating platform for Islamic charities. We help organizations manage verified donations, manual payment review, proof approval, donor updates, and board-ready reporting.
             </p>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed max-w-3xl mx-auto dir-auto">
+            <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed max-w-3xl mx-auto dir-auto">
               Most giving teams do not fail because they lack intention. They struggle because the work is scattered across WhatsApp chats, bank screenshots, Excel sheets, volunteer updates, vendor messages, and donor requests. Sidqly brings these moving parts into one clear workflow, so teams can protect dignity, verify proof, and report impact with confidence.
             </p>
           </div>
 
           <div className="max-w-3xl mx-auto mb-16">
-            <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl">
-              <h2 className="text-white font-bold mb-4 text-center">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl">
+              <h2 className="text-slate-900 font-bold mb-4 text-center text-lg">
                 What are you looking for?
               </h2>
 
@@ -134,7 +134,7 @@ const Home: React.FC = () => {
                     });
                     window.dispatchEvent(event);
                   }}
-                  className="w-full bg-white/90 hover:bg-white text-gray-600 border-none rounded-2xl pl-14 pr-4 py-4 text-lg focus:ring-2 focus:ring-sidqly-green-emerald transition-all text-left flex items-center truncate shadow-sm"
+                  className="w-full bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 rounded-2xl pl-14 pr-4 py-4 text-base sm:text-lg focus:ring-2 focus:ring-sidqly-green-emerald transition-all text-left flex items-center truncate shadow-xs cursor-pointer"
                 >
                   <Search
                     className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 shrink-0"
@@ -158,7 +158,7 @@ const Home: React.FC = () => {
                   <Link
                     key={chip.name}
                     to={chip.path}
-                    className="px-3 py-1 bg-white/10 hover:bg-white/20 border border-white/10 rounded-full text-xs font-medium text-white transition-colors"
+                    className="px-3.5 py-1.5 bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-sidqly-green-deep border border-slate-200 rounded-full text-xs font-semibold transition-colors"
                   >
                     {chip.name}
                   </Link>
@@ -485,15 +485,15 @@ const Home: React.FC = () => {
       </section>
 
       {/* Review Section */}
-      <section className="py-24 bg-sidqly-navy text-white">
+      <section className="py-24 bg-slate-50 text-slate-900 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-8 leading-tight">
                 Human review is built into the workflow.
               </h2>
 
-              <p className="text-xl text-sidqly-green-soft mb-12 leading-relaxed">
+              <p className="text-xl text-sidqly-green-deep font-semibold mb-12 leading-relaxed">
                 We don't believe in automatic financial or religious rulings. Sidqly provides the gates for your team to verify every payment and distribution manually.
               </p>
 
@@ -863,7 +863,7 @@ const Home: React.FC = () => {
               <div className="space-y-4">
                 <Link
                   to="/resources/eid-giving"
-                  className="block p-6 rounded-2xl bg-sidqly-navy text-white hover:bg-sidqly-green-deep transition-colors"
+                  className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-sidqly-green-emerald hover:shadow-lg text-slate-900 transition-all group"
                 >
                   <div className="flex justify-between items-center">
                     <h4 className="font-bold text-lg">Eid Giving Guide</h4>
@@ -876,7 +876,7 @@ const Home: React.FC = () => {
 
                 <Link
                   to="/resources/qurbani-operations"
-                  className="block p-6 rounded-2xl bg-sidqly-navy text-white hover:bg-sidqly-green-deep transition-colors"
+                  className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-sidqly-green-emerald hover:shadow-lg text-slate-900 transition-all group"
                 >
                   <div className="flex justify-between items-center">
                     <h4 className="font-bold text-lg">
@@ -891,7 +891,7 @@ const Home: React.FC = () => {
 
                 <Link
                   to="/resources/ramadan-giving"
-                  className="block p-6 rounded-2xl bg-sidqly-navy text-white hover:bg-sidqly-green-deep transition-colors"
+                  className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-sidqly-green-emerald hover:shadow-lg text-slate-900 transition-all group"
                 >
                   <div className="flex justify-between items-center">
                     <h4 className="font-bold text-lg">
@@ -906,7 +906,7 @@ const Home: React.FC = () => {
 
                 <Link
                   to="/resources/sadqa-fitr"
-                  className="block p-6 rounded-2xl bg-sidqly-navy text-white hover:bg-sidqly-green-deep transition-colors"
+                  className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-sidqly-green-emerald hover:shadow-lg text-slate-900 transition-all group"
                 >
                   <div className="flex justify-between items-center">
                     <h4 className="font-bold text-lg">
@@ -921,7 +921,7 @@ const Home: React.FC = () => {
 
                 <Link
                   to="/resources/aqiqa-charity-workflow"
-                  className="block p-6 rounded-2xl bg-sidqly-navy text-white hover:bg-sidqly-green-deep transition-colors"
+                  className="block p-6 rounded-2xl bg-white border border-slate-200 hover:border-sidqly-green-emerald hover:shadow-lg text-slate-900 transition-all group"
                 >
                   <div className="flex justify-between items-center">
                     <h4 className="font-bold text-lg">
@@ -1266,7 +1266,7 @@ const Home: React.FC = () => {
 
             <Link
               to="/pricing"
-              className="bg-sidqly-navy p-8 rounded-3xl font-bold hover:shadow-2xl transition-all flex flex-col items-center gap-4 group border border-white/10"
+              className="bg-white/10 hover:bg-white/20 text-white p-8 rounded-3xl font-bold hover:shadow-2xl transition-all flex flex-col items-center gap-4 group border border-white/20"
             >
               <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Globe size={24} />

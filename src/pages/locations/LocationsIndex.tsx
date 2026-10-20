@@ -59,22 +59,22 @@ const LocationsIndex: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white text-slate-900 border-b border-slate-200 text-center">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-xs font-bold text-sidqly-green-soft mb-6 uppercase tracking-wider border border-white/10">
+          <div className="inline-flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-full text-xs font-bold text-sidqly-green-deep mb-6 uppercase tracking-wider border border-emerald-200/80 shadow-xs">
             <Globe size={14} /> Global Location Hierarchy
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-6xl font-extrabold mb-6 leading-tight text-sidqly-navy">
             Global Islamic Giving, Verified and Dignified
           </h1>
-          <p className="text-xl text-sidqly-green-soft mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
             Sidqly helps Islamic organizations across regions, countries, and city service hubs manage verified giving, manual payment reviews, proof approvals, donor-safe updates, and board-ready reporting.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <Link to="/book-demo" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all shadow-lg">
+             <Link to="/book-demo" className="bg-sidqly-green-deep hover:bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md">
                Book a Demo
              </Link>
-             <Link to="/product-tour" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+             <Link to="/product-tour" className="bg-white text-sidqly-navy border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-xs">
                See How Sidqly Works
              </Link>
           </div>
@@ -82,7 +82,7 @@ const LocationsIndex: React.FC = () => {
       </section>
 
       {/* Quick Answer Banner */}
-      <section className="py-10 bg-sidqly-ivory border-b border-gray-100">
+      <section className="py-10 bg-slate-50 border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="bg-white p-6 sm:p-8 rounded-3xl border-l-4 border-sidqly-green-emerald shadow-sm">
              <h2 className="text-lg font-bold text-sidqly-navy mb-2 flex items-center gap-2">
@@ -99,7 +99,7 @@ const LocationsIndex: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-sidqly-ivory px-3 py-1 rounded-md border border-gray-100">
+            <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-slate-50 px-3 py-1 rounded-md border border-gray-100">
               Level 1 Navigation
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-sidqly-navy mb-4">
@@ -119,7 +119,7 @@ const LocationsIndex: React.FC = () => {
               return (
                 <div
                   key={region.slug}
-                  className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-200/80 shadow-sm hover:border-sidqly-green-emerald hover:shadow-xl transition-all group flex flex-col justify-between"
+                  className="bg-slate-50 p-8 rounded-3xl border border-gray-200/80 shadow-sm hover:border-sidqly-green-emerald hover:shadow-xl transition-all group flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-sidqly-green-emerald mb-6 shadow-sm border border-gray-100 group-hover:bg-sidqly-green-emerald group-hover:text-white transition-colors">
@@ -167,7 +167,7 @@ const LocationsIndex: React.FC = () => {
       </section>
 
       {/* HIERARCHY LEVEL 2: COUNTRIES BY REGION */}
-      <section className="py-20 bg-sidqly-ivory border-t border-b border-gray-200/60">
+      <section className="py-20 bg-slate-50 border-t border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-white px-3 py-1 rounded-md border border-gray-100">
@@ -193,7 +193,7 @@ const LocationsIndex: React.FC = () => {
                 <div key={region.slug} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-gray-100 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 bg-sidqly-ivory rounded-xl text-sidqly-green-emerald border border-gray-100">
+                      <div className="p-2.5 bg-slate-50 rounded-xl text-sidqly-green-emerald border border-gray-100">
                         <Building2 size={22} />
                       </div>
                       <div>
@@ -219,7 +219,7 @@ const LocationsIndex: React.FC = () => {
                         <Link
                           key={country.slug}
                           to={`/locations/${country.slug}`}
-                          className="bg-sidqly-ivory p-5 rounded-2xl border border-gray-200/60 hover:border-sidqly-green-emerald hover:shadow-md transition-all flex flex-col justify-between group"
+                          className="bg-slate-50 p-5 rounded-2xl border border-gray-200/60 hover:border-sidqly-green-emerald hover:shadow-md transition-all flex flex-col justify-between group"
                         >
                           <div>
                             <div className="flex items-center justify-between mb-2">
@@ -251,7 +251,7 @@ const LocationsIndex: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-sidqly-ivory px-3 py-1 rounded-md border border-gray-100">
+            <div className="inline-flex items-center gap-2 text-sidqly-green-emerald font-bold text-xs uppercase tracking-widest mb-3 bg-slate-50 px-3 py-1 rounded-md border border-gray-100">
               Level 3 Navigation
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-sidqly-navy mb-4">
@@ -271,7 +271,7 @@ const LocationsIndex: React.FC = () => {
               if (citiesInCountry.length === 0) return null;
 
               return (
-                <div key={country.slug} className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-200/70">
+                <div key={country.slug} className="bg-slate-50 p-8 rounded-3xl border border-gray-200/70">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-gray-200/60 gap-4">
                     <div className="flex items-center gap-3">
                       <div className="p-2.5 bg-white rounded-xl text-sidqly-green-emerald border border-gray-100 shadow-sm">
@@ -312,7 +312,7 @@ const LocationsIndex: React.FC = () => {
       </section>
 
       {/* Browse by Giving Workflow */}
-      <section className="py-20 bg-sidqly-ivory">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">Browse by Giving Workflow</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -353,7 +353,7 @@ const LocationsIndex: React.FC = () => {
                { title: "Volunteers and field teams", desc: "Submit field proof quickly and securely." },
                { title: "Donors", desc: "Receive transparent updates without exposing recipient dignity." }
              ].map((stakeholder, i) => (
-                <div key={i} className="bg-sidqly-ivory p-6 rounded-2xl">
+                <div key={i} className="bg-slate-50 p-6 rounded-2xl">
                    <h3 className="font-bold text-sidqly-navy mb-2">{stakeholder.title}</h3>
                    <p className="text-sm text-gray-600 leading-relaxed">{stakeholder.desc}</p>
                 </div>
@@ -363,9 +363,9 @@ const LocationsIndex: React.FC = () => {
       </section>
 
       {/* Related Islamic Utilities */}
-      <section className="py-20 bg-sidqly-navy text-white text-center">
+      <section className="py-20 bg-slate-50 text-slate-900 border-t border-slate-200 text-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <h2 className="text-3xl font-bold mb-12">Related Islamic Utilities</h2>
+           <h2 className="text-3xl font-extrabold text-sidqly-navy mb-10">Related Islamic Utilities</h2>
            <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
               {[
                  { title: "Zakat Calculator", link: "/zakat-calculator" },
@@ -374,7 +374,7 @@ const LocationsIndex: React.FC = () => {
                  { title: "Qibla Direction", link: "/qibla-direction" },
                  { title: "Ramadan Planner", link: "/ramadan-planner" }
               ].map((util, i) => (
-                 <Link key={i} to={util.link} className="bg-white/10 px-6 py-4 rounded-xl border border-white/20 font-medium text-sm text-gray-200 hover:bg-white/20 transition-all">
+                 <Link key={i} to={util.link} className="bg-white px-6 py-4 rounded-xl border border-slate-200 font-bold text-sm text-slate-800 hover:border-sidqly-green-deep hover:text-sidqly-green-deep shadow-xs transition-all">
                     {util.title}
                  </Link>
               ))}
@@ -405,7 +405,7 @@ const LocationsIndex: React.FC = () => {
           <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqList.map((faq, index) => (
-              <div key={index} className="border border-gray-100 rounded-2xl overflow-hidden bg-sidqly-ivory">
+              <div key={index} className="border border-gray-100 rounded-2xl overflow-hidden bg-slate-50">
                 <button
                   className="w-full text-left px-6 py-5 font-bold text-sidqly-navy flex justify-between items-center"
                   onClick={() => toggleFaq(index)}

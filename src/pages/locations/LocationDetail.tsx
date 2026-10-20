@@ -142,7 +142,7 @@ const LocationDetail: React.FC = () => {
 
       {/* City Disclaimer */}
       {location.pageType === 'city' && (
-        <div className="bg-sidqly-ivory py-3 text-center border-b border-gray-200 text-xs font-medium text-gray-500 px-4">
+        <div className="bg-slate-50 py-3 text-center border-b border-gray-200 text-xs font-medium text-gray-500 px-4">
           {language === 'ur'
             ? `صدقلی ${locationDisplayName} اور قرب و جوار میں کام کرنے والی تنظیموں کی کلاؤڈ ساس پلیٹ فارم کے ذریعے معاونت کرتا ہے۔ یہ صفحہ ${locationDisplayName} میں صدقلی کے کسی جسمانی دفتر کا دعویٰ نہیں کرتا۔`
             : language === 'ar'
@@ -156,16 +156,16 @@ const LocationDetail: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="py-16 md:py-20 bg-sidqly-navy text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white text-slate-900 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <LocationBreadcrumbs location={location} />
 
           <div className="flex flex-col text-center items-center mt-4">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold max-w-4xl leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold max-w-4xl leading-tight text-sidqly-navy">
               {location.h1}
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl leading-relaxed mt-6">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl leading-relaxed mt-6 font-medium">
               {location.shortHero}
             </p>
 
@@ -185,7 +185,7 @@ const LocationDetail: React.FC = () => {
                     ? '/use-cases'
                     : '/modules'
                 )}
-                className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 px-8 py-3.5 rounded-xl font-bold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all text-center"
+                className="inline-flex items-center justify-center gap-2 bg-white text-sidqly-navy border border-slate-200 px-8 py-3.5 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-xs text-center"
               >
                 {location.pageType === 'city'
                   ? language === 'ur'
@@ -248,7 +248,7 @@ const LocationDetail: React.FC = () => {
         }
       />
 
-      <section className="py-20 bg-sidqly-ivory">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-sm border border-gray-100">
             <h3 className="text-xl font-bold text-sidqly-navy mb-4">
@@ -304,7 +304,7 @@ const LocationDetail: React.FC = () => {
               )}
             </div>
 
-            <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-100">
+            <div className="bg-slate-50 p-8 rounded-3xl border border-gray-100">
               <h3 className="text-2xl font-bold text-sidqly-navy mb-6">
                 Common workflow problems Sidqly solves
               </h3>
@@ -336,10 +336,10 @@ const LocationDetail: React.FC = () => {
       </section>
 
       {/* Contextual Mid-Page CTA Banner */}
-      <section className="py-12 bg-sidqly-navy text-white text-center border-t border-b border-white/10">
+      <section className="py-12 bg-slate-50 text-slate-900 text-center border-t border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left max-w-2xl">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-sidqly-navy mb-2">
               {language === 'ur'
                 ? `کیا آپ ${locationDisplayName} میں اپنے فلاحی آپریشنز کو بہتر بنانے کے لیے تیار ہیں؟`
                 : language === 'ar'
@@ -347,7 +347,7 @@ const LocationDetail: React.FC = () => {
                 : `Ready to streamline giving operations in ${locationDisplayName}?`}
             </h3>
 
-            <p className="text-sm sm:text-base text-gray-300">
+            <p className="text-sm sm:text-base text-slate-600">
               {language === 'ur'
                 ? `دیکھیں کہ کس طرح صدقلی آپ کی ٹیم کو ادائیگیوں کی تصدیق، منظوری اور ڈونر رپورٹس کی ارسال میں مدد کرتی ہے۔`
                 : language === 'ar'
@@ -367,7 +367,7 @@ const LocationDetail: React.FC = () => {
 
             <Link
               to={getLocalizedPath('/modules')}
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3.5 rounded-xl transition-all border border-white/20 text-sm text-center"
+              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-sidqly-navy font-bold px-5 py-3.5 rounded-xl transition-all border border-slate-200 text-sm text-center"
             >
               Explore Relevant Modules
             </Link>
@@ -379,7 +379,7 @@ const LocationDetail: React.FC = () => {
       {location.whySidqlyForLocation &&
         location.whySidqlyForLocation.benefits &&
         location.whySidqlyForLocation.benefits.length > 0 && (
-          <section className="py-20 bg-sidqly-ivory border-t border-b border-gray-100">
+          <section className="py-20 bg-slate-50 border-t border-b border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-sidqly-navy mb-4">
@@ -446,7 +446,7 @@ const LocationDetail: React.FC = () => {
 
             {location.relatedBlogs &&
               location.relatedBlogs.length > 0 && (
-                <div className="bg-sidqly-ivory p-6 sm:p-8 rounded-3xl border border-gray-100">
+                <div className="bg-slate-50 p-6 sm:p-8 rounded-3xl border border-gray-100">
                   <h3 className="text-xl font-bold text-sidqly-navy mb-4 flex items-center gap-2">
                     <BookOpen
                       size={20}
@@ -483,7 +483,7 @@ const LocationDetail: React.FC = () => {
       </section>
 
       {/* Stakeholders Section */}
-      <section className="py-20 bg-sidqly-ivory">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-sidqly-navy mb-12 text-center">
             {t('locationUI.stakeholdersTitle', 'Who Sidqly helps')}
@@ -538,7 +538,7 @@ const LocationDetail: React.FC = () => {
 
       {/* FAQs */}
       {location.faqs && location.faqs.length > 0 && (
-        <section className="py-20 bg-sidqly-ivory">
+        <section className="py-20 bg-slate-50">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-12">
               {t(

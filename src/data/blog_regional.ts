@@ -425,7 +425,17 @@ const generateRegionalContent = (topic: { title: string, region: string }) => {
       ${linkingBlock}
     </section>
 
-    <div class="bg-sidqly-ivory p-6 rounded-3xl border border-gray-100 mt-12">
+    <section class="mb-10" id="conclusion">
+      <h3 class="text-2xl font-bold text-sidqly-navy mb-4">Conclusion & Next Steps</h3>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Scaling humanitarian and community giving in <strong>${topic.region}</strong> requires moving away from informal, error-prone manual spreadsheets. By embedding strict payment review gates, transparent fund isolation, and dignity-safe proof approval, your organization protects the sacred trust ('Amanah') of your donors.
+      </p>
+      <p class="text-gray-700 leading-relaxed">
+        To explore how Sidqly can be tailored to your organization's specific regional compliance and workflow needs, we invite your board or operations team to schedule a guided demonstration.
+      </p>
+    </section>
+
+    <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 mt-12">
        <p class="text-xs text-gray-500 italic">
           <strong>Compliance Disclaimer:</strong> Sidqly supports operational tracking and reporting for organizations in ${topic.region}. Local legal, tax, financial, and religious requirements remain the sole responsibility of the organization and its authorized advisors.
        </p>

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { blogPosts } from '../src/data/blogs.ts';
+import { allBlogPosts } from '../src/data/blog_regional.ts';
 import { legalPolicies } from '../src/data/legalPolicies.ts';
 import { knowledgeHub } from '../src/data/knowledgeHub.ts';
 import { comparisons } from '../src/data/comparisons.ts';
@@ -33,11 +33,11 @@ const expandWithMultilingual = (routes) => {
     return Array.from(set).sort();
 };
 
-// 1. Blog Routes
-const baseBlogRoutes = ['/blog', ...blogPosts.map(p => `/blog/${p.slug}`)];
+// 1. Blog Routes (All Core + Regional)
+const baseBlogRoutes = ['/blog', ...allBlogPosts.map(p => `/blog/${p.slug}`)];
 const blogRoutes = expandWithMultilingual(baseBlogRoutes);
 
-// 2. Location Routes
+// 2. Location Routes (Regions + Countries + Tier 1 Cities)
 const baseLocationsRoutes = ['/regions', '/locations', ...getIndexableLocations()];
 const locationsRoutes = expandWithMultilingual(baseLocationsRoutes);
 
@@ -53,8 +53,47 @@ const useCasesRoutes = expandWithMultilingual(baseUseCasesRoutes);
 const baseResourcesRoutes = ['/resources', ...resources.map(r => `/resources/${r.slug}`)];
 const resourcesRoutes = expandWithMultilingual(baseResourcesRoutes);
 
-// 6. AI Documentation Routes (English static assets only, no multilingual variants)
-const aiRoutes = [
+// 6. AEO & GEO (Answer Engine & Generative Engine Optimization) Routes
+const baseAeoWebRoutes = [
+    '/ai-search-readiness',
+    '/what-is-sidqly',
+    '/why-sidqly',
+    '/how-it-works',
+    '/faqs',
+    '/islamic-charity-software',
+    '/islamic-giving-operations-platform',
+    '/zakat-management-software',
+    '/knowledge-hub',
+    ...knowledgeHub.map(k => `/knowledge-hub/${k.slug}`),
+    '/islamic-utilities',
+    '/islamic-calendar',
+    '/namaz-timings',
+    '/namaz-translator',
+    '/qibla-direction',
+    '/zakat-calculator',
+    '/moon-phase-islamic-calendar',
+    '/weather-charity-distribution',
+    '/hajj-countdown',
+    '/ramadan-planner',
+    '/eid-qurbani-planner',
+    '/sadqa-zakat-planner',
+    '/islamic-glossary',
+    '/islamic-dashboard',
+    '/islamic-daily-dashboard',
+    '/quran-reader',
+    '/duas-azkar',
+    '/tasbih-counter',
+    '/salah-tracker',
+    '/hijri-gregorian-converter',
+    '/fasting-planner',
+    '/sadaqah-giving-planner',
+    ...comparisons.map(c => {
+        if (c.slug.endsWith('-alternatives')) return `/alternatives/${c.slug}`;
+        return `/compare/${c.slug}`;
+    })
+];
+
+const staticAiDocs = [
     '/llms.txt',
     '/ai-summary.md',
     '/product-overview.md',
@@ -64,6 +103,11 @@ const aiRoutes = [
     '/blog-index.md',
     '/schema-map.md'
 ];
+
+const aiRoutes = [
+    ...staticAiDocs,
+    ...expandWithMultilingual(baseAeoWebRoutes)
+].sort();
 
 // 7. Core Pages Routes (Discovered from App.tsx + Data Models)
 const excludeSet = new Set([
@@ -197,6 +241,6 @@ console.log(`Modules: ${modulesRoutes.length}`);
 console.log(`Use Cases: ${useCasesRoutes.length}`);
 console.log(`Resources: ${resourcesRoutes.length}`);
 console.log(`Blog: ${blogRoutes.length}`);
-console.log(`AI: ${aiRoutes.length}`);
-console.log(`Locations: ${locationsRoutes.length}`);
+console.log(`AI / AEO: ${aiRoutes.length}`);
+console.log(`Locations / GEO: ${locationsRoutes.length}`);
 console.log(`Total unique URLs: ${totalUniqueUrls}`);
