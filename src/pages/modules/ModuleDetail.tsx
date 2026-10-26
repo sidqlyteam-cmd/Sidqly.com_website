@@ -12,10 +12,16 @@ import ModuleWorkflowDiagram from '../../components/ModuleWorkflowDiagram';
 
 const categoriesMap: Record<string, string> = {
   "donations-funds": "Donations & Funds",
+  "governance-audit": "Governance & Treasury",
   "programs-fulfillment": "Programs & Fulfillment",
+  "dignity-relief": "Dignity & Direct Relief",
+  "community-empowerment": "Community & Welfare",
+  "worship-inclusion": "Worship & Inclusion",
+  "education-maktaba": "Education & Maktaba",
   "proof-privacy-trust": "Proof, Privacy & Trust",
   "donor-communication": "Donor Communication",
   "reporting-management": "Reporting & Management",
+  "corporate-partnerships": "Corporate & CSR",
   "launch-support": "Launch & Support"
 };
 
@@ -90,6 +96,39 @@ const moduleToUseCasesMap: Record<string, { title: string; url: string }[]> = {
   "donor-communication": [
     { title: "Organizations serving Donors", url: "/use-cases/donors" },
     { title: "Sadaqah Campaign Teams", url: "/use-cases/sadaqah-campaign-teams" }
+  ],
+  "atiyat-box-management": [
+    { title: "Mosques & Masjids", url: "/use-cases/mosques" },
+    { title: "Board & Reporting Teams", url: "/use-cases/board-reporting-teams" },
+    { title: "Sadaqah Campaign Teams", url: "/use-cases/sadaqah-campaign-teams" }
+  ],
+  "khidmah-timebank": [
+    { title: "Mosques & Masjids", url: "/use-cases/mosques" },
+    { title: "Organizations managing Volunteers", url: "/use-cases/volunteers" },
+    { title: "Community Members Requesting Organization", url: "/use-cases/community-request-organization" }
+  ],
+  "ai-khutbah-reader": [
+    { title: "Mosques & Masjids", url: "/use-cases/mosques" },
+    { title: "Organizations serving Donors", url: "/use-cases/donors" }
+  ],
+  "aaoifi-treasury-ledger": [
+    { title: "Zakat Committees", url: "/use-cases/zakat-committees" },
+    { title: "Board & Reporting Teams", url: "/use-cases/board-reporting-teams" },
+    { title: "Mosques & Masjids", url: "/use-cases/mosques" }
+  ],
+  "dignity-qr-vouchers": [
+    { title: "Community Welfare & Aid Teams", url: "/use-cases/community-welfare-teams" },
+    { title: "Organizations managing Vendors", url: "/use-cases/vendors" },
+    { title: "Islamic Charities", url: "/use-cases/islamic-charities" }
+  ],
+  "corporate-csr-matching": [
+    { title: "Corporate Sponsors (CSR)", url: "/use-cases/corporate-sponsors" },
+    { title: "Board & Reporting Teams", url: "/use-cases/board-reporting-teams" },
+    { title: "Islamic Charities", url: "/use-cases/islamic-charities" }
+  ],
+  "maktaba-library-desk": [
+    { title: "Mosques & Masjids", url: "/use-cases/mosques" },
+    { title: "Organizations managing Volunteers", url: "/use-cases/volunteers" }
   ],
   "pilot-launch-support": [
     { title: "Community Members Requesting Organization", url: "/use-cases/community-request-organization" }
@@ -189,6 +228,47 @@ const moduleToLocationsMap: Record<string, { title: string; url: string }[]> = {
     { title: "London, UK", url: "/locations/london-islamic-charity-software" },
     { title: "Houston, USA", url: "/locations/houston-islamic-charity-software" },
     { title: "Toronto, Canada", url: "/locations/toronto-islamic-charity-software" }
+  ],
+  "atiyat-box-management": [
+    { title: "London, UK", url: "/locations/london-islamic-charity-software" },
+    { title: "Birmingham, UK", url: "/locations/birmingham-islamic-charity-software" },
+    { title: "Karachi, Pakistan", url: "/locations/karachi-islamic-charity-software" },
+    { title: "New York, USA", url: "/locations/new-york-islamic-charity-software" }
+  ],
+  "khidmah-timebank": [
+    { title: "Manchester, UK", url: "/locations/manchester-islamic-charity-software" },
+    { title: "Chicago, USA", url: "/locations/chicago-islamic-charity-software" },
+    { title: "Toronto, Canada", url: "/locations/toronto-islamic-charity-software" },
+    { title: "Lahore, Pakistan", url: "/locations/lahore-islamic-charity-software" }
+  ],
+  "ai-khutbah-reader": [
+    { title: "London, UK", url: "/locations/london-islamic-charity-software" },
+    { title: "Paris, France", url: "/locations/paris-islamic-charity-software" },
+    { title: "Toronto, Canada", url: "/locations/toronto-islamic-charity-software" },
+    { title: "Dubai, UAE", url: "/locations/dubai-islamic-charity-software" }
+  ],
+  "aaoifi-treasury-ledger": [
+    { title: "Riyadh, Saudi Arabia", url: "/locations/riyadh-islamic-charity-software" },
+    { title: "Dubai, UAE", url: "/locations/dubai-islamic-charity-software" },
+    { title: "London, UK", url: "/locations/london-islamic-charity-software" },
+    { title: "Kuala Lumpur, Malaysia", url: "/locations/kuala-lumpur-islamic-charity-software" }
+  ],
+  "dignity-qr-vouchers": [
+    { title: "Karachi, Pakistan", url: "/locations/karachi-islamic-charity-software" },
+    { title: "Birmingham, UK", url: "/locations/birmingham-islamic-charity-software" },
+    { title: "Houston, USA", url: "/locations/houston-islamic-charity-software" },
+    { title: "Istanbul, Turkey", url: "/locations/istanbul-islamic-charity-software" }
+  ],
+  "corporate-csr-matching": [
+    { title: "New York, USA", url: "/locations/new-york-islamic-charity-software" },
+    { title: "London, UK", url: "/locations/london-islamic-charity-software" },
+    { title: "Dubai, UAE", url: "/locations/dubai-islamic-charity-software" },
+    { title: "Toronto, Canada", url: "/locations/toronto-islamic-charity-software" }
+  ],
+  "maktaba-library-desk": [
+    { title: "Leicester, UK", url: "/locations/leicester-islamic-charity-software" },
+    { title: "Dallas, USA", url: "/locations/dallas-islamic-charity-software" },
+    { title: "Islamabad, Pakistan", url: "/locations/islamabad-islamic-charity-software" }
   ],
   "pilot-launch-support": [
     { title: "Birmingham, UK", url: "/locations/birmingham-islamic-charity-software" },
