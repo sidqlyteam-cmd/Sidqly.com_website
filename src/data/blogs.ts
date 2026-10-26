@@ -58,11 +58,11 @@ export const generateBlogContent = (topicSlug: string) => {
     locationLink = "/locations/united-kingdom";
     locationTitle = "UK Operations Page";
 
-    overview = `Managing <strong>${topicLower}</strong> is a sacred trust ("Amanah") for mosque administrators. Relying on disorganized paper notes, donation boxes, or direct bank transfer screenshots creates heavy operational strain during Friday prayers, Eid collections, and community fundraisers. Modernizing mosque operations ensures complete financial transparency and maintains donor confidence.`;
+    overview = `Managing <strong>\${topicLower}</strong> is a sacred trust ("Amanah") for mosque administrators. Relying on disorganized paper notes, unverified donation boxes, or direct bank transfer screenshots creates heavy operational strain during Friday prayers, Eid collections, and community fundraisers. Implementing structured <a href="/modules/atiyat-box-management" class="text-emerald-700 font-bold hover:underline">Atiyat box management</a> and modernizing mosque operations ensures complete financial transparency and maintains donor confidence.`;
 
     steps = `
       <ol class="space-y-4">
-        <li><strong>Formulate Intent-Tagging Gates:</strong> Clearly isolate general mosque maintenance (Sadaqah) from restricted charity funds (Zakat) right at the collection stage.</li>
+        <li><strong>Formulate Intent-Tagging Gates:</strong> Clearly isolate general mosque maintenance (Sadaqah) from restricted charity funds (Zakat) right at the collection stage, following structured <a href="/blog/atiyat-box-management-guide-for-mosques" class="text-emerald-700 font-bold hover:underline">Atiyat donation box dual-key protocols</a>.</li>
         <li><strong>Implement Manual Verification:</strong> Route every online transfer or deposit screenshot to a central administrator queue. Compare each slip with real-time bank statement transactions before marking it as verified.</li>
         <li><strong>Dignity-Safe Face Blurring:</strong> Crop out or blur beneficiary faces from field delivery photos before compiling mosque activity reports.</li>
         <li><strong>Board-Ready Monthly Reporting:</strong> Consolidate verified transaction logs into formal, structured PDF financial reports for mosque trustees.</li>
@@ -1070,6 +1070,255 @@ blogPosts.push({
     {
       question: "Does Sidqly require any on-premise hardware or IoT devices?",
       answer: "No. Sidqly is a 100% digital SaaS cloud platform. All tools run on any standard desktop or mobile web browser with zero hardware installation required."
+    }
+  ]
+});
+
+blogPosts.push({
+  slug: "atiyat-box-management-guide-for-mosques",
+  title: "Atiyat Box Management: Best Practices for Mosque Cash Collections, Dual-Key Counting & Audit Compliance",
+  description: "A complete operational guide for mosque trustees on managing physical donation boxes (Atiyat), dual-trustee counting protocols, tamper seals, and cash-to-bank reconciliation.",
+  category: "Mosque Operations",
+  date: "2026-10-26",
+  modifiedDate: "2026-10-26",
+  author: "Sidqly Mosque Governance Team",
+  readingTime: "7 min read",
+  focusKeyword: "atiyat box management",
+  tags: ["Mosque Management", "Atiyat Box", "Cash Reconciliation", "Dual-Signoff", "Mosque Governance", "Zakat Separation"],
+  perspective: "Mosque trustee and treasury operations lead.",
+  content: `
+    <section id="overview" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">The Reality of Physical Cash Collections in Mosques</h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-4">
+        Despite the rapid growth of online giving and mobile cards, physical cash remains the heartbeat of Friday Jumu'ah collections, Taraweeh prayers, and Eid gatherings. Across the Muslim world and diaspora communities, worshippers place cash, checks, and handwritten envelopes into physical collection boxes known as <strong>Atiyat boxes</strong> (عطیات بکس).
+      </p>
+      <p class="text-base text-slate-600 leading-relaxed mb-4">
+        Handling physical currency is a sacred religious trust (<em>Amanah</em>) and a significant fiduciary liability. Without strict, auditable standard operating procedures (SOPs), mosque committees face vulnerabilities: unrecorded donations, accusations of mishandling, human counting errors, and scrutiny from tax authorities and charity regulators.
+      </p>
+    </section>
+
+    <section id="the-problem" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Common Vulnerabilities in Traditional Cash Counting</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        Most mosques still rely on informal counting methods that expose volunteers and trustees to unnecessary risk:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-slate-600 mb-6">
+        <li><strong>Single-Person Custody:</strong> One trustee or caretaker opens the box alone, creates tally notes on scrap paper, and takes cash home before banking.</li>
+        <li><strong>Co-mingled Zakat and Sadaqah:</strong> Donors drop marked envelopes (Zakat, Fitrana, Orphan Care) alongside loose bills for electricity bills, causing forbidden mixing of funds.</li>
+        <li><strong>Unreconciled Bank Deposits:</strong> The amount counted on Friday afternoon rarely matches the exact bank deposit slip due to unlogged change withdrawals or counting slips being lost.</li>
+        <li><strong>Lack of Tamper Evident Controls:</strong> Physical boxes lack numbered security seals, making it impossible to prove whether a box was opened between scheduled counting sessions.</li>
+      </ul>
+    </section>
+
+    <section id="best-practices" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">The 5 Pillars of Compliant Atiyat Box Management</h2>
+      <ol class="list-decimal pl-6 space-y-4 text-slate-700 mb-6">
+        <li>
+          <strong>The Dual-Trustee Four-Eyes Protocol:</strong>
+          Physical Atiyat boxes should feature two independent padlocks, with keys held by two distinct committee members (e.g., General Secretary and Head of Finance). Neither individual can unlock the box independently.
+        </li>
+        <li>
+          <strong>Numbered Tamper-Evident Security Seals:</strong>
+          After each counting session, apply a serialized plastic pull-tight seal. At the next opening, both trustees must inspect and verify the serial number against the previous log before cutting the seal.
+        </li>
+        <li>
+          <strong>Denomination-Level Digital Tallying:</strong>
+          Count currency in clean, sorted stacks by denomination (e.g., $100, $50, $20, $10, $5, coins). Recording quantities by denomination prevents transcription errors and makes bank deposit verification foolproof.
+        </li>
+        <li>
+          <strong>Strict Separation of Envelope Intent:</strong>
+          Envelopes marked with specific donor intents (Zakat, Sadaqah Jariyah, Gaza Relief, Fitrana) must be counted separately from unmarked loose bills (General Mosque Operations).
+        </li>
+        <li>
+          <strong>Cash-to-Bank Deposit Slip Matching:</strong>
+          Every cash count must produce a serialized Batch Voucher. When the funds are deposited at the bank, the teller receipt must be photographed and attached directly to the batch record to close the audit loop.
+        </li>
+      </ol>
+    </section>
+
+    <section id="how-sidqly-helps" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">How Sidqly Automates Atiyat Box Governance</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        Sidqly bridges physical mosque cash collections with modern cloud transparency through our <a href="/modules/atiyat-box-management" class="text-emerald-700 font-bold hover:underline">Atiyat Box Management Module</a> and <a href="/modules/manual-payment-review" class="text-emerald-700 font-bold hover:underline">Manual Payment Review</a>:
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 my-6">
+        <div class="bg-sidqly-ivory p-5 rounded-2xl border border-gray-150">
+          <h4 class="font-bold text-sidqly-navy text-sm mb-2">Dual PIN Signoff</h4>
+          <p class="text-xs text-gray-600">Two trustees must authenticate on mobile or tablet before a counting session is initiated and approved.</p>
+        </div>
+        <div class="bg-sidqly-ivory p-5 rounded-2xl border border-gray-150">
+          <h4 class="font-bold text-sidqly-navy text-sm mb-2">Automated Zakat Ledgers</h4>
+          <p class="text-xs text-gray-600">Envelope counts are instantly partitioned into restricted Zakat accounts compliant with AAOIFI standards.</p>
+        </div>
+        <div class="bg-sidqly-ivory p-5 rounded-2xl border border-gray-150">
+          <h4 class="font-bold text-sidqly-navy text-sm mb-2">Bank Slip Reconciliation</h4>
+          <p class="text-xs text-gray-600">Upload bank teller receipts to verify that 100% of counted cash reached the official mosque bank account.</p>
+        </div>
+      </div>
+      <p class="text-slate-600 leading-relaxed">
+        Learn how mosque leadership around the world uses Sidqly in our <a href="/use-cases/mosques" class="text-emerald-700 font-bold hover:underline">Mosques & Masjids Use Case Guide</a>.
+      </p>
+    </section>
+
+    <section id="conclusion" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Conclusion</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        Honoring donor trust begins at the physical donation box. By standardizing Atiyat box openings with dual authorization, denomination logging, and digital reconciliation, mosque trustees protect themselves from liability while honoring the divine sacred trust of charitable contributions.
+      </p>
+    </section>
+  `,
+  faqs: [
+    {
+      question: "What is an Atiyat box?",
+      answer: "An Atiyat box (عطیات بکس) is a physical secure cash donation box placed in mosques and Islamic centers for worshippers to deposit cash, checks, and charity envelopes during prayers and religious programs."
+    },
+    {
+      question: "Who should be present when opening a mosque donation box?",
+      answer: "Under best governance practices, at least two authorized individuals (the four-eyes principle) must be present simultaneously. Ideally, this includes one trustee and one finance committee member or independent volunteer."
+    },
+    {
+      question: "How long can cash sit in a mosque donation box before being banked?",
+      answer: "Cash should never sit uncounted for extended periods. Friday Jumu'ah collections should be counted immediately after prayer or by the end of the day, with funds deposited into the mosque bank account within 24 to 48 hours."
+    },
+    {
+      question: "Can Atiyat cash be used for mosque construction or utility bills?",
+      answer: "Unmarked cash dropped into general donation boxes is considered general Sadaqah and may be used for mosque utilities, salaries, and maintenance. However, marked envelopes designated as Zakat or Fitrana can strictly only be disbursed to eligible needy recipients."
+    }
+  ]
+});
+
+blogPosts.push({
+  slug: "islamic-charity-app-development-vs-saas",
+  title: "Islamic Charity App Development: Custom Agency Build vs Turnkey Amanah SaaS Platform",
+  description: "Comparing custom mobile app development ($50k+, 12 months) with turnkey Islamic charity software. Detailed breakdown of costs, AAOIFI compliance, security, and maintenance.",
+  category: "Charity Tech",
+  date: "2026-10-26",
+  modifiedDate: "2026-10-26",
+  author: "Sidqly Software & Architecture Team",
+  readingTime: "8 min read",
+  focusKeyword: "islamic charity app development company",
+  tags: ["Islamic Charity App Development", "Charity Software", "Custom Software vs SaaS", "Zakat Compliance", "Non-Profit Tech"],
+  perspective: "Non-profit technology strategist and software architect.",
+  content: `
+    <section id="overview" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">The App Development Dilemma for Islamic Charities</h2>
+      <p class="text-lg text-slate-700 leading-relaxed mb-4">
+        As Islamic non-profits, mosques, and Zakat foundations scale, leadership quickly realizes that WhatsApp groups, Google Forms, and Excel spreadsheets can no longer handle multi-million-dollar campaigns. At this inflection point, trustees often ask: <em>"Should we hire an Islamic charity app development company to build our own custom software, or should we adopt a specialized cloud SaaS platform?"</em>
+      </p>
+      <p class="text-base text-slate-600 leading-relaxed mb-4">
+        While the idea of owning proprietary software sounds appealing, custom software development is notorious for budget overruns, missed deadlines, security vulnerabilities, and high ongoing maintenance costs. Here is an honest, architectural comparison between hiring a software agency versus deploying a ready-to-launch Amanah operating platform.
+      </p>
+    </section>
+
+    <section id="the-problem" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">The Hidden Traps of Custom Agency Development</h2>
+      <div class="space-y-4 text-slate-700 mb-6">
+        <div class="p-5 bg-red-50/50 border border-red-200 rounded-2xl">
+          <h4 class="font-bold text-red-900 mb-1">1. Ballooning Budgets ($35,000 – $100,000+)</h4>
+          <p class="text-xs text-red-700 leading-relaxed">
+            Agency hourly rates ($50–$150/hr) quickly deplete charitable budgets. By the time design, iOS, Android, web portals, payment gateways, and admin dashboards are scoped, charities have spent thousands of dollars of donor funds before a single line of production code is written.
+          </p>
+        </div>
+        <div class="p-5 bg-red-50/50 border border-red-200 rounded-2xl">
+          <h4 class="font-bold text-red-900 mb-1">2. 9 to 18 Month Time-to-Market</h4>
+          <p class="text-xs text-red-700 leading-relaxed">
+            Custom development takes months of user stories, wireframing, QA testing, and App Store approval delays. Charities frequently miss peak giving seasons (Ramadan and Dhul Hijjah) waiting for agency developers to fix software bugs.
+          </p>
+        </div>
+        <div class="p-5 bg-red-50/50 border border-red-200 rounded-2xl">
+          <h4 class="font-bold text-red-900 mb-1">3. The Shariah & Operational Blindspot</h4>
+          <p class="text-xs text-red-700 leading-relaxed">
+            Generic software engineering houses do not understand Islamic jurisprudence. They will build standard e-commerce carts that treat Zakat like ordinary revenue, co-mingling restricted funds and violating AAOIFI accounting standards.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="best-practices" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Comparison Matrix: Custom Build vs Sidqly Amanah Cloud</h2>
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full text-left text-xs border border-gray-200 rounded-2xl overflow-hidden">
+          <thead class="bg-sidqly-navy text-white">
+            <tr>
+              <th class="p-4">Evaluation Criteria</th>
+              <th class="p-4">Custom Agency Development</th>
+              <th class="p-4 bg-emerald-800">Sidqly Amanah Platform</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr>
+              <td class="p-4 font-bold text-slate-800">Upfront Capital Expenditure</td>
+              <td class="p-4 text-red-700">$35,000 to $100,000+</td>
+              <td class="p-4 text-emerald-800 font-bold">$0 setup fees, predictable annual SaaS</td>
+            </tr>
+            <tr class="bg-gray-50/60">
+              <td class="p-4 font-bold text-slate-800">Time to Launch</td>
+              <td class="p-4 text-red-700">9 to 18 months</td>
+              <td class="p-4 text-emerald-800 font-bold">Under 48 hours (instant onboarding)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-slate-800">AAOIFI Zakat Partitioning</td>
+              <td class="p-4 text-red-700">Must be manually architected from scratch</td>
+              <td class="p-4 text-emerald-800 font-bold">Built-in native ledger partition walls</td>
+            </tr>
+            <tr class="bg-gray-50/60">
+              <td class="p-4 font-bold text-slate-800">Recipient Dignity (Face Blurring)</td>
+              <td class="p-4 text-red-700">Custom computer vision API integrations ($$$)</td>
+              <td class="p-4 text-emerald-800 font-bold">Automated face-blurring & EXIF scrubbing included</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-slate-800">Ongoing Server Maintenance</td>
+              <td class="p-4 text-red-700">Client pays $500–$1,500/mo DevOps retainers</td>
+              <td class="p-4 text-emerald-800 font-bold">Included: 99.9% uptime SLA, security patches</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="how-sidqly-helps" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Why Modern Giving Teams Choose Sidqly Over Custom Apps</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        Sidqly gives your charity all the benefits of a custom branded portal without any of the engineering overhead or security risks:
+      </p>
+      <ul class="list-disc pl-6 space-y-2 text-slate-600 mb-6">
+        <li><strong>Branded Web & Mobile Access:</strong> Your donors and staff interact through custom-branded responsive portals with zero app store download friction.</li>
+        <li><strong>4-Eyes AAOIFI Treasury:</strong> Strict dual-signature approval prevents fraud and fund leakage out of the box.</li>
+        <li><strong>Manual Bank Transfer Review:</strong> Verify screenshots and bank deposit slips with auditable admin queues.</li>
+        <li><strong>Instant Board-Ready PDF Packs:</strong> Generate executive impact reports with one click for trustees and auditors.</li>
+      </ul>
+      <p class="text-slate-600 leading-relaxed">
+        Explore our complete feature suite on our <a href="/features" class="text-emerald-700 font-bold hover:underline">Features Page</a> or review our <a href="/solutions/islamic-charities" class="text-emerald-700 font-bold hover:underline">Islamic Charities Solution Overview</a>.
+      </p>
+    </section>
+
+    <section id="conclusion" class="mb-10">
+      <h2 class="text-2xl font-bold text-sidqly-navy mb-4">Conclusion</h2>
+      <p class="text-slate-700 leading-relaxed mb-4">
+        Every dollar spent on custom software development is a dollar diverted away from vulnerable beneficiaries. By choosing a turnkey, Shariah-conscious platform like Sidqly, Islamic organizations can deploy enterprise-grade digital governance instantly—preserving donor funds for real-world impact.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="/guided-pilot" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-sm">Apply for Guided Pilot</a>
+        <a href="/pricing" class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-bold px-6 py-3 rounded-xl transition-all shadow-xs">View Pricing Plans</a>
+      </div>
+    </section>
+  `,
+  faqs: [
+    {
+      question: "Why shouldn't our charity hire an app development agency to build a custom app?",
+      answer: "Custom agency builds typically cost upwards of $50,000, take over a year to complete, and require ongoing developer retainers for bug fixes and mobile operating system updates. Furthermore, generic agencies lack domain expertise in AAOIFI Zakat compliance, donor-safe proof, and Islamic accounting rules."
+    },
+    {
+      question: "Does Sidqly offer mobile apps for our donors?",
+      answer: "Yes! Sidqly provides ultra-fast progressive mobile web experiences that work seamlessly on iOS and Android devices without requiring donors to download bulky native apps from app stores."
+    },
+    {
+      question: "Can Sidqly be customized with our charity's logo and branding?",
+      answer: "Yes. All public forms, donor receipts, Qurbani certificates, and board reports feature your organization's custom logo, color scheme, and verification credentials."
+    },
+    {
+      question: "How long does it take to migrate from spreadsheets or old databases to Sidqly?",
+      answer: "Most organizations complete onboarding and data import within 48 to 72 hours using our structured migration templates and assisted onboarding support."
     }
   ]
 });

@@ -1,7 +1,7 @@
 import { blogPosts, type BlogPost } from './blogs';
 
 const regionalTopics = [
-  { slug: "islamic-charity-software-in-europe", title: "Islamic Charity Software in Europe", desc: "A guide for European organizations looking to professionalize their giving operations.", region: "Europe" },
+  { slug: "islamic-charity-software-in-europe", title: "Islamic Charity Software in Europe: GDPR Compliance, Zakat Tracking & Cross-Border Giving", desc: "Compare top Islamic charity software in Europe. Learn how UK & EU NGOs manage GDPR-compliant Zakat distribution, cross-border banking, Gift Aid, and proof verification.", region: "Europe" },
   { slug: "mosque-donation-management-in-the-uk", title: "Mosque Donation Management in the UK", desc: "How UK mosques can move from cash boxes to transparent digital tracking.", region: "United Kingdom" },
   { slug: "zakat-management-for-uk-islamic-charities", title: "Zakat Management for UK Islamic Charities", desc: "Best practices for Zakat fund separation and reporting in the UK.", region: "United Kingdom" },
   { slug: "qurbani-management-for-european-organizations", title: "Qurbani Management for European Organizations", desc: "Streamlining animal share tracking and distribution across Europe.", region: "Europe" },
@@ -12,7 +12,7 @@ const regionalTopics = [
   { slug: "ramadan-donation-management-in-canada", title: "Ramadan Donation Management in Canada", desc: "Effective logistics for Canadian Ramadan drives.", region: "Canada" },
   { slug: "qurbani-management-for-canadian-organizations", title: "Qurbani Management for Canadian Organizations", desc: "Tracking Qurbani shares and certificates in Canada.", region: "Canada" },
   { slug: "islamic-charity-operations-in-gulf-mena", title: "Islamic Charity Operations in Gulf / MENA", desc: "Scaling high-volume giving in the Gulf and MENA region.", region: "Gulf / MENA" },
-  { slug: "ramadan-and-zakat-operations-in-south-asia", title: "Ramadan and Zakat Operations in South Asia", desc: "Managing large-scale distribution and verified payments.", region: "South Asia" },
+  { slug: "ramadan-and-zakat-operations-in-south-asia", title: "Ramadan & Zakat Operations in South Asia: Ration Logistics, Bank Slips & Transparency", desc: "How South Asian Islamic charities scale Ramadan food packs, verify manual bank receipts, prevent duplicate ration lists, and ensure AAOIFI Zakat compliance.", region: "South Asia" },
   { slug: "charity-proof-and-donor-reporting-in-africa", title: "Charity Proof and Donor Reporting in Africa", desc: "Organizing field evidence and reporting for African aid teams.", region: "Africa" },
   { slug: "islamic-giving-operations-in-asia-pacific", title: "Islamic Giving Operations in Asia-Pacific", desc: "Lifecycle tracking for multi-city organizations in Asia-Pacific.", region: "Asia-Pacific" }
 ];

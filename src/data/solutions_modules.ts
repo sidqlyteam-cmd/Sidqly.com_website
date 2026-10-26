@@ -1,13 +1,55 @@
 export const modules = [
   {
+    slug: "atiyat-box-management",
+    category: "donations-funds",
+    title: "Atiyat Box & Mosque Cash Donation Management",
+    desc: "Dual-key physical donation box counting, tamper seal tracking, and cash-to-bank deposit reconciliation.",
+    quickAnswer: "Sidqly's Atiyat Box Management module provides mosques and Islamic centers with a secure, auditable workflow for collecting, counting, and depositing physical cash donations with dual-trustee signoffs.",
+    benefit: "Eliminates cash mishandling risks, enforces dual-key counting protocols, and creates an audit-ready bridge between physical cash boxes and bank deposits.",
+    who: "Mosque trustees, treasury volunteers, finance committees, and custodial staff.",
+    problem: "Untracked cash in Friday donation boxes, missing paper tally sheets, unverified cash-to-bank deposits, and donor skepticism regarding physical cash handling.",
+    workflow: [
+      "Trustees log scheduled opening of sealed Atiyat donation boxes",
+      "Two authorized trustees enter unique PINs/signatures to verify physical seal integrity",
+      "Cash is counted by currency denomination (bills and coins) on digital tally sheet",
+      "Funds are categorized by donor intent (Zakat, Sadaqah, Mosque Construction, Utilities)",
+      "System generates Cash Reconciliation Batch Voucher with unique serial barcode",
+      "Bank deposit slip receipt is uploaded and verified against the batch total by senior treasurer"
+    ],
+    output: "Auditable Cash Reconciliation Batch Vouchers, denomination breakdown sheets, and bank deposit match logs.",
+    disclaimer: "Sidqly provides administrative recording and dual-authorization software. Physical custody and banking of cash remain the direct responsibility of your organization.",
+    faqs: [
+      {
+        question: "What is an Atiyat box in mosque administration?",
+        answer: "An Atiyat box (from Arabic/Urdu عطیات, meaning donations or gifts) is a physical secure collection box mounted inside mosques and Islamic centers where worshippers drop cash, checks, and fitrah envelopes during daily prayers and Friday Jumu'ah."
+      },
+      {
+        question: "How does Sidqly enforce the four-eyes principle on cash counting?",
+        answer: "Sidqly requires two distinct trustee or committee logins to initiate and submit a cash counting session. Neither user can finalize the batch alone, ensuring strict dual-custody compliance."
+      },
+      {
+        question: "Can Atiyat cash be separated between Zakat and general Sadaqah?",
+        answer: "Yes. The digital counting form allows volunteers to record segregated totals for marked envelopes (Zakat, Fitrana, Sadqah) and general unmarked cash (Sadaqah/Mosque Maintenance), automatically creating separate ledger line items."
+      }
+    ],
+    internalLinks: [
+      { title: "Manual Payment Review", url: "/modules/manual-payment-review" },
+      { title: "Zakat Fund Separation", url: "/modules/zakat-fund-separation" },
+      { title: "AAOIFI Treasury Ledger", url: "/modules/aaoifi-treasury-ledger" },
+      { title: "Reports and Board Packs", url: "/modules/reports-board-packs" },
+      { title: "Book Demo", url: "/book-demo" }
+    ]
+  },
+
+  {
     slug: "manual-payment-review",
     category: "donations-funds",
-    title: "Manual Payment Review for Verified Donations",
-    desc: "Human-verified bank transfers and screenshots.",
+    title: "Manual Payment Review & Atiyat Cash Box Reconciliation",
+    desc: "Human-verified bank transfers, screenshots, and mosque Atiyat cash box deposits.",
     quickAnswer: "Sidqly’s manual payment review workflow helps Islamic charities, mosques, and giving teams review donor payment proof before marking a donation, campaign contribution, or fulfillment request as approved.",
     benefit: "Sidqly helps teams record donation/payment submissions and manually review them before confirmation.",
     who: "Finance teams and admin staff.",
-    problem: "Missed bank transfers, fake or duplicate screenshots, missing donor records, and phantom donations inflating campaign reports.",
+    problem: "Missed bank transfers, fake deposit slips, untracked cash collections in mosque donation boxes, and phantom donations inflating campaign reports.",
     workflow: ["Payment submitted via form", "Bank reference or screenshot recorded", "Finance reviewer checks bank statement manually", "Approved, rejected, or correction requested with admin notes", "Status becomes visible to authorized team", "Permanent audit trail remains available"],
     output: "Clear payment confirmation records and campaign finance clarity before work moves forward.",
     disclaimer: "Sidqly supports manual review. It does not claim automatic payment verification unless configured separately.",

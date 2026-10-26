@@ -21,6 +21,10 @@ const IslamicCharitySoftware: React.FC = () => {
     {
       question: "Are there any automated Shariah compliance rulings?",
       answer: "No. Sidqly acts strictly as an administrative operational tool and makes no legal or religious rulings. Compliance gates, eligibility checks, and separation rules are configured by your authorized scholars, and tracked with full audit transparency."
+    },
+    {
+      question: "Why choose Sidqly over hiring an Islamic charity app development company?",
+      answer: "Custom agency app development typically costs $40,000 to $100,000+ and takes 9 to 18 months, often resulting in platforms that lack specialized Shariah accounting controls like AAOIFI Zakat fund separation and dignity-first photo privacy. Sidqly provides a battle-tested, audit-ready Amanah OS immediately at a fraction of the cost, complete with continuous updates and zero technical maintenance."
     }
   ];
 
@@ -204,6 +208,72 @@ const IslamicCharitySoftware: React.FC = () => {
                 <li className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-sidqly-green-emerald"></div>
                   <span><strong>Row-Restricted viewing:</strong> Field workers and general sponsors only view sanitized evidence packs, keeping PII secure.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            {/* Custom App Development vs Turnkey SaaS */}
+      <section className="py-20 bg-slate-50 border-t border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold text-emerald-800 uppercase bg-emerald-100/60 rounded-full border border-emerald-200 tracking-wider">
+              Bespoke Agency vs Turnkey Cloud Platform
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy mb-4">
+              Looking for an Islamic Charity App Development Company?
+            </h2>
+            <p className="text-gray-600 leading-relaxed">
+              Before committing $50,000+ and 12 months to a software agency, compare custom mobile app development with Sidqly’s purpose-built Islamic giving operating system.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-3xl border border-red-100 shadow-sm">
+              <div className="inline-block px-3 py-1 bg-red-50 text-red-700 text-xs font-bold rounded-lg mb-4">Custom Development Agency</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Building From Scratch</h3>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <span><strong>High Cost:</strong> $35,000 – $100,000+ upfront engineering fees.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <span><strong>Long Delivery:</strong> 9 to 18 months of wireframes, bugs, and release delays.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <span><strong>Compliance Gap:</strong> Generic software developers lack AAOIFI Zakat standards and 4-eyes approval rules.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 font-bold">✕</span>
+                  <span><strong>Ongoing Maintenance:</strong> $1,000+/mo in cloud hosting, security patches, and iOS/Android app store upkeep.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl border border-emerald-200 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] uppercase font-bold tracking-widest px-4 py-1 rounded-bl-xl">Recommended</div>
+              <div className="inline-block px-3 py-1 bg-emerald-50 text-emerald-800 text-xs font-bold rounded-lg mb-4">Sidqly Amanah Platform</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Turnkey Cloud SaaS</h3>
+              <ul className="space-y-3 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Predictable Pricing:</strong> Transparent, low annual subscription with zero upfront capital expenditure.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Instant Go-Live:</strong> Deploy in under 48 hours with branded web & mobile portals for your donors.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Native Shariah Standards:</strong> Pre-configured AAOIFI Zakat separation, 4-eyes treasury, and dignity-safe face blurring.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">✓</span>
+                  <span><strong>Zero Server Overhead:</strong> 99.9% uptime SLA, automated backups, and bank-grade data security included.</span>
                 </li>
               </ul>
             </div>

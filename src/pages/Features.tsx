@@ -12,8 +12,8 @@ const Features: React.FC = () => {
     "@context": "https://schema.org",
     "@graph": [
       generateWebPageSchema(
-        "Sidqly Features | Donation Verification, Proof Approval & Reporting",
-        "Explore Sidqly features for Islamic giving teams, including manual payment review, proof approval workflows, donor updates, fund separation, and reporting.",
+        "Islamic Charity Software Features: Zakat Separation, Cash Review & Amanah Ledger | Sidqly",
+        "Explore Sidqly's complete feature suite: AAOIFI Zakat fund separation, manual donation & atiyat cash box reconciliation, 4-eyes approval, and automated donor proof.",
         "/features"
       ),
       generateServiceSchema("Sidqly Platform Features", "Manual payment review, proof approval workflows, and reporting.", "/features"),
@@ -29,7 +29,7 @@ const Features: React.FC = () => {
       title: "Trust & Verification",
       icon: <Shield className="text-sidqly-green-emerald" size={24} />,
       items: [
-        "Manual payment review for all donations",
+        "Manual payment review & Atiyat cash box reconciliation",
         "Zakat and Sadaqah fund separation",
         "Verified audit trails for every transaction",
         "Role-based access control for team safety"
@@ -70,8 +70,8 @@ const Features: React.FC = () => {
   return (
     <>
       <SEO
-        title="Sidqly Features | Donation Verification, Proof Approval & Reporting"
-        description="Explore Sidqly features for Islamic giving teams, including manual payment review, proof approval workflows, donor updates, fund separation, and reporting."
+        title="Islamic Charity Software Features: Zakat Separation, Cash Review & Amanah Ledger | Sidqly"
+        description="Explore Sidqly's complete feature suite: AAOIFI Zakat fund separation, manual donation & atiyat cash box reconciliation, 4-eyes approval, and automated donor proof."
         canonical="/features"
         schema={schema}
       />
