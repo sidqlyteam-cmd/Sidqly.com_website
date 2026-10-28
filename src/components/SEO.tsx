@@ -53,7 +53,14 @@ const SEO: React.FC<SEOProps> = ({
     ? (title.includes(`| ${brand.name}`) ? title : `${title} | ${brand.name}`)
     : `${brand.name} | Verified Giving & Protected Dignity`;
 
-  const rawPath = canonical ? getRawPath(canonical) : '/';
+  let rawPath = canonical ? getRawPath(canonical) : '/';
+  if (rawPath.startsWith('http://') || rawPath.startsWith('https://')) {
+    try {
+      rawPath = new URL(rawPath).pathname;
+    } catch (e) {
+      rawPath = '/';
+    }
+  }
   const cleanCanonicalPath = rawPath === '/' ? '/' : (rawPath.startsWith('/') ? rawPath : `/${rawPath}`);
   const url = cleanCanonicalPath === '/' ? `${brand.domain}/` : `${brand.domain}${cleanCanonicalPath}`;
 

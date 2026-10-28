@@ -21,7 +21,7 @@ const WeatherPlanningPage: React.FC = () => {
       <SEO
         title={`${t('islamicTools.weather.title')} | Sidqly`}
         description={t('islamicTools.weather.subtitle')}
-        canonical="https://www.sidqly.com/weather-charity-distribution"
+        canonical="/weather-charity-distribution"
         schema={schema}
       />
 

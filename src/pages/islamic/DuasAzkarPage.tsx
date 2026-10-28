@@ -20,7 +20,7 @@ const DuasAzkarPage: React.FC = () => {
       <SEO
         title={`${t('islamicTools.duasAzkar.title')} | Sidqly`}
         description={t('islamicTools.duasAzkar.subtitle')}
-        canonical="https://www.sidqly.com/duas-azkar"
+        canonical="/duas-azkar"
         schema={schema}
       />
       <DuasAzkar />
