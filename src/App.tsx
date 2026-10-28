@@ -1,9 +1,8 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import MainLayout from './layout/MainLayout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { LanguageProvider } from './i18n/LanguageContext';
-import { isSupportedLanguage } from './i18n/config';
 
 // Pages
 import Home from './pages/Home';
@@ -99,7 +98,7 @@ import { Helmet } from 'react-helmet-async';
 
 const NotFound = () => (
   <section className="py-20 bg-sidqly-ivory min-h-screen flex items-center">
-    <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
+    <Helmet><title>Page Not Found | Sidqly</title></Helmet>
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 className="text-6xl font-extrabold text-sidqly-navy mb-6">404</h1>
       <h2 className="text-3xl font-bold text-sidqly-green-deep mb-6">Page not found</h2>
@@ -113,12 +112,10 @@ const NotFound = () => (
   </section>
 );
 
-const LanguageGuard = () => {
-  const { lang } = useParams<{ lang: string }>();
-  if (!lang || !isSupportedLanguage(lang) || lang === 'en') {
-    return <NotFound />;
-  }
-  return <Outlet />;
+const LanguageRedirect = () => {
+  const location = useLocation();
+  const cleanPath = location.pathname.replace(/^\/(?:ar|ur|fr|de)(?:\/|$)/, '/') || '/';
+  return <Navigate to={`${cleanPath}${location.search}${location.hash}`} replace />;
 };
 
 const siteRoutes = [
@@ -241,12 +238,15 @@ function App() {
               {siteRoutes}
             </Route>
 
-            {/* Localized Language Routes (/ar, /ur) */}
-            <Route path="/:lang" element={<LanguageGuard />}>
-              <Route element={<MainLayout />}>
-                {siteRoutes}
-              </Route>
-            </Route>
+            {/* Redirect any legacy language URLs (/ur/..., /ar/..., etc.) cleanly to authoritative English URLs */}
+            <Route path="/ar/*" element={<LanguageRedirect />} />
+            <Route path="/ur/*" element={<LanguageRedirect />} />
+            <Route path="/fr/*" element={<LanguageRedirect />} />
+            <Route path="/de/*" element={<LanguageRedirect />} />
+            <Route path="/ar" element={<Navigate to="/" replace />} />
+            <Route path="/ur" element={<Navigate to="/" replace />} />
+            <Route path="/fr" element={<Navigate to="/" replace />} />
+            <Route path="/de" element={<Navigate to="/" replace />} />
           </Routes>
         </LanguageProvider>
       </Router>

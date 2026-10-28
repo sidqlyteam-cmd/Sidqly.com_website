@@ -1,6 +1,4 @@
-
-import React, { createContext, useContext, useEffect, useMemo, useCallback } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useEffect, useMemo, useCallback, useState } from 'react';
 import type { Language, Direction } from './config';
 import { DEFAULT_LANGUAGE, isSupportedLanguage, getLanguageDir } from './config';
 import { getUITranslations } from './translations';
@@ -33,7 +31,7 @@ export function getRawPath(path: string): string {
 
   const normalized = path.startsWith('/') ? path : `/${path}`;
 
-  // Remove any supported language prefix before rebuilding a localized path.
+  // Remove any supported language prefix before rebuilding a clean path.
   const langMatch = normalized.match(/^\/(ar|ur|fr|de)(\/|$)/);
 
   if (langMatch) {
@@ -46,7 +44,7 @@ export function getRawPath(path: string): string {
 
 export function buildLocalizedPath(
   rawPath: string,
-  targetLang: Language
+  _targetLang?: Language
 ): string {
   if (!rawPath) return '/';
 
@@ -60,27 +58,11 @@ export function buildLocalizedPath(
     return rawPath;
   }
 
-  const cleanRaw = getRawPath(rawPath);
-
-  // English is the default language and has no URL prefix.
-  if (targetLang === DEFAULT_LANGUAGE) {
-    return cleanRaw;
-  }
-
-  // Language homepage.
-  if (cleanRaw === '/') {
-    return `/${targetLang}`;
-  }
-
-  return `/${targetLang}${cleanRaw}`;
+  return getRawPath(rawPath);
 }
 
 /**
  * Detect the user's preferred supported language from browser settings.
- *
- * navigator.languages is checked first so that browser language priority
- * is respected. Regional variants such as fr-FR or de-DE are reduced to
- * their base language code.
  */
 export function detectBrowserLanguage(): Language | null {
   if (typeof navigator === 'undefined') return null;
@@ -119,64 +101,37 @@ export function getSavedLanguage(): Language | null {
 
 /**
  * Language preference priority:
- *
  * 1. Saved manual preference
  * 2. Browser language
  * 3. English default
  */
 export function getPreferredLanguage(): Language {
   const saved = getSavedLanguage();
-
   if (saved) return saved;
 
   const browserLang = detectBrowserLanguage();
-
   if (browserLang) return browserLang;
 
   return DEFAULT_LANGUAGE;
 }
 
 /**
- * Detect a language from the current URL.
- *
- * English is represented by the absence of a language prefix.
+ * Detect a language from the current URL if legacy /:lang prefix is present.
  */
 export function getUrlLanguage(pathname: string): Language | null {
   const match = pathname.match(/^\/(ar|ur|fr|de)(\/|$)/);
-
   if (match && isSupportedLanguage(match[1])) {
     return match[1];
   }
-
   return null;
 }
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  const urlLanguage = useMemo<Language | null>(() => {
-    return getUrlLanguage(location.pathname);
-  }, [location.pathname]);
-
-  /**
-   * URL language always wins over saved/browser preference.
-   *
-   * Example:
-   * /fr/... -> French
-   * /de/... -> German
-   * /ur/... -> Urdu
-   * /ar/... -> Arabic
-   */
-  const activeLanguage = useMemo<Language>(() => {
-    if (urlLanguage) {
-      return urlLanguage;
-    }
-
+  const [activeLanguage, setActiveLanguage] = useState<Language>(() => {
     return getPreferredLanguage();
-  }, [urlLanguage]);
+  });
 
   const activeDir = getLanguageDir(activeLanguage);
 
@@ -195,36 +150,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [activeLanguage, activeDir]);
 
   /**
-   * If the visitor opens the English/unprefixed URL and has a supported
-   * saved/browser language, redirect them to that localized URL.
-   *
-   * Example:
-   * Browser = fr-FR
-   * Visit = /
-   * Result = /fr
-   */
-  useEffect(() => {
-    if (urlLanguage === null) {
-      const preferred = getPreferredLanguage();
-
-      if (preferred !== DEFAULT_LANGUAGE) {
-        const targetPath = buildLocalizedPath(
-          location.pathname,
-          preferred
-        );
-
-        if (targetPath !== location.pathname) {
-          navigate(targetPath, { replace: true });
-        }
-      }
-    }
-  }, [location.pathname, urlLanguage, navigate]);
-
-  /**
-   * Manually change the language.
-   *
-   * The selected language is persisted in localStorage so future visits
-   * continue using the user's explicit choice.
+   * Manually change the language without changing the clean URL.
    */
   const setLanguage = useCallback(
     (newLang: Language) => {
@@ -233,25 +159,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
       if (typeof localStorage !== 'undefined') {
         localStorage.setItem('sidqly_lang', newLang);
       }
-
-      const targetPath = buildLocalizedPath(
-        location.pathname,
-        newLang
-      );
-
-      if (targetPath !== location.pathname) {
-        navigate(targetPath);
-      }
+      setActiveLanguage(newLang);
     },
-    [location.pathname, navigate]
+    []
   );
 
   /**
    * Resolve a translated UI string using dot notation.
-   *
-   * Example:
-   * t('nav.home')
-   * t('islamicTools.namaz.title')
    */
   const t = useCallback(
     (keyPath: string, defaultValue?: string): string => {
@@ -308,13 +222,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     [activeLanguage]
   );
 
+  /**
+   * Returns clean authoritative path without any language prefix.
+   */
   const getLocalizedPath = useCallback(
-    (path: string, targetLang?: Language): string => {
-      const lang = targetLang || activeLanguage;
-
-      return buildLocalizedPath(path, lang);
+    (path: string, _targetLang?: Language): string => {
+      return getRawPath(path);
     },
-    [activeLanguage]
+    []
   );
 
   const getLocationTranslation = useCallback(
@@ -361,4 +276,3 @@ export function useLanguage(): LanguageContextType {
 
   return context;
 }
-

@@ -117,9 +117,7 @@ const LocationDetail: React.FC = () => {
         canonical={
           location.canonicalPath || `/locations/${location.slug}`
         }
-        noindex={
-          location.indexStatus === 'noindex' || location.priorityTier > 1
-        }
+        noindex={false}
         schema={
           location.priorityTier === 1
             ? schema

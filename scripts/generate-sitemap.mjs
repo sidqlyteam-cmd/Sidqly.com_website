@@ -13,45 +13,43 @@ import { getIndexableLocations } from './build-locations-sitemap.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDir = path.join(__dirname, '../public');
+const distDir = path.join(__dirname, '../dist');
 
 const domain = 'https://www.sidqly.com';
-const supportedLanguages = ['ar', 'ur', 'fr', 'de'];
 
-// Helper to expand base English routes with multilingual variants
-const expandWithMultilingual = (routes) => {
+// Helper to normalize and clean routes (clean URLs only, no language prefixes)
+const cleanRoutes = (routes) => {
     const set = new Set();
     routes.forEach(r => {
+        if (!r) return;
         let norm = r === '/' ? '/' : (r.startsWith('/') ? r : '/' + r);
         if (norm.length > 1 && norm.endsWith('/')) {
             norm = norm.slice(0, -1);
         }
         set.add(norm);
-        supportedLanguages.forEach(lang => {
-            set.add(norm === '/' ? `/${lang}` : `/${lang}${norm}`);
-        });
     });
     return Array.from(set).sort();
 };
 
 // 1. Blog Routes (All Core + Regional)
 const baseBlogRoutes = ['/blog', ...allBlogPosts.map(p => `/blog/${p.slug}`)];
-const blogRoutes = expandWithMultilingual(baseBlogRoutes);
+const blogRoutes = cleanRoutes(baseBlogRoutes);
 
 // 2. Location Routes (Regions + Countries + Tier 1 Cities)
 const baseLocationsRoutes = ['/regions', '/locations', ...getIndexableLocations()];
-const locationsRoutes = expandWithMultilingual(baseLocationsRoutes);
+const locationsRoutes = cleanRoutes(baseLocationsRoutes);
 
 // 3. Module Routes
 const baseModulesRoutes = ['/modules', ...modules.map(m => `/modules/${m.slug}`)];
-const modulesRoutes = expandWithMultilingual(baseModulesRoutes);
+const modulesRoutes = cleanRoutes(baseModulesRoutes);
 
 // 4. Use Case Routes
 const baseUseCasesRoutes = ['/use-cases', ...useCases.map(u => `/use-cases/${u.slug}`)];
-const useCasesRoutes = expandWithMultilingual(baseUseCasesRoutes);
+const useCasesRoutes = cleanRoutes(baseUseCasesRoutes);
 
 // 5. Resource Routes
 const baseResourcesRoutes = ['/resources', ...resources.map(r => `/resources/${r.slug}`)];
-const resourcesRoutes = expandWithMultilingual(baseResourcesRoutes);
+const resourcesRoutes = cleanRoutes(baseResourcesRoutes);
 
 // 6. AEO & GEO (Answer Engine & Generative Engine Optimization) Routes
 const baseAeoWebRoutes = [
@@ -104,25 +102,17 @@ const staticAiDocs = [
     '/schema-map.md'
 ];
 
-const aiRoutes = [
+const aiRoutes = cleanRoutes([
     ...staticAiDocs,
-    ...expandWithMultilingual(baseAeoWebRoutes)
-].sort();
+    ...baseAeoWebRoutes
+]);
 
 // 7. Core Pages Routes (Discovered from App.tsx + Data Models)
 const excludeSet = new Set([
     // Redirects
     '/demo', '/how-sidqly-works', '/trust',
-    // Non-indexable / system / private / thank-you
-    '/billing', '/start-pilot', '/implementation', '/migration', '/purchase', '/status',
-    '/request-organization', '/why-fill-the-form', '/ask-sidqly',
-    '/thank-you', '/thank-you/demo', '/thank-you/contact', '/thank-you/pricing',
-    'not-found', '*', '/:lang',
-    // Vanity comparison routes marked as noindex in routeClassification.ts
-    '/trust-and-dignity', '/proof-trust-engine', '/verified-giving', '/manual-payment-review',
-    '/donor-safe-impact', '/corporate-reporting', '/zakat-fund-separation',
-    '/qurbani-management-software', '/ramadan-donation-management', '/charity-request-management',
-    '/vendor-fulfillment-platform', '/mosque-donation-management'
+    '/ar', '/ur', '/fr', '/de',
+    'not-found', '*', '/:lang'
 ]);
 
 // Dynamic sub-routes to include in Pages category
@@ -146,7 +136,7 @@ const rawAppRoutes = [...appTsx.matchAll(/path=["']([^"']+)["']/g)].map(m => m[1
 
 const staticPagesSet = new Set();
 rawAppRoutes.forEach(p => {
-    if (p.includes(':') || excludeSet.has(p) || excludeSet.has('/' + p)) return;
+    if (p.includes(':') || p.includes('*') || excludeSet.has(p) || excludeSet.has('/' + p)) return;
     if (p.startsWith('blog') || p.startsWith('locations') || p.startsWith('regions') || p.startsWith('modules') || p.startsWith('use-cases') || p.startsWith('resources')) return;
     const pathStr = p === '' ? '/' : (p.startsWith('/') ? p : '/' + p);
     staticPagesSet.add(pathStr);
@@ -155,7 +145,7 @@ rawAppRoutes.forEach(p => {
 dynamicPagesRoutes.forEach(p => staticPagesSet.add(p));
 
 const basePagesRoutes = Array.from(staticPagesSet).sort();
-const pagesRoutes = expandWithMultilingual(basePagesRoutes);
+const pagesRoutes = cleanRoutes(basePagesRoutes);
 
 // XML Generation Utilities
 const today = new Date().toISOString().split('T')[0];
@@ -214,21 +204,19 @@ const allMasterRoutes = Array.from(new Set([
     ...locationsRoutes
 ])).sort();
 
-// Write individual sitemaps
-fs.writeFileSync(path.join(publicDir, 'sitemap-pages.xml'), generateUrlset(pagesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-modules.xml'), generateUrlset(modulesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-use-cases.xml'), generateUrlset(useCasesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-resources.xml'), generateUrlset(resourcesRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-blog.xml'), generateUrlset(blogRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-ai.xml'), generateUrlset(aiRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-aeo.xml'), generateUrlset(aiRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-locations.xml'), generateUrlset(locationsRoutes));
-fs.writeFileSync(path.join(publicDir, 'sitemap-geo.xml'), generateUrlset(locationsRoutes));
+const filesToWrite = [
+    { name: 'sitemap-pages.xml', content: generateUrlset(pagesRoutes) },
+    { name: 'sitemap-modules.xml', content: generateUrlset(modulesRoutes) },
+    { name: 'sitemap-use-cases.xml', content: generateUrlset(useCasesRoutes) },
+    { name: 'sitemap-resources.xml', content: generateUrlset(resourcesRoutes) },
+    { name: 'sitemap-blog.xml', content: generateUrlset(blogRoutes) },
+    { name: 'sitemap-ai.xml', content: generateUrlset(aiRoutes) },
+    { name: 'sitemap-aeo.xml', content: generateUrlset(aiRoutes) },
+    { name: 'sitemap-locations.xml', content: generateUrlset(locationsRoutes) },
+    { name: 'sitemap-geo.xml', content: generateUrlset(locationsRoutes) },
+    { name: 'sitemap.xml', content: generateUrlset(allMasterRoutes) },
+];
 
-// Write master comprehensive sitemap containing all 1693 URLs directly
-fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), generateUrlset(allMasterRoutes));
-
-// Also write sitemap index for engines requesting sitemapindex
 const sitemapFiles = [
     'sitemap.xml',
     'sitemap-pages.xml',
@@ -241,9 +229,18 @@ const sitemapFiles = [
     'sitemap-locations.xml',
     'sitemap-geo.xml'
 ];
-fs.writeFileSync(path.join(publicDir, 'sitemap-index.xml'), generateIndex(sitemapFiles));
 
-// Print required statistics
+const indexXml = generateIndex(sitemapFiles);
+filesToWrite.push({ name: 'sitemap-index.xml', content: indexXml });
+
+for (const f of filesToWrite) {
+    fs.writeFileSync(path.join(publicDir, f.name), f.content);
+    if (fs.existsSync(distDir)) {
+        fs.writeFileSync(path.join(distDir, f.name), f.content);
+    }
+}
+
+// Print statistics
 const totalUniqueUrls = allMasterRoutes.length;
 
 console.log(`Successfully generated sitemap index and ${sitemapFiles.length} child sitemaps in ${publicDir}`);
@@ -254,4 +251,4 @@ console.log(`Resources: ${resourcesRoutes.length}`);
 console.log(`Blog: ${blogRoutes.length}`);
 console.log(`AI / AEO: ${aiRoutes.length}`);
 console.log(`Locations / GEO: ${locationsRoutes.length}`);
-console.log(`Total unique URLs: ${totalUniqueUrls}`);
+console.log(`Total clean unique URLs in master sitemap: ${totalUniqueUrls}`);

@@ -21,7 +21,7 @@ const CompareDetail: React.FC = () => {
 
   const isAlternative = location.pathname.startsWith('/alternatives');
   const canonicalPath = slug ? (isAlternative ? `/alternatives/${slug}` : `/compare/${slug}`) : location.pathname;
-  const noindex = !comparisonData && !isMosque;
+  const noindex = false;
 
   const schema = {
     "@context": "https://schema.org",

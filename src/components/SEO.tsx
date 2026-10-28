@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { brand } from '../config/brand';
 import { useLanguage } from '../i18n/LanguageContext';
-import { buildLocalizedPath, getRawPath } from '../i18n/LanguageContext';
+import { getRawPath } from '../i18n/LanguageContext';
 import type { Language, Direction } from '../i18n/config';
 
 interface SEOProps {
@@ -54,17 +54,8 @@ const SEO: React.FC<SEOProps> = ({
     : `${brand.name} | Verified Giving & Protected Dignity`;
 
   const rawPath = canonical ? getRawPath(canonical) : '/';
-  const localizedPath = buildLocalizedPath(rawPath, activeLang);
-
-  const url = canonical
-    ? `${brand.domain}${localizedPath}`
-    : `${brand.domain}${buildLocalizedPath('/', activeLang)}`;
-
-  const enUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'en')}`;
-  const arUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'ar')}`;
-  const urUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'ur')}`;
-  const frUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'fr')}`;
-  const deUrl = `${brand.domain}${buildLocalizedPath(rawPath, 'de')}`;
+  const cleanCanonicalPath = rawPath === '/' ? '/' : (rawPath.startsWith('/') ? rawPath : `/${rawPath}`);
+  const url = cleanCanonicalPath === '/' ? `${brand.domain}/` : `${brand.domain}${cleanCanonicalPath}`;
 
   const isIndexable = !noindex;
 
@@ -76,14 +67,6 @@ const SEO: React.FC<SEOProps> = ({
       {isIndexable && <link rel="canonical" href={url} />}
       <meta name="robots" content={noindex ? "noindex,follow" : robots} />
       {focusKeyword && <meta name="keywords" content={[focusKeyword, ...(secondaryKeywords || [])].join(', ')} />}
-
-      {/* Multilingual Alternate Links */}
-      {isIndexable && <link rel="alternate" hrefLang="en" href={enUrl} />}
-      {isIndexable && <link rel="alternate" hrefLang="ar" href={arUrl} />}
-      {isIndexable && <link rel="alternate" hrefLang="ur" href={urUrl} />}
-      {isIndexable && <link rel="alternate" hrefLang="fr" href={frUrl} />}
-      {isIndexable && <link rel="alternate" hrefLang="de" href={deUrl} />}
-      {isIndexable && <link rel="alternate" hrefLang="x-default" href={enUrl} />}
 
       <meta property="og:title" content={ogTitle || fullTitle} />
       <meta property="og:description" content={ogDescription || description} />

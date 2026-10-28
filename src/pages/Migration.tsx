@@ -18,7 +18,7 @@ const Migration: React.FC = () => {
 
   return (
     <>
-      <SEO title="Migration Guide" description="Moving from WhatsApp and Excel to professional giving operations with Sidqly." canonical="/migration" noindex={true} />
+      <SEO title="Migration Guide" description="Moving from WhatsApp and Excel to professional giving operations with Sidqly." canonical="/migration" />
       <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-12 items-center">

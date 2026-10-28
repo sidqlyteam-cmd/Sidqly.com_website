@@ -37,7 +37,6 @@ const Implementation: React.FC = () => {
         title="Sidqly Implementation Process for Mosques and Charities"
         description="See how Sidqly is implemented for Islamic charities, mosques, Qurbani organizers, and giving teams through workflow mapping, setup, training, and launch support."
         canonical="/implementation"
-        noindex={true}
       />
       <section className="py-20 bg-gradient-to-b from-emerald-50/40 via-white to-white border-b border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

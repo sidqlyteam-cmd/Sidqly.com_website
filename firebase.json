@@ -9,7 +9,12 @@
     ],
     "trailingSlash": false,
     "cleanUrls": true,
-    "rewrites": [],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "headers": [
       {
         "source": "**",
@@ -43,6 +48,16 @@
       {
         "source": "/trust",
         "destination": "/trust-center",
+        "type": 301
+      },
+      {
+        "source": "/:lang(ar|ur|fr|de)",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/:lang(ar|ur|fr|de)/:slug*",
+        "destination": "/:slug*",
         "type": 301
       }
     ]

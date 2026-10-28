@@ -16,6 +16,51 @@
       "source": "/trust",
       "destination": "/trust-center",
       "permanent": true
+    },
+    {
+      "source": "/locations/north-america",
+      "destination": "/regions/north-america",
+      "permanent": true
+    },
+    {
+      "source": "/locations/europe",
+      "destination": "/regions/europe",
+      "permanent": true
+    },
+    {
+      "source": "/locations/middle-east",
+      "destination": "/regions/gulf-mena",
+      "permanent": true
+    },
+    {
+      "source": "/locations/south-asia",
+      "destination": "/regions/south-asia",
+      "permanent": true
+    },
+    {
+      "source": "/locations/asia-pacific",
+      "destination": "/regions/asia-pacific",
+      "permanent": true
+    },
+    {
+      "source": "/locations/africa",
+      "destination": "/regions/africa",
+      "permanent": true
+    },
+    {
+      "source": "/(ar|ur|fr|de)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/(ar|ur|fr|de)/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/(ar|ur|fr|de)/:path*",
+      "destination": "/:path*",
+      "permanent": true
     }
   ],
   "headers": [

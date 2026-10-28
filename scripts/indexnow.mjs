@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.join(__dirname, '..');
 
 const publicDir = path.join(projectRoot, 'public');
+const distDir = path.join(projectRoot, 'dist');
 const historyFile = path.join(projectRoot, 'scripts', '.indexnow-history.json');
 
 async function sendRequest(url, data) {
@@ -57,37 +58,32 @@ async function runIndexNow() {
     return;
   }
 
-  // 1. Write the key verification file to the public folder
+  // 1. Write the key verification file to public and dist folders
   const verificationFilePath = path.join(publicDir, `${key}.txt`);
   fs.writeFileSync(verificationFilePath, key, 'utf8');
-  console.log(`✅ IndexNow Key Verification file written to public/${key}.txt`);
+  if (fs.existsSync(distDir)) {
+    fs.writeFileSync(path.join(distDir, `${key}.txt`), key, 'utf8');
+  }
+  console.log(`✅ IndexNow Key Verification file written to ${key}.txt`);
 
-  // 2. Read sitemaps to get current canonical indexable URLs
-  const sitemaps = [
-    'sitemap-pages.xml',
-    'sitemap-modules.xml',
-    'sitemap-use-cases.xml',
-    'sitemap-resources.xml',
-    'sitemap-blog.xml',
-    'sitemap-locations.xml'
-  ];
-
+  // 2. Read master sitemap to get ALL current clean indexable URLs
+  const sitemapPath = path.join(publicDir, 'sitemap.xml');
   let currentUrls = [];
 
-  for (const sitemapFile of sitemaps) {
-    const sitemapPath = path.join(publicDir, sitemapFile);
-    if (fs.existsSync(sitemapPath)) {
-      const content = fs.readFileSync(sitemapPath, 'utf8');
-      const matches = [...content.matchAll(/<loc>(https:\/\/www\.sidqly\.com[^<]*)<\/loc>/g)];
-      for (const match of matches) {
-        currentUrls.push(match[1].trim());
-      }
+  if (fs.existsSync(sitemapPath)) {
+    const content = fs.readFileSync(sitemapPath, 'utf8');
+    const matches = [...content.matchAll(/<loc>(https:\/\/www\.sidqly\.com[^<]*)<\/loc>/g)];
+    for (const match of matches) {
+      currentUrls.push(match[1].trim());
     }
   }
 
-  // 3. Load historical submissions to prevent spamming
+  console.log(`Discovered ${currentUrls.length} clean URLs in master sitemap.`);
+
+  // 3. Load historical submissions to prevent spamming unless forced
+  const force = process.env.FORCE_INDEXNOW === 'true';
   let history = { submitted: {} };
-  if (fs.existsSync(historyFile)) {
+  if (!force && fs.existsSync(historyFile)) {
     try {
       history = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
     } catch (e) {
@@ -95,22 +91,22 @@ async function runIndexNow() {
     }
   }
 
-  // 4. Identify new or changed URLs (excluding unchanged to prevent API spam)
+  // 4. Identify URLs to submit (batch in chunks of 500)
   const newOrChanged = [];
   const now = new Date().toISOString();
 
   currentUrls.forEach(url => {
-    if (!history.submitted[url]) {
+    if (force || !history.submitted[url]) {
       newOrChanged.push(url);
     }
   });
 
   if (newOrChanged.length === 0) {
-    console.log('ℹ️ No new or updated URLs detected. Skipping submission to prevent API spam.');
+    console.log('ℹ️ All clean URLs have already been submitted to search engines.');
     return;
   }
 
-  console.log(`Submitting ${newOrChanged.length} new/updated URLs to IndexNow...`);
+  console.log(`Submitting ${newOrChanged.length} clean URLs to IndexNow (Bing, Yandex, Seznam, Naver)...`);
 
   // 5. Submit to Bing IndexNow Endpoint
   const indexNowPayload = {
@@ -125,7 +121,7 @@ async function runIndexNow() {
     console.log(`📡 IndexNow API Response Status: ${response.status}`);
 
     if (response.status === 200 || response.status === 202) {
-      console.log('✅ URLs submitted successfully to IndexNow!');
+      console.log('✅ URLs submitted successfully to IndexNow search engines!');
 
       newOrChanged.forEach(url => {
         history.submitted[url] = {
@@ -137,7 +133,7 @@ async function runIndexNow() {
       fs.writeFileSync(historyFile, JSON.stringify(history, null, 2), 'utf8');
       console.log(`Saved submission history to scripts/.indexnow-history.json`);
     } else {
-      console.log(`⚠️ IndexNow submission notice: API returned status code ${response.status}`);
+      console.log(`⚠️ IndexNow submission notice: API returned status code ${response.status}: ${response.body}`);
     }
   } catch (err) {
     console.log('⚠️ IndexNow request notice:', err.message);
