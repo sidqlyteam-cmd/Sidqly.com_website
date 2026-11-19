@@ -14,8 +14,8 @@ export const regions: Region[] = [
     slug: "europe",
     name: "Europe",
     description: "Sidqly is designed to help Islamic organizations across Europe organize giving operations, payment review, and proof approval with dignity-safe workflows.",
-    countries: ["Germany", "France", "Netherlands", "Belgium", "Spain", "Italy", "Sweden", "Norway", "Denmark", "Finland", "Ireland", "Austria", "Switzerland", "Poland", "Portugal"],
-    cities: ["Berlin", "Hamburg", "Munich", "Frankfurt", "Paris", "Marseille", "Lyon", "Amsterdam", "Rotterdam", "Brussels", "Antwerp", "Madrid", "Barcelona", "Milan", "Rome", "Stockholm", "Oslo", "Copenhagen", "Helsinki", "Dublin", "Vienna", "Zurich", "Geneva", "Warsaw", "Lisbon"],
+    countries: ["United Kingdom", "Germany", "France", "Netherlands", "Belgium", "Spain", "Italy", "Sweden", "Norway", "Denmark", "Finland", "Ireland", "Austria", "Switzerland", "Poland", "Portugal"],
+    cities: ["London", "Birmingham", "Manchester", "Berlin", "Hamburg", "Munich", "Frankfurt", "Paris", "Marseille", "Lyon", "Amsterdam", "Rotterdam", "Brussels", "Antwerp", "Madrid", "Barcelona", "Milan", "Rome", "Stockholm", "Oslo", "Copenhagen", "Helsinki", "Dublin", "Vienna", "Zurich", "Geneva", "Warsaw", "Lisbon"],
     problems: [
       "Donations tracked across WhatsApp, Excel, and bank screenshots",
       "Ramadan and Qurbani operations spread across disconnected volunteers",
@@ -28,25 +28,6 @@ export const regions: Region[] = [
     faqs: [
       { question: "Can Sidqly support Islamic organizations in Europe?", answer: "Yes, Sidqly is designed for professional organizations globally, including those across the EU and non-EU European countries." },
       { question: "How does Sidqly handle different European languages?", answer: "The platform's interface is built for clarity, allowing multi-language teams to coordinate effectively." }
-    ]
-  },
-  {
-    slug: "united-kingdom",
-    name: "United Kingdom",
-    description: "Supporting UK mosques and charities with structured giving workflows, audit-ready reporting, and dignity-safe donor updates.",
-    countries: ["England", "Scotland", "Wales", "Northern Ireland"],
-    cities: ["London", "Birmingham", "Manchester", "Bradford", "Leeds", "Leicester", "Glasgow", "Edinburgh", "Cardiff", "Liverpool", "Sheffield", "Luton", "Slough", "Nottingham"],
-    problems: [
-      "Mosque donations spread across cash, bank transfer, and manual notes",
-      "Ramadan and Qurbani campaigns managed through WhatsApp groups",
-      "Trustees and boards needing clearer operational reporting",
-      "Donors asking for professional receipts and impact updates",
-      "Charity request privacy needing strong, modern protection"
-    ],
-    modules: ["Mosque Operations", "Charity Request Intake", "Donor-Safe Updates", "Vendor Fulfillment"],
-    faqs: [
-      { question: "Can UK mosques use Sidqly for Friday collections?", answer: "Yes, Sidqly provides specific tools to log and track collections with board-ready transparency." },
-      { question: "Is Sidqly suitable for UK-based Qurbani providers?", answer: "Absolutely. Our Qurbani module tracks shares from booking to distribution proof." }
     ]
   },
   {
@@ -65,42 +46,6 @@ export const regions: Region[] = [
     modules: ["Zakat Management", "Volunteer Coordination", "Board-Ready Reporting", "Proof Trust Engine"],
     faqs: [
       { question: "Can North American charities use Sidqly for matching gift programs?", answer: "Yes, our reporting module can track corporate-sponsored impact and matching contributions." }
-    ]
-  },
-  {
-    slug: "united-states",
-    name: "United States",
-    description: "Tailored for US Islamic centers and charities handling multi-state fundraising and sensitive community support cases.",
-    countries: ["United States"],
-    cities: ["New York City", "Jersey City", "Chicago", "Houston", "Dallas", "Austin", "Los Angeles", "San Francisco", "San Jose", "Seattle", "Atlanta", "Detroit", "Dearborn", "Washington DC", "Philadelphia", "Miami", "Orlando"],
-    problems: [
-      "Centers running multiple concurrent fundraising campaigns",
-      "Zakat committees handling sensitive community request data",
-      "Donors demanding professional-grade impact updates",
-      "Volunteer teams lacking clear task assignment and verification",
-      "Proof sharing exposing private recipient information"
-    ],
-    modules: ["Campaign Management", "Case Screening", "Dignity-Safe Proof", "Audit Trails"],
-    faqs: [
-      { question: "How does Sidqly help US Zakat committees?", answer: "By providing a private, secure workflow for intake, review, and disbursement tracking." }
-    ]
-  },
-  {
-    slug: "canada",
-    name: "Canada",
-    description: "Helping Canadian Islamic organizations manage large communities with organized workflows and professional donor communication.",
-    countries: ["Canada"],
-    cities: ["Toronto", "Mississauga", "Brampton", "Ottawa", "Montreal", "Laval", "Calgary", "Edmonton", "Vancouver", "Surrey", "Winnipeg", "Regina", "Saskatoon"],
-    problems: [
-      "Charities and mosques managing campaigns across large distances",
-      "Donors expecting high-quality receipts and verified updates",
-      "Ramadan drives needing complex volunteer and delivery logistics",
-      "Zakat cases requiring absolute privacy and dignity",
-      "Teams relying on disconnected spreadsheets and messages"
-    ],
-    modules: ["Regional Distribution", "Fulfillment Tracking", "Donor Experience", "Privacy Gates"],
-    faqs: [
-      { question: "Can Canadian Ramadan food drives use Sidqly?", answer: "Yes, our Ramadan module coordinates ration packs, meal batches, and volunteers in real-time." }
     ]
   },
   {

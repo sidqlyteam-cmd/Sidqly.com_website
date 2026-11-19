@@ -112,6 +112,14 @@ const excludeSet = new Set([
     // Redirects
     '/demo', '/how-sidqly-works', '/trust',
     '/ar', '/ur', '/fr', '/de',
+    '/regions/united-kingdom', '/regions/united-states', '/regions/canada',
+    // Vanity aliases (redirects to modules/solutions/use-cases)
+    '/trust-and-dignity', '/proof-trust-engine', '/verified-giving', '/manual-payment-review',
+    '/donor-safe-impact', '/corporate-reporting', '/zakat-fund-separation',
+    '/qurbani-management-software', '/ramadan-donation-management', '/charity-request-management',
+    '/vendor-fulfillment-platform', '/mosque-donation-management',
+    // Internal conversion completion pages
+    '/thank-you', '/thank-you/demo', '/thank-you/contact', '/thank-you/pricing',
     'not-found', '*', '/:lang'
 ]);
 
@@ -124,6 +132,7 @@ const dynamicPagesRoutes = [
     '/solutions',
     ...solutions.map(s => `/solutions/${s.slug}`),
     '/compare',
+    '/alternatives',
     ...comparisons.map(c => {
         if (c.slug.endsWith('-alternatives')) return `/alternatives/${c.slug}`;
         return `/compare/${c.slug}`;

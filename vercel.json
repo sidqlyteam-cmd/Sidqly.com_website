@@ -48,6 +48,116 @@
       "permanent": true
     },
     {
+      "source": "/regions/united-kingdom",
+      "destination": "/locations/united-kingdom",
+      "permanent": true
+    },
+    {
+      "source": "/regions/united-states",
+      "destination": "/locations/united-states",
+      "permanent": true
+    },
+    {
+      "source": "/regions/canada",
+      "destination": "/locations/canada",
+      "permanent": true
+    },
+    {
+      "source": "/trust-and-dignity",
+      "destination": "/modules/privacy-dignity-controls",
+      "permanent": true
+    },
+    {
+      "source": "/proof-trust-engine",
+      "destination": "/modules/trust-and-dignity-engine",
+      "permanent": true
+    },
+    {
+      "source": "/verified-giving",
+      "destination": "/modules/verified-giving",
+      "permanent": true
+    },
+    {
+      "source": "/manual-payment-review",
+      "destination": "/modules/manual-payment-review",
+      "permanent": true
+    },
+    {
+      "source": "/donor-safe-impact",
+      "destination": "/modules/donor-safe-updates",
+      "permanent": true
+    },
+    {
+      "source": "/corporate-reporting",
+      "destination": "/modules/corporate-csr-zakat",
+      "permanent": true
+    },
+    {
+      "source": "/zakat-fund-separation",
+      "destination": "/modules/zakat-fund-separation",
+      "permanent": true
+    },
+    {
+      "source": "/qurbani-management-software",
+      "destination": "/solutions/qurbani-organizers",
+      "permanent": true
+    },
+    {
+      "source": "/ramadan-donation-management",
+      "destination": "/solutions/ramadan-campaigns",
+      "permanent": true
+    },
+    {
+      "source": "/charity-request-management",
+      "destination": "/modules/charity-request-intake",
+      "permanent": true
+    },
+    {
+      "source": "/vendor-fulfillment-platform",
+      "destination": "/modules/vendor-management",
+      "permanent": true
+    },
+    {
+      "source": "/mosque-donation-management",
+      "destination": "/use-cases/mosques",
+      "permanent": true
+    },
+    {
+      "source": "/compare/:slug(.*-alternatives)",
+      "destination": "/alternatives/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/:slug(sidqly-vs-.*)",
+      "destination": "/compare/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/launchgood",
+      "destination": "/alternatives/launchgood-alternatives",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/donorbox",
+      "destination": "/alternatives/donorbox-alternatives",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/qurbanapp",
+      "destination": "/alternatives/qurbanapp-alternatives",
+      "permanent": true
+    },
+    {
+      "source": "/alternatives/zakat-management-software",
+      "destination": "/alternatives/zakat-management-software-alternatives",
+      "permanent": true
+    },
+    {
+      "source": "/compare/atiyat-box",
+      "destination": "/compare/sidqly-vs-atiyat-box",
+      "permanent": true
+    },
+    {
       "source": "/(ar|ur|fr|de)",
       "destination": "/",
       "permanent": true

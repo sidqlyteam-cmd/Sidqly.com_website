@@ -1,5 +1,6 @@
 import { modules, solutions } from './solutions_modules';
 import { useCases } from './useCases';
+import { comparisons as realComparisons } from './comparisons';
 
 export interface SearchResult {
   id: string;
@@ -210,19 +211,17 @@ export const generateSearchIndex = (): SearchResult[] => {
     });
   });
 
-  const comparisons = [
-    { name: 'Manual Spreadsheets', url: '/compare/manual-spreadsheets' },
-    { name: 'WhatsApp Groups', url: '/compare/whatsapp-coordination' },
-    { name: 'Basic Donation Forms', url: '/compare/basic-donation-form' },
-    { name: 'Generic CRMs', url: '/compare/generic-crm' }
-  ];
-  comparisons.forEach((c, i) => {
+  index.push({ id: 'compare-hub', type: 'Compare', title: 'Compare Sidqly', description: 'Head-to-head comparisons against traditional tools, apps, and manual setups.', url: '/compare' });
+  index.push({ id: 'alternatives-hub', type: 'Compare', title: 'Islamic Charity Software Alternatives', description: 'Objective directory and buyer guides of software alternatives for Islamic charities and mosques.', url: '/alternatives' });
+
+  realComparisons.forEach((c, i) => {
+    const isAlt = c.slug.endsWith('-alternatives');
     index.push({
-      id: `compare-${i}`,
+      id: 'compare-real-' + i,
       type: 'Compare',
-      title: `Sidqly vs ${c.name}`,
-      description: `Understand why leading organizations choose a professional operating platform over ${c.name.toLowerCase()}.`,
-      url: c.url
+      title: c.h1,
+      description: c.metaDescription,
+      url: isAlt ? '/alternatives/' + c.slug : '/compare/' + c.slug
     });
   });
 

@@ -29,10 +29,11 @@ const ThankYou: React.FC<{ type?: 'demo' | 'contact' | 'pricing' }> = ({ type })
   };
 
   const active = content[type || 'default'];
+  const canonicalPath = type ? `/thank-you/${type}` : '/thank-you';
 
   return (
     <>
-      <SEO title="Thank You" canonical="/thank-you" />
+      <SEO title={active.title} description={active.desc} canonical={canonicalPath} />
       <section className="py-20 bg-sidqly-ivory min-h-screen flex items-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-20 h-20 bg-sidqly-green-soft/30 rounded-full flex items-center justify-center text-sidqly-green-deep mx-auto mb-8">

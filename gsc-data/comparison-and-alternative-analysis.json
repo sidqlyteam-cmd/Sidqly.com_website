@@ -1,0 +1,321 @@
+{
+  "generatedAt": "2026-11-19T10:48:35.317Z",
+  "totalComparisons": 13,
+  "directComparisons": 8,
+  "alternativeGuides": 5,
+  "averageWordCount": 460,
+  "averageQualityScore": 90,
+  "pageEvaluations": [
+    {
+      "slug": "sidqly-vs-launchgood",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-launchgood",
+      "wordCount": 478,
+      "titleLength": 63,
+      "descLength": 132,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 92,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "sidqly-vs-donorbox",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-donorbox",
+      "wordCount": 434,
+      "titleLength": 58,
+      "descLength": 124,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 89,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "sidqly-vs-givebutter",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-givebutter",
+      "wordCount": 445,
+      "titleLength": 63,
+      "descLength": 132,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 90,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "sidqly-vs-bloomerang",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-bloomerang",
+      "wordCount": 440,
+      "titleLength": 55,
+      "descLength": 111,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 85,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "sidqly-vs-qurbanapp",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-qurbanapp",
+      "wordCount": 427,
+      "titleLength": 56,
+      "descLength": 124,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 88,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "sidqly-vs-mosque-management",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-mosque-management",
+      "wordCount": 456,
+      "titleLength": 63,
+      "descLength": 112,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 86,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 2,
+      "topMatchedQueries": [
+        "atiyat box management",
+        "management atiyat box"
+      ]
+    },
+    {
+      "slug": "sidqly-vs-custom-software",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-custom-software",
+      "wordCount": 442,
+      "titleLength": 59,
+      "descLength": 139,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 90,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "sidqly-vs-atiyat-box",
+      "type": "Direct Comparison",
+      "url": "/compare/sidqly-vs-atiyat-box",
+      "wordCount": 559,
+      "titleLength": 62,
+      "descLength": 158,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 97,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 2,
+      "topMatchedQueries": [
+        "atiyat box management",
+        "management atiyat box"
+      ]
+    },
+    {
+      "slug": "islamic-charity-software-alternatives",
+      "type": "Alternative Guide",
+      "url": "/alternatives/islamic-charity-software-alternatives",
+      "wordCount": 451,
+      "titleLength": 61,
+      "descLength": 123,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 90,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 2,
+      "topMatchedQueries": [
+        "islamic charity app development company",
+        "eid charity"
+      ]
+    },
+    {
+      "slug": "donorbox-alternatives",
+      "type": "Alternative Guide",
+      "url": "/alternatives/donorbox-alternatives",
+      "wordCount": 409,
+      "titleLength": 56,
+      "descLength": 123,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 87,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "launchgood-alternatives",
+      "type": "Alternative Guide",
+      "url": "/alternatives/launchgood-alternatives",
+      "wordCount": 489,
+      "titleLength": 59,
+      "descLength": 112,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 88,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "qurbanapp-alternatives",
+      "type": "Alternative Guide",
+      "url": "/alternatives/qurbanapp-alternatives",
+      "wordCount": 447,
+      "titleLength": 60,
+      "descLength": 136,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 90,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 0,
+      "topMatchedQueries": []
+    },
+    {
+      "slug": "zakat-management-software-alternatives",
+      "type": "Alternative Guide",
+      "url": "/alternatives/zakat-management-software-alternatives",
+      "wordCount": 498,
+      "titleLength": 63,
+      "descLength": 134,
+      "featureCount": 6,
+      "faqCount": 4,
+      "overallQualityScore": 93,
+      "searchImpressions": 0,
+      "searchClicks": 0,
+      "searchPosition": null,
+      "aiImpressions": 0,
+      "matchedQueriesCount": 2,
+      "topMatchedQueries": [
+        "atiyat box management",
+        "management atiyat box"
+      ]
+    }
+  ],
+  "topCommercialQueries": [
+    {
+      "query": "atiyat box management",
+      "impressions": 325,
+      "position": 8.84
+    },
+    {
+      "query": "management atiyat box",
+      "impressions": 187,
+      "position": 9.63
+    },
+    {
+      "query": "hajj countdown",
+      "impressions": 19,
+      "position": 11
+    },
+    {
+      "query": "islamic charity app development company",
+      "impressions": 10,
+      "position": 69.2
+    },
+    {
+      "query": "praying direction",
+      "impressions": 3,
+      "position": 78.67
+    },
+    {
+      "query": "eid charity",
+      "impressions": 2,
+      "position": 47
+    },
+    {
+      "query": "what direction to pray",
+      "impressions": 2,
+      "position": 88
+    },
+    {
+      "query": "donation for eid",
+      "impressions": 1,
+      "position": 42
+    },
+    {
+      "query": "geo saas",
+      "impressions": 1,
+      "position": 76
+    },
+    {
+      "query": "which direction to pray",
+      "impressions": 1,
+      "position": 85
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "CRITICAL",
+      "topic": "Atiyat Box Management",
+      "insight": "Query 'atiyat box management' + 'management atiyat box' generates 512 impressions at pos ~9.0. Highly commercial intent for mosque/charity donation collection boxes.",
+      "action": "Enhance /modules/manual-payment-review with explicit Atiyat box counting, custody seals, dual-witness opening protocols, and cash reconciliation schema."
+    },
+    {
+      "priority": "HIGH",
+      "topic": "Dedicated /alternatives Index Page",
+      "insight": "/alternatives had no dedicated hub page, causing 404s when crawlers or visitors visited the root directory.",
+      "action": "Create AlternativesIndex.tsx with rich structured cards, comparison table, and complete metadata."
+    },
+    {
+      "priority": "HIGH",
+      "topic": "Clean Comparison vs Alternatives Routing",
+      "insight": "Prevent canonical drift between /compare/launchgood-alternatives and /alternatives/launchgood-alternatives.",
+      "action": "Enforce 301 redirects and strict canonicals: all *-alternatives routes live permanently at /alternatives/*, all sidqly-vs-* live at /compare/*."
+    },
+    {
+      "priority": "MEDIUM",
+      "topic": "Add Atiyat Box vs Digital Kiosk Comparison",
+      "insight": "Mosques are transitioning from physical locked atiyat boxes to hybrid manual & QR-assisted collections.",
+      "action": "Add a comparison entry or dedicated resource section for Atiyat Box vs Modern Giving Operations."
+    }
+  ]
+}

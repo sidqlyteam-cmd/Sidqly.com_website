@@ -36,6 +36,7 @@ const staticPublicPaths: string[] = [
   '/accessibility',
   '/sitemap',
   '/compare',
+  '/alternatives',
   '/solutions',
   '/modules',
   '/use-cases',

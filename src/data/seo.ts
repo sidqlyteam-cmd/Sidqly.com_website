@@ -79,6 +79,19 @@ export const seoData = {
     twitterDescription: "See why modern Islamic organizations choose Sidqly over WhatsApp, spreadsheets, generic CRMs, and basic donation forms.",
     robots: "index,follow" as const
   },
+  alternatives: {
+    slug: "/alternatives",
+    title: "Islamic Charity Software Alternatives | 2026 Directory",
+    description: "Factual, objective comparisons of software alternatives for Islamic charities, mosques, and Zakat committees. Compare features, workflows, and Shariah compliance.",
+    canonical: "/alternatives",
+    focusKeyword: "Islamic charity software alternatives",
+    secondaryKeywords: ["LaunchGood alternatives", "Donorbox alternatives", "Zakat management software alternatives", "QurbanApp alternatives"],
+    ogTitle: `Compare Sidqly vs Alternatives | ${brand.name}`,
+    ogDescription: "Factual, objective comparisons of software alternatives for Islamic charities, mosques, and Zakat committees. Compare features, workflows, and Shariah compliance.",
+    twitterTitle: `Compare Sidqly vs Alternatives | ${brand.name}`,
+    twitterDescription: "Factual, objective comparisons of software alternatives for Islamic charities, mosques, and Zakat committees. Compare features, workflows, and Shariah compliance.",
+    robots: "index,follow" as const
+  },
   trust: {
     slug: "/trust-center",
     title: "Trust Center & Security",

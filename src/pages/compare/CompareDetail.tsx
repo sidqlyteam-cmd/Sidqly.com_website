@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, Navigate } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { brand } from '../../config/brand';
-import { CheckCircle2, XCircle, Shield, ChevronDown } from 'lucide-react';
+import { CheckCircle2, XCircle, Shield, ChevronDown, ArrowRight, Workflow, Layers } from 'lucide-react';
 import { generateBreadcrumbSchema, generateFAQSchema } from '../../lib/schema';
 import { comparisons } from '../../data/comparisons';
 
@@ -13,24 +13,37 @@ const CompareDetail: React.FC = () => {
 
   const comparisonData = comparisons.find(c => c.slug === slug);
 
+  // Canonical redirection for strict URL isolation
+  if (comparisonData && slug) {
+    const shouldBeAlternative = slug.endsWith('-alternatives');
+    if (shouldBeAlternative && location.pathname.startsWith('/compare/')) {
+      return <Navigate to={`/alternatives/${slug}`} replace />;
+    }
+    if (!shouldBeAlternative && location.pathname.startsWith('/alternatives/')) {
+      return <Navigate to={`/compare/${slug}`} replace />;
+    }
+  }
+
   // Fallback for older legacy SEO routes
   const isMosque = slug === 'mosque-website';
   const displayTitle = comparisonData ? comparisonData.h1 : (isMosque ? "Mosque Website vs Donation Operations Platform" : `Sidqly vs ${slug?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Alternative'}`);
   const displayDescription = comparisonData ? comparisonData.metaDescription : (isMosque ? "See why mosques and Islamic charities need more than a basic website to manage verified giving, donor updates, proof approval, and reporting." : "Why professional organizations choose Sidqly for their giving operations.");
   const metaTitle = comparisonData ? comparisonData.metaTitle : `${displayTitle} | ${brand.name}`;
 
-  const isAlternative = location.pathname.startsWith('/alternatives');
+  const isAlternative = location.pathname.startsWith('/alternatives') || (slug?.endsWith('-alternatives') ?? false);
   const canonicalPath = slug ? (isAlternative ? `/alternatives/${slug}` : `/compare/${slug}`) : location.pathname;
   const noindex = false;
+
+  const breadcrumbs = [
+    { name: "Home", item: "/" },
+    isAlternative ? { name: "Alternatives", item: "/alternatives" } : { name: "Compare", item: "/compare" },
+    { name: displayTitle, item: canonicalPath }
+  ];
 
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      generateBreadcrumbSchema([
-        { name: "Home", item: "/" },
-        { name: "Compare", item: "/compare" },
-        { name: displayTitle, item: canonicalPath }
-      ]),
+      generateBreadcrumbSchema(breadcrumbs),
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       ...(comparisonData && comparisonData.faqs.length > 0 ? [generateFAQSchema(comparisonData.faqs)] : [])
@@ -49,6 +62,9 @@ const CompareDetail: React.FC = () => {
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sidqly-green-soft/20 text-sidqly-green-deep text-sm font-semibold mb-6">
+              {isAlternative ? "Software Alternatives Buyer Guide" : "Head-to-Head Comparison"}
+            </div>
             <h1 className="text-3xl md:text-5xl font-extrabold text-sidqly-navy mb-6 leading-tight">{displayTitle}</h1>
             <p className="text-xl text-gray-600">
               {displayDescription}
@@ -75,7 +91,7 @@ const CompareDetail: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <div className="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100 relative">
               <div className="absolute top-0 right-10 -translate-y-1/2 bg-red-100 text-red-700 px-4 py-1 rounded-full text-sm font-bold border border-red-200">
-                Traditional Tool
+                Traditional Approach
               </div>
               <h2 className="text-2xl font-bold text-sidqly-navy mb-8">The Old Way</h2>
               <div className="space-y-6">
@@ -115,13 +131,13 @@ const CompareDetail: React.FC = () => {
       {comparisonData && (
         <section className="py-20 bg-white">
            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-16">Feature & Workflow Comparison</h2>
+              <h2 className="text-3xl font-bold text-sidqly-navy text-center mb-16">Feature & Capability Comparison</h2>
 
               <div className="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm mb-16">
                  <div className="grid grid-cols-3 bg-gray-50 p-4 border-b border-gray-200">
                     <div className="font-bold text-gray-500 uppercase tracking-wider text-xs">Capability</div>
-                    <div className="font-bold text-gray-500 uppercase tracking-wider text-xs">The Old Way</div>
-                    <div className="font-bold text-sidqly-green-emerald uppercase tracking-wider text-xs">Sidqly</div>
+                    <div className="font-bold text-gray-500 uppercase tracking-wider text-xs">Traditional Approach</div>
+                    <div className="font-bold text-sidqly-green-emerald uppercase tracking-wider text-xs">Sidqly Operating System</div>
                  </div>
                  {comparisonData.features.map((feat, i) => (
                     <div key={i} className="grid grid-cols-3 p-4 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors items-center text-sm">
@@ -131,6 +147,35 @@ const CompareDetail: React.FC = () => {
                     </div>
                  ))}
               </div>
+
+              {/* Workflow Section */}
+              {comparisonData.workflow && comparisonData.workflow.length > 0 && (
+                <div className="mb-16">
+                  <h3 className="text-2xl font-bold text-sidqly-navy text-center mb-8 flex items-center justify-center gap-2">
+                    <Workflow className="text-sidqly-green-deep" size={24} /> Step-by-Step Workflow Progression
+                  </h3>
+                  <div className="space-y-4">
+                    {comparisonData.workflow.map((w, idx) => (
+                      <div key={idx} className="bg-gray-50 rounded-2xl p-6 border border-gray-200 grid md:grid-cols-3 gap-4 items-center">
+                        <div className="font-bold text-sidqly-navy text-base">
+                          <span className="inline-block w-6 h-6 rounded-full bg-sidqly-green-soft/50 text-sidqly-green-deep text-center text-xs leading-6 font-bold mr-2">
+                            {idx + 1}
+                          </span>
+                          {w.step}
+                        </div>
+                        <div className="text-xs text-red-700 bg-red-50 p-3 rounded-xl border border-red-100">
+                          <span className="font-bold block uppercase tracking-wider text-[10px] mb-1">Old Way:</span>
+                          {w.old}
+                        </div>
+                        <div className="text-xs text-emerald-900 bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                          <span className="font-bold block uppercase tracking-wider text-[10px] mb-1">The Sidqly Way:</span>
+                          {w.sidqly}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Limitations Section */}
               <div className="mb-16">
@@ -163,7 +208,7 @@ const CompareDetail: React.FC = () => {
                  </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-8 mb-16">
                  <div className="bg-gray-50 p-8 rounded-3xl border border-gray-200">
                     <h3 className="text-xl font-bold text-sidqly-navy mb-4">Trust & Dignity</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{comparisonData.trustConsiderations}</p>
@@ -174,9 +219,40 @@ const CompareDetail: React.FC = () => {
                  </div>
               </div>
 
+              {/* Related Modules and Use Cases */}
+              {(comparisonData.relatedModules?.length > 0 || comparisonData.relatedUseCases?.length > 0) && (
+                <div className="bg-sidqly-ivory p-8 rounded-3xl border border-gray-200 mb-12">
+                  <h3 className="text-lg font-bold text-sidqly-navy mb-4 flex items-center gap-2">
+                    <Layers className="text-sidqly-green-deep" size={20} /> Related Modules & Operational Workflows
+                  </h3>
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {comparisonData.relatedModules?.map((mod, i) => (
+                      <Link
+                        key={i}
+                        to={mod.url}
+                        className="bg-white p-4 rounded-xl border border-gray-200 hover:border-sidqly-green-soft text-sm font-medium text-sidqly-navy hover:text-sidqly-green-emerald transition-all flex items-center justify-between"
+                      >
+                        <span>{mod.title}</span>
+                        <ArrowRight size={14} className="text-gray-400" />
+                      </Link>
+                    ))}
+                    {comparisonData.relatedUseCases?.map((uc, i) => (
+                      <Link
+                        key={i}
+                        to={uc.url}
+                        className="bg-white p-4 rounded-xl border border-gray-200 hover:border-sidqly-green-soft text-sm font-medium text-sidqly-navy hover:text-sidqly-green-emerald transition-all flex items-center justify-between"
+                      >
+                        <span>{uc.title} Use Case</span>
+                        <ArrowRight size={14} className="text-gray-400" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Source References */}
               {comparisonData.sourceReferences && comparisonData.sourceReferences.length > 0 && (
-                 <div className="mt-12 text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                 <div className="mt-8 text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest">
                     Cited Sources: {comparisonData.sourceReferences.join(', ')}
                  </div>
               )}
@@ -189,6 +265,7 @@ const CompareDetail: React.FC = () => {
            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-12">
                <h2 className="text-3xl font-bold text-sidqly-navy mb-4">Frequently Asked Questions</h2>
+               <p className="text-gray-600 text-sm">Objective answers to key questions about operational and software workflows.</p>
              </div>
              <div className="space-y-4">
                {comparisonData.faqs.map((faq, index) => (

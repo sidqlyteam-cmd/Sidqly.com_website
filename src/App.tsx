@@ -80,6 +80,7 @@ import SolutionDetail from './pages/solutions/SolutionDetail';
 import ModuleDetail from './pages/modules/ModuleDetail';
 import CompareIndex from './pages/compare/CompareIndex';
 import CompareDetail from './pages/compare/CompareDetail';
+import AlternativesIndex from './pages/compare/AlternativesIndex';
 import ResourceDetail from './pages/resources/ResourceDetail';
 import RequestOrganization from './pages/resources/RequestOrganization';
 import Solutions from './pages/Solutions';
@@ -184,19 +185,20 @@ const siteRoutes = [
   <Route key="thank-you-contact" path="thank-you/contact" element={<ThankYou type="contact" />} />,
   <Route key="thank-you-pricing" path="thank-you/pricing" element={<ThankYou type="pricing" />} />,
   <Route key="compare" path="compare" element={<CompareIndex />} />,
-  <Route key="trust-and-dignity" path="trust-and-dignity" element={<CompareDetail />} />,
-  <Route key="proof-trust-engine" path="proof-trust-engine" element={<CompareDetail />} />,
-  <Route key="verified-giving" path="verified-giving" element={<CompareDetail />} />,
-  <Route key="manual-payment-review" path="manual-payment-review" element={<CompareDetail />} />,
-  <Route key="donor-safe-impact" path="donor-safe-impact" element={<CompareDetail />} />,
-  <Route key="corporate-reporting" path="corporate-reporting" element={<CompareDetail />} />,
-  <Route key="zakat-fund-separation" path="zakat-fund-separation" element={<CompareDetail />} />,
-  <Route key="qurbani-management-software" path="qurbani-management-software" element={<CompareDetail />} />,
-  <Route key="ramadan-donation-management" path="ramadan-donation-management" element={<CompareDetail />} />,
-  <Route key="charity-request-management" path="charity-request-management" element={<CompareDetail />} />,
-  <Route key="vendor-fulfillment-platform" path="vendor-fulfillment-platform" element={<CompareDetail />} />,
-  <Route key="mosque-donation-management" path="mosque-donation-management" element={<CompareDetail />} />,
+  <Route key="trust-and-dignity" path="trust-and-dignity" element={<Navigate to="/modules/privacy-dignity-controls" replace />} />,
+  <Route key="proof-trust-engine" path="proof-trust-engine" element={<Navigate to="/modules/trust-and-dignity-engine" replace />} />,
+  <Route key="verified-giving" path="verified-giving" element={<Navigate to="/modules/verified-giving" replace />} />,
+  <Route key="manual-payment-review" path="manual-payment-review" element={<Navigate to="/modules/manual-payment-review" replace />} />,
+  <Route key="donor-safe-impact" path="donor-safe-impact" element={<Navigate to="/modules/donor-safe-updates" replace />} />,
+  <Route key="corporate-reporting" path="corporate-reporting" element={<Navigate to="/modules/corporate-csr-zakat" replace />} />,
+  <Route key="zakat-fund-separation" path="zakat-fund-separation" element={<Navigate to="/modules/zakat-fund-separation" replace />} />,
+  <Route key="qurbani-management-software" path="qurbani-management-software" element={<Navigate to="/solutions/qurbani-organizers" replace />} />,
+  <Route key="ramadan-donation-management" path="ramadan-donation-management" element={<Navigate to="/solutions/ramadan-campaigns" replace />} />,
+  <Route key="charity-request-management" path="charity-request-management" element={<Navigate to="/modules/charity-request-intake" replace />} />,
+  <Route key="vendor-fulfillment-platform" path="vendor-fulfillment-platform" element={<Navigate to="/modules/vendor-management" replace />} />,
+  <Route key="mosque-donation-management" path="mosque-donation-management" element={<Navigate to="/use-cases/mosques" replace />} />,
   <Route key="compare-detail" path="compare/:slug" element={<CompareDetail />} />,
+  <Route key="alternatives" path="alternatives" element={<AlternativesIndex />} />,
   <Route key="alternatives-detail" path="alternatives/:slug" element={<CompareDetail />} />,
   <Route key="islamic-utilities" path="islamic-utilities" element={<IslamicUtilitiesPage />} />,
   <Route key="namaz-timings" path="namaz-timings" element={<NamazTimingsPage />} />,
@@ -247,6 +249,9 @@ function App() {
             <Route path="/ur" element={<Navigate to="/" replace />} />
             <Route path="/fr" element={<Navigate to="/" replace />} />
             <Route path="/de" element={<Navigate to="/" replace />} />
+            <Route path="/regions/united-kingdom" element={<Navigate to="/locations/united-kingdom" replace />} />
+            <Route path="/regions/united-states" element={<Navigate to="/locations/united-states" replace />} />
+            <Route path="/regions/canada" element={<Navigate to="/locations/canada" replace />} />
           </Routes>
         </LanguageProvider>
       </Router>

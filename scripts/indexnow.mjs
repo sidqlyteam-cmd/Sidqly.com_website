@@ -51,7 +51,8 @@ async function sendRequest(url, data) {
 async function runIndexNow() {
   console.log('--- INDEXNOW AUTOMATION ---');
 
-  const key = process.env.INDEXNOW_KEY || process.env.VITE_INDEXNOW_KEY || 'sidqlyindexnowkey12345';
+  // Key must be standard 8-128 character hexadecimal (0-9, a-f) per IndexNow protocol specifications
+  const key = process.env.INDEXNOW_KEY || process.env.VITE_INDEXNOW_KEY || 'e83db2a4d566400bae1b49119c3f3421';
 
   if (!key) {
     console.log('⚠️ INDEXNOW_KEY not defined in environment. Skipping IndexNow submittal.');
@@ -91,7 +92,7 @@ async function runIndexNow() {
     }
   }
 
-  // 4. Identify URLs to submit (batch in chunks of 500)
+  // 4. Identify URLs to submit
   const newOrChanged = [];
   const now = new Date().toISOString();
 

@@ -1,20 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
-import { brand } from '../../config/brand';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Scale, Layers } from 'lucide-react';
 import { generateCollectionSchema, generateBreadcrumbSchema } from '../../lib/schema';
 import { seoData } from '../../data/seo';
-
 import { comparisons } from '../../data/comparisons';
 
 const CompareIndex: React.FC = () => {
-
+  const directComparisons = comparisons.filter(c => !c.slug.endsWith('-alternatives'));
+  const alternativeGuides = comparisons.filter(c => c.slug.endsWith('-alternatives'));
 
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      generateCollectionSchema("Compare Sidqly", seoData.compare.description, "/compare"),
+      generateCollectionSchema("Compare Sidqly Giving Operations", seoData.compare.description, "/compare"),
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },
         { name: "Compare", item: "/compare" }
@@ -31,24 +30,75 @@ const CompareIndex: React.FC = () => {
 
       <section className="py-20 bg-sidqly-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sidqly-green-soft/20 text-sidqly-green-deep text-sm font-semibold mb-6">
+            <Scale size={16} /> Objective Platform Evaluations
+          </div>
           <h1 className="text-3xl md:text-6xl font-extrabold text-sidqly-navy mb-8">Compare Sidqly</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
-            Understand why leading organizations choose a professional operating platform over fragmented manual tools.
+            Understand why leading Islamic nonprofits and mosques choose a professional operating platform over fragmented manual tools.
           </p>
 
+          {/* Direct Comparisons Grid */}
+          <div className="text-left mb-8">
+            <h2 className="text-2xl font-bold text-sidqly-navy flex items-center gap-2">
+              <Scale className="text-sidqly-green-deep" size={24} /> Head-to-Head Comparisons
+            </h2>
+            <p className="text-gray-500 text-sm mt-1">Direct operational comparisons against traditional tools, apps, and manual setups.</p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {comparisons.map((item) => (
+            {directComparisons.map((item) => (
               <Link
                 key={item.slug}
                 to={`/compare/${item.slug}`}
                 className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-xl transition-all group text-left flex flex-col"
               >
-                <h3 className="text-2xl font-bold text-sidqly-navy mb-4 group-hover:text-sidqly-green-emerald transition-colors">vs {item.title}</h3>
+                <h3 className="text-2xl font-bold text-sidqly-navy mb-4 group-hover:text-sidqly-green-emerald transition-colors">
+                  {item.h1.replace(" Comparison", "")}
+                </h3>
                 <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-grow">
                   {item.metaDescription}
                 </p>
                 <div className="flex items-center gap-2 text-sidqly-green-deep font-bold text-sm">
-                  View Comparison <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  View Head-to-Head Comparison <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Alternatives & Buyer Guides */}
+          <div className="text-left mb-8">
+            <div className="flex justify-between items-end flex-wrap gap-4">
+              <div>
+                <h2 className="text-2xl font-bold text-sidqly-navy flex items-center gap-2">
+                  <Layers className="text-sidqly-green-deep" size={24} /> Category Alternative Guides
+                </h2>
+                <p className="text-gray-500 text-sm mt-1">Comprehensive buyer guides comparing software architectures and operational requirements.</p>
+              </div>
+              <Link
+                to="/alternatives"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-sidqly-green-deep hover:text-sidqly-green-emerald"
+              >
+                View Full Alternatives Directory <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {alternativeGuides.map((item) => (
+              <Link
+                key={item.slug}
+                to={`/alternatives/${item.slug}`}
+                className="bg-white p-10 rounded-[40px] border border-gray-100 shadow-sm hover:border-sidqly-green-soft hover:shadow-xl transition-all group text-left flex flex-col"
+              >
+                <h3 className="text-2xl font-bold text-sidqly-navy mb-4 group-hover:text-sidqly-green-emerald transition-colors">
+                  {item.h1}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-grow">
+                  {item.metaDescription}
+                </p>
+                <div className="flex items-center gap-2 text-sidqly-green-deep font-bold text-sm">
+                  Read Alternative Guide <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             ))}
@@ -59,7 +109,7 @@ const CompareIndex: React.FC = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-sidqly-navy">Feature Comparison</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-sidqly-navy">Feature Comparison Matrix</h2>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto">Why Sidqly is the purpose-built choice over generic tools.</p>
           </div>
 
@@ -68,7 +118,7 @@ const CompareIndex: React.FC = () => {
               <thead>
                 <tr>
                   <th className="p-4 border-b-2 border-gray-100 font-bold text-gray-500 uppercase tracking-wider text-xs">Workflow Need</th>
-                  <th className="p-4 border-b-2 border-gray-100 font-bold text-gray-500 uppercase tracking-wider text-xs">WhatsApp/Spreadsheets</th>
+                  <th className="p-4 border-b-2 border-gray-100 font-bold text-gray-500 uppercase tracking-wider text-xs">WhatsApp / Paper</th>
                   <th className="p-4 border-b-2 border-gray-100 font-bold text-gray-500 uppercase tracking-wider text-xs">Basic Donation Form</th>
                   <th className="p-4 border-b-2 border-gray-100 font-bold text-gray-500 uppercase tracking-wider text-xs">Generic CRM</th>
                   <th className="p-4 border-b-2 border-sidqly-green-deep font-bold text-sidqly-green-deep uppercase tracking-wider text-xs bg-sidqly-green-soft/10 rounded-t-xl">Sidqly</th>
@@ -76,7 +126,8 @@ const CompareIndex: React.FC = () => {
               </thead>
               <tbody className="text-sm">
                 {[
-                  ["Payment Review", "Manual checking, prone to errors", "Collects payment, skips verification", "Not native", "Hard gate manual review"],
+                  ["Payment Review", "Manual checking, prone to errors", "Collects payment, skips verification", "Not native", "Hard gate manual review queue"],
+                  ["Atiyat Cash Boxes", "Paper counting slips, theft risk", "Not supported", "Basic offline gift entry", "Dual-custody witness & seal tracking"],
                   ["Proof Approval", "Scattered images in chat", "Not available", "File attachments, no workflow", "Multi-stage verification engine"],
                   ["Donor-Safe Updates", "High risk of exposing faces", "Automated generic thank you", "Requires manual scrubbing", "Automated face-blurring"],
                   ["Recipient Privacy", "No boundaries", "N/A", "Basic permissions", "Strict role-based access"],
@@ -100,18 +151,6 @@ const CompareIndex: React.FC = () => {
               </tbody>
             </table>
           </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-white border-y border-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100/60 border border-emerald-200/80 text-slate-900 rounded-[40px] p-10 md:p-16 text-center shadow-sm">
-              <h2 className="text-3xl font-extrabold mb-8 text-slate-900">Ready for professional operations?</h2>
-              <div className="flex flex-wrap justify-center gap-4">
-                 <a href={brand.calendlyUrl} className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-md">Book Comparison Demo</a>
-                 <Link to="/pricing" className="bg-white text-slate-800 border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">View Pricing</Link>
-              </div>
-           </div>
         </div>
       </section>
     </>
