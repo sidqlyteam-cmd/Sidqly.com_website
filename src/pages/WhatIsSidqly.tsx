@@ -33,11 +33,9 @@ const WhatIsSidqly: React.FC = () => {
     "@graph": [
       {
         "@type": "AboutPage",
-        "@id": `${brand.domain}/what-is-sidqly#webpage`,
         "url": `${brand.domain}/what-is-sidqly`,
         "name": `What is Sidqly? | Clear Definition & Operational Boundaries | ${brand.name}`,
         "description": "Learn what Sidqly is, who it is for, the problems it solves, and our strict operational and religious boundaries.",
-        "breadcrumb": { "@id": `${brand.domain}/what-is-sidqly#breadcrumb` }
       },
       generateBreadcrumbSchema([
         { name: "Home", item: "/" },

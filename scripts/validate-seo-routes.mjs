@@ -29,11 +29,21 @@ function checkPageFiles(dir) {
                     hasError = true;
                 }
             }
+            // Check for phantom schema breadcrumb references
+            if (content.includes('#breadcrumb')) {
+                console.error(`❌ Unexpanded #breadcrumb reference found in ${fullPath}`);
+                hasError = true;
+            }
+            // Check for illegal spread of generateBreadcrumbSchema
+            if (content.includes('...generateBreadcrumbSchema')) {
+                console.error(`❌ Malformed ...generateBreadcrumbSchema spread found in ${fullPath}`);
+                hasError = true;
+            }
         }
     }
 }
 
-// 1. Check pages for canonicals
+// 1. Check pages for canonicals and schema integrity
 checkPageFiles(pagesDir);
 
 // 2. Check sitemaps
@@ -43,6 +53,7 @@ const requiredRoutes = [
     'https://www.sidqly.com/pricing',
     'https://www.sidqly.com/resources',
     'https://www.sidqly.com/compare',
+    'https://www.sidqly.com/alternatives',
     'https://www.sidqly.com/trust-center',
     'https://www.sidqly.com/modules/manual-payment-review'
 ];
@@ -72,6 +83,10 @@ if (!fs.existsSync(path.join(publicDir, 'robots.txt'))) {
 if (!fs.existsSync(path.join(publicDir, 'llms.txt'))) {
     console.error(`❌ llms.txt not found`);
     hasError = true;
+}
+
+if (!hasError) {
+    console.log(`✅ SEO & Schema Validation Passed: all pages, canonicals, sitemaps, and breadcrumbs are valid.`);
 }
 
 process.exit(hasError ? 1 : 0);

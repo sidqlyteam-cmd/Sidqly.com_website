@@ -132,7 +132,7 @@ export const generateBreadcrumbSchema = (items: { name: string; item: string }[]
     "@type": "ListItem",
     "position": index + 1,
     "name": item.name,
-    "item": `${brand.domain}${item.item}`
+    "item": item.item.startsWith("http") ? item.item : `${brand.domain}${item.item.startsWith("/") ? item.item : "/" + item.item}`
   }))
 });
 

@@ -9,21 +9,27 @@ import { trackEvent } from '../lib/analytics';
 const Contact: React.FC = () => {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": brand.name,
-      "url": brand.domain,
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": brand.email,
-        "contactType": "customer service"
-      }
-    },
-    ...generateBreadcrumbSchema([
-      { name: "Home", item: "/" },
-      { name: "Contact", item: "/contact" }
-    ])
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "name": `Contact ${brand.name}`,
+        "url": `${brand.domain}/contact`,
+        "mainEntity": {
+          "@type": "Organization",
+          "name": brand.name,
+          "url": brand.domain,
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": brand.email,
+            "contactType": "customer service"
+          }
+        }
+      },
+      generateBreadcrumbSchema([
+        { name: "Home", item: "/" },
+        { name: "Contact", item: "/contact" }
+      ])
+    ]
   };
 
   return (
