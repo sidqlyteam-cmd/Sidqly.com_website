@@ -10,7 +10,7 @@ export const faqs: FAQ[] = [
   { category: "General", question: "Who is Sidqly for?", answer: "Sidqly is built for mosques, registered Islamic charities, Zakat committees, Qurbani providers, Ramadan food drives, community welfare teams, and corporate CSR sponsors who manage giving and impact operations." },
   { category: "General", question: "Is Sidqly only for one country?", answer: "No, Sidqly is a global standard and is used by organizations internationally to track giving operations." },
   { category: "General", question: "Can pages be translated by browser tools?", answer: "Yes, Sidqly is designed to be fully compatible with standard browser translation tools for accessibility in different regions." },
-  { category: "General", question: "How do we book a demo?", answer: "You can book a demo directly with our team via our Calendly link available throughout the website." },
+  { category: "General", question: "How do we book a demo?", answer: "You can submit an inquiry directly with our team via our organization inquiry form." },
   { category: "General", question: "How does the inquiry form work?", answer: "The inquiry form allows you to provide details about your organization's specific needs before we meet, ensuring our demo is perfectly tailored to your workflows." },
 
   // 2. Pricing

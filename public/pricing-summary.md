@@ -49,7 +49,7 @@ A: Yes. Many organizations start with a single workflow pilot such as manual pay
 ## Purchase Flow
 1. Compare plans on sidqly.com/pricing
 2. Fill the Inquiry Form (Google Form)
-3. Book a Demo (Calendly) if needed
+3. Direct Organization Inquiry Form if needed
 4. Choose plan and confirm modules and rollout scope.
 5. After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions.
 6. The Sidqly team manually reviews and verifies your payment.

@@ -3,13 +3,14 @@ export const brand = {
   tagline: "Verified giving. Protected dignity. Clear impact.",
   positioning: "Sidqly is a premium global Islamic operating platform for verified giving, manual payment review, proof approval, and dignity-safe impact updates. We help organizations manage Zakat, Qurbani, Ramadan, and community aid with board-ready reporting.",
   domain: "https://www.sidqly.com",
-  email: "team@sidqly.com",
-  calendlyUrl: "https://calendly.com/d/dvzs-3zf-cgz",
-  inquiryFormUrl: "https://forms.gle/bvSMog9pw2Ri4kMt9",
+  email: "sidqly.team@gmail.com",
+  inquiryEmail: "sidqly.team@gmail.com",
+  calendlyUrl: "/purchase#inquiry",
+  inquiryFormUrl: "/purchase#inquiry",
   links: {
-    calendly: "https://calendly.com/d/dvzs-3zf-cgz",
-    inquiryForm: "https://forms.gle/bvSMog9pw2Ri4kMt9",
-    emailInquiry: "mailto:team@sidqly.com?subject=Sidqly%20Inquiry"
+    calendly: "/purchase#inquiry",
+    inquiryForm: "/purchase#inquiry",
+    emailInquiry: "mailto:sidqly.team@gmail.com?subject=Sidqly%20Organization%20Inquiry"
   },
   payment: {
     method: "Shared after plan confirmation",

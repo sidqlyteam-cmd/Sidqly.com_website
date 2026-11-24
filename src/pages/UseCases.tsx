@@ -50,7 +50,7 @@ const UseCases: React.FC = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-md">
-               Book Demo <ArrowRight size={18} />
+               Organization Inquiry <ArrowRight size={18} />
              </a>
              <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 text-slate-800 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">
                Fill Inquiry Form
@@ -233,7 +233,7 @@ const UseCases: React.FC = () => {
           <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">Join the organizations that trust Sidqly to handle their manual review, proof approval, and reporting workflows.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all flex items-center justify-center gap-2 shadow-md">
-               Book a Demo <ArrowRight size={18} />
+               Organization Inquiry <ArrowRight size={18} />
              </a>
              <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 text-slate-800 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm text-center">
                Fill Inquiry Form

@@ -25,7 +25,7 @@ const AskSidqly: React.FC = () => {
 
                 <section>
                    <h3 className="text-2xl font-bold text-sidqly-navy">Can we book a demo first?</h3>
-                   <p>Absolutely. You can book a demo via our <strong>Calendly link</strong>. We'll walk you through the modules that matter most to your team, whether it's the Proof Trust Engine or Zakat Fund Separation.</p>
+                   <p>Absolutely. You can submit an inquiry via our <strong>organization inquiry form</strong>. We'll walk you through the modules that matter most to your team, whether it's the Proof Trust Engine or Zakat Fund Separation.</p>
                 </section>
 
                 <section>

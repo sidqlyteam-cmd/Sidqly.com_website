@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import SEO from '../components/SEO';
-import { brand } from '../config/brand';
 import { pricing } from '../data/pricing';
-import { Check, Info, XCircle, Plus, Layout, PieChart, CheckCircle2, Calendar, FileText } from 'lucide-react';
+import { Check, Info, XCircle, Plus, Layout, PieChart, CheckCircle2, FileText, Globe, Heart, BookOpen, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { generateSoftwareAppSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
@@ -10,13 +9,14 @@ import { seoData } from '../data/seo';
 import { trackEvent } from '../lib/analytics';
 
 const customPricingFaqs = [
-  { question: "Which Sidqly plan should our organization choose?", answer: "Start with the Starter or Growth plan depending on the number of modules you need (e.g. Qurbani vs daily Sadaqah campaigns). Most organizations start with a pilot." },
+  { question: "Can our mosque or organization get its own dedicated subdomain?", answer: "Yes! Every organization on Sidqly receives its own dedicated, branded subdomain (e.g. yourmosque.sidqly.com) with automated SSL encryption. Growth and Premium tiers also support fully custom domains (e.g. donate.yourmosque.org)." },
+  { question: "How do specialized modules like Matrimonial or Hifz Academy link together?", answer: "All modules live inside your single master Sidqly dashboard. When a community member donates to your mosque, registers for the Matrimonial portal, or enrolls their child in the Hifz Academy, they use a single unified account. Meanwhile, your committee has separate accounting ledgers, permissions, and payout settings for each service." },
+  { question: "Can we subscribe to Matrimonial or Hifz Academy separately?", answer: "Yes! Any organization on Sidqly can add modular subscriptions (such as Matrimonial for $29/mo or Hifz Academy for $39/mo) at any time. They bill through the same Paddle recurring invoice and activate instantly under your subdomain." },
+  { question: "Which Sidqly plan should our organization choose?", answer: "Start with the Starter plan ($29/mo) if you manage a single mosque or community project. If you manage multiple entities or need custom domains and AAOIFI Zakat fund separation, choose Growth ($99/mo) or Premium ($199/mo for up to 10 organizations)." },
   { question: "Can we start with one workflow first?", answer: "Yes. Many organizations start with a single workflow pilot such as manual payment verification, before expanding." },
   { question: "Is onboarding included?", answer: "Yes, standard onboarding is included with options for priority implementation and launch setup support." },
   { question: "Is data migration available?", answer: "Yes, we provide data mapping tools to help you move away from scattered Excel sheets and WhatsApp groups." },
-  { question: "Can Sidqly support seasonal campaigns like Ramadan and Qurbani?", answer: "Absolutely. Sidqly handles peak giving seasons with dedicated workflows for Qurbani lifecycles and Ramadan ration packs." },
-  { question: "Do we need technical staff to use Sidqly?", answer: "No, Sidqly is designed to be user-friendly for operations, finance, and volunteer teams without requiring technical expertise." },
-  { question: "Can we request a demo before purchasing?", answer: "Yes, we encourage you to book a demo via Calendly to see the workflows in action before committing." }
+  { question: "Can Sidqly support seasonal campaigns like Ramadan and Qurbani?", answer: "Absolutely. Sidqly handles peak giving seasons with dedicated workflows for Qurbani lifecycles and Ramadan ration packs." }
 ];
 
 const Pricing: React.FC = () => {
@@ -85,7 +85,7 @@ const Pricing: React.FC = () => {
           </div>
 
           {/* Guided Pilot Conversion Banner */}
-          <div className="max-w-4xl mx-auto mb-16 bg-gradient-to-r from-emerald-50 via-teal-50 to-white text-slate-900 rounded-[32px] p-8 md:p-12 border border-emerald-200/80 flex flex-col md:flex-row gap-8 items-center justify-between shadow-sm">
+          <div className="max-w-4xl mx-auto mb-10 bg-gradient-to-r from-emerald-50 via-teal-50 to-white text-slate-900 rounded-[32px] p-8 md:p-12 border border-emerald-200/80 flex flex-col md:flex-row gap-8 items-center justify-between shadow-sm">
              <div className="text-left flex-1">
                 <span className="inline-block bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Risk-Free Launch Offer</span>
                 <h3 className="text-2xl font-bold mb-2 text-slate-900">Want to try Sidqly first?</h3>
@@ -97,6 +97,19 @@ const Pricing: React.FC = () => {
                 <Link to="/guided-pilot" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all text-sm inline-block shadow-md">
                    Explore Guided Pilot
                 </Link>
+             </div>
+          </div>
+
+          {/* Subdomain Feature Callout */}
+          <div className="max-w-4xl mx-auto mb-16 bg-white rounded-2xl p-6 border border-emerald-100 shadow-sm flex flex-col sm:flex-row items-center gap-4 text-left">
+             <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                <Globe size={24} />
+             </div>
+             <div className="flex-1">
+                <h4 className="font-bold text-sidqly-navy text-base">Every organization gets its own dedicated subdomain</h4>
+                <p className="text-gray-500 text-xs mt-1 leading-relaxed">
+                   Instantly launch on <span className="font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-semibold">https://yourmosque.sidqly.com</span> with free automated SSL, isolated donor tax receipts, and direct bank payouts. Growth & Premium also support your custom domain (e.g. <span className="font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-semibold">donate.yourcharity.org</span>).
+                </p>
              </div>
           </div>
 
@@ -252,6 +265,58 @@ const Pricing: React.FC = () => {
                ))}
             </div>
 
+            {/* Modular Community Apps Section */}
+            <div className="mb-24">
+               <div className="text-center max-w-3xl mx-auto mb-12">
+                  <span className="inline-block bg-sidqly-green-soft/30 text-sidqly-green-deep text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+                     Modular App Ecosystem
+                  </span>
+                  <h3 className="text-2xl md:text-4xl font-extrabold text-sidqly-navy mb-4">
+                     Specialized modules for your community needs
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                     Need a Matrimonial service, a Hifz Quran Academy, or a Janazah funeral fund? Add them to any base plan as modular subscriptions. They connect directly to your master admin dashboard with unified community logins.
+                  </p>
+               </div>
+
+               <div className="grid md:grid-cols-3 gap-6">
+                  {pricing.modules.map((mod, i) => {
+                     const Icon = mod.name.includes('Matrimonial') ? Heart : mod.name.includes('Hifz') ? BookOpen : ShieldCheck;
+                     const iconColor = mod.name.includes('Matrimonial') ? 'text-rose-500 bg-rose-50' : mod.name.includes('Hifz') ? 'text-emerald-700 bg-emerald-50' : 'text-teal-700 bg-teal-50';
+
+                     return (
+                        <div key={i} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm flex flex-col hover:shadow-lg transition-all">
+                           <div className="flex justify-between items-start mb-4">
+                              <div className="flex items-center gap-2">
+                                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${iconColor}`}>
+                                    <Icon size={18} />
+                                 </div>
+                                 <span className="inline-block bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                                    {mod.badge}
+                                 </span>
+                              </div>
+                              <div className="text-right">
+                                 <span className="text-2xl font-extrabold text-sidqly-navy">{mod.price}</span>
+                                 <span className="text-xs text-gray-400 block">or {mod.annualPrice}</span>
+                              </div>
+                           </div>
+                           <h4 className="text-lg font-bold text-sidqly-navy mb-2">{mod.name}</h4>
+                           <p className="text-gray-500 text-xs mb-6 leading-relaxed flex-grow">{mod.description}</p>
+
+                           <div className="space-y-2.5 border-t border-gray-50 pt-6">
+                              {mod.features.map((feat, fIdx) => (
+                                 <div key={fIdx} className="flex items-start gap-2.5 text-xs text-gray-600">
+                                    <Check size={14} className="text-sidqly-green-emerald mt-0.5 shrink-0" />
+                                    <span>{feat}</span>
+                                 </div>
+                              ))}
+                           </div>
+                        </div>
+                     );
+                  })}
+               </div>
+            </div>
+
             <div className="bg-white p-10 md:p-16 rounded-[40px] border border-gray-100 shadow-sm text-center max-w-4xl mx-auto">
                <h3 className="text-2xl font-bold text-sidqly-navy mb-4">Optional Add-ons</h3>
                <p className="text-gray-500 mb-8">Available after review during your onboarding process.</p>
@@ -307,7 +372,7 @@ const Pricing: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-6 mt-8">
              <Link to="/modules" className="text-sidqly-green-deep font-bold underline">Explore Modules</Link>
              <Link to="/use-cases" className="text-sidqly-green-deep font-bold underline">View Use Cases</Link>
-             <Link to="/book-demo" className="text-sidqly-green-deep font-bold underline">Book a Demo</Link>
+             <Link to="/purchase#inquiry" className="text-sidqly-green-deep font-bold underline">Organization Inquiry</Link>
              <Link to="/contact" className="text-sidqly-green-deep font-bold underline">Contact Us</Link>
           </div>
         </div>
@@ -320,16 +385,13 @@ const Pricing: React.FC = () => {
            <p className="text-lg text-slate-600 mb-12 leading-relaxed">
               Review our plans, fill the inquiry form, and our team will guide you through the manual review and onboarding process to ensure Sidqly is the perfect fit.
            </p>
-           <div className="grid md:grid-cols-3 gap-6">
+           <div className="grid sm:grid-cols-2 gap-6 max-w-xl mx-auto">
               <Link to="/purchase" className="bg-emerald-600 text-white p-6 rounded-2xl font-bold hover:bg-emerald-700 transition-all flex flex-col items-center gap-3 shadow-md">
                  <Layout size={24} /> <span>How to Purchase</span>
               </Link>
-              <a href={brand.calendlyUrl} className="bg-white border border-slate-200 text-slate-800 p-6 rounded-2xl font-bold hover:bg-slate-50 hover:border-slate-300 transition-all flex flex-col items-center gap-3 shadow-sm">
-                 <Calendar size={24} /> <span>Book Demo</span>
-              </a>
-              <a href={brand.inquiryFormUrl} className="bg-white border border-slate-200 text-slate-800 p-6 rounded-2xl font-bold hover:bg-slate-50 hover:border-slate-300 transition-all flex flex-col items-center gap-3 shadow-sm">
-                 <FileText size={24} /> <span>Fill Inquiry Form</span>
-              </a>
+              <Link to="/purchase#inquiry" className="bg-white border border-slate-200 text-slate-800 p-6 rounded-2xl font-bold hover:bg-slate-50 hover:border-slate-300 transition-all flex flex-col items-center gap-3 shadow-sm">
+                 <FileText size={24} /> <span>Submit Organization Inquiry</span>
+              </Link>
            </div>
         </div>
       </section>

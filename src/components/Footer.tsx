@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { brand } from '../config/brand';
-import { Mail, Calendar, FileText, Globe, Shield, Search } from 'lucide-react';
+import { Mail, FileText, Globe, Shield, Search } from 'lucide-react';
 import { trackEvent } from '../lib/analytics';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -68,20 +68,13 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="space-y-3.5">
-              <a
-                href={brand.calendlyUrl}
-                onClick={() => trackEvent('demo_submit', { cta_source: 'footer_links_demo' })}
+              <Link
+                to={getLocalizedPath('/purchase#inquiry')}
+                onClick={() => trackEvent('inquiry_click', { cta_source: 'footer_links_inquiry' })}
                 className="flex items-center gap-2.5 text-sidqly-green-deep hover:text-sidqly-green-emerald transition-colors text-sm font-bold"
               >
-                <Calendar size={18} /> {t('common.bookDemo', 'Book a Demo')}
-              </a>
-              <a
-                href={brand.inquiryFormUrl}
-                onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'footer_links_inquiry' })}
-                className="flex items-center gap-2.5 text-sidqly-green-deep hover:text-sidqly-green-emerald transition-colors text-sm font-bold"
-              >
-                <FileText size={18} /> Fill Inquiry Form
-              </a>
+                <FileText size={18} /> Organization Inquiry Form
+              </Link>
               <a
                 href={`mailto:${brand.email}`}
                 onClick={() => trackEvent('contact_submit', { cta_source: 'footer_links_email' })}
@@ -197,24 +190,12 @@ const Footer: React.FC = () => {
               >
                  Request Your Organization
               </Link>
-              <a
-                href={brand.links.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent('demo_submit', { cta_source: 'footer_bottom_demo' })}
-                className="bg-slate-50 text-slate-800 border border-slate-200 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-all text-sm"
+              <Link
+                to={getLocalizedPath('/purchase#inquiry')}
+                className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-all text-sm shadow-xs"
               >
-                 {t('common.bookDemo', 'Book Demo')}
-              </a>
-              <a
-                href={brand.links.inquiryForm}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent('guided_pilot_apply', { cta_source: 'footer_bottom_inquiry' })}
-                className="bg-slate-50 text-slate-800 border border-slate-200 px-6 py-3 rounded-xl font-bold hover:bg-slate-100 transition-all text-sm"
-              >
-                 Fill Inquiry Form
-              </a>
+                Organization Inquiry
+              </Link>
            </div>
         </div>
 

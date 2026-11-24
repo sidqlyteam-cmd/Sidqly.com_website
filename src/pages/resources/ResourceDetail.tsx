@@ -171,7 +171,7 @@ const ResourceDetail: React.FC = () => {
                    </div>
                    <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
                       <a href={brand.calendlyUrl} className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-xl font-bold hover:shadow-md transition-all text-center">
-                         Book Demo
+                         Organization Inquiry
                       </a>
                       <a href={brand.inquiryFormUrl} className="bg-white border border-slate-200 text-slate-800 px-8 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all text-center shadow-xs">
                          Fill Inquiry Form

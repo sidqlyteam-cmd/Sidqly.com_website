@@ -6,6 +6,6 @@ Sidqly is a web-based operating platform for Islamic organizations. It helps tea
 Sidqly's Trust Center highlights our commitment to Dignity-Safe workflows, automated face-blurring, and secure, non-indexed donor impact links. We ensure giving doesn't compromise recipient dignity while satisfying organizational audit needs.
 
 ## Contact
-- Book a Demo: https://calendly.com/d/dvzs-3zf-cgz
+- Direct Organization Inquiry Form: https://www.sidqly.com/purchase#inquiry
 - Inquiry Form: https://forms.gle/bvSMog9pw2Ri4kMt9
 - Email: team@sidqly.com

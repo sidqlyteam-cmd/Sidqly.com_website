@@ -187,14 +187,12 @@ const Home: React.FC = () => {
                 Apply for Guided Pilot
               </Link>
 
-              <a
-                href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/purchase#inquiry"
                 className="bg-white/10 text-white border border-white/20 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white/20 transition-all backdrop-blur-sm text-center"
               >
-                Book a Demo
-              </a>
+                Organization Inquiry
+              </Link>
 
               <Link
                 to="/request-organization"
@@ -1318,7 +1316,7 @@ const Home: React.FC = () => {
               to="/book-demo"
               className="text-sidqly-navy font-bold underline hover:text-sidqly-green-deep"
             >
-              Book Demo
+              Organization Inquiry
             </Link>
           </div>
         </div>
@@ -1395,7 +1393,7 @@ const Home: React.FC = () => {
               <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Layout size={24} />
               </div>
-              <span>Book Demo</span>
+              <span>Organization Inquiry</span>
             </a>
 
             <Link

@@ -7,8 +7,8 @@ const getDeviceType = (): 'mobile' | 'tablet' | 'desktop' => {
 };
 
 export const trackEvent = (
-  eventName: 'demo_submit' | 'guided_pilot_apply' | 'pricing_cta_click' | 'contact_submit' | 'email_capture',
-  params: { cta_source: string; [key: string]: unknown }
+  eventName: 'demo_submit' | 'guided_pilot_apply' | 'pricing_cta_click' | 'contact_submit' | 'email_capture' | 'inquiry_click' | 'inquiry_form_submit',
+  params: { cta_source?: string; [key: string]: unknown }
 ) => {
   if (typeof window === 'undefined') return;
 

@@ -222,7 +222,7 @@ const BlogPost: React.FC = () => {
                       Sidqly helps Islamic organizations manage manual payment review, proof approval, and dignity-safe donor updates in one centralized platform.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-3">
-                       <a href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald hover:bg-emerald-500 text-white px-6 py-3 rounded-xl font-bold transition-all text-sm shadow-sm">Book a Demo</a>
+                       <Link to="/purchase#inquiry" className="bg-sidqly-green-emerald hover:bg-emerald-500 text-white px-6 py-3 rounded-xl font-bold transition-all text-sm shadow-sm">Organization Inquiry</Link>
                        <Link to="/features" className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3 rounded-xl font-bold transition-all text-sm">Explore Features</Link>
                     </div>
                  </div>
@@ -276,7 +276,7 @@ const BlogPost: React.FC = () => {
               Join leading Islamic charities, mosques, and relief organizations using Sidqly to manage their giving with trust, proof, and clarity.
             </p>
             <div className="flex flex-wrap justify-center gap-3.5">
-              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald hover:bg-emerald-500 text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-md text-sm">Book a Demo</a>
+              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald hover:bg-emerald-500 text-white px-8 py-3.5 rounded-xl font-bold transition-all shadow-md text-sm">Organization Inquiry</a>
               <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-sidqly-navy hover:bg-slate-100 px-8 py-3.5 rounded-xl font-bold transition-all text-sm">Fill Inquiry Form</a>
             </div>
           </section>

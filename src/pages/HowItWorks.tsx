@@ -178,7 +178,7 @@ const HowItWorks: React.FC = () => {
               Book a Sidqly demo to discuss your specific giving operations and reporting needs.
            </p>
            <div className="flex flex-wrap justify-center gap-4">
-              <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-10 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all shadow-lg">Book Demo</a>
+              <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-10 py-4 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy transition-all shadow-lg">Organization Inquiry</a>
               <Link to="/pricing" className="border border-white/20 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-all">View Pricing</Link>
            </div>
         </div>

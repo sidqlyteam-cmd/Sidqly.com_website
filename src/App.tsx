@@ -106,7 +106,7 @@ const NotFound = () => (
       <p className="text-gray-600 mb-12 max-w-md mx-auto">The page you are looking for may have moved. You can return to the homepage, explore Sidqly features, book a demo, or contact the Sidqly team.</p>
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <Link to="/" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Go Home</Link>
-        <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Book Demo</a>
+        <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Organization Inquiry</a>
         <a href={brand.inquiryFormUrl} className="bg-white border border-gray-200 px-8 py-4 rounded-xl font-bold text-sidqly-navy hover:bg-gray-50 transition-all">Fill Form</a>
       </div>
     </div>

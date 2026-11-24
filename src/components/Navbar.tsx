@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SearchModal from './search/SearchModal';
 import { Menu, X, ChevronDown, Search } from 'lucide-react';
-import { brand } from '../config/brand';
 import { trackEvent } from '../lib/analytics';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -242,15 +241,13 @@ const Navbar: React.FC = () => {
                 >
                   {t('common.applyGuidedPilot', 'Guided Pilot')}
                 </Link>
-                <a
-                  href={brand.calendlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackEvent('demo_submit', { cta_source: 'navbar_desktop_cta' })}
+                <Link
+                  to={getLocalizedPath('/purchase#inquiry')}
+                  onClick={() => trackEvent('inquiry_click', { cta_source: 'navbar_desktop_cta' })}
                   className="bg-white border border-slate-200 text-sidqly-navy hover:bg-slate-50 px-3.5 2xl:px-4 py-2 rounded-xl font-bold text-xs 2xl:text-sm hover:shadow-xs transition-all whitespace-nowrap shrink-0"
                 >
-                  {t('common.bookDemo', 'Book a Demo')}
-                </a>
+                  Organization Inquiry
+                </Link>
               </div>
             </div>
 
@@ -320,18 +317,16 @@ const Navbar: React.FC = () => {
                 >
                   {t('common.applyGuidedPilot', 'Apply for Guided Pilot')}
                 </Link>
-                <a
-                  href={brand.calendlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={getLocalizedPath('/purchase#inquiry')}
                   onClick={() => {
-                    trackEvent('demo_submit', { cta_source: 'navbar_mobile_menu_demo' });
+                    trackEvent('inquiry_click', { cta_source: 'navbar_mobile_menu_inquiry' });
                     setIsOpen(false);
                   }}
                   className="block w-full text-center bg-white border border-slate-200 text-sidqly-navy py-3.5 rounded-xl font-bold hover:bg-slate-50 transition-all"
                 >
-                  {t('common.bookDemo', 'Book a Demo')}
-                </a>
+                  Organization Inquiry
+                </Link>
               </div>
             </div>
           </div>

@@ -208,7 +208,7 @@ const WhatIsSidqly: React.FC = () => {
             <h2 className="text-3xl font-bold mb-6">Ready to learn more?</h2>
             <p className="text-lg text-gray-300 mb-10">Schedule a demo with our team to discuss your current workflows.</p>
             <div className="flex flex-wrap justify-center gap-4">
-               <Link to="/book-demo" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Book Demo</Link>
+               <Link to="/book-demo" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Organization Inquiry</Link>
                <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">Fill Inquiry Form</a>
             </div>
          </div>

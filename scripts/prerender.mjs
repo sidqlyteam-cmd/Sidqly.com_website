@@ -186,18 +186,18 @@ async function runPrerender() {
         let targetFile;
 
         if (route === '/') {
-          targetFile = path.join(distDir, 'index.html');
+          fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf8');
         } else {
-          targetFile = path.join(distDir, `${route.slice(1)}.html`);
+          const flatFile = path.join(distDir, `${route.slice(1)}.html`);
+          const flatDir = path.dirname(flatFile);
+          if (!fs.existsSync(flatDir)) fs.mkdirSync(flatDir, { recursive: true });
+          fs.writeFileSync(flatFile, html, 'utf8');
+
+          const folderFile = path.join(distDir, route.slice(1), 'index.html');
+          const folderDir = path.dirname(folderFile);
+          if (!fs.existsSync(folderDir)) fs.mkdirSync(folderDir, { recursive: true });
+          fs.writeFileSync(folderFile, html, 'utf8');
         }
-
-        const dir = path.dirname(targetFile);
-
-        if (!fs.existsSync(dir)) {
-          fs.mkdirSync(dir, { recursive: true });
-        }
-
-        fs.writeFileSync(targetFile, html, 'utf8');
 
         pageUsageCount++;
         completed++;

@@ -17,8 +17,8 @@ const LocationCtaBlock: React.FC<LocationCtaBlockProps> = ({
   pageType,
   customHeading,
   customSubtitle,
-  primaryCtaText = 'Book a Demo',
-  primaryCtaHref = '/book-demo',
+  primaryCtaText = 'Organization Inquiry',
+  primaryCtaHref = '/purchase#inquiry',
   secondaryCtaText = 'See How Sidqly Works',
   secondaryCtaHref = '/product-tour'
 }) => {

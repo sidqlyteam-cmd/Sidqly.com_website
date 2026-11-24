@@ -107,7 +107,7 @@ const WhySidqly: React.FC = () => {
           <div className="text-center">
              <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Ready to see the difference?</h2>
              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/book-demo" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Book Demo Walkthrough</Link>
+                <Link to="/book-demo" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Organization Inquiry</Link>
                 <Link to="/what-is-sidqly" className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">What is Sidqly?</Link>
              </div>
           </div>

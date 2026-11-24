@@ -371,8 +371,8 @@ const ModuleDetail: React.FC = () => {
                   </p>
 
                   <div className="flex flex-wrap gap-4">
-                    <a href={brand.links?.calendly || "https://calendly.com/d/dvzs-3zf-cgz"} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all hover:-translate-y-1 text-center">
-                      Book Demo
+                    <a href={brand.links?.calendly || "/purchase#inquiry"} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all hover:-translate-y-1 text-center">
+                      Organization Inquiry
                     </a>
                     <a href={brand.links?.inquiryForm || "/inquiry-form"} target="_blank" rel="noopener noreferrer" className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all hover:-translate-y-1 text-center">
                       Fill Inquiry Form

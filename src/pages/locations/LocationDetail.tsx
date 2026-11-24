@@ -170,11 +170,11 @@ const LocationDetail: React.FC = () => {
             {/* Hero Action CTAs */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8 w-full max-w-md">
               <Link
-                to={getLocalizedPath('/book-demo')}
+                to={getLocalizedPath('/purchase#inquiry')}
                 className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald text-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sidqly-navy transition-all shadow-lg text-center"
               >
                 <Calendar size={18} />
-                {t('common.bookDemo', 'Book a Demo')}
+                {t('common.bookDemo', 'Organization Inquiry')}
               </Link>
 
               <Link
@@ -356,11 +356,11 @@ const LocationDetail: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">
             <Link
-              to={getLocalizedPath('/book-demo')}
+              to={getLocalizedPath('/purchase#inquiry')}
               className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald hover:bg-white hover:text-sidqly-navy text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
             >
               <Calendar size={18} />
-              {t('common.bookDemo', 'Book a Demo')}
+              {t('common.bookDemo', 'Organization Inquiry')}
             </Link>
 
             <Link

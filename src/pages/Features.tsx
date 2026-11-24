@@ -149,7 +149,7 @@ const Features: React.FC = () => {
                 Apply for Guided Pilot
              </Link>
              <a href={brand.calendlyUrl} className="bg-white border border-gray-200 text-sidqly-navy px-10 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all inline-block">
-                Book a Demo
+                Organization Inquiry
              </a>
           </div>
         </div>

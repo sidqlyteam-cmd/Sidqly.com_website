@@ -5,7 +5,7 @@ Sidqly is a web-based operating platform for Islamic organizations. It helps tea
 # Sidqly Contact Summary
 
 - Email: team@sidqly.com
-- Demo: https://calendly.com/d/dvzs-3zf-cgz
+- Demo: https://www.sidqly.com/purchase#inquiry
 - Inquiry: https://forms.gle/bvSMog9pw2Ri4kMt9
 - Region: Pakistan (Global Support)
 - URL: https://www.sidqly.com

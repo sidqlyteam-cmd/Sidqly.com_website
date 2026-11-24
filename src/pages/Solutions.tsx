@@ -153,7 +153,7 @@ const Solutions: React.FC = () => {
 
                 <div className="flex flex-wrap gap-4">
                   <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
-                    Book Demo
+                    Organization Inquiry
                   </a>
                   <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-white text-sidqly-navy border border-gray-200 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
                     Fill Inquiry Form
@@ -181,10 +181,10 @@ const Solutions: React.FC = () => {
             <div className="mt-20 grid md:grid-cols-3 gap-8">
               <div className="bg-slate-50 border border-slate-200 text-slate-900 p-8 rounded-3xl shadow-sm">
                 <Calendar className="text-sidqly-gold mb-4" />
-                <h3 className="font-bold mb-2">Book a Demo</h3>
+                <h3 className="font-bold mb-2">Organization Inquiry</h3>
                 <p className="text-sm text-gray-400 mb-6">See how Sidqly fits your {currentSolution.title.toLowerCase()} workflow.</p>
                 <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="text-sidqly-gold font-bold flex items-center gap-2 text-sm">
-                  Book on Calendly <ArrowRight size={14} />
+                  Submit Inquiry <ArrowRight size={14} />
                 </a>
               </div>
               <div className="bg-white p-8 rounded-3xl border border-gray-100">

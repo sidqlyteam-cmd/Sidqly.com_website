@@ -51,7 +51,7 @@ export const enTranslations: UITranslationKeys = {
   },
 
   common: {
-    bookDemo: 'Book a Demo',
+    bookDemo: 'Organization Inquiry',
     applyGuidedPilot: 'Apply for Guided Pilot',
     contactUs: 'Contact Us',
     learnMore: 'Learn More',
@@ -78,7 +78,7 @@ export const enTranslations: UITranslationKeys = {
     localNeedsTitle: 'Local Giving Needs & Operational Context',
     culturalContextTitle: 'Cultural & Regional Giving Nuances',
     stakeholdersTitle: 'Key Stakeholders & Organizations Supported',
-    bookDemoForLocation: 'Book a Demo for Your Region',
+    bookDemoForLocation: 'Organization Inquiry for Your Region',
     startPilotForLocation: 'Start Guided Pilot in',
     backToLocations: 'Back to Global Locations Index',
   },
@@ -329,7 +329,7 @@ export const enTranslations: UITranslationKeys = {
       reset: 'Reset Progress',
       ramadanModule: 'Ramadan Module',
       vendorFulfillment: 'Vendor Fulfillment',
-      bookDemo: 'Book Demo',
+      bookDemo: 'Organization Inquiry',
       preRamadanPlanning: 'Pre-Ramadan Planning',
       duringRamadanOperations: 'During Ramadan Operations',
       taskIftarModule: 'Set up Iftar campaign modules',

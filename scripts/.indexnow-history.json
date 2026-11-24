@@ -539,6 +539,954 @@
     "https://www.sidqly.com/platform": {
       "timestamp": "2026-08-01T07:58:08.263Z",
       "status": 202
+    },
+    "https://www.sidqly.com/ai-search-readiness": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/ai-summary.md": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/alternatives": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/alternatives/donorbox-alternatives": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/alternatives/islamic-charity-software-alternatives": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/alternatives/launchgood-alternatives": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/alternatives/qurbanapp-alternatives": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/alternatives/zakat-management-software-alternatives": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/ask-sidqly": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/billing": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog-index.md": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/aqiqa-charity-workflow-manage-responsibly": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/atiyat-box-management-guide-for-mosques": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/charity-proof-and-donor-reporting-in-africa": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/charity-request-management-features": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/corporate-zakat-reporting-guide": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/dignity-safe-charity-support-explained": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/donor-safe-impact-reporting-explained": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/donor-safe-proof-protects-dignity-ramadan": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/employee-giving-for-islamic-charities": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-ai-search-changes-saas-websites": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-corporate-sponsors-track-impact": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-mosques-can-improve-donor-communication": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-qurbani-teams-can-reduce-confusion": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-ramadan-teams-can-reduce-manual-work": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-sidqly-prepares-public-content-for-ai-search": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-small-charities-can-look-professional": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-startups-can-prepare-for-ai-search": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-balance-ai-crawling-and-security": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-build-a-proof-policy": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-build-donor-trust": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-choose-charity-management-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-create-a-charity-reporting-system": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-create-an-llms-txt-file": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-create-board-ready-charity-reports": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-create-donor-certificates": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-give-donors-proof-safely": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-improve-donor-updates": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-issue-donation-receipts": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-make-saas-content-easy-for-ai-assistants": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-charity-delivery-proof": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-charity-request-intake": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-mosque-donations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-qurbani-orders": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-ramadan-food-drives": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-ration-pack-delivery": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-vendor-delivery-tasks": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-volunteers-for-charity": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-manage-zakat-case-review": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-move-from-manual-charity-processes": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-organize-islamic-charity-operations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-prepare-charity-impact-reports": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-prepare-charity-impact-reports-advanced": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-protect-a-website-from-bad-bots": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-protect-charity-recipient-dignity": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-replace-whatsapp-for-charity-work": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-review-payment-proof": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-run-a-charity-pilot-project": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-run-a-sadaqah-campaign": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-screen-charity-requests-safely": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-separate-zakat-and-sadaqah-funds": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-share-proof-without-exposing-private-data": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-track-delivery-status-for-charity": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-track-emergency-aid": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-track-iftar-meal-distribution": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-track-ramadan-ration-packs": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-track-volunteer-hours": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-track-zakat-disbursement": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-track-zakat-donations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-use-schema-for-saas-seo": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-to-write-faqs-for-ai-search": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-vendors-can-upload-proof": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/how-zakat-teams-can-protect-private-data": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/inside-the-new-sidqly-2-0-experience": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/islamic-charity-app-development-vs-saas": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/islamic-charity-operations-in-gulf-mena": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/islamic-charity-software-features": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/islamic-charity-software-in-europe": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/islamic-charity-software-in-north-america": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/islamic-giving-operations-in-asia-pacific": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/manual-payment-review-for-donations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/matching-contributions-for-csr-zakat": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/mosque-donation-management-features": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/mosque-donation-management-in-the-uk": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/mosque-donation-management-in-the-united-states": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/organize-eid-giving-without-scattered-screenshots": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/proof-trust-engine-explained": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/qr-verification-for-charity-delivery": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/qurbani-management-features": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/qurbani-management-for-canadian-organizations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/qurbani-management-for-european-organizations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/qurbani-operations-checklist-for-mosques": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/qurbani-share-tracking-software-guide": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/ramadan-and-zakat-operations-in-south-asia": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/ramadan-donation-management-features": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/ramadan-donation-management-in-canada": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/ramadan-food-drive-management-in-europe": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/ramadan-ration-pack-reporting": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/sadaqah-campaign-management-features": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/sadqa-fitr-campaign-tracking-preparation": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/six-digit-codes-for-pickup-and-delivery": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/vendor-fulfillment-for-charities": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/what-is-donor-safe-proof": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/what-is-geo-generative-engine-optimization": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/what-is-llmo-for-saas-websites": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/why-charities-should-not-share-recipient-faces": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/why-donors-ask-for-proof": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/why-excel-is-not-enough-for-donation-management": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/why-manual-approval-matters-in-charity": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/why-qurbani-certificates-need-clear-workflow": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/why-structured-data-matters-for-startups": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/why-zakat-eligibility-should-be-human-reviewed": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/zakat-management-features": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/zakat-management-for-uk-islamic-charities": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/blog/zakat-operations-for-us-islamic-centers": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/book-demo": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/brand": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-atiyat-box": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-bloomerang": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-custom-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-donorbox": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-givebutter": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-launchgood": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-mosque-management": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/compare/sidqly-vs-qurbanapp": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/contact-sales": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/data-migration": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/duas-azkar": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/faqs-summary.md": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/fasting-planner": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/guided-pilot": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/help": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/hijri-gregorian-converter": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/implementation": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/inquiry-form": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/islamic-daily-dashboard": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/islamic-dashboard": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/islamic-giving-operations-platform": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/knowledge-hub": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/knowledge-hub/guide-islamic-charity-operations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/knowledge-hub/manual-payment-verification-process": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/knowledge-hub/ramadan-food-distribution-logistics": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/knowledge-hub/what-is-tamleek": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/knowledge-hub/zakat-management-systems-guide": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/backup-recovery": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/data-handling": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/data-retention": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/incident-response": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/rbac": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/recipient-dignity": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/responsible-ai": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/service-boundaries": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/legal/support-implementation": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/llms.txt": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/amman-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/brampton-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/cairo-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/cardiff-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/columbus-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/dublin-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/edmonton-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/egypt": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/fairfax-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/faisalabad-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/gulf": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/hamilton-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/ireland": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/irving-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/jordan": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/luton-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/minneapolis-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/orlando-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/paterson-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/peshawar-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/rawalpindi-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/san-diego-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/seattle-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/sheffield-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/slough-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/locations/waterloo-islamic-charity-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/migration": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/modules/aaoifi-treasury-ledger": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/modules/ai-khutbah-reader": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/modules/atiyat-box-management": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/modules/corporate-csr-matching": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/modules/dignity-qr-vouchers": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/modules/khidmah-timebank": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/modules/maktaba-library-desk": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/namaz-translator": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/press-releases": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/pricing-summary.md": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/product-overview.md": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/purchase": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/quran-reader": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/request-organization": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/aqiqa-charity-workflow": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/backlink-and-partnership-guide": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/bing-webmaster-checklist": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/eid-ul-adha-qurbani": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/google-search-console-checklist": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/iftar-ration-workflow": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/qurbani-campaign-checklist": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/qurbani-operations": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/ramadan-food-drive-checklist": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/ramadan-giving": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/sadqa-fitr": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/resources/zakat-workflow-checklist": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/sadaqah-giving-planner": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/salah-tracker": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/schema-map.md": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/sitemap": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/community-welfare-teams": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/corporate-csr-zakat": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/donors": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/islamic-charities": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/mosques": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/qurbani-organizers": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/sadaqah-campaign-teams": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/vendors": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/volunteers": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/solutions/zakat-teams": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/start-pilot": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/status": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/tasbih-counter": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/terms": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/trust-and-safety.md": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/use-cases/board-reporting-teams": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/use-cases/community-request-organization": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/use-cases/donors": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/use-cases/ramadan-ration-teams": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/use-cases/vendors": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/use-cases/volunteers": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/why-fill-the-form": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
+    },
+    "https://www.sidqly.com/zakat-management-software": {
+      "timestamp": "2026-11-24T08:00:57.425Z",
+      "status": 200
     }
   }
 }

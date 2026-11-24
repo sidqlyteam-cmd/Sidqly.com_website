@@ -42,10 +42,10 @@ const RegionDetail: React.FC = () => {
                 {/* Hero CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    to="/book-demo"
+                    to="/purchase#inquiry"
                     className="inline-flex items-center justify-center gap-2 bg-sidqly-green-emerald text-white px-8 py-3.5 rounded-xl font-bold hover:bg-white hover:text-sidqly-navy focus:outline-none focus:ring-2 focus:ring-white transition-all shadow-lg text-center"
                   >
-                    <Calendar size={18} /> Book a Demo
+                    <Calendar size={18} /> Organization Inquiry
                   </Link>
                   <Link
                     to="/modules"

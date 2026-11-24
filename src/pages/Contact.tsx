@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
                          <Calendar size={24} />
                       </div>
                       <div>
-                         <h3 className="text-xl font-bold text-sidqly-navy mb-2">Book a Demo</h3>
+                         <h3 className="text-xl font-bold text-sidqly-navy mb-2">Organization Inquiry</h3>
                          <p className="text-gray-600 text-sm mb-6">Schedule a direct conversation with our team to explore how Sidqly fits your operations.</p>
                          <a
                            href={brand.calendlyUrl}

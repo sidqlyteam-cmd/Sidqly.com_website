@@ -1,25 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
-import { brand } from '../config/brand';
-import { Mail, CreditCard, Calendar, FileText, CheckCircle2, ShieldCheck, ChevronDown } from 'lucide-react';
+import { Mail, CreditCard, FileText, CheckCircle2, ShieldCheck, ChevronDown, Check, Globe } from 'lucide-react';
+import InquiryForm from '../components/InquiryForm';
 
 const Purchase: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const location = useLocation();
+
+  // Detect plan from query param (e.g. ?plan=starter)
+  const searchParams = new URLSearchParams(location.search);
+  const planParam = searchParams.get('plan');
+  const initialPlan = planParam
+    ? planParam.charAt(0).toUpperCase() + planParam.slice(1)
+    : 'Starter';
+
+  useEffect(() => {
+    if (location.hash === '#inquiry') {
+      const el = document.getElementById('inquiry');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   const steps = [
-    { title: "Review Setup Options", desc: "Decide whether you want to start with a single module pilot or a full organizational rollout." },
-    { title: "Fill the Inquiry Form", desc: "Submit your details so we understand your specific services (Zakat, Qurbani, etc.) and volume." },
-    { title: "Plan Confirmation", desc: "We will help you confirm the appropriate pricing tier based on your operational scale." },
-    { title: "Receive Invoice", desc: "The Sidqly team will generate and send a formal invoice to your designated finance contact." },
-    { title: "Manual Payment", desc: "Complete the payment via bank transfer using the secure details provided." },
-    { title: "Payment Verification", desc: "Our team will manually review and verify the transaction to ensure security." },
-    { title: "Implementation Begins", desc: "Once verified, your account is provisioned and your onboarding schedule begins." }
+    { title: "Submit Organization Inquiry", desc: "Fill out the direct inquiry form below with your mosque or charity details." },
+    { title: "Review & Workflow Confirmation", desc: "Our team reviews your Zakat, Sadaqah, or specialized needs (Matrimonial/Hifz) to confirm the optimal tier." },
+    { title: "Direct Payment & Invoicing", desc: "Pay securely online via Paddle (Cards, Apple Pay, Google Pay) or formal bank transfer invoice." },
+    { title: "Workspace & Subdomain Provisioning", desc: "Your dedicated subdomain (e.g. yourmosque.sidqly.com) is provisioned with automated SSL encryption." },
+    { title: "Data Migration & Team Onboarding", desc: "We help migrate your existing spreadsheets and train your committee and volunteers." }
   ];
 
   const faqs = [
     {
-      question: "Why can't I just buy Sidqly online with a credit card immediately?",
-      answer: "Sidqly is a serious operations platform, not a simple one-click template. We require an initial review and manual payment to ensure we correctly map your workflows and that the platform is a perfect fit for your giving operations."
+      question: "How do I pay with Paddle online?",
+      answer: "We support instant online checkout powered by Paddle (supporting Visa, Mastercard, American Express, Apple Pay, Google Pay, and PayPal). After you submit your organization details below, our team will provide your direct Paddle checkout link or send a formal bank transfer invoice according to your organization's preference."
+    },
+    {
+      question: "Why does Sidqly require an initial inquiry before provisioning?",
+      answer: "Sidqly is an operating platform that handles sensitive donor data, Zakat fund segregation, and custom subdomains. We verify all organizations to ensure Shariah compliance and provide a tailored onboarding experience."
     },
     {
       question: "Do you offer custom enterprise pricing?",
@@ -27,7 +47,7 @@ const Purchase: React.FC = () => {
     },
     {
       question: "Who should I contact if I have billing questions?",
-      answer: "Please reach out to team@sidqly.com with any billing or invoice-related inquiries."
+      answer: "Please reach out to our team at sidqly.team@gmail.com with any billing or invoice-related inquiries."
     }
   ];
 
@@ -47,69 +67,104 @@ const Purchase: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-4 space-y-8">
+          {/* Inquiry Form & Setup Guide */}
+          <div className="grid lg:grid-cols-12 gap-12 mb-20 items-start">
+            {/* Form Column */}
+            <div className="lg:col-span-7">
+               <InquiryForm initialPlan={initialPlan} />
+            </div>
+
+            {/* Sidebar Information */}
+            <div className="lg:col-span-5 space-y-8">
                <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
                   <h2 className="text-2xl font-bold text-sidqly-navy mb-4">Before you purchase</h2>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    We want to ensure Sidqly is the right fit. We highly encourage all new organizations to either book a demo or thoroughly fill out the inquiry form before initiating a purchase.
+                  <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                    We want to ensure Sidqly is the right fit. Fill out the direct inquiry form on the left with your organization's services (Zakat, Qurbani, Matrimonial, Hifz, etc.) and volume.
                   </p>
-                  <div className="space-y-4">
-                    <a href={brand.calendlyUrl} className="flex items-center gap-3 font-bold text-sidqly-green-deep hover:text-sidqly-green-emerald transition-colors">
-                      <Calendar size={20} /> Book a Demo
-                    </a>
-                    <a href={brand.inquiryFormUrl} className="flex items-center gap-3 font-bold text-sidqly-green-deep hover:text-sidqly-green-emerald transition-colors">
-                      <FileText size={20} /> Fill Inquiry Form
-                    </a>
+                  <div className="space-y-3 border-t border-gray-50 pt-4 text-xs text-gray-600">
+                    <div className="flex items-center gap-2">
+                       <Check size={16} className="text-sidqly-green-emerald shrink-0" />
+                       <span>Dedicated subdomain included on all plans</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <Check size={16} className="text-sidqly-green-emerald shrink-0" />
+                       <span>Direct inquiry sent to sidqly.team@gmail.com</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                       <Check size={16} className="text-sidqly-green-emerald shrink-0" />
+                       <span>0% platform fee on all community donations</span>
+                    </div>
                   </div>
                </div>
 
                <div className="bg-slate-50 border border-slate-200 p-8 rounded-3xl text-slate-900 shadow-sm">
-                  <h2 className="text-xl font-bold mb-4 flex items-center gap-2"><ShieldCheck className="text-sidqly-green-soft" /> Setup Options</h2>
-                  <ul className="space-y-4 text-gray-300 text-sm">
-                    <li><strong className="text-white block">Single Module Pilot:</strong> Ideal for testing workflows like an upcoming Qurbani campaign.</li>
-                    <li><strong className="text-white block">Full Rollout:</strong> Comprehensive onboarding across Zakat, Sadaqah, and general funds.</li>
+                  <h2 className="text-xl font-bold mb-4 flex items-center gap-2"><ShieldCheck className="text-sidqly-green-deep" /> Setup Options</h2>
+                  <ul className="space-y-4 text-slate-700 text-sm">
+                    <li><strong className="text-slate-900 block">Single Organization Pilot ($29/mo):</strong> Ideal for testing workflows with your core community or single mosque.</li>
+                    <li><strong className="text-slate-900 block">Multi-Organization Platform ($99 - $199/mo):</strong> Unified management across multiple branches, schools, or relief wings.</li>
+                    <li><strong className="text-slate-900 block">Modular Add-ons:</strong> Add Matrimonial ($29/mo), Hifz Academy ($39/mo), or Janazah Fund ($19/mo) at any time.</li>
                   </ul>
                </div>
-            </div>
 
-            <div className="lg:col-span-8">
-               <div className="bg-white p-10 rounded-[40px] shadow-sm border border-gray-100">
-                  <h2 className="text-3xl font-bold text-sidqly-navy mb-8">Implementation Timeline</h2>
-                  <div className="space-y-8">
-                    {steps.map((step, i) => (
-                      <div key={i} className="flex gap-6 items-start relative group">
-                        {i < steps.length - 1 && (
-                            <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-gray-50 group-hover:bg-sidqly-green-soft transition-colors hidden md:block"></div>
-                        )}
-                        <div className="w-12 h-12 rounded-2xl bg-sidqly-green-deep text-white flex items-center justify-center font-bold flex-shrink-0 z-10">
-                            {i + 1}
-                        </div>
-                        <div className="pt-1.5">
-                            <h3 className="text-xl font-bold text-sidqly-navy mb-2">{step.title}</h3>
-                            <p className="text-gray-600 leading-relaxed">{step.desc}</p>
-                        </div>
-                      </div>
-                    ))}
+               <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 p-8 rounded-3xl text-slate-900 shadow-sm">
+                  <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm mb-2">
+                     <Globe size={18} /> Dedicated Subdomain
                   </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                     Every verified organization gets its own secure portal on <span className="font-mono text-emerald-900 font-bold bg-white/70 px-1.5 py-0.5 rounded">https://yourmosque.sidqly.com</span> with zero extra configuration.
+                  </p>
                </div>
             </div>
           </div>
 
+          {/* Implementation Timeline */}
+          <div className="mb-20">
+             <div className="bg-white p-10 md:p-14 rounded-[40px] shadow-sm border border-gray-100">
+                <h2 className="text-3xl font-bold text-sidqly-navy mb-8 text-center">Implementation Timeline</h2>
+                <div className="grid md:grid-cols-5 gap-6">
+                  {steps.map((step, i) => (
+                    <div key={i} className="flex flex-col items-center text-center">
+                      <div className="w-12 h-12 rounded-2xl bg-sidqly-green-deep text-white flex items-center justify-center font-bold mb-4 shadow-sm">
+                          {i + 1}
+                      </div>
+                      <h3 className="text-base font-bold text-sidqly-navy mb-2">{step.title}</h3>
+                      <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
+                    </div>
+                  ))}
+                </div>
+             </div>
+          </div>
+
+          {/* Payment & Invoicing Overview */}
           <div className="bg-sidqly-green-deep text-white p-10 md:p-16 rounded-[40px] mb-20 shadow-xl relative overflow-hidden">
              <div className="absolute top-0 right-0 p-8 opacity-10">
                 <CreditCard size={160} />
              </div>
              <div className="relative z-10 max-w-3xl">
-                <h2 className="text-3xl font-bold mb-6">Manual Payment & Invoice Process</h2>
+                <h2 className="text-3xl font-bold mb-6">Payment & Invoicing Options</h2>
                 <p className="text-lg text-sidqly-green-soft mb-8 leading-relaxed">
-                  To maintain security and ensure accurate account provisioning, Sidqly does not use automated credit card checkout for organizational plans.
+                  We support both instant online card checkout powered by Paddle and formal invoices for manual bank transfers.
                 </p>
-                <div className="bg-white/10 p-6 rounded-2xl border border-white/20 mb-6">
-                  <p className="text-white font-medium">All billing is handled via formal invoices and manual bank transfers. Exact payment details are shared securely by our team once your plan is confirmed.</p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-white/10 p-5 rounded-2xl border border-white/20">
+                    <h4 className="font-bold text-white mb-2 flex items-center gap-2">
+                       <CreditCard size={18} className="text-sidqly-gold" /> Online Paddle Checkout
+                    </h4>
+                    <p className="text-xs text-gray-200 leading-relaxed">
+                       Instant card recurring subscriptions (Visa, Mastercard, Amex, Apple Pay, Google Pay). Invoices and tax receipts issued automatically.
+                    </p>
+                  </div>
+                  <div className="bg-white/10 p-5 rounded-2xl border border-white/20">
+                    <h4 className="font-bold text-white mb-2 flex items-center gap-2">
+                       <FileText size={18} className="text-sidqly-gold" /> Bank Transfer & Invoicing
+                    </h4>
+                    <p className="text-xs text-gray-200 leading-relaxed">
+                       Formal corporate invoices for board approval, payable via domestic or international bank wire transfer.
+                    </p>
+                  </div>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-300 font-bold uppercase tracking-wider">
-                  <CheckCircle2 className="text-sidqly-gold" /> Verified Manual Review
+                  <CheckCircle2 className="text-sidqly-gold" /> Verified Security & Shariah Amanah Compliance
                 </div>
              </div>
           </div>
@@ -137,12 +192,12 @@ const Purchase: React.FC = () => {
 
           {/* Contact Section */}
           <div className="text-center">
-             <h2 className="text-2xl font-bold text-sidqly-navy mb-6">Who should contact us first?</h2>
+             <h2 className="text-2xl font-bold text-sidqly-navy mb-6">Need Immediate Assistance?</h2>
              <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-               If you are a mosque committee member, charity trustee, or operations lead ready to transition away from spreadsheets, we are ready to speak with you.
+               If you have urgent questions or want a direct consultation, our operations team is available at <span className="font-semibold text-sidqly-navy">sidqly.team@gmail.com</span>.
              </p>
-             <a href={`mailto:${brand.email}`} className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all inline-flex items-center gap-2">
-                <Mail size={18} /> Email the Team
+             <a href="mailto:sidqly.team@gmail.com" className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all inline-flex items-center gap-2 shadow-sm">
+                <Mail size={18} /> Email sidqly.team@gmail.com
              </a>
           </div>
         </div>

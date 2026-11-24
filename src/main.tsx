@@ -6,7 +6,8 @@ import './firebase'
 
 if (
   window.location.hostname !== 'localhost' &&
-  window.location.hostname !== '127.0.0.1'
+  window.location.hostname !== '127.0.0.1' &&
+  !window.location.hostname.endsWith('.pages.dev')
 ) {
   if (window.location.hostname !== 'www.sidqly.com' || window.location.protocol !== 'https:') {
     window.location.replace(`https://www.sidqly.com${window.location.pathname}${window.location.search}${window.location.hash}`);

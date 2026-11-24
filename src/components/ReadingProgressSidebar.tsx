@@ -92,7 +92,7 @@ const ReadingProgressSidebar: React.FC<ReadingProgressSidebarProps> = ({ section
          <h4 className="font-bold text-sm text-sidqly-navy mb-1">Ready to upgrade?</h4>
          <p className="text-xs text-gray-600 mb-3">See how this works for your organization.</p>
          <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="block text-center w-full bg-sidqly-green-deep text-white text-xs font-bold py-2 rounded-lg hover:bg-sidqly-green-emerald transition-colors flex items-center justify-center gap-1">
-            Book Demo <ArrowRight size={12} />
+            Organization Inquiry <ArrowRight size={12} />
          </a>
       </div>
 

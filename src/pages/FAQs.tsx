@@ -84,7 +84,7 @@ const FAQs: React.FC = () => {
                 Our team is happy to help you understand how Sidqly can support your organization's unique requirements.
              </p>
              <div className="flex flex-wrap justify-center gap-4">
-                <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Book a Call</a>
+                <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Organization Inquiry</a>
                 <a href={brand.inquiryFormUrl} className="bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Fill Inquiry Form</a>
              </div>
           </div>

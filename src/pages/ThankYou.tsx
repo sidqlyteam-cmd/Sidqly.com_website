@@ -9,7 +9,7 @@ const ThankYou: React.FC<{ type?: 'demo' | 'contact' | 'pricing' }> = ({ type })
     demo: {
       title: "Demo Request Received",
       desc: "Thank you for booking a Sidqly demo. We look forward to discussing your giving operations.",
-      next: "Check your email for the Calendly confirmation and meeting link."
+      next: "Our team will review your inquiry and reach out to schedule onboarding."
     },
     contact: {
       title: "Message Received",
@@ -55,7 +55,7 @@ const ThankYou: React.FC<{ type?: 'demo' | 'contact' | 'pricing' }> = ({ type })
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4">
              <a href={brand.calendlyUrl} className="p-6 bg-white rounded-2xl border border-gray-50 text-center group">
                 <Calendar className="mx-auto mb-3 text-gray-300 group-hover:text-sidqly-green-emerald transition-colors" />
-                <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Book Demo</div>
+                <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Organization Inquiry</div>
              </a>
              <a href={`mailto:${brand.email}`} className="p-6 bg-white rounded-2xl border border-gray-50 text-center group">
                 <MessageSquare className="mx-auto mb-3 text-gray-300 group-hover:text-sidqly-green-emerald transition-colors" />

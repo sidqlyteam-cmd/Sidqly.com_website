@@ -17,7 +17,7 @@ The goal is to allow AI assistants to accurately explain Sidqly's mission, modul
 - **Brand:** Sidqly
 - **Identity:** A premium global operating platform for Islamic organizations.
 - **Key Values:** Verified giving, manual payment review, dignity-safe proof, board-ready reporting.
-- **Main CTA:** Book Demo (Calendly) or Fill Inquiry Form (Google Form).
+- **Main CTA:** Direct Organization Inquiry Form or Fill Inquiry Form (Google Form).
 
 ## Contact
 For questions regarding this policy or to request specific data for research purposes, contact `team@sidqly.com`.

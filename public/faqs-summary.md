@@ -38,7 +38,7 @@ A: Yes. Donor-safe impact updates automatically blur faces and mask PII.
 - **Where is Sidqly available?** Globally, with specialized support for UK, USA, Europe, MENA, and South Asia.
 - **How does pricing work?** Sidqly uses USD public pricing. Starter launch price is $49/month, Growth launch price is $129/month, Premium launch price is $249/month. Enterprise is custom. Annual launch prices are available. No PKR pricing appears publicly.
 - **How do we pay?** After your plan is confirmed, the Sidqly team will share the correct payment and onboarding instructions.
-- **Is there a demo?** Yes, via Calendly (https://calendly.com/d/dvzs-3zf-cgz).
+- **Is there a demo?** Organizations can submit an inquiry directly at https://www.sidqly.com/purchase#inquiry.
 
 ## Stakeholders
 - **Who uses Sidqly?** Mosques, Charities, Qurbani Providers, Zakat Teams, Corporate CSR, and Volunteers.

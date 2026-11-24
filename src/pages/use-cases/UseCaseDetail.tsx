@@ -71,7 +71,7 @@ const UseCaseDetail: React.FC = () => {
                  </p>
                  <div className="flex flex-wrap gap-4">
                     <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all flex items-center gap-2 shadow-md">
-                      Book Demo <ArrowRight size={18} />
+                      Organization Inquiry <ArrowRight size={18} />
                     </a>
                     <a href={brand.inquiryFormUrl} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 text-slate-800 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">
                       Fill Inquiry Form
@@ -194,7 +194,7 @@ const UseCaseDetail: React.FC = () => {
          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy mb-8">Ready to see {useCase.title} in action?</h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-               <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Book Demo</a>
+               <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Organization Inquiry</a>
                <Link to="/modules" className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">Explore Modules</Link>
             </div>
 

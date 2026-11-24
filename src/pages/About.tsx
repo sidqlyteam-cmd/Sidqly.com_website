@@ -91,7 +91,7 @@ const About: React.FC = () => {
                 We're helping organizations across the globe scale their impact with integrity. Ready to see how we can help yours?
              </p>
              <div className="flex flex-wrap justify-center gap-6">
-                <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all">Book a Demo</a>
+                <a href={brand.calendlyUrl} className="bg-sidqly-green-emerald text-white px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all">Organization Inquiry</a>
                 <a href={brand.inquiryFormUrl} className="bg-white text-sidqly-navy px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all">Inquiry Form</a>
              </div>
           </div>

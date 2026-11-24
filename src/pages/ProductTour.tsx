@@ -38,7 +38,7 @@ const ProductTour: React.FC = () => {
                 Apply for Guided Pilot
               </Link>
               <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2">
-                <PlayCircle size={20} /> Book a Demo
+                <PlayCircle size={20} /> Organization Inquiry
               </a>
             </div>
           </div>
@@ -228,7 +228,7 @@ const ProductTour: React.FC = () => {
                 Apply for Guided Pilot
              </Link>
              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all text-lg">
-                Book a Demo
+                Organization Inquiry
              </a>
           </div>
         </div>

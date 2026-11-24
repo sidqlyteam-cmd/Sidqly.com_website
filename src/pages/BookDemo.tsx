@@ -3,6 +3,7 @@ import SEO from '../components/SEO';
 import { brand } from '../config/brand';
 import { Calendar, ShieldCheck, Mail, ArrowRight, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { trackEvent } from '../lib/analytics';
+import InquiryForm from '../components/InquiryForm';
 
 const BookDemo: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -100,46 +101,7 @@ const BookDemo: React.FC = () => {
             </div>
 
             <div className="sticky top-24">
-              <div className="bg-white p-4 rounded-[40px] shadow-2xl border border-gray-100 flex flex-col mb-8">
-                 <div className="p-6 border-b border-gray-50 flex items-center justify-between">
-                    <div className="font-bold text-sidqly-navy">Sidqly Demo Scheduler</div>
-                    <div className="flex gap-1">
-                       <div className="w-2 h-2 rounded-full bg-gray-200"></div>
-                       <div className="w-2 h-2 rounded-full bg-gray-200"></div>
-                       <div className="w-2 h-2 rounded-full bg-gray-200"></div>
-                    </div>
-                 </div>
-                 <div className="p-10 text-center">
-                    <Calendar className="mx-auto text-gray-300 mb-6" size={64} />
-                    <h3 className="text-xl font-bold text-sidqly-navy mb-4">Choose a time slot</h3>
-                    <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-                       Click below to view available slots on Calendly and schedule your walkthrough.
-                    </p>
-                    <a
-                       href={brand.calendlyUrl}
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       onClick={() => trackEvent('demo_submit', { cta_source: 'book_demo_calendly_scheduler' })}
-                       className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all inline-block w-full mb-6"
-                    >
-                       Open Demo Calendar
-                    </a>
-
-                    <div className="bg-sidqly-ivory p-4 rounded-xl border border-gray-100 text-left">
-                       <h4 className="text-sm font-bold text-sidqly-navy mb-2">What happens after you book?</h4>
-                       <ul className="text-xs text-gray-600 space-y-2">
-                         <li>• We review your current giving workflow.</li>
-                         <li>• We identify where proof, approvals, and reporting are getting messy.</li>
-                         <li>• We show how Sidqly can support your organization.</li>
-                         <li>• We recommend a practical next step.</li>
-                       </ul>
-                    </div>
-                 </div>
-                 <div className="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest font-bold border-t border-gray-50 flex flex-col items-center gap-1">
-                    <span>SECURE • PROFESSIONAL • TRUSTED</span>
-                    <span className="text-[9px] text-gray-300 normal-case tracking-normal">Your information is handled strictly according to our privacy policy.</span>
-                 </div>
-              </div>
+               <InquiryForm initialPlan="Starter" />
             </div>
           </div>
         </div>

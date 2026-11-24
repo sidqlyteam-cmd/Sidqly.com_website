@@ -15,5 +15,5 @@ Sidqly is a web-based operating platform for Islamic organizations. It helps tea
 - **Website:** https://www.sidqly.com
 - **Social Links:** LinkedIn (Sidqly), Twitter/X (@sidqly)
 - **Official Forms:**
-  - Demo: https://calendly.com/d/dvzs-3zf-cgz
+  - Demo: https://www.sidqly.com/purchase#inquiry
   - Inquiry: https://forms.gle/bvSMog9pw2Ri4kMt9

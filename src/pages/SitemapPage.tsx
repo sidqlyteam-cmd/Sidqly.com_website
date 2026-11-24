@@ -15,7 +15,7 @@ const SitemapPage: React.FC = () => {
     { name: 'Modules', path: '/modules', icon: Settings },
     { name: 'Use Cases', path: '/use-cases', icon: Target },
     { name: 'Pricing', path: '/pricing', icon: CreditCard },
-    { name: 'Book Demo', path: '/book-demo', icon: Users },
+    { name: 'Organization Inquiry', path: '/book-demo', icon: Users },
     { name: 'Trust Center', path: '/trust-center', icon: Shield },
     { name: 'Security', path: '/security', icon: Shield },
     { name: 'Ask Sidqly (AI)', path: '/ask-sidqly', icon: Search },

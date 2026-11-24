@@ -23,6 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment
+.env
+.env.*
+!.env.example
+
 # Playwright
 playwright-report/
 test-results/
+
+# Screenshots
+screenshot_*.png

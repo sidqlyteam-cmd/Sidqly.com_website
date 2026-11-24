@@ -17,7 +17,7 @@ const faqList = [
   { question: "How does Sidqly protect recipient dignity?", answer: "Sidqly offers a secure way to approve field evidence and prepare donor-safe updates without unnecessarily exposing sensitive recipient details." },
   { question: "Can donors receive proof updates safely?", answer: "Yes, Sidqly provides donor-safe updates that allow donors to see clear impact without violating recipient dignity." },
   { question: "Can teams use Sidqly for Ramadan campaigns?", answer: "Yes, Sidqly helps organize high-volume seasonal giving, ration pack workflows, proof review, and donor communication." },
-  { question: "How can our organization book a Sidqly demo?", answer: "You can book a demo by clicking the 'Book Demo' links available on our site, choosing a convenient time to discuss your current workflows." }
+  { question: "How can our organization book a Sidqly demo?", answer: "You can book a demo by clicking the 'Organization Inquiry' links available on our site, choosing a convenient time to discuss your current workflows." }
 ];
 
 const LocationsIndex: React.FC = () => {
@@ -71,8 +71,8 @@ const LocationsIndex: React.FC = () => {
             Sidqly helps Islamic organizations across regions, countries, and city service hubs manage verified giving, manual payment reviews, proof approvals, donor-safe updates, and board-ready reporting.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <Link to="/book-demo" className="bg-sidqly-green-deep hover:bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md">
-               Book a Demo
+             <Link to="/purchase#inquiry" className="bg-sidqly-green-deep hover:bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md">
+               Organization Inquiry
              </Link>
              <Link to="/product-tour" className="bg-white text-sidqly-navy border border-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-xs">
                See How Sidqly Works
@@ -445,8 +445,8 @@ const LocationsIndex: React.FC = () => {
              </ul>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <Link to="/book-demo" className="inline-block bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:text-white transition-all shadow-lg hover:shadow-xl">
-                Book a Demo
+             <Link to="/purchase#inquiry" className="inline-block bg-white text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-sidqly-green-emerald hover:text-white transition-all shadow-lg hover:shadow-xl">
+                Organization Inquiry
              </Link>
              <Link to="/product-tour" className="inline-block bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
                 See How Sidqly Works

@@ -97,7 +97,7 @@ const RequestOrganization: React.FC = () => {
              <h2 className="text-2xl font-bold text-sidqly-navy mb-8">Next Steps for Your Organization</h2>
              <div className="flex flex-wrap justify-center gap-4">
                 <a href={brand.links.inquiryForm} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-deep text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Fill Inquiry Form</a>
-                <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">Book Demo</a>
+                <a href={brand.links.calendly} target="_blank" rel="noopener noreferrer" className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">Organization Inquiry</a>
                 <a href={brand.links.emailInquiry} className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">Email Sidqly</a>
              </div>
           </div>

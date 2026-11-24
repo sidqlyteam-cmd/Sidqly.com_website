@@ -295,7 +295,7 @@ const CompareDetail: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
              <a href={brand.calendlyUrl} target="_blank" rel="noopener noreferrer" className="bg-sidqly-green-emerald text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg transition-all">
-                Book a Demo
+                Organization Inquiry
              </a>
              <Link to="/features" className="bg-white border border-gray-200 text-sidqly-navy px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all">
                 Explore Platform

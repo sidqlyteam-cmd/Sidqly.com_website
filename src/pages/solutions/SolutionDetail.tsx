@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SEO from '../../components/SEO';
 import { solutions } from '../../data/solutions_modules';
-import { brand } from '../../config/brand';
 import { CheckCircle2, ArrowRight, Globe } from 'lucide-react';
 
 import QurbaniLifecycle from '../../components/diagrams/QurbaniLifecycle';
@@ -119,7 +118,7 @@ const SolutionDetail: React.FC = () => {
                   {(solution as NormalizedSolution).problem?.join(' ')} Sidqly provides the specific tools needed to manage {solution.title.toLowerCase()} operations with integrity and clarity. From intake to reporting, every step is optimized for the needs of Islamic organizations.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <a href={brand.links?.calendly || 'https://calendly.com/d/dvzs-3zf-cgz'} className="bg-sidqly-green-deep text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all">Book Demo</a>
+                  <Link to="/purchase#inquiry" className="bg-sidqly-green-deep text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all">Organization Inquiry</Link>
                   <Link to="/pricing" className="bg-sidqly-ivory text-sidqly-navy px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all border border-gray-100">View Pricing</Link>
                 </div>
               </div>

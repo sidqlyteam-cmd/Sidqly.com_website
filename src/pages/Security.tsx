@@ -98,7 +98,7 @@ const Security: React.FC = () => {
                Our team is ready to discuss our security architecture, data handling policies, and how we protect your organization's integrity.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-               <a href={brand.calendlyUrl} className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-md">Book Security Briefing</a>
+               <a href={brand.calendlyUrl} className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-md">Organization Inquiry</a>
                <a href={`mailto:${brand.email}`} className="border border-slate-200 text-slate-800 bg-white px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all shadow-sm">Email the team</a>
             </div>
          </div>

@@ -97,7 +97,7 @@ const generateRegionalContent = (topic: { title: string, region: string }) => {
           <li>➔ ➔ <strong>Use Case:</strong> Explore how we support <a href="/use-cases/mosques" class="text-sidqly-green-deep font-bold hover:underline">UK Mosque Donation Management</a>.</li>
           <li>➔ ➔ ➔ <strong>Location:</strong> Review compliance support details on our <a href="/locations/united-kingdom" class="text-sidqly-green-deep font-bold hover:underline">United Kingdom Country Page</a>.</li>
           <li>➔ ➔ ➔ ➔ <strong>Islamic Utility:</strong> Plan mosque collection logistics using our <a href="/namaz-timings" class="text-sidqly-green-deep font-bold hover:underline">Namaz Timings Tool</a>.</li>
-          <li>➔ ➔ ➔ ➔ ➔ <strong>Book Demo:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
+          <li>➔ ➔ ➔ ➔ ➔ <strong>Organization Inquiry:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
         </ul>
       </div>
     `;
@@ -168,7 +168,7 @@ const generateRegionalContent = (topic: { title: string, region: string }) => {
           <li>➔ ➔ <strong>Use Case:</strong> Explore how we support <a href="/use-cases/islamic-charities" class="text-sidqly-green-deep font-bold hover:underline">Islamic Charity Operations</a>.</li>
           <li>➔ ➔ ➔ <strong>Location:</strong> Review our compliance support overview on our <a href="/locations" class="text-sidqly-green-deep font-bold hover:underline">Global Locations Directory</a>.</li>
           <li>➔ ➔ ➔ ➔ <strong>Islamic Utility:</strong> Structure your campaign milestones with our interactive <a href="/islamic-calendar" class="text-sidqly-green-deep font-bold hover:underline">Islamic Calendar Tool</a>.</li>
-          <li>➔ ➔ ➔ ➔ ➔ <strong>Book Demo:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
+          <li>➔ ➔ ➔ ➔ ➔ <strong>Organization Inquiry:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
         </ul>
       </div>
     `;
@@ -243,7 +243,7 @@ const generateRegionalContent = (topic: { title: string, region: string }) => {
           <li>➔ ➔ <strong>Use Case:</strong> Explore how we support <a href="/use-cases/corporate-sponsors" class="text-sidqly-green-deep font-bold hover:underline">Corporate Sponsors (CSR)</a>.</li>
           <li>➔ ➔ ➔ <strong>Location:</strong> Review our compliance support details on our <a href="${localLocationLink}" class="text-sidqly-green-deep font-bold hover:underline">${isCanadaText} Country Page</a>.</li>
           <li>➔ ➔ ➔ ➔ <strong>Islamic Utility:</strong> Plan your campaign fund tagging using our interactive <a href="/zakat-calculator" class="text-sidqly-green-deep font-bold hover:underline">Zakat Calculator Tool</a>.</li>
-          <li>➔ ➔ ➔ ➔ ➔ <strong>Book Demo:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
+          <li>➔ ➔ ➔ ➔ ➔ <strong>Organization Inquiry:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
         </ul>
       </div>
     `;
@@ -314,7 +314,7 @@ const generateRegionalContent = (topic: { title: string, region: string }) => {
           <li>➔ ➔ <strong>Use Case:</strong> Explore how we support <a href="/use-cases/vendors" class="text-sidqly-green-deep font-bold hover:underline">Vendor and Farm Management</a>.</li>
           <li>➔ ➔ ➔ <strong>Location:</strong> Review our compliance support overview on our <a href="/locations" class="text-sidqly-green-deep font-bold hover:underline">Gulf Region Locations Directory</a>.</li>
           <li>➔ ➔ ➔ ➔ <strong>Islamic Utility:</strong> Plan animal allocation limits using our <a href="/eid-qurbani-planner" class="text-sidqly-green-deep font-bold hover:underline">Eid & Qurbani Planner Tool</a>.</li>
-          <li>➔ ➔ ➔ ➔ ➔ <strong>Book Demo:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
+          <li>➔ ➔ ➔ ➔ ➔ <strong>Organization Inquiry:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
         </ul>
       </div>
     `;
@@ -386,7 +386,7 @@ const generateRegionalContent = (topic: { title: string, region: string }) => {
           <li>➔ ➔ <strong>Use Case:</strong> Explore how we support <a href="/use-cases/volunteers" class="text-sidqly-green-deep font-bold hover:underline">Volunteers and Field Workers</a>.</li>
           <li>➔ ➔ ➔ <strong>Location:</strong> Review our country-specific details on our <a href="/locations" class="text-sidqly-green-deep font-bold hover:underline">Global Locations Directory</a>.</li>
           <li>➔ ➔ ➔ ➔ <strong>Islamic Utility:</strong> Plan field operations against weather disruptions with our <a href="/weather-charity-distribution" class="text-sidqly-green-deep font-bold hover:underline">Weather Planning Tool</a>.</li>
-          <li>➔ ➔ ➔ ➔ ➔ <strong>Book Demo:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
+          <li>➔ ➔ ➔ ➔ ➔ <strong>Organization Inquiry:</strong> Set up a guided walkthrough by booking a <a href="/book-demo" class="text-sidqly-green-emerald font-bold hover:underline">Live Interactive Session</a>.</li>
         </ul>
       </div>
     `;

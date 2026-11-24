@@ -79,7 +79,7 @@ const Implementation: React.FC = () => {
               Our team assists with technical setup, data migration, and team training to ensure your organization starts on the right foot.
            </p>
            <div className="flex flex-wrap justify-center gap-4">
-              <a href={brand.calendlyUrl} className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Book Setup Discussion</a>
+              <a href={brand.calendlyUrl} className="bg-sidqly-green-deep text-white px-10 py-4 rounded-xl font-bold hover:shadow-lg transition-all">Organization Inquiry</a>
            </div>
         </div>
       </section>

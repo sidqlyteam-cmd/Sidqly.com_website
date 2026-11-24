@@ -37,7 +37,7 @@ export const modules = [
       { title: "Zakat Fund Separation", url: "/modules/zakat-fund-separation" },
       { title: "AAOIFI Treasury Ledger", url: "/modules/aaoifi-treasury-ledger" },
       { title: "Reports and Board Packs", url: "/modules/reports-board-packs" },
-      { title: "Book Demo", url: "/book-demo" }
+      { title: "Organization Inquiry", url: "/book-demo" }
     ]
   },
 
@@ -68,7 +68,7 @@ export const modules = [
       { title: "Receipts and Certificates", url: "/modules/receipts-certificates" },
       { title: "Reports and Board Packs", url: "/modules/reports-board-packs" },
       { title: "Pricing", url: "/pricing" },
-      { title: "Book Demo", url: "/book-demo" }
+      { title: "Organization Inquiry", url: "/book-demo" }
     ]
   },
   {
@@ -339,7 +339,7 @@ export const modules = [
     internalLinks: [
       { title: "Dignity QR Vouchers", url: "/modules/dignity-qr-vouchers" },
       { title: "Maktaba Library Desk", url: "/modules/maktaba-library-desk" },
-      { title: "Book Demo", url: "/book-demo" }
+      { title: "Organization Inquiry", url: "/book-demo" }
     ]
   },
   {
@@ -373,7 +373,7 @@ export const modules = [
     internalLinks: [
       { title: "Maktaba Library Desk", url: "/modules/maktaba-library-desk" },
       { title: "Islamic Daily Dashboard", url: "/islamic-daily-dashboard" },
-      { title: "Book Demo", url: "/book-demo" }
+      { title: "Organization Inquiry", url: "/book-demo" }
     ]
   },
   {
@@ -442,7 +442,7 @@ export const modules = [
     internalLinks: [
       { title: "Proof Trust Engine", url: "/modules/proof-trust-engine" },
       { title: "Zakat Fund Separation", url: "/modules/zakat-fund-separation" },
-      { title: "Book Demo", url: "/book-demo" }
+      { title: "Organization Inquiry", url: "/book-demo" }
     ]
   },
   {
@@ -502,7 +502,7 @@ export const modules = [
     internalLinks: [
       { title: "Khidmah TimeBank", url: "/modules/khidmah-timebank" },
       { title: "AI Khutbah Reader", url: "/modules/ai-khutbah-reader" },
-      { title: "Book Demo", url: "/book-demo" }
+      { title: "Organization Inquiry", url: "/book-demo" }
     ]
   },
 

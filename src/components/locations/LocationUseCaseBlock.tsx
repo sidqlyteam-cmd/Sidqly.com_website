@@ -165,10 +165,10 @@ const LocationUseCaseBlock: React.FC<LocationUseCaseBlockProps> = ({
           </div>
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0 w-full md:w-auto">
             <Link
-              to="/book-demo"
+              to="/purchase#inquiry"
               className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-md text-sm text-center"
             >
-              <Calendar size={18} /> Book a Demo
+              <Calendar size={18} /> Organization Inquiry
             </Link>
             <Link
               to="/product-tour"

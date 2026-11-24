@@ -195,8 +195,8 @@ const KnowledgeDetail: React.FC = () => {
             <Button variant="emerald" className="px-10 py-4 text-base" onClick={() => window.location.href = "/guided-pilot"}>
               Apply for Guided Pilot
             </Button>
-            <Button variant="outline" className="px-10 py-4 text-base text-white hover:text-sidqly-navy" onClick={() => window.location.href = "/book-demo"}>
-              Book a Demo
+            <Button variant="outline" className="px-10 py-4 text-base text-white hover:text-sidqly-navy" onClick={() => window.location.href = "/purchase#inquiry"}>
+              Organization Inquiry
             </Button>
           </div>
         </div>

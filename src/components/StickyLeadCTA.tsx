@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { brand } from '../config/brand';
-import { Calendar, FileText, Mail, X } from 'lucide-react';
+import { FileText, Mail, X } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const StickyLeadCTA: React.FC = () => {
@@ -25,22 +26,12 @@ const StickyLeadCTA: React.FC = () => {
             {t('common.readyToStart', 'Ready to start?')}
           </h4>
           <div className="space-y-2">
-            <a
-              href={brand.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/purchase#inquiry"
               className="flex items-center justify-center gap-2 w-full bg-sidqly-green-deep text-white px-3 py-2 rounded-xl font-bold text-xs hover:bg-sidqly-green-emerald transition-all shadow-xs"
             >
-              <Calendar size={15} /> Book Demo
-            </a>
-            <a
-              href={brand.inquiryFormUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-slate-50 text-sidqly-navy border border-slate-200 px-3 py-2 rounded-xl font-bold text-xs hover:bg-slate-100 transition-all"
-            >
               <FileText size={15} /> Fill Inquiry Form
-            </a>
+            </Link>
             <a
               href={`mailto:${brand.email}`}
               className="flex items-center justify-center gap-2 w-full text-sidqly-green-deep hover:text-sidqly-green-emerald font-bold text-xs py-1"

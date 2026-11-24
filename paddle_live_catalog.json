@@ -1,0 +1,26 @@
+[
+  {
+    "plan": "Starter Plan",
+    "productId": "pro_01m86maesepw0peg4jxwc7mk2v",
+    "monthlyPriceId": "pri_01m86mag68rmyvv7narq28qt3n",
+    "annualPriceId": "pri_01m86maghs7g0t94nwrh3a5ygt",
+    "monthlyAmount": "$29/mo",
+    "annualAmount": "$290/yr"
+  },
+  {
+    "plan": "Growth Plan",
+    "productId": "pro_01m86mah2psawezm8ap56qe5fa",
+    "monthlyPriceId": "pri_01m86mahwyy603mxsx2pjmm0ww",
+    "annualPriceId": "pri_01m86maj6m6mg0hp43sme26777",
+    "monthlyAmount": "$99/mo",
+    "annualAmount": "$990/yr"
+  },
+  {
+    "plan": "Premium Plan",
+    "productId": "pro_01m86majjmgazmhncnzwarx1dw",
+    "monthlyPriceId": "pri_01m86makj81jmzn19nnv4m0ktw",
+    "annualPriceId": "pri_01m86makwq6pr74cs75w3h7wk6",
+    "monthlyAmount": "$199/mo",
+    "annualAmount": "$1990/yr"
+  }
+]
