@@ -487,19 +487,23 @@ const LocationDetail: React.FC = () => {
             {t('locationUI.stakeholdersTitle', 'Who Sidqly helps')}
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
             {[
               {
                 title: 'Mosque committees',
-                desc: 'Organize campaigns, payment proof, approvals, donor updates, and internal records without relying only on scattered messages or spreadsheets.',
+                desc: 'Organize campaigns, payment proof, approvals, donor updates, and internal records without relying on scattered WhatsApp chats or spreadsheets.',
               },
               {
-                title: 'Islamic charity teams',
-                desc: 'Keep giving workflows structured from donation proof to fulfillment proof and reporting.',
+                title: 'Reverts & New Muslim Care',
+                desc: 'Support Shahadah follow-ups, mentor matching, AI live multilingual Khutbah translation, and confidential welfare assistance with AI dignity-safe privacy.',
               },
               {
-                title: 'Zakat committees',
-                desc: 'Support clearer Zakat workflow records, review steps, recipient-safe proof handling, and internal reporting.',
+                title: 'Islamic charity & Zakat teams',
+                desc: 'Maintain AAOIFI-aligned Zakat fund separation, 4-eyes manual payment verification, recipient-safe proof handling, and board-ready reporting.',
+              },
+              {
+                title: 'Multi-branch & School wings',
+                desc: 'Run 1, 3, or 10+ isolated organization workspaces (including Hifz Academy, Matrimonial, and Janazah add-ons) from one Master Admin switcher.',
               },
               {
                 title: 'Qurbani organizers',
@@ -510,8 +514,12 @@ const LocationDetail: React.FC = () => {
                 desc: 'Support high-volume seasonal giving, ration pack workflows, proof review, and donor communication.',
               },
               {
-                title: 'Donors',
-                desc: 'Help donors receive clearer updates without exposing sensitive recipient information unnecessarily.',
+                title: 'Hifz & Quran Academies',
+                desc: 'Log daily Sabak, Sabqi, and Manzil memorization progress alongside parent updates and automated tuition billing.',
+              },
+              {
+                title: 'Donors & Community',
+                desc: 'Help donors receive verified receipts and clear impact updates without exposing sensitive recipient identities.',
               },
             ].map((stakeholder, i) => (
               <div
@@ -527,6 +535,32 @@ const LocationDetail: React.FC = () => {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* E-E-A-T & AI for Reverts Trust Block */}
+          <div className="bg-white p-8 md:p-10 rounded-3xl border border-emerald-100 shadow-sm grid md:grid-cols-2 gap-8 items-start">
+            <div>
+              <span className="inline-block bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+                AI for Reverts &amp; Community Inclusion
+              </span>
+              <h3 className="text-xl font-bold text-sidqly-navy mb-3">
+                Supporting New Muslims in {locationDisplayName} with Dignified AI
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Many mosques serving {locationDisplayName} welcome new Muslims and multilingual families every week. Sidqly pairs <strong>AI live Khutbah translation</strong> (so reverts follow Friday sermons in their own language on their phone) with structured revert mentorship tracking and <strong>AI face-blurring</strong> to protect recipient dignity on every aid update.
+              </p>
+            </div>
+            <div>
+              <span className="inline-block bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+                Operational Trust &amp; Governance (E-E-A-T)
+              </span>
+              <h3 className="text-xl font-bold text-sidqly-navy mb-3">
+                Transparent Standards &amp; Clear Boundaries
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Built from real mosque treasury and charity workflows, Sidqly enforces named staff seats (3 / 10 / 30), unlimited donor records, isolated workspaces (1 / 3 / 10+ branches), and auditable manual payment checks. Organizations retain full legal, tax, and scholarly oversight with their local Imams and boards.
+              </p>
+            </div>
           </div>
         </div>
       </section>

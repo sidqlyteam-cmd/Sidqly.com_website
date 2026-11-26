@@ -113,7 +113,7 @@ const Home: React.FC = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
-            <span className="inline-block px-4 py-1.5 mb-6 md:mb-8 text-xs font-bold tracking-[0.15em] sm:tracking-[0.2em] text-sidqly-green-deep uppercase bg-emerald-50 rounded-full border border-emerald-200/80 shadow-xs max-w-full truncate">
+            <span className="inline-block px-4 py-1.5 mb-6 md:mb-8 text-[11px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.2em] text-sidqly-green-deep uppercase bg-emerald-50 rounded-full border border-emerald-200/80 shadow-xs max-w-full leading-relaxed">
               International Operating Standard for Amanah
             </span>
 
@@ -1370,6 +1370,44 @@ const Home: React.FC = () => {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ICP, Revert Support & AI + E-E-A-T Trust Section */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="inline-block bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+              Built for Islamic Organizations &amp; Revert Care
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-sidqly-navy mb-4">
+              From 1 mosque to 10+ branches—including AI for New Muslims &amp; Reverts
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Whether you operate a single masjid ($29/mo), 3 regional branches ($99/mo), or 10+ foundation entities ($199/mo), Sidqly keeps donor records unlimited while powering every core community workflow.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-sidqly-ivory p-7 rounded-3xl border border-slate-200/70">
+              <h3 className="text-lg font-bold text-sidqly-navy mb-2">New Muslims &amp; Reverts (AI-Assisted Care)</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Welcome reverts with <strong>AI live multilingual Khutbah translation</strong> so every new Muslim understands Friday sermons in their native language, private Shahadah mentorship &amp; onboarding logs, and <strong>AI dignity-safe face-blurring</strong> on confidential welfare or Zakat support cases.
+              </p>
+            </div>
+            <div className="bg-sidqly-ivory p-7 rounded-3xl border border-slate-200/70">
+              <h3 className="text-lg font-bold text-sidqly-navy mb-2">Multi-Org Workspaces (1 to 10+ Orgs)</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Start with <strong>1 workspace</strong> on Starter ($29/mo), scale to <strong>3 workspaces</strong> on Growth ($99/mo) or <strong>10 workspaces</strong> on Premium ($199/mo), or add extra branches anytime (+$19/mo) with isolated subdomains, ledgers, and bank payouts.
+              </p>
+            </div>
+            <div className="bg-sidqly-ivory p-7 rounded-3xl border border-slate-200/70">
+              <h3 className="text-lg font-bold text-sidqly-navy mb-2">Verified Governance &amp; E-E-A-T Standards</h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Designed around real masjid treasury practice: AAOIFI-aligned Zakat vs. Sadaqah separation, 4-eyes manual bank-transfer review, named staff audit logs (3 / 10 / 30 seats), and transparent SaaS boundaries under your local scholars and board.
+              </p>
+            </div>
           </div>
         </div>
       </section>

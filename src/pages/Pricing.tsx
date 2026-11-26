@@ -124,20 +124,22 @@ const Pricing: React.FC = () => {
     ))}
   </div>
 </div>
-<div className="grid lg:grid-cols-4 gap-6 mb-16">
+<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 mb-16 pt-4 items-stretch">
             {activePlans.map((plan) => {
               const priceData = isAnnual ? plan.annual : plan.monthly;
               const isCustom = priceData.launch === "Custom";
+              const shortStaff = plan.name === 'Starter' ? '3 Staff' : plan.name === 'Growth' ? '10 Staff' : plan.name === 'Premium' ? '30 Staff' : 'Custom';
+              const shortWorkspaces = plan.name === 'Starter' ? '1 Workspace' : plan.name === 'Growth' ? 'Up to 3 Orgs' : plan.name === 'Premium' ? 'Up to 10 Orgs' : 'Unlimited';
 
               return (
-                <div key={plan.name} className={`bg-white rounded-[32px] p-8 shadow-sm border transition-all hover:shadow-xl flex flex-col ${plan.popular ? 'border-sidqly-green-emerald ring-4 ring-sidqly-green-soft/20 relative scale-105 z-10' : 'border-gray-100'}`}>
+                <div key={plan.name} className={`relative bg-white rounded-[32px] p-7 pt-10 shadow-sm border transition-all hover:shadow-xl flex flex-col ${plan.popular ? 'border-sidqly-green-emerald ring-2 ring-sidqly-green-soft/30 shadow-lg z-10' : 'border-gray-100'}`}>
                   {plan.badge && (
-                    <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.1em] whitespace-nowrap shadow-sm ${plan.popular ? 'bg-sidqly-green-emerald text-white' : 'bg-sidqly-ivory text-sidqly-green-deep border border-gray-100'}`}>
+                    <div className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.08em] whitespace-nowrap shadow-sm ${plan.popular ? 'bg-sidqly-green-emerald text-white' : 'bg-sidqly-ivory text-sidqly-green-deep border border-gray-200'}`}>
                       {plan.badge}
                     </div>
                   )}
                   <h3 className="text-2xl font-bold text-sidqly-navy mb-2">{plan.name}</h3>
-                  <p className="text-gray-500 text-xs mb-8 leading-relaxed min-h-[48px]">{plan.description}</p>
+                  <p className="text-gray-500 text-xs mb-6 leading-relaxed min-h-[48px]">{plan.description}</p>
 
                   <div className="mb-8">
                     {!isCustom ? (
@@ -177,20 +179,20 @@ const Pricing: React.FC = () => {
                     {plan.cta}
                   </Link>
 
-                  <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 mb-6 space-y-2 text-xs">
-                    <div className="flex items-center justify-between font-bold text-sidqly-navy">
-                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold"><Users size={13} className="text-sidqly-green-emerald" /> Staff Accounts</span>
-                      <span>{plan.staffLimit}</span>
+                  <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 mb-6 space-y-2.5 text-xs">
+                    <div className="flex items-center justify-between gap-3 font-bold text-sidqly-navy">
+                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold shrink-0"><Users size={13} className="text-sidqly-green-emerald" /> Staff</span>
+                      <span className="text-right">{shortStaff}</span>
                     </div>
-                    <div className="flex items-center justify-between font-bold text-sidqly-navy">
-                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold"><Building2 size={13} className="text-sidqly-green-emerald" /> Workspaces</span>
-                      <span>{plan.workspaceLimit}</span>
+                    <div className="flex items-center justify-between gap-3 font-bold text-sidqly-navy">
+                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold shrink-0"><Building2 size={13} className="text-sidqly-green-emerald" /> Orgs</span>
+                      <span className="text-right">{shortWorkspaces}</span>
                     </div>
-                    <div className="flex items-center justify-between font-bold text-sidqly-navy">
-                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold"><Database size={13} className="text-sidqly-green-emerald" /> Donor Records</span>
-                      <span className="text-emerald-700">Unlimited</span>
+                    <div className="flex items-center justify-between gap-3 font-bold text-sidqly-navy">
+                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold shrink-0"><Database size={13} className="text-sidqly-green-emerald" /> Donors</span>
+                      <span className="text-emerald-700 text-right">Unlimited</span>
                     </div>
-                    <div className="pt-1.5 border-t border-slate-200/70 text-[11px] text-slate-500 font-medium">
+                    <div className="pt-2 border-t border-slate-200/70 text-[11px] text-slate-500 font-medium leading-relaxed">
                       {plan.allowanceSummary}
                     </div>
                   </div>
