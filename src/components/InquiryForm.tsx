@@ -307,9 +307,9 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ initialPlan = 'Starter
           </label>
           <div className="grid sm:grid-cols-3 gap-3">
             {[
-              { id: 'Starter', label: 'Starter', price: '$29/mo', desc: '1 org workspace' },
-              { id: 'Growth', label: 'Growth', price: '$99/mo', desc: 'Up to 3 orgs' },
-              { id: 'Premium', label: 'Premium', price: '$199/mo', desc: 'Up to 10 orgs' }
+              { id: 'Starter', label: 'Starter', price: '$29/mo', desc: '3 staff · 1 org workspace' },
+              { id: 'Growth', label: 'Growth', price: '$99/mo', desc: '10 staff · Up to 3 orgs' },
+              { id: 'Premium', label: 'Premium', price: '$199/mo', desc: '30 staff · Up to 10 orgs' }
             ].map(p => (
               <label
                 key={p.id}
@@ -342,11 +342,12 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ initialPlan = 'Starter
           <label className="block text-xs font-bold text-sidqly-navy uppercase tracking-wider mb-2">
             Specialized Modules (Optional Add-ons)
           </label>
-          <div className="grid sm:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-2 gap-3">
             {[
               { id: 'Matrimonial', label: 'Matrimonial & Nikah', price: '+$29/mo' },
               { id: 'Hifz Academy', label: 'Hifz Quran Academy', price: '+$39/mo' },
-              { id: 'Janazah Fund', label: 'Janazah Funeral Fund', price: '+$19/mo' }
+              { id: 'Janazah Fund', label: 'Janazah Funeral Fund', price: '+$19/mo' },
+              { id: 'Extra Branch', label: 'Extra Branch / Org Workspace', price: '+$19/mo' }
             ].map(mod => {
               const checked = formData.modules.includes(mod.id);
               return (

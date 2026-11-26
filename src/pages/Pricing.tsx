@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SEO from '../components/SEO';
 import { pricing } from '../data/pricing';
-import { Check, Info, XCircle, Plus, Layout, PieChart, CheckCircle2, FileText, Globe, Heart, BookOpen, ShieldCheck } from 'lucide-react';
+import { Check, Info, XCircle, Plus, Layout, PieChart, CheckCircle2, FileText, Globe, Heart, BookOpen, ShieldCheck, Users, Building2, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { generateSoftwareAppSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
@@ -9,18 +9,17 @@ import { seoData } from '../data/seo';
 import { trackEvent } from '../lib/analytics';
 
 const customPricingFaqs = [
-  { question: "Can our mosque or organization get its own dedicated subdomain?", answer: "Yes! Every organization on Sidqly receives its own dedicated, branded subdomain (e.g. yourmosque.sidqly.com) with automated SSL encryption. Growth and Premium tiers also support fully custom domains (e.g. donate.yourmosque.org)." },
-  { question: "How do specialized modules like Matrimonial or Hifz Academy link together?", answer: "All modules live inside your single master Sidqly dashboard. When a community member donates to your mosque, registers for the Matrimonial portal, or enrolls their child in the Hifz Academy, they use a single unified account. Meanwhile, your committee has separate accounting ledgers, permissions, and payout settings for each service." },
-  { question: "Can we subscribe to Matrimonial or Hifz Academy separately?", answer: "Yes! Any organization on Sidqly can add modular subscriptions (such as Matrimonial for $29/mo or Hifz Academy for $39/mo) at any time. They bill through the same Paddle recurring invoice and activate instantly under your subdomain." },
-  { question: "Which Sidqly plan should our organization choose?", answer: "Start with the Starter plan ($29/mo) if you manage a single mosque or community project. If you manage multiple entities or need custom domains and AAOIFI Zakat fund separation, choose Growth ($99/mo) or Premium ($199/mo for up to 10 organizations)." },
-  { question: "Can we start with one workflow first?", answer: "Yes. Many organizations start with a single workflow pilot such as manual payment verification, before expanding." },
-  { question: "Is onboarding included?", answer: "Yes, standard onboarding is included with options for priority implementation and launch setup support." },
-  { question: "Is data migration available?", answer: "Yes, we provide data mapping tools to help you move away from scattered Excel sheets and WhatsApp groups." },
-  { question: "Can Sidqly support seasonal campaigns like Ramadan and Qurbani?", answer: "Absolutely. Sidqly handles peak giving seasons with dedicated workflows for Qurbani lifecycles and Ramadan ration packs." }
+  { question: "How does purchasing and entering app.sidqly.com work?", answer: "Sidqly uses a subscribe-first workflow. Choose your plan on sidqly.com, verify your email, and complete subscription checkout via Paddle (or formal bank invoice). Once our backend verifies the signed payment notification, your organization workspace and allowances activate automatically and you can open app.sidqly.com." },
+  { question: "Do you limit how many donors or community members we have?", answer: "Never. Donor records and donation entries stay unlimited on every plan. Pricing depends only on what your team uses inside Sidqly: features, named staff accounts (3 / 10 / 30), organization workspaces (1 / 3 / 10), and published storage, email, and AI allowances." },
+  { question: "How does adding a new branch or a second organization work?", answer: "Each branch or separate entity gets its own isolated workspace with its own subdomain (e.g. branch2.sidqly.com), separate bank/payout settings, separate accounting ledger, and separate staff roles. You can include up to 3 workspaces on Growth, up to 10 on Premium, or add an Extra Workspace (+$19/mo) at any time—all managed from one Master Admin Org Switcher." },
+  { question: "Who counts toward the staff account limit (3 / 10 / 30)?", answer: "Any named account granted staff or administrator permissions counts toward your plan's seat allowance, regardless of whether their title is staff or volunteer. Donors, families, and students do not count as staff seats." },
+  { question: "Can we subscribe to Matrimonial, Hifz Academy, or Janazah separately?", answer: "Yes! Any organization on Sidqly can add modular subscriptions—Matrimonial ($29/mo), Hifz Quran Academy ($39/mo), or Janazah Fund ($19/mo)—to any workspace. Community members use one login while committees keep separate accounting ledgers." },
+  { question: "What happens if we need more AI proof images, emails, or storage?", answer: "Each plan includes generous monthly allowances (published before checkout). If your team exceeds them during peak seasons like Ramadan or Qurbani, you can add prepaid usage packs without migrating plans." },
+  { question: "What is your refund and cancellation policy?", answer: "You can cancel anytime before your next renewal and keep access through the end of your paid period. New Paddle subscriptions are eligible for a full refund within 14 days under our Refund & Cancellation Policy." }
 ];
 
 const Pricing: React.FC = () => {
-  const [isAnnual, setIsAnnual] = useState(true);
+  const [isAnnual, setIsAnnual] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const activePlans = pricing.plans;
@@ -84,18 +83,18 @@ const Pricing: React.FC = () => {
             {isAnnual && <p className="text-sm font-bold text-sidqly-green-emerald transition-opacity duration-300">Annual plans help organizations plan ahead and reduce monthly admin decisions.</p>}
           </div>
 
-          {/* Guided Pilot Conversion Banner */}
+          {/* Subscribe First Purchase Banner */}
           <div className="max-w-4xl mx-auto mb-10 bg-gradient-to-r from-emerald-50 via-teal-50 to-white text-slate-900 rounded-[32px] p-8 md:p-12 border border-emerald-200/80 flex flex-col md:flex-row gap-8 items-center justify-between shadow-sm">
              <div className="text-left flex-1">
-                <span className="inline-block bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Risk-Free Launch Offer</span>
-                <h3 className="text-2xl font-bold mb-2 text-slate-900">Want to try Sidqly first?</h3>
+                <span className="inline-block bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">Subscribe First · Instant Provisioning</span>
+                <h3 className="text-2xl font-bold mb-2 text-slate-900">Subscribe on sidqly.com, then open your dashboard</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                   Launch a focused, risk-free 30-day **Guided Pilot** program. We'll assist with manual payment setup, data migration, and team training.
+                   Select your plan, verify your email, and complete checkout via Paddle (or formal bank invoice). Once payment is verified by our backend, your organization workspace and allowances activate on <span className="font-mono font-semibold text-emerald-800">app.sidqly.com</span>—with no separate setup deposit.
                 </p>
              </div>
              <div className="shrink-0">
-                <Link to="/guided-pilot" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all text-sm inline-block shadow-md">
-                   Explore Guided Pilot
+                <Link to="/purchase#inquiry" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all text-sm inline-block shadow-md">
+                   Start Subscription Setup
                 </Link>
              </div>
           </div>
@@ -173,10 +172,28 @@ const Pricing: React.FC = () => {
                   <Link
                     to={plan.href}
                     onClick={() => trackEvent('pricing_cta_click', { cta_source: `pricing_card_${plan.name.toLowerCase()}` })}
-                    className={`block w-full text-center py-4 rounded-xl font-bold transition-all text-sm mb-8 ${plan.popular ? 'bg-sidqly-green-deep text-white hover:bg-sidqly-green-emerald shadow-lg' : 'bg-sidqly-ivory text-sidqly-navy hover:bg-gray-100 border border-gray-200'}`}
+                    className={`block w-full text-center py-4 rounded-xl font-bold transition-all text-sm mb-6 ${plan.popular ? 'bg-sidqly-green-deep text-white hover:bg-sidqly-green-emerald shadow-lg' : 'bg-sidqly-ivory text-sidqly-navy hover:bg-gray-100 border border-gray-200'}`}
                   >
                     {plan.cta}
                   </Link>
+
+                  <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 mb-6 space-y-2 text-xs">
+                    <div className="flex items-center justify-between font-bold text-sidqly-navy">
+                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold"><Users size={13} className="text-sidqly-green-emerald" /> Staff Accounts</span>
+                      <span>{plan.staffLimit}</span>
+                    </div>
+                    <div className="flex items-center justify-between font-bold text-sidqly-navy">
+                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold"><Building2 size={13} className="text-sidqly-green-emerald" /> Workspaces</span>
+                      <span>{plan.workspaceLimit}</span>
+                    </div>
+                    <div className="flex items-center justify-between font-bold text-sidqly-navy">
+                      <span className="flex items-center gap-1.5 text-slate-600 font-semibold"><Database size={13} className="text-sidqly-green-emerald" /> Donor Records</span>
+                      <span className="text-emerald-700">Unlimited</span>
+                    </div>
+                    <div className="pt-1.5 border-t border-slate-200/70 text-[11px] text-slate-500 font-medium">
+                      {plan.allowanceSummary}
+                    </div>
+                  </div>
 
                   <div className="space-y-4 mb-8 flex-grow border-t border-gray-50 pt-8">
                     <h4 className="text-xs font-bold text-sidqly-navy uppercase tracking-widest mb-4">Includes:</h4>
@@ -317,15 +334,62 @@ const Pricing: React.FC = () => {
                </div>
             </div>
 
-            <div className="bg-white p-10 md:p-16 rounded-[40px] border border-gray-100 shadow-sm text-center max-w-4xl mx-auto">
+            <div className="bg-white p-10 md:p-16 rounded-[40px] border border-gray-100 shadow-sm text-center max-w-4xl mx-auto mb-16">
                <h3 className="text-2xl font-bold text-sidqly-navy mb-4">Optional Add-ons</h3>
-               <p className="text-gray-500 mb-8">Available after review during your onboarding process.</p>
+               <p className="text-gray-500 mb-8">Attach extra branches, specialized modules, or usage packs to any base plan.</p>
                <div className="flex flex-wrap justify-center gap-3">
                   {pricing.addons.map((addon, i) => (
                      <div key={i} className="px-4 py-2 bg-sidqly-ivory border border-gray-100 rounded-lg text-sm text-sidqly-navy font-medium flex items-center gap-2">
                         <Plus size={14} className="text-sidqly-green-emerald" /> {addon}
                      </div>
                   ))}
+               </div>
+            </div>
+
+            {/* How New Branches & Multiple Organizations Work */}
+            <div className="bg-white p-8 md:p-14 rounded-[40px] border border-emerald-100 shadow-sm max-w-6xl mx-auto">
+               <div className="text-center max-w-3xl mx-auto mb-10">
+                  <span className="inline-block bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+                     Multi-Branch & Multi-Org Architecture
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-sidqly-navy mb-3">
+                     How adding a new branch or different organization works
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                     Whether you run one mosque with a school wing or a foundation managing multiple regional charities, Sidqly separates each entity cleanly while keeping your admin login unified.
+                  </p>
+               </div>
+
+               <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-sidqly-ivory p-6 rounded-3xl border border-gray-100">
+                     <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-4">
+                        <Building2 size={20} />
+                     </div>
+                     <h4 className="font-bold text-sidqly-navy mb-2">1. Isolated Workspaces Per Org</h4>
+                     <p className="text-xs text-gray-600 leading-relaxed">
+                        Every new branch or organization gets its own dedicated workspace: separate subdomain (<span className="font-mono text-emerald-800">branch2.sidqly.com</span>), separate bank/payout settings, separate Zakat/Sadaqah ledgers, and separate donor receipts. Add extra workspaces for <strong>+$19/mo</strong> each, or choose <strong>Growth (3 orgs)</strong> / <strong>Premium (10 orgs)</strong>.
+                     </p>
+                  </div>
+
+                  <div className="bg-sidqly-ivory p-6 rounded-3xl border border-gray-100">
+                     <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-4">
+                        <Users size={20} />
+                     </div>
+                     <h4 className="font-bold text-sidqly-navy mb-2">2. Fair Seat & Usage Allowances</h4>
+                     <p className="text-xs text-gray-600 leading-relaxed">
+                        Donor records and donation entries are always <strong>unlimited</strong>—even a large mosque can start on Starter if it only needs basic features. Plans enforce named staff seats (<strong>3 / 10 / 30</strong>) across admin/staff permissions and meter storage, emails, and AI proof credits with optional prepaid top-ups.
+                     </p>
+                  </div>
+
+                  <div className="bg-sidqly-ivory p-6 rounded-3xl border border-gray-100">
+                     <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-4">
+                        <Globe size={20} />
+                     </div>
+                     <h4 className="font-bold text-sidqly-navy mb-2">3. One Master Admin Switcher</h4>
+                     <p className="text-xs text-gray-600 leading-relaxed">
+                        Log in once to <span className="font-mono text-emerald-800">app.sidqly.com</span> and switch between your mosque, Matrimonial portal, Hifz Academy, Janazah fund, or regional branches from one dashboard—without exposing data across teams that shouldn't see it.
+                     </p>
+                  </div>
                </div>
             </div>
          </div>

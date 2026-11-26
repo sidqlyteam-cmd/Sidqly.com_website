@@ -156,6 +156,8 @@ const Footer: React.FC = () => {
                       <li><Link to={getLocalizedPath('/security')} className="hover:text-sidqly-green-deep transition-colors">Security</Link></li>
                       <li><Link to={getLocalizedPath('/privacy')} className="hover:text-sidqly-green-deep transition-colors">Privacy Policy</Link></li>
                       <li><Link to={getLocalizedPath('/terms')} className="hover:text-sidqly-green-deep transition-colors">Terms of Service</Link></li>
+                      <li><Link to={getLocalizedPath('/legal/refund-policy')} className="hover:text-sidqly-green-deep transition-colors">Refund Policy</Link></li>
+                      <li><Link to={getLocalizedPath('/billing')} className="hover:text-sidqly-green-deep transition-colors">Billing & Payments</Link></li>
                       <li><Link to={getLocalizedPath('/accessibility')} className="hover:text-sidqly-green-deep transition-colors">Accessibility</Link></li>
                       <li><Link to={getLocalizedPath('/contact')} className="hover:text-sidqly-green-deep transition-colors">Contact</Link></li>
                    </ul>

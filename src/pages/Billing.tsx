@@ -6,25 +6,25 @@ const Billing: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const steps = [
-    { title: "Invoice Generation", desc: "A formal invoice is generated and emailed to your organization's finance lead." },
-    { title: "Bank Transfer", desc: "Your team completes the payment using the secure bank details provided on the invoice." },
-    { title: "Proof Submission", desc: "Reply to the invoice email with a clear screenshot or PDF of the bank transfer confirmation." },
-    { title: "Manual Verification", desc: "The Sidqly finance team manually reviews the proof against our bank records." },
-    { title: "Account Provisioning", desc: "Upon successful verification, your account is activated and the setup process begins." }
+    { title: "Select Plan & Verify Email", desc: "Choose your plan on sidqly.com (Starter, Growth, Premium, or add-on modules) and verify your organization email." },
+    { title: "Checkout via Paddle or Invoice", desc: "Pay online via Paddle hosted checkout (Cards, Apple Pay, Google Pay, PayPal) or request a formal bank transfer invoice." },
+    { title: "Signed Payment Verification", desc: "For Paddle, our backend verifies the signed webhook notification immediately; bank transfers are verified within 24–48 hours." },
+    { title: "Workspace & Seat Provisioning", desc: "Your organization workspace, subdomain, staff seats (3 / 10 / 30), and usage allowances are activated automatically." },
+    { title: "Open app.sidqly.com", desc: "Sign in to app.sidqly.com with your verified account and start managing donations, receipts, and modules." }
   ];
 
   const faqs = [
     {
-      question: "How long does verification take?",
-      answer: "Manual verification typically takes between 24 and 48 business hours, depending on international bank transfer clearing times."
+      question: "Are credit cards, Apple Pay, and PayPal accepted?",
+      answer: "Yes! Online subscriptions are processed securely via Paddle (supporting Visa, Mastercard, American Express, Apple Pay, Google Pay, and PayPal), with automatic tax receipts and webhook-verified access to app.sidqly.com."
     },
     {
-      question: "What happens if a payment proof is unclear?",
-      answer: "If the screenshot or PDF is illegible or missing key transaction reference numbers, our team will reply requesting a clearer version. Access is not granted until the proof is fully verified."
+      question: "Can our mosque board still pay by bank transfer invoice?",
+      answer: "Yes. Organizations that require trustee sign-off before payment can request a formal bank transfer invoice via /purchase#inquiry. Access is unlocked once our finance team verifies the transfer."
     },
     {
-      question: "Are credit cards accepted?",
-      answer: "Currently, we prioritize direct bank transfers to ensure high-security, auditable B2B transactions. Specific exceptions may be discussed during your setup call."
+      question: "How long does activation take?",
+      answer: "Paddle card/wallet subscriptions activate automatically as soon as the signed webhook confirms payment. Manual bank transfer verification typically takes 24 to 48 business hours."
     }
   ];
 
@@ -74,7 +74,7 @@ const Billing: React.FC = () => {
                    </p>
                    <ul className="space-y-4">
                       {["Sender organization name", "Exact payment amount", "Transaction reference number", "Date of transfer"].map((req, i) => (
-                         <li key={i} className="flex items-center gap-3 font-medium text-white">
+                         <li key={i} className="flex items-center gap-3 font-medium text-slate-700">
                             <CheckCircle2 className="text-sidqly-green-emerald" size={20} /> {req}
                          </li>
                       ))}

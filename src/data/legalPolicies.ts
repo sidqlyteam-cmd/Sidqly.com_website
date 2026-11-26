@@ -287,5 +287,37 @@ export const legalPolicies: LegalPolicy[] = [
         isAlert: true
       }
     ]
+  },
+  {
+    slug: "refund-policy",
+    title: "Refund & Cancellation Policy",
+    lastUpdated: "November 2026",
+    description: "Clear subscription cancellation and refund terms for Sidqly software plans and modular add-ons.",
+    h1: "Refund & Cancellation Policy",
+    sections: [
+      {
+        title: "1. Subscription Cancellation",
+        content: [
+          "Cancel Anytime: Organizations may cancel their monthly or annual Sidqly subscription or modular add-ons at any time prior to the next renewal date.",
+          "Access Through Billing Period: Upon cancellation, your organization retains full access to app.sidqly.com and all exported records until the end of the current paid billing cycle.",
+          "Automatic Sync: Cancellations processed via Paddle customer portal automatically update your subscription status via signed webhooks."
+        ],
+        isList: true
+      },
+      {
+        title: "2. Refund Eligibility",
+        content: [
+          "14-Day Refund Window: New subscriptions purchased through Paddle are eligible for a full refund within 14 calendar days of the initial payment if the platform does not meet your organization's operational needs.",
+          "How to Request a Refund: Email sidqly.team@gmail.com with your organization name, registered email, and Paddle transaction or invoice number.",
+          "Prepaid Usage & Custom Engineering: Consumed prepaid SMS/AI usage packs or completed custom migration/engineering services are non-refundable once delivered."
+        ],
+        isList: true
+      },
+      {
+        title: "Billing Support",
+        content: "For any refund, cancellation, or invoice adjustment inquiries, contact sidqly.team@gmail.com and our billing team will respond within 1–2 business days.",
+        isAlert: true
+      }
+    ]
   }
 ];

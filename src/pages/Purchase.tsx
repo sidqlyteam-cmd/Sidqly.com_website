@@ -25,29 +25,29 @@ const Purchase: React.FC = () => {
   }, [location]);
 
   const steps = [
-    { title: "Submit Organization Inquiry", desc: "Fill out the direct inquiry form below with your mosque or charity details." },
-    { title: "Review & Workflow Confirmation", desc: "Our team reviews your Zakat, Sadaqah, or specialized needs (Matrimonial/Hifz) to confirm the optimal tier." },
-    { title: "Direct Payment & Invoicing", desc: "Pay securely online via Paddle (Cards, Apple Pay, Google Pay) or formal bank transfer invoice." },
-    { title: "Workspace & Subdomain Provisioning", desc: "Your dedicated subdomain (e.g. yourmosque.sidqly.com) is provisioned with automated SSL encryption." },
-    { title: "Data Migration & Team Onboarding", desc: "We help migrate your existing spreadsheets and train your committee and volunteers." }
+    { title: "Select Plan & Submit Details", desc: "Choose your base plan (Starter, Growth, or Premium), extra branches, and any add-on modules below." },
+    { title: "Verify Email & Pending Account", desc: "Confirm your official organization email and review your staff seat, workspace, and usage allowances." },
+    { title: "Complete Subscription Checkout", desc: "Pay securely via Paddle hosted checkout (Cards, Apple Pay, Google Pay, PayPal) or formal bank invoice—with no separate deposit." },
+    { title: "Webhook Payment Verification", desc: "Our backend verifies the signed payment notification and activates your organization workspace and subdomain." },
+    { title: "Open Dashboard (app.sidqly.com)", desc: "Click \"Open your dashboard\" to enter app.sidqly.com with all purchased workspaces and add-ons ready." }
   ];
 
   const faqs = [
     {
-      question: "How do I pay with Paddle online?",
-      answer: "We support instant online checkout powered by Paddle (supporting Visa, Mastercard, American Express, Apple Pay, Google Pay, and PayPal). After you submit your organization details below, our team will provide your direct Paddle checkout link or send a formal bank transfer invoice according to your organization's preference."
+      question: "Do we subscribe before entering app.sidqly.com?",
+      answer: "Yes. Sidqly follows a subscribe-first workflow: select your plan on sidqly.com, verify your email, and complete checkout via Paddle (or formal bank transfer invoice). Access to app.sidqly.com is unlocked only after our backend verifies payment."
     },
     {
-      question: "Why does Sidqly require an initial inquiry before provisioning?",
-      answer: "Sidqly is an operating platform that handles sensitive donor data, Zakat fund segregation, and custom subdomains. We verify all organizations to ensure Shariah compliance and provide a tailored onboarding experience."
+      question: "How do adding extra branches or separate organizations work?",
+      answer: "Starter includes 1 workspace, Growth includes 3, and Premium includes 10. Each organization/branch gets its own isolated subdomain, bank/payout setup, and accounting ledger. You can add extra workspaces anytime for +$19/mo each and switch between them from one Master Admin account."
     },
     {
-      question: "Do you offer custom enterprise pricing?",
-      answer: "Yes, for large charities managing complex, multi-national workflows or corporate sponsors, we offer custom implementation plans."
+      question: "Are donor records limited on Starter or Growth?",
+      answer: "No. Donor records and donation entries are unlimited on every plan. Plans only meter named staff accounts (3 / 10 / 30), organization workspaces (1 / 3 / 10), and storage, email, and AI usage allowances."
     },
     {
-      question: "Who should I contact if I have billing questions?",
-      answer: "Please reach out to our team at sidqly.team@gmail.com with any billing or invoice-related inquiries."
+      question: "What is your refund and cancellation policy?",
+      answer: "You can cancel anytime before your next renewal. New Paddle subscriptions are covered by a 14-day refund window. Email sidqly.team@gmail.com for any billing or invoice support."
     }
   ];
 
@@ -98,11 +98,12 @@ const Purchase: React.FC = () => {
                </div>
 
                <div className="bg-slate-50 border border-slate-200 p-8 rounded-3xl text-slate-900 shadow-sm">
-                  <h2 className="text-xl font-bold mb-4 flex items-center gap-2"><ShieldCheck className="text-sidqly-green-deep" /> Setup Options</h2>
+                  <h2 className="text-xl font-bold mb-4 flex items-center gap-2"><ShieldCheck className="text-sidqly-green-deep" /> Plan Allowances</h2>
                   <ul className="space-y-4 text-slate-700 text-sm">
-                    <li><strong className="text-slate-900 block">Single Organization Pilot ($29/mo):</strong> Ideal for testing workflows with your core community or single mosque.</li>
-                    <li><strong className="text-slate-900 block">Multi-Organization Platform ($99 - $199/mo):</strong> Unified management across multiple branches, schools, or relief wings.</li>
-                    <li><strong className="text-slate-900 block">Modular Add-ons:</strong> Add Matrimonial ($29/mo), Hifz Academy ($39/mo), or Janazah Fund ($19/mo) at any time.</li>
+                    <li><strong className="text-slate-900 block">Starter ($29/mo | $290/yr):</strong> 3 staff seats, 1 organization workspace, unlimited donor records, 5 GB storage, 1,000 emails/mo, 100 AI proof images/mo.</li>
+                    <li><strong className="text-slate-900 block">Growth ($99/mo | $990/yr):</strong> 10 staff seats, up to 3 workspaces, custom domain, AAOIFI Zakat & Qurbani, 25 GB storage, 5,000 emails/mo, 500 AI images/mo.</li>
+                    <li><strong className="text-slate-900 block">Premium ($199/mo | $1,990/yr):</strong> 30 staff seats, up to 10 workspaces, Master Admin switcher, white-label portal, 100 GB storage, 20,000 emails/mo.</li>
+                    <li><strong className="text-slate-900 block">Add-ons & Extra Branches:</strong> Extra workspace (+$19/mo), Matrimonial (+$29/mo), Hifz Academy (+$39/mo), Janazah Fund (+$19/mo).</li>
                   </ul>
                </div>
 
