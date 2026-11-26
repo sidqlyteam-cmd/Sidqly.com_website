@@ -164,6 +164,7 @@ const siteRoutes = [
   <Route key="purchase" path="purchase" element={<Purchase />} />,
   <Route key="status" path="status" element={<Status />} />,
   <Route key="legal" path="legal" element={<Legal />} />,
+  <Route key="refund" path="refund" element={<Navigate to="/legal/refund-policy" replace />} />,
   <Route key="legal-detail" path="legal/:slug" element={<LegalDetail />} />,
   <Route key="sitemap" path="sitemap" element={<SitemapPage />} />,
   <Route key="ai-search-readiness" path="ai-search-readiness" element={<AISearchReadiness />} />,

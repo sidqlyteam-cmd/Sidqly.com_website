@@ -1491,6 +1491,10 @@
     "https://www.sidqly.com/legal/refund-policy": {
       "timestamp": "2026-11-26T19:38:54.913Z",
       "status": 200
+    },
+    "https://www.sidqly.com/refund": {
+      "timestamp": "2026-11-26T21:08:04.608Z",
+      "status": 200
     }
   }
 }
