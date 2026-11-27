@@ -92,7 +92,7 @@ const Purchase: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-2">
                        <Check size={16} className="text-sidqly-green-emerald shrink-0" />
-                       <span>0% platform fee on all community donations</span>
+                       <span>Software-only subscription (Sidqly never holds or processes funds)</span>
                     </div>
                   </div>
                </div>

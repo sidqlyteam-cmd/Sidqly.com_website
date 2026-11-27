@@ -128,6 +128,9 @@ const Home: React.FC = () => {
             <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed max-w-3xl mx-auto dir-auto">
               Most giving teams do not fail because they lack intention. They struggle because the work is scattered across WhatsApp chats, bank screenshots, Excel sheets, volunteer updates, vendor messages, and donor requests. Sidqly brings these moving parts into one clear workflow, so teams can protect dignity, verify proof, and report impact with confidence.
             </p>
+            <div className="mt-6 inline-block bg-slate-50 border border-slate-200 rounded-2xl px-5 py-3 text-xs sm:text-sm text-slate-700 font-medium max-w-2xl mx-auto">
+              <strong className="text-sidqly-navy">B2B Business Management SaaS:</strong> Sidqly is strictly a cloud software provider—we never collect, hold, or process charitable donations. Organizations manage their own records and direct bank transfers inside <span className="font-mono text-emerald-800 font-semibold">app.sidqly.com</span>.
+            </div>
           </div>
 
           <div className="max-w-3xl mx-auto mb-16">

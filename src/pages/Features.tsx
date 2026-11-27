@@ -81,6 +81,9 @@ const Features: React.FC = () => {
           <p className="text-xl text-slate-600 text-center max-w-3xl mx-auto mb-16">
             From donor-safe proof to audit-ready records for leadership. Build trust with a clearer operating flow.
           </p>
+          <p className="text-xs sm:text-sm text-slate-700 bg-white border border-slate-200 rounded-2xl px-5 py-3 max-w-2xl mx-auto mb-14 text-center font-medium shadow-xs">
+            <strong className="text-sidqly-navy">B2B SaaS Software Only:</strong> Sidqly is a digital business management platform delivered at <span className="font-mono text-emerald-800 font-semibold">app.sidqly.com</span>. We never collect, hold, or process donations or third-party funds.
+          </p>
           <OperatingJourney />
         </div>
       </section>

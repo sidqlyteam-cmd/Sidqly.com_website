@@ -58,8 +58,11 @@ const Pricing: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-6xl font-extrabold text-sidqly-navy mb-6 tracking-tight">Professional operations, priced for your scale.</h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-10">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">
                Invest in your organization's trust, dignity, and operational clarity. Small teams can start affordably, while scaling teams get complete control.
+            </p>
+            <p className="text-xs sm:text-sm text-slate-700 bg-white border border-slate-200 rounded-2xl px-5 py-3 max-w-2xl mx-auto mb-10 font-medium shadow-xs">
+              <strong className="text-sidqly-navy">100% Digital B2B SaaS Subscriptions:</strong> Plans grant cloud software access on <span className="font-mono text-emerald-800 font-semibold">app.sidqly.com</span>. Sidqly never collects, holds, or processes charitable donations.
             </p>
 
             {/* Monthly / Annual Toggle */}

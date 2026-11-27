@@ -17,7 +17,7 @@ export const pricing = {
         "Dedicated branded subdomain (yourmosque.sidqly.com)",
         "Unlimited donor records & donation entries",
         "Donation records, receipts & tax certificates",
-        "0% platform fee on all community donations",
+        "Software-only subscription (Sidqly never holds or processes funds)",
         "Manual payment review (Cash & Bank Transfer)",
         "Basic proof approval & dignity-safe updates",
         "5 GB storage · 1,000 emails/mo · 100 AI proof images/mo",
@@ -161,5 +161,5 @@ export const pricing = {
     "Excel / Legacy Data Migration Support",
     "Dedicated Staff & Volunteer Training Session"
   ],
-  disclaimer: "Pricing is based on features, named staff accounts (3 / 10 / 30), organization workspaces (1 / 3 / 10), and published storage/AI/email allowances—never on active donor counts. Customers subscribe first on sidqly.com and unlock app.sidqly.com immediately after payment verification."
+  disclaimer: "Sidqly is a 100% digital B2B Business Management SaaS delivered via app.sidqly.com. Subscriptions cover cloud software access only (3 / 10 / 30 staff accounts, 1 / 3 / 10 workspaces, and published allowances)—Sidqly never collects, holds, or processes charitable donations."
 };
