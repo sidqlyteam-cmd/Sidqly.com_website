@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { Mail, CreditCard, FileText, CheckCircle2, ShieldCheck, ChevronDown, Check, Globe } from 'lucide-react';
-import InquiryForm from '../components/InquiryForm';
+import CheckoutFlow from '../components/CheckoutFlow';
 
 const Purchase: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const location = useLocation();
 
-  // Detect plan from query param (e.g. ?plan=starter)
+  // Detect plan and billing cycle from query params (e.g. ?plan=starter&billing=monthly)
   const searchParams = new URLSearchParams(location.search);
   const planParam = searchParams.get('plan');
+  const billingParam = searchParams.get('billing') === 'annual' ? 'annual' : 'monthly';
   const initialPlan = planParam
     ? planParam.charAt(0).toUpperCase() + planParam.slice(1)
     : 'Starter';
@@ -69,9 +70,9 @@ const Purchase: React.FC = () => {
 
           {/* Inquiry Form & Setup Guide */}
           <div className="grid lg:grid-cols-12 gap-12 mb-20 items-start">
-            {/* Form Column */}
+            {/* Checkout Flow Column */}
             <div className="lg:col-span-7">
-               <InquiryForm initialPlan={initialPlan} />
+               <CheckoutFlow initialPlan={initialPlan} initialBilling={billingParam} />
             </div>
 
             {/* Sidebar Information */}

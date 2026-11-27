@@ -175,7 +175,7 @@ const Pricing: React.FC = () => {
                   </div>
 
                   <Link
-                    to={plan.href}
+                    to={isCustom ? plan.href : `${plan.href}&billing=${isAnnual ? 'annual' : 'monthly'}`}
                     onClick={() => trackEvent('pricing_cta_click', { cta_source: `pricing_card_${plan.name.toLowerCase()}` })}
                     className={`block w-full text-center py-4 rounded-xl font-bold transition-all text-sm mb-6 ${plan.popular ? 'bg-sidqly-green-deep text-white hover:bg-sidqly-green-emerald shadow-lg' : 'bg-sidqly-ivory text-sidqly-navy hover:bg-gray-100 border border-gray-200'}`}
                   >
