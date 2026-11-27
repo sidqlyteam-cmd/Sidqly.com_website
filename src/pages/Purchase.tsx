@@ -26,11 +26,11 @@ const Purchase: React.FC = () => {
   }, [location]);
 
   const steps = [
-    { title: "Select Plan & Submit Details", desc: "Choose your base plan (Starter, Growth, or Premium), extra branches, and any add-on modules below." },
-    { title: "Verify Email & Pending Account", desc: "Confirm your official organization email and review your staff seat, workspace, and usage allowances." },
-    { title: "Complete Subscription Checkout", desc: "Pay securely via Paddle hosted checkout (Cards, Apple Pay, Google Pay, PayPal) or formal bank invoice—with no separate deposit." },
-    { title: "Webhook Payment Verification", desc: "Our backend verifies the signed payment notification and activates your organization workspace and subdomain." },
-    { title: "Open Dashboard (app.sidqly.com)", desc: "Click \"Open your dashboard\" to enter app.sidqly.com with all purchased workspaces and add-ons ready." }
+    { title: "Pick Your Base Plan", desc: "Choose Starter ($29/mo), Growth ($99/mo), or Premium ($199/mo) and enter your email." },
+    { title: "Complete Checkout", desc: "Pay securely via Paddle hosted checkout (Cards, Apple Pay, Google Pay, PayPal) or formal bank invoice." },
+    { title: "Webhook Verification", desc: "Our backend verifies your signed payment notification and activates your subscription." },
+    { title: "Open app.sidqly.com", desc: "Log in to app.sidqly.com to finish your organization profile and subdomain." },
+    { title: "Add Modules Anytime", desc: "Add Matrimonial, Hifz Academy, Janazah Fund, or extra branches directly inside the app whenever you need them." }
   ];
 
   const faqs = [

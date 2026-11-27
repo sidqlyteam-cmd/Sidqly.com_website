@@ -1,23 +1,18 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import {
   CreditCard,
   CheckCircle2,
-  Building2,
   Mail,
-  User,
-  Phone,
-  Globe,
   Lock,
   AlertCircle,
   FileText,
   Sparkles,
+  Check,
 } from 'lucide-react';
 import {
   PADDLE_PLANS,
-  PADDLE_MODULES,
   type BillingCycle,
   type PlanKey,
-  type ModuleKey,
 } from '../data/paddleCatalog';
 import { trackEvent } from '../lib/analytics';
 
@@ -57,66 +52,24 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 }) => {
   const [selectedPlan, setSelectedPlan] = useState<PlanKey>(normalizePlanKey(initialPlan));
   const [billingCycle, setBillingCycle] = useState<BillingCycle>(initialBilling);
-  const [selectedModules, setSelectedModules] = useState<ModuleKey[]>([]);
-  const [extraOrgs, setExtraOrgs] = useState<number>(0);
-
-  const [orgName, setOrgName] = useState('');
-  const [contactName, setContactName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [country, setCountry] = useState('');
   const [paymentMode, setPaymentMode] = useState<'paddle' | 'invoice'>('paddle');
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'paddle_pending' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
   const plan = PADDLE_PLANS[selectedPlan];
-
-  const subdomainSlug = useMemo(() => {
-    const cleaned = orgName
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-    return cleaned || 'yourorg';
-  }, [orgName]);
-
-  const totalAmount = useMemo(() => {
-    const base = billingCycle === 'annual' ? plan.annualAmount : plan.monthlyAmount;
-    const mods = selectedModules.reduce((acc, modKey) => {
-      const m = PADDLE_MODULES.find((x) => x.key === modKey);
-      if (!m) return acc;
-      return acc + (billingCycle === 'annual' ? m.annualAmount : m.monthlyAmount);
-    }, 0);
-    const extraWorkspaceCost = extraOrgs * (billingCycle === 'annual' ? 190 : 19);
-    return base + mods + extraWorkspaceCost;
-  }, [plan, billingCycle, selectedModules, extraOrgs]);
-
-  const toggleModule = (key: ModuleKey) => {
-    setSelectedModules((prev) =>
-      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
-    );
-  };
+  const totalAmount = billingCycle === 'annual' ? plan.annualAmount : plan.monthlyAmount;
 
   const dispatchOrderEmail = async (modeLabel: string) => {
-    const modNames = selectedModules
-      .map((k) => PADDLE_MODULES.find((m) => m.key === k)?.name)
-      .filter(Boolean);
-
     const payload = {
-      _subject: `Sidqly Subscription Order (${plan.name} - ${billingCycle}): ${orgName}`,
+      _subject: `Sidqly Subscription (${plan.name} - ${billingCycle}): ${email}`,
       _template: 'table',
       _captcha: 'false',
       'Order Type': modeLabel,
-      'Organization Name': orgName,
-      'Requested Subdomain': `https://${subdomainSlug}.sidqly.com`,
-      'Contact Person': contactName,
-      'Official Email': email,
-      'Phone / WhatsApp': phone || 'Not provided',
-      'Country': country || 'Not provided',
+      'Customer Email': email,
       'Selected Plan': `${plan.name} (${plan.staffLimit} staff, ${plan.workspaceLimit} orgs)`,
       'Billing Cycle': billingCycle === 'annual' ? 'Annual (2 months free)' : 'Monthly',
-      'Add-on Modules': modNames.length > 0 ? modNames.join(', ') : 'None',
-      'Extra Workspaces': extraOrgs > 0 ? `${extraOrgs} (+$${extraOrgs * 19}/mo)` : '0',
       'Total Due': `$${totalAmount}/${billingCycle === 'annual' ? 'yr' : 'mo'}`,
     };
 
@@ -140,39 +93,24 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
 
     const paddleToken = import.meta.env.VITE_PADDLE_CLIENT_TOKEN as string | undefined;
 
-    // 1. If Paddle live client token is configured AND user chose Paddle checkout, open Paddle Checkout Overlay
     if (paymentMode === 'paddle' && paddleToken && paddleToken.startsWith('live_') && window.Paddle) {
       try {
         window.Paddle.Initialize({ token: paddleToken });
-        const items: Array<{ priceId: string; quantity: number }> = [
-          {
-            priceId: billingCycle === 'annual' ? plan.annualPriceId : plan.monthlyPriceId,
-            quantity: 1,
-          },
-        ];
-        for (const modKey of selectedModules) {
-          const mod = PADDLE_MODULES.find((m) => m.key === modKey);
-          if (mod) {
-            items.push({
-              priceId: billingCycle === 'annual' ? mod.annualPriceId : mod.monthlyPriceId,
-              quantity: 1,
-            });
-          }
-        }
-
         trackEvent('pricing_cta_click', {
           cta_source: `paddle_checkout_${plan.key}_${billingCycle}`,
         });
 
         window.Paddle.Checkout.open({
-          items,
+          items: [
+            {
+              priceId: billingCycle === 'annual' ? plan.annualPriceId : plan.monthlyPriceId,
+              quantity: 1,
+            },
+          ],
           customer: email ? { email } : undefined,
           customData: {
-            organizationName: orgName,
-            subdomain: subdomainSlug,
             plan: plan.key,
             billingCycle,
-            extraOrgs: String(extraOrgs),
           },
           settings: {
             displayMode: 'overlay',
@@ -182,16 +120,15 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
         });
         return;
       } catch {
-        // Fall through to order dispatch if Paddle JS fails to open
+        // Fall through if Paddle JS is not yet enabled
       }
     }
 
-    // 2. Submit order / invoice activation request directly to sidqly.team@gmail.com
     setStatus('submitting');
     try {
       await dispatchOrderEmail(
         paymentMode === 'paddle'
-          ? 'Online Subscription Order (Send Paddle Payment Link)'
+          ? 'Online Subscription (Send Paddle Payment Link)'
           : 'Formal Bank Transfer Invoice Request'
       );
       trackEvent('inquiry_form_submit', {
@@ -213,23 +150,17 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
           <CheckCircle2 size={36} />
         </div>
         <h3 className="text-2xl md:text-3xl font-extrabold text-sidqly-navy mb-3">
-          {status === 'paddle_pending' ? 'Subscription Order Received!' : 'Invoice Request Received!'}
+          {status === 'paddle_pending' ? 'Subscription Link On Its Way!' : 'Invoice Request Received!'}
         </h3>
         <p className="text-gray-600 max-w-lg mx-auto mb-6 leading-relaxed text-sm">
-          JazakAllah Khair, <strong>{contactName}</strong>. Your order for <strong>{orgName}</strong> (
-          <span className="font-mono text-emerald-800 font-semibold">https://{subdomainSlug}.sidqly.com</span>) on the{' '}
-          <strong>
-            {plan.name} (${totalAmount}/{billingCycle === 'annual' ? 'yr' : 'mo'})
-          </strong>{' '}
-          plan has been logged. We are sending your direct payment link &amp; activation details to{' '}
-          <strong>{email}</strong>.
+          JazakAllah Khair! Your <strong>{plan.name} (${totalAmount}/{billingCycle === 'annual' ? 'yr' : 'mo'})</strong> subscription request has been received. We are sending your direct payment &amp; onboarding link for <strong>app.sidqly.com</strong> to <strong>{email}</strong>.
         </p>
         <button
           type="button"
           onClick={() => setStatus('idle')}
           className="text-sm font-bold text-sidqly-green-deep hover:underline cursor-pointer"
         >
-          ← Modify plan or add another organization
+          ← Change plan or email
         </button>
       </div>
     );
@@ -240,10 +171,10 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-6 mb-6">
         <div>
           <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
-            <Sparkles size={12} /> Subscribe &amp; Provision Workspace
+            <Sparkles size={12} /> Fast Checkout
           </span>
           <h2 className="text-2xl md:text-3xl font-extrabold text-sidqly-navy">
-            Complete Your Sidqly Subscription
+            Subscribe to {plan.name}
           </h2>
         </div>
 
@@ -278,10 +209,10 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
       )}
 
       <form onSubmit={handleCheckoutSubmit} className="space-y-6">
-        {/* 1. Plan Cards */}
+        {/* 1. Base Plan Selection */}
         <div>
           <label className="block text-xs font-bold text-sidqly-navy uppercase tracking-wider mb-2.5">
-            1. Selected Software Plan
+            1. Choose Your Base Plan
           </label>
           <div className="grid sm:grid-cols-3 gap-3">
             {(['starter', 'growth', 'premium'] as PlanKey[]).map((key) => {
@@ -312,153 +243,34 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
           </div>
         </div>
 
-        {/* 2. Add-ons & Extra Branches */}
+        {/* 2. Email Only */}
         <div>
-          <label className="block text-xs font-bold text-sidqly-navy uppercase tracking-wider mb-2.5">
-            2. Optional Software Modules &amp; Extra Branches
+          <label className="block text-xs font-bold text-sidqly-navy uppercase tracking-wider mb-2">
+            2. Your Account Email *
           </label>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {PADDLE_MODULES.map((mod) => {
-              const active = selectedModules.includes(mod.key);
-              const price = billingCycle === 'annual' ? `+$${mod.annualAmount}/yr` : `+$${mod.monthlyAmount}/mo`;
-              return (
-                <button
-                  key={mod.key}
-                  type="button"
-                  onClick={() => toggleModule(mod.key)}
-                  className={`p-3.5 rounded-xl border text-left text-xs flex justify-between items-center transition-all cursor-pointer ${
-                    active
-                      ? 'border-emerald-600 bg-emerald-50 text-emerald-900 font-bold'
-                      : 'border-gray-200 text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  <span>{mod.name}</span>
-                  <span className="text-[11px] text-emerald-800 font-bold shrink-0 ml-2">{price}</span>
-                </button>
-              );
-            })}
-
-            <div className="p-3.5 rounded-xl border border-gray-200 text-xs flex justify-between items-center bg-slate-50/70">
-              <div>
-                <span className="font-semibold text-sidqly-navy block">Extra Branch Workspaces</span>
-                <span className="text-[10px] text-gray-500">
-                  +{billingCycle === 'annual' ? '$190/yr' : '$19/mo'} each
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setExtraOrgs(Math.max(0, extraOrgs - 1))}
-                  className="w-7 h-7 rounded-lg border border-gray-300 bg-white font-bold text-sidqly-navy cursor-pointer"
-                >
-                  -
-                </button>
-                <span className="w-4 text-center font-bold text-sidqly-navy">{extraOrgs}</span>
-                <button
-                  type="button"
-                  onClick={() => setExtraOrgs(extraOrgs + 1)}
-                  className="w-7 h-7 rounded-lg border border-gray-300 bg-white font-bold text-sidqly-navy cursor-pointer"
-                >
-                  +
-                </button>
-              </div>
-            </div>
+          <div className="relative">
+            <Mail size={16} className="absolute left-3.5 top-3.5 text-gray-400" />
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="admin@yourmosque.org"
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 text-sm text-sidqly-navy"
+            />
           </div>
+          <p className="mt-1.5 text-[11px] text-gray-500">
+            You&apos;ll configure your organization details, subdomain, and optional add-ons inside <strong>app.sidqly.com</strong> right after subscribing.
+          </p>
         </div>
 
-        {/* 3. Account & Workspace Details */}
-        <div className="space-y-4 pt-2 border-t border-gray-100">
-          <label className="block text-xs font-bold text-sidqly-navy uppercase tracking-wider">
-            3. Organization &amp; Account Details
-          </label>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-[11px] font-bold text-gray-600 mb-1.5">Organization / Mosque Name *</label>
-              <div className="relative">
-                <Building2 size={15} className="absolute left-3.5 top-3.5 text-gray-400" />
-                <input
-                  type="text"
-                  required
-                  value={orgName}
-                  onChange={(e) => setOrgName(e.target.value)}
-                  placeholder="e.g. Masjid Al-Noor"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 text-sm text-sidqly-navy"
-                />
-              </div>
-              <div className="mt-1.5 text-[11px] text-gray-500">
-                Subdomain: <span className="font-mono text-emerald-800 font-semibold">https://{subdomainSlug}.sidqly.com</span>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-[11px] font-bold text-gray-600 mb-1.5">Admin Full Name *</label>
-              <div className="relative">
-                <User size={15} className="absolute left-3.5 top-3.5 text-gray-400" />
-                <input
-                  type="text"
-                  required
-                  value={contactName}
-                  onChange={(e) => setContactName(e.target.value)}
-                  placeholder="e.g. Br. Ahmad / Sr. Fatima"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 text-sm text-sidqly-navy"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-4">
-            <div>
-              <label className="block text-[11px] font-bold text-gray-600 mb-1.5">Official Email *</label>
-              <div className="relative">
-                <Mail size={15} className="absolute left-3.5 top-3.5 text-gray-400" />
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="admin@yourmosque.org"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 text-sm text-sidqly-navy"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-[11px] font-bold text-gray-600 mb-1.5">Phone / WhatsApp</label>
-              <div className="relative">
-                <Phone size={15} className="absolute left-3.5 top-3.5 text-gray-400" />
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+1 555 000 0000"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 text-sm text-sidqly-navy"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-[11px] font-bold text-gray-600 mb-1.5">Country *</label>
-              <div className="relative">
-                <Globe size={15} className="absolute left-3.5 top-3.5 text-gray-400" />
-                <input
-                  type="text"
-                  required
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                  placeholder="UK, USA, Canada..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-emerald-600 text-sm text-sidqly-navy"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 4. Payment Method & Order Summary */}
+        {/* 3. Summary & Subscribe Button */}
         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-gray-500">Order Total</div>
+              <div className="text-xs font-bold uppercase tracking-wider text-gray-500">
+                {plan.name} Plan ({billingCycle === 'annual' ? 'Annual' : 'Monthly'})
+              </div>
               <div className="text-2xl font-extrabold text-sidqly-navy">
                 ${totalAmount}
                 <span className="text-sm font-bold text-gray-500">/{billingCycle === 'annual' ? 'year' : 'month'}</span>
@@ -498,16 +310,17 @@ export const CheckoutFlow: React.FC<CheckoutFlowProps> = ({
             <Lock size={16} />
             <span>
               {status === 'submitting'
-                ? 'Preparing Your Order...'
+                ? 'Preparing Checkout...'
                 : paymentMode === 'paddle'
                 ? `Subscribe & Pay $${totalAmount}/${billingCycle === 'annual' ? 'yr' : 'mo'}`
                 : `Request Formal Invoice ($${totalAmount}/${billingCycle === 'annual' ? 'yr' : 'mo'})`}
             </span>
           </button>
 
-          <p className="text-[11px] text-center text-gray-500">
-            100% digital B2B SaaS subscription delivered at <span className="font-mono font-semibold">app.sidqly.com</span> · 14-day refund policy · Cancel anytime.
-          </p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-[11px] text-gray-500 pt-1">
+            <span className="inline-flex items-center gap-1"><Check size={12} className="text-emerald-600" /> Instant app.sidqly.com setup after payment</span>
+            <span className="inline-flex items-center gap-1"><Check size={12} className="text-emerald-600" /> Add modules &amp; extra branches inside the app</span>
+          </div>
         </div>
       </form>
     </div>
